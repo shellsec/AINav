@@ -1,0 +1,8 @@
+node_modules/
+.playwright-cli/
+test-*.js
+check-*.js
+verify-*.js
+fix-*.js
+.DS_Store
+Thumbs.db

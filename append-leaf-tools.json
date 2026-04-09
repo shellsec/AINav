@@ -1,0 +1,15 @@
+{
+  "blocks": [
+    {
+      "group": "AI 图像工具",
+      "leaf": "常用工具",
+      "tools": [
+        {
+          "title": "RunningHub",
+          "subtitle": "云端 ComfyUI 与工作流社区，按算力/用时付费，支持原生接口与 API",
+          "link": "https://www.runninghub.cn/"
+        }
+      ]
+    }
+  ]
+}

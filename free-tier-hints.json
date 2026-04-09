@@ -1,0 +1,115 @@
+{
+  "_readme": "键名请与导航里该产品的 link 完全一致（或与本页表格中的链接一致）。构建时会做规范化匹配。未列出的产品在页面显示为「未标注」。",
+  "https://www.deepseek.com": {
+    "freeLevel": "部分免费",
+    "quota": "网页对话通常有免费可用模型；API 按 token 计费另有套餐",
+    "dailyCycle": "免费策略随官方调整，不承诺「每日固定刷新」",
+    "firstBonus": "视官网活动/邀请规则而定",
+    "note": "以 DeepSeek 官网定价与公告为准",
+    "updated": "2026-04"
+  },
+  "https://chatgpt.com/": {
+    "freeLevel": "部分免费",
+    "quota": "免费账号可用基础对话能力；高级模型与更高限额需 Plus 等订阅",
+    "dailyCycle": "免费档可能存在速率/高峰限制，以 OpenAI 当前策略为准",
+    "firstBonus": "—",
+    "note": "与 ChatGPT Team/Enterprise 计费分离",
+    "updated": "2026-04"
+  },
+  "https://www.doubao.com/": {
+    "freeLevel": "部分免费",
+    "quota": "豆包网页/客户端通常有免费对话额度，具体以字节系产品页为准",
+    "dailyCycle": "以账户与活动规则为准",
+    "firstBonus": "不定期活动以官网为准",
+    "note": "",
+    "updated": "2026-04"
+  },
+  "https://kimi.moonshot.cn/": {
+    "freeLevel": "部分免费",
+    "quota": "免费用户有基础用量；高峰或长上下文可能受限",
+    "dailyCycle": "以月之暗面官方说明为准",
+    "firstBonus": "—",
+    "note": "",
+    "updated": "2026-04"
+  },
+  "https://tongyi.aliyun.com/qianwen/": {
+    "freeLevel": "部分免费",
+    "quota": "通义千问常有免费体验；企业/API 另计费",
+    "dailyCycle": "与阿里云账户、活动相关",
+    "firstBonus": "新用户促销以控制台为准",
+    "note": "",
+    "updated": "2026-04"
+  },
+  "https://yiyan.baidu.com/": {
+    "freeLevel": "部分免费",
+    "quota": "文心一言免费档与会员/API 分开计价",
+    "dailyCycle": "以百度智能云与产品内公示为准",
+    "firstBonus": "—",
+    "note": "",
+    "updated": "2026-04"
+  },
+  "https://www.perplexity.ai/": {
+    "freeLevel": "部分免费",
+    "quota": "免费档可用基础搜索问答；Pro 等解锁更强模型与次数",
+    "dailyCycle": "免费提问次数/模型以官网为准",
+    "firstBonus": "—",
+    "note": "",
+    "updated": "2026-04"
+  },
+  "https://metaso.cn/": {
+    "freeLevel": "部分免费",
+    "quota": "秘塔检索常有免费档；学术/深度功能可能单独计费",
+    "dailyCycle": "以站内账户与套餐为准",
+    "firstBonus": "—",
+    "note": "",
+    "updated": "2026-04"
+  },
+  "https://www.anthropic.com/claude": {
+    "freeLevel": "部分免费",
+    "quota": "Claude 网页版免费档因地区/账户而异；API 按量计费",
+    "dailyCycle": "网页免费限额以 Anthropic 当前政策为准",
+    "firstBonus": "—",
+    "note": "Pro 订阅与 API 为不同产品线",
+    "updated": "2026-04"
+  },
+  "https://gemini.google.com/": {
+    "freeLevel": "部分免费",
+    "quota": "Gemini 网页/APP 常有免费层；高级模型与 Google AI Pro 等另计",
+    "dailyCycle": "与 Google 账户、地区策略相关",
+    "firstBonus": "—",
+    "note": "",
+    "updated": "2026-04"
+  },
+  "https://grok.com/": {
+    "freeLevel": "部分免费",
+    "quota": "xAI 常提供免费试用层；SuperGrok 等为付费",
+    "dailyCycle": "以 xAI 官网与 X 生态联动规则为准",
+    "firstBonus": "—",
+    "note": "",
+    "updated": "2026-04"
+  },
+  "https://copilot.microsoft.com/": {
+    "freeLevel": "部分免费",
+    "quota": "Copilot 免费与 Microsoft 365 / Copilot Pro 权益不同",
+    "dailyCycle": "与微软账户、地区与产品绑定有关",
+    "firstBonus": "—",
+    "note": "",
+    "updated": "2026-04"
+  },
+  "https://immersivetranslate.com/": {
+    "freeLevel": "部分免费",
+    "quota": "浏览器插件有免费基础功能；高级模型/额度可能订阅",
+    "dailyCycle": "以插件内账户与套餐为准",
+    "firstBonus": "—",
+    "note": "",
+    "updated": "2026-04"
+  },
+  "https://www.notion.so/product/ai": {
+    "freeLevel": "部分免费",
+    "quota": "Notion AI 通常随 Workspace 订阅或单独加购",
+    "dailyCycle": "—",
+    "firstBonus": "—",
+    "note": "与个人免费版 Notion 权益请对照官网",
+    "updated": "2026-04"
+  }
+}

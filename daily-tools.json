@@ -1,0 +1,78 @@
+{
+  "mode": "replace-hot",
+  "matchName": "热门工具",
+  "items": [
+    {
+      "title": "DeepSeek",
+      "subtitle": "日常首推：推理强、免费好用，长文与写代码",
+      "link": "https://www.deepseek.com",
+      "avatar": "icon/DeepSeek.png"
+    },
+    {
+      "title": "豆包",
+      "subtitle": "字节系，聊天、创作、多模态与抖音生态",
+      "link": "https://www.doubao.com/",
+      "avatar": "icon/豆包.png"
+    },
+    {
+      "title": "Kimi",
+      "subtitle": "长上下文，甩链接/文档做摘要与追问",
+      "link": "https://kimi.moonshot.cn/",
+      "avatar": "icon/Kimi.png"
+    },
+    {
+      "title": "通义千问",
+      "subtitle": "阿里系，办公、中文与钉钉场景",
+      "link": "https://tongyi.aliyun.com/qianwen/",
+      "avatar": "icon/通义千问.png"
+    },
+    {
+      "title": "文心一言",
+      "subtitle": "百度系，搜索与中文知识向",
+      "link": "https://yiyan.baidu.com/",
+      "avatar": "icon/文心一言.png"
+    },
+    {
+      "title": "ChatGPT",
+      "subtitle": "通用对话、写作、翻译与插件生态",
+      "link": "https://chatgpt.com/",
+      "avatar": "icon/ChatGPT.png"
+    },
+    {
+      "title": "Claude",
+      "subtitle": "长文写作、复杂推理与长对话",
+      "link": "https://www.anthropic.com/claude",
+      "avatar": "icon/Claude.png"
+    },
+    {
+      "title": "Gemini",
+      "subtitle": "Google 多模态，与搜索/Workspace 联动",
+      "link": "https://gemini.google.com/",
+      "avatar": "icon/Google Bard.png"
+    },
+    {
+      "title": "Grok",
+      "subtitle": "xAI 对话，网页版与 X / SuperGrok 等生态联动",
+      "link": "https://grok.com/",
+      "avatar": "icon/Grok.png"
+    },
+    {
+      "title": "Perplexity",
+      "subtitle": "带引用网页的搜索问答，查资料快",
+      "link": "https://www.perplexity.ai/",
+      "avatar": "icon/Perplexity.png"
+    },
+    {
+      "title": "秘塔AI搜索",
+      "subtitle": "中文检索、结构化结果与学术向",
+      "link": "https://metaso.cn/",
+      "avatar": "icon/秘塔AI搜索.png"
+    },
+    {
+      "title": "沉浸式翻译",
+      "subtitle": "网页双语对照，读论文/外站必备",
+      "link": "https://immersivetranslate.com/",
+      "avatar": "icon/沉浸式翻译.png"
+    }
+  ]
+}

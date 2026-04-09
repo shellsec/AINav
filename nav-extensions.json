@@ -1,0 +1,1309 @@
+{
+  "categories": [
+    {
+      "id": "ext-api-router",
+      "name": "AI 模型 API · 路由聚合 · 推理云",
+      "tools": [
+        {
+          "title": "OpenRouter",
+          "subtitle": "统一接入数百个商业/开源模型，OpenAI 兼容 API，按调用计费",
+          "link": "https://openrouter.ai/"
+        },
+        {
+          "title": "OpenRouter Models",
+          "subtitle": "模型目录：筛选文本/图像/嵌入等，比价、上下文与吞吐量",
+          "link": "https://openrouter.ai/models"
+        },
+        {
+          "title": "Together AI",
+          "subtitle": "开源与专用模型托管、推理 API 与微调",
+          "link": "https://www.together.ai/"
+        },
+        {
+          "title": "GroqCloud",
+          "subtitle": "LPU 推理，极低延迟，兼容常用聊天/补全 API",
+          "link": "https://console.groq.com/"
+        },
+        {
+          "title": "Fireworks AI",
+          "subtitle": "生产级推理与微调，多模型与 Serverless 部署",
+          "link": "https://fireworks.ai/"
+        },
+        {
+          "title": "DeepInfra",
+          "subtitle": "按秒计费的模型 API 与 GPU 推理",
+          "link": "https://deepinfra.com/"
+        },
+        {
+          "title": "Replicate",
+          "subtitle": "跑开源模型与自定义镜像，HTTP API 调用",
+          "link": "https://replicate.com/"
+        },
+        {
+          "title": "Hugging Face Inference",
+          "subtitle": "Hub 模型推理与推理服务商（Inference Providers）",
+          "link": "https://huggingface.co/inference-providers"
+        },
+        {
+          "title": "Hugging Face Models",
+          "subtitle": "Hub 模型库：按任务、参数量、框架、许可证与推理可用性筛选浏览",
+          "link": "https://huggingface.co/models"
+        },
+        {
+          "title": "硅基流动 SiliconFlow",
+          "subtitle": "国内常用模型 API 聚合与优惠套餐",
+          "link": "https://siliconflow.cn/"
+        },
+        {
+          "title": "阶跃星辰 StepFun",
+          "subtitle": "Step 系列大模型 API 与控制台（兼容 OpenAI SDK）",
+          "link": "https://platform.stepfun.com/"
+        },
+        {
+          "title": "MiniMax 开放平台",
+          "subtitle": "文本/语音/视频/音乐多模态 API（含海螺视频等），兼容 OpenAI SDK",
+          "link": "https://platform.minimax.io/"
+        },
+        {
+          "title": "Mistral AI La Plateforme",
+          "subtitle": "Mistral 官方 API、模型与用量控制台",
+          "link": "https://console.mistral.ai/"
+        },
+        {
+          "title": "Cohere",
+          "subtitle": "企业向 RAG、Embed、重排与 Command 系列 API",
+          "link": "https://cohere.com/"
+        },
+        {
+          "title": "火山方舟 Ark",
+          "subtitle": "字节豆包等模型推理与 API（火山引擎）",
+          "link": "https://console.volcengine.com/ark"
+        },
+        {
+          "title": "阿里云百炼",
+          "subtitle": "通义大模型与应用构建、API 与智能体",
+          "link": "https://bailian.console.aliyun.com/"
+        },
+        {
+          "title": "百度千帆",
+          "subtitle": "文心与企业级大模型开发平台",
+          "link": "https://qianfan.cloud.baidu.com/"
+        },
+        {
+          "title": "腾讯云混元",
+          "subtitle": "混元大模型 API 与行业方案入口",
+          "link": "https://cloud.tencent.com/product/hunyuan"
+        },
+        {
+          "title": "Amazon Bedrock",
+          "subtitle": "AWS 托管多厂商模型（Claude、Llama、Titan 等）",
+          "link": "https://aws.amazon.com/bedrock/"
+        },
+        {
+          "title": "Google Vertex AI",
+          "subtitle": "GCP 模型训练、部署与 Gemini 等企业 API",
+          "link": "https://cloud.google.com/vertex-ai"
+        },
+        {
+          "title": "Novita AI",
+          "subtitle": "多模型 API 与 GPU 云实例",
+          "link": "https://novita.ai/"
+        },
+        {
+          "title": "Modal",
+          "subtitle": "Serverless GPU/容器，按用量跑推理与批任务",
+          "link": "https://modal.com/"
+        },
+        {
+          "title": "RunPod",
+          "subtitle": "GPU 租用与 Serverless 推理",
+          "link": "https://www.runpod.io/"
+        },
+        {
+          "title": "Baseten",
+          "subtitle": "模型部署、推理与监控基础设施",
+          "link": "https://www.baseten.co/"
+        },
+        {
+          "title": "Lepton AI",
+          "subtitle": "云原生模型服务与简单扩缩容",
+          "link": "https://www.lepton.ai/"
+        },
+        {
+          "title": "OpenAI Platform",
+          "subtitle": "官方 API、Assistants、Responses 等",
+          "link": "https://platform.openai.com/"
+        },
+        {
+          "title": "Google AI Studio",
+          "subtitle": "Gemini 系列密钥、试玩与 API 入口",
+          "link": "https://aistudio.google.com/"
+        },
+        {
+          "title": "Anthropic Console",
+          "subtitle": "Claude 官方 API 与用量",
+          "link": "https://console.anthropic.com/"
+        },
+        {
+          "title": "Azure AI Foundry",
+          "subtitle": "企业侧 Azure OpenAI 与多模型服务入口",
+          "link": "https://ai.azure.com/"
+        }
+      ]
+    },
+    {
+      "id": "ext-agent-workflow",
+      "name": "AI 智能体 · 工作流与自动化",
+      "tools": [
+        {
+          "title": "LobsterAI 有道龙虾",
+          "subtitle": "网易有道桌面级 Agent，远程控机、多端协同与定时任务（内测/官网申请）",
+          "link": "https://lobsterai.youdao.com/"
+        },
+        {
+          "title": "OpenClaw",
+          "subtitle": "开源自托管个人 AI 助理框架，接 IM 与插件生态",
+          "link": "https://github.com/openclaw/openclaw"
+        },
+        {
+          "title": "OpenClaw 文档站",
+          "subtitle": "安装、技能与安全说明（社区文档）",
+          "link": "https://docs.openclaw.ai/"
+        },
+        {
+          "title": "Lovart",
+          "subtitle": "AI 设计智能体：平面/品牌/电商图、演示与风格统一",
+          "link": "https://www.lovart.ai/zh/"
+        },
+        {
+          "title": "Dify",
+          "subtitle": "可视化编排 LLM 应用与工作流，可私有化",
+          "link": "https://dify.ai/"
+        },
+        {
+          "title": "n8n",
+          "subtitle": "工作流自动化，可与 HTTP/LLM 节点组合",
+          "link": "https://n8n.io/"
+        },
+        {
+          "title": "Flowise",
+          "subtitle": "低代码构建 LLM 流与 Agent",
+          "link": "https://flowiseai.com/"
+        },
+        {
+          "title": "Langflow",
+          "subtitle": "基于 LangChain 的可视化构建与调试",
+          "link": "https://www.langflow.org/"
+        },
+        {
+          "title": "Zapier AI",
+          "subtitle": "SaaS 集成 + AI 动作与自动化",
+          "link": "https://zapier.com/ai"
+        },
+        {
+          "title": "Make",
+          "subtitle": "场景化自动化（原 Integromat），可接 OpenAI 等模块",
+          "link": "https://www.make.com/"
+        },
+        {
+          "title": "LangSmith",
+          "subtitle": "LangChain 生态的可观测、评测与提示管理",
+          "link": "https://smith.langchain.com/"
+        },
+        {
+          "title": "扣子 Coze",
+          "subtitle": "字节系智能体平台，可与 OpenClaw 工作流结合",
+          "link": "https://www.coze.cn/"
+        },
+        {
+          "title": "CoPaw（阿里 · 开源）",
+          "subtitle": "通义 AgentScope 系个人智能体，轻量 OpenClaw 替代路线",
+          "link": "https://github.com/agentscope-ai/CoPaw"
+        },
+        {
+          "title": "Flowith",
+          "subtitle": "画布式 Agent 与工作流，多模型编排",
+          "link": "https://flowith.io/"
+        },
+        {
+          "title": "Refly",
+          "subtitle": "面向创作者与团队的 AI 工作区、文档与自动化",
+          "link": "https://refly.ai/"
+        },
+        {
+          "title": "QoderWork（阿里 Qoder）",
+          "subtitle": "桌面办公向 Agent：描述需求、自动执行、直接交付结果",
+          "link": "https://qoder.com/zh/qoderwork"
+        },
+        {
+          "title": "TRAE SOLO",
+          "subtitle": "从编码扩展到日常工作场景的桌面 Agent",
+          "link": "https://solo.trae.cn/"
+        }
+      ]
+    },
+    {
+      "id": "ext-gateway-obs",
+      "name": "LLM 网关 · 代理 · SDK 与可观测",
+      "tools": [
+        {
+          "title": "LiteLLM",
+          "subtitle": "统一调用上百模型、代理、计费与落盘日志，OpenAI 兼容网关",
+          "link": "https://github.com/BerriAI/litellm"
+        },
+        {
+          "title": "Portkey",
+          "subtitle": "AI 网关：路由、重试、缓存、防护与企业策略",
+          "link": "https://portkey.ai/"
+        },
+        {
+          "title": "Vercel AI SDK",
+          "subtitle": "前端/全栈友好的流式对话与工具调用 SDK（多模型适配）",
+          "link": "https://sdk.vercel.ai/"
+        },
+        {
+          "title": "Helicone",
+          "subtitle": "LLM 可观测：日志、缓存、成本与网关代理一键接入",
+          "link": "https://www.helicone.ai/"
+        },
+        {
+          "title": "Braintrust",
+          "subtitle": "评测、实验与回归测试，适合提示与 Agent 迭代",
+          "link": "https://www.braintrust.dev/"
+        },
+        {
+          "title": "Arize Phoenix",
+          "subtitle": "开源 LLM 追踪、RAG 检索分析与漂移观测",
+          "link": "https://phoenix.arize.com/"
+        },
+        {
+          "title": "Weights & Biases Weave",
+          "subtitle": "实验跟踪、评测与生产监控（与 W&B 生态联动）",
+          "link": "https://wandb.ai/site/weave/"
+        },
+        {
+          "title": "OpenLLM",
+          "subtitle": "BentoML 系开源 LLM 部署与服务封装",
+          "link": "https://github.com/bentoml/OpenLLM"
+        }
+      ]
+    },
+    {
+      "id": "ext-mcp",
+      "name": "MCP · 模型上下文协议与工具生态",
+      "tools": [
+        {
+          "title": "Model Context Protocol 规范",
+          "subtitle": "Anthropic 发起的 MCP：应用如何安全暴露工具与资源给模型",
+          "link": "https://modelcontextprotocol.io/"
+        },
+        {
+          "title": "MCP GitHub 组织",
+          "subtitle": "官方 SDK、示例与参考实现",
+          "link": "https://github.com/modelcontextprotocol"
+        },
+        {
+          "title": "Smithery",
+          "subtitle": "MCP 服务器注册与发现（工具市场向）",
+          "link": "https://smithery.ai/"
+        },
+        {
+          "title": "Glama MCP",
+          "subtitle": "MCP 服务器目录与文档索引",
+          "link": "https://glama.ai/mcp/servers"
+        },
+        {
+          "title": "Cursor",
+          "subtitle": "编辑器内置 MCP 接入，连接本地/远程工具",
+          "link": "https://cursor.com/"
+        },
+        {
+          "title": "Claude Code / MCP 文档",
+          "subtitle": "在 Claude 生态中使用 MCP 的官方说明入口",
+          "link": "https://docs.anthropic.com/en/docs/agents-and-tools/mcp"
+        }
+      ]
+    },
+    {
+      "id": "ext-rag-vector",
+      "name": "RAG · 向量库与检索基建",
+      "tools": [
+        {
+          "title": "Pinecone",
+          "subtitle": "托管向量库与相似检索，常见 RAG 后端",
+          "link": "https://www.pinecone.io/"
+        },
+        {
+          "title": "Qdrant",
+          "subtitle": "开源/云向量引擎，过滤与混合检索",
+          "link": "https://qdrant.tech/"
+        },
+        {
+          "title": "Weaviate",
+          "subtitle": "向量+图谱向检索，模块生态丰富",
+          "link": "https://weaviate.io/"
+        },
+        {
+          "title": "Chroma",
+          "subtitle": "轻量嵌入式向量库，适合原型与本地 RAG",
+          "link": "https://www.trychroma.com/"
+        },
+        {
+          "title": "Milvus / Zilliz Cloud",
+          "subtitle": "大规模向量检索与云托管",
+          "link": "https://milvus.io/"
+        },
+        {
+          "title": "Supabase pgvector",
+          "subtitle": "Postgres 向量扩展，与业务库同库检索",
+          "link": "https://supabase.com/docs/guides/ai"
+        },
+        {
+          "title": "LanceDB",
+          "subtitle": "嵌入式/无服务器友好，面向多模态与 Lake 场景",
+          "link": "https://lancedb.com/"
+        },
+        {
+          "title": "Vespa",
+          "subtitle": "雅虎开源检索引擎：向量+结构化+全文混合",
+          "link": "https://vespa.ai/"
+        }
+      ]
+    },
+    {
+      "id": "ext-ai-knowledge",
+      "name": "AI 知识库 · 笔记与企业检索",
+      "tools": [
+        {
+          "title": "Google NotebookLM",
+          "subtitle": "上传资料生成摘要、问答与音频概览，偏个人/研究知识库",
+          "link": "https://notebooklm.google/"
+        },
+        {
+          "title": "Notion AI",
+          "subtitle": "团队文档、数据库与 AI 写作/检索一体",
+          "link": "https://www.notion.so/product/ai"
+        },
+        {
+          "title": "Obsidian",
+          "subtitle": "本地 Markdown 第二大脑，可接社区 AI 与向量插件",
+          "link": "https://obsidian.md/"
+        },
+        {
+          "title": "Mem",
+          "subtitle": "AI 原生笔记与记忆检索",
+          "link": "https://mem.ai/"
+        },
+        {
+          "title": "Tana",
+          "subtitle": "大纲 + 超级标签 + AI 的工作知识库",
+          "link": "https://tana.inc/"
+        },
+        {
+          "title": "语雀",
+          "subtitle": "阿里系文档与团队知识库，适合结构化沉淀",
+          "link": "https://www.yuque.com/"
+        },
+        {
+          "title": "飞书知识库",
+          "subtitle": "企业 wiki / 知识空间，与飞书协作一体",
+          "link": "https://www.feishu.cn/product/wiki"
+        },
+        {
+          "title": "Confluence",
+          "subtitle": "Atlassian 企业知识库与协作文档",
+          "link": "https://www.atlassian.com/software/confluence"
+        },
+        {
+          "title": "Glean",
+          "subtitle": "企业内全库搜索与 AI 问答（SaaS/私有化）",
+          "link": "https://www.glean.com/"
+        },
+        {
+          "title": "Slite",
+          "subtitle": "团队文档 + Ask AI 内搜",
+          "link": "https://slite.com/"
+        },
+        {
+          "title": "Outline",
+          "subtitle": "开源团队 Wiki，可自托管",
+          "link": "https://www.getoutline.com/"
+        },
+        {
+          "title": "AnythingLLM",
+          "subtitle": "本地/私有化文档上传 + RAG 对话，桌面与 Docker 部署",
+          "link": "https://anythingllm.com/"
+        }
+      ]
+    },
+    {
+      "id": "ext-local-infer",
+      "name": "本地与私有化 · 推理引擎",
+      "tools": [
+        {
+          "title": "Ollama",
+          "subtitle": "本机拉模型、REST API，桌面端常用",
+          "link": "https://ollama.com/"
+        },
+        {
+          "title": "LM Studio",
+          "subtitle": "本机图形界面加载 GGUF、开放本地 API",
+          "link": "https://lmstudio.ai/"
+        },
+        {
+          "title": "vLLM",
+          "subtitle": "高吞吐服务化推理（PagedAttention），生产部署常用",
+          "link": "https://github.com/vllm-project/vllm"
+        },
+        {
+          "title": "llama.cpp",
+          "subtitle": "CPU/GPU 高效推理实现，生态最广的 GGUF 栈",
+          "link": "https://github.com/ggerganov/llama.cpp"
+        },
+        {
+          "title": "Text Generation Inference",
+          "subtitle": "Hugging Face 出品的服务化推理栈",
+          "link": "https://github.com/huggingface/text-generation-inference"
+        },
+        {
+          "title": "llamafile",
+          "subtitle": "单文件分发、跨平台本地大模型运行",
+          "link": "https://github.com/Mozilla-Ocho/llamafile"
+        },
+        {
+          "title": "MLX",
+          "subtitle": "Apple Silicon 优化机器学习框架（含 LM 示例）",
+          "link": "https://github.com/ml-explore/mlx"
+        },
+        {
+          "title": "SGLang",
+          "subtitle": "结构化生成与高效服务框架（研究/生产均有采用）",
+          "link": "https://github.com/sgl-project/sglang"
+        }
+      ]
+    },
+    {
+      "id": "ext-browser-auto",
+      "name": "浏览器自动化 · 电脑操控",
+      "tools": [
+        {
+          "title": "Browser Use",
+          "subtitle": "自然语言驱动浏览器自动化（Agent 常用栈）",
+          "link": "https://browser-use.com/"
+        },
+        {
+          "title": "Playwright",
+          "subtitle": "跨浏览器 E2E 与自动化，可与 LLM 编排结合",
+          "link": "https://playwright.dev/"
+        },
+        {
+          "title": "Puppeteer",
+          "subtitle": "Chrome DevTools 协议驱动，适合抓取与无头场景",
+          "link": "https://pptr.dev/"
+        },
+        {
+          "title": "Stagehand",
+          "subtitle": "面向 AI 的浏览器自动化抽象层",
+          "link": "https://www.stagehand.dev/"
+        },
+        {
+          "title": "Browserbase",
+          "subtitle": "云端无头浏览器基础设施，便于 Agent 托管会话",
+          "link": "https://www.browserbase.com/"
+        },
+        {
+          "title": "Steel.dev",
+          "subtitle": "开发者向浏览器会话 API（自动化/Agent）",
+          "link": "https://steel.dev/"
+        }
+      ]
+    },
+    {
+      "id": "ext-voice-realtime",
+      "name": "语音 · TTS/ASR 与实时多模态",
+      "tools": [
+        {
+          "title": "OpenAI Realtime API",
+          "subtitle": "低延迟语音对话与工具调用（官方实时接口说明）",
+          "link": "https://platform.openai.com/docs/guides/realtime"
+        },
+        {
+          "title": "OpenAI 语音合成 TTS",
+          "subtitle": "多音色文本转语音与 API 文档",
+          "link": "https://platform.openai.com/docs/guides/text-to-speech"
+        },
+        {
+          "title": "ElevenLabs",
+          "subtitle": "语音合成、配音与开发者 API",
+          "link": "https://elevenlabs.io/"
+        },
+        {
+          "title": "Deepgram",
+          "subtitle": "语音转写、流式识别与 TTS API",
+          "link": "https://deepgram.com/"
+        },
+        {
+          "title": "AssemblyAI",
+          "subtitle": "语音理解与转写 API",
+          "link": "https://www.assemblyai.com/"
+        },
+        {
+          "title": "Azure AI Speech",
+          "subtitle": "微软语音识别、合成、翻译与自定义语音",
+          "link": "https://azure.microsoft.com/products/ai-services/speech-to-text"
+        },
+        {
+          "title": "Google Cloud Speech",
+          "subtitle": "语音转写与 Text-to-Speech 企业 API",
+          "link": "https://cloud.google.com/speech-to-text"
+        },
+        {
+          "title": "LiveKit Agents",
+          "subtitle": "实时音视频 + 语音 Agent 框架",
+          "link": "https://docs.livekit.io/agents/"
+        },
+        {
+          "title": "Cartesia",
+          "subtitle": "低延迟语音模型与 Sonic 系列 API",
+          "link": "https://cartesia.ai/"
+        }
+      ]
+    },
+    {
+      "id": "ext-music-sing",
+      "name": "AI 音乐 · 唱歌与配乐",
+      "tools": [
+        {
+          "title": "Suno",
+          "subtitle": "词曲与人声完整歌曲生成",
+          "link": "https://suno.com/"
+        },
+        {
+          "title": "Udio",
+          "subtitle": "多风格音乐生成与人声段落",
+          "link": "https://www.udio.com/"
+        },
+        {
+          "title": "ACE Studio",
+          "subtitle": "中文 AI 歌手与歌声合成",
+          "link": "https://ace-studio.timedomain.cn/"
+        },
+        {
+          "title": "Synthesizer V",
+          "subtitle": "虚拟歌手编辑器，专业向歌声合成与调校",
+          "link": "https://synthesizerv.com/"
+        },
+        {
+          "title": "Kits.ai",
+          "subtitle": "AI 人声与翻唱模型",
+          "link": "https://kits.ai/"
+        },
+        {
+          "title": "Moises",
+          "subtitle": "分轨、去人声、变调变速",
+          "link": "https://moises.ai/"
+        },
+        {
+          "title": "Stable Audio",
+          "subtitle": "Stability 音乐与音效生成",
+          "link": "https://stableaudio.com/"
+        },
+        {
+          "title": "Meta AudioCraft / MusicGen",
+          "subtitle": "开源音乐生成模型与论文",
+          "link": "https://audiocraft.metademolab.com/"
+        },
+        {
+          "title": "RVC",
+          "subtitle": "开源检索式声音转换，翻唱/换声社区常用方案",
+          "link": "https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI"
+        },
+        {
+          "title": "海绵音乐",
+          "subtitle": "字节系中文 AI 音乐创作",
+          "link": "https://www.haimian.com/"
+        },
+        {
+          "title": "Music Muse",
+          "subtitle": "中文向 AI 作曲与歌曲生成",
+          "link": "https://www.musicmuse.ai/zh"
+        },
+        {
+          "title": "Soundraw",
+          "subtitle": "按情绪与时长生成可授权配乐",
+          "link": "https://soundraw.io/"
+        },
+        {
+          "title": "Mubert",
+          "subtitle": "流媒体式无限配乐，直播与 App 背景音",
+          "link": "https://mubert.com/"
+        },
+        {
+          "title": "AIVA",
+          "subtitle": "古典与交响向作曲辅助",
+          "link": "https://www.aiva.ai/"
+        },
+        {
+          "title": "Boomy",
+          "subtitle": "快速生成单曲并分发到流媒体平台",
+          "link": "https://boomy.com/"
+        },
+        {
+          "title": "Endel",
+          "subtitle": "个性化氛围、专注与睡眠向生成音乐",
+          "link": "https://endel.io/"
+        },
+        {
+          "title": "MakeBestMusic",
+          "subtitle": "文本 / 歌词生成歌曲与歌声",
+          "link": "https://makebestmusic.com/"
+        }
+      ]
+    },
+    {
+      "id": "ext-data-train",
+      "name": "数据 · 微调 · 合成与评测",
+      "tools": [
+        {
+          "title": "Hugging Face Datasets",
+          "subtitle": "公开数据集加载与共享",
+          "link": "https://huggingface.co/docs/datasets"
+        },
+        {
+          "title": "Kaggle Datasets",
+          "subtitle": "竞赛与公开数据集合",
+          "link": "https://www.kaggle.com/datasets"
+        },
+        {
+          "title": "Argilla",
+          "subtitle": "人类反馈、偏好数据与标注工作流",
+          "link": "https://argilla.io/"
+        },
+        {
+          "title": "Label Studio",
+          "subtitle": "多模态数据标注平台，可接主动学习",
+          "link": "https://labelstud.io/"
+        },
+        {
+          "title": "OpenPipe",
+          "subtitle": "Agent 强化学习、后训练与评测（开源 ART 框架）",
+          "link": "https://openpipe.ai/"
+        },
+        {
+          "title": "unsloth",
+          "subtitle": "大数据蒸馏训练",
+          "link": "https://unsloth.ai/"
+        },
+        {
+          "title": "Distilabel",
+          "subtitle": "合成数据与 AI 反馈流水线（Argilla 生态）",
+          "link": "https://distilabel.argilla.io/latest/"
+        },
+        {
+          "title": "Open LLM Leaderboard",
+          "subtitle": "Hugging Face 开源大模型公开评测榜",
+          "link": "https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard"
+        },
+        {
+          "title": "LMSYS Chatbot Arena",
+          "subtitle": "对话模型公开对战与 Elo 排行榜",
+          "link": "https://lmarena.ai/"
+        },
+        {
+          "title": "OpenCompass 司南",
+          "subtitle": "大模型多维度评测框架与公开榜单",
+          "link": "https://opencompass.org.cn/"
+        },
+        {
+          "title": "SuperCLUE",
+          "subtitle": "中文大模型评测体系与排行榜",
+          "link": "https://www.superclueai.com/"
+        },
+        {
+          "title": "MTEB",
+          "subtitle": "向量嵌入模型排行榜",
+          "link": "https://huggingface.co/spaces/mteb/leaderboard"
+        },
+        {
+          "title": "Artificial Analysis",
+          "subtitle": "商业 API 延迟、价格与能力横向对比",
+          "link": "https://artificialanalysis.ai/"
+        },
+        {
+          "title": "HELM",
+          "subtitle": "斯坦福 holistic 评测：多场景、多指标模型对比",
+          "link": "https://crfm.stanford.edu/helm/"
+        },
+        {
+          "title": "ModelScope 数据集",
+          "subtitle": "魔搭开源数据集与加载",
+          "link": "https://modelscope.cn/datasets"
+        },
+        {
+          "title": "LLaMA Factory",
+          "subtitle": "一站式 LoRA/全参微调、对话模板与常见开源权重",
+          "link": "https://github.com/hiyouga/LLaMA-Factory"
+        },
+        {
+          "title": "Axolotl",
+          "subtitle": "开源大模型微调训练框架",
+          "link": "https://github.com/axolotl-ai-cloud/axolotl"
+        },
+        {
+          "title": "OpenAI 微调",
+          "subtitle": "官方 SFT 接口、数据格式与最佳实践",
+          "link": "https://platform.openai.com/docs/guides/fine-tuning"
+        },
+        {
+          "title": "NeMo Curator",
+          "subtitle": "NVIDIA 大规模语料清洗、去重与配比",
+          "link": "https://github.com/NVIDIA/NeMo-Curator"
+        },
+        {
+          "title": "Gretel",
+          "subtitle": "合成数据、隐私化与表格/文本数据增强",
+          "link": "https://gretel.ai/"
+        },
+        {
+          "title": "Weights & Biases",
+          "subtitle": "训练实验记录、超参对比与团队协作",
+          "link": "https://wandb.ai/"
+        },
+        {
+          "title": "Doccano",
+          "subtitle": "轻量自建文本标注",
+          "link": "https://doccano.github.io/doccano/"
+        },
+        {
+          "title": "DVC",
+          "subtitle": "数据与模型版本管理",
+          "link": "https://dvc.org/"
+        }
+      ]
+    },
+    {
+      "id": "ext-ui-3d-vis",
+      "name": "前端 UI · AI 3D 与视觉设计",
+      "tools": [
+        {
+          "title": "v0 by Vercel",
+          "subtitle": "提示生成 React / shadcn 组件界面",
+          "link": "https://v0.dev/"
+        },
+        {
+          "title": "Meshy",
+          "subtitle": "文本或参考图生成 3D 模型、贴图与绑定",
+          "link": "https://www.meshy.ai/"
+        },
+        {
+          "title": "Tripo",
+          "subtitle": "文/图生成可用 3D 网格，游戏与电商素材向",
+          "link": "https://www.tripo3d.ai/"
+        },
+        {
+          "title": "Luma Dream Machine",
+          "subtitle": "AI 视频与 Genie 等视觉产品",
+          "link": "https://lumalabs.ai/"
+        },
+        {
+          "title": "Polycam",
+          "subtitle": "手机扫描与 NeRF/高斯溅射等三维重建",
+          "link": "https://poly.cam/"
+        },
+        {
+          "title": "Spline",
+          "subtitle": "浏览器内 3D/WebGL，AI 辅助物体与材质",
+          "link": "https://spline.design/"
+        },
+        {
+          "title": "Framer AI",
+          "subtitle": "站点布局、文案与组件级 AI",
+          "link": "https://www.framer.com/"
+        },
+        {
+          "title": "Uizard",
+          "subtitle": "截图/草图转可编辑 UI 原型",
+          "link": "https://uizard.io/"
+        },
+        {
+          "title": "Galileo AI",
+          "subtitle": "自然语言生成高保真界面设计稿",
+          "link": "https://www.usegalileo.ai/"
+        },
+        {
+          "title": "Rive",
+          "subtitle": "交互动画与状态机，可导出运行时",
+          "link": "https://rive.app/"
+        },
+        {
+          "title": "Figma Make",
+          "subtitle": "提示生成可交互原型 / 小型 Web 应用",
+          "link": "https://www.figma.com/make/"
+        },
+        {
+          "title": "Pencil",
+          "subtitle": "AI 原生设计画布，可对接 Cursor / Codex 等出码",
+          "link": "https://www.usepencil.design/"
+        },
+        {
+          "title": "Readdy",
+          "subtitle": "AI 建站与落地页生成",
+          "link": "https://readdy.ai/"
+        },
+        {
+          "title": "Google Stitch",
+          "subtitle": "UI 稿转界面 / 应用向实验产品",
+          "link": "https://stitch.withgoogle.com/"
+        },
+        {
+          "title": "Vidu",
+          "subtitle": "生数科技 AI 视频生成",
+          "link": "https://www.vidu.cn/"
+        },
+        {
+          "title": "可灵 Kling",
+          "subtitle": "快手系 AI 视频与图像创作",
+          "link": "https://klingai.com/"
+        },
+        {
+          "title": "即梦",
+          "subtitle": "剪映系 AI 图像与视频创作",
+          "link": "https://jimeng.jianying.com/"
+        },
+        {
+          "title": "腾讯混元3D",
+          "subtitle": "文生 / 图生 3D 与素材导出",
+          "link": "https://3d.hunyuan.tencent.com/"
+        },
+        {
+          "title": "LiblibAI（哩布哩布）",
+          "subtitle": "国内 AI 图像/视频模型与工作流社区",
+          "link": "https://www.liblib.art/"
+        },
+        {
+          "title": "堆友 D.design",
+          "subtitle": "阿里系设计工具与 AI 生图/素材",
+          "link": "https://d.design/"
+        },
+        {
+          "title": "Rodin（Hyper3D）",
+          "subtitle": "图 / 文生 3D 网格，工业向导出",
+          "link": "https://hyper3d.ai/"
+        }
+      ]
+    },
+    {
+      "id": "ext-news-rankings",
+      "name": "论文 · 资讯 · 榜单与评测",
+      "tools": [
+        {
+          "title": "arXiv cs.CL / cs.AI",
+          "subtitle": "最新预印本（自然语言与 AI 方向入口）",
+          "link": "https://arxiv.org/list/cs.CL/recent"
+        },
+        {
+          "title": "Hugging Face Papers",
+          "subtitle": "论文与模型、数据集关联浏览",
+          "link": "https://huggingface.co/papers"
+        },
+        {
+          "title": "Papers with Code",
+          "subtitle": "论文 + 代码实现 + 排行榜",
+          "link": "https://paperswithcode.com/"
+        },
+        {
+          "title": "There's An AI For That",
+          "subtitle": "按场景检索 AI 产品与工具",
+          "link": "https://theresanaiforthat.com/"
+        },
+        {
+          "title": "Product Hunt（人工智能）",
+          "subtitle": "新产品发布与社区投票",
+          "link": "https://www.producthunt.com/topics/artificial-intelligence"
+        },
+        {
+          "title": "机器之心",
+          "subtitle": "中文 AI 产业、论文速递与工具资讯",
+          "link": "https://www.jiqizhixin.com/"
+        },
+        {
+          "title": "量子位",
+          "subtitle": "中文科技媒体，大模型与自动驾驶等前沿",
+          "link": "https://www.qbitai.com/"
+        },
+        {
+          "title": "AIbase 基地资讯",
+          "subtitle": "中文 AI 行业新闻与产品动态聚合",
+          "link": "https://www.aibase.com/zh/news"
+        },
+        {
+          "title": "AI工具集 · 每日 AI 快报",
+          "subtitle": "中文 AI 日报/快讯类聚合",
+          "link": "https://ai-bot.cn/daily-ai-news/"
+        },
+        {
+          "title": "OpenRouter Rankings",
+          "subtitle": "基于全网调用量的模型周榜、市占与分场景排行",
+          "link": "https://openrouter.ai/rankings"
+        },
+        {
+          "title": "Toolify",
+          "subtitle": "全球 AI 工具发现与排行",
+          "link": "https://www.toolify.ai/zh/"
+        },
+        {
+          "title": "AIGCrank",
+          "subtitle": "中文 AIGC/产品排行向站点",
+          "link": "https://aigcrank.cn/"
+        },
+        {
+          "title": "Semantic Scholar",
+          "subtitle": "学术搜索、引用与 TL;DR 摘要",
+          "link": "https://www.semanticscholar.org/"
+        },
+        {
+          "title": "Connected Papers",
+          "subtitle": "引用关系图探索相关论文",
+          "link": "https://www.connectedpapers.com/"
+        },
+        {
+          "title": "Elicit",
+          "subtitle": "论文检索、抽取与综述向问答",
+          "link": "https://elicit.org/"
+        },
+        {
+          "title": "Consensus",
+          "subtitle": "科学共识检索，引用论文片段回答",
+          "link": "https://consensus.app/"
+        },
+        {
+          "title": "ResearchRabbit",
+          "subtitle": "文献网络可视化与追踪",
+          "link": "https://www.researchrabbit.ai/"
+        },
+        {
+          "title": "scite",
+          "subtitle": "引文语境：支持/反驳与证据类型",
+          "link": "https://scite.ai/"
+        }
+      ]
+    },
+    {
+      "id": "ext-cli-ai",
+      "name": "终端与 CLI 上的 AI",
+      "tools": [
+        {
+          "title": "Warp",
+          "subtitle": "终端 IDE 化，内置 AI 命令与 Agent 能力",
+          "link": "https://www.warp.dev/"
+        },
+        {
+          "title": "Ghostty",
+          "subtitle": "高性能终端；可结合外部 AI 与脚本工作流",
+          "link": "https://ghostty.org/"
+        },
+        {
+          "title": "Aider",
+          "subtitle": "终端里结对编程，多模型、Git 友好",
+          "link": "https://aider.chat/"
+        },
+        {
+          "title": "Claude Code",
+          "subtitle": "Anthropic 官方终端/IDE 编码代理，支持 MCP 与子代理",
+          "link": "https://docs.anthropic.com/en/docs/claude-code"
+        },
+        {
+          "title": "Cursor CLI",
+          "subtitle": "Cursor agent 命令行，交互/脚本模式",
+          "link": "https://cursor.com/docs/cli/overview"
+        },
+        {
+          "title": "OpenAI Codex CLI",
+          "subtitle": "官方终端/本地编码代理",
+          "link": "https://developers.openai.com/codex/cli/"
+        },
+        {
+          "title": "Gemini CLI",
+          "subtitle": "Google Gemini 官方命令行工具（开源）",
+          "link": "https://github.com/google-gemini/gemini-cli"
+        },
+        {
+          "title": "GitHub Copilot CLI",
+          "subtitle": "Copilot 命令行接口（需订阅与 gh 集成）",
+          "link": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli"
+        },
+        {
+          "title": "Amazon Q Developer CLI",
+          "subtitle": "AWS 侧终端编码助手",
+          "link": "https://aws.amazon.com/q/developer/"
+        },
+        {
+          "title": "Goose",
+          "subtitle": "Block 开源终端编码 Agent，可接多模型与工具",
+          "link": "https://block.github.io/goose/"
+        },
+        {
+          "title": "Open Interpreter",
+          "subtitle": "本地终端里跑代码与对话，支持多模型",
+          "link": "https://github.com/OpenInterpreter/open-interpreter"
+        },
+        {
+          "title": "llm（Simon Willison）",
+          "subtitle": "命令行调用多后端的统一 CLI",
+          "link": "https://github.com/simonw/llm"
+        },
+        {
+          "title": "ShellGPT",
+          "subtitle": "自然语言生成 Shell 命令",
+          "link": "https://github.com/TheR1D/shell_gpt"
+        }
+      ]
+    },
+    {
+      "id": "ext-edge-hardware",
+      "name": "硬件 · 边缘推理与跑分",
+      "tools": [
+        {
+          "title": "Ollama",
+          "subtitle": "本机拉模型后在终端对话（与「本地推理」分类互补）",
+          "link": "https://ollama.com/"
+        },
+        {
+          "title": "NVIDIA Jetson",
+          "subtitle": "边缘 GPU 模组与 JetPack、TensorRT 生态",
+          "link": "https://developer.nvidia.com/embedded-computing"
+        },
+        {
+          "title": "Google Coral",
+          "subtitle": "Edge TPU 开发板与 USB 加速器",
+          "link": "https://coral.ai/"
+        },
+        {
+          "title": "Rockchip 瑞芯微",
+          "subtitle": "RK3588 等 SoC 与 NPU，国产板卡常用",
+          "link": "https://www.rock-chips.com/"
+        },
+        {
+          "title": "MLX",
+          "subtitle": "Apple Silicon 优先的数组框架",
+          "link": "https://ml-explore.github.io/mlx/"
+        },
+        {
+          "title": "Raspberry Pi AI",
+          "subtitle": "AI Kit、Hailo 等边缘 AI 硬件",
+          "link": "https://www.raspberrypi.com/documentation/accessories/ai-kit.html"
+        },
+        {
+          "title": "超能网 CPU 天梯榜",
+          "subtitle": "单核/多核、能耗比等交互天梯",
+          "link": "https://cpu.exprank.com/"
+        },
+        {
+          "title": "CPU Rank List",
+          "subtitle": "中文 CPU/GPU 天梯与跑分排行",
+          "link": "https://cpuranklist.com/"
+        },
+        {
+          "title": "TechPowerUp GPU 规格库",
+          "subtitle": "显卡参数、发布时间、芯片对照",
+          "link": "https://www.techpowerup.com/gpu-specs/"
+        },
+        {
+          "title": "Geekbench Processor",
+          "subtitle": "跨平台单核/多核公开跑分排行",
+          "link": "https://browser.geekbench.com/processor-benchmarks"
+        },
+        {
+          "title": "Nanoreview",
+          "subtitle": "笔记本/桌面 CPU 与移动 GPU 等规格与横向对比",
+          "link": "https://nanoreview.net/"
+        }
+      ]
+    },
+    {
+      "id": "ext-net-privacy",
+      "name": "网络工具 · 隐私与安全",
+      "tools": [
+        {
+          "title": "Cloudflare WARP",
+          "subtitle": "加密 DNS 与隧道，个人设备常用",
+          "link": "https://one.one.one.one/"
+        },
+        {
+          "title": "Tailscale",
+          "subtitle": "WireGuard 组网，零信任远程访问",
+          "link": "https://tailscale.com/"
+        },
+        {
+          "title": "IPLeak",
+          "subtitle": "IP / DNS / WebRTC / 代理泄漏一体检测",
+          "link": "https://ipleak.net/"
+        },
+        {
+          "title": "BrowserLeaks",
+          "subtitle": "WebRTC、Canvas、字体等指纹与网络侧漏检",
+          "link": "https://browserleaks.com/"
+        },
+        {
+          "title": "IPinfo",
+          "subtitle": "IP 地理、ASN、公司等信息查询与 API",
+          "link": "https://ipinfo.io/"
+        },
+        {
+          "title": "SimpleLogin",
+          "subtitle": "别名邮箱（偏隐私转发）",
+          "link": "https://simplelogin.io/"
+        },
+        {
+          "title": "Lakera Guard",
+          "subtitle": "提示注入、越狱与敏感输出检测 API",
+          "link": "https://www.lakera.ai/"
+        },
+        {
+          "title": "Hive Moderation",
+          "subtitle": "图像/文本等内容审核与分类 API",
+          "link": "https://thehive.ai/"
+        },
+        {
+          "title": "Perspective API",
+          "subtitle": "Google Jigsaw 毒性评分",
+          "link": "https://perspectiveapi.com/"
+        },
+        {
+          "title": "OWASP LLM Top 10",
+          "subtitle": "大模型应用安全风险清单",
+          "link": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+        }
+      ]
+    },
+    {
+      "id": "ext-ai-compliance",
+      "name": "AI 合规与标准",
+      "tools": [
+        {
+          "title": "EU Artificial Intelligence Act",
+          "subtitle": "欧盟 AI 法案官方政策入口与文本索引",
+          "link": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+        },
+        {
+          "title": "NIST AI RMF",
+          "subtitle": "人工智能风险管理框架",
+          "link": "https://www.nist.gov/itl/ai-risk-management-framework"
+        },
+        {
+          "title": "OECD.AI",
+          "subtitle": "OECD 人工智能原则与政策观察",
+          "link": "https://oecd.ai/en"
+        },
+        {
+          "title": "国家网信办（CAC）",
+          "subtitle": "深度合成、生成式服务等监管动态",
+          "link": "https://www.cac.gov.cn/"
+        },
+        {
+          "title": "互联网信息服务算法备案",
+          "subtitle": "境内算法备案公示与查询",
+          "link": "https://beian.cac.gov.cn/"
+        },
+        {
+          "title": "生成式人工智能服务管理暂行办法",
+          "subtitle": "国务院公报/政策库文本入口",
+          "link": "https://www.gov.cn/zhengce/zhengceku/202307/content_6891752.htm"
+        }
+      ]
+    },
+    {
+      "id": "ext-ai-browser",
+      "name": "AI 浏览器与新形态",
+      "tools": [
+        {
+          "title": "Arc",
+          "subtitle": "The Browser Company，侧栏与空间组织，内置 AI 能力演进中",
+          "link": "https://arc.net/"
+        },
+        {
+          "title": "Dia",
+          "subtitle": "The Browser Company 新作，强调对话式与代理向浏览",
+          "link": "https://www.diabrowser.com/"
+        },
+        {
+          "title": "Comet（Perplexity）",
+          "subtitle": "Perplexity 系浏览器，搜索与摘要深度集成",
+          "link": "https://www.perplexity.ai/comet"
+        },
+        {
+          "title": "SigmaOS",
+          "subtitle": "工作区式标签与 AI 助手整合",
+          "link": "https://sigmaos.com/"
+        },
+        {
+          "title": "Brave（Leo 等）",
+          "subtitle": "隐私向浏览器 + 内置 Leo 等 AI 功能",
+          "link": "https://brave.com/ai/"
+        },
+        {
+          "title": "Opera Aria",
+          "subtitle": "Opera 内置 Aria AI 与侧边助手",
+          "link": "https://www.opera.com/features/aria"
+        }
+      ]
+    },
+    {
+      "id": "ext-meeting-notes",
+      "name": "AI 会议与语音纪要",
+      "tools": [
+        {
+          "title": "Otter.ai",
+          "subtitle": "实时转写、摘要与会议搜索",
+          "link": "https://otter.ai/"
+        },
+        {
+          "title": "Fireflies.ai",
+          "subtitle": "会议录制、转写、摘要与 CRM 集成",
+          "link": "https://fireflies.ai/"
+        },
+        {
+          "title": "Granola",
+          "subtitle": "本地优先会议笔记，AI 整理要点",
+          "link": "https://www.granola.ai/"
+        },
+        {
+          "title": "飞书妙记",
+          "subtitle": "音视频转写、纪要、待办（与飞书办公一体）",
+          "link": "https://www.feishu.cn/product/minutes"
+        },
+        {
+          "title": "Tactiq",
+          "subtitle": "Google Meet / Zoom 等实时字幕与纪要",
+          "link": "https://tactiq.io/"
+        },
+        {
+          "title": "Zoom AI Companion",
+          "subtitle": "会议摘要、聊天与会议内 AI 助手",
+          "link": "https://www.zoom.com/en/ai-companion/"
+        }
+      ]
+    },
+    {
+      "id": "ext-geo-aeo",
+      "name": "GEO / AEO · AI 搜索优化",
+      "tools": [
+        {
+          "title": "Google 搜索中心 · AI 概览",
+          "subtitle": "站点在 Google AI Overviews 等形态下的官方说明与规范入口",
+          "link": "https://developers.google.com/search/docs/appearance/ai-overviews"
+        },
+        {
+          "title": "Semrush · GEO",
+          "subtitle": "GEO 概念、与传统 SEO 差异及实践综述",
+          "link": "https://www.semrush.com/blog/generative-engine-optimization/"
+        },
+        {
+          "title": "Princeton GEO 研究（论文）",
+          "subtitle": "「GEO: Generative Engine Optimization」学术项目与引用入口",
+          "link": "https://arxiv.org/abs/2311.09735"
+        }
+      ]
+    }
+  ]
+}

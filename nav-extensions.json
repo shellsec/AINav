@@ -156,6 +156,21 @@
       "name": "AI 智能体 · 工作流与自动化",
       "tools": [
         {
+          "title": "Manus",
+          "subtitle": "通用 AI Agent，自主规划、执行复杂任务，浏览器+终端+代码全栈操控",
+          "link": "https://manus.im/"
+        },
+        {
+          "title": "OpenHands",
+          "subtitle": "开源 AI 软件开发 Agent（原 OpenDevin），支持代码编写与终端操作",
+          "link": "https://github.com/All-Hands-AI/OpenHands"
+        },
+        {
+          "title": "Suna",
+          "subtitle": "开源通用 AI Agent，自动化研究、数据分析与工作流执行",
+          "link": "https://www.suna.ai/"
+        },
+        {
           "title": "LobsterAI 有道龙虾",
           "subtitle": "网易有道桌面级 Agent，远程控机、多端协同与定时任务（内测/官网申请）",
           "link": "https://lobsterai.youdao.com/"
@@ -1403,6 +1418,103 @@
           "title": "Zoom AI Companion",
           "subtitle": "会议摘要、聊天与会议内 AI 助手",
           "link": "https://www.zoom.com/en/ai-companion/"
+        }
+      ]
+    },
+    {
+      "id": "ext-ai-rankings",
+      "name": "AI 榜单 · 产品与工具排行",
+      "tools": [
+        {
+          "title": "AI 产品榜（飞书 Wiki）",
+          "subtitle": "国内 AI 产品热度与排行",
+          "link": "https://ai-bot.cn/daily-ai-news/"
+        },
+        {
+          "title": "AI 产品数据榜（飞书 Wiki）",
+          "subtitle": "AI 产品流量、增长和排行数据",
+          "link": "https://ai-bot.cn/daily-ai-news/"
+        },
+        {
+          "title": "Toolify",
+          "subtitle": "全球 AI 工具发现与排行",
+          "link": "https://www.toolify.ai/zh/"
+        },
+        {
+          "title": "AIGCrank",
+          "subtitle": "中文 AIGC/产品排行向站点",
+          "link": "https://aigcrank.cn/"
+        },
+        {
+          "title": "OpenRouter Rankings",
+          "subtitle": "基于全网调用量的模型周榜、市占与分场景排行",
+          "link": "https://openrouter.ai/rankings"
+        },
+        {
+          "title": "Open LLM Leaderboard",
+          "subtitle": "Hugging Face 开源大模型公开评测榜",
+          "link": "https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard"
+        },
+        {
+          "title": "LMSYS Chatbot Arena",
+          "subtitle": "对话模型公开对战与 Elo 排行榜",
+          "link": "https://lmarena.ai/"
+        },
+        {
+          "title": "Artificial Analysis",
+          "subtitle": "商业 API 延迟、价格与能力横向对比",
+          "link": "https://artificialanalysis.ai/"
+        },
+        {
+          "title": "SuperCLUE",
+          "subtitle": "中文大模型评测体系与排行榜",
+          "link": "https://www.superclueai.com/"
+        }
+      ]
+    },
+    {
+      "id": "ext-ai-books",
+      "name": "AI 经典书籍与教材",
+      "tools": [
+        {
+          "title": "《深度学习》（花书）",
+          "subtitle": "Ian Goodfellow 等著，深度学习圣经，在线版免费",
+          "link": "https://www.deeplearningbook.org/"
+        },
+        {
+          "title": "《动手学深度学习》",
+          "subtitle": "李沐出品，代码+理论交互式教材，在线版免费",
+          "link": "https://zh.d2l.ai/"
+        },
+        {
+          "title": "《机器学习》（西瓜书）",
+          "subtitle": "周志华著，中文机器学习最权威教材",
+          "link": "https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm"
+        },
+        {
+          "title": "《人工智能：一种现代方法》",
+          "subtitle": "Stuart Russell 著，全球最广泛采用的 AI 教材（第四版）",
+          "link": "https://aima.cs.berkeley.edu/"
+        },
+        {
+          "title": "《自然语言处理综论》",
+          "subtitle": "Jurafsky & Martin，NLP 最权威教材，第三版在线免费",
+          "link": "https://web.stanford.edu/~jurafsky/slp3/"
+        },
+        {
+          "title": "《Attention Is All You Need》论文",
+          "subtitle": "Transformer 开创性论文，改变 AI 格局",
+          "link": "https://arxiv.org/abs/1706.03762"
+        },
+        {
+          "title": "《The Little Book of Deep Learning》",
+          "subtitle": "François Fleuret，深度学习精简入门小册，免费电子书",
+          "link": "https://fleuret.org/public/lbdl.pdf"
+        },
+        {
+          "title": "《百面机器学习》",
+          "subtitle": "葫芦娃著，机器学习面试必备，覆盖核心考点",
+          "link": "https://book.douban.com/subject/30282803/"
         }
       ]
     },

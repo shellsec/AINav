@@ -98,7 +98,7 @@
           "title": "沉浸式翻译",
           "subtitle": "网页双语对照，读论文/外站必备",
           "avatar": "icon/沉浸式翻译.png",
-          "link": "https://immersivetranslate.com/zh?via=shen",
+          "link": "https://immersivetranslate.com/?via=aiv123",
           "path": ""
         }
       ]
@@ -249,7 +249,7 @@
           "title": "跃问",
           "subtitle": "阶跃星辰推出的支持多模态的AI聊天机器人",
           "avatar": "icon/跃问.png",
-          "link": "https://stepchat.cn/chats/new",
+          "link": "https://www.stepfun.com/chats/new",
           "path": ""
         },
         {
@@ -273,7 +273,7 @@
           "title": "超级助理",
           "subtitle": "百度智能云发布的基于文心一言的AI原生应用和Copilot“超级助理”",
           "avatar": "icon/超级助理.png",
-          "link": "https://cloud.baidu.com/product/infoflow.html",
+          "link": "https://infoflow.baidu.com/",
           "path": ""
         },
         {
@@ -289,7 +289,7 @@
           "title": "Luca面壁露卡",
           "subtitle": "面壁智能推出的千亿多模态大模型免费智能对话助手",
           "avatar": "icon/Luca面壁露卡.png",
-          "link": "https://luca.cn/home",
+          "link": "https://modelbest.cn/",
           "path": ""
         },
         {
@@ -297,15 +297,7 @@
           "title": "元象XChat",
           "subtitle": "元象XVERSE大模型驱动的AI聊天助手",
           "avatar": "icon/元象XChat.png",
-          "link": "https://chat.xverse.cn/home/index.html",
-          "path": ""
-        },
-        {
-          "key": "ChitChop",
-          "title": "ChitChop",
-          "subtitle": "字节旗下面向海外用户推出的免费大模型产品和AI助手工具箱",
-          "avatar": "icon/ChitChop.png",
-          "link": "https://www.chitchop.com/",
+          "link": "https://chat.xverse.cn/",
           "path": ""
         },
         {
@@ -361,7 +353,7 @@
           "title": "AI小聚",
           "subtitle": "智能聊天写作绘画网站，智能聊天写作问答，AI艺术绘画、音视频创作，助你高效解放生产力",
           "avatar": "icon/AI小聚.png",
-          "link": "https://www.ii.cn/?t=JPlpOjx7DJe2c24a75",
+          "link": "https://www.ii.cn/",
           "path": ""
         },
         {
@@ -572,7 +564,7 @@
               "title": "职徒简历",
               "subtitle": "智能简历制作软件，基于GPT的简历优化和简历代写",
               "avatar": "icon/职徒简历.png",
-              "link": "https://www.52cv.com?from=kol&share_link_id=7306ba7932df2dd3",
+              "link": "https://www.52cv.com",
               "path": ""
             },
             {
@@ -772,7 +764,7 @@
               "title": "小微助手",
               "subtitle": "微信推出的桌面端AI效率助手工具",
               "avatar": "icon/小微助手.png",
-              "link": "https://xiaowei.weixin.qq.com/next",
+              "link": "https://xiaowei.weixin.qq.com/",
               "path": ""
             },
             {
@@ -804,7 +796,7 @@
               "title": "蓝字典AI求职",
               "subtitle": "AI求职工具，提供AI简历生成、AI模拟面试服务",
               "avatar": "icon/蓝字典AI求职.png",
-              "link": "https://ai.lanzidian.com/?user_sn=15181916",
+              "link": "https://ai.lanzidian.com/",
               "path": ""
             },
             {
@@ -827,7 +819,7 @@
               "title": "ChatDOC",
               "subtitle": "基于ChatGPT的文档阅读工具",
               "avatar": "icon/ChatDOC.png",
-              "link": "https://chatdoc.com/chatdoc/#/sign-up?invite_code=1zivblp686",
+              "link": "https://chatdoc.com/chatdoc/#/sign-up",
               "path": "/word/detail/chatdoc"
             },
             {
@@ -1034,7 +1026,7 @@
               "title": "讯飞会议",
               "subtitle": "AI智能会议系统，实时字幕、实时翻译、自动生成会议记录",
               "avatar": "icon/讯飞会议.png",
-              "link": "https://meeting.iflyrec.com/?from=ai-bot_zwz",
+              "link": "https://meeting.iflyrec.com/",
               "path": ""
             },
             {
@@ -1090,7 +1082,7 @@
               "title": "Airgram",
               "subtitle": "自动会议笔记和总结的AI助手",
               "avatar": "icon/Airgram.png",
-              "link": "https://www.airgram.io",
+              "link": "https://airgram.io/",
               "path": ""
             },
             {
@@ -1106,7 +1098,7 @@
               "title": "听脑AI",
               "subtitle": "人工智能语音录音记录助手",
               "avatar": "icon/听脑AI.png",
-              "link": "https://itingnao.com/home?inviteId=045ad9ccd",
+              "link": "https://itingnao.com/home",
               "path": ""
             }
           ]
@@ -1153,7 +1145,7 @@
               "title": "Formula bot",
               "subtitle": "AI将指令转换成Excel的函数公式",
               "avatar": "icon/Formula bot.png",
-              "link": "https://excelformulabot.com/",
+              "link": "https://formulabot.com/excel-ai",
               "path": ""
             },
             {
@@ -1193,7 +1185,7 @@
               "title": "酷表ChatExcel",
               "subtitle": "AI Excel 数据分析辅助工具",
               "avatar": "icon/酷表ChatExcel.png",
-              "link": "https://www.chatexcel.com/#/home?partner_uuid=FDB2E7F66AAB36C88AE9ECEC03EBB43A",
+              "link": "https://www.chatexcel.com/#/home",
               "path": ""
             },
             {
@@ -1240,7 +1232,7 @@
               "title": "AiPPT",
               "subtitle": "AI一键自动生成 PPT，海量精品模板",
               "avatar": "icon/AiPPT.png",
-              "link": "https://www.aippt.cn/api/share/page?utm_unit=PCTM",
+              "link": "https://www.aippt.cn/api/share/page",
               "path": "/detail/aippt"
             },
             {
@@ -1256,7 +1248,7 @@
               "title": "歌者AI",
               "subtitle": "彩漩PPT推出的AI PPT生成工具",
               "avatar": "icon/歌者AI.png",
-              "link": "https://gezhe.com/plan?promoCode=PvrJAs",
+              "link": "https://gezhe.com/plan",
               "path": "/ppt/detail/gezhe"
             },
             {
@@ -1296,7 +1288,7 @@
               "title": "ChatPPT",
               "subtitle": "AI一键对话生成PPT，智能排版美化",
               "avatar": "icon/ChatPPT.png",
-              "link": "https://chat-ppt.com/inviteActivity?share_code=3129231",
+              "link": "https://chat-ppt.com/inviteActivity",
               "path": "/ppt/detail/chatppt"
             },
             {
@@ -1392,7 +1384,7 @@
               "title": "Tome",
               "subtitle": "AI创作叙事性幻灯片",
               "avatar": "/icon/Tome.png",
-              "link": "https://tome.app/",
+              "link": "https://tomeapp.ai/",
               "path": ""
             },
             {
@@ -1415,7 +1407,7 @@
               "title": "ProcessOn",
               "subtitle": "在线AI流程图和思维导图制作工具",
               "avatar": "/icon/ProcessOn.png",
-              "link": "https://www.processon.com/i/62f9ffca7621315edf08efc7?full_name=osgpjw08zLPDKPf",
+              "link": "https://www.processon.com/i/62f9ffca7621315edf08efc7",
               "path": "/mindnote/detail/processon"
             },
             {
@@ -1423,7 +1415,7 @@
               "title": "亿图脑图",
               "subtitle": "亿图脑图AI思维导图助手",
               "avatar": "/icon/亿图脑图.png",
-              "link": "https://www.edrawsoft.cn/viral-marketing/Invited.html?s_uid=35569392&pro_t=mind",
+              "link": "https://www.edrawsoft.cn/viral-marketing/Invited.html",
               "path": "/mindnote/detail/mindmaster"
             },
             {
@@ -1576,7 +1568,7 @@
           "title": "晓语台",
           "subtitle": "先进的点击式文本创作平台，助力内容创作与SEO优化",
           "avatar": "icon/晓语台.png",
-          "link": "https://www.xiaoyutai.com/?share_code=XYT32498696",
+          "link": "https://www.xiaoyutai.com/",
           "path": "/detail/xiaoyutai"
         },
         {
@@ -1800,7 +1792,7 @@
           "title": "蛙蛙写作",
           "subtitle": "AI小说和内容创作工具",
           "avatar": "icon/蛙蛙写作.png",
-          "link": "https://www.wawawriter.com/",
+          "link": "https://wawawriter.com/home/",
           "path": ""
         },
         {
@@ -1904,7 +1896,7 @@
           "title": "厉害猫AI",
           "subtitle": "遥遥领先的AI全职业办公写作平台",
           "avatar": "icon/厉害猫AI.png",
-          "link": "https://www.lihaimao.com/?user_sn=23870091",
+          "link": "https://www.lihaimao.com/",
           "path": ""
         },
         {
@@ -2047,7 +2039,7 @@
           "title": "CodeFuse",
           "subtitle": "蚂蚁集团推出的AI代码编程助手",
           "avatar": "icon/CodeFuse.png",
-          "link": "https://codefuse.alipay.com/",
+          "link": "https://codefuse.ai/zh-CN",
           "path": ""
         },
         {
@@ -2183,7 +2175,7 @@
           "title": "JamGPT",
           "subtitle": "AI Debug调试助手",
           "avatar": "icon/JamGPT.png",
-          "link": "https://www.jamgpt.app/",
+          "link": "https://jam.dev/ai",
           "path": ""
         },
         {
@@ -2307,7 +2299,7 @@
               "title": "堆友AI",
               "subtitle": "阿里旗下堆友推出的多风格AI绘画生成器，卷不过身边人，就一起用AI偷偷加把劲",
               "avatar": "icon/堆友AI.png",
-              "link": "https://d.design/?sharecode=Fu2ODY1mTG",
+              "link": "https://d.design/",
               "path": ""
             },
             {
@@ -2323,7 +2315,7 @@
               "title": "Cutout.Pro",
               "subtitle": "AI在线处理图片",
               "avatar": "icon/Cutout.Pro.png",
-              "link": "https://www.cutout.pro?vsource=cutout_share-553250977817541",
+              "link": "https://www.cutout.pro",
               "path": ""
             },
             {
@@ -2339,7 +2331,7 @@
               "title": "秒画",
               "subtitle": "商汤科技推出的免费AI作画和图片生成平台",
               "avatar": "icon/秒画.png",
-              "link": "https://miaohua.sensetime.com/inspiration?invite_code=wB3VMrEYr",
+              "link": "https://miaohua.sensetime.com/inspiration",
               "path": ""
             },
             {
@@ -2503,14 +2495,6 @@
               "path": ""
             },
             {
-              "key": "6pen Art",
-              "title": "6pen Art",
-              "subtitle": "面包多团队推出的从文本描述生成绘画艺术作品",
-              "avatar": "icon/6pen Art.png",
-              "link": "https://6pen.art/",
-              "path": ""
-            },
-            {
               "key": "Adobe Firefly",
               "title": "Adobe Firefly",
               "subtitle": "Adobe最新推出的AI图片生成工具",
@@ -2532,14 +2516,6 @@
               "subtitle": "免费的AI图片背景移除和添加",
               "avatar": "icon/PhotoRoom.png",
               "link": "https://www.photoroom.com/",
-              "path": ""
-            },
-            {
-              "key": "Visual Electric",
-              "title": "Visual Electric",
-              "subtitle": "专业的高质量AI图像创作工具",
-              "avatar": "icon/Visual Electric.png",
-              "link": "https://visualelectric.com/",
               "path": ""
             },
             {
@@ -2658,7 +2634,7 @@
               "title": "顽兔抠图",
               "subtitle": "阿里推出的一键去除商品图背景工具",
               "avatar": "icon/顽兔抠图.png",
-              "link": "https://d.design/?sharecode=Fu2ODY1mTG",
+              "link": "https://d.design/",
               "path": ""
             },
             {
@@ -2690,7 +2666,7 @@
               "title": "Cutout.Pro",
               "subtitle": "AI在线处理图片",
               "avatar": "icon/Cutout.Pro.png",
-              "link": "https://www.cutout.pro?vsource=cutout_share-553250977817541",
+              "link": "https://www.cutout.pro",
               "path": ""
             },
             {
@@ -2970,7 +2946,7 @@
           "title": "腾讯智影",
           "subtitle": "腾讯推出的在线智能视频创作平台",
           "avatar": "icon/腾讯智影.png",
-          "link": "https://zenvideo.qq.com/activity/invitee?invitation_code=gL08T3FNTyTzSbLO&activity_id=891vWzn7FbwxmVR3",
+          "link": "https://zenvideo.qq.com/activity/invitee",
           "path": ""
         },
         {
@@ -3337,7 +3313,7 @@
           "title": "LALAL.AI",
           "subtitle": "AI人声乐器分离和提取",
           "avatar": "icon/LALAL.AI.png",
-          "link": "https://www.lalal.ai/?referral=qqwnjFT2",
+          "link": "https://www.lalal.ai/",
           "path": ""
         },
         {
@@ -3345,7 +3321,7 @@
           "title": "快转字幕",
           "subtitle": "AI语音视频转文字和字幕的工具",
           "avatar": "icon/快转字幕.png",
-          "link": "https://www.kzzimu.com/?invite_code=isevkk",
+          "link": "https://www.kzzimu.com/",
           "path": ""
         },
         {
@@ -3377,7 +3353,7 @@
           "title": "Riffusion",
           "subtitle": "AI生成不同风格的音乐，免费开源",
           "avatar": "icon/Riffusion.png",
-          "link": "https://www.riffusion.com/",
+          "link": "https://riffusion-ai.com/",
           "path": ""
         },
         {
@@ -3799,7 +3775,7 @@
           "title": "135 AI排版",
           "subtitle": "AI一键生成高颜值图文排版，0门槛",
           "avatar": "icon/135 AI排版.png",
-          "link": "https://www.135editor.com/ai_editor?share_code=ODEwMzkxNy4xLjE3MTY5NzI2OTU=",
+          "link": "https://www.135editor.com/ai_editor",
           "path": ""
         },
         {
@@ -4087,7 +4063,7 @@
           "title": "Fable Prism",
           "subtitle": "AI动效设计和动画效果制作工具",
           "avatar": "icon/Fable Prism.png",
-          "link": "https://www.fable.app/prism",
+          "link": "https://fable.app/prism",
           "path": ""
         },
         {
@@ -4309,7 +4285,7 @@
           "title": "沉浸式翻译",
           "subtitle": "全网口碑炸裂的双语对照网页翻译插件，完全免费，支持PDF翻译，EPUB电子书翻译，视频双语字幕翻译等",
           "avatar": "icon/沉浸式翻译.png",
-          "link": "https://immersivetranslate.com/zh?via=shen",
+          "link": "https://immersivetranslate.com/?via=aiv123",
           "path": "/detail/immersivetranslate"
         },
         {
@@ -4341,7 +4317,7 @@
           "title": "火山翻译",
           "subtitle": "字节跳动推出的智能翻译工具",
           "avatar": "icon/火山翻译.png",
-          "link": "https://translate.volcengine.com/",
+          "link": "https://volcengine.com/product/machine-translation",
           "path": ""
         },
         {
@@ -4423,14 +4399,6 @@
           "avatar": "icon/金山快译.png",
           "link": "https://translate.iciba.com/",
           "path": ""
-        },
-        {
-          "key": "万象翻译",
-          "title": "万象翻译",
-          "subtitle": "支持双语对照阅读，让您在理解原文的同时，也能欣赏翻译的精准与流畅。",
-          "avatar": "icon/万象翻译.png",
-          "link": "https://www.wanxangtrans.com/",
-          "path": ""
         }
       ]
     },
@@ -4460,7 +4428,7 @@
           "title": "AI Short",
           "subtitle": "AI提示词管理和共享平台",
           "avatar": "icon/AI Short.png",
-          "link": "https://www.aishort.top/",
+          "link": "https://ai-short.icodeq.com/",
           "path": ""
         },
         {
@@ -4500,7 +4468,7 @@
           "title": "ChatGPT Shortcut",
           "subtitle": "开源的简单易用的ChatGPT快捷指令，让生产力加倍！",
           "avatar": "icon/ChatGPT Shortcut.png",
-          "link": "https://www.aishort.top",
+          "link": "https://ai-short.icodeq.com",
           "path": ""
         },
         {
@@ -4770,7 +4738,7 @@
           "title": "得理法搜",
           "subtitle": "AI法律智能检索系统",
           "avatar": "icon/得理法搜.png",
-          "link": "https://www.delilegal.com/search",
+          "link": "https://data.delilegal.com/",
           "path": ""
         },
         {
@@ -4778,7 +4746,7 @@
           "title": "ChatLaw",
           "subtitle": "北大开源的法律大模型和助手",
           "avatar": "icon/ChatLaw.png",
-          "link": "https://chatlaw.cloud/lawchat/#/",
+          "link": "https://chatlaw.cn/",
           "path": ""
         },
         {
@@ -5357,7 +5325,7 @@
           "title": "Label Studio",
           "subtitle": "免费开源的数据标注工具",
           "avatar": "icon/Label Studio.png",
-          "link": "https://labelstud.io/",
+          "link": "https://heartex.com/",
           "path": ""
         },
         {
@@ -5508,7 +5476,7 @@
           "title": "Hugging Face Inference",
           "subtitle": "Hub 模型推理与推理服务商（Inference Providers）",
           "avatar": "",
-          "link": "https://huggingface.co/inference-providers",
+          "link": "https://huggingface.co/docs/inference-endpoints/",
           "path": ""
         },
         {
@@ -6418,7 +6386,7 @@
           "title": "Label Studio",
           "subtitle": "多模态数据标注平台，可接主动学习",
           "avatar": "",
-          "link": "https://labelstud.io/",
+          "link": "https://heartex.com/",
           "path": ""
         },
         {
@@ -7173,7 +7141,7 @@
       "title": "AiPPT",
       "subtitle": "AI一键自动生成 PPT，海量精品模板",
       "avatar": "icon/AiPPT.png",
-      "link": "https://www.aippt.cn/api/share/page?utm_unit=PCTM",
+      "link": "https://www.aippt.cn/api/share/page",
       "path": "/detail/aippt"
     },
     "MarsCode": {
@@ -7278,7 +7246,7 @@
       "title": "歌者AI",
       "subtitle": "彩漩PPT推出的AI PPT生成工具",
       "avatar": "icon/歌者AI.png",
-      "link": "https://gezhe.com/plan?promoCode=PvrJAs",
+      "link": "https://gezhe.com/plan",
       "path": "/ppt/detail/gezhe"
     },
     "Gamma App": {
@@ -7313,7 +7281,7 @@
       "title": "ChatPPT",
       "subtitle": "AI一键对话生成PPT，智能排版美化",
       "avatar": "icon/ChatPPT.png",
-      "link": "https://chat-ppt.com/inviteActivity?share_code=3129231",
+      "link": "https://chat-ppt.com/inviteActivity",
       "path": "/ppt/detail/chatppt"
     },
     "比格AI PPT": {
@@ -7397,7 +7365,7 @@
       "title": "Tome",
       "subtitle": "AI创作叙事性幻灯片",
       "avatar": "/icon/Tome.png",
-      "link": "https://tome.app/",
+      "link": "https://tomeapp.ai/",
       "path": ""
     },
     "auxi": {
@@ -7411,14 +7379,14 @@
       "title": "ProcessOn",
       "subtitle": "在线AI流程图和思维导图制作工具",
       "avatar": "/icon/ProcessOn.png",
-      "link": "https://www.processon.com/i/62f9ffca7621315edf08efc7?full_name=osgpjw08zLPDKPf",
+      "link": "https://www.processon.com/i/62f9ffca7621315edf08efc7",
       "path": "/mindnote/detail/processon"
     },
     "亿图脑图": {
       "title": "亿图脑图",
       "subtitle": "亿图脑图AI思维导图助手",
       "avatar": "/icon/亿图脑图.png",
-      "link": "https://www.edrawsoft.cn/viral-marketing/Invited.html?s_uid=35569392&pro_t=mind",
+      "link": "https://www.edrawsoft.cn/viral-marketing/Invited.html",
       "path": "/mindnote/detail/mindmaster"
     },
     "Taskade": {
@@ -7516,7 +7484,7 @@
       "title": "ChatDOC",
       "subtitle": "基于ChatGPT的文档阅读工具",
       "avatar": "icon/ChatDOC.png",
-      "link": "https://chatdoc.com/chatdoc/#/sign-up?invite_code=1zivblp686",
+      "link": "https://chatdoc.com/chatdoc/#/sign-up",
       "path": "/word/detail/chatdoc"
     },
     "PMAI": {
@@ -7698,7 +7666,7 @@
       "title": "Formula bot",
       "subtitle": "AI将指令转换成Excel的函数公式",
       "avatar": "icon/Formula bot.png",
-      "link": "https://excelformulabot.com/",
+      "link": "https://formulabot.com/excel-ai",
       "path": ""
     },
     "Rows": {
@@ -7733,7 +7701,7 @@
       "title": "酷表ChatExcel",
       "subtitle": "AI Excel 数据分析辅助工具",
       "avatar": "icon/酷表ChatExcel.png",
-      "link": "https://www.chatexcel.com/#/home?partner_uuid=FDB2E7F66AAB36C88AE9ECEC03EBB43A",
+      "link": "https://www.chatexcel.com/#/home",
       "path": ""
     },
     "轻云图": {
@@ -7768,7 +7736,7 @@
       "title": "职徒简历",
       "subtitle": "智能简历制作软件，基于GPT的简历优化和简历代写",
       "avatar": "icon/职徒简历.png",
-      "link": "https://www.52cv.com?from=kol&share_link_id=7306ba7932df2dd3",
+      "link": "https://www.52cv.com",
       "path": ""
     },
     "TinyWow": {
@@ -7943,7 +7911,7 @@
       "title": "小微助手",
       "subtitle": "微信推出的桌面端AI效率助手工具",
       "avatar": "icon/小微助手.png",
-      "link": "https://xiaowei.weixin.qq.com/next",
+      "link": "https://xiaowei.weixin.qq.com/",
       "path": ""
     },
     "Merlin": {
@@ -7971,7 +7939,7 @@
       "title": "蓝字典AI求职",
       "subtitle": "AI求职工具，提供AI简历生成、AI模拟面试服务",
       "avatar": "icon/蓝字典AI求职.png",
-      "link": "https://ai.lanzidian.com/?user_sn=15181916",
+      "link": "https://ai.lanzidian.com/",
       "path": ""
     },
     "Monica": {
@@ -7999,7 +7967,7 @@
       "title": "讯飞会议",
       "subtitle": "AI智能会议系统，实时字幕、实时翻译、自动生成会议记录",
       "avatar": "icon/讯飞会议.png",
-      "link": "https://meeting.iflyrec.com/?from=ai-bot_zwz",
+      "link": "https://meeting.iflyrec.com/",
       "path": ""
     },
     "Otter.ai": {
@@ -8048,7 +8016,7 @@
       "title": "Airgram",
       "subtitle": "自动会议笔记和总结的AI助手",
       "avatar": "icon/Airgram.png",
-      "link": "https://www.airgram.io",
+      "link": "https://airgram.io/",
       "path": ""
     },
     "通义听悟": {
@@ -8062,7 +8030,7 @@
       "title": "听脑AI",
       "subtitle": "人工智能语音录音记录助手",
       "avatar": "icon/听脑AI.png",
-      "link": "https://itingnao.com/home?inviteId=045ad9ccd",
+      "link": "https://itingnao.com/home",
       "path": ""
     },
     "小鱼写作": {
@@ -8090,7 +8058,7 @@
       "title": "晓语台",
       "subtitle": "先进的点击式文本创作平台，助力内容创作与SEO优化",
       "avatar": "icon/晓语台.png",
-      "link": "https://www.xiaoyutai.com/?share_code=XYT32498696",
+      "link": "https://www.xiaoyutai.com/",
       "path": "/detail/xiaoyutai"
     },
     "FlowUs AI": {
@@ -8286,7 +8254,7 @@
       "title": "蛙蛙写作",
       "subtitle": "AI小说和内容创作工具",
       "avatar": "icon/蛙蛙写作.png",
-      "link": "https://www.wawawriter.com/",
+      "link": "https://wawawriter.com/home/",
       "path": ""
     },
     "笔灵AI写作": {
@@ -8377,7 +8345,7 @@
       "title": "厉害猫AI",
       "subtitle": "遥遥领先的AI全职业办公写作平台",
       "avatar": "icon/厉害猫AI.png",
-      "link": "https://www.lihaimao.com/?user_sn=23870091",
+      "link": "https://www.lihaimao.com/",
       "path": ""
     },
     "AI Story Viewer": {
@@ -8636,7 +8604,7 @@
       "title": "CodeFuse",
       "subtitle": "蚂蚁集团推出的AI代码编程助手",
       "avatar": "icon/CodeFuse.png",
-      "link": "https://codefuse.alipay.com/",
+      "link": "https://codefuse.ai/zh-CN",
       "path": ""
     },
     "Tabby": {
@@ -8748,7 +8716,7 @@
       "title": "JamGPT",
       "subtitle": "AI Debug调试助手",
       "avatar": "icon/JamGPT.png",
-      "link": "https://www.jamgpt.app/",
+      "link": "https://jam.dev/ai",
       "path": ""
     },
     "aiXcoder": {
@@ -8923,7 +8891,7 @@
       "title": "跃问",
       "subtitle": "阶跃星辰推出的支持多模态的AI聊天机器人",
       "avatar": "icon/跃问.png",
-      "link": "https://stepchat.cn/chats/new",
+      "link": "https://www.stepfun.com/chats/new",
       "path": ""
     },
     "冒泡鸭": {
@@ -8951,7 +8919,7 @@
       "title": "超级助理",
       "subtitle": "百度智能云发布的基于文心一言的AI原生应用和Copilot“超级助理”",
       "avatar": "icon/超级助理.png",
-      "link": "https://cloud.baidu.com/product/infoflow.html",
+      "link": "https://infoflow.baidu.com/",
       "path": ""
     },
     "MChat": {
@@ -8965,21 +8933,14 @@
       "title": "Luca面壁露卡",
       "subtitle": "面壁智能推出的千亿多模态大模型免费智能对话助手",
       "avatar": "icon/Luca面壁露卡.png",
-      "link": "https://luca.cn/home",
+      "link": "https://modelbest.cn/",
       "path": ""
     },
     "元象XChat": {
       "title": "元象XChat",
       "subtitle": "元象XVERSE大模型驱动的AI聊天助手",
       "avatar": "icon/元象XChat.png",
-      "link": "https://chat.xverse.cn/home/index.html",
-      "path": ""
-    },
-    "ChitChop": {
-      "title": "ChitChop",
-      "subtitle": "字节旗下面向海外用户推出的免费大模型产品和AI助手工具箱",
-      "avatar": "icon/ChitChop.png",
-      "link": "https://www.chitchop.com/",
+      "link": "https://chat.xverse.cn/",
       "path": ""
     },
     "讯飞星火大模型": {
@@ -9028,7 +8989,7 @@
       "title": "AI小聚",
       "subtitle": "智能聊天写作绘画网站，智能聊天写作问答，AI艺术绘画、音视频创作，助你高效解放生产力",
       "avatar": "icon/AI小聚.png",
-      "link": "https://www.ii.cn/?t=JPlpOjx7DJe2c24a75",
+      "link": "https://www.ii.cn/",
       "path": ""
     },
     "EmojiClick": {
@@ -9056,14 +9017,14 @@
       "title": "LALAL.AI",
       "subtitle": "AI人声乐器分离和提取",
       "avatar": "icon/LALAL.AI.png",
-      "link": "https://www.lalal.ai/?referral=qqwnjFT2",
+      "link": "https://www.lalal.ai/",
       "path": ""
     },
     "快转字幕": {
       "title": "快转字幕",
       "subtitle": "AI语音视频转文字和字幕的工具",
       "avatar": "icon/快转字幕.png",
-      "link": "https://www.kzzimu.com/?invite_code=isevkk",
+      "link": "https://www.kzzimu.com/",
       "path": ""
     },
     "网易天音": {
@@ -9091,7 +9052,7 @@
       "title": "Riffusion",
       "subtitle": "AI生成不同风格的音乐，免费开源",
       "avatar": "icon/Riffusion.png",
-      "link": "https://www.riffusion.com/",
+      "link": "https://riffusion-ai.com/",
       "path": ""
     },
     "讯飞智作": {
@@ -9322,7 +9283,7 @@
       "title": "腾讯智影",
       "subtitle": "腾讯推出的在线智能视频创作平台",
       "avatar": "icon/腾讯智影.png",
-      "link": "https://zenvideo.qq.com/activity/invitee?invitation_code=gL08T3FNTyTzSbLO&activity_id=891vWzn7FbwxmVR3",
+      "link": "https://zenvideo.qq.com/activity/invitee",
       "path": ""
     },
     "Cococlip.AI": {
@@ -9616,7 +9577,7 @@
       "title": "堆友AI",
       "subtitle": "阿里旗下堆友推出的多风格AI绘画生成器，卷不过身边人，就一起用AI偷偷加把劲",
       "avatar": "icon/堆友AI.png",
-      "link": "https://d.design/?sharecode=Fu2ODY1mTG",
+      "link": "https://d.design/",
       "path": ""
     },
     "触手AI绘画": {
@@ -9630,7 +9591,7 @@
       "title": "Cutout.Pro",
       "subtitle": "AI在线处理图片",
       "avatar": "icon/Cutout.Pro.png",
-      "link": "https://www.cutout.pro?vsource=cutout_share-553250977817541",
+      "link": "https://www.cutout.pro",
       "path": ""
     },
     "Dear Coloring": {
@@ -9644,7 +9605,7 @@
       "title": "秒画",
       "subtitle": "商汤科技推出的免费AI作画和图片生成平台",
       "avatar": "icon/秒画.png",
-      "link": "https://miaohua.sensetime.com/inspiration?invite_code=wB3VMrEYr",
+      "link": "https://miaohua.sensetime.com/inspiration",
       "path": ""
     },
     "美图AI文生图": {
@@ -9787,13 +9748,6 @@
       "link": "https://leonardo.ai/",
       "path": ""
     },
-    "6pen Art": {
-      "title": "6pen Art",
-      "subtitle": "面包多团队推出的从文本描述生成绘画艺术作品",
-      "avatar": "icon/6pen Art.png",
-      "link": "https://6pen.art/",
-      "path": ""
-    },
     "Adobe Firefly": {
       "title": "Adobe Firefly",
       "subtitle": "Adobe最新推出的AI图片生成工具",
@@ -9813,13 +9767,6 @@
       "subtitle": "免费的AI图片背景移除和添加",
       "avatar": "icon/PhotoRoom.png",
       "link": "https://www.photoroom.com/",
-      "path": ""
-    },
-    "Visual Electric": {
-      "title": "Visual Electric",
-      "subtitle": "专业的高质量AI图像创作工具",
-      "avatar": "icon/Visual Electric.png",
-      "link": "https://visualelectric.com/",
       "path": ""
     },
     "BigJPG": {
@@ -9910,7 +9857,7 @@
       "title": "顽兔抠图",
       "subtitle": "阿里推出的一键去除商品图背景工具",
       "avatar": "icon/顽兔抠图.png",
-      "link": "https://d.design/?sharecode=Fu2ODY1mTG",
+      "link": "https://d.design/",
       "path": ""
     },
     "PicWish": {
@@ -10127,7 +10074,7 @@
       "title": "135 AI排版",
       "subtitle": "AI一键生成高颜值图文排版，0门槛",
       "avatar": "icon/135 AI排版.png",
-      "link": "https://www.135editor.com/ai_editor?share_code=ODEwMzkxNy4xLjE3MTY5NzI2OTU=",
+      "link": "https://www.135editor.com/ai_editor",
       "path": ""
     },
     "Collov AI": {
@@ -10379,7 +10326,7 @@
       "title": "Fable Prism",
       "subtitle": "AI动效设计和动画效果制作工具",
       "avatar": "icon/Fable Prism.png",
-      "link": "https://www.fable.app/prism",
+      "link": "https://fable.app/prism",
       "path": ""
     },
     "Stylar": {
@@ -10428,7 +10375,7 @@
       "title": "AI Short",
       "subtitle": "AI提示词管理和共享平台",
       "avatar": "icon/AI Short.png",
-      "link": "https://www.aishort.top/",
+      "link": "https://ai-short.icodeq.com/",
       "path": ""
     },
     "FlowGPT": {
@@ -10463,7 +10410,7 @@
       "title": "ChatGPT Shortcut",
       "subtitle": "开源的简单易用的ChatGPT快捷指令，让生产力加倍！",
       "avatar": "icon/ChatGPT Shortcut.png",
-      "link": "https://www.aishort.top",
+      "link": "https://ai-short.icodeq.com",
       "path": ""
     },
     "Visual Builder": {
@@ -10575,7 +10522,7 @@
       "title": "沉浸式翻译",
       "subtitle": "全网口碑炸裂的双语对照网页翻译插件，完全免费，支持PDF翻译，EPUB电子书翻译，视频双语字幕翻译等",
       "avatar": "icon/沉浸式翻译.png",
-      "link": "https://immersivetranslate.com/zh?via=shen",
+      "link": "https://immersivetranslate.com/?via=aiv123",
       "path": "/detail/immersivetranslate"
     },
     "象寄翻译": {
@@ -10603,7 +10550,7 @@
       "title": "火山翻译",
       "subtitle": "字节跳动推出的智能翻译工具",
       "avatar": "icon/火山翻译.png",
-      "link": "https://translate.volcengine.com/",
+      "link": "https://volcengine.com/product/machine-translation",
       "path": ""
     },
     "必应翻译": {
@@ -10674,13 +10621,6 @@
       "subtitle": "金山WPS推出的在线翻译平台",
       "avatar": "icon/金山快译.png",
       "link": "https://translate.iciba.com/",
-      "path": ""
-    },
-    "万象翻译": {
-      "title": "万象翻译",
-      "subtitle": "支持双语对照阅读，让您在理解原文的同时，也能欣赏翻译的精准与流畅。",
-      "avatar": "icon/万象翻译.png",
-      "link": "https://www.wanxangtrans.com/",
       "path": ""
     },
     "Writecream Detector": {
@@ -10799,14 +10739,14 @@
       "title": "得理法搜",
       "subtitle": "AI法律智能检索系统",
       "avatar": "icon/得理法搜.png",
-      "link": "https://www.delilegal.com/search",
+      "link": "https://data.delilegal.com/",
       "path": ""
     },
     "ChatLaw": {
       "title": "ChatLaw",
       "subtitle": "北大开源的法律大模型和助手",
       "avatar": "icon/ChatLaw.png",
-      "link": "https://chatlaw.cloud/lawchat/#/",
+      "link": "https://chatlaw.cn/",
       "path": ""
     },
     "法智": {
@@ -11261,7 +11201,7 @@
       "title": "Label Studio",
       "subtitle": "免费开源的数据标注工具",
       "avatar": "icon/Label Studio.png",
-      "link": "https://labelstud.io/",
+      "link": "https://heartex.com/",
       "path": ""
     },
     "Vercel AI SDK": {

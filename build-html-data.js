@@ -261,6 +261,62 @@ function esc(s) {
     .replace(/"/g, "&quot;");
 }
 
+/** Map Chinese category name → i18n key for data-i18n attribute */
+const catI18nMap = {
+  "热门工具": "catHotTools",
+  "AI 聊天对话": "catAIChat",
+  "AI 搜索工具": "catAISearch",
+  "AI 办公工具": "catAIOffice",
+  "效率提升": "catEfficiency",
+  "文档工具": "catDocTools",
+  "办公会议": "catOfficeMeeting",
+  "Excel表格": "catExcel",
+  "幻灯片(PPT)": "catPPT",
+  "思维导图": "catMindMap",
+  "AI 写作工具": "catAIWriting",
+  "AI 编程工具": "catAICoding",
+  "AI 图像工具": "catAIImage",
+  "常用工具": "catCommonTools",
+  "背景移除": "catBgRemove",
+  "人物抹除": "catPersonRemove",
+  "AI 视频工具": "catAIVideo",
+  "AI 音频工具": "catAIAudio",
+  "AI 音乐 · 唱歌与配乐": "catAIMusic",
+  "AI 设计工具": "catAIDesign",
+  "前端 UI · AI 3D 与视觉设计": "catUI3D",
+  "AI 翻译工具": "catAITranslation",
+  "AI 指令提示": "catAIPrompts",
+  "AI 内容检测": "catAIDetection",
+  "AI 法律助手": "catAILaw",
+  "AI 经典书籍": "catAIBooks",
+  "AI 开源模型": "catAIModels",
+  "AI 学习网站": "catAILearning",
+  "AI 开发框架": "catAIFramework",
+  "AI 模型 API · 路由聚合 · 推理云": "catAPIRouter",
+  "AI 智能体 · 工作流与自动化": "catAgentWorkflow",
+  "LLM 网关 · 代理 · SDK 与可观测": "catLLMGateway",
+  "MCP · 模型上下文协议与工具生态": "catMCP",
+  "RAG · 向量库与检索基建": "catRAG",
+  "AI 知识库 · 笔记与企业检索": "catAIKnowledge",
+  "本地与私有化 · 推理引擎": "catLocalInfer",
+  "浏览器自动化 · 电脑操控": "catBrowserAuto",
+  "语音 · TTS/ASR 与实时多模态": "catVoiceRealtime",
+  "AI 会议与语音纪要": "catAIMeeting",
+  "数据 · 微调 · 合成与评测": "catDataTrain",
+  "论文 · 资讯 · 榜单与评测": "catPaperRanking",
+  "终端与 CLI 上的 AI": "catCLI",
+  "AI 浏览器与新形态": "catAIBrowser",
+  "硬件 · 边缘推理与跑分": "catEdgeHardware",
+  "AI 合规与标准": "catCompliance",
+  "网络工具 · 隐私与安全": "catNetPrivacy",
+  "GEO / AEO · AI 搜索优化": "catGEO",
+};
+
+function catI18nAttr(name) {
+  const key = catI18nMap[name];
+  return key ? ` data-i18n="${key}"` : "";
+}
+
 function siteDetailUrl(detailPath) {
   if (!detailPath) return "";
   // 本地化后不再提供上游站内详情页链接
@@ -413,11 +469,11 @@ function buildAiEncyclopediaPage() {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(dynamicTitle)} — 网页版</title>
   <meta name="description" content="AINav 百科：590+ AI 工具全量索引，含免费额度、产品分类与官网链接，支持搜索与筛选。">
-  <link rel="canonical" href="https://shellsec.github.io/AINav/ai-encyclopedia-2026.html">
+  <link rel="canonical" href="https://aiv123.com/ai-encyclopedia-2026.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="${esc(dynamicTitle)}">
   <meta property="og:description" content="590+ AI 工具全量百科索引，含免费额度、产品分类与官网链接。">
-  <meta property="og:url" content="https://shellsec.github.io/AINav/ai-encyclopedia-2026.html">
+  <meta property="og:url" content="https://aiv123.com/ai-encyclopedia-2026.html">
   <meta property="og:site_name" content="AINav">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='18' width='100' height='100' fill='%230969da'/><text x='50' y='72' font-size='60' text-anchor='middle' fill='white' font-family='system-ui' font-weight='700'>AI</text></svg>">
@@ -698,12 +754,12 @@ function renderSections(nodes) {
   for (const n of nodes) {
     if (n.type === "leaf") {
       parts.push(`<section class="block" id="${esc(n.id)}">
-<h2 class="block-title">${esc(n.name)}</h2>
+<h2 class="block-title"${catI18nAttr(n.name)}>${esc(n.name)}</h2>
 <div class="grid">${renderTools(n.tools)}</div>
 </section>`);
     } else if (n.type === "group") {
       parts.push(`<section class="block group" id="${esc(n.id)}">
-<h2 class="block-title">${esc(n.name)}</h2>
+<h2 class="block-title"${catI18nAttr(n.name)}>${esc(n.name)}</h2>
 ${renderSections(n.children)}
 </section>`);
     }
@@ -713,12 +769,13 @@ ${renderSections(n.children)}
 
 const navEntries = collectNavEntries(tree);
 const navHtml =
-  `<a class="nav-i nav-fav" href="#fav-block">★ 常用收藏</a>\n` +
+  `<a class="nav-i nav-fav" href="#fav-block" data-i18n="catFav">★ 常用收藏</a>\n` +
   navEntries
     .map((e) => {
       const cls = e.isGroup ? "nav-g" : "nav-i";
       const pad = e.depth ? ` style="--d:${e.depth}"` : "";
-      return `<a class="${cls}" href="#${esc(e.id)}"${pad}>${esc(e.name)}</a>`;
+      const i18n = catI18nAttr(e.name);
+      return `<a class="${cls}" href="#${esc(e.id)}"${pad}${i18n}>${esc(e.name)}</a>`;
     })
     .join("\n");
 
@@ -727,16 +784,18 @@ const html = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AINav — AI 工具导航</title>
-  <meta name="description" content="AINav — AI 工具分类导航与索引；含本地扩展（API 聚合、MCP、RAG、本地推理等），数据本地维护。">
-  <link rel="canonical" href="https://shellsec.github.io/AINav/">
+  <title>AINav — AI 工具导航 | 590+ AI工具一网打尽</title>
+  <meta name="description" content="AINav 是最全的 AI 工具导航站，收录 590+ AI 工具，涵盖 ChatGPT、Midjourney、智能体、RAG、MCP、本地推理等分类，支持收藏、搜索、深浅主题切换。">
+  <meta name="keywords" content="AI工具导航,AI导航,AI工具大全,ChatGPT,Midjourney,AI工具推荐,人工智能工具,AINav">
+  <link rel="canonical" href="https://aiv123.com/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AINav — AI 工具导航">
+  <meta property="og:title" content="AINav — AI 工具导航 | 590+ AI工具一网打尽">
   <meta property="og:description" content="590+ AI 工具分类导航；含 API 聚合、MCP、RAG、本地推理、智能体等扩展分类，支持收藏、搜索、深浅主题。">
-  <meta property="og:url" content="https://shellsec.github.io/AINav/">
+  <meta property="og:url" content="https://aiv123.com/">
   <meta property="og:site_name" content="AINav">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='18' width='100' height='100' fill='%230969da'/><text x='50' y='72' font-size='60' text-anchor='middle' fill='white' font-family='system-ui' font-weight='700'>AI</text></svg>">
+  <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2d49f38b39c743ac80b6d6b9ff99494d"}'></script><!-- End Cloudflare Web Analytics -->
   <style>
     :root,
     html[data-theme="dark"] {
@@ -795,6 +854,14 @@ const html = `<!DOCTYPE html>
       border-bottom: 1px solid var(--border);
       background: var(--panel);
       text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .top-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
     }
     .top h1 { margin: 0 0 0.35rem; font-size: 1.35rem; font-weight: 600; }
     .top p { margin: 0; color: var(--muted); font-size: 0.9rem; }
@@ -969,15 +1036,15 @@ const html = `<!DOCTYPE html>
     .top-toolbar {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
       gap: 0.3rem 0.4rem;
-      margin-bottom: 0.25rem;
+      flex-shrink: 0;
     }
     .global-search-wrap {
+      flex: 1;
+      min-width: 12rem;
       max-width: 32rem;
-      margin: 0.45rem auto 0.15rem;
-      width: 100%;
       position: relative;
     }
     .global-search {
@@ -1031,6 +1098,20 @@ const html = `<!DOCTYPE html>
       border-color: var(--accent);
       font-weight: 600;
     }
+    .lang-btn { margin-left: 0.35rem; }
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.4rem;
+      height: 1.4rem;
+      margin-left: 0.4rem;
+      color: var(--muted);
+      transition: color 0.2s;
+      vertical-align: middle;
+    }
+    .github-link:hover { color: var(--text); }
+    .github-link svg { width: 100%; height: 100%; fill: currentColor; }
     .layout {
       display: grid;
       grid-template-columns: minmax(200px, 260px) 1fr;
@@ -1154,6 +1235,8 @@ const html = `<!DOCTYPE html>
     }
     @media (max-width: 860px) {
       .layout { grid-template-columns: 1fr; }
+      .top-header { flex-wrap: wrap; }
+      .global-search-wrap { min-width: 10rem; }
       aside {
         position: relative;
         max-height: none;
@@ -1323,23 +1406,28 @@ const html = `<!DOCTYPE html>
   })();
   </script>
   <header class="top" id="page-top" tabindex="-1">
-    <div class="top-toolbar" role="group" aria-label="外观">
-    <a href="ai-encyclopedia-2026.html">AI工具百科全书免费额度与产品说明</a>
-      <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
-      <button type="button" class="theme-btn" data-theme-set="light">浅色</button>
-      <button type="button" class="theme-btn" data-theme-set="dark">深色</button>
+    <div class="top-header">
+      <div class="global-search-wrap">
+        <span class="global-search-icon">🔍</span>
+        <input type="search" id="globalSearch" class="global-search" placeholder="搜索工具名称或描述… ( / 或 Ctrl+K )" data-i18n-placeholder="searchPlaceholder" autocomplete="off" spellcheck="false">
+        <span class="global-search-count" id="searchCount"></span>
+      </div>
+      <div class="top-toolbar" role="group" aria-label="外观" data-i18n-aria="toolbarLabel">
+        <a href="ai-encyclopedia-2026.html" title="AI工具百科全书免费额度与产品说明" data-i18n="encyclopedia" data-i18n-title="encyclopediaTitle">AI工具百科</a>
+        <button type="button" class="theme-btn" data-theme-set="system" data-i18n="themeSystem">跟随系统</button>
+        <button type="button" class="theme-btn" data-theme-set="light" data-i18n="themeLight">浅色</button>
+        <button type="button" class="theme-btn" data-theme-set="dark" data-i18n="themeDark">深色</button>
+        <button type="button" class="theme-btn lang-btn" data-lang-set="zh">中</button>
+        <button type="button" class="theme-btn lang-btn" data-lang-set="en">EN</button>
+        <a class="github-link" href="https://github.com/shellsec/AINav" target="_blank" rel="noopener noreferrer" title="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+      </div>
     </div>
-    <div class="global-search-wrap">
-      <span class="global-search-icon">🔍</span>
-      <input type="search" id="globalSearch" class="global-search" placeholder="搜索工具名称或描述…" autocomplete="off" spellcheck="false">
-      <span class="global-search-count" id="searchCount"></span>
-    </div>
-    <div class="top-promo" aria-label="合作推广：多模型 API 接入">
+    <div class="top-promo" aria-label="合作推广：多模型 API 接入" data-i18n-aria="promoAria">
       <div class="top-promo-head">
-        <span class="top-promo-badge">合作推广</span>
+        <span class="top-promo-badge" data-i18n="promoBadge">合作推广</span>
         <span class="top-promo-title-row">
-          <span class="top-promo-title">OpenAI · Anthropic · Gemini 等旗舰系官方模型，国内直连_免梯_稳定可用</span>
-          <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored">立即注册 →</a>
+          <span class="top-promo-title" data-i18n="promoTitle">OpenAI · Anthropic · Gemini 等旗舰系官方模型，国内直连_免梯_稳定可用</span>
+          <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册 →</a>
         </span>
       </div>
       <p>充值时填写推荐码 <span class="top-promo-code" translate="no">AFF_BB0FNC</span>：好友获赠 $2.00，你可得 $3.00；每位好友需<strong>首充满 $20</strong>起计一次推荐。</p>
@@ -1354,10 +1442,10 @@ const html = `<!DOCTYPE html>
     </div>
   </header>
   <div class="layout">
-    <aside><button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="展开/收起导航">☰ 导航</button>${navHtml}</aside>
+    <aside><button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="展开/收起导航" data-i18n-aria="sidebarToggleAria" data-i18n="sidebarToggle">☰ 导航</button>${navHtml}</aside>
     <main>
       <section class="block fav-block is-empty" id="fav-block">
-        <h2 class="block-title">常用收藏 <span class="fav-hint">点击各卡片右上角星标固定到此处</span><span class="fav-actions"><button type="button" class="fav-action-btn" id="favExport">导出</button><button type="button" class="fav-action-btn" id="favImport">导入</button></span></h2>
+        <h2 class="block-title" data-i18n="catFav">常用收藏 <span class="fav-hint" data-i18n="favHint">点击各卡片右上角星标固定到此处</span><span class="fav-actions"><button type="button" class="fav-action-btn" id="favExport" data-i18n="favExport">导出</button><button type="button" class="fav-action-btn" id="favImport" data-i18n="favImport">导入</button></span></h2>
         <p class="fav-empty" id="favEmpty">暂无收藏；在下方分类中点亮 ☆ 即可出现在这里（数据保存在本机浏览器）。</p>
         <div class="grid fav-grid" id="favGrid" aria-live="polite"></div>
       </section>
@@ -1371,7 +1459,7 @@ const html = `<!DOCTYPE html>
     <p>本站不保证第三方网站的内容准确性、服务持续性、可用性及收费，亦不承担因访问或使用外链而产生的任何责任。</p>
     <p class="site-built">页面数据生成时间（构建）：${esc(generatedAtLabel)}（UTC 记录：${esc(generatedAt)}）</p>
   </footer>
-  <button type="button" class="back-to-top" id="backToTop" aria-label="回到顶部" title="回到顶部">↑</button>
+  <button type="button" class="back-to-top" id="backToTop" aria-label="返回顶部" title="返回顶部" data-i18n-aria="backTopAria" data-i18n="backTop">↑ Top</button>
   <script>
 (function () {
   var FAV_KEY = "ainav-favorites-v1";
@@ -1403,9 +1491,10 @@ const html = `<!DOCTYPE html>
     return -1;
   }
   function setStarBtn(btn, on) {
+    var lang = (function(){ try { return localStorage.getItem("ainav-lang")||"zh"; }catch(e){return"zh";} })();
     btn.classList.toggle("is-on", on);
     btn.textContent = on ? "★" : "☆";
-    btn.setAttribute("aria-label", on ? "取消常用收藏" : "加入常用收藏");
+    btn.setAttribute("aria-label", on ? (lang==="en"?"Remove from favorites":"取消常用收藏") : (lang==="en"?"Add to favorites":"加入常用收藏"));
     btn.setAttribute("aria-pressed", on ? "true" : "false");
   }
   function readCardItem(article) {
@@ -1616,7 +1705,12 @@ const html = `<!DOCTYPE html>
       var hasCards = b.querySelectorAll("article.card:not(.fav-card):not(.is-search-hidden)");
       b.classList.toggle("is-search-hidden", hasCards.length === 0);
     });
-    searchCountEl.textContent = visible ? visible + " 项" : "无结果";
+    var curLang = (function(){ try { return localStorage.getItem("ainav-lang") || "zh"; } catch(e){ return "zh"; } })();
+    if (curLang === "en") {
+      searchCountEl.textContent = visible ? visible + " items" : "No results";
+    } else {
+      searchCountEl.textContent = visible ? visible + " 项" : "无结果";
+    }
   }
 
   /* ---- Sidebar Toggle (mobile) ---- */
@@ -1625,7 +1719,10 @@ const html = `<!DOCTYPE html>
   if (sidebarToggle && asideEl) {
     sidebarToggle.addEventListener("click", function () {
       asideEl.classList.toggle("is-collapsed");
-      this.textContent = asideEl.classList.contains("is-collapsed") ? "☰ 导航" : "✕ 收起";
+      var lang = (function(){ try { return localStorage.getItem("ainav-lang")||"zh"; }catch(e){return"zh";} })();
+      this.textContent = asideEl.classList.contains("is-collapsed")
+        ? (lang === "en" ? "☰ Menu" : "☰ 导航")
+        : (lang === "en" ? "✕ Close" : "✕ 收起");
     });
     asideEl.classList.add("is-collapsed");
   }
@@ -1636,7 +1733,7 @@ const html = `<!DOCTYPE html>
   if (favExportBtn) {
     favExportBtn.addEventListener("click", function () {
       var favs = loadFavs();
-      if (!favs.length) { alert("暂无收藏可导出"); return; }
+      if (!favs.length) { var _l = (function(){ try { return localStorage.getItem("ainav-lang")||"zh"; }catch(e){return"zh";} })(); alert(_l==="en"?"No favorites to export":"暂无收藏可导出"); return; }
       var blob = new Blob([JSON.stringify(favs, null, 2)], { type: "application/json" });
       var a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
@@ -1672,8 +1769,9 @@ const html = `<!DOCTYPE html>
             }
             saveFavs(favs);
             applyFavs(favs);
-            alert("导入完成，新增 " + added + " 条收藏");
-          } catch (e) { alert("导入失败：" + e.message); }
+            var _l2 = (function(){ try { return localStorage.getItem("ainav-lang")||"zh"; }catch(e){return"zh";} })();
+            if (_l2==="en") { alert("Import done, " + added + " added"); } else { alert("导入完成，新增 " + added + " 条收藏"); }
+          } catch (e) { var _l3 = (function(){ try { return localStorage.getItem("ainav-lang")||"zh"; }catch(e2){return"zh";} })(); alert(_l3==="en"?"Import failed: "+e.message:"导入失败："+e.message); }
         };
         reader.readAsText(file);
       });
@@ -1681,6 +1779,219 @@ const html = `<!DOCTYPE html>
     });
   }
 })();
+
+  /* ---- i18n Language Switching ---- */
+  (function () {
+    var LANG_KEY = "ainav-lang";
+    var i18nDict = {
+      en: {
+        /* -- top bar -- */
+        searchPlaceholder: "Search tools… ( / or Ctrl+K )",
+        toolbarLabel: "Appearance",
+        encyclopedia: "AI Encyclopedia",
+        encyclopediaTitle: "AI Tool Encyclopedia – Free Tiers & Descriptions",
+        themeSystem: "System",
+        themeLight: "Light",
+        themeDark: "Dark",
+        promoBadge: "Sponsored",
+        promoTitle: "OpenAI · Anthropic · Gemini & more – Direct access in China, no VPN needed",
+        promoCta: "Sign Up →",
+        /* -- sidebar & fav -- */
+        sidebarToggle: "☰ Menu",
+        sidebarToggleAria: "Toggle navigation",
+        catFav: "★ Favorites",
+        favHint: "Star a card to pin it here",
+        favExport: "Export",
+        favImport: "Import",
+        backTop: "↑ Top",
+        backTopAria: "Back to top",
+        /* -- categories -- */
+        catHotTools: "Hot Tools",
+        catAIChat: "AI Chat",
+        catAISearch: "AI Search",
+        catAIOffice: "AI Office",
+        catEfficiency: "Efficiency",
+        catDocTools: "Document Tools",
+        catOfficeMeeting: "Meetings",
+        catExcel: "Excel / Spreadsheets",
+        catPPT: "Slides (PPT)",
+        catMindMap: "Mind Maps",
+        catAIWriting: "AI Writing",
+        catAICoding: "AI Coding",
+        catAIImage: "AI Image",
+        catCommonTools: "Common Tools",
+        catBgRemove: "Background Removal",
+        catPersonRemove: "Person Removal",
+        catAIVideo: "AI Video",
+        catAIAudio: "AI Audio",
+        catAIMusic: "AI Music & Singing",
+        catAIDesign: "AI Design",
+        catUI3D: "UI · AI 3D & Visual Design",
+        catAITranslation: "AI Translation",
+        catAIPrompts: "AI Prompts",
+        catAIDetection: "AI Content Detection",
+        catAILaw: "AI Legal",
+        catAIBooks: "AI Books",
+        catAIModels: "Open-Source Models",
+        catAILearning: "AI Learning Sites",
+        catAIFramework: "AI Dev Frameworks",
+        catAPIRouter: "AI API · Routing · Inference Cloud",
+        catAgentWorkflow: "AI Agents · Workflow & Automation",
+        catLLMGateway: "LLM Gateway · Proxy · SDK & Observability",
+        catMCP: "MCP · Model Context Protocol",
+        catRAG: "RAG · Vector DB & Retrieval",
+        catAIKnowledge: "AI Knowledge Base & Notes",
+        catLocalInfer: "Local & Private · Inference Engine",
+        catBrowserAuto: "Browser Automation",
+        catVoiceRealtime: "Voice · TTS/ASR & Realtime",
+        catAIMeeting: "AI Meeting & Transcripts",
+        catDataTrain: "Data · Fine-tuning & Evaluation",
+        catPaperRanking: "Papers · News & Rankings",
+        catCLI: "CLI & Terminal AI",
+        catAIBrowser: "AI Browser & New Paradigms",
+        catEdgeHardware: "Hardware · Edge Inference",
+        catCompliance: "AI Compliance & Standards",
+        catNetPrivacy: "Network · Privacy & Security",
+        catGEO: "GEO / AEO · AI Search Optimization"
+      },
+      zh: {
+        /* -- top bar -- */
+        searchPlaceholder: "搜索工具名称或描述… ( / 或 Ctrl+K )",
+        toolbarLabel: "外观",
+        encyclopedia: "AI工具百科",
+        encyclopediaTitle: "AI工具百科全书免费额度与产品说明",
+        themeSystem: "跟随系统",
+        themeLight: "浅色",
+        themeDark: "深色",
+        promoBadge: "合作推广",
+        promoTitle: "OpenAI · Anthropic · Gemini 等旗舰系官方模型，国内直连_免梯_稳定可用",
+        promoCta: "立即注册 →",
+        /* -- sidebar & fav -- */
+        sidebarToggle: "☰ 导航",
+        sidebarToggleAria: "展开/收起导航",
+        catFav: "★ 常用收藏",
+        favHint: "点击各卡片右上角星标固定到此处",
+        favExport: "导出",
+        favImport: "导入",
+        backTop: "↑ Top",
+        backTopAria: "返回顶部",
+        /* -- categories -- */
+        catHotTools: "热门工具",
+        catAIChat: "AI 聊天对话",
+        catAISearch: "AI 搜索工具",
+        catAIOffice: "AI 办公工具",
+        catEfficiency: "效率提升",
+        catDocTools: "文档工具",
+        catOfficeMeeting: "办公会议",
+        catExcel: "Excel表格",
+        catPPT: "幻灯片(PPT)",
+        catMindMap: "思维导图",
+        catAIWriting: "AI 写作工具",
+        catAICoding: "AI 编程工具",
+        catAIImage: "AI 图像工具",
+        catCommonTools: "常用工具",
+        catBgRemove: "背景移除",
+        catPersonRemove: "人物抹除",
+        catAIVideo: "AI 视频工具",
+        catAIAudio: "AI 音频工具",
+        catAIMusic: "AI 音乐 · 唱歌与配乐",
+        catAIDesign: "AI 设计工具",
+        catUI3D: "前端 UI · AI 3D 与视觉设计",
+        catAITranslation: "AI 翻译工具",
+        catAIPrompts: "AI 指令提示",
+        catAIDetection: "AI 内容检测",
+        catAILaw: "AI 法律助手",
+        catAIBooks: "AI 经典书籍",
+        catAIModels: "AI 开源模型",
+        catAILearning: "AI 学习网站",
+        catAIFramework: "AI 开发框架",
+        catAPIRouter: "AI 模型 API · 路由聚合 · 推理云",
+        catAgentWorkflow: "AI 智能体 · 工作流与自动化",
+        catLLMGateway: "LLM 网关 · 代理 · SDK 与可观测",
+        catMCP: "MCP · 模型上下文协议与工具生态",
+        catRAG: "RAG · 向量库与检索基建",
+        catAIKnowledge: "AI 知识库 · 笔记与企业检索",
+        catLocalInfer: "本地与私有化 · 推理引擎",
+        catBrowserAuto: "浏览器自动化 · 电脑操控",
+        catVoiceRealtime: "语音 · TTS/ASR 与实时多模态",
+        catAIMeeting: "AI 会议与语音纪要",
+        catDataTrain: "数据 · 微调 · 合成与评测",
+        catPaperRanking: "论文 · 资讯 · 榜单与评测",
+        catCLI: "终端与 CLI 上的 AI",
+        catAIBrowser: "AI 浏览器与新形态",
+        catEdgeHardware: "硬件 · 边缘推理与跑分",
+        catCompliance: "AI 合规与标准",
+        catNetPrivacy: "网络工具 · 隐私与安全",
+        catGEO: "GEO / AEO · AI 搜索优化"
+      }
+    };
+
+    function applyLang(lang) {
+      if (lang !== "zh" && lang !== "en") lang = "zh";
+      var dict = i18nDict[lang] || i18nDict.zh;
+      document.documentElement.setAttribute("lang", lang === "en" ? "en" : "zh-CN");
+      try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+
+      /* data-i18n: set textContent */
+      document.querySelectorAll("[data-i18n]").forEach(function (el) {
+        var key = el.getAttribute("data-i18n");
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      });
+      /* data-i18n-placeholder */
+      document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
+        var key = el.getAttribute("data-i18n-placeholder");
+        if (dict[key] !== undefined) el.setAttribute("placeholder", dict[key]);
+      });
+      /* data-i18n-title */
+      document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
+        var key = el.getAttribute("data-i18n-title");
+        if (dict[key] !== undefined) el.setAttribute("title", dict[key]);
+      });
+      /* data-i18n-aria */
+      document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+        var key = el.getAttribute("data-i18n-aria");
+        if (dict[key] !== undefined) el.setAttribute("aria-label", dict[key]);
+      });
+
+      /* Update search count text language */
+      if (typeof searchCountEl !== "undefined" && searchCountEl) {
+        var txt = searchCountEl.textContent;
+        if (txt.indexOf("项") >= 0 || txt === "无结果") {
+          if (lang === "en") {
+            var n = parseInt(txt, 10);
+            searchCountEl.textContent = isNaN(n) ? "No results" : n + " items";
+          }
+        } else if (txt.indexOf("items") >= 0 || txt === "No results") {
+          if (lang === "zh") {
+            var n2 = parseInt(txt, 10);
+            searchCountEl.textContent = isNaN(n2) ? "无结果" : n2 + " 项";
+          }
+        }
+      }
+
+      /* Highlight active lang button */
+      document.querySelectorAll(".lang-btn[data-lang-set]").forEach(function (b) {
+        var active = b.getAttribute("data-lang-set") === lang;
+        b.classList.toggle("is-active", active);
+        b.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+    }
+
+    /* Bind lang buttons */
+    document.querySelectorAll(".lang-btn[data-lang-set]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        applyLang(b.getAttribute("data-lang-set"));
+      });
+    });
+
+    /* Init */
+    var initLang = "zh";
+    try {
+      var s = localStorage.getItem(LANG_KEY);
+      if (s === "en" || s === "zh") initLang = s;
+    } catch (e) {}
+    applyLang(initLang);
+  })();
   </script>
 </body>
 </html>`;

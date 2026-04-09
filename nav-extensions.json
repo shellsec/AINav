@@ -42,7 +42,7 @@
         {
           "title": "Hugging Face Inference",
           "subtitle": "Hub 模型推理与推理服务商（Inference Providers）",
-          "link": "https://huggingface.co/inference-providers"
+          "link": "https://huggingface.co/docs/inference-endpoints/"
         },
         {
           "title": "Hugging Face Models",
@@ -682,7 +682,7 @@
         {
           "title": "Label Studio",
           "subtitle": "多模态数据标注平台，可接主动学习",
-          "link": "https://labelstud.io/"
+          "link": "https://heartex.com/"
         },
         {
           "title": "OpenPipe",
@@ -1173,6 +1173,128 @@
           "title": "OWASP LLM Top 10",
           "subtitle": "大模型应用安全风险清单",
           "link": "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+        },
+        {
+          "title": "Mullvad VPN",
+          "subtitle": "隐私优先 VPN，无需邮箱注册，按月付费",
+          "link": "https://mullvadvpn.com"
+        },
+        {
+          "title": "Proton VPN",
+          "subtitle": "Proton 出品，瑞士隐私 VPN，免费版可用",
+          "link": "https://protonvpn.com"
+        },
+        {
+          "title": "WireGuard",
+          "subtitle": "现代 VPN 协议，内核级极速隧道",
+          "link": "https://wireguard.com"
+        },
+        {
+          "title": "IVPN",
+          "subtitle": "隐私 VPN，无日志审计，WireGuard 支持",
+          "link": "https://ivpn.com"
+        },
+        {
+          "title": "ip-api",
+          "subtitle": "免费 IP 地理位置查询 API，支持批量",
+          "link": "https://ip-api.com"
+        },
+        {
+          "title": "DNS Leak Test",
+          "subtitle": "DNS 泄漏检测，验证 VPN/DNS 隐私",
+          "link": "https://dnsleaktest.com"
+        },
+        {
+          "title": "WhatIsMyIP",
+          "subtitle": "IP 地址与网络信息快速查询",
+          "link": "https://whatismyip.com"
+        },
+        {
+          "title": "IP.sb",
+          "subtitle": "简洁 IP 查询与地理定位",
+          "link": "https://ip.sb"
+        },
+        {
+          "title": "MaxMind GeoIP",
+          "subtitle": "IP 地理数据库与 GeoIP2 API",
+          "link": "https://www.maxmind.com"
+        }
+      ]
+    },
+    {
+      "id": "ext-temp-email",
+      "name": "临时邮箱 · 匿名收件",
+      "tools": [
+        {
+          "title": "Temp Mail",
+          "subtitle": "最流行的临时邮箱，即开即用",
+          "link": "https://tempmail.com"
+        },
+        {
+          "title": "10 Minute Mail",
+          "subtitle": "10 分钟自动销毁临时邮箱",
+          "link": "https://10minutemail.com"
+        },
+        {
+          "title": "Guerrilla Mail",
+          "subtitle": "老牌免费临时邮箱，支持发送",
+          "link": "https://guerrillamail.com"
+        },
+        {
+          "title": "Maildrop",
+          "subtitle": "简洁临时邮箱，别名收件",
+          "link": "https://maildrop.com"
+        },
+        {
+          "title": "EmailOnDeck",
+          "subtitle": "开发者友好的临时邮箱 API",
+          "link": "https://emailondeck.com"
+        },
+        {
+          "title": "Moakt",
+          "subtitle": "免费临时邮箱，支持自定义地址",
+          "link": "https://moakt.com"
+        },
+        {
+          "title": "SimpleLogin",
+          "subtitle": "邮箱别名服务，隐私保护最佳",
+          "link": "https://simplelogin.io/"
+        }
+      ]
+    },
+    {
+      "id": "ext-sms-verify",
+      "name": "接码 · 短信验证与虚拟号",
+      "tools": [
+        {
+          "title": "Twilio",
+          "subtitle": "企业级短信/语音 API 标杆",
+          "link": "https://twilio.com"
+        },
+        {
+          "title": "Google Voice",
+          "subtitle": "Google 出品，免费美国虚拟号",
+          "link": "https://voice.google.com"
+        },
+        {
+          "title": "TextNow",
+          "subtitle": "免费加拿大/美国虚拟号(含广告)",
+          "link": "https://textnow.com"
+        },
+        {
+          "title": "SMS-Activate",
+          "subtitle": "在线接码平台，多国号码按次付费",
+          "link": "https://sms-activate.com"
+        },
+        {
+          "title": "Quackr",
+          "subtitle": "免费在线接收验证码",
+          "link": "https://quackr.com"
+        },
+        {
+          "title": "Receive SMS Online",
+          "subtitle": "免费在线接收短信验证码",
+          "link": "https://receivesmsonline.com"
         }
       ]
     },

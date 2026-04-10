@@ -1,6 +1,6 @@
 # AINav
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/shellsec/AINav/blob/main/LICENSE)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 English | **[中文](./README.zh-CN.md)**
 
@@ -109,4 +109,4 @@ Extension entries are manually maintained links; third-party sites may become un
 
 ## License
 
-[MIT License](https://github.com/shellsec/AINav/blob/main/LICENSE) — covers scripts, configs, and self-built data in this repository only. Product names, icons, and links belong to their respective owners. Please comply with each site's terms of service.
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — covers scripts, configs, and self-built data in this repository only. Commercial use is not permitted. Product names, icons, and links belong to their respective owners.

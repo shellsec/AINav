@@ -1,6 +1,6 @@
 # AINav
 
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 English | **[中文](./README.zh-CN.md)**
 
@@ -109,4 +109,4 @@ Extension entries are manually maintained links; third-party sites may become un
 
 ## License
 
-[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — covers scripts, configs, and self-built data in this repository only. Commercial use is not permitted. Product names, icons, and links belong to their respective owners.
+[GPLv3](https://www.gnu.org/licenses/gpl-3.0) — covers scripts, configs, and self-built data in this repository only. Derivative works must also be open-sourced under GPLv3. Product names, icons, and links belong to their respective owners.

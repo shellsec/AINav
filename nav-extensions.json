@@ -340,6 +340,162 @@
       ]
     },
     {
+      "id": "ext-ai-skill-hub",
+      "name": "AI Skill · 提示技能与工具市场",
+      "tools": [
+        {
+          "title": "GPT Store (ChatGPT)",
+          "subtitle": "OpenAI 官方 GPTs 商店 → 仅 ChatGPT",
+          "link": "https://chatgpt.com/gpts"
+        },
+        {
+          "title": "Coze 插件市场",
+          "subtitle": "扣子平台技能/插件商店 → Coze 智能体、扣子 Bot",
+          "link": "https://www.coze.cn/store/plugin"
+        },
+        {
+          "title": "Dify 插件市场",
+          "subtitle": "Dify 工具/插件目录 → Dify 工作流与 Agent",
+          "link": "https://marketplace.dify.ai/"
+        },
+        {
+          "title": "Composio",
+          "subtitle": "Agent 工具集成平台，100+ 连接器 → CrewAI/LangChain/AutoGPT/OpenAI Assistants",
+          "link": "https://composio.dev/"
+        },
+        {
+          "title": "Toolhouse",
+          "subtitle": "一行代码给 LLM 接入工具 → OpenAI/Claude/Gemini/LangChain 等",
+          "link": "https://toolhouse.ai/"
+        },
+        {
+          "title": "CrewAI Tools",
+          "subtitle": "CrewAI 内置工具集与社区市场 → 仅 CrewAI Agent",
+          "link": "https://docs.crewai.com/concepts/tools"
+        },
+        {
+          "title": "LangChain Tools",
+          "subtitle": "LangChain 工具集成目录 → LangChain/LangGraph Agent",
+          "link": "https://python.langchain.com/docs/integrations/tools/"
+        },
+        {
+          "title": "AutoGPT Marketplace",
+          "subtitle": "AutoGPT 官方技能与 Agent 市场 → 仅 AutoGPT",
+          "link": "https://marketplace.agpt.co/"
+        },
+        {
+          "title": "Zapier AI Actions",
+          "subtitle": "开放 AI 动作接口，20K+ 应用 → ChatGPT/GPTs/Claude/Cursor 等 Agent",
+          "link": "https://actions.zapier.com/"
+        },
+        {
+          "title": "Pipedream",
+          "subtitle": "开发者向集成与工作流平台 → 任意 LLM/Agent 可 HTTP 调用",
+          "link": "https://pipedream.com/"
+        },
+        {
+          "title": "n8n Integrations",
+          "subtitle": "400+ 集成节点与 AI Agent 市场 → n8n 工作流与 AI Agent 节点",
+          "link": "https://n8n.io/integrations/"
+        },
+        {
+          "title": "Hugging Face Spaces",
+          "subtitle": "模型 Demo 与工具托管社区 → 任意 HTTP/API 调用",
+          "link": "https://huggingface.co/spaces"
+        },
+        {
+          "title": "Awesome Agent Skills",
+          "subtitle": "跨平台 Skills 精选目录 → Claude Code/Cursor/Windsurf/Copilot/Codex 等",
+          "link": "https://github.com/philipbankier/awesome-agent-skills"
+        },
+        {
+          "title": "micstec Skills 合集",
+          "subtitle": "多平台 Skills 合集 → Claude Code/Gemini CLI/Copilot/Cursor/Windsurf/Codex CLI",
+          "link": "https://github.com/micsapp/micstec-skills"
+        },
+        {
+          "title": "MCP Market Skills",
+          "subtitle": "Agent Skills 目录与发现 → Claude.ai/Claude Code/Codex/ChatGPT",
+          "link": "https://mcpmarket.com/tools/skills"
+        },
+        {
+          "title": "Windsurf Skills",
+          "subtitle": "Windsurf Cascade 技能系统文档 → 仅 Windsurf IDE",
+          "link": "https://docs.windsurf.com/windsurf/cascade/skills"
+        },
+        {
+          "title": "OpenCode Skills",
+          "subtitle": "OpenCode 可复用 Agent 技能 → OpenCode（兼容 Claude Code 格式）",
+          "link": "https://opencode.ai/docs/skills"
+        },
+        {
+          "title": "OpenSkills",
+          "subtitle": "通用 Skills 加载器 → Claude Code/Cursor/Windsurf/Aider/Codex 等",
+          "link": "https://github.com/numman-ali/openskills"
+        },
+        {
+          "title": "OpenCode（开源 IDE）",
+          "subtitle": "开源终端 AI 编码工具，原生支持 SKILL.md → 兼容 Claude Code 格式",
+          "link": "https://github.com/sst/opencode"
+        },
+        {
+          "title": "Cursor Skills 合集",
+          "subtitle": "Cursor IDE 最佳实践与技能集 → 仅 Cursor IDE",
+          "link": "https://github.com/araguaci/cursor-skills"
+        },
+        {
+          "title": "Agent Skills 开放标准",
+          "subtitle": "SKILL.md 开放标准 → Claude Code/Cursor/TRAE/Windsurf/Copilot 等 26+ 工具",
+          "link": "https://agentskills.io/"
+        },
+        {
+          "title": "Anthropic Skills 仓库",
+          "subtitle": "官方 Skills 合集（17 个） → Claude Code 原生、Cursor/TRAE/Windsurf 兼容",
+          "link": "https://github.com/anthropics/skills"
+        },
+        {
+          "title": "Agent Skills Marketplace",
+          "subtitle": "800K+ skills 市场 → Claude Code/Codex CLI/ChatGPT/Cursor/Windsurf",
+          "link": "https://skillsmp.com/zh"
+        },
+        {
+          "title": "AllSkills 目录",
+          "subtitle": "Claude Skills 发现与浏览目录 → Claude Code/Cursor/TRAE 等",
+          "link": "https://www.allskills.cn/"
+        },
+        {
+          "title": "Open Agent Skills",
+          "subtitle": "Agent Skills 编写指南 → 通用 SKILL.md 标准，适用所有兼容工具",
+          "link": "https://openagentskills.dev/zh"
+        },
+        {
+          "title": "MiniMax Skills（开源）",
+          "subtitle": "开源全栈技能包（前端/全栈/Android/iOS/Shader） → Claude Code/Cursor/TRAE/Windsurf",
+          "link": "https://github.com/MiniMax-AI/skills"
+        },
+        {
+          "title": "MiniMax SkillHub",
+          "subtitle": "MiniMax 官方技能管理平台 → MiniMax Agent/Claude Code/Cursor 等",
+          "link": "https://agent.minimax.io/skills"
+        },
+        {
+          "title": "Cursor Marketplace",
+          "subtitle": "Cursor 插件市场（Skills/子代理/规则/Hooks/MCP） → 仅 Cursor IDE",
+          "link": "https://cursor.com/marketplace"
+        },
+        {
+          "title": "TRAE Skills",
+          "subtitle": "TRAE IDE 内置 Skills 技能包 → 仅 TRAE IDE",
+          "link": "https://www.trae.cn/"
+        },
+        {
+          "title": "Claude Code Marketplace",
+          "subtitle": "Claude Code 插件/技能市场 → Claude Code 原生、部分兼容 Cursor/TRAE",
+          "link": "https://claudemarketplaces.com/"
+        }
+      ]
+    },
+    {
       "id": "ext-rag-vector",
       "name": "RAG · 向量库与检索基建",
       "tools": [
@@ -1469,6 +1625,26 @@
           "title": "SuperCLUE",
           "subtitle": "中文大模型评测体系与排行榜",
           "link": "https://www.superclueai.com/"
+        },
+        {
+          "title": "月狐数据 · 黑马APP榜",
+          "subtitle": "移动应用增长黑马、活跃排行与市场洞察",
+          "link": "https://www.moonfox.cn/topCharts/mobileApp/darkHorse"
+        },
+        {
+          "title": "Similarweb",
+          "subtitle": "网站流量排名与竞品分析，AI 产品全球访问量排行",
+          "link": "https://www.similarweb.com/"
+        },
+        {
+          "title": "AIcpt",
+          "subtitle": "全球 AI 产品流量与增长周榜",
+          "link": "https://aicpb.com/"
+        },
+        {
+          "title": "Product Hunt",
+          "subtitle": "新产品每日发布与社区投票排行",
+          "link": "https://www.producthunt.com/"
         }
       ]
     },
@@ -1528,14 +1704,54 @@
           "link": "https://developers.google.com/search/docs/appearance/ai-overviews"
         },
         {
-          "title": "Semrush · GEO",
-          "subtitle": "GEO 概念、与传统 SEO 差异及实践综述",
-          "link": "https://www.semrush.com/blog/generative-engine-optimization/"
+          "title": "Princeton GEO 论文",
+          "subtitle": "「GEO: Generative Engine Optimization」开创性学术论文",
+          "link": "https://arxiv.org/abs/2311.09735"
         },
         {
-          "title": "Princeton GEO 研究（论文）",
-          "subtitle": "「GEO: Generative Engine Optimization」学术项目与引用入口",
-          "link": "https://arxiv.org/abs/2311.09735"
+          "title": "Profound",
+          "subtitle": "市场领先的 GEO 跟踪平台，覆盖 10+ AI 引擎的可见性与情感分析",
+          "link": "https://www.tryprofound.com/"
+        },
+        {
+          "title": "Ahrefs AI 概述跟踪",
+          "subtitle": "全栈 SEO 平台新增 GEO：AI 概述排名、内容助手与关键词 AI 分析",
+          "link": "https://ahrefs.com/"
+        },
+        {
+          "title": "Semrush AI Toolkit",
+          "subtitle": "Semrush AI 可见性工具包：跨 LLM 品牌曝光、竞争对比与优化建议",
+          "link": "https://www.semrush.com/semrush-ai-toolkit/"
+        },
+        {
+          "title": "Otterly AI",
+          "subtitle": "ChatGPT/Perplexity/Google AIO 等 AI 搜索表现监控与情感追踪",
+          "link": "https://www.otterly.ai/"
+        },
+        {
+          "title": "Scrunch AI",
+          "subtitle": "检测 AI 答案中的错误叙事，品牌 AI 份额与竞争分析",
+          "link": "https://scrunchai.com/"
+        },
+        {
+          "title": "Peec AI",
+          "subtitle": "实时 AI 可见性提醒，提示词级排名与来源归因分析",
+          "link": "https://peec.ai/"
+        },
+        {
+          "title": "HubSpot AI Search Grader",
+          "subtitle": "免费 GEO 评估：扫描 AI 引擎品牌可见性评分与改进建议",
+          "link": "https://www.hubspot.com/ai-search-grader"
+        },
+        {
+          "title": "Writesonic GEO Suite",
+          "subtitle": "品牌 AI 可见性探索 + AI 写作优化，GEO 内容一键生成",
+          "link": "https://writesonic.com/generative-engine-optimization-geo"
+        },
+        {
+          "title": "Gumshoe",
+          "subtitle": "品牌 AI 搜索可见性监控与竞争分析（免费公测中）",
+          "link": "https://www.gumshoe.ai/"
         }
       ]
     }

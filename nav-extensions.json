@@ -660,6 +660,12 @@
           "subtitle": "Claude Code 完整学习指南，10 模块可视化教程与生产级模板",
           "link": "https://github.com/luongnv89/claude-howto",
           "alias": "claude-howto,claude教程"
+        },
+        {
+          "title": "Claude Code Best Practice",
+          "subtitle": "Claude Code 最佳实践合集，69 条技巧 + Agent/技能/工作流全攻略（36.5K 星）",
+          "link": "https://github.com/shanraisshan/claude-code-best-practice",
+          "alias": "claude-code-best-practice,最佳实践,智能体工程"
         }
       ]
     },

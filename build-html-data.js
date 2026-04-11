@@ -2003,9 +2003,9 @@ const html = `<!DOCTYPE html>
   (function () {
     var PH = ".card-icon-ph";
     var FAVICON_SOURCES = [
-      function (d) { return "https://www.google.com/s2/favicons?domain=" + encodeURIComponent(d) + "&sz=64"; },
       function (d) { return "https://icons.duckduckgo.com/ip3/" + d + ".ico"; },
-      function (d) { return "https://api.favicon.org.cn/getfavicon?url=" + encodeURIComponent("https://" + d) + "&size=64"; }
+      function (d) { return "https://www.google.com/s2/favicons?domain=" + encodeURIComponent(d) + "&sz=64"; },
+      function (d) { return "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://" + d + "&size=64"; }
     ];
     var palette = ["#0969da","#1a7f37","#bf3989","#8250df","#cf222e","#953800","#0550ae","#116329","#8b5cf6","#db2777","#0284c7","#15803d"];
     var els = document.querySelectorAll(PH);
@@ -2037,7 +2037,6 @@ const html = `<!DOCTYPE html>
       var img = new Image();
       img.width = 40;
       img.height = 40;
-      img.loading = "lazy";
       img.decoding = "async";
       img.style.cssText = "width:40px;height:40px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--panel);";
       img.alt = "";

@@ -181,9 +181,45 @@
           "link": "https://github.com/openclaw/openclaw"
         },
         {
+          "title": "OpenClaw Showcase",
+          "subtitle": "用户真实场景展示：自动化/生产力/开发/智能家居/创意等 11 大类",
+          "link": "https://openclaw.ai/showcase",
+          "alias": "openclaw showcase,场景"
+        },
+        {
+          "title": "OpenClaw 中文用例大全",
+          "subtitle": "46 个真实场景：自动化办公·内容创作·运维·AI助理·知识管理",
+          "link": "https://github.com/AlexAnys/awesome-openclaw-usecases-zh",
+          "alias": "openclaw 中文用例,awesome usecases"
+        },
+        {
           "title": "OpenClaw 文档站",
           "subtitle": "安装、技能与安全说明（社区文档）",
           "link": "https://docs.openclaw.ai/"
+        },
+        {
+          "title": "Hermes Agent",
+          "subtitle": "Nous Research 开源自进化 Agent，内置学习循环、跨会话记忆、技能自动创建（53K+ 星）",
+          "link": "https://github.com/NousResearch/hermes-agent",
+          "alias": "hermes,hermes agent,nousresearch,自进化agent"
+        },
+        {
+          "title": "Hermes Agent 官网",
+          "subtitle": "有记忆的开源 AI 智能体，越用越聪明 — 功能介绍与快速开始",
+          "link": "https://hermes-agent.org/zh/",
+          "alias": "hermes官网,hermes agent官网"
+        },
+        {
+          "title": "Hermes Agent 文档",
+          "subtitle": "安装配置、CLI、消息网关、技能系统与架构说明",
+          "link": "https://hermes-agent.nousresearch.com/docs/",
+          "alias": "hermes文档,hermes docs"
+        },
+        {
+          "title": "Hermes Agent 橙皮书",
+          "subtitle": "从入门到精通系列：架构解析、技能编写、OpenClaw 迁移与最佳实践",
+          "link": "https://github.com/alchaincyf/hermes-agent-orange-book",
+          "alias": "hermes橙皮书,hermes教程"
         },
         {
           "title": "Lovart",
@@ -254,6 +290,120 @@
           "title": "TRAE SOLO",
           "subtitle": "从编码扩展到日常工作场景的桌面 Agent",
           "link": "https://solo.trae.cn/"
+        }
+      ]
+    },
+    {
+      "id": "ext-ai-usecases",
+      "name": "AI 场景 · 用例与最佳实践",
+      "tools": [
+        {
+          "title": "OpenClaw Showcase",
+          "subtitle": "AI Agent 真实用户场景展示：自动化/生产力/开发/智能家居/创意等",
+          "link": "https://openclaw.ai/showcase",
+          "alias": "openclaw showcase,场景展示"
+        },
+        {
+          "title": "OpenClaw 中文用例大全",
+          "subtitle": "46 个真实场景：飞书/钉钉/企微办公自动化、内容创作、运维、知识管理",
+          "link": "https://github.com/AlexAnys/awesome-openclaw-usecases-zh",
+          "alias": "openclaw 中文用例,awesome usecases zh"
+        },
+        {
+          "title": "Hermes Agent 架构全解",
+          "subtitle": "自进化单体智能体的学习循环与四大核心系统深度解析",
+          "link": "https://cloud.tencent.com/developer/article/2652528",
+          "alias": "hermes架构,hermes解析"
+        },
+        {
+          "title": "Hermes Agent 评测与指南",
+          "subtitle": "功能评测、安装配置与国产大模型接入教程",
+          "link": "https://vpssos.com/zh/hermes-agent-review-how-to-use-It/",
+          "alias": "hermes评测,hermes指南"
+        },
+        {
+          "title": "1000 AI/ML Projects",
+          "subtitle": "千级 ML 项目合集：入门/进阶/毕设/面试全覆盖",
+          "link": "https://github.com/0voice/awesome-2026-AI-Machine-Learning-1000Projects",
+          "alias": "1000 ai projects,ml projects"
+        },
+        {
+          "title": "Generative AI for Beginners",
+          "subtitle": "微软出品生成式 AI 初学者课程，含 18 个实战场景与 Hands-on",
+          "link": "https://github.com/microsoft/generative-ai-for-beginners",
+          "alias": "genai beginners,微软ai课程"
+        },
+        {
+          "title": "prompts.chat",
+          "subtitle": "开源提示词社区：按场景分类的 Prompt 库（151K+ 星）",
+          "link": "https://github.com/f/prompts.chat",
+          "alias": "prompts.chat,提示词场景"
+        },
+        {
+          "title": "System Prompts Collection",
+          "subtitle": "各 AI 产品系统提示词与工具信息大合集（130K+ 星）",
+          "link": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+          "alias": "system prompts,ai工具提示词"
+        },
+        {
+          "title": "LLMs from Scratch",
+          "subtitle": "从零构建 ChatGPT 类模型的教学项目（87K+ 星）",
+          "link": "https://github.com/rasbt/LLMs-from-scratch",
+          "alias": "llms from scratch,从零学llm"
+        },
+        {
+          "title": "LangChain",
+          "subtitle": "构建 LLM 应用和 AI Agent 的框架，含丰富场景模板（129K+ 星）",
+          "link": "https://github.com/langchain-ai/langchain",
+          "alias": "langchain,langchain场景"
+        },
+        {
+          "title": "AutoGPT",
+          "subtitle": "经典自主代理项目，支持任务分解与自主执行（182K+ 星）",
+          "link": "https://github.com/Significant-Gravitas/AutoGPT",
+          "alias": "autogpt,自主代理"
+        },
+        {
+          "title": "OpenHands",
+          "subtitle": "开源 AI 软件开发 Agent，代码编写与终端操作场景",
+          "link": "https://github.com/All-Hands-AI/OpenHands",
+          "alias": "openhands场景,ai开发agent"
+        },
+        {
+          "title": "Gemini CLI",
+          "subtitle": "将 Gemini 引入命令行的开源 AI 代理（97K+ 星）",
+          "link": "https://github.com/google-gemini/gemini-cli",
+          "alias": "gemini cli,命令行ai"
+        },
+        {
+          "title": "Firecrawl",
+          "subtitle": "将网站转为 LLM 就绪数据的网络数据接口（91K+ 星）",
+          "link": "https://github.com/firecrawl/firecrawl",
+          "alias": "firecrawl,网页爬取"
+        },
+        {
+          "title": "RAGFlow",
+          "subtitle": "结合 RAG 与 Agent 能力的上下文引擎，企业知识检索场景（74K+ 星）",
+          "link": "https://github.com/infiniflow/ragflow",
+          "alias": "ragflow,rag场景"
+        },
+        {
+          "title": "Deep-Live-Cam",
+          "subtitle": "实时换脸与视频生成开源工具（80K+ 星）",
+          "link": "https://github.com/hacksider/Deep-Live-Cam",
+          "alias": "deeplivecam,实时换脸"
+        },
+        {
+          "title": "Spec Kit",
+          "subtitle": "GitHub 官方规范驱动开发工具包，AI 工程场景（75K+ 星）",
+          "link": "https://github.com/github/spec-kit",
+          "alias": "spec kit,规范驱动"
+        },
+        {
+          "title": "There's An AI For That",
+          "subtitle": "按使用场景检索 AI 产品与工具，全球最大 AI 场景目录",
+          "link": "https://theresanaiforthat.com/",
+          "alias": "taaft,ai场景检索"
         }
       ]
     },

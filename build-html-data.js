@@ -294,6 +294,7 @@ const catI18nMap = {
   "AI 开发框架": "catAIFramework",
   "AI 模型 API · 路由聚合 · 推理云": "catAPIRouter",
   "AI 智能体 · 工作流与自动化": "catAgentWorkflow",
+  "AI 场景 · 用例与最佳实践": "catAIUsecases",
   "LLM 网关 · 代理 · SDK 与可观测": "catLLMGateway",
   "MCP · 模型上下文协议与工具生态": "catMCP",
   "RAG · 向量库与检索基建": "catRAG",
@@ -1216,6 +1217,9 @@ const html = `<!DOCTYPE html>
       border-radius: 8px;
       background: var(--panel);
       flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .card-body { min-width: 0; }
     .card-title { margin: 0; font-size: 0.95rem; font-weight: 600; }
@@ -1837,6 +1841,7 @@ const html = `<!DOCTYPE html>
         catAIFramework: "AI Dev Frameworks",
         catAPIRouter: "AI API · Routing · Inference Cloud",
         catAgentWorkflow: "AI Agents · Workflow & Automation",
+        catAIUsecases: "AI Use Cases · Scenarios & Best Practices",
         catLLMGateway: "LLM Gateway · Proxy · SDK & Observability",
         catMCP: "MCP · Model Context Protocol",
         catRAG: "RAG · Vector DB & Retrieval",
@@ -1907,6 +1912,7 @@ const html = `<!DOCTYPE html>
         catAIFramework: "AI 开发框架",
         catAPIRouter: "AI 模型 API · 路由聚合 · 推理云",
         catAgentWorkflow: "AI 智能体 · 工作流与自动化",
+        catAIUsecases: "AI 场景 · 用例与最佳实践",
         catLLMGateway: "LLM 网关 · 代理 · SDK 与可观测",
         catMCP: "MCP · 模型上下文协议与工具生态",
         catRAG: "RAG · 向量库与检索基建",
@@ -1991,6 +1997,71 @@ const html = `<!DOCTYPE html>
       if (s === "en" || s === "zh") initLang = s;
     } catch (e) {}
     applyLang(initLang);
+  })();
+
+  /* ---- Auto-favicon for placeholder icons ---- */
+  (function () {
+    var PH = ".card-icon-ph";
+    var FAVICON_SOURCES = [
+      function (d) { return "https://www.google.com/s2/favicons?domain=" + encodeURIComponent(d) + "&sz=64"; },
+      function (d) { return "https://icons.duckduckgo.com/ip3/" + d + ".ico"; },
+      function (d) { return "https://api.favicon.org.cn/getfavicon?url=" + encodeURIComponent("https://" + d) + "&size=64"; }
+    ];
+    var palette = ["#0969da","#1a7f37","#bf3989","#8250df","#cf222e","#953800","#0550ae","#116329","#8b5cf6","#db2777","#0284c7","#15803d"];
+    var els = document.querySelectorAll(PH);
+    if (!els.length) return;
+
+    function charColor(c) {
+      var code = c ? c.charCodeAt(0) : 0;
+      return palette[code % palette.length];
+    }
+
+    function getDomain(link) {
+      try { return new URL(link).hostname; } catch (e) { return ""; }
+    }
+
+    function makeFallback(title) {
+      var initial = (title || "").trim().charAt(0).toUpperCase() || "?";
+      var fb = document.createElement("span");
+      fb.className = "card-icon-ph";
+      fb.style.cssText = "display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;border-radius:8px;background:" + charColor(initial) + ";";
+      fb.textContent = initial;
+      return fb;
+    }
+
+    function tryLoad(span, domain, title, sourceIdx) {
+      if (sourceIdx >= FAVICON_SOURCES.length) {
+        span.replaceWith(makeFallback(title));
+        return;
+      }
+      var img = new Image();
+      img.width = 40;
+      img.height = 40;
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.style.cssText = "width:40px;height:40px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--panel);";
+      img.alt = "";
+      img.onload = function () { span.replaceWith(img); };
+      img.onerror = function () { tryLoad(span, domain, title, sourceIdx + 1); };
+      img.src = FAVICON_SOURCES[sourceIdx](domain);
+    }
+
+    var schedule = window.requestIdleCallback || function (cb) { setTimeout(cb, 1); };
+
+    schedule(function () {
+      for (var i = 0; i < els.length; i++) {
+        (function (span) {
+          var card = span.closest("article.card");
+          if (!card) return;
+          var link = card.getAttribute("data-link");
+          if (!link) return;
+          var domain = getDomain(link);
+          if (!domain) { span.replaceWith(makeFallback(card.getAttribute("data-title"))); return; }
+          var title = card.getAttribute("data-title") || "";
+          tryLoad(span, domain, title, 0);
+        })(els[i]);
+      }
+    });
   })();
   </script>
 </body>

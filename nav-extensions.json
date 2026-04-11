@@ -642,6 +642,24 @@
           "title": "Claude Code Marketplace",
           "subtitle": "Claude Code 插件/技能市场 → Claude Code 原生、部分兼容 Cursor/TRAE",
           "link": "https://claudemarketplaces.com/"
+        },
+        {
+          "title": "oh-my-claudecode",
+          "subtitle": "Claude Code 多 Agent 编排，19 个专业角色，Team Mode 自动流水线",
+          "link": "https://github.com/Yeachan-Heo/oh-my-claudecode",
+          "alias": "oh-my-claudecode,claude多agent"
+        },
+        {
+          "title": "oh-my-codex",
+          "subtitle": "OpenAI Codex CLI 多 Agent 编排，30 个角色，混合模型协作",
+          "link": "https://github.com/Yeachan-Heo/oh-my-codex",
+          "alias": "oh-my-codex,codex多agent"
+        },
+        {
+          "title": "claude-howto",
+          "subtitle": "Claude Code 完整学习指南，10 模块可视化教程与生产级模板",
+          "link": "https://github.com/luongnv89/claude-howto",
+          "alias": "claude-howto,claude教程"
         }
       ]
     },
@@ -836,6 +854,12 @@
           "title": "Steel.dev",
           "subtitle": "开发者向浏览器会话 API（自动化/Agent）",
           "link": "https://steel.dev/"
+        },
+        {
+          "title": "OpenScreen",
+          "subtitle": "Screen Studio 开源替代，屏幕录制 + 自动缩放 + 动态模糊",
+          "link": "https://github.com/siddharthvaddem/openscreen",
+          "alias": "openscreen,屏幕录制"
         }
       ]
     },
@@ -1377,6 +1401,222 @@
           "title": "ShellGPT",
           "subtitle": "自然语言生成 Shell 命令",
           "link": "https://github.com/TheR1D/shell_gpt"
+        }
+      ]
+    },
+    {
+      "id": "ext-token-optimize",
+      "name": "Token 优化 · 成本管控与追踪",
+      "tools": [
+        {
+          "title": "RTK",
+          "subtitle": "CLI 代理，过滤命令输出噪音，减少 LLM token 60-90%（Rust 单二进制）",
+          "link": "https://github.com/rtk-ai/rtk",
+          "alias": "rtk,token优化,cli代理"
+        },
+        {
+          "title": "Caveman",
+          "subtitle": "Claude Code/Codex 技能，压缩输出废话，token 最高省 87%（4K+ 星）",
+          "link": "https://github.com/JuliusBrussee/caveman",
+          "alias": "caveman,山顶洞人,输出压缩"
+        },
+        {
+          "title": "Token Saver",
+          "subtitle": "21 种处理器按文件类型智能压缩命令输出，兼容 Claude Code/Gemini CLI",
+          "link": "https://github.com/ppgranger/token-saver",
+          "alias": "token-saver,输出压缩,内容感知"
+        },
+        {
+          "title": "Tokscale",
+          "subtitle": "跨平台 CLI 追踪 AI 编程助手 token 用量与费用，含可视化排行榜（1.7K+ 星）",
+          "link": "https://github.com/junhoyeo/tokscale",
+          "alias": "tokscale,token追踪,token统计"
+        },
+        {
+          "title": "Token Optimizer",
+          "subtitle": "AI 对话上下文 10万+ → 8K，三层索引 + 智能压缩 + 任务隔离",
+          "link": "https://github.com/thanksandyou/token-optimizer",
+          "alias": "token-optimizer,上下文压缩"
+        },
+        {
+          "title": "codex-tokens-compress",
+          "subtitle": "AGENTS.md 规约压缩为高密度可执行规则，含文言文极限版",
+          "link": "https://github.com/LuckyKuang/codex-tokens-compress",
+          "alias": "agents压缩,指令压缩"
+        },
+        {
+          "title": "Terse",
+          "subtitle": "macOS/iOS 端 token 优化器，35+ 压缩策略，降低 prompt 成本 40-70%",
+          "link": "https://www.terseai.org/",
+          "alias": "terse,prompt压缩,macOS"
+        },
+        {
+          "title": "Token Tamer",
+          "subtitle": "JSON 格式化 + LLM token 优化工具包，精简 OpenAI/Claude/MCP 负载",
+          "link": "https://tokentamer.app/",
+          "alias": "token-tamer,json压缩"
+        }
+      ]
+    },
+    {
+      "id": "ext-agent-memory",
+      "name": "Agent 记忆 · 长期上下文与状态管理",
+      "tools": [
+        {
+          "title": "Mem0",
+          "subtitle": "通用 AI 记忆层，跨会话个性化，自改进记忆（25K+ 星）",
+          "link": "https://github.com/mem0ai/mem0",
+          "alias": "mem0,ai记忆,agent记忆"
+        },
+        {
+          "title": "Letta（MemGPT）",
+          "subtitle": "自编辑 Agent 运行时，虚拟上下文管理，分页长文档检索",
+          "link": "https://github.com/letta-ai/letta",
+          "alias": "letta,memgpt,虚拟上下文"
+        },
+        {
+          "title": "Zep",
+          "subtitle": "Agent 记忆与知识图谱，自动提取结构化事实，OpenAI 兼容",
+          "link": "https://github.com/getzep/zep",
+          "alias": "zep,知识图谱记忆"
+        },
+        {
+          "title": "Graphiti",
+          "subtitle": "知识图谱记忆层，时序实体与关系，支持增量更新",
+          "link": "https://github.com/getzep/graphiti",
+          "alias": "graphiti,图谱记忆"
+        },
+        {
+          "title": "Cognee",
+          "subtitle": "数据 → 知识图谱 → 记忆的流水线，支持多图数据库后端",
+          "link": "https://github.com/topoteretes/cognee",
+          "alias": "cognee,知识流水线"
+        },
+        {
+          "title": "LangGraph Checkpointer",
+          "subtitle": "LangGraph 内置状态持久化，支持断点续执行与时间旅行调试",
+          "link": "https://langchain-ai.github.io/langgraph/concepts/persistence/",
+          "alias": "langgraph checkpointer,状态持久化"
+        },
+        {
+          "title": "Hume AI",
+          "subtitle": "情感智能记忆，EVI 语音接口带情感理解与用户偏好学习",
+          "link": "https://hume.ai/",
+          "alias": "hume,情感记忆"
+        }
+      ]
+    },
+    {
+      "id": "ext-ai-video",
+      "name": "AI 视频生成 · 动效与数字人",
+      "tools": [
+        {
+          "title": "Runway",
+          "subtitle": "Gen-4 视频生成与编辑，专业影视向，图像/文生视频",
+          "link": "https://runwayml.com/",
+          "alias": "runway,gen4,视频生成"
+        },
+        {
+          "title": "Sora",
+          "subtitle": "OpenAI 视频生成模型，文生视频与图生视频",
+          "link": "https://sora.com/",
+          "alias": "sora,openai视频"
+        },
+        {
+          "title": "Pika",
+          "subtitle": "Pika 2.5，快速创意短视频生成，特效与局部编辑",
+          "link": "https://pika.art/",
+          "alias": "pika,短视频生成"
+        },
+        {
+          "title": "Higgsfield",
+          "subtitle": "高质量 AI 视频生成，电影级运镜与风格控制",
+          "link": "https://higgsfield.ai/",
+          "alias": "higgsfield,电影级视频"
+        },
+        {
+          "title": "Genmo",
+          "subtitle": "开源视频生成研究实验室，Mochi 模型（高保真运动）",
+          "link": "https://www.genmo.ai/",
+          "alias": "genmo,mochi,开源视频"
+        },
+        {
+          "title": "HeyGen",
+          "subtitle": "AI 数字人与视频翻译，企业营销/培训向",
+          "link": "https://www.heygen.com/",
+          "alias": "heygen,数字人,视频翻译"
+        },
+        {
+          "title": "D-ID",
+          "subtitle": "照片驱动数字人说话，批量视频制作",
+          "link": "https://www.d-id.com/",
+          "alias": "did,数字人说话"
+        },
+        {
+          "title": "Google Veo",
+          "subtitle": "Google DeepMind 视频生成模型，YouTube 集成",
+          "link": "https://deepmind.google/technologies/veo/",
+          "alias": "veo,google视频"
+        },
+        {
+          "title": "MiniMax 海螺视频",
+          "subtitle": "国产多模态视频生成，文/图/参考视频驱动",
+          "link": "https://hailuoai.com/video",
+          "alias": "海螺视频,minimax视频"
+        }
+      ]
+    },
+    {
+      "id": "ext-ai-research",
+      "name": "AI 科研 · 学术搜索与自动化",
+      "tools": [
+        {
+          "title": "AI-Scientist-v2",
+          "subtitle": "Sakana AI 全自动科研：从想法到论文，已发表 Nature",
+          "link": "https://github.com/SakanaAI/AI-Scientist-v2",
+          "alias": "ai-scientist,自动科研"
+        },
+        {
+          "title": "Elicit",
+          "subtitle": "论文检索、抽取与综述向问答",
+          "link": "https://elicit.org/",
+          "alias": "elicit,论文检索"
+        },
+        {
+          "title": "Consensus",
+          "subtitle": "科学共识检索，引用论文片段回答",
+          "link": "https://consensus.app/",
+          "alias": "consensus,科学共识"
+        },
+        {
+          "title": "SciSpace",
+          "subtitle": "AI 论文阅读器，PDF 对话、公式解释与方法论提取",
+          "link": "https://typeset.io/",
+          "alias": "scispace,论文阅读"
+        },
+        {
+          "title": "Semantic Scholar",
+          "subtitle": "学术搜索、引用与 TL;DR 摘要",
+          "link": "https://www.semanticscholar.org/",
+          "alias": "semantic scholar,学术搜索"
+        },
+        {
+          "title": "VibeVoice",
+          "subtitle": "微软开源语音 AI，90 分钟超长音频合成与识别",
+          "link": "https://github.com/microsoft/VibeVoice",
+          "alias": "vibevoice,微软语音,长音频"
+        },
+        {
+          "title": "TimesFM",
+          "subtitle": "Google Research 时序预测基础模型，零样本高精度",
+          "link": "https://github.com/google-research/timesfm",
+          "alias": "timesfm,时序预测"
+        },
+        {
+          "title": "Onyx",
+          "subtitle": "企业级 AI 搜索，多数据源（GitHub/Confluence 等）自然语言问答",
+          "link": "https://github.com/onyx-dot-app/onyx",
+          "alias": "onyx,danswer,企业搜索"
         }
       ]
     },

@@ -1530,7 +1530,7 @@ const html = `<!DOCTYPE html>
           <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册 →</a>
         </span>
       </div>
-      <p class="top-promo-ref" data-i18n-html="promoRef">推荐码 <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · 注册填写得 $2（首充 $20 起） <a class="top-promo-link" href="https://ofox.ai" target="_blank" rel="noopener noreferrer">立即了解 →</a></p>
+      <p class="top-promo-ref" data-i18n-html="promoRef">推荐码 <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · 注册填写得 $2（首充 $20 起） <a class="top-promo-link" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer">立即了解 →</a></p>
       <div class="top-promo-models">
       <span>Claude Opus 4.6</span>  
       <span>GPT-5.4</span>
@@ -1983,7 +1983,7 @@ const html = `<!DOCTYPE html>
         promoBadge: "合作推广",
         promoTitle: "OpenAI · Anthropic · Gemini 旗舰模型 · 国内直连免梯",
         promoCta: "立即注册 →",
-        promoRef: '推荐码 <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · 注册填写得 $2（首充 $20 起） <a class="top-promo-link" href="https://ofox.ai" target="_blank" rel="noopener noreferrer">立即了解 →</a>',
+        promoRef: '推荐码 <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · 注册填写得 $2（首充 $20 起） <a class="top-promo-link" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer">立即了解 →</a>',
         mailToTitle: "联系邮箱",        /* -- sidebar & fav -- */
         sidebarToggle: "☰ 导航",
         sidebarToggleAria: "展开/收起导航",

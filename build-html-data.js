@@ -1354,6 +1354,7 @@ const html = `<!DOCTYPE html>
       bottom: 4.75rem;
       z-index: 100;
       display: flex;
+      flex-direction: column;
       gap: 0.3rem;
     }
     .lang-float button {
@@ -1543,8 +1544,8 @@ const html = `<!DOCTYPE html>
     <p class="site-built">页面数据生成时间（构建）：${esc(generatedAtLabel)}（UTC 记录：${esc(generatedAt)}）</p>
   </footer>
   <div class="lang-float">
-    <button type="button" class="lang-btn" data-lang-set="zh">中</button>
     <button type="button" class="lang-btn" data-lang-set="en">EN</button>
+    <button type="button" class="lang-btn" data-lang-set="zh">中</button>
   </div>
   <button type="button" class="back-to-top" id="backToTop" aria-label="返回顶部" title="返回顶部" data-i18n-aria="backTopAria" data-i18n="backTop">↑ Top</button>
   <script>

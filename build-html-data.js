@@ -317,6 +317,9 @@ const catI18nMap = {
   "GEO / AEO · AI 搜索优化": "catGEO",
   "临时邮箱 · 匿名收件": "catTempEmail",
   "接码 · 短信验证与虚拟号": "catSMSVerify",
+  "AI 经典书籍与教材": "catAIBooksExt",
+  "AI 榜单 · 产品与工具排行": "catAIRankings",
+  "AI Skill · 提示技能与工具市场": "catAISkillHub",
 };
 
 function catI18nAttr(name) {
@@ -1000,6 +1003,19 @@ const html = `<!DOCTYPE html>
       color: var(--accent);
       word-break: break-all;
     }
+    a.top-promo-link {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-left: 0.35rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    a.top-promo-link:hover {
+      text-decoration: underline;
+    }
     .top-promo-code {
       font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
       font-size: 0.85em;
@@ -1510,11 +1526,11 @@ const html = `<!DOCTYPE html>
       <div class="top-promo-head">
         <span class="top-promo-badge" data-i18n="promoBadge">合作推广</span>
         <span class="top-promo-title-row">
-          <span class="top-promo-title" data-i18n="promoTitle">OpenAI · Anthropic · Gemini 等旗舰系官方模型，国内直连_免梯_稳定可用</span>
+          <span class="top-promo-title" data-i18n="promoTitle">OpenAI · Anthropic · Gemini 旗舰模型 · 国内直连免梯</span>
           <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册 →</a>
         </span>
       </div>
-      <p>充值时填写推荐码 <span class="top-promo-code" translate="no">AFF_BB0FNC</span>：好友获赠 $2.00，你可得 $3.00；每位好友需<strong>首充满 $20</strong>起计一次推荐。</p>
+      <p class="top-promo-ref" data-i18n-html="promoRef">推荐码 <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · 注册填写得 $2（首充 $20 起） <a class="top-promo-link" href="https://ofox.ai" target="_blank" rel="noopener noreferrer">立即了解 →</a></p>
       <div class="top-promo-models">
       <span>Claude Opus 4.6</span>  
       <span>GPT-5.4</span>
@@ -1883,8 +1899,9 @@ const html = `<!DOCTYPE html>
         themeLight: "Light",
         themeDark: "Dark",
         promoBadge: "Sponsored",
-        promoTitle: "OpenAI · Anthropic · Gemini & more – Direct access in China, no VPN needed",
+        promoTitle: "OpenAI · Anthropic · Gemini Flagship Models · Direct Access in China, No VPN Needed",
         promoCta: "Sign Up →",
+        promoRef: 'Referral code <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · Get $2 when you sign up (min. top-up $20) <a class="top-promo-link" href="https://ofox.ai" target="_blank" rel="noopener noreferrer">Learn More →</a>',
         mailToTitle: "Contact Email",
         /* -- sidebar & fav -- */
         sidebarToggle: "☰ Menu",
@@ -1947,7 +1964,12 @@ const html = `<!DOCTYPE html>
         catEdgeHardware: "Hardware · Edge Inference",
         catCompliance: "AI Compliance & Standards",
         catNetPrivacy: "Network · Privacy & Security",
-        catGEO: "GEO / AEO · AI Search Optimization"${toolI18nInjection}
+        catGEO: "GEO / AEO · AI Search Optimization",
+        catTempEmail: "Temp Email · Anonymous Inbox",
+        catSMSVerify: "SMS Verify · Virtual Numbers",
+        catAIBooksExt: "AI Classic Books & Textbooks",
+        catAIRankings: "AI Rankings · Product & Tool Charts",
+        catAISkillHub: "AI Skill · Prompt Skills & Tool Market"${toolI18nInjection}
       },
       zh: {
         /* -- top bar -- */
@@ -1959,8 +1981,9 @@ const html = `<!DOCTYPE html>
         themeLight: "浅色",
         themeDark: "深色",
         promoBadge: "合作推广",
-        promoTitle: "OpenAI · Anthropic · Gemini 等旗舰系官方模型，国内直连_免梯_稳定可用",
+        promoTitle: "OpenAI · Anthropic · Gemini 旗舰模型 · 国内直连免梯",
         promoCta: "立即注册 →",
+        promoRef: '推荐码 <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · 注册填写得 $2（首充 $20 起） <a class="top-promo-link" href="https://ofox.ai" target="_blank" rel="noopener noreferrer">立即了解 →</a>',
         mailToTitle: "联系邮箱",        /* -- sidebar & fav -- */
         sidebarToggle: "☰ 导航",
         sidebarToggleAria: "展开/收起导航",
@@ -2024,7 +2047,10 @@ const html = `<!DOCTYPE html>
         catNetPrivacy: "网络工具 · 隐私与安全",
         catGEO: "GEO / AEO · AI 搜索优化",
         catTempEmail: "临时邮箱 · 匿名收件",
-        catSMSVerify: "接码 · 短信验证与虚拟号"
+        catSMSVerify: "接码 · 短信验证与虚拟号",
+        catAIBooksExt: "AI 经典书籍与教材",
+        catAIRankings: "AI 榜单 · 产品与工具排行",
+        catAISkillHub: "AI Skill · 提示技能与工具市场"
       }
     };
 
@@ -2043,6 +2069,11 @@ const html = `<!DOCTYPE html>
       document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
         var key = el.getAttribute("data-i18n-placeholder");
         if (dict[key] !== undefined) el.setAttribute("placeholder", dict[key]);
+      });
+      /* data-i18n-html: set innerHTML for elements containing child tags */
+      document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+        var key = el.getAttribute("data-i18n-html");
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
       });
       /* data-i18n-title */
       document.querySelectorAll("[data-i18n-title]").forEach(function (el) {

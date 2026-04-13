@@ -3169,27 +3169,7 @@
   },
   "SimpleLogin": {
     "title": "SimpleLogin",
-    "desc": "Email alias service, best for privacy protection"
-  },
-  "Proton Mail": {
-    "title": "Proton Mail",
-    "desc": "Swiss end-to-end encrypted email, privacy first"
-  },
-  "Tuta": {
-    "title": "Tuta",
-    "desc": "German fully encrypted email, no phone number required"
-  },
-  "Zoho Mail": {
-    "title": "Zoho Mail",
-    "desc": "Free custom domain email, direct access in China"
-  },
-  "iCloud 邮件": {
-    "title": "iCloud Mail",
-    "desc": "Apple ecosystem email, free with iCloud"
-  },
-  "DuckDuckGo Email": {
-    "title": "DuckDuckGo Email",
-    "desc": "Email alias forwarding, hide your real email"
+    "desc": "邮箱别名服务，隐私保护最佳"
   },
   "Lakera Guard": {
     "title": "Lakera Guard",
@@ -3577,27 +3557,47 @@
   },
   "Temp Mail": {
     "title": "Temp Mail",
-    "desc": "Most popular temp email, ready to use instantly"
+    "desc": "最流行的临时邮箱，即开即用"
   },
   "10 Minute Mail": {
     "title": "10 Minute Mail",
-    "desc": "Auto-destruct temp email in 10 minutes"
+    "desc": "10 分钟自动销毁临时邮箱"
   },
   "Guerrilla Mail": {
     "title": "Guerrilla Mail",
-    "desc": "Veteran free temp email, supports sending"
+    "desc": "老牌免费临时邮箱，支持发送"
   },
   "Maildrop": {
     "title": "Maildrop",
-    "desc": "Clean temp email, alias receiving"
+    "desc": "简洁临时邮箱，别名收件"
   },
   "EmailOnDeck": {
     "title": "EmailOnDeck",
-    "desc": "Developer-friendly temp email API"
+    "desc": "开发者友好的临时邮箱 API"
   },
   "Moakt": {
     "title": "Moakt",
-    "desc": "Free temp email with custom address"
+    "desc": "免费临时邮箱，支持自定义地址"
+  },
+  "Proton Mail": {
+    "title": "Proton Mail",
+    "desc": "瑞士端到端加密邮箱，隐私首选"
+  },
+  "Tuta": {
+    "title": "Tuta",
+    "desc": "德国全加密邮箱，无需手机号注册"
+  },
+  "Zoho Mail": {
+    "title": "Zoho Mail",
+    "desc": "免费自定义域名邮箱，国内直连"
+  },
+  "iCloud 邮件": {
+    "title": "iCloud 邮件",
+    "desc": "苹果生态邮箱，iCloud 免费自带"
+  },
+  "DuckDuckGo Email": {
+    "title": "DuckDuckGo Email",
+    "desc": "邮箱别名转发，隐藏真实邮箱"
   },
   "Twilio": {
     "title": "Twilio",

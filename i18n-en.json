@@ -1,0 +1,3722 @@
+{
+  "DeepSeek": {
+    "title": "DeepSeek",
+    "desc": "日常首推：推理强、免费好用，长文与写代码"
+  },
+  "豆包": {
+    "title": "Doubao",
+    "desc": "ByteDance — chat, creation, multimodal & Douyin ecosystem"
+  },
+  "Kimi": {
+    "title": "Kimi",
+    "desc": "长上下文，甩链接/文档做摘要与追问"
+  },
+  "通义千问": {
+    "title": "Tongyi Qianwen",
+    "desc": "Alibaba — office, Chinese & DingTalk scenarios"
+  },
+  "文心一言": {
+    "title": "Ernie Bot",
+    "desc": "Baidu — search & Chinese knowledge oriented"
+  },
+  "ChatGPT": {
+    "title": "ChatGPT",
+    "desc": "通用对话、写作、翻译与插件生态"
+  },
+  "Claude": {
+    "title": "Claude",
+    "desc": "长文写作、复杂推理与长对话"
+  },
+  "Gemini": {
+    "title": "Gemini",
+    "desc": "Google 多模态，与搜索/Workspace 联动"
+  },
+  "Grok": {
+    "title": "Grok",
+    "desc": "xAI 对话，网页版与 X / SuperGrok 等生态联动"
+  },
+  "Perplexity": {
+    "title": "Perplexity",
+    "desc": "带引用网页的搜索问答，查资料快"
+  },
+  "秘塔AI搜索": {
+    "title": "MetaSo AI Search",
+    "desc": "Chinese retrieval, structured results & academic oriented"
+  },
+  "沉浸式翻译": {
+    "title": "Immersive Translate",
+    "desc": "Bilingual webpage comparison, essential for papers & foreign sites"
+  },
+  "Coze": {
+    "title": "Coze",
+    "desc": "字节跳动旗下的AI聊天机器人构建平台，能够快速创建、调试和优化AI聊天机器人的应用程序"
+  },
+  "Le Chat": {
+    "title": "Le Chat",
+    "desc": "Mistral AI旗下AI对话工具，速度快，免费"
+  },
+  "Bing新必应": {
+    "title": "Bing New Copilot",
+    "desc": "Microsoft's new Bing with ChatGPT integration"
+  },
+  "钉钉·个人版": {
+    "title": "DingTalk Personal",
+    "desc": "DingTalk personal office app with AI creation, chat & painting"
+  },
+  "Google Bard": {
+    "title": "Google Bard",
+    "desc": "Google推出的AI聊天对话机器人Bard"
+  },
+  "海螺问问": {
+    "title": "Hailuo AI",
+    "desc": "MiniMax free AI chat assistant"
+  },
+  "紫东太初": {
+    "title": "Zidong Taichu",
+    "desc": "CAS & Wuhan AI Institute — 100B+ parameter multimodal model & assistant"
+  },
+  "智谱清言": {
+    "title": "ChatGLM",
+    "desc": "Zhipu AI generative assistant based on ChatGLM 2"
+  },
+  "小悟空": {
+    "title": "Xiao Wukong",
+    "desc": "ByteDance free AI chat assistant & personal aide"
+  },
+  "跃问": {
+    "title": "Yuewen",
+    "desc": "StepFun multimodal AI chatbot"
+  },
+  "冒泡鸭": {
+    "title": "Maopaoya",
+    "desc": "StepFun AI chatbot & agent platform"
+  },
+  "百川大模型": {
+    "title": "Baichuan",
+    "desc": "Baichuan Intelligence LLM assistant with intent understanding & RL"
+  },
+  "超级助理": {
+    "title": "Super Assistant",
+    "desc": "Baidu Cloud AI native app & Copilot based on Ernie Bot"
+  },
+  "MChat": {
+    "title": "MChat",
+    "desc": "基于孟子GPT大模型的AI对话机器人"
+  },
+  "Luca面壁露卡": {
+    "title": "Luca (FaceIP)",
+    "desc": "FaceIP 100B+ multimodal model free chat assistant"
+  },
+  "元象XChat": {
+    "title": "XVERSE Chat",
+    "desc": "XVERSE model-powered AI chat assistant"
+  },
+  "讯飞星火大模型": {
+    "title": "iFlytek Spark",
+    "desc": "iFlytek ChatGPT-like cognitive LLM"
+  },
+  "魔搭GPT": {
+    "title": "ModelScope GPT",
+    "desc": "Alibaba DAMO Academy — large/small model collaborative assistant with multimodal capabilities"
+  },
+  "Forefront": {
+    "title": "Forefront",
+    "desc": "提供GPT-3.5、GPT-4、Claude的AI聊天机器人"
+  },
+  "HuggingChat": {
+    "title": "HuggingChat",
+    "desc": "HuggingFace推出的在线聊天机器人，基于Open Assistant模型"
+  },
+  "BrainyAI": {
+    "title": "BrainyAI",
+    "desc": "一款聚合国内外最新的AI大模型和搜索引擎的浏览器插件"
+  },
+  "硅灵Ai": {
+    "title": "GuiLing AI",
+    "desc": "Aggregator for domestic & international LLMs and search engines"
+  },
+  "AI小聚": {
+    "title": "AI Xiaoju",
+    "desc": "Smart chat, writing, painting, audio/video creation platform"
+  },
+  "EmojiClick": {
+    "title": "EmojiClick",
+    "desc": "通过 AI 搜索找到合你心意的emoji，直接输入任何短语，如你的情绪，你的感受，一句诗，一句歌词"
+  },
+  "Phind": {
+    "title": "Phind",
+    "desc": "专为开发者设计的AI搜索引擎"
+  },
+  "Flowith": {
+    "title": "Flowith",
+    "desc": "画布式 Agent 与工作流，多模型编排"
+  },
+  "SearchGPT": {
+    "title": "SearchGPT",
+    "desc": "OpenAI 推出的 AI 搜索引擎原型"
+  },
+  "N搜索": {
+    "title": "N Search",
+    "desc": "AI-powered intelligent search engine"
+  },
+  "百度搜索": {
+    "title": "Baidu Search",
+    "desc": "Baidu AI-powered smart search engine"
+  },
+  "知乎直达": {
+    "title": "Zhihu Direct",
+    "desc": "Zhihu AI search engine"
+  },
+  "360AI搜索": {
+    "title": "360 AI Search",
+    "desc": "360 next-gen AI search engine"
+  },
+  "天工AI搜索": {
+    "title": "Tiangong AI Search",
+    "desc": "Kunlun Tech AI search with LLM integration"
+  },
+  "Devv": {
+    "title": "Devv",
+    "desc": "面向程序员的新一代AI搜索引擎"
+  },
+  "Globe Explorer": {
+    "title": "Globe Explorer",
+    "desc": "结构化AI知识搜索引擎"
+  },
+  "iAsk AI": {
+    "title": "iAsk AI",
+    "desc": "快速准确的AI搜索引擎"
+  },
+  "Consensus": {
+    "title": "Consensus",
+    "desc": "科学共识检索，引用论文片段回答"
+  },
+  "Komo Search": {
+    "title": "Komo Search",
+    "desc": "简洁直观的AI搜索引擎"
+  },
+  "Searcholic": {
+    "title": "Searcholic",
+    "desc": "AI驱动的电子书和文档搜索引擎"
+  },
+  "Andi": {
+    "title": "Andi",
+    "desc": "对话式人工智能搜索引擎"
+  },
+  "Songtell": {
+    "title": "Songtell",
+    "desc": "AI驱动的音乐百科搜索引擎"
+  },
+  "博查AI搜索": {
+    "title": "Bocha AI Search",
+    "desc": "Multi-model AI search engine"
+  },
+  "ThinkAny": {
+    "title": "ThinkAny",
+    "desc": "新时代的AI搜索引擎"
+  },
+  "Miku": {
+    "title": "Miku",
+    "desc": "快速精准的AI搜索引擎"
+  },
+  "卡奥斯智能引擎": {
+    "title": "COSMOPlat Engine",
+    "desc": "Industrial AI engine by COSMOPlat, combining Haier's 40-year manufacturing expertise"
+  },
+  "职徒简历": {
+    "title": "Zhitu Resume",
+    "desc": "Smart resume builder with GPT-based optimization & writing"
+  },
+  "TinyWow": {
+    "title": "TinyWow",
+    "desc": "免费在线AI工具箱"
+  },
+  "ima.copilot": {
+    "title": "ima.copilot",
+    "desc": "腾讯推出的AI智能工作台产品，基于混元大模型"
+  },
+  "Glif": {
+    "title": "Glif",
+    "desc": "无代码的AI小工具构建平台"
+  },
+  "速创猫AI简历": {
+    "title": "Suchuangmao Resume",
+    "desc": "One-click high-quality resume generation"
+  },
+  "Timely": {
+    "title": "Timely",
+    "desc": "AI时间管理跟踪软件"
+  },
+  "NotebookLM": {
+    "title": "NotebookLM",
+    "desc": "谷歌推出的AI笔记应用，5分钟生成一段对话播客"
+  },
+  "司马诸葛": {
+    "title": "司马诸葛",
+    "desc": "企业级AI数字员工平台"
+  },
+  "Hoarder": {
+    "title": "Hoarder",
+    "desc": "开源的基于AI的书签和个人知识库管理工具"
+  },
+  "Einstein Copilot": {
+    "title": "Einstein Copilot",
+    "desc": "Salesforce推出的CRM系统AI对话助手"
+  },
+  "YOO简历": {
+    "title": "YOO简历",
+    "desc": "必优科技推出的AI简历生成工具"
+  },
+  "云一朵": {
+    "title": "YunYiduo",
+    "desc": "Baidu Netdisk smart assistant"
+  },
+  "影刀AI Power": {
+    "title": "Yingdao AI Power",
+    "desc": "No-code AI development & integration platform for enterprise"
+  },
+  "靠谱AI": {
+    "title": "Kaopu AI",
+    "desc": "No-code AI bot creation platform"
+  },
+  "神笔简历": {
+    "title": "Shenbi Resume",
+    "desc": "AI resume platform — one-stop job seeking service"
+  },
+  "Raycast AI": {
+    "title": "Raycast AI",
+    "desc": "Raycast推出的Mac AI助手，智能写作、编程、回答问题等"
+  },
+  "苏打办公": {
+    "title": "Soda Office",
+    "desc": "360 all-in-one AI office tools"
+  },
+  "通答AI": {
+    "title": "Tongda AI",
+    "desc": "Enterprise AI digital employee generation platform"
+  },
+  "熊猫办公": {
+    "title": "Panda Office",
+    "desc": "AI office service — PPT, Excel, Word templates & more"
+  },
+  "职得简历": {
+    "title": "Zhide Resume",
+    "desc": "Online AI resume generator"
+  },
+  "Zapier AI": {
+    "title": "Zapier AI",
+    "desc": "SaaS 集成 + AI 动作与自动化"
+  },
+  "通义晓蜜": {
+    "title": "Tongyi Xiaomi",
+    "desc": "Alibaba enterprise intelligent service solution"
+  },
+  "WPS灵犀": {
+    "title": "WPS Lingxi",
+    "desc": "WPS AI office assistant — PPT generation & AI writing"
+  },
+  "奇觅": {
+    "title": "Qimi",
+    "desc": "Meitu game ad AI creation & delivery platform"
+  },
+  "怪兽AI知识库": {
+    "title": "Monster AI KB",
+    "desc": "Enterprise knowledge base LLM + smart AI Q&A bot"
+  },
+  "小微助手": {
+    "title": "Xiaowei Assistant",
+    "desc": "WeChat desktop AI efficiency assistant"
+  },
+  "Merlin": {
+    "title": "Merlin",
+    "desc": "基于ChatGPT的Chrome浏览器扩展，浏览任意网页时利用GPT"
+  },
+  "奇妙问": {
+    "title": "Qimiawen",
+    "desc": "Enterprise AI digital employee generation platform"
+  },
+  "小易AI": {
+    "title": "Xiaoyi AI",
+    "desc": "YEQIxiu AI office tool"
+  },
+  "蓝字典AI求职": {
+    "title": "Lanzidian AI Job",
+    "desc": "AI job search — resume generation & mock interview"
+  },
+  "Monica": {
+    "title": "Monica",
+    "desc": "全能AI助手，提供聊天、搜索、写作、翻译等多功能服务"
+  },
+  "ChatDOC": {
+    "title": "ChatDOC",
+    "desc": "基于ChatGPT的文档阅读工具"
+  },
+  "PMAI": {
+    "title": "PMAI",
+    "desc": "面向产品经理的AI助手"
+  },
+  "知我AI": {
+    "title": "Zhiwo AI",
+    "desc": "Smart reading bot"
+  },
+  "Acrobat AI": {
+    "title": "Acrobat AI",
+    "desc": "Adobe Acrobat PDF文档AI助手"
+  },
+  "腾讯问卷": {
+    "title": "腾讯问卷",
+    "desc": "AI生成调查问卷的免费工具"
+  },
+  "Cubox": {
+    "title": "Cubox",
+    "desc": "AI阅读学习助手和信息管理工具"
+  },
+  "腾讯文档智能助手": {
+    "title": "Tencent Docs AI",
+    "desc": "Tencent AI document generation & assistance"
+  },
+  "有道速读": {
+    "title": "Youdao Speed Read",
+    "desc": "NetEase Youdao AI paper & document reading assistant"
+  },
+  "txyz": {
+    "title": "txyz",
+    "desc": "AI文献阅读和学术研究辅助平台"
+  },
+  "Coda AI": {
+    "title": "Coda AI",
+    "desc": "在线协作平台Coda推出的AI写作和文档助手"
+  },
+  "万知": {
+    "title": "Wanzhi",
+    "desc": "01.AI one-stop AI document reading & PPT creation workspace"
+  },
+  "WPS AI": {
+    "title": "WPS AI",
+    "desc": "WPS推出的AI办公助手"
+  },
+  "通义智文": {
+    "title": "Tongyi Zhiwen",
+    "desc": "Tongyi model-powered AI reading assistant"
+  },
+  "百度文库AI助手": {
+    "title": "Baidu Wenku AI",
+    "desc": "Ernie Bot-based one-stop smart document assistant"
+  },
+  "PDF.ai": {
+    "title": "PDF.ai",
+    "desc": "AI PDF文档阅读工具，智能文档总结摘要"
+  },
+  "星火科研助手": {
+    "title": "Spark Research AI",
+    "desc": "iFlytek & CAS AI research literature assistant"
+  },
+  "印象AI": {
+    "title": "Impression AI",
+    "desc": "Evernote AI knowledge & information management"
+  },
+  "Craft AI Assistant": {
+    "title": "Craft AI Assistant",
+    "desc": "在线文档工具Craft推出的AI文档和创作助手"
+  },
+  "Humata": {
+    "title": "Humata",
+    "desc": "基于GPT的AI文档分析、阅读和问答工具"
+  },
+  "Rossum.ai": {
+    "title": "Rossum.ai",
+    "desc": "现代化的AI文档处理工具"
+  },
+  "Super AI": {
+    "title": "Super AI",
+    "desc": "AI复杂文档自动识别处理转换"
+  },
+  "字语智能": {
+    "title": "Ziyu Smart",
+    "desc": "One-stop smart Office content creation platform"
+  },
+  "星火文档问答": {
+    "title": "Spark Doc Q&A",
+    "desc": "iFlytek Spark LLM-based document & knowledge base Q&A"
+  },
+  "Fireflies.ai": {
+    "title": "Fireflies.ai",
+    "desc": "会议录制、转写、摘要与 CRM 集成"
+  },
+  "Zoom Workplace": {
+    "title": "Zoom Workplace",
+    "desc": "Zoom推出的AI办公协作和交流沟通平台"
+  },
+  "讯飞会议": {
+    "title": "iFlytek Meeting",
+    "desc": "AI meeting system — real-time captions, translation & auto-minutes"
+  },
+  "Otter.ai": {
+    "title": "Otter.ai",
+    "desc": "实时转写、摘要与会议搜索"
+  },
+  "腾讯会议AI小助手": {
+    "title": "Tencent Meeting AI",
+    "desc": "Tencent Meeting AI content assistant"
+  },
+  "Noty.ai": {
+    "title": "Noty.ai",
+    "desc": "ChatGPT驱动的AI会议转录工具"
+  },
+  "麦耳会记": {
+    "title": "Maier Minutes",
+    "desc": "Cambrian AI meeting assistant — speech-to-text, subtitles & AI summary"
+  },
+  "简单听记": {
+    "title": "Simple Transcribe",
+    "desc": "Baidu Netdisk AI speech-to-text tool"
+  },
+  "飞书妙记": {
+    "title": "Feishu Minutes",
+    "desc": "Audio/video transcription, minutes & to-dos (Feishu integrated)"
+  },
+  "Airgram": {
+    "title": "Airgram",
+    "desc": "自动会议笔记和总结的AI助手"
+  },
+  "通义听悟": {
+    "title": "Tongyi Tingwu",
+    "desc": "Alibaba AI meeting transcription tool"
+  },
+  "听脑AI": {
+    "title": "Tingnao AI",
+    "desc": "AI voice recording & note assistant"
+  },
+  "维格表格": {
+    "title": "Vika Table",
+    "desc": "Multidimensional table AI processing tool"
+  },
+  "办公小浣熊": {
+    "title": "Office Raccoon",
+    "desc": "SenseTime AI office assistant"
+  },
+  "Sheet+": {
+    "title": "Sheet+",
+    "desc": "Excel和Google Sheets表格AI处理工具"
+  },
+  "FormX.ai": {
+    "title": "FormX.ai",
+    "desc": "AI自动从表格和文档中提取数据"
+  },
+  "Formula bot": {
+    "title": "Formula bot",
+    "desc": "AI将指令转换成Excel的函数公式"
+  },
+  "Rows": {
+    "title": "Rows",
+    "desc": "集成了AI功能的在线表格处理工具"
+  },
+  "Excelly-AI": {
+    "title": "Excelly-AI",
+    "desc": "将文本转换成Excel或Google Sheets公式"
+  },
+  "SheetGod": {
+    "title": "SheetGod",
+    "desc": "BoloForms推出的AI Excel公式生成工具"
+  },
+  "北极九章": {
+    "title": "Beiji Data",
+    "desc": "Beiji Data AI data analysis platform"
+  },
+  "酷表ChatExcel": {
+    "title": "ChatExcel",
+    "desc": "AI Excel data analysis assistant"
+  },
+  "轻云图": {
+    "title": "Qingyuntu",
+    "desc": "BIYO Tech AI one-click visual cloud chart generator"
+  },
+  "Ajelix": {
+    "title": "Ajelix",
+    "desc": "处理Excel和Google Sheets表格的AI工具"
+  },
+  "百度GBI": {
+    "title": "Baidu GBI",
+    "desc": "Baidu global business intelligence platform"
+  },
+  "Excel Formularizer": {
+    "title": "Excel Formularizer",
+    "desc": "AI将文本输入转换为Excel公式处理"
+  },
+  "AiPPT": {
+    "title": "AiPPT",
+    "desc": "AI one-click PPT generation with premium templates"
+  },
+  "LivePPT": {
+    "title": "LivePPT",
+    "desc": "Meitu AI high-quality PPT generator"
+  },
+  "歌者AI": {
+    "title": "Gezhe AI",
+    "desc": "Caixuan PPT AI PPT generation tool"
+  },
+  "Gamma App": {
+    "title": "Gamma App",
+    "desc": "AI幻灯片演示生成工具"
+  },
+  "文多多AIPPT": {
+    "title": "Wenduoduo PPT",
+    "desc": "AI auto-generates complete PPT from a title or topic"
+  },
+  "MindShow": {
+    "title": "MindShow",
+    "desc": "AI驱动的演示文稿生成工具，一键生成精美PPT"
+  },
+  "灵感PPT": {
+    "title": "Linggan PPT",
+    "desc": "AI smart PPT generation — one-click beautiful slides"
+  },
+  "ChatPPT": {
+    "title": "ChatPPT",
+    "desc": "AI conversational PPT generation with smart layout"
+  },
+  "比格AI PPT": {
+    "title": "BigPPT AI",
+    "desc": "Efficient AI PPT generator"
+  },
+  "Decktopus AI": {
+    "title": "Decktopus AI",
+    "desc": "AI驱动的的在线演示文稿生成器"
+  },
+  "讯飞智文": {
+    "title": "iFlytek Zhiwen",
+    "desc": "iFlytek free AI PPT generator"
+  },
+  "beautiful.ai": {
+    "title": "beautiful.ai",
+    "desc": "AI创建展示幻灯片"
+  },
+  "轻竹办公": {
+    "title": "Qingzhu Office",
+    "desc": "Online AI PPT generation & design tool"
+  },
+  "SlidesAI": {
+    "title": "SlidesAI",
+    "desc": "AI快速创建演示幻灯片"
+  },
+  "Presentations": {
+    "title": "Presentations",
+    "desc": "演示文档版的ChatGPT"
+  },
+  "ChatBA": {
+    "title": "ChatBA",
+    "desc": "AI幻灯片生成工具"
+  },
+  "Powerpresent AI": {
+    "title": "Powerpresent AI",
+    "desc": "AI创建精美的演示稿"
+  },
+  "Chronicle": {
+    "title": "Chronicle",
+    "desc": "AI高颜值演示文稿创建"
+  },
+  "Tome": {
+    "title": "Tome",
+    "desc": "AI创作叙事性幻灯片"
+  },
+  "auxi": {
+    "title": "auxi",
+    "desc": "功能强大的PowerPoint AI插件"
+  },
+  "ProcessOn": {
+    "title": "ProcessOn",
+    "desc": "在线AI流程图和思维导图制作工具"
+  },
+  "亿图脑图": {
+    "title": "EdrawMind",
+    "desc": "EdrawMind AI mind map assistant"
+  },
+  "Taskade": {
+    "title": "Taskade",
+    "desc": "高颜值AI大纲和思维导图生成"
+  },
+  "博思AI白板": {
+    "title": "Boardmix AI",
+    "desc": "Boardmix AI — auto-generate text & mind maps"
+  },
+  "TreeMind树图": {
+    "title": "TreeMind",
+    "desc": "Next-gen AI smart mind map"
+  },
+  "小画桌": {
+    "title": "Xiaohuazhuo",
+    "desc": "Online collaborative whiteboard with AIGC features"
+  },
+  "印象图记": {
+    "title": "Impression Maps",
+    "desc": "Evernote AI-powered online mind map tool"
+  },
+  "知犀AI": {
+    "title": "Zhixi AI",
+    "desc": "Zhixi AI mind map generator"
+  },
+  "Xmind AI": {
+    "title": "Xmind AI",
+    "desc": "全功能的云端思维导图和头脑风暴软件，配备AI助手"
+  },
+  "妙办画板": {
+    "title": "Miaoban Canvas",
+    "desc": "Free online drawing tool with AI creation & mind maps"
+  },
+  "GitMind": {
+    "title": "GitMind",
+    "desc": "AI思维导图流程图白板制作软件"
+  },
+  "Mapify": {
+    "title": "Mapify",
+    "desc": "AI将任何内容转换为思维导图，前身为Chatmind"
+  },
+  "Whimsical": {
+    "title": "Whimsical",
+    "desc": "产品团队的迭代工作空间"
+  },
+  "AmyMind": {
+    "title": "AmyMind",
+    "desc": "开箱即用的在线AI思维导图工具"
+  },
+  "Miro AI": {
+    "title": "Miro AI",
+    "desc": "利用Miro AI加速创新"
+  },
+  "小鱼写作": {
+    "title": "Xiaoyu Writing",
+    "desc": "AI auto-generates quality original content for multiple scenarios"
+  },
+  "66AI论文": {
+    "title": "66AI Paper",
+    "desc": "3 steps, 5 minutes — AI paper writing"
+  },
+  "小文AI论文": {
+    "title": "Xiaowen AI Paper",
+    "desc": "AI-assisted paper creation in 5-10 minutes"
+  },
+  "秘塔写作猫": {
+    "title": "MetaSo Writing Cat",
+    "desc": "AI writing — let the article write itself"
+  },
+  "晓语台": {
+    "title": "Xiaoyutai",
+    "desc": "Advanced click-based text creation for content & SEO"
+  },
+  "FlowUs AI": {
+    "title": "FlowUs AI",
+    "desc": "在线文档平台息流推出的AI创作助手，类似于Notion AI"
+  },
+  "万彩AI": {
+    "title": "Wancai AI",
+    "desc": "All-in-one AI content & copywriting assistant"
+  },
+  "火山写作": {
+    "title": "Volcano Writing",
+    "desc": "ByteDance free AI writing assistant"
+  },
+  "奇妙文": {
+    "title": "Qimiawen Writing",
+    "desc": "Mobvoi AI writing assistant"
+  },
+  "有道写作": {
+    "title": "Youdao Writing",
+    "desc": "NetEase Youdao smart English writing revision & polish"
+  },
+  "写作蛙": {
+    "title": "Writing Frog",
+    "desc": "Zhipu AI free smart writing tool"
+  },
+  "新华妙笔": {
+    "title": "Xinhua Miaobi",
+    "desc": "Xinhua News Agency AI official document writing platform"
+  },
+  "Copy.ai": {
+    "title": "Copy.ai",
+    "desc": "人工智能营销文案和内容创作工具"
+  },
+  "Magic Write": {
+    "title": "Magic Write",
+    "desc": "Canva旗下AI文案生成器"
+  },
+  "Jenni": {
+    "title": "Jenni",
+    "desc": "AI研究文章和博客写作辅助工具"
+  },
+  "Jasper": {
+    "title": "Jasper",
+    "desc": "AI文字内容创作工具"
+  },
+  "HyperWrite": {
+    "title": "HyperWrite",
+    "desc": "AI写作助手帮助你创作内容更自信"
+  },
+  "光速写作": {
+    "title": "Guangsu Writing",
+    "desc": "Zuoyebang AI writing tool"
+  },
+  "百度作家平台": {
+    "title": "Baidu Writer",
+    "desc": "Baidu free AI novel writing tool"
+  },
+  "星火内容运营大师": {
+    "title": "Spark Content Master",
+    "desc": "iFlytek Spark free AI writing & content ops tool"
+  },
+  "Rytr": {
+    "title": "Rytr",
+    "desc": "AI内容生成和写作助手"
+  },
+  "Grammarly": {
+    "title": "Grammarly",
+    "desc": "AI英语语法和拼写检查写作助手"
+  },
+  "Moonbeam": {
+    "title": "Moonbeam",
+    "desc": "长文章AI内容创作助手"
+  },
+  "文涌Effidit": {
+    "title": "Effidit",
+    "desc": "Tencent AI Lab smart writing assistant"
+  },
+  "彩云小梦": {
+    "title": "Caiyun Xiaomeng",
+    "desc": "Caiyun AI story writing tool"
+  },
+  "魔撰写作": {
+    "title": "MoZhuan Writing",
+    "desc": "Mobvoi AI smart writing tool"
+  },
+  "WriteWise": {
+    "title": "WriteWise",
+    "desc": "喜马拉雅推出的免费网文和小说AI写作工具"
+  },
+  "爱创作": {
+    "title": "Ai Chuangzuo",
+    "desc": "ZAKER News AI writing tool"
+  },
+  "Verse": {
+    "title": "Verse",
+    "desc": "印象笔记旗下团队推出的AI写作和文档工具"
+  },
+  "Paperpal": {
+    "title": "Paperpal",
+    "desc": "面向科研人员的AI写作工具"
+  },
+  "NovelAI": {
+    "title": "NovelAI",
+    "desc": "AI小说故事创作工具"
+  },
+  "WritingPal": {
+    "title": "WritingPal",
+    "desc": "面向留学生的AI英文写作工具"
+  },
+  "蛙蛙写作": {
+    "title": "Wawa Writing",
+    "desc": "AI novel & content creation tool"
+  },
+  "笔灵AI写作": {
+    "title": "Biling AI",
+    "desc": "AI writing tool for professional domains"
+  },
+  "星火公文写作助手": {
+    "title": "Spark Doc Writer",
+    "desc": "Efficient AI official document writing tool"
+  },
+  "DeepL Write": {
+    "title": "DeepL Write",
+    "desc": "DeepL推出的AI驱动的写作助手"
+  },
+  "QuillBot": {
+    "title": "QuillBot",
+    "desc": "AI英/德语写作润色和改进工具"
+  },
+  "Cohesive": {
+    "title": "Cohesive",
+    "desc": "人工智能文案内容创作和编辑工具"
+  },
+  "灵构AI笔记": {
+    "title": "Linggou Notes",
+    "desc": "Online secure AI notes for inspiration & idea organization"
+  },
+  "Notion AI": {
+    "title": "Notion AI",
+    "desc": "团队文档、数据库与 AI 写作/检索一体"
+  },
+  "深言达意": {
+    "title": "Shenyandayi",
+    "desc": "Free word/phrase lookup & smart writing aid — find words from vague descriptions"
+  },
+  "AI Undetect": {
+    "title": "AI Undetect",
+    "desc": "提供 AI 检测服务，将 AI 生成的文本转换为更像人类的形式"
+  },
+  "Writesonic": {
+    "title": "Writesonic",
+    "desc": "AI写作，文案，释义工具"
+  },
+  "红薯通AI": {
+    "title": "Hongshutong AI",
+    "desc": "AI writing tool designed for Xiaohongshu"
+  },
+  "NoteGPT": {
+    "title": "NoteGPT",
+    "desc": "免费的 AI 总结工具和 AI 生成器"
+  },
+  "厉害猫AI": {
+    "title": "Lihaicat AI",
+    "desc": "Leading AI all-profession office writing platform"
+  },
+  "AI Story Viewer": {
+    "title": "AI Story Viewer",
+    "desc": "用于社交媒体营销的 AI 故事查看器和生成器"
+  },
+  "ReadKidz": {
+    "title": "ReadKidz",
+    "desc": "一站式多媒体儿童故事创作平台"
+  },
+  "MarsCode": {
+    "title": "MarsCode",
+    "desc": "字节豆包旗下的编程助手，用AI助力编码，释放脑海中的创造力"
+  },
+  "Trae": {
+    "title": "Trae",
+    "desc": "字节跳动旗下的免费IDE，基于Clade大模型"
+  },
+  "Cursor": {
+    "title": "Cursor",
+    "desc": "编辑器内置 MCP 接入，连接本地/远程工具"
+  },
+  "Windsurf": {
+    "title": "Windsurf",
+    "desc": "Codeium推出的AI代码编辑器，支持多种编程语言"
+  },
+  "GitHub Copilot": {
+    "title": "GitHub Copilot",
+    "desc": "GitHub推出的AI编程工具"
+  },
+  "Comate": {
+    "title": "Comate",
+    "desc": "百度推出的AI编程助手，基于文心大模型"
+  },
+  "通义灵码": {
+    "title": "通义灵码",
+    "desc": "阿里推出的免费AI编程工具，基于通义大模型"
+  },
+  "CodeWhisperer": {
+    "title": "CodeWhisperer",
+    "desc": "亚马逊推出的免费AI编程助手"
+  },
+  "Cody": {
+    "title": "Cody",
+    "desc": "Sourcegraph推出的免费AI编程工具"
+  },
+  "Codeium": {
+    "title": "Codeium",
+    "desc": "免费的AI编程工具，智能生成和补全代码"
+  },
+  "DevChat": {
+    "title": "DevChat",
+    "desc": "开源的支持多款大模型的AI编程助手"
+  },
+  "Sketch2Code": {
+    "title": "Sketch2Code",
+    "desc": "微软AI Lab推出的将手绘草图转换成HTML代码工具"
+  },
+  "CodiumAI": {
+    "title": "CodiumAI",
+    "desc": "免费的AI代码测试和分析工具"
+  },
+  "CodeGeeX": {
+    "title": "CodeGeeX",
+    "desc": "智谱AI推出的免费AI编程助手"
+  },
+  "CodeFuse": {
+    "title": "CodeFuse",
+    "desc": "蚂蚁集团推出的AI代码编程助手"
+  },
+  "Tabby": {
+    "title": "Tabby",
+    "desc": "免费开源的自托管AI编程助手"
+  },
+  "iFlyCode": {
+    "title": "iFlyCode",
+    "desc": "科大讯飞推出的智能编程助手"
+  },
+  "代码小浣熊": {
+    "title": "代码小浣熊",
+    "desc": "商汤科技推出的智能AI编程助手"
+  },
+  "Devin": {
+    "title": "Devin",
+    "desc": "首个全自主的AI软件工程师智能体"
+  },
+  "Fitten Code": {
+    "title": "Fitten Code",
+    "desc": "非十科技推出的免费AI代码助手"
+  },
+  "BLACKBOX AI": {
+    "title": "BLACKBOX AI",
+    "desc": "黑箱AI编程助理，快速代码生成"
+  },
+  "Solo": {
+    "title": "Solo",
+    "desc": "Mozilla推出的零编程无代码AI网站建设工具"
+  },
+  "JetBrains AI": {
+    "title": "JetBrains AI",
+    "desc": "JetBrains推出的AI编程开发助手"
+  },
+  "CodeArts Snap": {
+    "title": "CodeArts Snap",
+    "desc": "华为云推出的智能编程助手"
+  },
+  "AskCodi": {
+    "title": "AskCodi",
+    "desc": "你的个人AI编程助手"
+  },
+  "ChatDev": {
+    "title": "ChatDev",
+    "desc": "面壁智能推出的AI智能体软件开发平台，使用自然语言即可创建软件"
+  },
+  "v0.dev": {
+    "title": "v0.dev",
+    "desc": "AI生成前端React/UI组件，由Vercel推出"
+  },
+  "Boxy": {
+    "title": "Boxy",
+    "desc": "CodeSandbox推出的AI编程助手"
+  },
+  "Quest AI": {
+    "title": "Quest AI",
+    "desc": "AI将设计稿生成React代码，支持JavaScript和TypeScript"
+  },
+  "天工智码Skycode": {
+    "title": "天工智码Skycode",
+    "desc": "AI智能编程助手，轻松生成各种代码"
+  },
+  "JamGPT": {
+    "title": "JamGPT",
+    "desc": "AI Debug调试助手"
+  },
+  "aiXcoder": {
+    "title": "aiXcoder",
+    "desc": "自然语言到代码的方法级代码生成，以及多行智能代码补全"
+  },
+  "AirOps": {
+    "title": "AirOps",
+    "desc": "AI SQL语句生成和修改"
+  },
+  "Imgcook": {
+    "title": "Imgcook",
+    "desc": "阿里推出的免费设计稿智能生成前端代码"
+  },
+  "Deco": {
+    "title": "Deco",
+    "desc": "京东推出的设计稿一键生成多端代码工具"
+  },
+  "Ghostwriter": {
+    "title": "Ghostwriter",
+    "desc": "知名在线编程IDE Replit推出的AI编程助手"
+  },
+  "Codiga": {
+    "title": "Codiga",
+    "desc": "AI代码实时分析"
+  },
+  "Locofy": {
+    "title": "Locofy",
+    "desc": "AI无代码工具将Figma、Adobe XD和Sketch设计转换成前端代码"
+  },
+  "Fronty": {
+    "title": "Fronty",
+    "desc": "AI智能将图片转换成HTML和CSS代码"
+  },
+  "MarsX": {
+    "title": "MarsX",
+    "desc": "AI无代码软件开发"
+  },
+  "Tabnine": {
+    "title": "Tabnine",
+    "desc": "AI代码自动补全编程助手"
+  },
+  "Warp": {
+    "title": "Warp",
+    "desc": "终端 IDE 化，内置 AI 命令与 Agent 能力"
+  },
+  "Midjourney": {
+    "title": "Midjourney",
+    "desc": "AI图像和插画生成工具"
+  },
+  "Dreamina": {
+    "title": "Dreamina",
+    "desc": "抖音旗下推出的AI图片创作工具"
+  },
+  "堆友AI": {
+    "title": "堆友AI",
+    "desc": "阿里旗下堆友推出的多风格AI绘画生成器，卷不过身边人，就一起用AI偷偷加把劲"
+  },
+  "触手AI绘画": {
+    "title": "触手AI绘画",
+    "desc": "免费专业的AI绘画/模型/分享平台"
+  },
+  "Cutout.Pro": {
+    "title": "Cutout.Pro",
+    "desc": "AI在线处理图片"
+  },
+  "Dear Coloring": {
+    "title": "Dear Coloring",
+    "desc": "精美 AI 填色页，人人都能畅享创意！"
+  },
+  "秒画": {
+    "title": "Miaohua",
+    "desc": "SenseTech free AI painting & image generation"
+  },
+  "美图AI文生图": {
+    "title": "Meitu AI Text-to-Image",
+    "desc": "Meitu AI text-to-image generation tool"
+  },
+  "千图设计室AI助手": {
+    "title": "Qiantu AI Assistant",
+    "desc": "Free painting & cutout tool collection"
+  },
+  "Stable Diffusion": {
+    "title": "Stable Diffusion",
+    "desc": "StabilityAI推出的文本到图像生成AI"
+  },
+  "Bing Image Creator": {
+    "title": "Bing Image Creator",
+    "desc": "微软必应推出的图像生成工具"
+  },
+  "Upscayl": {
+    "title": "Upscayl",
+    "desc": "免费开源的AI图片无损放大工具"
+  },
+  "Ribbet.ai": {
+    "title": "Ribbet.ai",
+    "desc": "免费的多功能AI图片处理工具箱"
+  },
+  "remove.bg": {
+    "title": "remove.bg",
+    "desc": "强大的AI图片背景移除工具"
+  },
+  "ARC": {
+    "title": "ARC",
+    "desc": "腾讯旗下ARC实验室推出的免费AI图片处理工具"
+  },
+  "文心一格": {
+    "title": "Ernie YiGe",
+    "desc": "AI art & creative assistance platform"
+  },
+  "通义万相": {
+    "title": "Tongyi Wanxiang",
+    "desc": "Alibaba AI painting creation model"
+  },
+  "造梦日记": {
+    "title": "Dream Diary",
+    "desc": "AI painting — magic brush brings art to life"
+  },
+  "WHEE": {
+    "title": "WHEE",
+    "desc": "Meitu AI image & painting creation platform"
+  },
+  "PixWeaver": {
+    "title": "PixWeaver",
+    "desc": "ShengShu Tech AI painting & video generation"
+  },
+  "简单AI": {
+    "title": "Simple AI",
+    "desc": "Sohu AI image generation platform"
+  },
+  "LiblibAI·哩布哩布AI": {
+    "title": "LiblibAI",
+    "desc": "Leading China AI image creation & model sharing community"
+  },
+  "创客贴AI画匠": {
+    "title": "Chuangkit AI Artist",
+    "desc": "Chuangkit AI art generation tool"
+  },
+  "画宇宙": {
+    "title": "Hua Yuzhou",
+    "desc": "AI painting website"
+  },
+  "图查查": {
+    "title": "Tuchacha",
+    "desc": "360 AI image platform — smart cutout, remove, upscale & match"
+  },
+  "ClipDrop": {
+    "title": "ClipDrop",
+    "desc": "Stability.ai推出的AI图片处理系列工具"
+  },
+  "Leonardo.ai": {
+    "title": "Leonardo.ai",
+    "desc": "免费的AI绘画和图像生成工具和社区"
+  },
+  "Adobe Firefly": {
+    "title": "Adobe Firefly",
+    "desc": "Adobe最新推出的AI图片生成工具"
+  },
+  "稿定抠图": {
+    "title": "稿定抠图",
+    "desc": "稿定设计推出的AI自动消除背景工具"
+  },
+  "PhotoRoom": {
+    "title": "PhotoRoom",
+    "desc": "免费的AI图片背景移除和添加"
+  },
+  "BigJPG": {
+    "title": "BigJPG",
+    "desc": "免费的在线图片无损放大工具"
+  },
+  "360智绘": {
+    "title": "360 AI Paint",
+    "desc": "360 AI image & painting generation tool"
+  },
+  "Pic Copilot": {
+    "title": "Pic Copilot",
+    "desc": "阿里国际推出的AI商品营销图工具"
+  },
+  "MagicStudio": {
+    "title": "MagicStudio",
+    "desc": "高颜值AI图像处理工具"
+  },
+  "Booltool": {
+    "title": "Booltool",
+    "desc": "在线AI图像工具箱"
+  },
+  "悟空图像PhotoSir": {
+    "title": "PhotoSir",
+    "desc": "Next-gen professional image editor — smarter, faster, better"
+  },
+  "Graviti Diffus": {
+    "title": "Graviti Diffus",
+    "desc": "开箱即用的 Stable Diffusion WebUI 在线图像生成服务"
+  },
+  "AI改图神器": {
+    "title": "AI Image Editor",
+    "desc": "AI universal online image editor"
+  },
+  "Hama": {
+    "title": "Hama",
+    "desc": "在线抹除图片中不想要的物体"
+  },
+  "Civitai": {
+    "title": "Civitai",
+    "desc": "免费的AI图像绘画作品和模型分享平台和社区"
+  },
+  "FLUX.1": {
+    "title": "FLUX.1",
+    "desc": "FLUX.1 提供了一个免费的在线肖像生成器"
+  },
+  "iColoring": {
+    "title": "iColoring",
+    "desc": "iColoring.ai 是一款人工智能着色页生成器，可快速创建个性化设计"
+  },
+  "RunningHub": {
+    "title": "RunningHub",
+    "desc": "云端 ComfyUI 与工作流社区，按算力/用时付费，支持原生接口与 API"
+  },
+  "顽兔抠图": {
+    "title": "Wantu Cutout",
+    "desc": "Alibaba one-click product background removal"
+  },
+  "PicWish": {
+    "title": "PicWish",
+    "desc": "AI图片编辑和背景移除"
+  },
+  "Stylized": {
+    "title": "Stylized",
+    "desc": "AI产品图背景替换"
+  },
+  "GoProd": {
+    "title": "GoProd",
+    "desc": "Icons8推出的智能图片背景移除和无损放大二合一Mac应用"
+  },
+  "BGremover": {
+    "title": "BGremover",
+    "desc": "Vance AI推出的图片背景移除工具"
+  },
+  "一键抠图": {
+    "title": "1-Click Cutout",
+    "desc": "Online one-click cutout & background change"
+  },
+  "Hotpot Remover": {
+    "title": "Hotpot Remover",
+    "desc": "Hotpot.ai推出的图片背景移除工具"
+  },
+  "美图抠图": {
+    "title": "Meitu Cutout",
+    "desc": "Meitu AI smart cutout — one-click background removal"
+  },
+  "PhotoScissors": {
+    "title": "PhotoScissors",
+    "desc": "免费自动图片背景去除"
+  },
+  "ClippingMagic": {
+    "title": "ClippingMagic",
+    "desc": "魔术般地去除图片背景"
+  },
+  "Background Eraser": {
+    "title": "Background Eraser",
+    "desc": "AI自动删除图片背景"
+  },
+  "AiSoup": {
+    "title": "AiSoup",
+    "desc": "AI产品图背景融合、抠图、放大、抹除、修复工具"
+  },
+  "Icons8 Remover": {
+    "title": "Icons8 Remover",
+    "desc": "Icons8出品的免费图片背景移除工具"
+  },
+  "Pixian.AI": {
+    "title": "Pixian.AI",
+    "desc": "免费的AI图片背景抠除工具"
+  },
+  "Zyro Remover": {
+    "title": "Zyro Remover",
+    "desc": "Zyro推出的AI图片背景移除工具"
+  },
+  "Adobe Remover": {
+    "title": "Adobe Remover",
+    "desc": "Adobe Express的图片背景移除工具"
+  },
+  "ClipDrop Remove": {
+    "title": "ClipDrop Remove",
+    "desc": "ClipDrop出品的AI图片背景移除工具"
+  },
+  "Picsart Remover": {
+    "title": "Picsart Remover",
+    "desc": "Picsart旗下的Quicktools推出的图片背景移除工具"
+  },
+  "Removal.AI": {
+    "title": "Removal.AI",
+    "desc": "AI图片背景移除工具"
+  },
+  "Erase.bg": {
+    "title": "Erase.bg",
+    "desc": "在线抠图和去除图片背景"
+  },
+  "Pixelcut.ai": {
+    "title": "Pixelcut.ai",
+    "desc": "AI产品背景移除和替换"
+  },
+  "Slazzer": {
+    "title": "Slazzer",
+    "desc": "免费在线抠除图片背景"
+  },
+  "图可丽": {
+    "title": "Tukeli",
+    "desc": "AI image & video cutout — one-click magic tool"
+  },
+  "Booth.ai": {
+    "title": "Booth.ai",
+    "desc": "High-quality AI product showcase image generation"
+  },
+  "BgSub": {
+    "title": "BgSub",
+    "desc": "免费的保护隐私的AI图片背景去除工具"
+  },
+  "Bg Eraser": {
+    "title": "Bg Eraser",
+    "desc": "图片物体抹除和清理"
+  },
+  "SnapEdit": {
+    "title": "SnapEdit",
+    "desc": "AI移除图片中的任何物体"
+  },
+  "Cleanup.pictures": {
+    "title": "Cleanup.pictures",
+    "desc": "智能移除图片中的物体、文本、污迹、人物或任何不想要的东西"
+  },
+  "Cutout.Pro Retouch": {
+    "title": "Cutout.Pro Retouch",
+    "desc": "Cutout.Pro推出的AI图片物体涂抹去除工具"
+  },
+  "Magic Eraser": {
+    "title": "Magic Eraser",
+    "desc": "AI移除图片中不想要的物体"
+  },
+  "WatermarkRemover": {
+    "title": "WatermarkRemover",
+    "desc": "AI智能删除照片中的水印"
+  },
+  "腾讯智影": {
+    "title": "Tencent Zhiying",
+    "desc": "Tencent online smart video creation platform"
+  },
+  "Cococlip.AI": {
+    "title": "Cococlip.AI",
+    "desc": "使用 AI 视频编辑器创建从文本到视频并在社交媒体上赚钱"
+  },
+  "Sora": {
+    "title": "Sora",
+    "desc": "OpenAI 视频生成模型，文生视频与图生视频"
+  },
+  "Stable Video": {
+    "title": "Stable Video",
+    "desc": "Stability AI上线的AI视频生成工具"
+  },
+  "一帧秒创": {
+    "title": "Yizhen Secchuang",
+    "desc": "Simple & easy AI smart video creation platform"
+  },
+  "即创": {
+    "title": "Jichuang",
+    "desc": "Douyin one-stop smart creation — video, image & live"
+  },
+  "度加创作工具": {
+    "title": "DuJia Creator",
+    "desc": "Baidu official AIGC creation platform"
+  },
+  "Runway": {
+    "title": "Runway",
+    "desc": "Gen-4 视频生成与编辑，专业影视向，图像/文生视频"
+  },
+  "D-ID": {
+    "title": "D-ID",
+    "desc": "照片驱动数字人说话，批量视频制作"
+  },
+  "开拍": {
+    "title": "Kaipai",
+    "desc": "Meitu AI talking-head video maker"
+  },
+  "Gatekeep": {
+    "title": "Gatekeep",
+    "desc": "AI教学视频生成工具，可生成数学物理问题解释视频"
+  },
+  "WinkStudio": {
+    "title": "WinkStudio",
+    "desc": "Meitu desktop AI video editing tool"
+  },
+  "HeyGen": {
+    "title": "HeyGen",
+    "desc": "AI 数字人与视频翻译，企业营销/培训向"
+  },
+  "DomoAI": {
+    "title": "DomoAI",
+    "desc": "一键将照片和视频动漫化的AI工具"
+  },
+  "Morph Studio": {
+    "title": "Morph Studio",
+    "desc": "高质量的AI文本到视频生成工具"
+  },
+  "Haiper": {
+    "title": "Haiper",
+    "desc": "AI视频生成和重绘工具，支持文本/图像转视频"
+  },
+  "LTX Studio": {
+    "title": "LTX Studio",
+    "desc": "AI电影制作和视频短片生成平台"
+  },
+  "快剪辑": {
+    "title": "Quick Cut",
+    "desc": "360 AI video editor — AI clips, digital human, auto-captions, watermark removal"
+  },
+  "闪剪": {
+    "title": "ShanJian",
+    "desc": "AI digital human short video creation tool"
+  },
+  "Wonder Studio": {
+    "title": "Wonder Studio",
+    "desc": "AI自动为CG角色制作动画、打光并将其合成到真人场景中"
+  },
+  "Pika": {
+    "title": "Pika",
+    "desc": "Pika 2.5，快速创意短视频生成，特效与局部编辑"
+  },
+  "Clipfly": {
+    "title": "Clipfly",
+    "desc": "One-stop AI long video creation & editing platform"
+  },
+  "Capsule": {
+    "title": "Capsule",
+    "desc": "AI驱动的在线视频剪辑工具，个人和小团队免费"
+  },
+  "Unscreen": {
+    "title": "Unscreen",
+    "desc": "AI智能视频背景移除工具"
+  },
+  "EbSynth": {
+    "title": "EbSynth",
+    "desc": "AI将真人视频转化为油画风动画"
+  },
+  "Artflow": {
+    "title": "Artflow",
+    "desc": "AI创建生成视频动画"
+  },
+  "Kaiber": {
+    "title": "Kaiber",
+    "desc": "图片文字转视频的AI引擎"
+  },
+  "Typeframes": {
+    "title": "Typeframes",
+    "desc": "AI快速生成高质量的产品介绍视频"
+  },
+  "DreamFace": {
+    "title": "DreamFace",
+    "desc": "让图片动起来的AI工具"
+  },
+  "Mootion": {
+    "title": "Mootion",
+    "desc": "AI原生3D动画创作平台"
+  },
+  "Fliki": {
+    "title": "Fliki",
+    "desc": "AI文字转视频并配音"
+  },
+  "Anylang.ai": {
+    "title": "Anylang.ai",
+    "desc": "AI视频翻译并保持音色和口型的同步"
+  },
+  "DeepBrain": {
+    "title": "DeepBrain",
+    "desc": "AI口播视频生成工具"
+  },
+  "Lumen5": {
+    "title": "Lumen5",
+    "desc": "AI将博客文章转换成视频"
+  },
+  "Rephrase.ai": {
+    "title": "Rephrase.ai",
+    "desc": "AI文字到视频生成"
+  },
+  "来画": {
+    "title": "Laihua",
+    "desc": "Animation & digital human smart generation platform"
+  },
+  "万兴播爆": {
+    "title": "Wondershare Virbo",
+    "desc": "Wondershare AI digital human marketing video tool"
+  },
+  "奇妙元": {
+    "title": "QimiaoYuan",
+    "desc": "AI digital human video generation platform by Mobvoi"
+  },
+  "万彩微影": {
+    "title": "Wancai MicroVideo",
+    "desc": "AI smart auto-generation of animated short videos"
+  },
+  "绘影字幕": {
+    "title": "Huiying Subtitles",
+    "desc": "One-click smart auto-captioning for videos"
+  },
+  "录咖": {
+    "title": "Luka AI",
+    "desc": "One-stop AI audio/video summary & transcription"
+  },
+  "怪兽AI数字人": {
+    "title": "Monster AI Digital Human",
+    "desc": "AI digital human short video & live streaming platform"
+  },
+  "Suno AI": {
+    "title": "Suno AI",
+    "desc": "音乐创作辅助平台，让每个人都能制作音乐"
+  },
+  "Remusic": {
+    "title": "Remusic",
+    "desc": "免费的AI音乐、歌曲创作工具"
+  },
+  "Lamucal": {
+    "title": "Lamucal",
+    "desc": "该网站提供多功能的人工智能音乐工具，包括AI曲谱功能"
+  },
+  "LALAL.AI": {
+    "title": "LALAL.AI",
+    "desc": "AI人声乐器分离和提取"
+  },
+  "快转字幕": {
+    "title": "QuickSubs",
+    "desc": "AI speech/video to text & subtitle tool"
+  },
+  "网易天音": {
+    "title": "NetEase Tianyin",
+    "desc": "NetEase one-stop AI music creation tool"
+  },
+  "TME Studio": {
+    "title": "TME Studio",
+    "desc": "腾讯音乐推出的智能音乐创作助手"
+  },
+  "Stable Audio": {
+    "title": "Stable Audio",
+    "desc": "Stability 音乐与音效生成"
+  },
+  "Riffusion": {
+    "title": "Riffusion",
+    "desc": "AI生成不同风格的音乐，免费开源"
+  },
+  "讯飞智作": {
+    "title": "讯飞智作",
+    "desc": "科大讯飞推出的AI转语音和配音工具"
+  },
+  "Uberduck": {
+    "title": "Uberduck",
+    "desc": "开源的AI语音生成社区，5000多种不同的声音"
+  },
+  "ElevenLabs": {
+    "title": "ElevenLabs",
+    "desc": "语音合成、配音与开发者 API"
+  },
+  "魔音工坊": {
+    "title": "Moyin Workshop",
+    "desc": "AI voiceover software — human-like voice quality"
+  },
+  "大饼AI变声": {
+    "title": "Dabing AI Voice",
+    "desc": "Free pro AI voice changer — real-time voice transformation"
+  },
+  "Adobe Podcast": {
+    "title": "Adobe Podcast",
+    "desc": "Adobe推出的在线AI音频录制和编辑工具"
+  },
+  "X Studio": {
+    "title": "X Studio",
+    "desc": "网易云音乐与小冰智能联合推出的免费AI歌手音乐创作软件"
+  },
+  "ACE Studio": {
+    "title": "ACE Studio",
+    "desc": "中文 AI 歌手与歌声合成"
+  },
+  "蓝藻AI": {
+    "title": "Lanzao AI",
+    "desc": "Unisound AI voiceover & voice cloning platform"
+  },
+  "Reecho睿声": {
+    "title": "Reecho",
+    "desc": "Ultra-realistic Chinese/English AI voice cloning & generation"
+  },
+  "Deepgram": {
+    "title": "Deepgram",
+    "desc": "语音转写、流式识别与 TTS API"
+  },
+  "Audiobox": {
+    "title": "Audiobox",
+    "desc": "Meta推出的免费开源的AI语音和声音生成模型"
+  },
+  "Resemble.ai": {
+    "title": "Resemble.ai",
+    "desc": "AI人声生成工具"
+  },
+  "IBM Watson": {
+    "title": "IBM Watson",
+    "desc": "IBM Watson文字转语音"
+  },
+  "FakeYou": {
+    "title": "FakeYou",
+    "desc": "Deep Fake文本转语音"
+  },
+  "BGM猫": {
+    "title": "BGM Cat",
+    "desc": "Lingdongyin AI smart BGM music generation"
+  },
+  "音虫": {
+    "title": "SoundBug",
+    "desc": "Music production tool with AI arrangement"
+  },
+  "Mubert": {
+    "title": "Mubert",
+    "desc": "流媒体式无限配乐，直播与 App 背景音"
+  },
+  "Beatoven.ai": {
+    "title": "Beatoven.ai",
+    "desc": "免版税AI音乐创建平台"
+  },
+  "BeatBot": {
+    "title": "BeatBot",
+    "desc": "输入文本提示快速生成歌曲和音乐"
+  },
+  "NaturalReader": {
+    "title": "NaturalReader",
+    "desc": "AI文本转语音工具"
+  },
+  "AssemblyAI": {
+    "title": "AssemblyAI",
+    "desc": "语音理解与转写 API"
+  },
+  "Krisp": {
+    "title": "Krisp",
+    "desc": "AI噪音消除工具"
+  },
+  "Play.ht": {
+    "title": "Play.ht",
+    "desc": "超真实在线AI语音生成"
+  },
+  "Murf AI": {
+    "title": "Murf AI",
+    "desc": "AI文本转语音生成工具"
+  },
+  "Soundraw": {
+    "title": "Soundraw",
+    "desc": "按情绪与时长生成可授权配乐"
+  },
+  "Boomy": {
+    "title": "Boomy",
+    "desc": "快速生成单曲并分发到流媒体平台"
+  },
+  "LOVO AI": {
+    "title": "LOVO AI",
+    "desc": "AI人声和文本转语音生成工具"
+  },
+  "Typecast": {
+    "title": "Typecast",
+    "desc": "在线AI文字转语音生成工具"
+  },
+  "Veed AI Voice": {
+    "title": "Veed AI Voice",
+    "desc": "Veed推出的AI语音生成器"
+  },
+  "Clipchamp AI": {
+    "title": "Clipchamp AI",
+    "desc": "Clipchamp的文字转语音生成器"
+  },
+  "MetaVoice": {
+    "title": "MetaVoice",
+    "desc": "AI实时变声工具"
+  },
+  "Suno": {
+    "title": "Suno",
+    "desc": "词曲与人声完整歌曲生成"
+  },
+  "Udio": {
+    "title": "Udio",
+    "desc": "多风格音乐生成与人声段落"
+  },
+  "Synthesizer V": {
+    "title": "Synthesizer V",
+    "desc": "虚拟歌手编辑器，专业向歌声合成与调校"
+  },
+  "Kits.ai": {
+    "title": "Kits.ai",
+    "desc": "AI 人声与翻唱模型"
+  },
+  "Moises": {
+    "title": "Moises",
+    "desc": "分轨、去人声、变调变速"
+  },
+  "Meta AudioCraft / MusicGen": {
+    "title": "Meta AudioCraft / MusicGen",
+    "desc": "开源音乐生成模型与论文"
+  },
+  "RVC": {
+    "title": "RVC",
+    "desc": "开源检索式声音转换，翻唱/换声社区常用方案"
+  },
+  "海绵音乐": {
+    "title": "Sponge Music",
+    "desc": "ByteDance Chinese AI music creation"
+  },
+  "Music Muse": {
+    "title": "Music Muse",
+    "desc": "Chinese-oriented AI composition & song generation"
+  },
+  "AIVA": {
+    "title": "AIVA",
+    "desc": "古典与交响向作曲辅助"
+  },
+  "Endel": {
+    "title": "Endel",
+    "desc": "个性化氛围、专注与睡眠向生成音乐"
+  },
+  "MakeBestMusic": {
+    "title": "MakeBestMusic",
+    "desc": "文本 / 歌词生成歌曲与歌声"
+  },
+  "Recraft": {
+    "title": "Recraft",
+    "desc": "AI 设计神器，生成矢量艺术、3D 图像等"
+  },
+  "135 AI排版": {
+    "title": "135 AI Layout",
+    "desc": "AI one-click beautiful graphic layout — zero barrier"
+  },
+  "Collov AI": {
+    "title": "Collov AI",
+    "desc": "AI室内家居设计生成平台"
+  },
+  "智绘设计": {
+    "title": "Zhihui Design",
+    "desc": "Tencent smart design platform"
+  },
+  "LogoliveryAI": {
+    "title": "LogoliveryAI",
+    "desc": "免费的AI Logo生成器，提供SVG矢量格式"
+  },
+  "Creatie": {
+    "title": "Creatie",
+    "desc": "AI驱动的UI和UX设计工具"
+  },
+  "FigJam AI": {
+    "title": "FigJam AI",
+    "desc": "Figma推出的AI白板协作设计工具"
+  },
+  "Vectorizer.AI": {
+    "title": "Vectorizer.AI",
+    "desc": "AI一键将位图转换为矢量图片"
+  },
+  "模袋云AI": {
+    "title": "Modai Cloud AI",
+    "desc": "Architecture AI — large buildings, residences, interiors & landscape"
+  },
+  "Vizcom": {
+    "title": "Vizcom",
+    "desc": "AI渲染转化手绘图为产品设计图"
+  },
+  "美间AI": {
+    "title": "Meijian AI",
+    "desc": "Free AI design assistant — smart posters, proposals & product images"
+  },
+  "Pimento": {
+    "title": "Pimento",
+    "desc": "人工智能驱动的设计创意和视觉参考平台"
+  },
+  "稿定AI": {
+    "title": "Gaoding AI",
+    "desc": "One-stop AI creation & design platform"
+  },
+  "Kittl": {
+    "title": "Kittl",
+    "desc": "AI驱动的平面图形设计工具"
+  },
+  "Looka": {
+    "title": "Looka",
+    "desc": "AI在线设计和生成logo"
+  },
+  "Realibox AI": {
+    "title": "Realibox AI",
+    "desc": "AI免费将草图/模型生成3D渲染图"
+  },
+  "Ilus AI": {
+    "title": "Ilus AI",
+    "desc": "AI插画插图生成工具"
+  },
+  "Galileo AI": {
+    "title": "Galileo AI",
+    "desc": "自然语言生成高保真界面设计稿"
+  },
+  "Motiff": {
+    "title": "Motiff",
+    "desc": "猿辅导旗下公司推出的AI设计工具"
+  },
+  "Designs.ai": {
+    "title": "Designs.ai",
+    "desc": "AI设计工具"
+  },
+  "Spline AI": {
+    "title": "Spline AI",
+    "desc": "Spline推出的AI生成3D物体、动画、材质"
+  },
+  "Pixso AI": {
+    "title": "Pixso AI",
+    "desc": "Chinese online design tool with AI — text-to-image, chat & design"
+  },
+  "illostrationAI": {
+    "title": "illostrationAI",
+    "desc": "AI插画生成，low poly、3D、矢量、logo、像素风、皮克斯等风格"
+  },
+  "Krea AI": {
+    "title": "Krea AI",
+    "desc": "AI创意设计平台，实时AI图像生成和编辑"
+  },
+  "千图设计室AI海报": {
+    "title": "Qiantu AI Poster",
+    "desc": "Free batch generation of online editable AI posters"
+  },
+  "Recraft AI": {
+    "title": "Recraft AI",
+    "desc": "免费无限AI画板，生成高质量矢量艺术画、图标、3D图片和插画"
+  },
+  "MasterGo AI": {
+    "title": "MasterGo AI",
+    "desc": "Chinese product design tool smart UI design assistant"
+  },
+  "Dora AI": {
+    "title": "Dora AI",
+    "desc": "AI在线生成精美3D动画的网站"
+  },
+  "Wegic": {
+    "title": "Wegic",
+    "desc": "AI网页设计和建站开发工具"
+  },
+  "Magic Design": {
+    "title": "Magic Design",
+    "desc": "在线设计工具Canva推出的AI设计工具"
+  },
+  "Microsoft Designer": {
+    "title": "Microsoft Designer",
+    "desc": "微软推出的在线设计海报和宣传图工具"
+  },
+  "鹿班": {
+    "title": "Luban",
+    "desc": "Alibaba smart product image & poster design platform"
+  },
+  "Framer AI": {
+    "title": "Framer AI",
+    "desc": "站点布局、文案与组件级 AI"
+  },
+  "Logo Diffusion": {
+    "title": "Logo Diffusion",
+    "desc": "AI驱动的Logo和标志生成工具"
+  },
+  "美图设计室": {
+    "title": "Meitu Design Studio",
+    "desc": "AI image creation & design platform"
+  },
+  "酷家乐AI": {
+    "title": "Kujiale AI",
+    "desc": "Powerful AI home design software"
+  },
+  "Pictographic": {
+    "title": "Pictographic",
+    "desc": "AI插图资源库和生成平台"
+  },
+  "Fable Prism": {
+    "title": "Fable Prism",
+    "desc": "AI动效设计和动画效果制作工具"
+  },
+  "Stylar": {
+    "title": "Stylar",
+    "desc": "一站式AI图像编辑和设计工具"
+  },
+  "燕雀智造": {
+    "title": "Yanque ZhiZao",
+    "desc": "Professional online logo design platform"
+  },
+  "Packify.ai": {
+    "title": "Packify.ai",
+    "desc": "AI 包装设计机器人，让普通人通过简单的聊天就能创意设计自己的产品包装，并为电商产品摄影提供 AI 产品拍摄功能。"
+  },
+  "Ahaicon": {
+    "title": "Ahaicon",
+    "desc": "logo设计工具，简单易用。"
+  },
+  "v0 by Vercel": {
+    "title": "v0 by Vercel",
+    "desc": "提示生成 React / shadcn 组件界面"
+  },
+  "Meshy": {
+    "title": "Meshy",
+    "desc": "文本或参考图生成 3D 模型、贴图与绑定"
+  },
+  "Tripo": {
+    "title": "Tripo",
+    "desc": "文/图生成可用 3D 网格，游戏与电商素材向"
+  },
+  "Luma Dream Machine": {
+    "title": "Luma Dream Machine",
+    "desc": "AI 视频与 Genie 等视觉产品"
+  },
+  "Polycam": {
+    "title": "Polycam",
+    "desc": "手机扫描与 NeRF/高斯溅射等三维重建"
+  },
+  "Spline": {
+    "title": "Spline",
+    "desc": "浏览器内 3D/WebGL，AI 辅助物体与材质"
+  },
+  "Uizard": {
+    "title": "Uizard",
+    "desc": "截图/草图转可编辑 UI 原型"
+  },
+  "Rive": {
+    "title": "Rive",
+    "desc": "交互动画与状态机，可导出运行时"
+  },
+  "Figma Make": {
+    "title": "Figma Make",
+    "desc": "提示生成可交互原型 / 小型 Web 应用"
+  },
+  "Pencil": {
+    "title": "Pencil",
+    "desc": "AI 原生设计画布，可对接 Cursor / Codex 等出码"
+  },
+  "Readdy": {
+    "title": "Readdy",
+    "desc": "AI 建站与落地页生成"
+  },
+  "Google Stitch": {
+    "title": "Google Stitch",
+    "desc": "UI 稿转界面 / 应用向实验产品"
+  },
+  "Vidu": {
+    "title": "Vidu",
+    "desc": "ShengShu Tech AI video generation"
+  },
+  "可灵 Kling": {
+    "title": "Kling AI",
+    "desc": "Kuaishou AI video & image creation"
+  },
+  "即梦": {
+    "title": "Jimeng",
+    "desc": "CapCut-lineage AI image & video creation"
+  },
+  "腾讯混元3D": {
+    "title": "Tencent Hunyuan 3D",
+    "desc": "Text/image-to-3D with asset export"
+  },
+  "LiblibAI（哩布哩布）": {
+    "title": "LiblibAI",
+    "desc": "China AI image/video model & workflow community"
+  },
+  "堆友 D.design": {
+    "title": "D.design",
+    "desc": "Alibaba design tool & AI image generation/assets"
+  },
+  "Rodin（Hyper3D）": {
+    "title": "Rodin（Hyper3D）",
+    "desc": "图 / 文生 3D 网格，工业向导出"
+  },
+  "象寄翻译": {
+    "title": "Xiangji Translate",
+    "desc": "AI image & video translation — supports multiple languages"
+  },
+  "DeepL翻译": {
+    "title": "DeepL翻译",
+    "desc": "准确的人工智能翻译工具"
+  },
+  "阿里翻译": {
+    "title": "Alibaba Translate",
+    "desc": "Alibaba DAMO multi-domain multi-language online MT"
+  },
+  "火山翻译": {
+    "title": "Volcano Translate",
+    "desc": "ByteDance smart translation tool"
+  },
+  "必应翻译": {
+    "title": "Bing Translate",
+    "desc": "Microsoft Bing translation tool"
+  },
+  "Google翻译": {
+    "title": "Google翻译",
+    "desc": "Google免费提供的上百种语言智能翻译工具"
+  },
+  "百度翻译": {
+    "title": "Baidu Translate",
+    "desc": "200 languages mutual translation — connect the world!"
+  },
+  "腾讯翻译君": {
+    "title": "Tencent Translate",
+    "desc": "Your free portable translator"
+  },
+  "TranSmart": {
+    "title": "TranSmart",
+    "desc": "腾讯AI Lab推出的一款AI辅助翻译产品"
+  },
+  "讯飞智能翻译": {
+    "title": "iFlytek Translate",
+    "desc": "iFlytek AI translation platform"
+  },
+  "搜狗翻译": {
+    "title": "Sogou Translate",
+    "desc": "Your personal smart translation expert"
+  },
+  "彩云小译": {
+    "title": "Caiyun Translation",
+    "desc": "CN/JP/EN simultaneous interpreting, document & webpage translation"
+  },
+  "百度AI同传助手": {
+    "title": "Baidu AI Interpreter",
+    "desc": "Chinese-English audio/video simultaneous captioning tool"
+  },
+  "金山快译": {
+    "title": "Kingsoft FastTrans",
+    "desc": "Kingsoft WPS online translation platform"
+  },
+  "PublicPrompts": {
+    "title": "PublicPrompts",
+    "desc": "免费高质量的Prompts集合"
+  },
+  "Generrated": {
+    "title": "Generrated",
+    "desc": "超过7480个基于DALL·E 2的图片生成指令语句"
+  },
+  "AI Short": {
+    "title": "AI Short",
+    "desc": "AI提示词管理和共享平台"
+  },
+  "FlowGPT": {
+    "title": "FlowGPT",
+    "desc": "ChatGPT指令大全"
+  },
+  "Snack Prompt": {
+    "title": "Snack Prompt",
+    "desc": "探索最新的ChatGPT语义提示词"
+  },
+  "MJ Tool": {
+    "title": "MJ Tool",
+    "desc": "Midjourney Prompt帮助工具"
+  },
+  "Stable Diffusion Book": {
+    "title": "Stable Diffusion Book",
+    "desc": "OpenArt推出的针对Stable Diffusion指令的手册"
+  },
+  "ChatGPT Shortcut": {
+    "title": "ChatGPT Shortcut",
+    "desc": "开源的简单易用的ChatGPT快捷指令，让生产力加倍！"
+  },
+  "Visual Builder": {
+    "title": "Visual Builder",
+    "desc": "可视化AI提示语选择和搭建"
+  },
+  "PromptPerfect": {
+    "title": "PromptPerfect",
+    "desc": "专业的提示词优化工具，一站式开发、优化、调试和部署提示词"
+  },
+  "PromptBase": {
+    "title": "PromptBase",
+    "desc": "AI Prompts集合市场"
+  },
+  "ChatGPT Genius": {
+    "title": "ChatGPT Genius",
+    "desc": "免费开源的ChatGPT Prompt浏览器扩展"
+  },
+  "Awesome ChatGPT": {
+    "title": "Awesome ChatGPT",
+    "desc": "ChatGPT Prompts集合"
+  },
+  "PromptVine": {
+    "title": "PromptVine",
+    "desc": "ChatGPT Prompts和应用"
+  },
+  "Learning Prompt": {
+    "title": "Learning Prompt",
+    "desc": "免费的 Engineering 教程（中文开源）"
+  },
+  "AIPRM": {
+    "title": "AIPRM",
+    "desc": "主要针对于SEO和SaaS文案写作的ChatGPT Prompts浏览器扩展"
+  },
+  "LangGPT": {
+    "title": "LangGPT",
+    "desc": "帮助用户编写高质量的提示词（Prompt）"
+  },
+  "ClickPrompt": {
+    "title": "ClickPrompt",
+    "desc": "专为 编写者设计的工具"
+  },
+  "词魂": {
+    "title": "Cihun",
+    "desc": "AIGC premium prompt library"
+  },
+  "AI Generator": {
+    "title": "AI Generator",
+    "desc": "多功能的在线AI提示生成器工具"
+  },
+  "提示工程指南": {
+    "title": "Prompt Engineering Guide",
+    "desc": "Free open-source prompt engineering guide — 30K+ GitHub stars"
+  },
+  "PromptHero": {
+    "title": "PromptHero",
+    "desc": "发现Stable Diffusion、ChatGPT和Midjourney的提示用语"
+  },
+  "绘AI": {
+    "title": "HuiAI",
+    "desc": "AI painting prompt sharing platform"
+  },
+  "Writecream Detector": {
+    "title": "Writecream Detector",
+    "desc": "Writecream推出的AI内容检测工具"
+  },
+  "Sapling AI Detector": {
+    "title": "Sapling AI Detector",
+    "desc": "Sapling.ai推出的免费在线AI内容检测工具"
+  },
+  "GPTZero": {
+    "title": "GPTZero",
+    "desc": "超过百万人都在用的免费AI内容检测工具"
+  },
+  "CopyLeaks": {
+    "title": "CopyLeaks",
+    "desc": "AI内容检测和分级"
+  },
+  "GPT Detector": {
+    "title": "GPT Detector",
+    "desc": "在线检查文本是否由GPT-3或ChatGPT生成"
+  },
+  "X Detector": {
+    "title": "X Detector",
+    "desc": "最值得信赖的多语言 AI ​​内容检测器"
+  },
+  "Proofig": {
+    "title": "Proofig",
+    "desc": "AI检测科研图像是否造假抄袭"
+  },
+  "Originality.AI": {
+    "title": "Originality.AI",
+    "desc": "原创度和AI内容检测"
+  },
+  "AISEO AI Detector": {
+    "title": "AISEO AI Detector",
+    "desc": "AISEO推出的AI内容检测器"
+  },
+  "AI Content Detector": {
+    "title": "AI Content Detector",
+    "desc": "Writer推出的AI内容检测工具"
+  },
+  "Smodin AI Detector": {
+    "title": "Smodin AI Detector",
+    "desc": "多语种AI内容检测工具"
+  },
+  "StudyCorgi Detector": {
+    "title": "StudyCorgi Detector",
+    "desc": "免费的检测论文是否由ChatGPT生成的工具"
+  },
+  "Winston AI": {
+    "title": "Winston AI",
+    "desc": "强大的AI内容检测解决方案"
+  },
+  "通义法睿": {
+    "title": "Tongyi Farui",
+    "desc": "Alibaba free AI legal advisor"
+  },
+  "法行宝": {
+    "title": "Faxingbao",
+    "desc": "Baidu free AI legal assistant"
+  },
+  "合同嗖嗖": {
+    "title": "Hetong Sousou",
+    "desc": "Professional AI legal contract generator"
+  },
+  "得理法搜": {
+    "title": "Delifaso",
+    "desc": "AI legal intelligent search system"
+  },
+  "ChatLaw": {
+    "title": "ChatLaw",
+    "desc": "北大开源的法律大模型和助手"
+  },
+  "法智": {
+    "title": "Fazhi",
+    "desc": "Tonghuashun AI legal assistant"
+  },
+  "元典智库": {
+    "title": "Yuandian ThinkTank",
+    "desc": "Smart legal knowledge platform & search engine"
+  },
+  "海瑞智法": {
+    "title": "Hairui Zhifa",
+    "desc": "One-stop AI legal consultation assistant"
+  },
+  "Gemma": {
+    "title": "Gemma",
+    "desc": "谷歌推出的新一代轻量级开放模型"
+  },
+  "iuu.ai": {
+    "title": "iuu.ai",
+    "desc": "Largest AI tool & model directory — 6500+ sites, auto-updated by ChatGPT"
+  },
+  "讯飞星火认知大模型": {
+    "title": "iFlytek Spark LLM",
+    "desc": "iFlytek ChatGPT-like cognitive LLM"
+  },
+  "Jan": {
+    "title": "Jan",
+    "desc": "本地运行大模型并进行AI对话的工具，免费开源"
+  },
+  "GPT-4": {
+    "title": "GPT-4",
+    "desc": "OpenAI旗下最新的GPT-4模型"
+  },
+  "Auto-GPT": {
+    "title": "Auto-GPT",
+    "desc": "爆火的实现GPT-4完全自主的实验性开源项目，GitHub超10万星"
+  },
+  "AgentGPT": {
+    "title": "AgentGPT",
+    "desc": "在浏览器中组装、配置和部署自主人工智能的开源项目"
+  },
+  "悟道": {
+    "title": "WuDao",
+    "desc": "BAAI WuDao — China's first & world's largest AI model"
+  },
+  "腾讯混元大模型": {
+    "title": "Tencent Hunyuan",
+    "desc": "Tencent LLM with strong Chinese creation, complex reasoning & reliable execution"
+  },
+  "Ollama": {
+    "title": "Ollama",
+    "desc": "本机拉模型后在终端对话（与「本地推理」分类互补）"
+  },
+  "MiracleVision": {
+    "title": "MiracleVision",
+    "desc": "美图推出的AI视觉大模型，支持AI图像、设计和视频创作"
+  },
+  "Gradio": {
+    "title": "Gradio",
+    "desc": "开源的搭建机器学习模型UI界面的Python库"
+  },
+  "DeepFloyd IF": {
+    "title": "DeepFloyd IF",
+    "desc": "StabilityAI旗下的DeepFloyd团队推出的图片生成模型"
+  },
+  "Cohere": {
+    "title": "Cohere",
+    "desc": "企业向 RAG、Embed、重排与 Command 系列 API"
+  },
+  "DALL·E 3": {
+    "title": "DALL·E 3",
+    "desc": "OpenAI旗下最新的图像生成模型"
+  },
+  "Codex": {
+    "title": "Codex",
+    "desc": "OpenAI旗下AI代码生成训练模型"
+  },
+  "文心大模型": {
+    "title": "Ernie LLM",
+    "desc": "Baidu industrial-grade knowledge-enhanced LLM"
+  },
+  "序列猴子": {
+    "title": "Sequence Monkey",
+    "desc": "Mobvoi ultra-large scale language model"
+  },
+  "魔搭社区": {
+    "title": "ModelScope",
+    "desc": "Alibaba DAMO AI model community — 300+ open-source models"
+  },
+  "BLOOM": {
+    "title": "BLOOM",
+    "desc": "HuggingFace推出的大型语言模型（LLM）"
+  },
+  "阿里巴巴M6": {
+    "title": "Alibaba M6",
+    "desc": "Alibaba DAMO ultra-large Chinese pre-trained model (M6)"
+  },
+  "Lamini": {
+    "title": "Lamini",
+    "desc": "低门槛快速定制大语言模型的引擎"
+  },
+  "DeepSpeed": {
+    "title": "DeepSpeed",
+    "desc": "微软开源的低成本实现类似ChatGPT的模型训练"
+  },
+  "MOSS": {
+    "title": "MOSS",
+    "desc": "复旦大学团队开发的对话式大型语言模型"
+  },
+  "PaLM 2": {
+    "title": "PaLM 2",
+    "desc": "Google的下一代大语言模型，超过3400亿参数"
+  },
+  "LLaMA": {
+    "title": "LLaMA",
+    "desc": "Meta（Facebook）推出的AI大语言模型"
+  },
+  "OpenBMB": {
+    "title": "OpenBMB",
+    "desc": "清华团队支持发起的大规模预训练语言模型库与相关工具"
+  },
+  "商量SenseChat": {
+    "title": "SenseChat",
+    "desc": "SenseTime ChatGPT-like AI LLM"
+  },
+  "Segment Anything": {
+    "title": "Segment Anything",
+    "desc": "Meta最新推出的AI图像分割模型"
+  },
+  "天工AI助手": {
+    "title": "Tiangong AI",
+    "desc": "Kunlun & Singularity AI ChatGPT-rival LLM"
+  },
+  "HuggingFace": {
+    "title": "HuggingFace",
+    "desc": "AI模型开发社区"
+  },
+  "天壤小白": {
+    "title": "Tianrang Xiaobai",
+    "desc": "Flexible AI app building & development platform"
+  },
+  "Imagen": {
+    "title": "Imagen",
+    "desc": "Google AI文字到图像生成模型"
+  },
+  "Watsonx.ai": {
+    "title": "Watsonx.ai",
+    "desc": "IBM推出的企业级生成式人工智能和机器学习平台"
+  },
+  "Lobe": {
+    "title": "Lobe",
+    "desc": "简单免费的机器学习模型训练工具"
+  },
+  "Scale AI": {
+    "title": "Scale AI",
+    "desc": "AI机器学习标注训练平台"
+  },
+  "Replicate": {
+    "title": "Replicate",
+    "desc": "跑开源模型与自定义镜像，HTTP API 调用"
+  },
+  "fast.ai": {
+    "title": "fast.ai",
+    "desc": "免费开源的深度学习和AI学习网站，让每个人都参与到AI！"
+  },
+  "Coursera": {
+    "title": "Coursera",
+    "desc": "知名MOOC平台，众多人工智能和机器学习课程"
+  },
+  "Elements of AI": {
+    "title": "Elements of AI",
+    "desc": "免费在线AI通识学习"
+  },
+  "DeepLearning.AI": {
+    "title": "DeepLearning.AI",
+    "desc": "深度学习和人工智能学习平台"
+  },
+  "动手学深度学习": {
+    "title": "D2L.ai",
+    "desc": "Dive into Deep Learning — interactive textbook & course"
+  },
+  "Generative AI": {
+    "title": "Generative AI",
+    "desc": "微软推出的面向初学者的免费生成式人工智能课程"
+  },
+  "ML for Beginners": {
+    "title": "ML for Beginners",
+    "desc": "微软推出的免费开源的机器学习课程，GitHub标星4万+"
+  },
+  "Kaggle": {
+    "title": "Kaggle",
+    "desc": "机器学习和数据科学社区"
+  },
+  "神经网络入门": {
+    "title": "Neural Networks Intro",
+    "desc": "Brilliant's Introduction to Neural Networks course"
+  },
+  "Trancy": {
+    "title": "Trancy",
+    "desc": "AI驱动的语言学习工具"
+  },
+  "Reading Coach": {
+    "title": "Reading Coach",
+    "desc": "微软推出的免费个性化AI阅读学习教练"
+  },
+  "飞桨AI Studio": {
+    "title": "PaddlePaddle AI Studio",
+    "desc": "AI learning & practice community"
+  },
+  "AI大学堂": {
+    "title": "AI University",
+    "desc": "iFlytek AI learning platform — learn AI, embrace the future"
+  },
+  "阿里云AI学习路线": {
+    "title": "Alibaba Cloud AI Path",
+    "desc": "Alibaba Cloud AI learning path (learn + test)"
+  },
+  "Udacity AI学院": {
+    "title": "Udacity AI学院",
+    "desc": "Udacity推出的School of AI，从入门到高级"
+  },
+  "Google AI": {
+    "title": "Google AI",
+    "desc": "Google AI学习平台"
+  },
+  "ShowMeAI知识社区": {
+    "title": "ShowMeAI",
+    "desc": "AI resource library & learning community"
+  },
+  "TensorFlow": {
+    "title": "TensorFlow",
+    "desc": "Google推出的机器学习和人工智能开源库"
+  },
+  "PyTorch": {
+    "title": "PyTorch",
+    "desc": "开源机器学习框架"
+  },
+  "飞桨PaddlePaddle": {
+    "title": "PaddlePaddle",
+    "desc": "Open-source deep learning platform"
+  },
+  "昇思MindSpore": {
+    "title": "MindSpore",
+    "desc": "Huawei open-source AI deep learning framework"
+  },
+  "Apache MXNet": {
+    "title": "Apache MXNet",
+    "desc": "免费开源的深度学习框架"
+  },
+  "Scikit-learn": {
+    "title": "Scikit-learn",
+    "desc": "Python机器学习库"
+  },
+  "MLX": {
+    "title": "MLX",
+    "desc": "Apple Silicon 优先的数组框架"
+  },
+  "Label Studio": {
+    "title": "Label Studio",
+    "desc": "多模态数据标注平台，可接主动学习"
+  },
+  "Vercel AI SDK": {
+    "title": "Vercel AI SDK",
+    "desc": "前端/全栈友好的流式对话与工具调用 SDK（多模型适配）"
+  },
+  "Keras": {
+    "title": "Keras",
+    "desc": "Python版本的TensorFlow深度学习API"
+  },
+  "Caffe": {
+    "title": "Caffe",
+    "desc": "UC伯克利研究推出的深度学习框架"
+  },
+  "NumPy": {
+    "title": "NumPy",
+    "desc": "Python科学计算必备的包"
+  },
+  "DL4J": {
+    "title": "DL4J",
+    "desc": "开源的使用JVM部署和训练深度学习模型的套件"
+  },
+  "JAX": {
+    "title": "JAX",
+    "desc": "Google推出的用于变换数值函数的机器学习框架"
+  },
+  "NLTK": {
+    "title": "NLTK",
+    "desc": "Python自然语言处理工具包"
+  },
+  "LangChain": {
+    "title": "LangChain",
+    "desc": "构建 LLM 应用和 AI Agent 的框架，含丰富场景模板（129K+ 星）"
+  },
+  "Lightning AI": {
+    "title": "Lightning AI",
+    "desc": "快速训练、部署和开发人工智能产品的深度学习框架，由Pytorch Lightning团队推出"
+  },
+  "Leap": {
+    "title": "Leap",
+    "desc": "将AI快速集成到你自己的应用中"
+  },
+  "OpenRouter": {
+    "title": "OpenRouter",
+    "desc": "统一接入数百个商业/开源模型，OpenAI 兼容 API，按调用计费"
+  },
+  "OpenRouter Models": {
+    "title": "OpenRouter Models",
+    "desc": "模型目录：筛选文本/图像/嵌入等，比价、上下文与吞吐量"
+  },
+  "Together AI": {
+    "title": "Together AI",
+    "desc": "开源与专用模型托管、推理 API 与微调"
+  },
+  "GroqCloud": {
+    "title": "GroqCloud",
+    "desc": "LPU 推理，极低延迟，兼容常用聊天/补全 API"
+  },
+  "Fireworks AI": {
+    "title": "Fireworks AI",
+    "desc": "生产级推理与微调，多模型与 Serverless 部署"
+  },
+  "DeepInfra": {
+    "title": "DeepInfra",
+    "desc": "按秒计费的模型 API 与 GPU 推理"
+  },
+  "Hugging Face Inference": {
+    "title": "Hugging Face Inference",
+    "desc": "Hub 模型推理与推理服务商（Inference Providers）"
+  },
+  "Hugging Face Models": {
+    "title": "Hugging Face Models",
+    "desc": "Hub 模型库：按任务、参数量、框架、许可证与推理可用性筛选浏览"
+  },
+  "硅基流动 SiliconFlow": {
+    "title": "SiliconFlow",
+    "desc": "Popular domestic model API aggregation & discount plans"
+  },
+  "阶跃星辰 StepFun": {
+    "title": "StepFun",
+    "desc": "Step series LLM API & console (OpenAI SDK compatible)"
+  },
+  "MiniMax 开放平台": {
+    "title": "MiniMax Platform",
+    "desc": "Text/voice/video/music multimodal API (incl. Hailuo Video), OpenAI SDK compatible"
+  },
+  "Mistral AI La Plateforme": {
+    "title": "Mistral AI La Plateforme",
+    "desc": "Mistral 官方 API、模型与用量控制台"
+  },
+  "火山方舟 Ark": {
+    "title": "Volcano Ark",
+    "desc": "ByteDance Doubao model inference & API (Volcano Engine)"
+  },
+  "阿里云百炼": {
+    "title": "Alibaba Cloud Bailian",
+    "desc": "Tongyi LLM & app building, API & agents"
+  },
+  "百度千帆": {
+    "title": "Baidu Qianfan",
+    "desc": "Ernie & enterprise LLM development platform"
+  },
+  "腾讯云混元": {
+    "title": "Tencent Cloud Hunyuan",
+    "desc": "Hunyuan LLM API & industry solutions"
+  },
+  "Amazon Bedrock": {
+    "title": "Amazon Bedrock",
+    "desc": "AWS 托管多厂商模型（Claude、Llama、Titan 等）"
+  },
+  "Google Vertex AI": {
+    "title": "Google Vertex AI",
+    "desc": "GCP 模型训练、部署与 Gemini 等企业 API"
+  },
+  "Novita AI": {
+    "title": "Novita AI",
+    "desc": "多模型 API 与 GPU 云实例"
+  },
+  "Modal": {
+    "title": "Modal",
+    "desc": "Serverless GPU/容器，按用量跑推理与批任务"
+  },
+  "RunPod": {
+    "title": "RunPod",
+    "desc": "GPU 租用与 Serverless 推理"
+  },
+  "Baseten": {
+    "title": "Baseten",
+    "desc": "模型部署、推理与监控基础设施"
+  },
+  "Lepton AI": {
+    "title": "Lepton AI",
+    "desc": "云原生模型服务与简单扩缩容"
+  },
+  "OpenAI Platform": {
+    "title": "OpenAI Platform",
+    "desc": "官方 API、Assistants、Responses 等"
+  },
+  "Google AI Studio": {
+    "title": "Google AI Studio",
+    "desc": "Gemini 系列密钥、试玩与 API 入口"
+  },
+  "Anthropic Console": {
+    "title": "Anthropic Console",
+    "desc": "Claude 官方 API 与用量"
+  },
+  "Azure AI Foundry": {
+    "title": "Azure AI Foundry",
+    "desc": "企业侧 Azure OpenAI 与多模型服务入口"
+  },
+  "LobsterAI 有道龙虾": {
+    "title": "LobsterAI (Youdao)",
+    "desc": "NetEase Youdao desktop Agent — remote control, multi-device & scheduled tasks (beta)"
+  },
+  "OpenClaw": {
+    "title": "OpenClaw",
+    "desc": "Open-source self-hosted personal AI assistant framework with IM & plugin ecosystem"
+  },
+  "OpenClaw 文档站": {
+    "title": "OpenClaw Docs",
+    "desc": "Installation, skills & security docs (community)"
+  },
+  "Lovart": {
+    "title": "Lovart",
+    "desc": "AI 设计智能体：平面/品牌/电商图、演示与风格统一"
+  },
+  "Dify": {
+    "title": "Dify",
+    "desc": "可视化编排 LLM 应用与工作流，可私有化"
+  },
+  "n8n": {
+    "title": "n8n",
+    "desc": "工作流自动化，可与 HTTP/LLM 节点组合"
+  },
+  "Flowise": {
+    "title": "Flowise",
+    "desc": "低代码构建 LLM 流与 Agent"
+  },
+  "Langflow": {
+    "title": "Langflow",
+    "desc": "基于 LangChain 的可视化构建与调试"
+  },
+  "Make": {
+    "title": "Make",
+    "desc": "场景化自动化（原 Integromat），可接 OpenAI 等模块"
+  },
+  "LangSmith": {
+    "title": "LangSmith",
+    "desc": "LangChain 生态的可观测、评测与提示管理"
+  },
+  "扣子 Coze": {
+    "title": "Coze (CN)",
+    "desc": "ByteDance agent platform, can integrate with OpenClaw workflows"
+  },
+  "CoPaw（阿里 · 开源）": {
+    "title": "CoPaw (Alibaba OSS)",
+    "desc": "Tongyi AgentScope personal agent — lightweight OpenClaw alternative"
+  },
+  "Refly": {
+    "title": "Refly",
+    "desc": "面向创作者与团队的 AI 工作区、文档与自动化"
+  },
+  "QoderWork（阿里 Qoder）": {
+    "title": "QoderWork (Alibaba)",
+    "desc": "Desktop office Agent — describe needs, auto-execute, deliver results"
+  },
+  "TRAE SOLO": {
+    "title": "TRAE SOLO",
+    "desc": "Desktop Agent extending from coding to daily work"
+  },
+  "LiteLLM": {
+    "title": "LiteLLM",
+    "desc": "统一调用上百模型、代理、计费与落盘日志，OpenAI 兼容网关"
+  },
+  "Portkey": {
+    "title": "Portkey",
+    "desc": "AI 网关：路由、重试、缓存、防护与企业策略"
+  },
+  "Helicone": {
+    "title": "Helicone",
+    "desc": "LLM 可观测：日志、缓存、成本与网关代理一键接入"
+  },
+  "Braintrust": {
+    "title": "Braintrust",
+    "desc": "评测、实验与回归测试，适合提示与 Agent 迭代"
+  },
+  "Arize Phoenix": {
+    "title": "Arize Phoenix",
+    "desc": "开源 LLM 追踪、RAG 检索分析与漂移观测"
+  },
+  "Weights & Biases Weave": {
+    "title": "Weights & Biases Weave",
+    "desc": "实验跟踪、评测与生产监控（与 W&B 生态联动）"
+  },
+  "OpenLLM": {
+    "title": "OpenLLM",
+    "desc": "BentoML 系开源 LLM 部署与服务封装"
+  },
+  "Model Context Protocol 规范": {
+    "title": "Model Context Protocol 规范",
+    "desc": "Anthropic 发起的 MCP：应用如何安全暴露工具与资源给模型"
+  },
+  "MCP GitHub 组织": {
+    "title": "MCP GitHub 组织",
+    "desc": "官方 SDK、示例与参考实现"
+  },
+  "Smithery": {
+    "title": "Smithery",
+    "desc": "MCP 服务器注册与发现（工具市场向）"
+  },
+  "Glama MCP": {
+    "title": "Glama MCP",
+    "desc": "MCP 服务器目录与文档索引"
+  },
+  "Claude Code / MCP 文档": {
+    "title": "Claude Code / MCP 文档",
+    "desc": "在 Claude 生态中使用 MCP 的官方说明入口"
+  },
+  "Pinecone": {
+    "title": "Pinecone",
+    "desc": "托管向量库与相似检索，常见 RAG 后端"
+  },
+  "Qdrant": {
+    "title": "Qdrant",
+    "desc": "开源/云向量引擎，过滤与混合检索"
+  },
+  "Weaviate": {
+    "title": "Weaviate",
+    "desc": "向量+图谱向检索，模块生态丰富"
+  },
+  "Chroma": {
+    "title": "Chroma",
+    "desc": "轻量嵌入式向量库，适合原型与本地 RAG"
+  },
+  "Milvus / Zilliz Cloud": {
+    "title": "Milvus / Zilliz Cloud",
+    "desc": "大规模向量检索与云托管"
+  },
+  "Supabase pgvector": {
+    "title": "Supabase pgvector",
+    "desc": "Postgres 向量扩展，与业务库同库检索"
+  },
+  "LanceDB": {
+    "title": "LanceDB",
+    "desc": "嵌入式/无服务器友好，面向多模态与 Lake 场景"
+  },
+  "Vespa": {
+    "title": "Vespa",
+    "desc": "雅虎开源检索引擎：向量+结构化+全文混合"
+  },
+  "Google NotebookLM": {
+    "title": "Google NotebookLM",
+    "desc": "上传资料生成摘要、问答与音频概览，偏个人/研究知识库"
+  },
+  "Obsidian": {
+    "title": "Obsidian",
+    "desc": "本地 Markdown 第二大脑，可接社区 AI 与向量插件"
+  },
+  "Mem": {
+    "title": "Mem",
+    "desc": "AI 原生笔记与记忆检索"
+  },
+  "Tana": {
+    "title": "Tana",
+    "desc": "大纲 + 超级标签 + AI 的工作知识库"
+  },
+  "语雀": {
+    "title": "语雀",
+    "desc": "阿里系文档与团队知识库，适合结构化沉淀"
+  },
+  "飞书知识库": {
+    "title": "飞书知识库",
+    "desc": "企业 wiki / 知识空间，与飞书协作一体"
+  },
+  "Confluence": {
+    "title": "Confluence",
+    "desc": "Atlassian 企业知识库与协作文档"
+  },
+  "Glean": {
+    "title": "Glean",
+    "desc": "企业内全库搜索与 AI 问答（SaaS/私有化）"
+  },
+  "Slite": {
+    "title": "Slite",
+    "desc": "团队文档 + Ask AI 内搜"
+  },
+  "Outline": {
+    "title": "Outline",
+    "desc": "开源团队 Wiki，可自托管"
+  },
+  "AnythingLLM": {
+    "title": "AnythingLLM",
+    "desc": "本地/私有化文档上传 + RAG 对话，桌面与 Docker 部署"
+  },
+  "LM Studio": {
+    "title": "LM Studio",
+    "desc": "本机图形界面加载 GGUF、开放本地 API"
+  },
+  "vLLM": {
+    "title": "vLLM",
+    "desc": "高吞吐服务化推理（PagedAttention），生产部署常用"
+  },
+  "llama.cpp": {
+    "title": "llama.cpp",
+    "desc": "CPU/GPU 高效推理实现，生态最广的 GGUF 栈"
+  },
+  "Text Generation Inference": {
+    "title": "Text Generation Inference",
+    "desc": "Hugging Face 出品的服务化推理栈"
+  },
+  "llamafile": {
+    "title": "llamafile",
+    "desc": "单文件分发、跨平台本地大模型运行"
+  },
+  "SGLang": {
+    "title": "SGLang",
+    "desc": "结构化生成与高效服务框架（研究/生产均有采用）"
+  },
+  "Browser Use": {
+    "title": "Browser Use",
+    "desc": "自然语言驱动浏览器自动化（Agent 常用栈）"
+  },
+  "Playwright": {
+    "title": "Playwright",
+    "desc": "跨浏览器 E2E 与自动化，可与 LLM 编排结合"
+  },
+  "Puppeteer": {
+    "title": "Puppeteer",
+    "desc": "Chrome DevTools 协议驱动，适合抓取与无头场景"
+  },
+  "Stagehand": {
+    "title": "Stagehand",
+    "desc": "面向 AI 的浏览器自动化抽象层"
+  },
+  "Browserbase": {
+    "title": "Browserbase",
+    "desc": "云端无头浏览器基础设施，便于 Agent 托管会话"
+  },
+  "Steel.dev": {
+    "title": "Steel.dev",
+    "desc": "开发者向浏览器会话 API（自动化/Agent）"
+  },
+  "OpenAI Realtime API": {
+    "title": "OpenAI Realtime API",
+    "desc": "低延迟语音对话与工具调用（官方实时接口说明）"
+  },
+  "OpenAI 语音合成 TTS": {
+    "title": "OpenAI 语音合成 TTS",
+    "desc": "多音色文本转语音与 API 文档"
+  },
+  "Azure AI Speech": {
+    "title": "Azure AI Speech",
+    "desc": "微软语音识别、合成、翻译与自定义语音"
+  },
+  "Google Cloud Speech": {
+    "title": "Google Cloud Speech",
+    "desc": "语音转写与 Text-to-Speech 企业 API"
+  },
+  "LiveKit Agents": {
+    "title": "LiveKit Agents",
+    "desc": "实时音视频 + 语音 Agent 框架"
+  },
+  "Cartesia": {
+    "title": "Cartesia",
+    "desc": "低延迟语音模型与 Sonic 系列 API"
+  },
+  "Granola": {
+    "title": "Granola",
+    "desc": "本地优先会议笔记，AI 整理要点"
+  },
+  "Tactiq": {
+    "title": "Tactiq",
+    "desc": "Google Meet / Zoom 等实时字幕与纪要"
+  },
+  "Zoom AI Companion": {
+    "title": "Zoom AI Companion",
+    "desc": "会议摘要、聊天与会议内 AI 助手"
+  },
+  "Hugging Face Datasets": {
+    "title": "Hugging Face Datasets",
+    "desc": "公开数据集加载与共享"
+  },
+  "Kaggle Datasets": {
+    "title": "Kaggle Datasets",
+    "desc": "竞赛与公开数据集合"
+  },
+  "Argilla": {
+    "title": "Argilla",
+    "desc": "人类反馈、偏好数据与标注工作流"
+  },
+  "OpenPipe": {
+    "title": "OpenPipe",
+    "desc": "Agent 强化学习、后训练与评测（开源 ART 框架）"
+  },
+  "unsloth": {
+    "title": "unsloth",
+    "desc": "大数据蒸馏训练"
+  },
+  "Distilabel": {
+    "title": "Distilabel",
+    "desc": "合成数据与 AI 反馈流水线（Argilla 生态）"
+  },
+  "Open LLM Leaderboard": {
+    "title": "Open LLM Leaderboard",
+    "desc": "Hugging Face 开源大模型公开评测榜"
+  },
+  "LMSYS Chatbot Arena": {
+    "title": "LMSYS Chatbot Arena",
+    "desc": "对话模型公开对战与 Elo 排行榜"
+  },
+  "OpenCompass 司南": {
+    "title": "OpenCompass 司南",
+    "desc": "大模型多维度评测框架与公开榜单"
+  },
+  "SuperCLUE": {
+    "title": "SuperCLUE",
+    "desc": "中文大模型评测体系与排行榜"
+  },
+  "MTEB": {
+    "title": "MTEB",
+    "desc": "向量嵌入模型排行榜"
+  },
+  "Artificial Analysis": {
+    "title": "Artificial Analysis",
+    "desc": "商业 API 延迟、价格与能力横向对比"
+  },
+  "HELM": {
+    "title": "HELM",
+    "desc": "斯坦福 holistic 评测：多场景、多指标模型对比"
+  },
+  "ModelScope 数据集": {
+    "title": "ModelScope 数据集",
+    "desc": "魔搭开源数据集与加载"
+  },
+  "LLaMA Factory": {
+    "title": "LLaMA Factory",
+    "desc": "一站式 LoRA/全参微调、对话模板与常见开源权重"
+  },
+  "Axolotl": {
+    "title": "Axolotl",
+    "desc": "开源大模型微调训练框架"
+  },
+  "OpenAI 微调": {
+    "title": "OpenAI 微调",
+    "desc": "官方 SFT 接口、数据格式与最佳实践"
+  },
+  "NeMo Curator": {
+    "title": "NeMo Curator",
+    "desc": "NVIDIA 大规模语料清洗、去重与配比"
+  },
+  "Gretel": {
+    "title": "Gretel",
+    "desc": "合成数据、隐私化与表格/文本数据增强"
+  },
+  "Weights & Biases": {
+    "title": "Weights & Biases",
+    "desc": "训练实验记录、超参对比与团队协作"
+  },
+  "Doccano": {
+    "title": "Doccano",
+    "desc": "轻量自建文本标注"
+  },
+  "DVC": {
+    "title": "DVC",
+    "desc": "数据与模型版本管理"
+  },
+  "arXiv cs.CL / cs.AI": {
+    "title": "arXiv cs.CL / cs.AI",
+    "desc": "最新预印本（自然语言与 AI 方向入口）"
+  },
+  "Hugging Face Papers": {
+    "title": "Hugging Face Papers",
+    "desc": "论文与模型、数据集关联浏览"
+  },
+  "Papers with Code": {
+    "title": "Papers with Code",
+    "desc": "论文 + 代码实现 + 排行榜"
+  },
+  "There's An AI For That": {
+    "title": "There's An AI For That",
+    "desc": "按场景检索 AI 产品与工具"
+  },
+  "Product Hunt（人工智能）": {
+    "title": "Product Hunt（人工智能）",
+    "desc": "新产品发布与社区投票"
+  },
+  "机器之心": {
+    "title": "机器之心",
+    "desc": "中文 AI 产业、论文速递与工具资讯"
+  },
+  "量子位": {
+    "title": "量子位",
+    "desc": "中文科技媒体，大模型与自动驾驶等前沿"
+  },
+  "AIbase 基地资讯": {
+    "title": "AIbase 基地资讯",
+    "desc": "中文 AI 行业新闻与产品动态聚合"
+  },
+  "AI工具集 · 每日 AI 快报": {
+    "title": "AI工具集 · 每日 AI 快报",
+    "desc": "中文 AI 日报/快讯类聚合"
+  },
+  "OpenRouter Rankings": {
+    "title": "OpenRouter Rankings",
+    "desc": "基于全网调用量的模型周榜、市占与分场景排行"
+  },
+  "Toolify": {
+    "title": "Toolify",
+    "desc": "全球 AI 工具发现与排行"
+  },
+  "AIGCrank": {
+    "title": "AIGCrank",
+    "desc": "中文 AIGC/产品排行向站点"
+  },
+  "Semantic Scholar": {
+    "title": "Semantic Scholar",
+    "desc": "学术搜索、引用与 TL;DR 摘要"
+  },
+  "Connected Papers": {
+    "title": "Connected Papers",
+    "desc": "引用关系图探索相关论文"
+  },
+  "Elicit": {
+    "title": "Elicit",
+    "desc": "论文检索、抽取与综述向问答"
+  },
+  "ResearchRabbit": {
+    "title": "ResearchRabbit",
+    "desc": "文献网络可视化与追踪"
+  },
+  "scite": {
+    "title": "scite",
+    "desc": "引文语境：支持/反驳与证据类型"
+  },
+  "Ghostty": {
+    "title": "Ghostty",
+    "desc": "高性能终端；可结合外部 AI 与脚本工作流"
+  },
+  "Aider": {
+    "title": "Aider",
+    "desc": "终端里结对编程，多模型、Git 友好"
+  },
+  "Claude Code": {
+    "title": "Claude Code",
+    "desc": "Anthropic 官方终端/IDE 编码代理，支持 MCP 与子代理"
+  },
+  "Cursor CLI": {
+    "title": "Cursor CLI",
+    "desc": "Cursor agent 命令行，交互/脚本模式"
+  },
+  "OpenAI Codex CLI": {
+    "title": "OpenAI Codex CLI",
+    "desc": "官方终端/本地编码代理"
+  },
+  "Gemini CLI": {
+    "title": "Gemini CLI",
+    "desc": "Google Gemini 官方命令行工具（开源）"
+  },
+  "GitHub Copilot CLI": {
+    "title": "GitHub Copilot CLI",
+    "desc": "Copilot 命令行接口（需订阅与 gh 集成）"
+  },
+  "Amazon Q Developer CLI": {
+    "title": "Amazon Q Developer CLI",
+    "desc": "AWS 侧终端编码助手"
+  },
+  "Goose": {
+    "title": "Goose",
+    "desc": "Block 开源终端编码 Agent，可接多模型与工具"
+  },
+  "Open Interpreter": {
+    "title": "Open Interpreter",
+    "desc": "本地终端里跑代码与对话，支持多模型"
+  },
+  "llm（Simon Willison）": {
+    "title": "llm（Simon Willison）",
+    "desc": "命令行调用多后端的统一 CLI"
+  },
+  "ShellGPT": {
+    "title": "ShellGPT",
+    "desc": "自然语言生成 Shell 命令"
+  },
+  "Arc": {
+    "title": "Arc",
+    "desc": "The Browser Company，侧栏与空间组织，内置 AI 能力演进中"
+  },
+  "Dia": {
+    "title": "Dia",
+    "desc": "The Browser Company 新作，强调对话式与代理向浏览"
+  },
+  "Comet（Perplexity）": {
+    "title": "Comet（Perplexity）",
+    "desc": "Perplexity 系浏览器，搜索与摘要深度集成"
+  },
+  "SigmaOS": {
+    "title": "SigmaOS",
+    "desc": "工作区式标签与 AI 助手整合"
+  },
+  "Brave（Leo 等）": {
+    "title": "Brave（Leo 等）",
+    "desc": "隐私向浏览器 + 内置 Leo 等 AI 功能"
+  },
+  "Opera Aria": {
+    "title": "Opera Aria",
+    "desc": "Opera 内置 Aria AI 与侧边助手"
+  },
+  "NVIDIA Jetson": {
+    "title": "NVIDIA Jetson",
+    "desc": "边缘 GPU 模组与 JetPack、TensorRT 生态"
+  },
+  "Google Coral": {
+    "title": "Google Coral",
+    "desc": "Edge TPU 开发板与 USB 加速器"
+  },
+  "Rockchip 瑞芯微": {
+    "title": "Rockchip 瑞芯微",
+    "desc": "RK3588 等 SoC 与 NPU，国产板卡常用"
+  },
+  "Raspberry Pi AI": {
+    "title": "Raspberry Pi AI",
+    "desc": "AI Kit、Hailo 等边缘 AI 硬件"
+  },
+  "超能网 CPU 天梯榜": {
+    "title": "CPU Benchmark Ladder",
+    "desc": "Single/multi-core, efficiency ratio interactive ladder chart"
+  },
+  "CPU Rank List": {
+    "title": "CPU/GPU Rank List",
+    "desc": "Chinese CPU/GPU ladder & benchmark rankings"
+  },
+  "TechPowerUp GPU 规格库": {
+    "title": "TechPowerUp GPU 规格库",
+    "desc": "显卡参数、发布时间、芯片对照"
+  },
+  "Geekbench Processor": {
+    "title": "Geekbench Processor",
+    "desc": "跨平台单核/多核公开跑分排行"
+  },
+  "Nanoreview": {
+    "title": "Nanoreview",
+    "desc": "笔记本/桌面 CPU 与移动 GPU 等规格与横向对比"
+  },
+  "EU Artificial Intelligence Act": {
+    "title": "EU AI Act",
+    "desc": "EU AI Act official policy portal & text index"
+  },
+  "NIST AI RMF": {
+    "title": "NIST AI RMF",
+    "desc": "人工智能风险管理框架"
+  },
+  "OECD.AI": {
+    "title": "OECD.AI",
+    "desc": "OECD 人工智能原则与政策观察"
+  },
+  "国家网信办（CAC）": {
+    "title": "CAC (China)",
+    "desc": "Deep synthesis & generative service regulatory updates"
+  },
+  "互联网信息服务算法备案": {
+    "title": "Algorithm Filing (CN)",
+    "desc": "Domestic algorithm filing disclosure & lookup"
+  },
+  "生成式人工智能服务管理暂行办法": {
+    "title": "GenAI Mgmt Measures (CN)",
+    "desc": "State Council gazette/policy repository text entry"
+  },
+  "Cloudflare WARP": {
+    "title": "Cloudflare WARP",
+    "desc": "加密 DNS 与隧道，个人设备常用"
+  },
+  "Tailscale": {
+    "title": "Tailscale",
+    "desc": "WireGuard 组网，零信任远程访问"
+  },
+  "IPLeak": {
+    "title": "IPLeak",
+    "desc": "IP / DNS / WebRTC / 代理泄漏一体检测"
+  },
+  "BrowserLeaks": {
+    "title": "BrowserLeaks",
+    "desc": "WebRTC、Canvas、字体等指纹与网络侧漏检"
+  },
+  "IPinfo": {
+    "title": "IPinfo",
+    "desc": "IP 地理、ASN、公司等信息查询与 API"
+  },
+  "SimpleLogin": {
+    "title": "SimpleLogin",
+    "desc": "Email alias service, best for privacy protection"
+  },
+  "Proton Mail": {
+    "title": "Proton Mail",
+    "desc": "Swiss end-to-end encrypted email, privacy first"
+  },
+  "Tuta": {
+    "title": "Tuta",
+    "desc": "German fully encrypted email, no phone number required"
+  },
+  "Zoho Mail": {
+    "title": "Zoho Mail",
+    "desc": "Free custom domain email, direct access in China"
+  },
+  "iCloud 邮件": {
+    "title": "iCloud Mail",
+    "desc": "Apple ecosystem email, free with iCloud"
+  },
+  "DuckDuckGo Email": {
+    "title": "DuckDuckGo Email",
+    "desc": "Email alias forwarding, hide your real email"
+  },
+  "Lakera Guard": {
+    "title": "Lakera Guard",
+    "desc": "提示注入、越狱与敏感输出检测 API"
+  },
+  "Hive Moderation": {
+    "title": "Hive Moderation",
+    "desc": "图像/文本等内容审核与分类 API"
+  },
+  "Perspective API": {
+    "title": "Perspective API",
+    "desc": "Google Jigsaw 毒性评分"
+  },
+  "OWASP LLM Top 10": {
+    "title": "OWASP LLM Top 10",
+    "desc": "大模型应用安全风险清单"
+  },
+  "Google 搜索中心 · AI 概览": {
+    "title": "Google 搜索中心 · AI 概览",
+    "desc": "站点在 Google AI Overviews 等形态下的官方说明与规范入口"
+  },
+  "Semrush · GEO": {
+    "title": "Semrush · GEO",
+    "desc": "GEO 概念、与传统 SEO 差异及实践综述"
+  },
+  "Princeton GEO 研究（论文）": {
+    "title": "Princeton GEO 研究（论文）",
+    "desc": "「GEO: Generative Engine Optimization」学术项目与引用入口"
+  },
+  "Manus": {
+    "title": "Manus",
+    "desc": "General AI Agent — autonomous planning & execution of complex tasks, browser+terminal+code"
+  },
+  "OpenHands": {
+    "title": "OpenHands",
+    "desc": "Open-source AI software dev agent — code writing & terminal ops"
+  },
+  "Suna": {
+    "title": "Suna",
+    "desc": "Open-source general AI Agent — automated research, data analysis & workflow execution"
+  },
+  "OpenClaw Showcase": {
+    "title": "OpenClaw Showcase",
+    "desc": "AI Agent real user scenarios: automation/productivity/dev/smart home/creative"
+  },
+  "OpenClaw 中文用例大全": {
+    "title": "OpenClaw CN Use Cases",
+    "desc": "46 real scenarios: Feishu/DingTalk/WeCom automation, content, ops, knowledge mgmt"
+  },
+  "Hermes Agent": {
+    "title": "Hermes Agent",
+    "desc": "Nous Research open-source self-evolving Agent with learning loop & cross-session memory (53K+ stars)"
+  },
+  "Hermes Agent 官网": {
+    "title": "Hermes Agent Official",
+    "desc": "Open-source AI agent with memory — gets smarter with use — intro & quickstart"
+  },
+  "Hermes Agent 文档": {
+    "title": "Hermes Agent Docs",
+    "desc": "Setup, CLI, messaging gateway, skills system & architecture"
+  },
+  "Hermes Agent 橙皮书": {
+    "title": "Hermes Agent Orange Book",
+    "desc": "Beginner-to-expert series: architecture, skill writing, OpenClaw migration & best practices"
+  },
+  "Hermes Agent 架构全解": {
+    "title": "Hermes Agent Architecture",
+    "desc": "Deep dive into self-evolving agent's learning loop & four core systems"
+  },
+  "Hermes Agent 评测与指南": {
+    "title": "Hermes Agent Review",
+    "desc": "Feature review, setup & domestic LLM integration tutorial"
+  },
+  "1000 AI/ML Projects": {
+    "title": "1000 AI/ML Projects",
+    "desc": "千级 ML 项目合集：入门/进阶/毕设/面试全覆盖"
+  },
+  "Generative AI for Beginners": {
+    "title": "Generative AI for Beginners",
+    "desc": "微软出品生成式 AI 初学者课程，含 18 个实战场景与 Hands-on"
+  },
+  "prompts.chat": {
+    "title": "prompts.chat",
+    "desc": "开源提示词社区：按场景分类的 Prompt 库（151K+ 星）"
+  },
+  "System Prompts Collection": {
+    "title": "System Prompts Collection",
+    "desc": "各 AI 产品系统提示词与工具信息大合集（130K+ 星）"
+  },
+  "LLMs from Scratch": {
+    "title": "LLMs from Scratch",
+    "desc": "从零构建 ChatGPT 类模型的教学项目（87K+ 星）"
+  },
+  "AutoGPT": {
+    "title": "AutoGPT",
+    "desc": "经典自主代理项目，支持任务分解与自主执行（182K+ 星）"
+  },
+  "Firecrawl": {
+    "title": "Firecrawl",
+    "desc": "将网站转为 LLM 就绪数据的网络数据接口（91K+ 星）"
+  },
+  "RAGFlow": {
+    "title": "RAGFlow",
+    "desc": "结合 RAG 与 Agent 能力的上下文引擎，企业知识检索场景（74K+ 星）"
+  },
+  "Deep-Live-Cam": {
+    "title": "Deep-Live-Cam",
+    "desc": "实时换脸与视频生成开源工具（80K+ 星）"
+  },
+  "Spec Kit": {
+    "title": "Spec Kit",
+    "desc": "GitHub 官方规范驱动开发工具包，AI 工程场景（75K+ 星）"
+  },
+  "GPT Store (ChatGPT)": {
+    "title": "GPT Store (ChatGPT)",
+    "desc": "OpenAI 官方 GPTs 商店 → 仅 ChatGPT"
+  },
+  "Coze 插件市场": {
+    "title": "Coze 插件市场",
+    "desc": "扣子平台技能/插件商店 → Coze 智能体、扣子 Bot"
+  },
+  "Dify 插件市场": {
+    "title": "Dify 插件市场",
+    "desc": "Dify 工具/插件目录 → Dify 工作流与 Agent"
+  },
+  "Composio": {
+    "title": "Composio",
+    "desc": "Agent 工具集成平台，100+ 连接器 → CrewAI/LangChain/AutoGPT/OpenAI Assistants"
+  },
+  "Toolhouse": {
+    "title": "Toolhouse",
+    "desc": "一行代码给 LLM 接入工具 → OpenAI/Claude/Gemini/LangChain 等"
+  },
+  "CrewAI Tools": {
+    "title": "CrewAI Tools",
+    "desc": "CrewAI 内置工具集与社区市场 → 仅 CrewAI Agent"
+  },
+  "LangChain Tools": {
+    "title": "LangChain Tools",
+    "desc": "LangChain 工具集成目录 → LangChain/LangGraph Agent"
+  },
+  "AutoGPT Marketplace": {
+    "title": "AutoGPT Marketplace",
+    "desc": "AutoGPT 官方技能与 Agent 市场 → 仅 AutoGPT"
+  },
+  "Zapier AI Actions": {
+    "title": "Zapier AI Actions",
+    "desc": "开放 AI 动作接口，20K+ 应用 → ChatGPT/GPTs/Claude/Cursor 等 Agent"
+  },
+  "Pipedream": {
+    "title": "Pipedream",
+    "desc": "开发者向集成与工作流平台 → 任意 LLM/Agent 可 HTTP 调用"
+  },
+  "n8n Integrations": {
+    "title": "n8n Integrations",
+    "desc": "400+ 集成节点与 AI Agent 市场 → n8n 工作流与 AI Agent 节点"
+  },
+  "Hugging Face Spaces": {
+    "title": "Hugging Face Spaces",
+    "desc": "模型 Demo 与工具托管社区 → 任意 HTTP/API 调用"
+  },
+  "Awesome Agent Skills": {
+    "title": "Awesome Agent Skills",
+    "desc": "跨平台 Skills 精选目录 → Claude Code/Cursor/Windsurf/Copilot/Codex 等"
+  },
+  "micstec Skills 合集": {
+    "title": "micstec Skills 合集",
+    "desc": "多平台 Skills 合集 → Claude Code/Gemini CLI/Copilot/Cursor/Windsurf/Codex CLI"
+  },
+  "MCP Market Skills": {
+    "title": "MCP Market Skills",
+    "desc": "Agent Skills 目录与发现 → Claude.ai/Claude Code/Codex/ChatGPT"
+  },
+  "Windsurf Skills": {
+    "title": "Windsurf Skills",
+    "desc": "Windsurf Cascade 技能系统文档 → 仅 Windsurf IDE"
+  },
+  "OpenCode Skills": {
+    "title": "OpenCode Skills",
+    "desc": "OpenCode 可复用 Agent 技能 → OpenCode（兼容 Claude Code 格式）"
+  },
+  "OpenSkills": {
+    "title": "OpenSkills",
+    "desc": "通用 Skills 加载器 → Claude Code/Cursor/Windsurf/Aider/Codex 等"
+  },
+  "OpenCode（开源 IDE）": {
+    "title": "OpenCode（开源 IDE）",
+    "desc": "开源终端 AI 编码工具，原生支持 SKILL.md → 兼容 Claude Code 格式"
+  },
+  "Cursor Skills 合集": {
+    "title": "Cursor Skills 合集",
+    "desc": "Cursor IDE 最佳实践与技能集 → 仅 Cursor IDE"
+  },
+  "Agent Skills 开放标准": {
+    "title": "Agent Skills 开放标准",
+    "desc": "SKILL.md 开放标准 → Claude Code/Cursor/TRAE/Windsurf/Copilot 等 26+ 工具"
+  },
+  "Anthropic Skills 仓库": {
+    "title": "Anthropic Skills 仓库",
+    "desc": "官方 Skills 合集（17 个） → Claude Code 原生、Cursor/TRAE/Windsurf 兼容"
+  },
+  "Agent Skills Marketplace": {
+    "title": "Agent Skills Marketplace",
+    "desc": "800K+ skills 市场 → Claude Code/Codex CLI/ChatGPT/Cursor/Windsurf"
+  },
+  "AllSkills 目录": {
+    "title": "AllSkills 目录",
+    "desc": "Claude Skills 发现与浏览目录 → Claude Code/Cursor/TRAE 等"
+  },
+  "Open Agent Skills": {
+    "title": "Open Agent Skills",
+    "desc": "Agent Skills 编写指南 → 通用 SKILL.md 标准，适用所有兼容工具"
+  },
+  "MiniMax Skills（开源）": {
+    "title": "MiniMax Skills（开源）",
+    "desc": "开源全栈技能包（前端/全栈/Android/iOS/Shader） → Claude Code/Cursor/TRAE/Windsurf"
+  },
+  "MiniMax SkillHub": {
+    "title": "MiniMax SkillHub",
+    "desc": "MiniMax 官方技能管理平台 → MiniMax Agent/Claude Code/Cursor 等"
+  },
+  "Cursor Marketplace": {
+    "title": "Cursor Marketplace",
+    "desc": "Cursor 插件市场（Skills/子代理/规则/Hooks/MCP） → 仅 Cursor IDE"
+  },
+  "TRAE Skills": {
+    "title": "TRAE Skills",
+    "desc": "TRAE IDE 内置 Skills 技能包 → 仅 TRAE IDE"
+  },
+  "Claude Code Marketplace": {
+    "title": "Claude Code Marketplace",
+    "desc": "Claude Code 插件/技能市场 → Claude Code 原生、部分兼容 Cursor/TRAE"
+  },
+  "oh-my-claudecode": {
+    "title": "oh-my-claudecode",
+    "desc": "Claude Code multi-Agent orchestration — 19 pro roles, Team Mode auto pipeline"
+  },
+  "oh-my-codex": {
+    "title": "oh-my-codex",
+    "desc": "OpenAI Codex CLI multi-Agent orchestration — 30 roles, hybrid model collaboration"
+  },
+  "claude-howto": {
+    "title": "Claude HowTo",
+    "desc": "Claude Code complete learning guide — 10-module visual tutorial & production templates"
+  },
+  "Claude Code Best Practice": {
+    "title": "Claude Code Best Practice",
+    "desc": "Claude Code best practices collection — 69 tips + Agent/skills/workflow guide (36.5K stars)"
+  },
+  "OpenScreen": {
+    "title": "OpenScreen",
+    "desc": "Open-source Screen Studio alternative — screen recording + auto-zoom + dynamic blur"
+  },
+  "RTK": {
+    "title": "RTK",
+    "desc": "CLI proxy filtering command output noise — reduces LLM tokens 60-90% (Rust binary)"
+  },
+  "Caveman": {
+    "title": "Caveman",
+    "desc": "Claude Code/Codex skill — compress verbose output, save up to 87% tokens (4K+ stars)"
+  },
+  "Token Saver": {
+    "title": "Token Saver",
+    "desc": "21 processors compress command output by file type — Claude Code/Gemini CLI compatible"
+  },
+  "Tokscale": {
+    "title": "Tokscale",
+    "desc": "Cross-platform CLI tracking AI coding assistant token usage & cost with visual rankings (1.7K+ stars)"
+  },
+  "Token Optimizer": {
+    "title": "Token Optimizer",
+    "desc": "AI conversation context 100K+ → 8K — three-layer index + smart compression + task isolation"
+  },
+  "codex-tokens-compress": {
+    "title": "codex-tokens-compress",
+    "desc": "AGENTS.md spec compression to high-density executable rules, incl. classical Chinese extreme edition"
+  },
+  "Terse": {
+    "title": "Terse",
+    "desc": "macOS/iOS token optimizer — 35+ compression strategies, reduces prompt cost 40-70%"
+  },
+  "Token Tamer": {
+    "title": "Token Tamer",
+    "desc": "JSON formatting + LLM token optimization toolkit — slim OpenAI/Claude/MCP payloads"
+  },
+  "Mem0": {
+    "title": "Mem0",
+    "desc": "通用 AI 记忆层，跨会话个性化，自改进记忆（25K+ 星）"
+  },
+  "Letta（MemGPT）": {
+    "title": "Letta（MemGPT）",
+    "desc": "自编辑 Agent 运行时，虚拟上下文管理，分页长文档检索"
+  },
+  "Zep": {
+    "title": "Zep",
+    "desc": "Agent 记忆与知识图谱，自动提取结构化事实，OpenAI 兼容"
+  },
+  "Graphiti": {
+    "title": "Graphiti",
+    "desc": "知识图谱记忆层，时序实体与关系，支持增量更新"
+  },
+  "Cognee": {
+    "title": "Cognee",
+    "desc": "数据 → 知识图谱 → 记忆的流水线，支持多图数据库后端"
+  },
+  "LangGraph Checkpointer": {
+    "title": "LangGraph Checkpointer",
+    "desc": "LangGraph 内置状态持久化，支持断点续执行与时间旅行调试"
+  },
+  "Hume AI": {
+    "title": "Hume AI",
+    "desc": "情感智能记忆，EVI 语音接口带情感理解与用户偏好学习"
+  },
+  "Higgsfield": {
+    "title": "Higgsfield",
+    "desc": "High-quality AI video generation — cinematic camera moves & style control"
+  },
+  "Genmo": {
+    "title": "Genmo",
+    "desc": "Open-source video generation research lab, Mochi model (high-fidelity motion)"
+  },
+  "Google Veo": {
+    "title": "Google Veo",
+    "desc": "Google DeepMind 视频生成模型，YouTube 集成"
+  },
+  "MiniMax 海螺视频": {
+    "title": "MiniMax Hailuo Video",
+    "desc": "Chinese multimodal video generation — text/image/reference-video driven"
+  },
+  "AI-Scientist-v2": {
+    "title": "AI-Scientist-v2",
+    "desc": "Sakana AI fully automated research: idea to paper, published in Nature"
+  },
+  "SciSpace": {
+    "title": "SciSpace",
+    "desc": "AI 论文阅读器，PDF 对话、公式解释与方法论提取"
+  },
+  "VibeVoice": {
+    "title": "VibeVoice",
+    "desc": "Microsoft open-source voice AI — 90-minute ultra-long audio synthesis & recognition"
+  },
+  "TimesFM": {
+    "title": "TimesFM",
+    "desc": "Google Research time-series forecasting foundation model — zero-shot high accuracy"
+  },
+  "Onyx": {
+    "title": "Onyx",
+    "desc": "Enterprise AI search — multi-source (GitHub/Confluence etc.) natural language Q&A"
+  },
+  "Mullvad VPN": {
+    "title": "Mullvad VPN",
+    "desc": "隐私优先 VPN，无需邮箱注册，按月付费"
+  },
+  "Proton VPN": {
+    "title": "Proton VPN",
+    "desc": "Proton 出品，瑞士隐私 VPN，免费版可用"
+  },
+  "WireGuard": {
+    "title": "WireGuard",
+    "desc": "现代 VPN 协议，内核级极速隧道"
+  },
+  "IVPN": {
+    "title": "IVPN",
+    "desc": "隐私 VPN，无日志审计，WireGuard 支持"
+  },
+  "ip-api": {
+    "title": "ip-api",
+    "desc": "免费 IP 地理位置查询 API，支持批量"
+  },
+  "DNS Leak Test": {
+    "title": "DNS Leak Test",
+    "desc": "DNS 泄漏检测，验证 VPN/DNS 隐私"
+  },
+  "WhatIsMyIP": {
+    "title": "WhatIsMyIP",
+    "desc": "IP 地址与网络信息快速查询"
+  },
+  "IP.sb": {
+    "title": "IP.sb",
+    "desc": "简洁 IP 查询与地理定位"
+  },
+  "MaxMind GeoIP": {
+    "title": "MaxMind GeoIP",
+    "desc": "IP 地理数据库与 GeoIP2 API"
+  },
+  "Temp Mail": {
+    "title": "Temp Mail",
+    "desc": "Most popular temp email, ready to use instantly"
+  },
+  "10 Minute Mail": {
+    "title": "10 Minute Mail",
+    "desc": "Auto-destruct temp email in 10 minutes"
+  },
+  "Guerrilla Mail": {
+    "title": "Guerrilla Mail",
+    "desc": "Veteran free temp email, supports sending"
+  },
+  "Maildrop": {
+    "title": "Maildrop",
+    "desc": "Clean temp email, alias receiving"
+  },
+  "EmailOnDeck": {
+    "title": "EmailOnDeck",
+    "desc": "Developer-friendly temp email API"
+  },
+  "Moakt": {
+    "title": "Moakt",
+    "desc": "Free temp email with custom address"
+  },
+  "Twilio": {
+    "title": "Twilio",
+    "desc": "企业级短信/语音 API 标杆"
+  },
+  "Google Voice": {
+    "title": "Google Voice",
+    "desc": "Google 出品，免费美国虚拟号"
+  },
+  "TextNow": {
+    "title": "TextNow",
+    "desc": "免费加拿大/美国虚拟号(含广告)"
+  },
+  "SMS-Activate": {
+    "title": "SMS-Activate",
+    "desc": "在线接码平台，多国号码按次付费"
+  },
+  "Quackr": {
+    "title": "Quackr",
+    "desc": "免费在线接收验证码"
+  },
+  "Receive SMS Online": {
+    "title": "Receive SMS Online",
+    "desc": "免费在线接收短信验证码"
+  },
+  "AI 产品榜（飞书 Wiki）": {
+    "title": "AI Product Rankings",
+    "desc": "Domestic AI product popularity & rankings"
+  },
+  "AI 产品数据榜（飞书 Wiki）": {
+    "title": "AI Product Data Rankings",
+    "desc": "AI product traffic, growth & ranking data"
+  },
+  "月狐数据 · 黑马APP榜": {
+    "title": "MoonFox Dark Horse",
+    "desc": "Mobile app growth dark horse, active rankings & market insights"
+  },
+  "Similarweb": {
+    "title": "Similarweb",
+    "desc": "网站流量排名与竞品分析，AI 产品全球访问量排行"
+  },
+  "AIcpt": {
+    "title": "AIcpt",
+    "desc": "Global AI product traffic & growth weekly rankings"
+  },
+  "Product Hunt": {
+    "title": "Product Hunt",
+    "desc": "新产品每日发布与社区投票排行"
+  },
+  "《深度学习》（花书）": {
+    "title": "Deep Learning (Goodfellow)",
+    "desc": "Ian Goodfellow et al. — deep learning bible, free online edition"
+  },
+  "《动手学深度学习》": {
+    "title": "Dive into Deep Learning",
+    "desc": "Mu Li — interactive code+theory textbook, free online"
+  },
+  "《机器学习》（西瓜书）": {
+    "title": "Machine Learning (Zhou)",
+    "desc": "Zhou Zhihua — most authoritative Chinese ML textbook"
+  },
+  "《人工智能：一种现代方法》": {
+    "title": "AI: A Modern Approach",
+    "desc": "Stuart Russell — world's most widely adopted AI textbook (4th ed.)"
+  },
+  "《自然语言处理综论》": {
+    "title": "Speech & Language Processing",
+    "desc": "Jurafsky & Martin — most authoritative NLP textbook, 3rd ed. free online"
+  },
+  "《Attention Is All You Need》论文": {
+    "title": "Attention Is All You Need",
+    "desc": "Transformer founding paper that changed the AI landscape"
+  },
+  "《The Little Book of Deep Learning》": {
+    "title": "Little Book of Deep Learning",
+    "desc": "François Fleuret — concise DL intro booklet, free e-book"
+  },
+  "《百面机器学习》": {
+    "title": "100 Questions in ML",
+    "desc": "Huluwa — ML interview essentials, covers core exam points"
+  },
+  "Princeton GEO 论文": {
+    "title": "Princeton GEO Paper",
+    "desc": "\"GEO: Generative Engine Optimization\" pioneering academic paper"
+  },
+  "Profound": {
+    "title": "Profound",
+    "desc": "Leading GEO tracking platform — visibility & sentiment across 10+ AI engines"
+  },
+  "Ahrefs AI 概述跟踪": {
+    "title": "Ahrefs AI Overview",
+    "desc": "Full-stack SEO platform adds GEO: AI overview rankings, content assistant & keyword AI analysis"
+  },
+  "Semrush AI Toolkit": {
+    "title": "Semrush AI Toolkit",
+    "desc": "Semrush AI visibility toolkit: cross-LLM brand exposure, competitive comparison & optimization tips"
+  },
+  "Otterly AI": {
+    "title": "Otterly AI",
+    "desc": "ChatGPT/Perplexity/Google AIO AI search performance monitoring & sentiment tracking"
+  },
+  "Scrunch AI": {
+    "title": "Scrunch AI",
+    "desc": "Detect false narratives in AI answers, brand AI share & competitive analysis"
+  },
+  "Peec AI": {
+    "title": "Peec AI",
+    "desc": "Real-time AI visibility alerts, prompt-level rankings & source attribution analysis"
+  },
+  "HubSpot AI Search Grader": {
+    "title": "HubSpot AI Search Grader",
+    "desc": "Free GEO assessment: scan AI engine brand visibility score & improvement tips"
+  },
+  "Writesonic GEO Suite": {
+    "title": "Writesonic GEO Suite",
+    "desc": "Brand AI visibility exploration + AI writing optimization, one-click GEO content"
+  },
+  "Gumshoe": {
+    "title": "Gumshoe",
+    "desc": "Brand AI search visibility monitoring & competitive analysis (free public beta)"
+  }
+}

@@ -315,6 +315,8 @@ const catI18nMap = {
   "AI 合规与标准": "catCompliance",
   "网络工具 · 隐私与安全": "catNetPrivacy",
   "GEO / AEO · AI 搜索优化": "catGEO",
+  "临时邮箱 · 匿名收件": "catTempEmail",
+  "接码 · 短信验证与虚拟号": "catSMSVerify",
 };
 
 function catI18nAttr(name) {
@@ -733,6 +735,34 @@ function collectNavEntries(nodes, depth = 0, acc = []) {
   }
   return acc;
 }
+
+/** Load i18n-en.json (tool title/subtitle translations) if present */
+const i18nEnPath = path.join(ROOT, "i18n-en.json");
+let i18nEn = {};
+if (fs.existsSync(i18nEnPath)) {
+  try {
+    i18nEn = JSON.parse(fs.readFileSync(i18nEnPath, "utf8"));
+    console.log("i18n-en.json: loaded", Object.keys(i18nEn).length, "entries");
+  } catch (e) {
+    console.error("i18n-en.json:", e.message);
+  }
+}
+
+/** Generate _toolTitles / _toolDescs injection for i18nDict.en */
+function buildToolI18nInjection() {
+  if (!Object.keys(i18nEn).length) return "";
+  const titleEntries = Object.entries(i18nEn)
+    .map(([title, tr]) => `${JSON.stringify(title)}:${JSON.stringify(tr.title || title)}`)
+    .join(",");
+  const descEntries = Object.entries(i18nEn)
+    .filter(([, tr]) => tr.desc)
+    .map(([title, tr]) => `${JSON.stringify(title)}:${JSON.stringify(tr.desc)}`)
+    .join(",");
+  let result = `,\n        _toolTitles: {${titleEntries}}`;
+  if (descEntries) result += `,\n        _toolDescs: {${descEntries}}`;
+  return result;
+}
+const toolI18nInjection = buildToolI18nInjection();
 
 function renderTools(tools) {
   return tools
@@ -1318,6 +1348,40 @@ const html = `<!DOCTYPE html>
       opacity: 1;
       visibility: visible;
     }
+    .lang-float {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 4.75rem;
+      z-index: 100;
+      display: flex;
+      gap: 0.3rem;
+    }
+    .lang-float button {
+      width: 40px;
+      height: 32px;
+      padding: 0;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .lang-float button:hover {
+      background: var(--panel);
+      color: var(--text);
+    }
+    .lang-float button.is-active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
     .site-footer {
       margin-top: 0;
       padding: 1.25rem 1.5rem 2.25rem;
@@ -1380,6 +1444,7 @@ const html = `<!DOCTYPE html>
     @media print {
       aside,
       .back-to-top,
+      .lang-float,
       .card-star,
       .top-toolbar,
       .top-promo-badge,
@@ -1437,6 +1502,7 @@ const html = `<!DOCTYPE html>
         <button type="button" class="theme-btn lang-btn" data-lang-set="zh">中</button>
         <button type="button" class="theme-btn lang-btn" data-lang-set="en">EN</button>
         <a class="github-link" href="https://github.com/shellsec/AINav" target="_blank" rel="noopener noreferrer" title="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+        <a class="github-link" href="mailto:info@aiv123.com" title="联系邮箱" data-i18n-title="mailToTitle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
       </div>
     </div>
     <div class="top-promo" aria-label="合作推广：多模型 API 接入" data-i18n-aria="promoAria">
@@ -1476,6 +1542,10 @@ const html = `<!DOCTYPE html>
     <p>本站不保证第三方网站的内容准确性、服务持续性、可用性及收费，亦不承担因访问或使用外链而产生的任何责任。</p>
     <p class="site-built">页面数据生成时间（构建）：${esc(generatedAtLabel)}（UTC 记录：${esc(generatedAt)}）</p>
   </footer>
+  <div class="lang-float">
+    <button type="button" class="lang-btn" data-lang-set="zh">中</button>
+    <button type="button" class="lang-btn" data-lang-set="en">EN</button>
+  </div>
   <button type="button" class="back-to-top" id="backToTop" aria-label="返回顶部" title="返回顶部" data-i18n-aria="backTopAria" data-i18n="backTop">↑ Top</button>
   <script>
 (function () {
@@ -1538,6 +1608,7 @@ const html = `<!DOCTYPE html>
     var block = document.getElementById("fav-block");
     if (!grid || !block) return;
     grid.innerHTML = "";
+    var curLang = (function(){ try { return localStorage.getItem("ainav-lang") || "zh"; } catch(e){ return "zh"; } })();
     var frag = document.createDocumentFragment();
     for (var i = 0; i < favs.length; i++) {
       (function (item) {
@@ -1550,9 +1621,9 @@ const html = `<!DOCTYPE html>
         star.type = "button";
         star.className = "card-star is-on";
         star.textContent = "★";
-        star.setAttribute("aria-label", "取消常用收藏");
+        star.setAttribute("aria-label", curLang === "en" ? "Remove from favorites" : "取消常用收藏");
         star.setAttribute("aria-pressed", "true");
-        star.setAttribute("title", "常用收藏");
+        star.setAttribute("title", curLang === "en" ? "Favorites" : "常用收藏");
         var main = document.createElement("a");
         main.className = "card-main";
         main.href = item.link;
@@ -1813,6 +1884,7 @@ const html = `<!DOCTYPE html>
         promoBadge: "Sponsored",
         promoTitle: "OpenAI · Anthropic · Gemini & more – Direct access in China, no VPN needed",
         promoCta: "Sign Up →",
+        mailToTitle: "Contact Email",
         /* -- sidebar & fav -- */
         sidebarToggle: "☰ Menu",
         sidebarToggleAria: "Toggle navigation",
@@ -1874,7 +1946,7 @@ const html = `<!DOCTYPE html>
         catEdgeHardware: "Hardware · Edge Inference",
         catCompliance: "AI Compliance & Standards",
         catNetPrivacy: "Network · Privacy & Security",
-        catGEO: "GEO / AEO · AI Search Optimization"
+        catGEO: "GEO / AEO · AI Search Optimization"${toolI18nInjection}
       },
       zh: {
         /* -- top bar -- */
@@ -1888,7 +1960,7 @@ const html = `<!DOCTYPE html>
         promoBadge: "合作推广",
         promoTitle: "OpenAI · Anthropic · Gemini 等旗舰系官方模型，国内直连_免梯_稳定可用",
         promoCta: "立即注册 →",
-        /* -- sidebar & fav -- */
+        mailToTitle: "联系邮箱",        /* -- sidebar & fav -- */
         sidebarToggle: "☰ 导航",
         sidebarToggleAria: "展开/收起导航",
         catFav: "★ 常用收藏",
@@ -1949,7 +2021,9 @@ const html = `<!DOCTYPE html>
         catEdgeHardware: "硬件 · 边缘推理与跑分",
         catCompliance: "AI 合规与标准",
         catNetPrivacy: "网络工具 · 隐私与安全",
-        catGEO: "GEO / AEO · AI 搜索优化"
+        catGEO: "GEO / AEO · AI 搜索优化",
+        catTempEmail: "临时邮箱 · 匿名收件",
+        catSMSVerify: "接码 · 短信验证与虚拟号"
       }
     };
 
@@ -1973,6 +2047,23 @@ const html = `<!DOCTYPE html>
       document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
         var key = el.getAttribute("data-i18n-title");
         if (dict[key] !== undefined) el.setAttribute("title", dict[key]);
+      });
+      /* Translate all card titles and descriptions (including fav cards) */
+      var titleMap = dict._toolTitles || {};
+      var descMap = dict._toolDescs || {};
+      document.querySelectorAll("article.card").forEach(function (card) {
+        var origTitle = card.getAttribute("data-title") || "";
+        var origDesc = card.getAttribute("data-subtitle") || "";
+        var h3 = card.querySelector(".card-title");
+        var p = card.querySelector(".card-desc");
+        if (lang === "en") {
+          if (h3 && titleMap[origTitle]) h3.textContent = titleMap[origTitle];
+          if (p && descMap[origTitle]) p.textContent = descMap[origTitle];
+        } else {
+          /* restore Chinese from data attributes */
+          if (h3) h3.textContent = origTitle;
+          if (p) p.textContent = origDesc;
+        }
       });
       /* data-i18n-aria */
       document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {

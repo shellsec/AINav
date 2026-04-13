@@ -1826,6 +1826,31 @@
           "title": "SimpleLogin",
           "subtitle": "邮箱别名服务，隐私保护最佳",
           "link": "https://simplelogin.io/"
+        },
+        {
+          "title": "Proton Mail",
+          "subtitle": "瑞士端到端加密邮箱，隐私首选",
+          "link": "https://proton.me/mail"
+        },
+        {
+          "title": "Tuta",
+          "subtitle": "德国全加密邮箱，无需手机号注册",
+          "link": "https://tuta.com"
+        },
+        {
+          "title": "Zoho Mail",
+          "subtitle": "免费自定义域名邮箱，国内直连",
+          "link": "https://store.zoho.com.cn/referral.do?servicename=VirtualOffice&category=VirtualOffice&ref=c9437ac2bb2895156f980cc1b65072dc120416d48187e262a8a5f7c33e0643abdbeed9352a1f8786221a3446940a72f8"
+        },
+        {
+          "title": "iCloud 邮件",
+          "subtitle": "苹果生态邮箱，iCloud 免费自带",
+          "link": "https://www.icloud.com/mail"
+        },
+        {
+          "title": "DuckDuckGo Email",
+          "subtitle": "邮箱别名转发，隐藏真实邮箱",
+          "link": "https://duckduckgo.com/email"
         }
       ]
     },

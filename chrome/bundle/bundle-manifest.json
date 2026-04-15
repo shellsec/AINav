@@ -1,0 +1,234 @@
+{
+  "parts": {
+    "developer": [
+      {
+        "file": "developer.zip",
+        "mb": 13.7
+      }
+    ],
+    "security": [
+      {
+        "file": "security.zip",
+        "mb": 6.9
+      }
+    ],
+    "office": [
+      {
+        "file": "office-part1.zip",
+        "mb": 41.1
+      },
+      {
+        "file": "office-part2.zip",
+        "mb": 11.7
+      }
+    ],
+    "student": [
+      {
+        "file": "student.zip",
+        "mb": 22.9
+      }
+    ],
+    "media": [
+      {
+        "file": "media.zip",
+        "mb": 12.9
+      }
+    ],
+    "designer": [
+      {
+        "file": "designer.zip",
+        "mb": 12.7
+      }
+    ],
+    "ai": [
+      {
+        "file": "ai-part1.zip",
+        "mb": 26.8
+      },
+      {
+        "file": "ai-part2.zip",
+        "mb": 36.9
+      }
+    ],
+    "password": [
+      {
+        "file": "password-part1.zip",
+        "mb": 44.0
+      },
+      {
+        "file": "password-part2.zip",
+        "mb": 2.1
+      }
+    ],
+    "note": [
+      {
+        "file": "note.zip",
+        "mb": 1.8
+      }
+    ],
+    "reading": [
+      {
+        "file": "reading-part1.zip",
+        "mb": 53.4
+      },
+      {
+        "file": "reading-part2.zip",
+        "mb": 5.7
+      }
+    ],
+    "video": [
+      {
+        "file": "video.zip",
+        "mb": 20.6
+      }
+    ],
+    "adblock": [
+      {
+        "file": "adblock-part1.zip",
+        "mb": 71.5
+      },
+      {
+        "file": "adblock-part2.zip",
+        "mb": 69.7
+      },
+      {
+        "file": "adblock-part3.zip",
+        "mb": 39.7
+      }
+    ],
+    "vpn": [
+      {
+        "file": "vpn.zip",
+        "mb": 8.5
+      }
+    ],
+    "screenshot": [
+      {
+        "file": "screenshot.zip",
+        "mb": 31.9
+      }
+    ],
+    "download": [
+      {
+        "file": "download.zip",
+        "mb": 3.8
+      }
+    ],
+    "efficiency": [
+      {
+        "file": "efficiency.zip",
+        "mb": 10.0
+      }
+    ],
+    "newtab": [
+      {
+        "file": "newtab.zip",
+        "mb": 42.2
+      }
+    ]
+  },
+  "labels": {
+    "developer": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(6款)",
+      "en_sub": "(6)"
+    },
+    "security": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(3款)",
+      "en_sub": "(3)"
+    },
+    "office": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(5款)",
+      "en_sub": "(5)"
+    },
+    "student": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(5款)",
+      "en_sub": "(5)"
+    },
+    "media": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(4款)",
+      "en_sub": "(4)"
+    },
+    "designer": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(5款)",
+      "en_sub": "(5)"
+    },
+    "screenshot": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(3款离线)",
+      "en_sub": "(3 offline)"
+    },
+    "ai": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(4款)",
+      "en_sub": "(4)"
+    },
+    "password": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(3款)",
+      "en_sub": "(3)"
+    },
+    "note": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(1款离线包)",
+      "en_sub": "(1 offline)"
+    },
+    "reading": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(5款)",
+      "en_sub": "(5)"
+    },
+    "video": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(4款离线)",
+      "en_sub": "(4 offline)"
+    },
+    "download": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(5款离线)",
+      "en_sub": "(5 offline)"
+    },
+    "efficiency": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(6款)",
+      "en_sub": "(6)"
+    },
+    "newtab": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(6款)",
+      "en_sub": "(6)"
+    },
+    "adblock": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(6款)",
+      "en_sub": "(6)"
+    },
+    "vpn": {
+      "zh_main": "一键打包下载",
+      "en_main": "Bundle Download",
+      "zh_sub": "(5款)",
+      "en_sub": "(5)"
+    }
+  }
+}

@@ -68,10 +68,6 @@
     ],
     "reading": [
       {
-        "file": "reading-part1.zip",
-        "mb": 53.4
-      },
-      {
         "file": "reading-part2.zip",
         "mb": 5.7
       }
@@ -83,14 +79,6 @@
       }
     ],
     "adblock": [
-      {
-        "file": "adblock-part1.zip",
-        "mb": 71.5
-      },
-      {
-        "file": "adblock-part2.zip",
-        "mb": 69.7
-      },
       {
         "file": "adblock-part3.zip",
         "mb": 39.7

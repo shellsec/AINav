@@ -1014,8 +1014,8 @@
                         </div>
                         </div>
                         </div>
-                        <div class="bundle-slot" data-bundle="reading" data-parts="reading-part1.zip,reading-part2.zip" data-fallback="https://aiv123.com/chrome/bundle/reading.zip">
-                            <a class="bundle-download" href="https://aiv123.com/chrome/bundle/reading.zip"><i class="iconfont icon-download"></i><span data-zh="一键打包下载 (5款)" data-en="Bundle Download (5)">一键打包下载 (5款)</span> <span class="bundle-size">59.1MB</span></a>
+                        <div class="bundle-slot" data-bundle="reading" data-fallback="https://aiv123.com/chrome/bundle/reading-part2.zip">
+                            <a class="bundle-download" href="https://aiv123.com/chrome/bundle/reading-part2.zip"><i class="iconfont icon-download"></i><span data-zh="一键打包下载 (4款离线)" data-en="Bundle Download (4 offline)">一键打包下载</span> <span class="bundle-size">5.7MB</span></a>
                         </div>
                     </div>
                 </div>
@@ -1176,13 +1176,7 @@
                             <div class="plugin-info"><div class="plugin-name">uBlock Origin <span class="badge-tag tag-must" data-zh="必装" data-en="Must">必装</span></div><div class="plugin-brief" data-zh="最高效广告拦截，低CPU" data-en="Most efficient ad blocker, low CPU">最高效广告拦截，低CPU</div></div>
                         </div>
                         <div class="plugin-item">
-                            <div class="plugin-info"><div class="plugin-name">Adblock Plus <span class="badge-tag tag-hot" data-zh="热门" data-en="Hot">热门</span></div><div class="plugin-brief" data-zh="经典广告拦截器" data-en="Classic ad blocker">经典广告拦截器</div></div>
-                        </div>
-                        <div class="plugin-item">
                             <div class="plugin-info"><div class="plugin-name">AdGuard <span class="badge-tag tag-hot" data-zh="热门" data-en="Hot">热门</span></div><div class="plugin-brief" data-zh="全方位广告过滤" data-en="Comprehensive ad filtering">全方位广告过滤</div></div>
-                        </div>
-                        <div class="plugin-item">
-                            <div class="plugin-info"><div class="plugin-name">AdBlock <span class="badge-tag tag-rec" data-zh="推荐" data-en="Rec">推荐</span></div><div class="plugin-brief" data-zh="最佳广告拦截工具" data-en="Best ad blocking tool">最佳广告拦截工具</div></div>
                         </div>
                         <div class="plugin-item">
                             <div class="plugin-info"><div class="plugin-name">uBlacklist <span class="badge-tag tag-rec" data-zh="推荐" data-en="Rec">推荐</span></div><div class="plugin-brief" data-zh="屏蔽搜索结果垃圾站" data-en="Block spam sites in search results">屏蔽搜索结果垃圾站</div></div>
@@ -1192,8 +1186,8 @@
                         </div>
                         </div>
                         </div>
-                        <div class="bundle-slot" data-bundle="adblock" data-parts="adblock-part1.zip,adblock-part2.zip,adblock-part3.zip" data-fallback="https://aiv123.com/chrome/bundle/adblock.zip">
-                            <a class="bundle-download" href="https://aiv123.com/chrome/bundle/adblock.zip"><i class="iconfont icon-download"></i><span data-zh="一键打包下载 (6款)" data-en="Bundle Download (6)">一键打包下载 (6款)</span> <span class="bundle-size">180.9MB</span></a>
+                        <div class="bundle-slot" data-bundle="adblock" data-fallback="https://aiv123.com/chrome/bundle/adblock-part3.zip">
+                            <a class="bundle-download" href="https://aiv123.com/chrome/bundle/adblock-part3.zip"><i class="iconfont icon-download"></i><span data-zh="一键打包下载 (6款)" data-en="Bundle Download (6)">一键打包下载 (6款)</span> <span class="bundle-size">39.7MB</span></a>
                         </div>
                     </div>
                 </div>
@@ -1863,10 +1857,15 @@ function buildBundleSlotHtml(bundleKey, entries, labels, lang) {
 function renderBundleSlots(manifest, lang) {
     var parts = manifest && (manifest.parts || manifest);
     var labels = (manifest && manifest.labels) || {};
+    /* 强制覆盖：已删除的大文件分卷，确保线上旧 manifest 不生效 */
+    var FORCED_PARTS = {
+        reading: [{ file: 'reading-part2.zip', mb: 5.7 }],
+        adblock: [{ file: 'adblock-part3.zip', mb: 39.7 }]
+    };
     document.querySelectorAll('.bundle-slot').forEach(function(slot) {
         var key = slot.getAttribute('data-bundle');
         if (!key) return;
-        var entries = parts && parts[key] && parts[key].length ? parts[key] : null;
+        var entries = FORCED_PARTS[key] || (parts && parts[key] && parts[key].length ? parts[key] : null);
         if (!entries) entries = entriesFromDataParts(slot);
         if (!entries || !entries.length) return;
         var inner = buildBundleSlotHtml(key, entries, labels, lang);

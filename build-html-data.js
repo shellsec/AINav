@@ -1513,6 +1513,7 @@ const html = `<!DOCTYPE html>
       </div>
       <div class="top-toolbar" role="group" aria-label="外观" data-i18n-aria="toolbarLabel">
         <a href="ai-encyclopedia-2026.html" title="AI工具百科全书免费额度与产品说明" data-i18n="encyclopedia" data-i18n-title="encyclopediaTitle">AI工具百科</a>
+        <a href="https://aiv123.com/chrome/" title="Chrome 插件" data-i18n="chromeExt" data-i18n-title="chromeExtTitle">Chrome插件</a>
         <button type="button" class="theme-btn" data-theme-set="system" data-i18n="themeSystem">跟随系统</button>
         <button type="button" class="theme-btn" data-theme-set="light" data-i18n="themeLight">浅色</button>
         <button type="button" class="theme-btn" data-theme-set="dark" data-i18n="themeDark">深色</button>
@@ -1895,6 +1896,8 @@ const html = `<!DOCTYPE html>
         toolbarLabel: "Appearance",
         encyclopedia: "AI Encyclopedia",
         encyclopediaTitle: "AI Tool Encyclopedia – Free Tiers & Descriptions",
+        chromeExt: "Chrome Extension",
+        chromeExtTitle: "Chrome Extension",
         themeSystem: "System",
         themeLight: "Light",
         themeDark: "Dark",
@@ -1977,6 +1980,8 @@ const html = `<!DOCTYPE html>
         toolbarLabel: "外观",
         encyclopedia: "AI工具百科",
         encyclopediaTitle: "AI工具百科全书免费额度与产品说明",
+        chromeExt: "Chrome插件",
+        chromeExtTitle: "Chrome 插件",
         themeSystem: "跟随系统",
         themeLight: "浅色",
         themeDark: "深色",

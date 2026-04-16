@@ -157,6 +157,14 @@
           "path": "/detail/chatgpt"
         },
         {
+          "key": "ZAI",
+          "title": "Z.AI",
+          "subtitle": "智谱GLM国际版，支持GLM-5.1等顶级模型的AI对话助手",
+          "avatar": "icon/ZAI.png",
+          "link": "https://chat.z.ai/",
+          "path": ""
+        },
+        {
           "key": "Le Chat",
           "title": "Le Chat",
           "subtitle": "Mistral AI旗下AI对话工具，速度快，免费",
@@ -6696,6 +6704,101 @@
     },
     {
       "type": "leaf",
+      "name": "AI 创意 · 创业与社区",
+      "id": "ext-creative-startup",
+      "tools": [
+        {
+          "key": "ext-AI-创意--创业与社区-0",
+          "title": "Lablab.ai",
+          "subtitle": "全球 AI 黑客松社区，组队挑战与模型实战",
+          "avatar": "",
+          "link": "https://lablab.ai",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-创意--创业与社区-1",
+          "title": "Devpost",
+          "subtitle": "全球最大黑客松平台，AI 赛事与作品展示",
+          "avatar": "",
+          "link": "https://devpost.com",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-创意--创业与社区-2",
+          "title": "Product Hunt",
+          "subtitle": "新产品发布与社区投票，AI 产品首发阵地",
+          "avatar": "",
+          "link": "https://producthunt.com",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-创意--创业与社区-3",
+          "title": "Indie Hackers",
+          "subtitle": "独立开发者创业社区，分享收入与增长经验",
+          "avatar": "",
+          "link": "https://indiehackers.com",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-创意--创业与社区-4",
+          "title": "TapNow",
+          "subtitle": "AI 原生创意画布，视觉创作与灵感引擎",
+          "avatar": "",
+          "link": "https://tapnow.ai",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-创意--创业与社区-5",
+          "title": "Vireo AI",
+          "subtitle": "AI 创业灵感引擎，商业创意生成与评估",
+          "avatar": "",
+          "link": "https://vireoai.cn",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-创意--创业与社区-6",
+          "title": "FutureFounderAI",
+          "subtitle": "商业创意评估与创业指导，验证想法可行性",
+          "avatar": "",
+          "link": "https://futurefounderai.com",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-创意--创业与社区-7",
+          "title": "dev.events",
+          "subtitle": "黑客松与开发者活动聚合，全球赛事日历",
+          "avatar": "",
+          "link": "https://dev.events",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-创意--创业与社区-8",
+          "title": "hackathons.space",
+          "subtitle": "全球黑客松发现与组队平台",
+          "avatar": "",
+          "link": "https://hackathons.space",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-创意--创业与社区-9",
+          "title": "Luma",
+          "subtitle": "AI 活动与社区聚会平台，发现线下线上活动",
+          "avatar": "",
+          "link": "https://luma.com/ai",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-创意--创业与社区-10",
+          "title": "活动行",
+          "subtitle": "中文活动平台，AI 黑客松与创业活动聚合",
+          "avatar": "",
+          "link": "https://www.huodongxing.com/",
+          "path": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
       "name": "终端与 CLI 上的 AI",
       "id": "ext-cli-ai",
       "tools": [
@@ -7185,6 +7288,13 @@
       "avatar": "icon/ChatGPT.png",
       "link": "https://chatgpt.com/",
       "path": "/detail/chatgpt"
+    },
+    "ZAI": {
+      "title": "Z.AI",
+      "subtitle": "智谱GLM国际版，支持GLM-5.1等顶级模型的AI对话助手",
+      "avatar": "icon/ZAI.png",
+      "link": "https://chat.z.ai/",
+      "path": ""
     },
     "66AI论文": {
       "title": "66AI论文",

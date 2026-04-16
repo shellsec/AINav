@@ -598,6 +598,7 @@ function buildAiEncyclopediaPage() {
     <div class="ec-top-inner">
       <div class="ec-nav">
         <a href="index.html">← 返回导航首页</a>
+        <a href="coding-plan.html">编程套餐横评</a>
       </div>
       <div class="ec-toolbar" role="group" aria-label="外观">
         <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
@@ -1512,6 +1513,7 @@ const html = `<!DOCTYPE html>
         <span class="global-search-count" id="searchCount"></span>
       </div>
       <div class="top-toolbar" role="group" aria-label="外观" data-i18n-aria="toolbarLabel">
+        <a href="coding-plan.html" title="国内外AI编程套餐价格对比与选购推荐" data-i18n="codingPlan" data-i18n-title="codingPlanTitle">编程套餐横评</a>
         <a href="ai-encyclopedia-2026.html" title="AI工具百科全书免费额度与产品说明" data-i18n="encyclopedia" data-i18n-title="encyclopediaTitle">AI工具百科</a>
         <a href="https://aiv123.com/chrome/" title="Chrome 插件" data-i18n="chromeExt" data-i18n-title="chromeExtTitle">Chrome插件</a>
         <button type="button" class="theme-btn" data-theme-set="system" data-i18n="themeSystem">跟随系统</button>
@@ -1896,6 +1898,8 @@ const html = `<!DOCTYPE html>
         toolbarLabel: "Appearance",
         encyclopedia: "AI Encyclopedia",
         encyclopediaTitle: "AI Tool Encyclopedia – Free Tiers & Descriptions",
+        codingPlan: "Coding Plans",
+        codingPlanTitle: "AI Coding Plan Comparison & Buying Guide",
         chromeExt: "Chrome Extension",
         chromeExtTitle: "Chrome Extension",
         themeSystem: "System",
@@ -1980,6 +1984,8 @@ const html = `<!DOCTYPE html>
         toolbarLabel: "外观",
         encyclopedia: "AI工具百科",
         encyclopediaTitle: "AI工具百科全书免费额度与产品说明",
+        codingPlan: "编程套餐横评",
+        codingPlanTitle: "国内外AI编程套餐价格对比与选购推荐",
         chromeExt: "Chrome插件",
         chromeExtTitle: "Chrome 插件",
         themeSystem: "跟随系统",

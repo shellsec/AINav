@@ -3795,11 +3795,11 @@
           "path": ""
         },
         {
-          "key": "LogoliveryAI",
-          "title": "LogoliveryAI",
-          "subtitle": "免费的AI Logo生成器，提供SVG矢量格式",
-          "avatar": "icon/LogoliveryAI.png",
-          "link": "https://logolivery.ai/",
+          "key": "IdeogramAI",
+          "title": "Ideogram",
+          "subtitle": "AI图像生成工具，擅长文字渲染与Logo设计",
+          "avatar": "icon/IdeogramAI.png",
+          "link": "https://ideogram.ai/",
           "path": ""
         },
         {
@@ -10091,11 +10091,11 @@
       "link": "https://taishan.qq.com/brand/",
       "path": ""
     },
-    "LogoliveryAI": {
-      "title": "LogoliveryAI",
-      "subtitle": "免费的AI Logo生成器，提供SVG矢量格式",
-      "avatar": "icon/LogoliveryAI.png",
-      "link": "https://logolivery.ai/",
+    "LogoAI": {
+      "title": "LogoAI",
+      "subtitle": "AI智能Logo设计与品牌生成平台",
+      "avatar": "icon/LogoAI.png",
+      "link": "https://logoai.ai/",
       "path": ""
     },
     "Creatie": {

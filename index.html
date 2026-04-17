@@ -98,23 +98,21 @@
       margin-top: 0.35rem;
       margin-left: auto;
       margin-right: auto;
-      padding: 0.45rem 0.65rem 0.5rem;
+      padding: 0.35rem 0.65rem;
       border-radius: 8px;
       border: 1px solid var(--border);
       background: var(--card);
       max-width: 52rem;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
+      justify-content: center;
     }
     .top-promo-head {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 0.3rem 0.5rem;
-      margin-bottom: 0.3rem;
+      gap: 0.25rem 0.45rem;
     }
     .top-promo-badge {
       font-size: 0.65rem;
@@ -251,6 +249,41 @@
     .top-promo-privacy strong {
       color: var(--text);
       font-weight: 600;
+    }
+    .top-plans {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.15rem 0.35rem;
+      margin: 0.4rem auto 0;
+      padding: 0.35rem 0.65rem;
+      max-width: 52rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+    .top-plans-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-right: 0.2rem;
+      white-space: nowrap;
+    }
+    .top-plans a {
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      transition: color 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+    .top-plans a:hover {
+      color: var(--accent2);
+      background: var(--promo-cta-bg);
+      text-decoration: none;
     }
     .top-encyclopedia-line {
       margin: 0 0 0.45rem;
@@ -693,7 +726,6 @@
         <span class="global-search-count" id="searchCount"></span>
       </div>
       <div class="top-toolbar" role="group" aria-label="外观" data-i18n-aria="toolbarLabel">
-        <a href="coding-plan.html" title="国内外AI编程套餐价格对比与选购推荐" data-i18n="codingPlan" data-i18n-title="codingPlanTitle">编程套餐横评</a>
         <a href="ai-encyclopedia-2026.html" title="AI工具百科全书免费额度与产品说明" data-i18n="encyclopedia" data-i18n-title="encyclopediaTitle">AI工具百科</a>
         <a href="https://aiv123.com/chrome/" title="Chrome 插件" data-i18n="chromeExt" data-i18n-title="chromeExtTitle">Chrome插件</a>
         <button type="button" class="theme-btn" data-theme-set="system" data-i18n="themeSystem">跟随系统</button>
@@ -705,22 +737,22 @@
         <a class="github-link" href="mailto:info@aiv123.com" title="联系邮箱" data-i18n-title="mailToTitle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
       </div>
     </div>
+    <div class="top-plans">
+      <span class="top-plans-label">📊 横评</span>
+      <a href="coding-plan.html" title="国内外AI编程套餐价格对比与选购推荐" data-i18n="codingPlan" data-i18n-title="codingPlanTitle">编程套餐</a>
+      <a href="agent-plan.html" title="AI Agent横评对比与场景推荐">Agent</a>
+      <a href="video-plan.html" title="AI视频生成套餐价格对比与场景推荐">视频套餐</a>
+      <a href="image-plan.html" title="AI图像生成套餐价格对比与场景推荐">图像套餐</a>
+      <a href="ai-encyclopedia-2026.html" title="AI工具百科全书免费额度与产品说明" data-i18n="encyclopedia" data-i18n-title="encyclopediaTitle">百科全书</a>
+    </div>
     <div class="top-promo" aria-label="合作推广：多模型 API 接入" data-i18n-aria="promoAria">
       <div class="top-promo-head">
-        <span class="top-promo-badge" data-i18n="promoBadge">合作推广</span>
-        <span class="top-promo-title-row">
-          <span class="top-promo-title" data-i18n="promoTitle">OpenAI · Anthropic · Gemini 旗舰模型 · 国内直连免梯</span>
-          <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册 →</a>
+        <span class="top-promo-badge" data-i18n="promoBadge">推广</span>
+        <span class="top-promo-models">
+          <span>Claude Opus 4.7</span><span>GPT-5.4</span><span>Gemini 3.1 Pro</span><span>Claude Sonnet 4.6</span><span>DeepSeek V3.2</span>
         </span>
-      </div>
-      <p class="top-promo-ref" data-i18n-html="promoRef">推荐码 <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · 注册填写得 $2（首充 $20 起） <a class="top-promo-link" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer">立即了解 →</a></p>
-      <div class="top-promo-models">
-      <span>Claude Opus 4.6</span>  
-      <span>GPT-5.4</span>
-        <span>Gemini 3.1 Pro</span>
-        <span>Claude Sonnet 4.6</span>
-        <span>DeepSeek V3.2</span>
-        <span>GPT-5.3 Codex</span>
+        <span class="top-promo-title" data-i18n="promoTitle">国内直连免梯</span>
+        <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册 →</a>
       </div>
     </div>
   </header>
@@ -736,6 +768,9 @@
 <a class="nav-i" href="#Excel表格-1" style="--d:1" data-i18n="catExcel">Excel表格</a>
 <a class="nav-i" href="#幻灯片PPT-1" style="--d:1" data-i18n="catPPT">幻灯片(PPT)</a>
 <a class="nav-i" href="#思维导图-1" style="--d:1" data-i18n="catMindMap">思维导图</a>
+<a class="nav-g" href="#AI-求职招聘-g-0" data-i18n="catAIJobHunting">AI 求职招聘</a>
+<a class="nav-i" href="#简历工具-1" style="--d:1" data-i18n="catResumeTools">简历工具</a>
+<a class="nav-i" href="#面试助手-1" style="--d:1" data-i18n="catInterviewAI">面试助手</a>
 <a class="nav-i" href="#AI-写作工具-0" data-i18n="catAIWriting">AI 写作工具</a>
 <a class="nav-i" href="#AI-编程工具-0" data-i18n="catAICoding">AI 编程工具</a>
 <a class="nav-g" href="#AI-图像工具-g-0" data-i18n="catAIImage">AI 图像工具</a>
@@ -1559,18 +1594,7 @@
 <h2 class="block-title" data-i18n="catAIOffice">AI 办公工具</h2>
 <section class="block" id="效率提升-1">
 <h2 class="block-title" data-i18n="catEfficiency">效率提升</h2>
-<div class="grid"><article class="card" data-link="https://www.52cv.com" data-title="职徒简历" data-subtitle="智能简历制作软件，基于GPT的简历优化和简历代写" data-avatar="icon/职徒简历.png">
-<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
-<a class="card-main" href="https://www.52cv.com" target="_blank" rel="noopener noreferrer">
-<img class="card-icon" src="icons/icon/职徒简历.png" alt="" width="40" height="40" loading="lazy" decoding="async">
-<div class="card-body">
-<h3 class="card-title">职徒简历</h3>
-<p class="card-desc">智能简历制作软件，基于GPT的简历优化和简历代写</p>
-</div>
-</a>
-
-</article>
-<article class="card" data-link="https://tinywow.com" data-title="TinyWow" data-subtitle="免费在线AI工具箱" data-avatar="icon/TinyWow.png">
+<div class="grid"><article class="card" data-link="https://tinywow.com" data-title="TinyWow" data-subtitle="免费在线AI工具箱" data-avatar="icon/TinyWow.png">
 <button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
 <a class="card-main" href="https://tinywow.com" target="_blank" rel="noopener noreferrer">
 <img class="card-icon" src="icons/icon/TinyWow.png" alt="" width="40" height="40" loading="lazy" decoding="async">
@@ -1599,17 +1623,6 @@
 <div class="card-body">
 <h3 class="card-title">Glif</h3>
 <p class="card-desc">无代码的AI小工具构建平台</p>
-</div>
-</a>
-
-</article>
-<article class="card" data-link="https://ai-tools.cn/signup" data-title="速创猫AI简历" data-subtitle="一键生成高质量简历" data-avatar="icon/速创猫AI简历.png">
-<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
-<a class="card-main" href="https://ai-tools.cn/signup" target="_blank" rel="noopener noreferrer">
-<img class="card-icon" src="icons/icon/速创猫AI简历.png" alt="" width="40" height="40" loading="lazy" decoding="async">
-<div class="card-body">
-<h3 class="card-title">速创猫AI简历</h3>
-<p class="card-desc">一键生成高质量简历</p>
 </div>
 </a>
 
@@ -1669,17 +1682,6 @@
 </a>
 
 </article>
-<article class="card" data-link="https://www.yoojober.com/" data-title="YOO简历" data-subtitle="必优科技推出的AI简历生成工具" data-avatar="icon/YOO简历.png">
-<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
-<a class="card-main" href="https://www.yoojober.com/" target="_blank" rel="noopener noreferrer">
-<img class="card-icon" src="icons/icon/YOO简历.png" alt="" width="40" height="40" loading="lazy" decoding="async">
-<div class="card-body">
-<h3 class="card-title">YOO简历</h3>
-<p class="card-desc">必优科技推出的AI简历生成工具</p>
-</div>
-</a>
-
-</article>
 <article class="card" data-link="https://pan.baidu.com/aipan/welcome" data-title="云一朵" data-subtitle="百度网盘最新推出的智能助理" data-avatar="icon/云一朵.png">
 <button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
 <a class="card-main" href="https://pan.baidu.com/aipan/welcome" target="_blank" rel="noopener noreferrer">
@@ -1709,17 +1711,6 @@
 <div class="card-body">
 <h3 class="card-title">靠谱AI</h3>
 <p class="card-desc">无代码AI机器人创建平台</p>
-</div>
-</a>
-
-</article>
-<article class="card" data-link="https://jianli.jiuyeqiao.cn/#/index/index" data-title="神笔简历" data-subtitle="AI简历云平台，专为求职者提供一站式求职服务" data-avatar="icon/神笔简历.png">
-<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
-<a class="card-main" href="https://jianli.jiuyeqiao.cn/#/index/index" target="_blank" rel="noopener noreferrer">
-<img class="card-icon" src="icons/icon/神笔简历.png" alt="" width="40" height="40" loading="lazy" decoding="async">
-<div class="card-body">
-<h3 class="card-title">神笔简历</h3>
-<p class="card-desc">AI简历云平台，专为求职者提供一站式求职服务</p>
 </div>
 </a>
 
@@ -1764,17 +1755,6 @@
 <div class="card-body">
 <h3 class="card-title">熊猫办公</h3>
 <p class="card-desc">AI办公服务平台，提供PPT模板、Excel模板、Word模板等资源</p>
-</div>
-</a>
-
-</article>
-<article class="card" data-link="https://www.zdjianli.cn/" data-title="职得简历" data-subtitle="在线AI简历生成工具" data-avatar="icon/职得简历.png">
-<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
-<a class="card-main" href="https://www.zdjianli.cn/" target="_blank" rel="noopener noreferrer">
-<img class="card-icon" src="icons/icon/职得简历.png" alt="" width="40" height="40" loading="lazy" decoding="async">
-<div class="card-body">
-<h3 class="card-title">职得简历</h3>
-<p class="card-desc">在线AI简历生成工具</p>
 </div>
 </a>
 
@@ -1874,17 +1854,6 @@
 <div class="card-body">
 <h3 class="card-title">小易AI</h3>
 <p class="card-desc">易企秀推出的AI办公工具</p>
-</div>
-</a>
-
-</article>
-<article class="card" data-link="https://ai.lanzidian.com/" data-title="蓝字典AI求职" data-subtitle="AI求职工具，提供AI简历生成、AI模拟面试服务" data-avatar="icon/蓝字典AI求职.png">
-<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
-<a class="card-main" href="https://ai.lanzidian.com/" target="_blank" rel="noopener noreferrer">
-<img class="card-icon" src="icons/icon/蓝字典AI求职.png" alt="" width="40" height="40" loading="lazy" decoding="async">
-<div class="card-body">
-<h3 class="card-title">蓝字典AI求职</h3>
-<p class="card-desc">AI求职工具，提供AI简历生成、AI模拟面试服务</p>
 </div>
 </a>
 
@@ -2846,6 +2815,103 @@
 <div class="card-body">
 <h3 class="card-title">Miro AI</h3>
 <p class="card-desc">利用Miro AI加速创新</p>
+</div>
+</a>
+
+</article></div>
+</section>
+</section>
+<section class="block group" id="AI-求职招聘-g-0">
+<h2 class="block-title" data-i18n="catAIJobHunting">AI 求职招聘</h2>
+<section class="block" id="简历工具-1">
+<h2 class="block-title" data-i18n="catResumeTools">简历工具</h2>
+<div class="grid"><article class="card" data-link="https://www.52cv.com" data-title="职徒简历" data-subtitle="智能简历制作软件，基于GPT的简历优化和简历代写" data-avatar="icon/职徒简历.png">
+<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
+<a class="card-main" href="https://www.52cv.com" target="_blank" rel="noopener noreferrer">
+<img class="card-icon" src="icons/icon/职徒简历.png" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div class="card-body">
+<h3 class="card-title">职徒简历</h3>
+<p class="card-desc">智能简历制作软件，基于GPT的简历优化和简历代写</p>
+</div>
+</a>
+
+</article>
+<article class="card" data-link="https://www.yoojober.com/" data-title="YOO简历" data-subtitle="必优科技推出的AI简历生成工具" data-avatar="icon/YOO简历.png">
+<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
+<a class="card-main" href="https://www.yoojober.com/" target="_blank" rel="noopener noreferrer">
+<img class="card-icon" src="icons/icon/YOO简历.png" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div class="card-body">
+<h3 class="card-title">YOO简历</h3>
+<p class="card-desc">必优科技推出的AI简历生成工具</p>
+</div>
+</a>
+
+</article>
+<article class="card" data-link="https://jianli.jiuyeqiao.cn/#/index/index" data-title="神笔简历" data-subtitle="AI简历云平台，专为求职者提供一站式求职服务" data-avatar="icon/神笔简历.png">
+<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
+<a class="card-main" href="https://jianli.jiuyeqiao.cn/#/index/index" target="_blank" rel="noopener noreferrer">
+<img class="card-icon" src="icons/icon/神笔简历.png" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div class="card-body">
+<h3 class="card-title">神笔简历</h3>
+<p class="card-desc">AI简历云平台，专为求职者提供一站式求职服务</p>
+</div>
+</a>
+
+</article>
+<article class="card" data-link="https://ai-tools.cn/signup" data-title="速创猫AI简历" data-subtitle="一键生成高质量简历" data-avatar="icon/速创猫AI简历.png">
+<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
+<a class="card-main" href="https://ai-tools.cn/signup" target="_blank" rel="noopener noreferrer">
+<img class="card-icon" src="icons/icon/速创猫AI简历.png" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div class="card-body">
+<h3 class="card-title">速创猫AI简历</h3>
+<p class="card-desc">一键生成高质量简历</p>
+</div>
+</a>
+
+</article>
+<article class="card" data-link="https://www.zdjianli.cn/" data-title="职得简历" data-subtitle="在线AI简历生成工具" data-avatar="icon/职得简历.png">
+<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
+<a class="card-main" href="https://www.zdjianli.cn/" target="_blank" rel="noopener noreferrer">
+<img class="card-icon" src="icons/icon/职得简历.png" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div class="card-body">
+<h3 class="card-title">职得简历</h3>
+<p class="card-desc">在线AI简历生成工具</p>
+</div>
+</a>
+
+</article></div>
+</section>
+<section class="block" id="面试助手-1">
+<h2 class="block-title" data-i18n="catInterviewAI">面试助手</h2>
+<div class="grid"><article class="card" data-link="https://ai.lanzidian.com/" data-title="蓝字典AI求职" data-subtitle="AI求职工具，提供AI简历生成、AI模拟面试服务" data-avatar="icon/蓝字典AI求职.png">
+<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
+<a class="card-main" href="https://ai.lanzidian.com/" target="_blank" rel="noopener noreferrer">
+<img class="card-icon" src="icons/icon/蓝字典AI求职.png" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div class="card-body">
+<h3 class="card-title">蓝字典AI求职</h3>
+<p class="card-desc">AI求职工具，提供AI简历生成、AI模拟面试服务</p>
+</div>
+</a>
+
+</article>
+<article class="card" data-link="https://www.mianshiya.com/" data-title="面试鸭" data-subtitle="AI面试刷题平台，覆盖大厂真题与模拟面试" data-avatar="">
+<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
+<a class="card-main" href="https://www.mianshiya.com/" target="_blank" rel="noopener noreferrer">
+<span class="card-icon-ph"></span>
+<div class="card-body">
+<h3 class="card-title">面试鸭</h3>
+<p class="card-desc">AI面试刷题平台，覆盖大厂真题与模拟面试</p>
+</div>
+</a>
+
+</article>
+<article class="card" data-link="https://www.zhipin.com/" data-title="Boss直聘AI" data-subtitle="AI智能推荐岗位，简历智能优化与匹配" data-avatar="">
+<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
+<a class="card-main" href="https://www.zhipin.com/" target="_blank" rel="noopener noreferrer">
+<span class="card-icon-ph"></span>
+<div class="card-body">
+<h3 class="card-title">Boss直聘AI</h3>
+<p class="card-desc">AI智能推荐岗位，简历智能优化与匹配</p>
 </div>
 </a>
 
@@ -14790,7 +14856,7 @@
     <p>本站为工具导航索引，所收录链接由各服务商自行运营；推广位为合作展示，不代表对其背书。</p>
     <p>使用任意外链服务时，请遵守所在地法律法规，并以各产品官网的条款、隐私政策与计费说明为准。</p>
     <p>本站不保证第三方网站的内容准确性、服务持续性、可用性及收费，亦不承担因访问或使用外链而产生的任何责任。</p>
-    <p class="site-built">页面数据生成时间（构建）：2026/04/17 00:19（UTC 记录：2026-04-16T16:19:02.128Z）</p>
+    <p class="site-built">页面数据生成时间（构建）：2026/04/17 21:26（UTC 记录：2026-04-17T13:26:38.287Z）</p>
   </footer>
   <div class="lang-float">
     <button type="button" class="lang-btn" data-lang-set="en">EN</button>
@@ -15135,8 +15201,8 @@
         themeSystem: "System",
         themeLight: "Light",
         themeDark: "Dark",
-        promoBadge: "Sponsored",
-        promoTitle: "OpenAI · Anthropic · Gemini Flagship Models · Direct Access in China, No VPN Needed",
+        promoBadge: "Ad",
+        promoTitle: "Direct Access, No VPN Needed",
         promoCta: "Sign Up →",
         promoRef: 'Referral code <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · Get $2 when you sign up (min. top-up $20) <a class="top-promo-link" href="https://ofox.ai" target="_blank" rel="noopener noreferrer">Learn More →</a>',
         mailToTitle: "Contact Email",
@@ -15154,6 +15220,9 @@
         catAIChat: "AI Chat",
         catAISearch: "AI Search",
         catAIOffice: "AI Office",
+        catAIJobHunting: "AI Job Hunting",
+        catResumeTools: "Resume Tools",
+        catInterviewAI: "Interview AI",
         catEfficiency: "Efficiency",
         catDocTools: "Document Tools",
         catOfficeMeeting: "Meetings",
@@ -15241,6 +15310,9 @@
         catAIChat: "AI 聊天对话",
         catAISearch: "AI 搜索工具",
         catAIOffice: "AI 办公工具",
+        catAIJobHunting: "AI 求职招聘",
+        catResumeTools: "简历工具",
+        catInterviewAI: "面试助手",
         catEfficiency: "效率提升",
         catDocTools: "文档工具",
         catOfficeMeeting: "办公会议",

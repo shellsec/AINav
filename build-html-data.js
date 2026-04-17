@@ -267,6 +267,9 @@ const catI18nMap = {
   "AI 聊天对话": "catAIChat",
   "AI 搜索工具": "catAISearch",
   "AI 办公工具": "catAIOffice",
+  "AI 求职招聘": "catAIJobHunting",
+  "简历工具": "catResumeTools",
+  "面试助手": "catInterviewAI",
   "效率提升": "catEfficiency",
   "文档工具": "catDocTools",
   "办公会议": "catOfficeMeeting",
@@ -599,6 +602,8 @@ function buildAiEncyclopediaPage() {
       <div class="ec-nav">
         <a href="index.html">← 返回导航首页</a>
         <a href="coding-plan.html">编程套餐横评</a>
+        <a href="agent-plan.html">Agent横评</a>
+        <a href="video-plan.html">视频套餐横评</a>
       </div>
       <div class="ec-toolbar" role="group" aria-label="外观">
         <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
@@ -918,23 +923,21 @@ const html = `<!DOCTYPE html>
       margin-top: 0.35rem;
       margin-left: auto;
       margin-right: auto;
-      padding: 0.45rem 0.65rem 0.5rem;
+      padding: 0.35rem 0.65rem;
       border-radius: 8px;
       border: 1px solid var(--border);
       background: var(--card);
       max-width: 52rem;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
+      justify-content: center;
     }
     .top-promo-head {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 0.3rem 0.5rem;
-      margin-bottom: 0.3rem;
+      gap: 0.25rem 0.45rem;
     }
     .top-promo-badge {
       font-size: 0.65rem;
@@ -1071,6 +1074,41 @@ const html = `<!DOCTYPE html>
     .top-promo-privacy strong {
       color: var(--text);
       font-weight: 600;
+    }
+    .top-plans {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.15rem 0.35rem;
+      margin: 0.4rem auto 0;
+      padding: 0.35rem 0.65rem;
+      max-width: 52rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+    .top-plans-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-right: 0.2rem;
+      white-space: nowrap;
+    }
+    .top-plans a {
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      transition: color 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+    .top-plans a:hover {
+      color: var(--accent2);
+      background: var(--promo-cta-bg);
+      text-decoration: none;
     }
     .top-encyclopedia-line {
       margin: 0 0 0.45rem;
@@ -1513,7 +1551,6 @@ const html = `<!DOCTYPE html>
         <span class="global-search-count" id="searchCount"></span>
       </div>
       <div class="top-toolbar" role="group" aria-label="外观" data-i18n-aria="toolbarLabel">
-        <a href="coding-plan.html" title="国内外AI编程套餐价格对比与选购推荐" data-i18n="codingPlan" data-i18n-title="codingPlanTitle">编程套餐横评</a>
         <a href="ai-encyclopedia-2026.html" title="AI工具百科全书免费额度与产品说明" data-i18n="encyclopedia" data-i18n-title="encyclopediaTitle">AI工具百科</a>
         <a href="https://aiv123.com/chrome/" title="Chrome 插件" data-i18n="chromeExt" data-i18n-title="chromeExtTitle">Chrome插件</a>
         <button type="button" class="theme-btn" data-theme-set="system" data-i18n="themeSystem">跟随系统</button>
@@ -1525,22 +1562,22 @@ const html = `<!DOCTYPE html>
         <a class="github-link" href="mailto:info@aiv123.com" title="联系邮箱" data-i18n-title="mailToTitle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
       </div>
     </div>
+    <div class="top-plans">
+      <span class="top-plans-label">📊 横评</span>
+      <a href="coding-plan.html" title="国内外AI编程套餐价格对比与选购推荐" data-i18n="codingPlan" data-i18n-title="codingPlanTitle">编程套餐</a>
+      <a href="agent-plan.html" title="AI Agent横评对比与场景推荐">Agent</a>
+      <a href="video-plan.html" title="AI视频生成套餐价格对比与场景推荐">视频套餐</a>
+      <a href="image-plan.html" title="AI图像生成套餐价格对比与场景推荐">图像套餐</a>
+      <a href="ai-encyclopedia-2026.html" title="AI工具百科全书免费额度与产品说明" data-i18n="encyclopedia" data-i18n-title="encyclopediaTitle">百科全书</a>
+    </div>
     <div class="top-promo" aria-label="合作推广：多模型 API 接入" data-i18n-aria="promoAria">
       <div class="top-promo-head">
-        <span class="top-promo-badge" data-i18n="promoBadge">合作推广</span>
-        <span class="top-promo-title-row">
-          <span class="top-promo-title" data-i18n="promoTitle">OpenAI · Anthropic · Gemini 旗舰模型 · 国内直连免梯</span>
-          <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册 →</a>
+        <span class="top-promo-badge" data-i18n="promoBadge">推广</span>
+        <span class="top-promo-models">
+          <span>Claude Opus 4.7</span><span>GPT-5.4</span><span>Gemini 3.1 Pro</span><span>Claude Sonnet 4.6</span><span>DeepSeek V3.2</span>
         </span>
-      </div>
-      <p class="top-promo-ref" data-i18n-html="promoRef">推荐码 <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · 注册填写得 $2（首充 $20 起） <a class="top-promo-link" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer">立即了解 →</a></p>
-      <div class="top-promo-models">
-      <span>Claude Opus 4.6</span>  
-      <span>GPT-5.4</span>
-        <span>Gemini 3.1 Pro</span>
-        <span>Claude Sonnet 4.6</span>
-        <span>DeepSeek V3.2</span>
-        <span>GPT-5.3 Codex</span>
+        <span class="top-promo-title" data-i18n="promoTitle">国内直连免梯</span>
+        <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册 →</a>
       </div>
     </div>
   </header>
@@ -1905,8 +1942,8 @@ const html = `<!DOCTYPE html>
         themeSystem: "System",
         themeLight: "Light",
         themeDark: "Dark",
-        promoBadge: "Sponsored",
-        promoTitle: "OpenAI · Anthropic · Gemini Flagship Models · Direct Access in China, No VPN Needed",
+        promoBadge: "Ad",
+        promoTitle: "Direct Access, No VPN Needed",
         promoCta: "Sign Up →",
         promoRef: 'Referral code <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · Get $2 when you sign up (min. top-up $20) <a class="top-promo-link" href="https://ofox.ai" target="_blank" rel="noopener noreferrer">Learn More →</a>',
         mailToTitle: "Contact Email",
@@ -1924,6 +1961,9 @@ const html = `<!DOCTYPE html>
         catAIChat: "AI Chat",
         catAISearch: "AI Search",
         catAIOffice: "AI Office",
+        catAIJobHunting: "AI Job Hunting",
+        catResumeTools: "Resume Tools",
+        catInterviewAI: "Interview AI",
         catEfficiency: "Efficiency",
         catDocTools: "Document Tools",
         catOfficeMeeting: "Meetings",
@@ -2009,6 +2049,9 @@ const html = `<!DOCTYPE html>
         catAIChat: "AI 聊天对话",
         catAISearch: "AI 搜索工具",
         catAIOffice: "AI 办公工具",
+        catAIJobHunting: "AI 求职招聘",
+        catResumeTools: "简历工具",
+        catInterviewAI: "面试助手",
         catEfficiency: "效率提升",
         catDocTools: "文档工具",
         catOfficeMeeting: "办公会议",

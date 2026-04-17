@@ -568,14 +568,6 @@
           "id": "效率提升-1",
           "tools": [
             {
-              "key": "职徒简历",
-              "title": "职徒简历",
-              "subtitle": "智能简历制作软件，基于GPT的简历优化和简历代写",
-              "avatar": "icon/职徒简历.png",
-              "link": "https://www.52cv.com",
-              "path": ""
-            },
-            {
               "key": "TinyWow",
               "title": "TinyWow",
               "subtitle": "免费在线AI工具箱",
@@ -597,14 +589,6 @@
               "subtitle": "无代码的AI小工具构建平台",
               "avatar": "icon/Glif.png",
               "link": "https://glif.app/",
-              "path": ""
-            },
-            {
-              "key": "速创猫AI简历",
-              "title": "速创猫AI简历",
-              "subtitle": "一键生成高质量简历",
-              "avatar": "icon/速创猫AI简历.png",
-              "link": "https://ai-tools.cn/signup",
               "path": ""
             },
             {
@@ -648,14 +632,6 @@
               "path": ""
             },
             {
-              "key": "YOO简历",
-              "title": "YOO简历",
-              "subtitle": "必优科技推出的AI简历生成工具",
-              "avatar": "icon/YOO简历.png",
-              "link": "https://www.yoojober.com/",
-              "path": ""
-            },
-            {
               "key": "云一朵",
               "title": "云一朵",
               "subtitle": "百度网盘最新推出的智能助理",
@@ -677,14 +653,6 @@
               "subtitle": "无代码AI机器人创建平台",
               "avatar": "icon/靠谱AI.png",
               "link": "https://www.kaopuai.com/",
-              "path": ""
-            },
-            {
-              "key": "神笔简历",
-              "title": "神笔简历",
-              "subtitle": "AI简历云平台，专为求职者提供一站式求职服务",
-              "avatar": "icon/神笔简历.png",
-              "link": "https://jianli.jiuyeqiao.cn/#/index/index",
               "path": ""
             },
             {
@@ -717,14 +685,6 @@
               "subtitle": "AI办公服务平台，提供PPT模板、Excel模板、Word模板等资源",
               "avatar": "icon/熊猫办公.png",
               "link": "https://www.tukuppt.com/",
-              "path": ""
-            },
-            {
-              "key": "职得简历",
-              "title": "职得简历",
-              "subtitle": "在线AI简历生成工具",
-              "avatar": "icon/职得简历.png",
-              "link": "https://www.zdjianli.cn/",
               "path": ""
             },
             {
@@ -797,14 +757,6 @@
               "subtitle": "易企秀推出的AI办公工具",
               "avatar": "icon/小易AI.png",
               "link": "https://ai.eqxiu.com/",
-              "path": ""
-            },
-            {
-              "key": "蓝字典AI求职",
-              "title": "蓝字典AI求职",
-              "subtitle": "AI求职工具，提供AI简历生成、AI模拟面试服务",
-              "avatar": "icon/蓝字典AI求职.png",
-              "link": "https://ai.lanzidian.com/",
               "path": ""
             },
             {
@@ -1529,6 +1481,91 @@
               "avatar": "icon/Miro AI.png",
               "link": "https://miro.com/ai/",
               "path": "/mindnote/detail/miro_ai"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "name": "AI 求职招聘",
+      "id": "AI-求职招聘-g-0",
+      "children": [
+        {
+          "type": "leaf",
+          "name": "简历工具",
+          "id": "简历工具-1",
+          "tools": [
+            {
+              "key": "职徒简历",
+              "title": "职徒简历",
+              "subtitle": "智能简历制作软件，基于GPT的简历优化和简历代写",
+              "avatar": "icon/职徒简历.png",
+              "link": "https://www.52cv.com",
+              "path": ""
+            },
+            {
+              "key": "YOO简历",
+              "title": "YOO简历",
+              "subtitle": "必优科技推出的AI简历生成工具",
+              "avatar": "icon/YOO简历.png",
+              "link": "https://www.yoojober.com/",
+              "path": ""
+            },
+            {
+              "key": "神笔简历",
+              "title": "神笔简历",
+              "subtitle": "AI简历云平台，专为求职者提供一站式求职服务",
+              "avatar": "icon/神笔简历.png",
+              "link": "https://jianli.jiuyeqiao.cn/#/index/index",
+              "path": ""
+            },
+            {
+              "key": "速创猫AI简历",
+              "title": "速创猫AI简历",
+              "subtitle": "一键生成高质量简历",
+              "avatar": "icon/速创猫AI简历.png",
+              "link": "https://ai-tools.cn/signup",
+              "path": ""
+            },
+            {
+              "key": "职得简历",
+              "title": "职得简历",
+              "subtitle": "在线AI简历生成工具",
+              "avatar": "icon/职得简历.png",
+              "link": "https://www.zdjianli.cn/",
+              "path": ""
+            }
+          ]
+        },
+        {
+          "type": "leaf",
+          "name": "面试助手",
+          "id": "面试助手-1",
+          "tools": [
+            {
+              "key": "蓝字典AI求职",
+              "title": "蓝字典AI求职",
+              "subtitle": "AI求职工具，提供AI简历生成、AI模拟面试服务",
+              "avatar": "icon/蓝字典AI求职.png",
+              "link": "https://ai.lanzidian.com/",
+              "path": ""
+            },
+            {
+              "key": "面试鸭",
+              "title": "面试鸭",
+              "subtitle": "AI面试刷题平台，覆盖大厂真题与模拟面试",
+              "avatar": "",
+              "link": "https://www.mianshiya.com/",
+              "path": ""
+            },
+            {
+              "key": "Boss直聘AI",
+              "title": "Boss直聘AI",
+              "subtitle": "AI智能推荐岗位，简历智能优化与匹配",
+              "avatar": "",
+              "link": "https://www.zhipin.com/",
+              "path": ""
             }
           ]
         }
@@ -8050,6 +8087,20 @@
       "subtitle": "AI求职工具，提供AI简历生成、AI模拟面试服务",
       "avatar": "icon/蓝字典AI求职.png",
       "link": "https://ai.lanzidian.com/",
+      "path": ""
+    },
+    "面试鸭": {
+      "title": "面试鸭",
+      "subtitle": "AI面试刷题平台，覆盖大厂真题与模拟面试",
+      "avatar": "",
+      "link": "https://www.mianshiya.com/",
+      "path": ""
+    },
+    "Boss直聘AI": {
+      "title": "Boss直聘AI",
+      "subtitle": "AI智能推荐岗位，简历智能优化与匹配",
+      "avatar": "",
+      "link": "https://www.zhipin.com/",
       "path": ""
     },
     "Monica": {

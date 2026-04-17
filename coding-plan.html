@@ -206,7 +206,7 @@
           <a id="cdLink" href="https://www.aliyun.com/benefit/scene/codingplan" target="_blank" rel="noopener noreferrer">去抢→</a>
         </div>
         <div class="cd-row cd-row-next">
-          <span class="cd-label">🆕 下一个模型：</span>
+          <span class="cd-label">⏭ 下一个抢购：</span>
           <span class="cd-name" id="cdNext">—</span>
         </div>
       </div>
@@ -231,8 +231,10 @@
       <!-- 1. 智谱 GLM -->
       <div class="cp-platform">
         <div class="cp-platform-head">
-          <span class="cp-platform-name"><a href="https://www.bigmodel.cn/glm-coding?ic=H2G5GCAOFT" target="_blank" rel="noopener noreferrer">智谱 GLM</a></span>
+          <span class="cp-platform-name"><a href="https://www.bigmodel.cn/glm-coding?ic=H2G5GCAOFT" target="_blank" rel="noopener noreferrer">智谱 GLM</a> <a href="https://github.com/vectorstone/glm-coding-plan" target="_blank" rel="noopener noreferrer" style="font-size:0.7em;color:var(--accent);opacity:0.8;text-decoration:none;" title="GLM抢购油猴脚本">🔧油猴脚本</a></span>
           <span class="cp-badge badge-hot">🔥 热门</span>
+          <span class="cp-badge badge-rush">⚡ 需抢</span>
+          <span class="cp-rush-time">⏰ 每日10:00开抢</span>
         </div>
         <div class="cp-platform-body">
           <table class="cp-table">
@@ -1168,6 +1170,7 @@
       // 限量抢购时间表
       var rushSchedule = [
         { hour: 9, minute: 30, label: '阿里百炼 Pro', link: 'https://www.aliyun.com/benefit/scene/codingplan' },
+        { hour: 10, minute: 0, label: '智谱GLM Coding Plan', link: 'https://open.bigmodel.cn/' },
       ];
 
       // 即将上线/首发的新模型预告（date: 日期字符串, label: 模型名, time: 简短时间描述, link: 详情链接）
@@ -1187,8 +1190,7 @@
 
       function pad2(n) { return (n < 10 ? '0' : '') + n; }
 
-      function getNextRush(now) {
-        // Collect all future rushes (today + tomorrow)
+      function getNextRushes(now) {
         var results = [];
         for (var d = 0; d <= 1; d++) {
           for (var i = 0; i < rushSchedule.length; i++) {
@@ -1202,6 +1204,11 @@
           }
         }
         results.sort(function(a, b) { return a.target - b.target; });
+        return results;
+      }
+
+      function getNextRush(now) {
+        var results = getNextRushes(now);
         return results.length > 0 ? results[0] : null;
       }
 
@@ -1249,10 +1256,17 @@
           cdTimeEl.textContent = '--:--:--';
         }
 
-        // --- 第二行：下一个模型预告 ---
+        // --- 第二行：下一个抢购预告 ---
         if (cdNextEl) {
-          if (upcoming) {
-            cdNextEl.innerHTML = '<a href="' + upcoming.link + '" target="_blank" rel="noopener noreferrer">' + upcoming.label + '</a> · ' + upcoming.time + ' 首发';
+          var allRushes = getNextRushes(now);
+          // 找第二个抢购项（第一个已经在第一行显示）
+          var nextRush = allRushes.length > 1 ? allRushes[1] : null;
+          if (nextRush) {
+            var nIsToday = nextRush.target.getDate() === now.getDate() && nextRush.target.getMonth() === now.getMonth();
+            var nTimeStr = pad2(nextRush.target.getHours()) + ':' + pad2(nextRush.target.getMinutes());
+            cdNextEl.innerHTML = '<a href="' + nextRush.link + '" target="_blank" rel="noopener noreferrer">' + nextRush.label + '</a> · ' + (nIsToday ? '今日 ' : '明日 ') + nTimeStr;
+          } else if (upcoming) {
+            cdNextEl.innerHTML = '🆕 <a href="' + upcoming.link + '" target="_blank" rel="noopener noreferrer">' + upcoming.label + '</a> · ' + upcoming.time + ' 首发';
           } else {
             cdNextEl.textContent = '暂无预告';
           }

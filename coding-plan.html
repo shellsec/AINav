@@ -45,6 +45,7 @@
     .theme-btn { font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 5px; border: 1px solid var(--border);
       background: var(--card); color: var(--muted); cursor: pointer; font-family: inherit; }
     .theme-btn.is-active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+    .lang-btn { margin-left: 0.35rem; }
 
     /* ---- Main ---- */
     .cp-wrap { max-width: 76rem; margin: 0 auto; padding: 1rem; }
@@ -1177,76 +1178,60 @@
     (function(){
       var i18n = {
         zh: {
+          pageTitle: 'AI Coding Plan 套餐横评（国内+海外）— AINav',
+          pageDesc: '国内外 AI 编程套餐（Coding Plan）横向对比：智谱GLM、MiniMax、火山引擎方舟、阿里云百炼、Kimi、腾讯云、Cursor、Claude Code、GitHub Copilot、Windsurf 等，价格模型用量对比，标注限时优惠与抢购，含 Token 价格趋势。',
           title: '🔥 AI Coding Plan 套餐横评',
           subtitle: '国内外 AI 编程订阅套餐一站式对比：价格、模型、用量、限时优惠，助你选出最划算的 Coding Plan。',
-          navHome: '← AINav 首页',
-          navCoding: '编程套餐横评',
-          navAgent: 'Agent横评',
-          navVideo: '视频套餐横评',
-          navImage: '图像套餐横评',
-          navEncyclopedia: 'AI百科',
-          sectionDomestic: '🇨🇳 国内 Coding Plan',
-          sectionOverseas: '🌍 海外 Coding Plan',
+          navHome: '← AINav 首页', navCoding: '编程套餐横评', navAgent: 'Agent横评',
+          navVideo: '视频套餐横评', navImage: '图像套餐横评', navEncyclopedia: 'AI百科',
+          themeSystem: '跟随系统', themeLight: '浅色', themeDark: '深色',
+          cdLabel: '⚡ 限量抢：', cdNext: '⏭ 下一个抢购：', cdGo: '去抢→',
+          legendRush: '⚡ 需抢', legendRushDesc: '限时/抢购',
+          legendHot: '🔥 热门', legendHotDesc: '高性价比',
+          legendNew: '✨ 特惠', legendNewDesc: '首月低价',
+          legendRec: '👍 推荐', legendRecDesc: '综合推荐',
+          legendOverseas: '🌍 海外', legendOverseasDesc: '需国际网络',
+          sectionDomestic: '国内 Coding Plan',
+          sectionOverseas: '海外 Coding Plan',
           sectionMatrix: '🔧 编程工具兼容矩阵',
           sectionTrend: '📉 Token 价格趋势：3年暴跌 1000×',
           sectionRec: '🎯 选购推荐 — 按场景选最适合的 Coding Plan',
-          footer: '数据来源：各平台官网 · 价格以官网为准',
-          footerHome: '← 返回 AINav 首页',
-          themeSystem: '跟随系统',
-          themeLight: '浅色',
-          themeDark: '深色',
-          legendRush: '⚡ 需抢 限时/抢购',
-          legendHot: '🔥 热门 高性价比',
-          legendNew: '✨ 特惠 首月低价',
-          legendRec: '👍 推荐 综合推荐',
-          legendOverseas: '🌍 海外 需国际网络',
           thPlan: '套餐', thPrice: '月价', thModel: '核心模型', thUsage: '用量参考', thNote: '备注',
           thUsage5h: '用量/5h', thUsage2: '用量', thDesc: '说明',
-          sceneDevTitle: '👤 独立开发者 / 个人',
-          sceneHeavyTitle: '🔥 重度 AI 编程（每日6h+）',
-          sceneTeamTitle: '🏢 团队 / 企业',
-          sceneFreeTitle: '🆓 免费体验 / 试水',
-          sceneMultiTitle: '🔀 多模型切换 / 不想被绑死',
-          sceneOverseasTitle: '🌍 海外用户 / 需国际网络',
+          footer: '数据来源：各平台官网 · 价格以官网为准',
+          footerHome: '← 返回 AINav 首页',
           promoText: '想用', promoOr: '/', promoNoNet: '却没海外网络？',
           promoDesc: '一个 API Key 调用 100+ 顶级模型，国内直连低延迟，兼容 OpenAI 格式零改造',
           promoCta: '立即注册 →',
+          badgeRush: '⚡ 需抢', badgeHot: '🔥 热门', badgeNew: '✨ 特惠', badgeRec: '👍 推荐',
         },
         en: {
+          pageTitle: 'AI Coding Plan Comparison (Domestic + Overseas) — AINav',
+          pageDesc: 'Side-by-side comparison of AI coding subscription plans worldwide: Zhipu GLM, MiniMax, Volcengine, Alibaba Bailian, Kimi, Tencent Cloud, Cursor, Claude Code, GitHub Copilot, Windsurf, and more. Pricing, models, usage, and limited offers.',
           title: '🔥 AI Coding Plan Comparison',
           subtitle: 'One-stop comparison of AI coding subscriptions worldwide: pricing, models, usage, limited offers — find the best Coding Plan for you.',
-          navHome: '← AINav Home',
-          navCoding: 'Coding Plans',
-          navAgent: 'Agents',
-          navVideo: 'Video Plans',
-          navImage: 'Image Plans',
-          navEncyclopedia: 'AI Encyclopedia',
-          sectionDomestic: '🇨🇳 Domestic Coding Plans',
-          sectionOverseas: '🌍 Overseas Coding Plans',
+          navHome: '← AINav Home', navCoding: 'Coding Plans', navAgent: 'Agents',
+          navVideo: 'Video Plans', navImage: 'Image Plans', navEncyclopedia: 'AI Encyclopedia',
+          themeSystem: 'System', themeLight: 'Light', themeDark: 'Dark',
+          cdLabel: '⚡ Flash Sale:', cdNext: '⏭ Next Sale:', cdGo: 'Grab→',
+          legendRush: '⚡ Rush', legendRushDesc: 'Limited/Flash',
+          legendHot: '🔥 Hot', legendHotDesc: 'Best Value',
+          legendNew: '✨ Deal', legendNewDesc: '1st Month Deal',
+          legendRec: '👍 Pick', legendRecDesc: 'Recommended',
+          legendOverseas: '🌍 OS', legendOverseasDesc: 'Needs VPN',
+          sectionDomestic: 'Domestic Coding Plans',
+          sectionOverseas: 'Overseas Coding Plans',
           sectionMatrix: '🔧 Coding Tool Compatibility Matrix',
           sectionTrend: '📉 Token Price Trend: 1000× Drop in 3 Years',
           sectionRec: '🎯 Recommendations — Find the Best Coding Plan for Your Scenario',
-          footer: 'Data sources: Official websites · Prices subject to change',
-          footerHome: '← Back to AINav Home',
-          themeSystem: 'System',
-          themeLight: 'Light',
-          themeDark: 'Dark',
-          legendRush: '⚡ Rush Limited/Flash sale',
-          legendHot: '🔥 Hot Best value',
-          legendNew: '✨ Deal First month deal',
-          legendRec: '👍 Recommended',
-          legendOverseas: '🌍 Overseas Needs VPN',
           thPlan: 'Plan', thPrice: 'Price', thModel: 'Core Model', thUsage: 'Usage Ref', thNote: 'Note',
           thUsage5h: 'Usage/5h', thUsage2: 'Usage', thDesc: 'Description',
-          sceneDevTitle: '👤 Indie Dev / Personal',
-          sceneHeavyTitle: '🔥 Heavy AI Coding (6h+/day)',
-          sceneTeamTitle: '🏢 Team / Enterprise',
-          sceneFreeTitle: '🆓 Free Trial / Testing',
-          sceneMultiTitle: '🔀 Multi-model / No Lock-in',
-          sceneOverseasTitle: '🌍 Overseas Users / Need VPN',
+          footer: 'Data sources: Official websites · Prices subject to change',
+          footerHome: '← Back to AINav Home',
           promoText: 'Want', promoOr: '/', promoNoNet: 'but no VPN?',
           promoDesc: 'One API Key for 100+ top models, direct access in China, low latency, OpenAI-compatible format',
           promoCta: 'Sign Up →',
+          badgeRush: '⚡ Rush', badgeHot: '🔥 Hot', badgeNew: '✨ Deal', badgeRec: '👍 Pick',
         }
       };
 
@@ -1259,6 +1244,15 @@
         document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-CN');
         try { localStorage.setItem(LANG_KEY, lang); } catch(e){}
         var dict = i18n[lang];
+
+        // Page meta
+        document.title = dict.pageTitle;
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', dict.pageDesc);
+        var ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', dict.pageTitle);
+        var ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', dict.pageDesc);
 
         // data-i18n elements
         document.querySelectorAll('[data-i18n]').forEach(function(el) {
@@ -1275,29 +1269,52 @@
         if (navLinks[4]) navLinks[4].textContent = dict.navImage;
         if (navLinks[5]) navLinks[5].textContent = dict.navEncyclopedia;
 
+        // Theme buttons
+        document.querySelectorAll('.theme-btn:not(.lang-btn)').forEach(function(b) {
+          var s = b.getAttribute('data-theme-set');
+          if (s === 'system') b.textContent = dict.themeSystem;
+          else if (s === 'light') b.textContent = dict.themeLight;
+          else if (s === 'dark') b.textContent = dict.themeDark;
+        });
+
+        // Countdown labels
+        var cdLabels = document.querySelectorAll('.cd-label');
+        cdLabels.forEach(function(el) {
+          var t = el.textContent;
+          if (t.indexOf('限量抢') !== -1 || t.indexOf('Flash') !== -1) el.textContent = dict.cdLabel;
+          else if (t.indexOf('下一个') !== -1 || t.indexOf('Next') !== -1) el.textContent = dict.cdNext;
+        });
+        var cdLink = document.getElementById('cdLink');
+        if (cdLink) cdLink.textContent = dict.cdGo;
+
+        // Legend items
+        var legendItems = document.querySelectorAll('.cp-legend-item');
+        var legendKeys = [
+          { badge: 'badge-rush', key: 'legendRush', descKey: 'legendRushDesc' },
+          { badge: 'badge-hot', key: 'legendHot', descKey: 'legendHotDesc' },
+          { badge: 'badge-new', key: 'legendNew', descKey: 'legendNewDesc' },
+          { badge: 'badge-rec', key: 'legendRec', descKey: 'legendRecDesc' },
+          { badge: 'badge-overseas', key: 'legendOverseas', descKey: 'legendOverseasDesc' },
+        ];
+        legendItems.forEach(function(el, idx) {
+          if (legendKeys[idx]) {
+            var k = legendKeys[idx];
+            el.innerHTML = '<span class="cp-badge ' + k.badge + '">' + dict[k.key] + '</span> ' + dict[k.descKey];
+          }
+        });
+
         // Section headings
         document.querySelectorAll('.cp-section-hd').forEach(function(el) {
           var txt = el.textContent.trim();
           if (txt.indexOf('国内') !== -1 || txt.indexOf('Domestic') !== -1) {
-            el.innerHTML = '<span class="cp-flag">🇨🇳</span> ' + dict.sectionDomestic.replace('🇨🇳 ','');
+            var sponsorLink = el.querySelector('.cp-sponsor');
+            el.innerHTML = '<span class="cp-flag">🇨🇳</span> ' + dict.sectionDomestic;
+            if (sponsorLink) el.appendChild(sponsorLink);
           } else if (txt.indexOf('海外') !== -1 || txt.indexOf('Overseas') !== -1) {
-            el.innerHTML = '<span class="cp-flag">🌍</span> ' + dict.sectionOverseas.replace('🌍 ','');
+            var sponsorLink2 = el.querySelector('.cp-sponsor');
+            el.innerHTML = '<span class="cp-flag">🌍</span> ' + dict.sectionOverseas;
+            if (sponsorLink2) el.appendChild(sponsorLink2);
           }
-        });
-        // Preserve overseas-hd class sections with sponsor link
-        var overseasHd = document.querySelector('.cp-section-hd.overseas-hd');
-        if (overseasHd) {
-          var sponsorLink = overseasHd.querySelector('.cp-sponsor');
-          overseasHd.innerHTML = '<span class="cp-flag">🌍</span> ' + dict.sectionOverseas.replace('🌍 ','');
-          if (sponsorLink) overseasHd.appendChild(sponsorLink);
-        }
-
-        // Matrix & trend section h2s
-        var h2s = document.querySelectorAll('.cp-matrix-section h2, .cp-trend-section h2');
-        h2s.forEach(function(el) {
-          var t = el.textContent.trim();
-          if (t.indexOf('兼容矩阵') !== -1 || t.indexOf('Compatibility') !== -1) el.textContent = dict.sectionMatrix;
-          if (t.indexOf('Token 价格趋势') !== -1 || t.indexOf('Token Price') !== -1) el.textContent = dict.sectionTrend;
         });
 
         // Table headers
@@ -1313,24 +1330,27 @@
           else if (t === '说明') th.textContent = dict.thDesc;
         });
 
+        // Matrix & trend section h2s
+        var h2s = document.querySelectorAll('.cp-matrix-section h2, .cp-trend-section h2');
+        h2s.forEach(function(el) {
+          var t = el.textContent.trim();
+          if (t.indexOf('兼容矩阵') !== -1 || t.indexOf('Compatibility') !== -1) el.textContent = dict.sectionMatrix;
+          if (t.indexOf('Token 价格趋势') !== -1 || t.indexOf('Token Price') !== -1) el.textContent = dict.sectionTrend;
+        });
+
         // Tips/recommendations section heading
-        var recH2 = document.querySelector('.cp-tips h2');
-        if (recH2) recH2.textContent = dict.sectionRec;
+        document.querySelectorAll('.cp-tips h2').forEach(function(el) {
+          if (el.textContent.indexOf('场景推荐') !== -1 || el.textContent.indexOf('Recommendations') !== -1) {
+            el.textContent = dict.sectionRec;
+          }
+        });
 
-        // Legend items
-        var legendItems = document.querySelectorAll('.cp-legend-item');
-        if (legendItems[0]) legendItems[0].innerHTML = '<span class="cp-badge badge-rush">⚡</span> ' + (lang==='en'?'Rush':'需抢');
-        if (legendItems[1]) legendItems[1].innerHTML = '<span class="cp-badge badge-hot">🔥</span> ' + (lang==='en'?'Hot':'热门');
-        if (legendItems[2]) legendItems[2].innerHTML = '<span class="cp-badge badge-new">✨</span> ' + (lang==='en'?'Deal':'特惠');
-        if (legendItems[3]) legendItems[3].innerHTML = '<span class="cp-badge badge-rec">👍</span> ' + (lang==='en'?'Recommended':'推荐');
-        if (legendItems[4]) legendItems[4].innerHTML = '<span class="cp-badge badge-overseas">🌍</span> ' + (lang==='en'?'Overseas':'海外');
-
-        // Theme buttons text
-        document.querySelectorAll('.theme-btn:not(.lang-btn)').forEach(function(b) {
-          var s = b.getAttribute('data-theme-set');
-          if (s === 'system') b.textContent = dict.themeSystem;
-          else if (s === 'light') b.textContent = dict.themeLight;
-          else if (s === 'dark') b.textContent = dict.themeDark;
+        // Inline badges in table rows
+        document.querySelectorAll('.cp-badge.badge-rush').forEach(function(el) { el.textContent = dict.badgeRush; });
+        document.querySelectorAll('.cp-badge.badge-hot').forEach(function(el) { el.textContent = dict.badgeHot; });
+        document.querySelectorAll('.cp-badge.badge-new').forEach(function(el) { el.textContent = dict.badgeNew; });
+        document.querySelectorAll('.cp-badge.badge-rec:not(.cp-legend .cp-badge)').forEach(function(el) {
+          if (el.textContent.indexOf('👍') !== -1 || el.textContent.indexOf('Pick') !== -1) el.textContent = dict.badgeRec;
         });
 
         // Footer
@@ -1365,125 +1385,5 @@
         b.addEventListener('click', function() { applyLang(b.getAttribute('data-lang-set')); });
       });
     })();
-  </script>
-
-  <!-- Countdown to next rush hour -->
-  <script>
-    (function(){
-      // 限量抢购时间表
-      var rushSchedule = [
-        { hour: 9, minute: 30, label: '阿里百炼 Pro', link: 'https://www.aliyun.com/benefit/scene/codingplan' },
-        { hour: 10, minute: 0, label: '智谱GLM Coding Plan', link: 'https://open.bigmodel.cn/' },
-      ];
-
-      // 即将上线/首发的新模型预告（date: 日期字符串, label: 模型名, time: 简短时间描述, link: 详情链接）
-      var upcomingModels = [
-        { date: '2026-04-18', label: 'GLM-5.1-Turbo', time: '4月18日', link: 'https://www.bigmodel.cn/' },
-        { date: '2026-04-22', label: 'Qwen3.5-Max', time: '4月22日', link: 'https://tongyi.aliyun.com/' },
-        { date: '2026-05-01', label: 'MiniMax M2.8', time: '5月初', link: 'https://www.minimaxi.com/' },
-      ];
-
-      var cdNameEl = document.getElementById('cdName');
-      var cdClockEl = document.getElementById('cdClock');
-      var cdTimeEl = document.getElementById('cdTime');
-      var cdLinkEl = document.getElementById('cdLink');
-      var cdNextEl = document.getElementById('cdNext');
-      var cdBox = document.getElementById('countdownBox');
-      if (!cdTimeEl) return;
-
-      function pad2(n) { return (n < 10 ? '0' : '') + n; }
-
-      function getNextRushes(now) {
-        var results = [];
-        for (var d = 0; d <= 1; d++) {
-          for (var i = 0; i < rushSchedule.length; i++) {
-            var r = rushSchedule[i];
-            var target = new Date(now);
-            target.setDate(target.getDate() + d);
-            target.setHours(r.hour, r.minute, 0, 0);
-            if (target > now) {
-              results.push({ target: target, label: r.label, link: r.link });
-            }
-          }
-        }
-        results.sort(function(a, b) { return a.target - b.target; });
-        return results;
-      }
-
-      function getNextRush(now) {
-        var results = getNextRushes(now);
-        return results.length > 0 ? results[0] : null;
-      }
-
-      function getUpcomingModel(now) {
-        for (var i = 0; i < upcomingModels.length; i++) {
-          var m = upcomingModels[i];
-          var releaseDate = new Date(m.date + 'T00:00:00');
-          // Show models that are still upcoming (today or later)
-          if (releaseDate >= new Date(now.getFullYear() + '-' + pad2(now.getMonth()+1) + '-' + pad2(now.getDate()) + 'T00:00:00')) {
-            return m;
-          }
-        }
-        return null;
-      }
-
-      function updateCountdown() {
-        var now = new Date();
-        var rush = getNextRush(now);
-        var upcoming = getUpcomingModel(now);
-
-        // --- 第一行：限量抢倒计时 ---
-        if (rush) {
-          if (cdNameEl) cdNameEl.textContent = rush.label;
-          var isToday = rush.target.getDate() === now.getDate() && rush.target.getMonth() === now.getMonth();
-          var timeStr = pad2(rush.target.getHours()) + ':' + pad2(rush.target.getMinutes());
-          if (cdClockEl) cdClockEl.textContent = (isToday ? '今日 ' : '明日 ') + timeStr;
-
-          var diff = rush.target - now;
-          var h = Math.floor(diff / 3600000);
-          var m = Math.floor((diff % 3600000) / 60000);
-          var s = Math.floor((diff % 60000) / 1000);
-          cdTimeEl.textContent = pad2(h) + ':' + pad2(m) + ':' + pad2(s);
-
-          if (cdLinkEl) cdLinkEl.href = rush.link;
-
-          // Highlight when close (< 5 min)
-          if (diff < 300000 && diff > 0) {
-            cdBox.style.animation = 'cdPulse 1s ease-in-out infinite';
-            cdBox.style.borderColor = 'rgba(255,107,107,0.6)';
-          } else {
-            cdBox.style.animation = 'none';
-            cdBox.style.borderColor = '';
-          }
-        } else {
-          cdTimeEl.textContent = '--:--:--';
-        }
-
-        // --- 第二行：下一个抢购预告 ---
-        if (cdNextEl) {
-          var allRushes = getNextRushes(now);
-          // 找第二个抢购项（第一个已经在第一行显示）
-          var nextRush = allRushes.length > 1 ? allRushes[1] : null;
-          if (nextRush) {
-            var nIsToday = nextRush.target.getDate() === now.getDate() && nextRush.target.getMonth() === now.getMonth();
-            var nTimeStr = pad2(nextRush.target.getHours()) + ':' + pad2(nextRush.target.getMinutes());
-            cdNextEl.innerHTML = '<a href="' + nextRush.link + '" target="_blank" rel="noopener noreferrer">' + nextRush.label + '</a> · ' + (nIsToday ? '今日 ' : '明日 ') + nTimeStr;
-          } else if (upcoming) {
-            cdNextEl.innerHTML = '🆕 <a href="' + upcoming.link + '" target="_blank" rel="noopener noreferrer">' + upcoming.label + '</a> · ' + upcoming.time + ' 首发';
-          } else {
-            cdNextEl.textContent = '暂无预告';
-          }
-        }
-      }
-
-      // Add pulse animation
-      var style = document.createElement('style');
-      style.textContent = '@keyframes cdPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.85;transform:scale(1.03)} }';
-      document.head.appendChild(style);
-
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    })();
-  </script>
-</body>
+  </script></body>
 </html>

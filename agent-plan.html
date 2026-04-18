@@ -48,6 +48,7 @@
     .theme-btn { font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 5px; border: 1px solid var(--border);
       background: var(--card); color: var(--muted); cursor: pointer; font-family: inherit; }
     .theme-btn.is-active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+    .lang-btn { margin-left: 0.35rem; }
 
     /* ---- Main ---- */
     .cp-wrap { max-width: 76rem; margin: 0 auto; padding: 1rem; }
@@ -1050,10 +1051,13 @@
     (function(){
       var i18n = {
         zh: {
+          pageTitle: 'AI Agent 横评 — AINav',
+          pageDesc: '国内外 AI Coding Agent 一站式对比：功能、价格、兼容性、场景推荐，帮你找到最适合的 AI 编程智能体。',
           title: '🤖 AI Agent 横评',
           subtitle: '国内外 AI Coding Agent 一站式对比：功能、价格、兼容性、场景推荐，帮你找到最适合的 AI 编程智能体。',
           navHome: '← AINav 首页', navCoding: '编程套餐横评', navAgent: 'Agent横评',
           navVideo: '视频套餐横评', navImage: '图像套餐横评', navEncyclopedia: 'AI百科',
+          themeSystem: '跟随系统', themeLight: '浅色', themeDark: '深色',
           sectionDomestic: '国内 Coding Agent', sectionOverseas: '海外 Coding Agent',
           sectionOss: '开源 / 自托管 Agent',
           sectionMatrix: '🔧 Agent 功能对比矩阵',
@@ -1062,20 +1066,28 @@
           sectionRec: '🎯 场景推荐 — 按需求选最适合的 Agent',
           sectionTrend: '📈 Agent 趋势分析',
           trendSub: '从"对话助手"到"自主执行"，AI Agent 正在重塑编程方式。',
-          footer: '数据来源：各平台官网 · GitHub · 价格以官网为准',
-          footerHome: '← 返回 AINav 首页',
           thType: '类型', thPrice: '价格', thAccess: '接入方式', thNote: '备注',
           thPlan: '套餐', thModel: '核心模型',
-          themeSystem: '跟随系统', themeLight: '浅色', themeDark: '深色',
+          footer: '数据来源：各平台官网 · GitHub · 价格以官网为准',
+          footerHome: '← 返回 AINav 首页',
           promoText: '想用', promoOr: '/', promoNoNet: '却没海外网络？',
           promoDesc: '一个 API Key 调用 100+ 顶级模型，国内直连低延迟，兼容 OpenAI 格式零改造',
           promoCta: '立即注册 →',
+          badgeRush: '⚡ 需抢', badgeHot: '🔥 热门', badgeNew: '✨ 特惠', badgeRec: '👍 推荐',
+          legendRush: '⚡ 需抢', legendRushDesc: '限时/抢购',
+          legendHot: '🔥 热门', legendHotDesc: '高性价比',
+          legendNew: '✨ 特惠', legendNewDesc: '首月低价',
+          legendRec: '👍 推荐', legendRecDesc: '综合推荐',
+          legendOverseas: '🌍 海外', legendOverseasDesc: '需国际网络',
         },
         en: {
+          pageTitle: 'AI Agent Comparison — AINav',
+          pageDesc: 'One-stop comparison of AI Coding Agents worldwide: features, pricing, compatibility, and scenario recommendations.',
           title: '🤖 AI Agent Comparison',
           subtitle: 'One-stop comparison of AI Coding Agents worldwide: features, pricing, compatibility, and scenario recommendations.',
           navHome: '← AINav Home', navCoding: 'Coding Plans', navAgent: 'Agents',
           navVideo: 'Video Plans', navImage: 'Image Plans', navEncyclopedia: 'AI Encyclopedia',
+          themeSystem: 'System', themeLight: 'Light', themeDark: 'Dark',
           sectionDomestic: 'Domestic Coding Agents', sectionOverseas: 'Overseas Coding Agents',
           sectionOss: 'Open-Source / Self-Hosted Agents',
           sectionMatrix: '🔧 Agent Feature Comparison Matrix',
@@ -1084,41 +1096,68 @@
           sectionRec: '🎯 Recommendations — Find the Best Agent for Your Needs',
           sectionTrend: '📈 Agent Trend Analysis',
           trendSub: 'From "chat assistants" to "autonomous execution" — AI Agents are reshaping how we code.',
-          footer: 'Data sources: Official websites · GitHub · Prices subject to change',
-          footerHome: '← Back to AINav Home',
           thType: 'Type', thPrice: 'Price', thAccess: 'Access', thNote: 'Note',
           thPlan: 'Plan', thModel: 'Core Model',
-          themeSystem: 'System', themeLight: 'Light', themeDark: 'Dark',
+          footer: 'Data sources: Official websites · GitHub · Prices subject to change',
+          footerHome: '← Back to AINav Home',
           promoText: 'Want', promoOr: '/', promoNoNet: 'but no VPN?',
           promoDesc: 'One API Key for 100+ top models, direct access in China, low latency, OpenAI-compatible format',
           promoCta: 'Sign Up →',
+          badgeRush: '⚡ Rush', badgeHot: '🔥 Hot', badgeNew: '✨ Deal', badgeRec: '👍 Pick',
+          legendRush: '⚡ Rush', legendRushDesc: 'Limited/Flash',
+          legendHot: '🔥 Hot', legendHotDesc: 'Best Value',
+          legendNew: '✨ Deal', legendNewDesc: '1st Month Deal',
+          legendRec: '👍 Pick', legendRecDesc: 'Recommended',
+          legendOverseas: '🌍 OS', legendOverseasDesc: 'Needs VPN',
         }
       };
-      var LANG_KEY = 'ainav-lang';
-      var currentLang = localStorage.getItem(LANG_KEY) || 'zh';
+      var LANG_KEY = 'ainav-lang', currentLang = localStorage.getItem(LANG_KEY) || 'zh';
       function applyLang(lang) {
         if (lang !== 'zh' && lang !== 'en') lang = 'zh';
         currentLang = lang;
         document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-CN');
         try { localStorage.setItem(LANG_KEY, lang); } catch(e){}
         var dict = i18n[lang];
+        document.title = dict.pageTitle;
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', dict.pageDesc);
         document.querySelectorAll('[data-i18n]').forEach(function(el) {
           var key = el.getAttribute('data-i18n');
           if (dict[key] !== undefined) el.textContent = dict[key];
         });
-        var navLinks = document.querySelectorAll('.cp-nav a');
-        if (navLinks[0]) navLinks[0].textContent = dict.navHome;
-        if (navLinks[1]) navLinks[1].textContent = dict.navCoding;
-        if (navLinks[2]) navLinks[2].textContent = dict.navAgent;
-        if (navLinks[3]) navLinks[3].textContent = dict.navVideo;
-        if (navLinks[4]) navLinks[4].textContent = dict.navImage;
-        if (navLinks[5]) navLinks[5].textContent = dict.navEncyclopedia;
+        var nl = document.querySelectorAll('.cp-nav a');
+        if (nl[0]) nl[0].textContent = dict.navHome; if (nl[1]) nl[1].textContent = dict.navCoding;
+        if (nl[2]) nl[2].textContent = dict.navAgent; if (nl[3]) nl[3].textContent = dict.navVideo;
+        if (nl[4]) nl[4].textContent = dict.navImage; if (nl[5]) nl[5].textContent = dict.navEncyclopedia;
+        document.querySelectorAll('.theme-btn:not(.lang-btn)').forEach(function(b) {
+          var s = b.getAttribute('data-theme-set');
+          if (s === 'system') b.textContent = dict.themeSystem;
+          else if (s === 'light') b.textContent = dict.themeLight;
+          else if (s === 'dark') b.textContent = dict.themeDark;
+        });
+        // Legend
+        var legendItems = document.querySelectorAll('.cp-legend-item');
+        var legendKeys = [
+          { badge: 'badge-rush', key: 'legendRush', descKey: 'legendRushDesc' },
+          { badge: 'badge-hot', key: 'legendHot', descKey: 'legendHotDesc' },
+          { badge: 'badge-new', key: 'legendNew', descKey: 'legendNewDesc' },
+          { badge: 'badge-rec', key: 'legendRec', descKey: 'legendRecDesc' },
+          { badge: 'badge-overseas', key: 'legendOverseas', descKey: 'legendOverseasDesc' },
+        ];
+        legendItems.forEach(function(el, idx) {
+          if (legendKeys[idx]) {
+            var k = legendKeys[idx];
+            el.innerHTML = '<span class="cp-badge ' + k.badge + '">' + dict[k.key] + '</span> ' + dict[k.descKey];
+          }
+        });
+        // Section headings
         document.querySelectorAll('.cp-section-hd').forEach(function(el) {
           var txt = el.textContent.trim();
           if (txt.indexOf('国内') !== -1) el.innerHTML = '<span class="cp-flag">🇨🇳</span> ' + dict.sectionDomestic;
           else if (txt.indexOf('海外') !== -1) el.innerHTML = '<span class="cp-flag">🌍</span> ' + dict.sectionOverseas;
           else if (txt.indexOf('开源') !== -1 || txt.indexOf('Open') !== -1) el.innerHTML = '<span class="cp-flag">🔓</span> ' + dict.sectionOss;
         });
+        // Table headers
         document.querySelectorAll('.cp-table thead th').forEach(function(th) {
           var t = th.textContent.trim();
           if (t === '类型') th.textContent = dict.thType;
@@ -1128,29 +1167,32 @@
           else if (t === '套餐') th.textContent = dict.thPlan;
           else if (t === '核心模型') th.textContent = dict.thModel;
         });
-        var h2s = document.querySelectorAll('.cp-matrix-section h2, .cp-trend-section h2');
-        h2s.forEach(function(el) {
+        // H2s
+        document.querySelectorAll('.cp-matrix-section h2, .cp-trend-section h2').forEach(function(el) {
           var t = el.textContent.trim();
           if (t.indexOf('功能对比矩阵') !== -1) el.textContent = dict.sectionMatrix;
           else if (t.indexOf('趋势分析') !== -1) el.textContent = dict.sectionTrend;
+          else if (t.indexOf('Stars') !== -1) el.textContent = dict.sectionStars;
+          else if (t.indexOf('月费') !== -1) el.textContent = dict.sectionPrice;
         });
         document.querySelectorAll('.cp-tips h2').forEach(function(el) {
           if (el.textContent.indexOf('场景推荐') !== -1) el.textContent = dict.sectionRec;
         });
         var trendSub = document.querySelector('.cp-trend-sub');
         if (trendSub) trendSub.textContent = dict.trendSub;
-        document.querySelectorAll('.theme-btn:not(.lang-btn)').forEach(function(b) {
-          var s = b.getAttribute('data-theme-set');
-          if (s === 'system') b.textContent = dict.themeSystem;
-          else if (s === 'light') b.textContent = dict.themeLight;
-          else if (s === 'dark') b.textContent = dict.themeDark;
-        });
-        var footerPs = document.querySelectorAll('.cp-footer p');
-        if (footerPs[0]) footerPs[0].textContent = dict.footer;
-        // Promo bar
-        var promoBar = document.querySelector('.cp-wrap > div:first-child');
-        if (promoBar) {
-          promoBar.innerHTML = '<span style="color:var(--muted)">' + dict.promoText + '</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">' + dict.promoOr + '</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">' + dict.promoOr + '</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">' + dict.promoNoNet + '</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">' + dict.promoDesc + '</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">' + dict.promoCta + '</a>';
+        // Inline badges
+        document.querySelectorAll('.cp-badge.badge-rush').forEach(function(el) { el.textContent = dict.badgeRush; });
+        document.querySelectorAll('.cp-badge.badge-hot').forEach(function(el) { el.textContent = dict.badgeHot; });
+        document.querySelectorAll('.cp-badge.badge-new').forEach(function(el) { el.textContent = dict.badgeNew; });
+        document.querySelectorAll('.cp-badge.badge-rec').forEach(function(el) { el.textContent = dict.badgeRec; });
+        // Footer
+        var fp = document.querySelectorAll('.cp-footer p');
+        if (fp[0]) fp[0].textContent = dict.footer;
+        if (fp[1]) fp[1].innerHTML = '<a href="index.html">' + dict.footerHome + '</a>';
+        // Promo
+        var pb = document.querySelector('.cp-wrap > div:first-child');
+        if (pb) {
+          pb.innerHTML = '<span style="color:var(--muted)">' + dict.promoText + '</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">' + dict.promoOr + '</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">' + dict.promoOr + '</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">' + dict.promoNoNet + '</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">' + dict.promoDesc + '</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">' + dict.promoCta + '</a>';
         }
         document.querySelectorAll('.lang-btn').forEach(function(b) {
           b.classList.toggle('is-active', b.getAttribute('data-lang-set') === lang);
@@ -1161,6 +1203,5 @@
         b.addEventListener('click', function() { applyLang(b.getAttribute('data-lang-set')); });
       });
     })();
-  </script>
-</body>
+  </script></body>
 </html>

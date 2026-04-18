@@ -23,7 +23,7 @@
     .cp-nav a{font-weight:600;margin-right:1rem;font-size:.88rem}
     .cp-toolbar{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}
     .theme-btn{font-size:.72rem;padding:.2rem .5rem;border-radius:5px;border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer;font-family:inherit}
-    .theme-btn.is-active{color:var(--accent);border-color:var(--accent);font-weight:600}
+    .theme-btn.is-active{color:var(--accent);border-color:var(--accent);font-weight:600}.lang-btn{margin-left:.35rem}
     .cp-wrap{max-width:76rem;margin:0 auto;padding:1rem}h1{font-size:1.35rem;margin:0 0 .3rem}
     .cp-subtitle{font-size:.88rem;color:var(--muted);margin-bottom:1rem}
     .cp-section-hd{font-size:1.1rem;font-weight:700;margin:1.8rem 0 .8rem;padding-bottom:.3rem;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:.5rem}
@@ -80,7 +80,123 @@
     .cp-footer a{color:var(--muted)}
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2B8FBWRX4N');</script>
+    <script>
+    (function(){
+      var i18n = {
+        zh: {
+          pageTitle: 'AI Image Plan 图像生成套餐横评 — AINav',
+          pageDesc: '国内外 AI 图像生成套餐一站式对比：价格、积分、功能、场景推荐。',
+          title: '🎨 AI Image Plan 图像生成套餐横评',
+          subtitle: '国内外 AI 图像生成套餐一站式对比：价格、积分、功能、场景推荐，帮你选出最划算的 AI 绘画方案。',
+          navHome: '← AINav 首页', navCoding: '编程套餐横评', navAgent: 'Agent横评',
+          navVideo: '视频套餐横评', navImage: '图像套餐横评', navEncyclopedia: 'AI百科',
+          themeSystem: '跟随系统', themeLight: '浅色', themeDark: '深色',
+          sectionDomestic: '国内 AI 图像生成平台', sectionOverseas: '海外 AI 图像生成平台',
+          sectionMatrix: '📊 功能对比矩阵', sectionPrice: '💰 月费对比（入门付费套餐）',
+          sectionRec: '🎯 场景推荐 — 按需求选最适合的图像方案',
+          sectionTrend: '📈 AI 图像生成趋势',
+          thPlan: '套餐', thPrice: '月价', thCredits: '额度', thCompute: '算力/月', thNote: '备注',
+          footer: '数据来源：各平台官网 · 价格以官网为准',
+          footerHome: '← 返回 AINav 首页',
+          promoText: '想用', promoOr: '/', promoNoNet: '却没海外网络？',
+          promoDesc: '一个 API Key 调用 100+ 顶级模型，国内直连低延迟，兼容 OpenAI 格式零改造',
+          promoCta: '立即注册 →',
+          legendRush: '⚡ 需抢', legendRushDesc: '限时/抢购',
+          legendHot: '🔥 热门', legendHotDesc: '高性价比',
+          legendNew: '✨ 特惠', legendNewDesc: '首月低价',
+          legendRec: '👍 推荐', legendRecDesc: '综合推荐',
+          legendOverseas: '🌍 海外', legendOverseasDesc: '需国际网络',
+        },
+        en: {
+          pageTitle: 'AI Image Plan Comparison — AINav',
+          pageDesc: 'One-stop comparison of AI image generation plans worldwide: pricing, credits, features, and scenario recommendations.',
+          title: '🎨 AI Image Plan Comparison',
+          subtitle: 'One-stop comparison of AI image generation plans worldwide: pricing, credits, features, and scenario recommendations.',
+          navHome: '← AINav Home', navCoding: 'Coding Plans', navAgent: 'Agents',
+          navVideo: 'Video Plans', navImage: 'Image Plans', navEncyclopedia: 'AI Encyclopedia',
+          themeSystem: 'System', themeLight: 'Light', themeDark: 'Dark',
+          sectionDomestic: 'Domestic AI Image Platforms', sectionOverseas: 'Overseas AI Image Platforms',
+          sectionMatrix: '📊 Feature Comparison Matrix', sectionPrice: '💰 Monthly Price Comparison (Entry Plans)',
+          sectionRec: '🎯 Recommendations — Find the Best Image Plan for Your Needs',
+          sectionTrend: '📈 AI Image Generation Trends',
+          thPlan: 'Plan', thPrice: 'Price', thCredits: 'Quota', thCompute: 'Compute/Mo', thNote: 'Note',
+          footer: 'Data sources: Official websites · Prices subject to change',
+          footerHome: '← Back to AINav Home',
+          promoText: 'Want', promoOr: '/', promoNoNet: 'but no VPN?',
+          promoDesc: 'One API Key for 100+ top models, direct access in China, low latency, OpenAI-compatible format',
+          promoCta: 'Sign Up →',
+          legendRush: '⚡ Rush', legendRushDesc: 'Limited/Flash',
+          legendHot: '🔥 Hot', legendHotDesc: 'Best Value',
+          legendNew: '✨ Deal', legendNewDesc: '1st Month Deal',
+          legendRec: '👍 Pick', legendRecDesc: 'Recommended',
+          legendOverseas: '🌍 OS', legendOverseasDesc: 'Needs VPN',
+        }
+      };
+      var LANG_KEY='ainav-lang',currentLang=localStorage.getItem(LANG_KEY)||'zh';
+      function applyLang(lang){
+        if(lang!=='zh'&&lang!=='en')lang='zh';currentLang=lang;
+        document.documentElement.setAttribute('lang',lang==='en'?'en':'zh-CN');
+        try{localStorage.setItem(LANG_KEY,lang)}catch(e){}
+        var dict=i18n[lang];
+        document.title=dict.pageTitle;
+        var metaDesc=document.querySelector('meta[name="description"]');
+        if(metaDesc)metaDesc.setAttribute('content',dict.pageDesc);
+        document.querySelectorAll('[data-i18n]').forEach(function(el){var key=el.getAttribute('data-i18n');if(dict[key]!==undefined)el.textContent=dict[key]});
+        var nl=document.querySelectorAll('.cp-nav a');
+        if(nl[0])nl[0].textContent=dict.navHome;if(nl[1])nl[1].textContent=dict.navCoding;
+        if(nl[2])nl[2].textContent=dict.navAgent;if(nl[3])nl[3].textContent=dict.navVideo;
+        if(nl[4])nl[4].textContent=dict.navImage;if(nl[5])nl[5].textContent=dict.navEncyclopedia;
+        document.querySelectorAll('.theme-btn:not(.lang-btn)').forEach(function(b){
+          var s=b.getAttribute('data-theme-set');
+          if(s==='system')b.textContent=dict.themeSystem;
+          else if(s==='light')b.textContent=dict.themeLight;
+          else if(s==='dark')b.textContent=dict.themeDark;
+        });
+        // Legend
+        var legendItems=document.querySelectorAll('.cp-legend-item');
+        var legendKeys=[
+          {badge:'badge-rush',key:'legendRush',descKey:'legendRushDesc'},
+          {badge:'badge-hot',key:'legendHot',descKey:'legendHotDesc'},
+          {badge:'badge-new',key:'legendNew',descKey:'legendNewDesc'},
+          {badge:'badge-rec',key:'legendRec',descKey:'legendRecDesc'},
+          {badge:'badge-overseas',key:'legendOverseas',descKey:'legendOverseasDesc'},
+        ];
+        legendItems.forEach(function(el,idx){
+          if(legendKeys[idx]){var k=legendKeys[idx];el.innerHTML='<span class="cp-badge '+k.badge+'">'+dict[k.key]+'</span> '+dict[k.descKey]}
+        });
+        document.querySelectorAll('.cp-section-hd').forEach(function(el){
+          var t=el.textContent.trim();
+          if(t.indexOf('国内')!==-1)el.innerHTML='<span class="cp-flag">🇨🇳</span> '+dict.sectionDomestic;
+          else if(t.indexOf('海外')!==-1)el.innerHTML='<span class="cp-flag">🌍</span> '+dict.sectionOverseas;
+        });
+        document.querySelectorAll('.cp-table thead th').forEach(function(th){
+          var t=th.textContent.trim();
+          if(t==='套餐')th.textContent=dict.thPlan;else if(t==='月价')th.textContent=dict.thPrice;
+          else if(t==='额度')th.textContent=dict.thCredits;else if(t==='算力/月')th.textContent=dict.thCompute;
+          else if(t==='备注')th.textContent=dict.thNote;
+        });
+        var h2s=document.querySelectorAll('.cp-matrix-section h2');
+        h2s.forEach(function(el){
+          var t=el.textContent.trim();
+          if(t.indexOf('功能对比')!==-1)el.textContent=dict.sectionMatrix;
+          else if(t.indexOf('月费对比')!==-1)el.textContent=dict.sectionPrice;
+        });
+        document.querySelectorAll('.cp-tips h2').forEach(function(el){
+          if(el.textContent.indexOf('场景推荐')!==-1)el.textContent=dict.sectionRec;
+        });
+        document.querySelectorAll('h2').forEach(function(el){
+          if(el.textContent.indexOf('图像生成趋势')!==-1||el.textContent.indexOf('Image Generation Trends')!==-1)el.textContent=dict.sectionTrend;
+        });
+        var fp=document.querySelectorAll('.cp-footer p');
+        if(fp[0])fp[0].textContent=dict.footer;
+        if(fp[1])fp[1].innerHTML='<a href="index.html">'+dict.footerHome+'</a>';
+        var pb=document.querySelector('.cp-wrap > div:first-child');
+        if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
+        document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang-set')===lang)});
+      }
+      applyLang(currentLang);document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang-set'))})});
+    })();
+  </script>
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2d49f38b39c743ac80b6d6b9ff99494d"}'></script>
 </head>
 <body>

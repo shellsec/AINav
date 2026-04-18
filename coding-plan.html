@@ -192,6 +192,8 @@
         <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
         <button type="button" class="theme-btn" data-theme-set="light">浅色</button>
         <button type="button" class="theme-btn" data-theme-set="dark">深色</button>
+        <button type="button" class="theme-btn lang-btn" data-lang-set="zh">中</button>
+        <button type="button" class="theme-btn lang-btn" data-lang-set="en">EN</button>
       </div>
     </div>
   </div>
@@ -202,7 +204,7 @@
       <span style="color:var(--muted)">想用</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">/</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">/</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">却没海外网络？</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">一个 API Key 调用 100+ 顶级模型，国内直连低延迟，兼容 OpenAI 格式零改造</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">立即注册 →</a>
     </div>
     <div class="cp-title-row">
-      <h1>🔥 AI Coding Plan 套餐横评</h1>
+      <h1 data-i18n="title">🔥 AI Coding Plan 套餐横评</h1>
       <div class="cp-countdown-box" id="countdownBox">
         <div class="cd-row">
           <span class="cd-label">⚡ 限量抢：</span>
@@ -217,7 +219,7 @@
         </div>
       </div>
     </div>
-    <p class="cp-subtitle">国内外 AI 编程订阅套餐一站式对比：价格、模型、用量、限时优惠，助你选出最划算的 Coding Plan。</p>
+    <p class="cp-subtitle" data-i18n="subtitle">国内外 AI 编程订阅套餐一站式对比：价格、模型、用量、限时优惠，助你选出最划算的 Coding Plan。</p>
 
 
     <!-- Legend -->
@@ -1157,7 +1159,7 @@
   <!-- Theme toggle -->
   <script>
     (function(){
-      var btns = document.querySelectorAll('.theme-btn');
+      var btns = document.querySelectorAll('.theme-btn:not(.lang-btn)');
       var html = document.documentElement;
       function apply(t){
         html.setAttribute('data-theme', t);
@@ -1167,6 +1169,201 @@
       var saved = localStorage.getItem('cp-theme') || 'system';
       apply(saved);
       btns.forEach(function(b){ b.addEventListener('click', function(){ apply(b.getAttribute('data-theme-set')); }); });
+    })();
+  </script>
+
+  <!-- i18n -->
+  <script>
+    (function(){
+      var i18n = {
+        zh: {
+          title: '🔥 AI Coding Plan 套餐横评',
+          subtitle: '国内外 AI 编程订阅套餐一站式对比：价格、模型、用量、限时优惠，助你选出最划算的 Coding Plan。',
+          navHome: '← AINav 首页',
+          navCoding: '编程套餐横评',
+          navAgent: 'Agent横评',
+          navVideo: '视频套餐横评',
+          navImage: '图像套餐横评',
+          navEncyclopedia: 'AI百科',
+          sectionDomestic: '🇨🇳 国内 Coding Plan',
+          sectionOverseas: '🌍 海外 Coding Plan',
+          sectionMatrix: '🔧 编程工具兼容矩阵',
+          sectionTrend: '📉 Token 价格趋势：3年暴跌 1000×',
+          sectionRec: '🎯 选购推荐 — 按场景选最适合的 Coding Plan',
+          footer: '数据来源：各平台官网 · 价格以官网为准',
+          footerHome: '← 返回 AINav 首页',
+          themeSystem: '跟随系统',
+          themeLight: '浅色',
+          themeDark: '深色',
+          legendRush: '⚡ 需抢 限时/抢购',
+          legendHot: '🔥 热门 高性价比',
+          legendNew: '✨ 特惠 首月低价',
+          legendRec: '👍 推荐 综合推荐',
+          legendOverseas: '🌍 海外 需国际网络',
+          thPlan: '套餐', thPrice: '月价', thModel: '核心模型', thUsage: '用量参考', thNote: '备注',
+          thUsage5h: '用量/5h', thUsage2: '用量', thDesc: '说明',
+          sceneDevTitle: '👤 独立开发者 / 个人',
+          sceneHeavyTitle: '🔥 重度 AI 编程（每日6h+）',
+          sceneTeamTitle: '🏢 团队 / 企业',
+          sceneFreeTitle: '🆓 免费体验 / 试水',
+          sceneMultiTitle: '🔀 多模型切换 / 不想被绑死',
+          sceneOverseasTitle: '🌍 海外用户 / 需国际网络',
+          promoText: '想用', promoOr: '/', promoNoNet: '却没海外网络？',
+          promoDesc: '一个 API Key 调用 100+ 顶级模型，国内直连低延迟，兼容 OpenAI 格式零改造',
+          promoCta: '立即注册 →',
+        },
+        en: {
+          title: '🔥 AI Coding Plan Comparison',
+          subtitle: 'One-stop comparison of AI coding subscriptions worldwide: pricing, models, usage, limited offers — find the best Coding Plan for you.',
+          navHome: '← AINav Home',
+          navCoding: 'Coding Plans',
+          navAgent: 'Agents',
+          navVideo: 'Video Plans',
+          navImage: 'Image Plans',
+          navEncyclopedia: 'AI Encyclopedia',
+          sectionDomestic: '🇨🇳 Domestic Coding Plans',
+          sectionOverseas: '🌍 Overseas Coding Plans',
+          sectionMatrix: '🔧 Coding Tool Compatibility Matrix',
+          sectionTrend: '📉 Token Price Trend: 1000× Drop in 3 Years',
+          sectionRec: '🎯 Recommendations — Find the Best Coding Plan for Your Scenario',
+          footer: 'Data sources: Official websites · Prices subject to change',
+          footerHome: '← Back to AINav Home',
+          themeSystem: 'System',
+          themeLight: 'Light',
+          themeDark: 'Dark',
+          legendRush: '⚡ Rush Limited/Flash sale',
+          legendHot: '🔥 Hot Best value',
+          legendNew: '✨ Deal First month deal',
+          legendRec: '👍 Recommended',
+          legendOverseas: '🌍 Overseas Needs VPN',
+          thPlan: 'Plan', thPrice: 'Price', thModel: 'Core Model', thUsage: 'Usage Ref', thNote: 'Note',
+          thUsage5h: 'Usage/5h', thUsage2: 'Usage', thDesc: 'Description',
+          sceneDevTitle: '👤 Indie Dev / Personal',
+          sceneHeavyTitle: '🔥 Heavy AI Coding (6h+/day)',
+          sceneTeamTitle: '🏢 Team / Enterprise',
+          sceneFreeTitle: '🆓 Free Trial / Testing',
+          sceneMultiTitle: '🔀 Multi-model / No Lock-in',
+          sceneOverseasTitle: '🌍 Overseas Users / Need VPN',
+          promoText: 'Want', promoOr: '/', promoNoNet: 'but no VPN?',
+          promoDesc: 'One API Key for 100+ top models, direct access in China, low latency, OpenAI-compatible format',
+          promoCta: 'Sign Up →',
+        }
+      };
+
+      var LANG_KEY = 'ainav-lang';
+      var currentLang = localStorage.getItem(LANG_KEY) || 'zh';
+
+      function applyLang(lang) {
+        if (lang !== 'zh' && lang !== 'en') lang = 'zh';
+        currentLang = lang;
+        document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-CN');
+        try { localStorage.setItem(LANG_KEY, lang); } catch(e){}
+        var dict = i18n[lang];
+
+        // data-i18n elements
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+
+        // Navigation links
+        var navLinks = document.querySelectorAll('.cp-nav a');
+        if (navLinks[0]) navLinks[0].textContent = dict.navHome;
+        if (navLinks[1]) navLinks[1].textContent = dict.navCoding;
+        if (navLinks[2]) navLinks[2].textContent = dict.navAgent;
+        if (navLinks[3]) navLinks[3].textContent = dict.navVideo;
+        if (navLinks[4]) navLinks[4].textContent = dict.navImage;
+        if (navLinks[5]) navLinks[5].textContent = dict.navEncyclopedia;
+
+        // Section headings
+        document.querySelectorAll('.cp-section-hd').forEach(function(el) {
+          var txt = el.textContent.trim();
+          if (txt.indexOf('国内') !== -1 || txt.indexOf('Domestic') !== -1) {
+            el.innerHTML = '<span class="cp-flag">🇨🇳</span> ' + dict.sectionDomestic.replace('🇨🇳 ','');
+          } else if (txt.indexOf('海外') !== -1 || txt.indexOf('Overseas') !== -1) {
+            el.innerHTML = '<span class="cp-flag">🌍</span> ' + dict.sectionOverseas.replace('🌍 ','');
+          }
+        });
+        // Preserve overseas-hd class sections with sponsor link
+        var overseasHd = document.querySelector('.cp-section-hd.overseas-hd');
+        if (overseasHd) {
+          var sponsorLink = overseasHd.querySelector('.cp-sponsor');
+          overseasHd.innerHTML = '<span class="cp-flag">🌍</span> ' + dict.sectionOverseas.replace('🌍 ','');
+          if (sponsorLink) overseasHd.appendChild(sponsorLink);
+        }
+
+        // Matrix & trend section h2s
+        var h2s = document.querySelectorAll('.cp-matrix-section h2, .cp-trend-section h2');
+        h2s.forEach(function(el) {
+          var t = el.textContent.trim();
+          if (t.indexOf('兼容矩阵') !== -1 || t.indexOf('Compatibility') !== -1) el.textContent = dict.sectionMatrix;
+          if (t.indexOf('Token 价格趋势') !== -1 || t.indexOf('Token Price') !== -1) el.textContent = dict.sectionTrend;
+        });
+
+        // Table headers
+        document.querySelectorAll('.cp-table thead th').forEach(function(th) {
+          var t = th.textContent.trim();
+          if (t === '套餐') th.textContent = dict.thPlan;
+          else if (t === '月价') th.textContent = dict.thPrice;
+          else if (t === '核心模型') th.textContent = dict.thModel;
+          else if (t === '用量参考') th.textContent = dict.thUsage;
+          else if (t === '用量/5h') th.textContent = dict.thUsage5h;
+          else if (t === '用量') th.textContent = dict.thUsage2;
+          else if (t === '备注') th.textContent = dict.thNote;
+          else if (t === '说明') th.textContent = dict.thDesc;
+        });
+
+        // Tips/recommendations section heading
+        var recH2 = document.querySelector('.cp-tips h2');
+        if (recH2) recH2.textContent = dict.sectionRec;
+
+        // Legend items
+        var legendItems = document.querySelectorAll('.cp-legend-item');
+        if (legendItems[0]) legendItems[0].innerHTML = '<span class="cp-badge badge-rush">⚡</span> ' + (lang==='en'?'Rush':'需抢');
+        if (legendItems[1]) legendItems[1].innerHTML = '<span class="cp-badge badge-hot">🔥</span> ' + (lang==='en'?'Hot':'热门');
+        if (legendItems[2]) legendItems[2].innerHTML = '<span class="cp-badge badge-new">✨</span> ' + (lang==='en'?'Deal':'特惠');
+        if (legendItems[3]) legendItems[3].innerHTML = '<span class="cp-badge badge-rec">👍</span> ' + (lang==='en'?'Recommended':'推荐');
+        if (legendItems[4]) legendItems[4].innerHTML = '<span class="cp-badge badge-overseas">🌍</span> ' + (lang==='en'?'Overseas':'海外');
+
+        // Theme buttons text
+        document.querySelectorAll('.theme-btn:not(.lang-btn)').forEach(function(b) {
+          var s = b.getAttribute('data-theme-set');
+          if (s === 'system') b.textContent = dict.themeSystem;
+          else if (s === 'light') b.textContent = dict.themeLight;
+          else if (s === 'dark') b.textContent = dict.themeDark;
+        });
+
+        // Footer
+        var footerPs = document.querySelectorAll('.cp-footer p');
+        if (footerPs[0]) footerPs[0].textContent = dict.footer;
+        if (footerPs[1]) footerPs[1].innerHTML = '<a href="index.html">' + dict.footerHome + '</a>';
+
+        // Promo bar
+        var promoBar = document.querySelector('.cp-wrap > div:first-child');
+        if (promoBar) {
+          var promoHtml = '<span style="color:var(--muted)">' + dict.promoText + '</span> ' +
+            '<strong style="color:var(--text)">GPT-5</strong> ' +
+            '<span style="color:var(--muted)">' + dict.promoOr + '</span> ' +
+            '<strong style="color:var(--text)">Claude Opus</strong> ' +
+            '<span style="color:var(--muted)">' + dict.promoOr + '</span> ' +
+            '<strong style="color:var(--text)">Gemini Pro</strong> ' +
+            '<span style="color:var(--muted)">' + dict.promoNoNet + '</span> ' +
+            '<a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> ' +
+            '<span style="color:var(--muted)">' + dict.promoDesc + '</span> ' +
+            '<a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">' + dict.promoCta + '</a>';
+          promoBar.innerHTML = promoHtml;
+        }
+
+        // Lang button active state
+        document.querySelectorAll('.lang-btn').forEach(function(b) {
+          b.classList.toggle('is-active', b.getAttribute('data-lang-set') === lang);
+        });
+      }
+
+      applyLang(currentLang);
+      document.querySelectorAll('.lang-btn').forEach(function(b) {
+        b.addEventListener('click', function() { applyLang(b.getAttribute('data-lang-set')); });
+      });
     })();
   </script>
 

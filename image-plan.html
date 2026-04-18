@@ -97,6 +97,8 @@
       <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
       <button type="button" class="theme-btn" data-theme-set="light">浅色</button>
       <button type="button" class="theme-btn" data-theme-set="dark">深色</button>
+      <button type="button" class="theme-btn lang-btn" data-lang-set="zh">中</button>
+      <button type="button" class="theme-btn lang-btn" data-lang-set="en">EN</button>
     </div>
   </div></div>
 
@@ -104,8 +106,8 @@
     <div style="margin-bottom:1rem;padding:.55rem .85rem;border-radius:8px;border:1px solid var(--border);background:var(--card);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.35rem .6rem;font-size:.84rem;line-height:1.5;">
       <span style="color:var(--muted)">想用</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">/</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">/</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">却没海外网络？</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">一个 API Key 调用 100+ 顶级模型，国内直连低延迟，兼容 OpenAI 格式零改造</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">立即注册 →</a>
     </div>
-    <h1>🎨 AI Image Plan 图像生成套餐横评</h1>
-    <p class="cp-subtitle">国内外 AI 图像生成套餐一站式对比：价格、积分、功能、场景推荐，帮你选出最划算的 AI 绘画方案。</p>
+    <h1 data-i18n="title">🎨 AI Image Plan 图像生成套餐横评</h1>
+    <p class="cp-subtitle" data-i18n="subtitle">国内外 AI 图像生成套餐一站式对比：价格、积分、功能、场景推荐，帮你选出最划算的 AI 绘画方案。</p>
 
     <div class="cp-legend">
       <div class="cp-legend-item"><span class="cp-badge badge-hot">🔥 热门</span> 高人气</div>
@@ -651,10 +653,31 @@
 
   <script>
     (function(){
-      var btns=document.querySelectorAll('.theme-btn'),html=document.documentElement;
+      var btns=document.querySelectorAll('.theme-btn:not(.lang-btn)'),html=document.documentElement;
       function apply(t){html.setAttribute('data-theme',t);localStorage.setItem('cp-theme',t);btns.forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-theme-set')===t)})}
       var saved=localStorage.getItem('cp-theme')||'system';apply(saved);
       btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-theme-set'))})});
+    })();
+  </script>
+
+  <script>
+    (function(){
+      var i18n={zh:{title:'🎨 AI Image Plan 图像生成套餐横评',subtitle:'国内外 AI 图像生成套餐一站式对比：价格、积分、功能、场景推荐，帮你选出最划算的 AI 绘画方案。',navHome:'← AINav 首页',navCoding:'编程套餐横评',navAgent:'Agent横评',navVideo:'视频套餐横评',navImage:'图像套餐横评',navEncyclopedia:'AI百科',sectionDomestic:'国内 AI 图像生成平台',sectionOverseas:'海外 AI 图像生成平台',sectionMatrix:'📊 功能对比矩阵',sectionPrice:'💰 月费对比（入门付费套餐）',sectionRec:'🎯 场景推荐 — 按需求选最适合的图像方案',sectionTrend:'📈 AI 图像生成趋势',footer:'数据来源：各平台官网 · 价格以官网为准',footerHome:'← 返回 AINav 首页',thPlan:'套餐',thPrice:'月价',thCredits:'额度',thCompute:'算力/月',thNote:'备注',themeSystem:'跟随系统',themeLight:'浅色',themeDark:'深色',promoText:'想用',promoOr:'/',promoNoNet:'却没海外网络？',promoDesc:'一个 API Key 调用 100+ 顶级模型，国内直连低延迟，兼容 OpenAI 格式零改造',promoCta:'立即注册 →'},en:{title:'🎨 AI Image Plan Comparison',subtitle:'One-stop comparison of AI image generation plans worldwide: pricing, credits, features, and scenario recommendations.',navHome:'← AINav Home',navCoding:'Coding Plans',navAgent:'Agents',navVideo:'Video Plans',navImage:'Image Plans',navEncyclopedia:'AI Encyclopedia',sectionDomestic:'Domestic AI Image Platforms',sectionOverseas:'Overseas AI Image Platforms',sectionMatrix:'📊 Feature Comparison Matrix',sectionPrice:'💰 Monthly Price Comparison (Entry Plans)',sectionRec:'🎯 Recommendations — Find the Best Image Plan for Your Needs',sectionTrend:'📈 AI Image Generation Trends',footer:'Data sources: Official websites · Prices subject to change',footerHome:'← Back to AINav Home',thPlan:'Plan',thPrice:'Price',thCredits:'Quota',thCompute:'Compute/Mo',thNote:'Note',themeSystem:'System',themeLight:'Light',themeDark:'Dark',promoText:'Want',promoOr:'/',promoNoNet:'but no VPN?',promoDesc:'One API Key for 100+ top models, direct access in China, low latency, OpenAI-compatible format',promoCta:'Sign Up →'}};
+      var LANG_KEY='ainav-lang',currentLang=localStorage.getItem(LANG_KEY)||'zh';
+      function applyLang(lang){if(lang!=='zh'&&lang!=='en')lang='zh';currentLang=lang;document.documentElement.setAttribute('lang',lang==='en'?'en':'zh-CN');try{localStorage.setItem(LANG_KEY,lang)}catch(e){}var dict=i18n[lang];
+        document.querySelectorAll('[data-i18n]').forEach(function(el){var key=el.getAttribute('data-i18n');if(dict[key]!==undefined)el.textContent=dict[key]});
+        var nl=document.querySelectorAll('.cp-nav a');if(nl[0])nl[0].textContent=dict.navHome;if(nl[1])nl[1].textContent=dict.navCoding;if(nl[2])nl[2].textContent=dict.navAgent;if(nl[3])nl[3].textContent=dict.navVideo;if(nl[4])nl[4].textContent=dict.navImage;if(nl[5])nl[5].textContent=dict.navEncyclopedia;
+        document.querySelectorAll('.cp-section-hd').forEach(function(el){var t=el.textContent.trim();if(t.indexOf('国内')!==-1)el.innerHTML='<span class="cp-flag">🇨🇳</span> '+dict.sectionDomestic;else if(t.indexOf('海外')!==-1)el.innerHTML='<span class="cp-flag">🌍</span> '+dict.sectionOverseas});
+        document.querySelectorAll('.cp-table thead th').forEach(function(th){var t=th.textContent.trim();if(t==='套餐')th.textContent=dict.thPlan;else if(t==='月价')th.textContent=dict.thPrice;else if(t==='额度')th.textContent=dict.thCredits;else if(t==='算力/月')th.textContent=dict.thCompute;else if(t==='备注')th.textContent=dict.thNote});
+        var h2s=document.querySelectorAll('.cp-matrix-section h2');h2s.forEach(function(el){var t=el.textContent.trim();if(t.indexOf('功能对比')!==-1)el.textContent=dict.sectionMatrix;else if(t.indexOf('月费对比')!==-1)el.textContent=dict.sectionPrice});
+        document.querySelectorAll('.cp-tips h2').forEach(function(el){if(el.textContent.indexOf('场景推荐')!==-1)el.textContent=dict.sectionRec});
+        document.querySelectorAll('h2').forEach(function(el){if(el.textContent.indexOf('图像生成趋势')!==-1||el.textContent.indexOf('Image Generation Trends')!==-1)el.textContent=dict.sectionTrend});
+        document.querySelectorAll('.theme-btn:not(.lang-btn)').forEach(function(b){var s=b.getAttribute('data-theme-set');if(s==='system')b.textContent=dict.themeSystem;else if(s==='light')b.textContent=dict.themeLight;else if(s==='dark')b.textContent=dict.themeDark});
+        var fp=document.querySelectorAll('.cp-footer p');if(fp[0])fp[0].textContent=dict.footer;
+        var pb=document.querySelector('.cp-wrap > div:first-child');if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
+        document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang-set')===lang)});
+      }
+      applyLang(currentLang);document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang-set'))})});
     })();
   </script>
 </body>

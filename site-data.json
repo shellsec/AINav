@@ -4824,7 +4824,48 @@
       "type": "leaf",
       "name": "AI 经典书籍",
       "id": "AI-经典书籍-0",
-      "tools": []
+      "tools": [
+        {
+          "key": "AI-经典书籍-0",
+          "title": "Deep Learning（花书）",
+          "subtitle": "Ian Goodfellow 等著，深度学习领域圣经",
+          "avatar": "",
+          "link": "https://www.deeplearningbook.org/",
+          "path": ""
+        },
+        {
+          "key": "AI-经典书籍-1",
+          "title": "动手学深度学习（d2l）",
+          "subtitle": "李沐等著，交互式深度学习教材，代码可运行",
+          "avatar": "",
+          "link": "https://zh.d2l.ai/",
+          "path": ""
+        },
+        {
+          "key": "AI-经典书籍-2",
+          "title": "AI Engineer 书单",
+          "subtitle": "AI 工程师必读书单精选，持续更新",
+          "avatar": "",
+          "link": "https://github.com/mahseema/awesome-ai-engineer-books",
+          "path": ""
+        },
+        {
+          "key": "AI-经典书籍-3",
+          "title": "The Hundred-Page ML Book",
+          "subtitle": "Andriy Burko 著，百页入门机器学习",
+          "avatar": "",
+          "link": "http://themlbook.com/",
+          "path": ""
+        },
+        {
+          "key": "AI-经典书籍-4",
+          "title": "Probabilistic Machine Learning",
+          "subtitle": "Kevin Murphy 著，概率视角的机器学习权威教材",
+          "avatar": "",
+          "link": "https://probml.github.io/pml-book/",
+          "path": ""
+        }
+      ]
     },
     {
       "type": "leaf",
@@ -5960,6 +6001,46 @@
           "avatar": "",
           "link": "https://docs.anthropic.com/en/docs/agents-and-tools/mcp",
           "path": ""
+        },
+        {
+          "key": "ext-MCP--模型上下文协议与工具生态-6",
+          "title": "mcp.run",
+          "subtitle": "MCP 服务器发现、安装与管理平台",
+          "avatar": "",
+          "link": "https://mcp.run/",
+          "path": ""
+        },
+        {
+          "key": "ext-MCP--模型上下文协议与工具生态-7",
+          "title": "MCP.so",
+          "subtitle": "MCP 服务器目录，搜索和发现可用工具",
+          "avatar": "",
+          "link": "https://mcp.so/",
+          "path": ""
+        },
+        {
+          "key": "ext-MCP--模型上下文协议与工具生态-8",
+          "title": "Composio MCP",
+          "subtitle": "250+ 工具集成，一行代码接入 MCP 服务器",
+          "avatar": "",
+          "link": "https://composio.dev/mcp",
+          "path": ""
+        },
+        {
+          "key": "ext-MCP--模型上下文协议与工具生态-9",
+          "title": "OpenAI Agents SDK + MCP",
+          "subtitle": "OpenAI 官方 Agent 框架对 MCP 工具的接入支持",
+          "avatar": "",
+          "link": "https://openai.github.io/openai-agents-python/mcp/",
+          "path": ""
+        },
+        {
+          "key": "ext-MCP--模型上下文协议与工具生态-10",
+          "title": "GitHub Copilot MCP",
+          "subtitle": "VS Code 中 Copilot 通过 MCP 连接外部工具",
+          "avatar": "",
+          "link": "https://docs.github.com/en/copilot/customizing-copilot/using-model-context-protocol",
+          "path": ""
         }
       ]
     },
@@ -6260,6 +6341,46 @@
           "avatar": "",
           "link": "https://steel.dev/",
           "path": ""
+        },
+        {
+          "key": "ext-浏览器自动化--电脑操控-6",
+          "title": "Skyvern",
+          "subtitle": "AI 驱动的浏览器自动化，表单填写与工作流",
+          "avatar": "",
+          "link": "https://www.skyvern.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-浏览器自动化--电脑操控-7",
+          "title": "Crawl4AI",
+          "subtitle": "为 LLM 优化的网页抓取与结构化提取",
+          "avatar": "",
+          "link": "https://crawl4ai.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-浏览器自动化--电脑操控-8",
+          "title": "Selenium",
+          "subtitle": "经典浏览器自动化框架，支持多语言多浏览器",
+          "avatar": "",
+          "link": "https://www.selenium.dev/",
+          "path": ""
+        },
+        {
+          "key": "ext-浏览器自动化--电脑操控-9",
+          "title": "Automa",
+          "subtitle": "浏览器插件式可视化自动化，无需编码",
+          "avatar": "",
+          "link": "https://www.automa.site/",
+          "path": ""
+        },
+        {
+          "key": "ext-浏览器自动化--电脑操控-10",
+          "title": "LaVague",
+          "subtitle": "开源 Web Agent，用自然语言驱动浏览器操作",
+          "avatar": "",
+          "link": "https://www.lavague.ai/",
+          "path": ""
         }
       ]
     },
@@ -6393,6 +6514,38 @@
           "subtitle": "会议摘要、聊天与会议内 AI 助手",
           "avatar": "",
           "link": "https://www.zoom.com/en/ai-companion/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-会议与语音纪要-6",
+          "title": "Fathom",
+          "subtitle": "免费会议录制、转写与 AI 摘要，支持 Zoom/Meet/Teams",
+          "avatar": "",
+          "link": "https://fathom.video/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-会议与语音纪要-7",
+          "title": "tl;dv",
+          "subtitle": "AI 会议记录器，自动生成摘要与行动项",
+          "avatar": "",
+          "link": "https://tldv.io/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-会议与语音纪要-8",
+          "title": "Grain",
+          "subtitle": "会议高光片段剪辑与分享，客户访谈利器",
+          "avatar": "",
+          "link": "https://grain.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-会议与语音纪要-9",
+          "title": "钉钉闪记",
+          "subtitle": "钉钉内置会议转写与纪要，与办公流深度集成",
+          "avatar": "",
+          "link": "https://www.dingtalk.com/",
           "path": ""
         }
       ]
@@ -6997,6 +7150,38 @@
           "avatar": "",
           "link": "https://www.opera.com/features/aria",
           "path": ""
+        },
+        {
+          "key": "ext-AI-浏览器与新形态-6",
+          "title": "Arc Search",
+          "subtitle": "移动端 AI 浏览器，即时摘要与语音搜索",
+          "avatar": "",
+          "link": "https://arc.net/search",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-浏览器与新形态-7",
+          "title": "Microsoft Edge Copilot",
+          "subtitle": "Edge 浏览器内置 Copilot，页面摘要与创作辅助",
+          "avatar": "",
+          "link": "https://www.microsoft.com/en-us/edge/features/copilot",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-浏览器与新形态-8",
+          "title": "Vivaldi",
+          "subtitle": "可定制浏览器，集成翻译与邮件等生产力工具",
+          "avatar": "",
+          "link": "https://vivaldi.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-浏览器与新形态-9",
+          "title": "Wavebox",
+          "subtitle": "工作区浏览器，多账户管理与 AI 集成",
+          "avatar": "",
+          "link": "https://wavebox.io/",
+          "path": ""
         }
       ]
     },
@@ -7092,6 +7277,14 @@
           "avatar": "",
           "link": "https://nanoreview.net/",
           "path": ""
+        },
+        {
+          "key": "ext-硬件--边缘推理与跑分-11",
+          "title": "CanIRun.AI",
+          "subtitle": "检测你的电脑能跑哪些 AI 模型",
+          "avatar": "",
+          "link": "https://www.canirun.ai/",
+          "path": ""
         }
       ]
     },
@@ -7146,6 +7339,30 @@
           "subtitle": "国务院公报/政策库文本入口",
           "avatar": "",
           "link": "https://www.gov.cn/zhengce/zhengceku/202307/content_6891752.htm",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-合规与标准-6",
+          "title": "ISO/IEC 42001",
+          "subtitle": "AI 管理体系国际标准，企业 AI 合规认证框架",
+          "avatar": "",
+          "link": "https://www.iso.org/standard/81230.html",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-合规与标准-7",
+          "title": "中国信通院大模型评测",
+          "subtitle": "国内大模型能力评测与合规测试权威机构",
+          "avatar": "",
+          "link": "http://www.caict.ac.cn/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-合规与标准-8",
+          "title": "US AI Safety Institute",
+          "subtitle": "美国 AI 安全研究所，评估与标准制定",
+          "avatar": "",
+          "link": "https://www.nist.gov/artificial-intelligence/ai-safety-institute",
           "path": ""
         }
       ]
@@ -7264,6 +7481,46 @@
           "subtitle": "「GEO: Generative Engine Optimization」学术项目与引用入口",
           "avatar": "",
           "link": "https://arxiv.org/abs/2311.09735",
+          "path": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-3",
+          "title": "HubSpot AI Search Grader",
+          "subtitle": "免费检测品牌在 AI 搜索中的可见度与推荐率",
+          "avatar": "",
+          "link": "https://www.hubspot.com/ai-search-grader",
+          "path": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-4",
+          "title": "Profound",
+          "subtitle": "AI 搜索优化平台，追踪品牌在 ChatGPT/Perplexity 中的表现",
+          "avatar": "",
+          "link": "https://www.getprofound.ai/",
+          "path": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-5",
+          "title": "Peec AI",
+          "subtitle": "监控品牌在 AI 搜索引擎中的出现频率与排名",
+          "avatar": "",
+          "link": "https://www.peec.ai/",
+          "path": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-6",
+          "title": "Ahrefs AI Search",
+          "subtitle": "Ahrefs 推出的 AI 搜索可见度分析与 GEO 策略",
+          "avatar": "",
+          "link": "https://ahrefs.com/ai-search",
+          "path": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-7",
+          "title": "SurferSEO AI Audit",
+          "subtitle": "内容审计与 AI 搜索优化建议",
+          "avatar": "",
+          "link": "https://surferseo.com/",
           "path": ""
         }
       ]

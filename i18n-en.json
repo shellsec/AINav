@@ -3718,5 +3718,281 @@
   "Gumshoe": {
     "title": "Gumshoe",
     "desc": "Brand AI search visibility monitoring & competitive analysis (free public beta)"
+  },
+  "Manus": {
+    "title": "Manus",
+    "desc": "General-purpose AI Agent, autonomously completes complex task chains (browsing/coding/analysis)"
+  },
+  "LobeHub / LobeChat": {
+    "title": "LobeHub / LobeChat",
+    "desc": "Open-source multi-model chat & Agent framework with rich plugin ecosystem"
+  },
+  "飞书多维表格 Agent": {
+    "title": "Feishu Bitable Agent",
+    "desc": "Feishu Bitable built-in AI Agent for automated data processing & analysis"
+  },
+  "百度 DuClaw": {
+    "title": "Baidu DuClaw",
+    "desc": "Baidu AI Agent platform for conversational assistant building & deployment"
+  },
+  "百度 DuMate": {
+    "title": "Baidu DuMate",
+    "desc": "Baidu AI digital human / agent for multimodal interaction & customer service"
+  },
+  "钉钉悟空": {
+    "title": "DingTalk Wukong",
+    "desc": "DingTalk AI assistant platform, enterprise office scenario agents"
+  },
+  "360 安全智能体": {
+    "title": "360 Security Agent",
+    "desc": "360 AI Agent for cybersecurity & threat analysis"
+  },
+  "Happycapy.ai": {
+    "title": "Happycapy.ai",
+    "desc": "AI Agent building & running platform, multimodal task execution"
+  },
+  "CodeBuddy Work": {
+    "title": "CodeBuddy Work",
+    "desc": "AI coding & work assistant, code generation & project collaboration"
+  },
+  "智谱 AutoClaw": {
+    "title": "Zhipu AutoClaw",
+    "desc": "Zhipu AI automated agent, GLM model-driven autonomous execution"
+  },
+  "阿里无影 JVS 智能体": {
+    "title": "Alibaba Wuying JVS Agent",
+    "desc": "Alibaba Cloud Wuying desktop AI Agent, remote office & automation"
+  },
+  "EasyClaw": {
+    "title": "EasyClaw",
+    "desc": "Low-barrier AI Agent creation platform, quick build & deploy"
+  },
+  "Nexu": {
+    "title": "Nexu",
+    "desc": "Open-source AI Agent framework with extensible plugins & tool integration"
+  },
+  "MuleRun": {
+    "title": "MuleRun",
+    "desc": "AI Agent execution & scheduling platform, multi-task automation orchestration"
+  },
+  "TabbitBrowser": {
+    "title": "TabbitBrowser",
+    "desc": "AI browser agent, automatically controls web pages for complex tasks"
+  },
+  "领狐 LinkFox Agent": {
+    "title": "LinkFox Agent",
+    "desc": "LinkFox AI Agent, e-commerce & marketing scenario automation"
+  },
+  "Kilo.ai KiloClaw": {
+    "title": "Kilo.ai KiloClaw",
+    "desc": "AI Agent development & running platform, multi-tool collaboration"
+  },
+  "NVIDIA NemoClaw": {
+    "title": "NVIDIA NemoClaw",
+    "desc": "NVIDIA AI Agent framework, enterprise-grade multimodal agents"
+  },
+  "讯飞 Loomy": {
+    "title": "iFlytek Loomy",
+    "desc": "iFlytek AI Agent platform, voice & multimodal interaction"
+  },
+  "Hermes Agent": {
+    "title": "Hermes Agent",
+    "desc": "Nous Research open-source AI Agent, research-oriented autonomous agent"
+  },
+  "Higress HiClaw": {
+    "title": "Higress HiClaw",
+    "desc": "Alibaba Cloud Higress gateway + AI Agent, API routing & intelligent scheduling"
+  },
+  "牛码 AI": {
+    "title": "NiuMa AI",
+    "desc": "AI coding & agent assistant for developer productivity"
+  },
+  "PoorClaw": {
+    "title": "PoorClaw",
+    "desc": "Lightweight open-source AI Agent, low-resource deployment & self-hosting"
+  },
+  "ClawHub": {
+    "title": "ClawHub",
+    "desc": "Agent skill & tool marketplace, discover and share AI Agent plugins"
+  },
+  "腾讯 SkillHub": {
+    "title": "Tencent SkillHub",
+    "desc": "Tencent AI skill marketplace, Agent tool & capability registry"
+  },
+  "Skills.sh": {
+    "title": "Skills.sh",
+    "desc": "Agent skill discovery & sharing platform, community-driven"
+  },
+  "SkillsMP": {
+    "title": "SkillsMP",
+    "desc": "Agent skill marketplace, Chinese community skill sharing & distribution"
+  },
+  "水产市场": {
+    "title": "Aquatic Market",
+    "desc": "Coze skill marketplace, ByteDance Bot sharing community"
+  },
+  "Skill-CN": {
+    "title": "Skill-CN",
+    "desc": "Chinese Agent skill community, tool & prompt sharing"
+  },
+  "AgentSkillsHub": {
+    "title": "AgentSkillsHub",
+    "desc": "Agent skill aggregation platform, multi-framework tool registry & discovery"
+  },
+  "OpenClawDirectory": {
+    "title": "OpenClawDirectory",
+    "desc": "OpenClaw skill & Agent directory, maintained by UK community"
+  },
+  "OpenClawDir": {
+    "title": "OpenClawDir",
+    "desc": "OpenClaw tool & skill index, categorized browsing"
+  },
+  "ClawSkills.sh": {
+    "title": "ClawSkills.sh",
+    "desc": "Agent skill marketplace, quickly discover tools & plugins"
+  },
+  "Cocoloop": {
+    "title": "Cocoloop",
+    "desc": "AI Agent collaboration & skill sharing platform"
+  },
+  "MiniMax Skills": {
+    "title": "MiniMax Skills",
+    "desc": "MiniMax agent skill marketplace, Hailuo AI tool distribution"
+  },
+  "XCrawl": {
+    "title": "XCrawl",
+    "desc": "AI Agent crawler skill marketplace, automated data collection tools"
+  },
+  "CryptoSkills": {
+    "title": "CryptoSkills",
+    "desc": "Web3 + AI Agent skill marketplace, on-chain automation tools"
+  },
+  "AgentMail": {
+    "title": "AgentMail",
+    "desc": "AI Agent email infrastructure, API-driven sending & receiving"
+  },
+  "MailboxKit": {
+    "title": "MailboxKit",
+    "desc": "Agent mailbox toolkit, programmatic email management"
+  },
+  "Mails.dev": {
+    "title": "Mails.dev",
+    "desc": "Developer email API, Agent scenario email automation"
+  },
+  "MoltBook": {
+    "title": "MoltBook",
+    "desc": "Agent task & tool ledger, execution tracking & audit"
+  },
+  "ClawChat": {
+    "title": "ClawChat",
+    "desc": "Inter-agent communication & collaboration platform, multi-agent dialogue"
+  },
+  "下聊AI": {
+    "title": "XiaLiao AI",
+    "desc": "AI Agent chat & collaboration tool, multi-agent interaction"
+  },
+  "ClawBench": {
+    "title": "ClawBench",
+    "desc": "Agent benchmarking platform, performance & capability evaluation"
+  },
+  "ClawPal": {
+    "title": "ClawPal",
+    "desc": "Agent wallet & identity management, multi-platform credential hosting"
+  },
+  "ClawWatcher": {
+    "title": "ClawWatcher",
+    "desc": "Agent runtime monitoring & logging platform, anomaly alerting"
+  },
+  "ClawManager": {
+    "title": "ClawManager",
+    "desc": "Agent lifecycle management, deployment/upgrade/rollback"
+  },
+  "OpenClaw Control Center": {
+    "title": "OpenClaw Control Center",
+    "desc": "OpenClaw open-source control panel, multi-instance management & monitoring"
+  },
+  "腾讯 Matrix ClawScan": {
+    "title": "Tencent Matrix ClawScan",
+    "desc": "Tencent Security Agent scanning & audit, risk detection"
+  },
+  "A2H Market": {
+    "title": "A2H Market",
+    "desc": "Agent to Human marketplace, AI agent service trading platform"
+  },
+  "Instreet": {
+    "title": "Instreet",
+    "desc": "AI Agent street, intelligent agent discovery & experience platform"
+  },
+  "PinchBench": {
+    "title": "PinchBench",
+    "desc": "AI model performance leaderboard, multi-dimensional scoring & scenario comparison"
+  },
+  "Arena Leaderboard": {
+    "title": "Arena Leaderboard",
+    "desc": "LMSYS blind evaluation arena leaderboard, community vote-driven"
+  },
+  "XSCT": {
+    "title": "XSCT",
+    "desc": "AI safety & trustworthiness evaluation, model security level ranking"
+  },
+  "Vals.ai": {
+    "title": "Vals.ai",
+    "desc": "AI model evaluation & certification, enterprise model selection reference"
+  },
+  "xAI Console": {
+    "title": "xAI Console",
+    "desc": "xAI official API platform, Grok model keys & management"
+  },
+  "ZenMux": {
+    "title": "ZenMux",
+    "desc": "AI model routing & gateway platform, multi-provider intelligent scheduling"
+  },
+  "万清 StreamLake": {
+    "title": "StreamLake Wanqing",
+    "desc": "Video AI & multimodal inference cloud, vision model API"
+  },
+  "WaytoAGI": {
+    "title": "WaytoAGI",
+    "desc": "Chinese AI community, Feishu docs, from beginner to practice knowledge base"
+  },
+  "橙皮书": {
+    "title": "Orange Book",
+    "desc": "AI & tech deep analysis community, frontier trends & product observations"
+  },
+  "曝光观察板": {
+    "title": "Exposure Board",
+    "desc": "AI product exposure & dynamic tracking, first-to-discover new releases"
+  },
+  "Datawhale HelloClaw": {
+    "title": "Datawhale HelloClaw",
+    "desc": "Datawhale's AI agent beginner tutorial & hands-on guide"
+  },
+  "Awesome OpenClaw": {
+    "title": "Awesome OpenClaw",
+    "desc": "Curated list of OpenClaw quality resources & use cases"
+  },
+  "中文学习手册": {
+    "title": "Chinese Learning Handbook",
+    "desc": "AI Agent Chinese beginner guide, from concepts to deployment"
+  },
+  "OpenClaw Use Cases": {
+    "title": "OpenClaw Use Cases",
+    "desc": "Open-source AI Agent application scenarios & case library"
+  },
+  "万象AI实验室": {
+    "title": "Wanxiang AI Lab",
+    "desc": "AI frontier experiments & product observations, Feishu knowledge base"
+  },
+  "麻小 AI 社区": {
+    "title": "MaXiao AI Community",
+    "desc": "AI developer community, agent technology & resource sharing"
+  },
+  "Clawvard": {
+    "title": "Clawvard",
+    "desc": "AI Agent online learning platform, systematic courses & practice"
+  },
+  "腾讯 Copilot WorkBuddy": {
+    "title": "Tencent Copilot WorkBuddy",
+    "desc": "Tencent AI office assistant, document creation, meeting notes & smart collaboration"
   }
 }

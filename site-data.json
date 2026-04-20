@@ -5342,6 +5342,86 @@
           "avatar": "icon/ShowMeAI知识社区.png",
           "link": "https://www.showmeai.tech/",
           "path": ""
+        },
+        {
+          "key": "WaytoAGI",
+          "title": "WaytoAGI",
+          "subtitle": "中文 AI 社区，飞书文档沉淀，从入门到实践的知识库",
+          "avatar": "",
+          "link": "https://waytoagi.feishu.cn/wiki/CCR4wl3upi6dF9kVE5YcAcGcnlU",
+          "path": ""
+        },
+        {
+          "key": "橙皮书",
+          "title": "橙皮书",
+          "subtitle": "AI 与科技深度分析社区，前沿趋势与产品观察",
+          "avatar": "",
+          "link": "https://my.feishu.cn/wiki/H27Iw9ussiaYbokymhncExtjnAh",
+          "path": ""
+        },
+        {
+          "key": "曝光观察板",
+          "title": "曝光观察板",
+          "subtitle": "AI 产品曝光与动态追踪，新品第一时间发现",
+          "avatar": "",
+          "link": "https://uniquecapital.feishu.cn/wiki/Nwwiwh6PNiesZqkWNw7cWegjn2c",
+          "path": ""
+        },
+        {
+          "key": "Datawhale HelloClaw",
+          "title": "Datawhale HelloClaw",
+          "subtitle": "Datawhale 出品的 AI 智能体入门教程与实战指南",
+          "avatar": "",
+          "link": "https://datawhalechina.github.io/hello-claw/cn/adopt/intro/",
+          "path": ""
+        },
+        {
+          "key": "Awesome OpenClaw",
+          "title": "Awesome OpenClaw",
+          "subtitle": "OpenClaw 优质资源与用例精选列表",
+          "avatar": "",
+          "link": "https://awesome.tryopenclaw.asia/",
+          "path": ""
+        },
+        {
+          "key": "中文学习手册",
+          "title": "中文学习手册",
+          "subtitle": "AI Agent 中文入门指南，从概念到部署",
+          "avatar": "",
+          "link": "https://my.feishu.cn/wiki/NzvOwzHdKiwSe2kPLx0cs1jlncg",
+          "path": ""
+        },
+        {
+          "key": "OpenClaw Use Cases",
+          "title": "OpenClaw Use Cases",
+          "subtitle": "开源 AI Agent 应用场景与案例库",
+          "avatar": "",
+          "link": "https://github.com/AlexAnys/awesome-openclaw-usecases-zh",
+          "path": ""
+        },
+        {
+          "key": "万象AI实验室",
+          "title": "万象AI实验室",
+          "subtitle": "AI 前沿实验与产品观察，飞书知识库",
+          "avatar": "",
+          "link": "https://yunyinghui.feishu.cn/wiki/Ru7PwG82qiDGo1kGMFZcxqpGnnf",
+          "path": ""
+        },
+        {
+          "key": "麻小",
+          "title": "麻小 AI 社区",
+          "subtitle": "AI 开发者社区，智能体技术与资源分享",
+          "avatar": "",
+          "link": "https://t0woxppdywz.feishu.cn/wiki/Oxf0wcTECie8KkkwkIlc6psanNe",
+          "path": ""
+        },
+        {
+          "key": "Clawvard",
+          "title": "Clawvard",
+          "subtitle": "AI Agent 在线学习平台，系统课程与实战",
+          "avatar": "",
+          "link": "https://clawvard.school/",
+          "path": ""
         }
       ]
     },
@@ -5732,6 +5812,30 @@
           "avatar": "",
           "link": "https://ai.azure.com/",
           "path": ""
+        },
+        {
+          "key": "ext-AI-模型-API--路由聚合--推理云-29",
+          "title": "xAI Console",
+          "subtitle": "xAI 官方 API 平台，Grok 模型密钥与管理",
+          "avatar": "",
+          "link": "https://console.x.ai/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-模型-API--路由聚合--推理云-30",
+          "title": "ZenMux",
+          "subtitle": "AI 模型路由与网关平台，多供应商智能调度",
+          "avatar": "",
+          "link": "https://zenmux.ai/invite/9ENK8S",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-模型-API--路由聚合--推理云-31",
+          "title": "万清 StreamLake",
+          "subtitle": "视频 AI 与多模态推理云，视觉大模型 API",
+          "avatar": "",
+          "link": "https://www.streamlake.com/product/wanqing",
+          "path": ""
         }
       ]
     },
@@ -5874,6 +5978,436 @@
           "subtitle": "从编码扩展到日常工作场景的桌面 Agent",
           "avatar": "",
           "link": "https://solo.trae.cn/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-17",
+          "title": "Manus",
+          "subtitle": "通用型 AI Agent，自主完成复杂任务链（浏览/编码/分析）",
+          "avatar": "",
+          "link": "https://manus.im/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-18",
+          "title": "LobeHub / LobeChat",
+          "subtitle": "开源多模型聊天与 Agent 框架，插件生态丰富",
+          "avatar": "",
+          "link": "https://lobehub.com/zh",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-19",
+          "title": "飞书多维表格 Agent",
+          "subtitle": "飞书多维表格内置 AI 智能体，自动化数据处理与分析",
+          "avatar": "",
+          "link": "https://openclaw.feishu.cn/home",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-20",
+          "title": "百度 DuClaw",
+          "subtitle": "百度智能体平台，对话式 AI 助理构建与部署",
+          "avatar": "",
+          "link": "https://cloud.baidu.com/product/duclaw.html",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-21",
+          "title": "百度 DuMate",
+          "subtitle": "百度 AI 数字人/智能体，多模态交互与客服场景",
+          "avatar": "",
+          "link": "https://cloud.baidu.com/product/dumate.html",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-22",
+          "title": "钉钉悟空",
+          "subtitle": "钉钉 AI 助理平台，企业办公场景智能体",
+          "avatar": "",
+          "link": "https://www.dingtalk.com/wukong",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-23",
+          "title": "360 安全智能体",
+          "subtitle": "360 安全领域 AI Agent，网络安全与威胁分析",
+          "avatar": "",
+          "link": "https://claw.360.cn/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-24",
+          "title": "Happycapy.ai",
+          "subtitle": "AI Agent 构建与运行平台，多模态任务执行",
+          "avatar": "",
+          "link": "https://happycapy.ai/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-25",
+          "title": "CodeBuddy Work",
+          "subtitle": "AI 编码与工作助手，代码生成与项目协作",
+          "avatar": "",
+          "link": "https://www.codebuddy.cn/work/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-26",
+          "title": "智谱 AutoClaw",
+          "subtitle": "智谱 AI 自动化智能体，GLM 模型驱动的自主执行",
+          "avatar": "",
+          "link": "https://autoglm.zhipuai.cn/autoclaw/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-27",
+          "title": "阿里无影 JVS 智能体",
+          "subtitle": "阿里云无影桌面上的 AI 智能体，远程办公与自动化",
+          "avatar": "",
+          "link": "https://jvs.wuying.aliyun.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-28",
+          "title": "EasyClaw",
+          "subtitle": "低门槛 AI 智能体创建平台，快速搭建与部署",
+          "avatar": "",
+          "link": "https://easyclaw.com/zh-cn/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-29",
+          "title": "Nexu",
+          "subtitle": "开源 AI Agent 框架，可扩展插件与工具集成",
+          "avatar": "",
+          "link": "https://github.com/nexu-io/nexu",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-30",
+          "title": "MuleRun",
+          "subtitle": "AI Agent 运行与调度平台，多任务自动化编排",
+          "avatar": "",
+          "link": "https://mulerun.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-31",
+          "title": "TabbitBrowser",
+          "subtitle": "AI 浏览器 Agent，自动操控网页完成复杂任务",
+          "avatar": "",
+          "link": "https://tabbitbrowser.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-32",
+          "title": "领狐 LinkFox Agent",
+          "subtitle": "LinkFox AI 智能体，电商与营销场景自动化",
+          "avatar": "",
+          "link": "https://agent.linkfox.com/claw",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-33",
+          "title": "Kilo.ai KiloClaw",
+          "subtitle": "AI Agent 开发与运行平台，多工具协同",
+          "avatar": "",
+          "link": "https://kilo.ai/kiloclaw",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-34",
+          "title": "NVIDIA NemoClaw",
+          "subtitle": "NVIDIA AI Agent 框架，企业级多模态智能体",
+          "avatar": "",
+          "link": "https://www.nvidia.com/en-us/ai/nemoclaw/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-35",
+          "title": "讯飞 Loomy",
+          "subtitle": "讯飞 AI 智能体平台，语音与多模态交互",
+          "avatar": "",
+          "link": "https://loomy.xunfei.cn/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-36",
+          "title": "Hermes Agent",
+          "subtitle": "Nous Research 开源 AI Agent，研究向自主智能体",
+          "avatar": "",
+          "link": "https://hermes-agent.nousresearch.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-37",
+          "title": "Higress HiClaw",
+          "subtitle": "阿里云 Higress 网关 + AI Agent，API 路由与智能调度",
+          "avatar": "",
+          "link": "https://higress.ai/hiclaw",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-38",
+          "title": "牛码 AI",
+          "subtitle": "AI 编程与智能体助手，开发者效率工具",
+          "avatar": "",
+          "link": "https://niuma.limyai.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-39",
+          "title": "PoorClaw",
+          "subtitle": "轻量开源 AI Agent，低资源部署与私有化",
+          "avatar": "",
+          "link": "https://www.poorclaw.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-40",
+          "title": "腾讯 Copilot WorkBuddy",
+          "subtitle": "腾讯 AI 办公助手，文档创作、会议纪要与智能协作",
+          "avatar": "",
+          "link": "https://copilot.tencent.com/work/",
+          "path": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "AI Agent 技能市场与商店",
+      "id": "ext-agent-skill-store",
+      "tools": [
+        {
+          "key": "ext-AI-Agent-技能市场与商店-0",
+          "title": "ClawHub",
+          "subtitle": "Agent 技能与工具市场，发现和分享 AI Agent 插件",
+          "avatar": "",
+          "link": "https://clawhub.ai/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-1",
+          "title": "腾讯 SkillHub",
+          "subtitle": "腾讯 AI 技能市场，Agent 工具与能力注册中心",
+          "avatar": "",
+          "link": "https://skillhub.tencent.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-2",
+          "title": "Skills.sh",
+          "subtitle": "Agent 技能发现与分享平台，社区驱动",
+          "avatar": "",
+          "link": "https://skills.sh/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-3",
+          "title": "SkillsMP",
+          "subtitle": "Agent 技能市场，中文社区技能分享与分发",
+          "avatar": "",
+          "link": "https://skillsmp.com/zh",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-4",
+          "title": "水产市场",
+          "subtitle": "Coze 技能市场，扣子平台 AI Bot 分享社区",
+          "avatar": "",
+          "link": "https://xiaping.coze.site/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-5",
+          "title": "Skill-CN",
+          "subtitle": "中文 Agent 技能社区，工具与 Prompt 分享",
+          "avatar": "",
+          "link": "https://www.skill-cn.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-6",
+          "title": "AgentSkillsHub",
+          "subtitle": "Agent 技能聚合平台，多框架工具注册与发现",
+          "avatar": "",
+          "link": "https://agentskillshub.top/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-7",
+          "title": "OpenClawDirectory",
+          "subtitle": "OpenClaw 技能与 Agent 目录，英伦社区维护",
+          "avatar": "",
+          "link": "https://openclawdirectory.co.uk/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-8",
+          "title": "OpenClawDir",
+          "subtitle": "OpenClaw 工具与技能索引，分类浏览",
+          "avatar": "",
+          "link": "https://openclawdir.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-9",
+          "title": "ClawSkills.sh",
+          "subtitle": "Agent 技能市场，快速发现可用工具与插件",
+          "avatar": "",
+          "link": "https://clawskills.sh/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-10",
+          "title": "Cocoloop",
+          "subtitle": "AI Agent 协作与技能共享平台",
+          "avatar": "",
+          "link": "https://hub.cocoloop.cn/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-11",
+          "title": "MiniMax Skills",
+          "subtitle": "MiniMax 智能体技能市场，海螺AI工具分发",
+          "avatar": "",
+          "link": "https://agent.minimaxi.com/skills",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-12",
+          "title": "XCrawl",
+          "subtitle": "AI Agent 爬虫技能市场，自动化数据采集工具",
+          "avatar": "",
+          "link": "https://xcrawl.com/?keyword=2ozjddoq",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-13",
+          "title": "CryptoSkills",
+          "subtitle": "Web3 + AI Agent 技能市场，链上自动化工具",
+          "avatar": "",
+          "link": "https://cryptoskills.dev/",
+          "path": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "AI Agent 基础设施与工具链",
+      "id": "ext-agent-infra",
+      "tools": [
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-0",
+          "title": "AgentMail",
+          "subtitle": "AI Agent 邮件收发基础设施，API 驱动",
+          "avatar": "",
+          "link": "https://www.agentmail.to/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-1",
+          "title": "MailboxKit",
+          "subtitle": "Agent 邮箱工具包，编程式邮件管理",
+          "avatar": "",
+          "link": "https://mailboxkit.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-2",
+          "title": "Mails.dev",
+          "subtitle": "开发者邮件 API，Agent 场景邮件自动化",
+          "avatar": "",
+          "link": "https://mails.dev/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-3",
+          "title": "MoltBook",
+          "subtitle": "Agent 任务与工具记账本，执行追踪与审计",
+          "avatar": "",
+          "link": "https://www.moltbook.cn/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-4",
+          "title": "ClawChat",
+          "subtitle": "Agent 间通讯与协作平台，多智能体对话",
+          "avatar": "",
+          "link": "https://clawdchat.ai/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-5",
+          "title": "下聊AI",
+          "subtitle": "AI Agent 聊天与协作工具，多智能体交互",
+          "avatar": "",
+          "link": "https://xialiaoai.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-6",
+          "title": "ClawBench",
+          "subtitle": "Agent 基准测试平台，性能与能力评测",
+          "avatar": "",
+          "link": "https://clawbench.net/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-7",
+          "title": "ClawPal",
+          "subtitle": "Agent 钱包与身份管理，多平台凭证托管",
+          "avatar": "",
+          "link": "https://clawpal.xyz/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-8",
+          "title": "ClawWatcher",
+          "subtitle": "Agent 运行监控与日志平台，异常告警",
+          "avatar": "",
+          "link": "https://clawwatcher.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-9",
+          "title": "ClawManager",
+          "subtitle": "Agent 生命周期管理，部署/升级/回滚",
+          "avatar": "",
+          "link": "https://clawmanager.ai/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-10",
+          "title": "OpenClaw Control Center",
+          "subtitle": "OpenClaw 开源控制面板，多实例管理与监控",
+          "avatar": "",
+          "link": "https://github.com/TianyiDataScience/openclaw-control-center",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-11",
+          "title": "腾讯 Matrix ClawScan",
+          "subtitle": "腾讯安全 Agent 扫描与审计，风险检测",
+          "avatar": "",
+          "link": "https://matrix.tencent.com/clawscan/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-12",
+          "title": "A2H Market",
+          "subtitle": "Agent to Human 市场，AI 智能体服务交易平台",
+          "avatar": "",
+          "link": "https://a2hmarket.ai/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-基础设施与工具链-13",
+          "title": "Instreet",
+          "subtitle": "AI Agent 街区，智能体发现与体验平台",
+          "avatar": "",
+          "link": "https://instreet.coze.site/",
           "path": ""
         }
       ]
@@ -6888,6 +7422,38 @@
           "subtitle": "引文语境：支持/反驳与证据类型",
           "avatar": "",
           "link": "https://scite.ai/",
+          "path": ""
+        },
+        {
+          "key": "ext-论文--资讯--榜单与评测-18",
+          "title": "PinchBench",
+          "subtitle": "AI 模型性能排行榜，多维度跑分与场景对比",
+          "avatar": "",
+          "link": "https://pinchbench.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-论文--资讯--榜单与评测-19",
+          "title": "Arena Leaderboard",
+          "subtitle": "LMSYS 旗下盲评竞技场排行榜，社区投票驱动",
+          "avatar": "",
+          "link": "https://arena.ai/leaderboard",
+          "path": ""
+        },
+        {
+          "key": "ext-论文--资讯--榜单与评测-20",
+          "title": "XSCT",
+          "subtitle": "AI 安全与可信评测，模型安全等级排行",
+          "avatar": "",
+          "link": "https://xsct.ai/",
+          "path": ""
+        },
+        {
+          "key": "ext-论文--资讯--榜单与评测-21",
+          "title": "Vals.ai",
+          "subtitle": "AI 模型评估与认证，企业级模型选型参考",
+          "avatar": "",
+          "link": "https://www.vals.ai/",
           "path": ""
         }
       ]

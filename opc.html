@@ -232,6 +232,19 @@
     .opc-who-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); gap: 0.6rem; margin: 1rem 0; }
     .opc-who-item { padding: 0.5rem 0.7rem; border-radius: 6px; border: 1px solid rgba(63,185,80,0.2); background: rgba(63,185,80,0.04); font-size: 0.82rem; }
     .opc-who-item strong { color: var(--accent2); }
+
+    /* ---- Quick Start ---- */
+    .opc-qs { border: 1px solid var(--border); border-radius: 10px; background: var(--card); overflow: hidden; margin-bottom: 1.2rem; }
+    .opc-qs-head { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); font-weight: 700; font-size: 1rem; background: rgba(245,158,11,0.08); }
+    .opc-qs-body { padding: 0.75rem 1rem; }
+    .opc-qs-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin: 0.6rem 0; }
+    @media (max-width: 40rem) { .opc-qs-steps { grid-template-columns: 1fr; } }
+    .opc-qs-step { padding: 0.7rem 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: rgba(245,158,11,0.03); }
+    .opc-qs-step-num { font-size: 1.6rem; font-weight: 800; color: var(--opc); line-height: 1; }
+    .opc-qs-step-q { font-weight: 700; font-size: 0.88rem; margin: 0.3rem 0 0.2rem; }
+    .opc-qs-step-a { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .opc-qs-step-a strong { color: var(--opc); font-weight: 600; }
+    .opc-qs-tip { font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem; padding: 0.4rem 0.6rem; border-radius: 6px; background: rgba(88,166,255,0.05); border: 1px solid rgba(88,166,255,0.12); }
   </style>
 </head>
 <body>
@@ -341,6 +354,33 @@
       <div class="opc-who-item"><strong>✅ 自我驱动</strong> 能自己管理自己</div>
       <div class="opc-who-item"><strong>✅ 抗风险弱</strong> 没巨额资金创业</div>
       <div class="opc-who-item"><strong>✅ 想低成本试错</strong> 先验证再投入</div>
+    </div>
+
+    <!-- ==================== 1.5 快速上手 ==================== -->
+    <div class="cp-section-hd opc-hd"><span class="cp-flag">⚡</span> 5分钟上手指南</div>
+
+    <div class="opc-qs">
+      <div class="opc-qs-head">不确定从哪开始？三个问题，一个答案</div>
+      <div class="opc-qs-body">
+        <div class="opc-qs-steps">
+          <div class="opc-qs-step">
+            <div class="opc-qs-step-num">1</div>
+            <div class="opc-qs-step-q">先用哪个？</div>
+            <div class="opc-qs-step-a"><strong>Cursor + ChatGPT</strong>，搞定80%的事。Cursor写代码/建站，ChatGPT做内容/调研。两个工具就够起步。</div>
+          </div>
+          <div class="opc-qs-step">
+            <div class="opc-qs-step-num">2</div>
+            <div class="opc-qs-step-q">怎么开始？</div>
+            <div class="opc-qs-step-a"><strong>2周验证法</strong>：今天注册工具 → 明天出MVP → 后天找5个用户收反馈。别完美主义，先跑起来。</div>
+          </div>
+          <div class="opc-qs-step">
+            <div class="opc-qs-step-num">3</div>
+            <div class="opc-qs-step-q">钱怎么花？</div>
+            <div class="opc-qs-step-a">月工具费 <strong>≤ 月收入10%</strong>。先用免费版，确认有用再升级。前期 ¥0-200/月完全够。</div>
+          </div>
+        </div>
+        <div class="opc-qs-tip">💡 每个工具的官网都有详细教程，不需要额外学习——直接用，遇到问题再搜。下方工具栈按角色精选，挑你当下需要的即可。</div>
+      </div>
     </div>
 
     <!-- ==================== 2. 变现模式 ==================== -->
@@ -490,7 +530,7 @@
       <div class="opc-emp-card"><div class="emp-icon">💬</div><div class="emp-role">客服主管</div><div class="emp-ai">Dify + Chatwoot</div><div class="emp-cost">¥0/月</div><div class="emp-boss">你写FAQ，定边界</div></div>
       <div class="opc-emp-card"><div class="emp-icon">📊</div><div class="emp-role">市场分析师</div><div class="emp-ai">Perplexity</div><div class="emp-cost">¥0/月</div><div class="emp-boss">你做决策</div></div>
       <div class="opc-emp-card"><div class="emp-icon">💰</div><div class="emp-role">财务</div><div class="emp-ai">飞书多维 + Wise</div><div class="emp-cost">¥0/月</div><div class="emp-boss">你管钱，AI记账</div></div>
-      <div class="opc-emp-card"><div class="emp-icon">🔍</div><div class="emp-role">选品专员</div><div class="emp-ai">帆鲤 + ChatGPT</div><div class="emp-cost">¥0-200/月</div><div class="emp-boss">你定品类，AI挖痛点</div></div>
+      <div class="opc-emp-card"><div class="emp-icon">🔍</div><div class="emp-role">选品专员</div><div class="emp-ai">Linkfox + ChatGPT</div><div class="emp-cost">¥0-200/月</div><div class="emp-boss">你定品类，AI挖痛点</div></div>
     </div>
 
     <!-- ==================== 5. 工具栈卡片 ==================== -->
@@ -553,7 +593,7 @@
               <tr><td class="plan-name"><a href="https://www.capcut.cn/" target="_blank" rel="noopener noreferrer">剪映AI / CapCut</a></td><td class="plan-price">免费</td><td>剪辑+自动字幕</td></tr>
               <tr><td class="plan-name"><a href="https://runwayml.com/" target="_blank" rel="noopener noreferrer">Runway Gen-4</a></td><td class="plan-price">$12起</td><td>专业级视频生成</td></tr>
               <tr><td class="plan-name"><a href="https://www.heygen.com/" target="_blank" rel="noopener noreferrer">HeyGen</a></td><td class="plan-price">$24</td><td>数字人出镜，多语言</td></tr>
-              <tr><td class="plan-name"><a href="https://yuanhua.zeelin.cn/" target="_blank" rel="noopener noreferrer">元娲</a></td><td class="plan-price">按需</td><td>虚拟人生产平台</td></tr>
+              <tr><td class="plan-name"><a href="https://wa.zeelin.cn/" target="_blank" rel="noopener noreferrer">元娲</a></td><td class="plan-price">按需</td><td>虚拟人生产平台</td></tr>
             </tbody>
           </table>
         </div>
@@ -587,7 +627,7 @@
             <tbody>
               <tr><td class="plan-name"><a href="https://perplexity.ai/" target="_blank" rel="noopener noreferrer">Perplexity</a></td><td class="plan-price">免费起</td><td>市场调研+信息聚合</td></tr>
               <tr><td class="plan-name"><a href="https://metaso.cn/" target="_blank" rel="noopener noreferrer">秘塔AI搜索</a></td><td class="plan-price">免费</td><td>国内市场调研</td></tr>
-              <tr><td class="plan-name"><a href="https://www.fanli.com/" target="_blank" rel="noopener noreferrer">帆鲤</a></td><td class="plan-price">按需</td><td>AI选品/蓝海商机发现</td></tr>
+              <tr><td class="plan-name"><a href="https://ai.linkfox.com/" target="_blank" rel="noopener noreferrer">Linkfox</a></td><td class="plan-price">按需</td><td>AI选品/Listing优化/竞品分析</td></tr>
             </tbody>
           </table>
         </div>

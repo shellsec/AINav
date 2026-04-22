@@ -74,6 +74,23 @@
     .cp-bar-fill.bar-overseas{background:linear-gradient(90deg,#a78bfa,#7c3aed)}
     .cp-bar-fill.bar-hot{background:linear-gradient(90deg,#ff6b6b,#e53935)}
     .cp-bar-fill.bar-warn{background:linear-gradient(90deg,#d29922,#bb8009)}
+    .cp-notice{margin-top:2rem;padding:0;border:1px solid rgba(210,153,34,0.35);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-notice-head{padding:0.65rem 1rem;border-bottom:1px solid rgba(210,153,34,0.2);font-weight:700;font-size:1rem;background:rgba(210,153,34,0.06)}
+    .cp-notice-body{padding:0.75rem 1rem;font-size:0.82rem;line-height:1.75}
+    .cp-notice-body ul{padding-left:1.2rem;margin:0.5rem 0 0}.cp-notice-body li{margin-bottom:0.45rem}
+    .cp-notice-body strong{color:var(--warn)}.cp-notice-body code{font-size:0.78rem;padding:0.1rem 0.35rem;border-radius:4px;background:rgba(210,153,34,0.1);border:1px solid rgba(210,153,34,0.2);color:var(--warn);font-family:inherit}
+    .cp-faq{margin-top:2rem;border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-faq-head{padding:0.65rem 1rem;border-bottom:1px solid var(--border);font-weight:700;font-size:1rem}
+    .cp-faq-item{border-bottom:1px solid var(--border)}.cp-faq-item:last-child{border-bottom:none}
+    .cp-faq-q{padding:0.6rem 1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:0.88rem;user-select:none;transition:background 0.15s}
+    .cp-faq-q:hover{background:rgba(88,166,255,0.04)}.cp-faq-q .cp-faq-arrow{font-size:0.72rem;color:var(--muted);transition:transform 0.2s;flex-shrink:0;margin-left:0.5rem}
+    .cp-faq-item.is-open .cp-faq-q .cp-faq-arrow{transform:rotate(180deg)}
+    .cp-faq-a{padding:0 1rem;max-height:0;overflow:hidden;transition:max-height 0.25s ease,padding 0.25s ease;font-size:0.82rem;line-height:1.7;color:var(--muted)}
+    .cp-faq-item.is-open .cp-faq-a{max-height:20rem;padding:0 1rem 0.75rem}.cp-faq-a strong{color:var(--text)}
+    .cp-value-rank{margin-top:2rem;border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-value-rank-head{padding:0.65rem 1rem;border-bottom:1px solid var(--border);font-weight:700;font-size:1rem}
+    .cp-value-rank-body{padding:0.75rem 1rem}.cp-value-rank .cp-table .val-high{color:var(--accent2);font-weight:700}
+    .cp-value-rank .cp-table .val-mid{color:var(--accent);font-weight:600}.cp-value-rank .cp-table .val-low{color:var(--muted)}
     .cp-tips{margin-top:2rem;padding:0;border:1px solid var(--border);border-radius:8px;background:var(--card);overflow:hidden}
     .cp-tips h2{font-size:1rem;margin:0}
     .cp-footer{max-width:76rem;margin:2rem auto 1rem;padding:0 1rem;font-size:.76rem;color:var(--muted);text-align:center}
@@ -720,8 +737,63 @@
       </div>
     </div>
 
+    <!-- ==================== 注意事项 ==================== -->
+    <div class="cp-notice">
+      <div class="cp-notice-head">⚠️ 注意事项 — 图像套餐买前必读</div>
+      <div class="cp-notice-body">
+        <ul>
+          <li><strong>"额度"≠张数：</strong>多数平台用"算力点/Token"计费，高分辨率/复杂Prompt消耗更多点数，1张4K图可能消耗10张普通图的额度。</li>
+          <li><strong>国内免费额度远超海外：</strong>通义万相80张/日免费 vs Midjourney无免费版，先白嫖再付费。</li>
+          <li><strong>模型训练需选LiblibAI/Leonardo：</strong>其他平台不支持自定义LoRA训练，进阶用户注意。</li>
+          <li><strong>文字渲染选Ideogram：</strong>Logo/海报/T恤上的文字嵌入，Ideogram准确率远超其他平台。</li>
+          <li><strong>商用版权最安全是Adobe Firefly：</strong>基于Adobe Stock训练，无版权风险，$5/月最便宜。其他平台训练数据来源不透明。</li>
+          <li><strong>本地部署免费但需显卡：</strong>FLUX+ComfyUI完全免费，但至少需要8GB显存，4060即可入门。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ==================== FAQ ==================== -->
+    <div class="cp-faq">
+      <div class="cp-faq-head">❓ 常见问题 FAQ</div>
+      <div class="cp-faq-item is-open">
+        <div class="cp-faq-q">Midjourney 值得 $30/月吗？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>画质天花板，但价格偏高。</strong>如果你是专业设计师追求极致画质，$30/月值得。如果你是普通用户/电商，通义万相¥39/月或免费版已够用。差距在细节（手部/光影），不在基础画面。</div>
+      </div>
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">DALL-E 3 和 Midjourney 怎么选？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>DALL-E 3 强在理解力，Midjourney 强在美感。</strong>DALL-E 3 通过ChatGPT Plus $20/月使用，自然语言描述即可生成，适合非专业用户。Midjourney 需要学习Prompt语法，但出图质量更高。两者不冲突，ChatGPT Plus还包含对话功能。</div>
+      </div>
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">AI生成图片有版权吗？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>法律尚不明确，但平台有授权。</strong>美国版权局裁定AI生成内容不受版权保护。但Adobe Firefly基于合法素材训练，提供商用授权。其他平台付费版也附带商用许可，建议保留授权证明。</div>
+      </div>
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">想做LoRA训练选哪个？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>国内选LiblibAI ¥70/月，海外选Leonardo $30/月。</strong>两者都支持在线训练自定义LoRA模型。本地训练可选FLUX+Kohya_ss，完全免费但需技术能力。</div>
+      </div>
+    </div>
+
+    <!-- ==================== 性价比排行 ==================== -->
+    <div class="cp-value-rank">
+      <div class="cp-value-rank-head">📊 性价比排行 — 每元图片数对比</div>
+      <div class="cp-value-rank-body">
+        <div style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">公式：月均可生成图片数(1024px) ÷ 月价 = 每元图片数。数值越高性价比越好。</div>
+        <table class="cp-table" style="font-size:0.8rem;">
+          <thead><tr><th>排名</th><th>平台</th><th>套餐</th><th>月价</th><th>月均图片数(估)</th><th>每元图片数</th><th>性价比</th></tr></thead>
+          <tbody>
+            <tr><td>🥇</td><td class="plan-name">通义万相</td><td>免费版</td><td class="plan-price">¥0</td><td>~2,400</td><td class="val-high">∞</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:100%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
+            <tr><td>🥈</td><td class="plan-name">LiblibAI</td><td>专业版</td><td class="plan-price">¥70</td><td>~9,000</td><td class="val-high">129</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:85%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
+            <tr><td>🥉</td><td class="plan-name">通义万相</td><td>会员</td><td class="plan-price">¥39</td><td>~4,800</td><td class="val-high">123</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:82%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td></tr>
+            <tr><td>4</td><td class="plan-name">Leonardo.AI</td><td>Artisan</td><td class="plan-price">$30</td><td>~8,500</td><td class="val-mid">~40</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:27%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td></tr>
+            <tr><td>5</td><td class="plan-name">Ideogram</td><td>Plus</td><td class="plan-price">$20</td><td>~4,000</td><td class="val-mid">~29</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:19%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td></tr>
+            <tr><td>6</td><td class="plan-name">Midjourney</td><td>Standard</td><td class="plan-price">$30</td><td>~900</td><td class="val-low">~4.3</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:3%;height:100%;border-radius:4px;background:linear-gradient(90deg,#8b9cb3,#6e7681);"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- ==================== 趋势分析 ==================== -->
-    <div style="margin-top:2.5rem;">
+    <div class="cp-trend-section" style="margin-top:2.5rem;">
       <h2>📈 AI 图像生成趋势</h2>
       <div style="border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden;">
         <div style="padding:.8rem 1rem;font-size:.85rem;line-height:1.8;">
@@ -771,6 +843,7 @@
     <p><a href="index.html">← 返回 AINav 首页</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a> · <a href="video-plan.html">视频套餐横评</a></p>
   </div>
 
+  <script>document.querySelectorAll('.cp-faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('is-open');});});</script>
   <script>
     (function(){
       var btns=document.querySelectorAll('.theme-btn:not(.lang-btn)'),html=document.documentElement;

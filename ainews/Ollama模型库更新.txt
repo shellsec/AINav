@@ -1,0 +1,10 @@
+Ollama最新模型更新
+
+【模型名称】kimi-k2.5
+【模型描述】Kimi K2.5 is an open-source, native multimodal agentic model that seamlessly integrates vision and language understanding with advanced agentic capabilities, instant and thinking modes, as well as conversational and agentic paradigms.
+【模型能力】无
+【模型大小】未知
+【下载次数】7,232
+【标签数量】1
+【更新时间】yesterday
+【模型链接】https://ollama.com/library/kimi-k2.5

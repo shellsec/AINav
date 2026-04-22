@@ -1,0 +1,77 @@
+name: Schedule Monitor
+
+on:
+  schedule:
+    # Every 15 minutes
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Build
+        run: go build -o skill-monitor .
+
+      - name: Run Monitor
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: ./skill-monitor -c config.yaml -once
+
+      - name: Generate Static Site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: ./skill-monitor -c config.yaml -once -static
+
+      - name: Git Commit & Push Data
+        run: |
+          git config user.name "skill-monitor[bot]"
+          git config user.email "skill-monitor[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "🔄 auto update $(date +%Y-%m-%d_%H:%M)"
+          git push
+
+  deploy-pages:
+    needs: monitor
+    runs-on: ubuntu-latest
+    if: success()
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

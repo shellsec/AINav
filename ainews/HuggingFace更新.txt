@@ -1,0 +1,71 @@
+🚀 Hugging Face 最新模型更新汇总
+
+📋 文本生成 (📝)
+==================================================
+📝 MiniMaxAI/MiniMax-M2.7
+📝 类型: 文本生成模型
+🔗 https://huggingface.co/MiniMaxAI/MiniMax-M2.7
+
+📝 Jiunsong/supergemma4-26b-uncensored-gguf-v2
+📝 类型: 文本生成模型
+🔗 https://huggingface.co/Jiunsong/supergemma4-26b-uncensored-gguf-v2
+
+📝 OBLITERATUS/gemma-4-E4B-it-OBLITERATED
+📝 类型: 文本生成模型
+🔗 https://huggingface.co/OBLITERATUS/gemma-4-E4B-it-OBLITERATED
+
+📝 zai-org/GLM-5.1
+📝 类型: 文本生成模型
+🔗 https://huggingface.co/zai-org/GLM-5.1
+
+📝 Jackrong/Qwopus-GLM-18B-Merged-GGUF
+📝 类型: 文本生成模型
+🔗 https://huggingface.co/Jackrong/Qwopus-GLM-18B-Merged-GGUF
+
+
+📋 文本转图像 (📝➡️🖼️)
+==================================================
+📝➡️🖼️ baidu/ERNIE-Image
+📝 类型: 文本转图像模型
+🔗 https://huggingface.co/baidu/ERNIE-Image
+
+📝➡️🖼️ baidu/ERNIE-Image-Turbo
+📝 类型: 文本转图像模型
+🔗 https://huggingface.co/baidu/ERNIE-Image-Turbo
+
+📝➡️🖼️ NucleusAI/Nucleus-Image
+📝 类型: 文本转图像模型
+🔗 https://huggingface.co/NucleusAI/Nucleus-Image
+
+📝➡️🖼️ unsloth/ERNIE-Image-Turbo-GGUF
+📝 类型: 文本转图像模型
+🔗 https://huggingface.co/unsloth/ERNIE-Image-Turbo-GGUF
+
+📝➡️🖼️ unsloth/ERNIE-Image-GGUF
+📝 类型: 文本转图像模型
+🔗 https://huggingface.co/unsloth/ERNIE-Image-GGUF
+
+
+📋 图像转文本 (🖼️➡️📝)
+==================================================
+🖼️➡️📝 zai-org/GLM-OCR
+📝 类型: 图像转文本模型
+🔗 https://huggingface.co/zai-org/GLM-OCR
+
+🖼️➡️📝 tiiuae/Falcon-OCR
+📝 类型: 图像转文本模型
+🔗 https://huggingface.co/tiiuae/Falcon-OCR
+
+🖼️➡️📝 nvidia/nemotron-ocr-v2
+📝 类型: 图像转文本模型
+🔗 https://huggingface.co/nvidia/nemotron-ocr-v2
+
+🖼️➡️📝 TIGER-Lab/RationalRewards-8B-T2I
+📝 类型: 图像转文本模型
+🔗 https://huggingface.co/TIGER-Lab/RationalRewards-8B-T2I
+
+🖼️➡️📝 TIGER-Lab/RationalRewards-8B-Edit
+📝 类型: 图像转文本模型
+🔗 https://huggingface.co/TIGER-Lab/RationalRewards-8B-Edit
+
+

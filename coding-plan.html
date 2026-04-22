@@ -139,6 +139,36 @@
     .cp-bar-fill.bar-2025 { background: linear-gradient(90deg, #3fb950, #2ea043); }
     .cp-bar-fill.bar-2026 { background: linear-gradient(90deg, #a78bfa, #7c3aed); }
 
+    /* ---- Notice card ---- */
+    .cp-notice { margin-top: 2rem; padding: 0; border: 1px solid rgba(210,153,34,0.35); border-radius: 10px; background: var(--card); overflow: hidden; }
+    .cp-notice-head { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(210,153,34,0.2); font-weight: 700; font-size: 1rem; background: rgba(210,153,34,0.06); }
+    .cp-notice-body { padding: 0.75rem 1rem; font-size: 0.82rem; line-height: 1.75; }
+    .cp-notice-body ul { padding-left: 1.2rem; margin: 0.5rem 0 0; }
+    .cp-notice-body li { margin-bottom: 0.45rem; }
+    .cp-notice-body strong { color: var(--warn); }
+    .cp-notice-body code { font-size: 0.78rem; padding: 0.1rem 0.35rem; border-radius: 4px; background: rgba(210,153,34,0.1); border: 1px solid rgba(210,153,34,0.2); color: var(--warn); font-family: inherit; }
+
+    /* ---- FAQ accordion ---- */
+    .cp-faq { margin-top: 2rem; border: 1px solid var(--border); border-radius: 10px; background: var(--card); overflow: hidden; }
+    .cp-faq-head { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); font-weight: 700; font-size: 1rem; }
+    .cp-faq-item { border-bottom: 1px solid var(--border); }
+    .cp-faq-item:last-child { border-bottom: none; }
+    .cp-faq-q { padding: 0.6rem 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.88rem; user-select: none; transition: background 0.15s; }
+    .cp-faq-q:hover { background: rgba(88,166,255,0.04); }
+    .cp-faq-q .cp-faq-arrow { font-size: 0.72rem; color: var(--muted); transition: transform 0.2s; flex-shrink: 0; margin-left: 0.5rem; }
+    .cp-faq-item.is-open .cp-faq-q .cp-faq-arrow { transform: rotate(180deg); }
+    .cp-faq-a { padding: 0 1rem; max-height: 0; overflow: hidden; transition: max-height 0.25s ease, padding 0.25s ease; font-size: 0.82rem; line-height: 1.7; color: var(--muted); }
+    .cp-faq-item.is-open .cp-faq-a { max-height: 20rem; padding: 0 1rem 0.75rem; }
+    .cp-faq-a strong { color: var(--text); }
+
+    /* ---- Value rank ---- */
+    .cp-value-rank { margin-top: 2rem; border: 1px solid var(--border); border-radius: 10px; background: var(--card); overflow: hidden; }
+    .cp-value-rank-head { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); font-weight: 700; font-size: 1rem; }
+    .cp-value-rank-body { padding: 0.75rem 1rem; }
+    .cp-value-rank .cp-table .val-high { color: var(--accent2); font-weight: 700; }
+    .cp-value-rank .cp-table .val-mid { color: var(--accent); font-weight: 600; }
+    .cp-value-rank .cp-table .val-low { color: var(--muted); }
+
     /* ---- Tips ---- */
     .cp-tips { margin-top: 2rem; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--card); font-size: 0.82rem; }
     .cp-tips h2 { font-size: 1rem; margin: 0 0 0.5rem; }
@@ -883,6 +913,160 @@
       </div>
     </div>
 
+    <!-- ==================== 注意事项 ==================== -->
+    <div class="cp-notice">
+      <div class="cp-notice-head">⚠️ 注意事项 — 买前必读</div>
+      <div class="cp-notice-body">
+        <ul>
+          <li><strong>1次请求 ≈ 15-20次API请求：</strong>国内 Coding Plan 的"用量"一般指 Agent 交互次数（一次对话/补全），而海外按 Token 计费。一个 Agent 任务可能触发 15-20 次 API 调用，别被表面数字误导。</li>
+          <li><strong>5小时滚动限额陷阱：</strong>MiniMax、阿里百炼、腾讯云等标注的"用量/5h"是<strong>滚动窗口</strong>，并非每5小时重置。密集使用后额度不会立即恢复，重度用户建议选不限次或高额度套餐。</li>
+          <li><strong>API请求 vs 请求次数：</strong>有些平台按"API请求"计费（每次HTTP调用算1次），有些按"Agent请求"计费（一次多轮对话算1次），差 10-20 倍，务必看清计量单位。</li>
+          <li><strong>首月特惠 ≠ 长期价：</strong>阿里百炼首月 ¥39.9、小米首月 ¥9.9 等仅首月有效，次月恢复原价，比较性价比请用原价。</li>
+          <li><strong>抢购限量不等人：</strong>智谱GLM每日10:00、阿里百炼每日9:30限量抢购，通常几分钟即罄，建议定闹钟或用油猴脚本。</li>
+          <li><strong>涨价拐点已现：</strong>2026 Q1 云厂商开始选择性涨价（如腾讯混元涨 463%），当前低价窗口可能只剩 6-12 个月，月付比年付更灵活。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ==================== FAQ ==================== -->
+    <div class="cp-faq">
+      <div class="cp-faq-head">❓ 常见问题 FAQ</div>
+
+      <div class="cp-faq-item is-open">
+        <div class="cp-faq-q">Coding Plan 是什么？和直接买 API 有什么区别？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a">Coding Plan 是<strong>专为 AI 编程场景设计的订阅套餐</strong>，按月付费获得固定额度。和直接买 API 按 Token 计费相比，优势是<strong>费用可控、不会超支</strong>，且通常包含多个模型切换权限。劣势是额度用完即限流，不像 API 可以无限用（无限花钱）。</div>
+      </div>
+
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">API请求次数和 Agent 请求次数有什么区别？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>API请求</strong> = 每次HTTP调用算1次。一个 Agent 任务（如"帮我重构这个函数"）可能触发 <strong>15-20次API请求</strong>（读文件、分析代码、生成修改、写入文件等）。<strong>Agent请求</strong> = 一次完整交互算1次。所以"1200次/5h"如果是API请求，实际只能完成约 60-80 个Agent任务；如果是Agent请求，则能完成1200个任务。务必看清平台的计量口径。</div>
+      </div>
+
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">5小时滚动限额是什么意思？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a">很多国内平台标注"1200次/5h"，这不是"每5小时重置一次"，而是<strong>滚动窗口</strong>：系统看你过去5小时内的总用量。如果你在第1小时用完了1200次，那么第2-5小时内额度为0，直到第6小时第1小时的用量才"过期"释放。所以<strong>密集使用会很快触发限流</strong>，建议重度用户选不限次或高额度套餐。</div>
+      </div>
+
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">国内 Coding Plan 和海外（Cursor/Claude）怎么选？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>价格差 3-5 倍：</strong>国内 ¥40-200/月，海外 $20-200/月。国内优势是<strong>便宜、国内网络直连、中文好</strong>；海外优势是<strong>模型最强（Claude Opus/GPT-5）、生态成熟</strong>。如果你主要写中文项目/独立开发，国内足够；如果追求极致代码质量或用海外工具链，选海外。没有海外网络也可以用 <a href="https://z.ai/subscribe" target="_blank" rel="noopener noreferrer">Z.AI</a> 或 <a href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer">OfoxAI</a> 中转。</div>
+      </div>
+
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">Token计费和按次计费哪个更划算？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>轻中度用户选按次（订阅），重度用户选按Token（API）。</strong>按次计费费用封顶但额度有限，按Token计费无上限但可控。以 DeepSeek API 为例，¥1/百万输入Token，一天写8小时代码约消耗 ¥1-3，一个月约 ¥30-90，比很多订阅套餐还便宜。但需要自己管理API Key和用量。</div>
+      </div>
+
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">该月付还是年付？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>当前建议月付为主。</strong>原因：① Token价格3年降1000×，长期锁价不划算；② 平台竞争激烈，套餐内容和价格频繁调整；③ 涨价拐点已现，但降价趋势未止，月付保持灵活性。只有确定长期使用某平台且年付折扣 ≥ 7折时才考虑年付。</div>
+      </div>
+    </div>
+
+    <!-- ==================== 性价比排行 ==================== -->
+    <div class="cp-value-rank">
+      <div class="cp-value-rank-head">📊 性价比排行 — 每元请求数对比</div>
+      <div class="cp-value-rank-body">
+        <div style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">公式：月均请求数 ÷ 月价 = 每元请求数（数值越高性价比越好）。国内平台假设每日用满额度计算月均；海外平台按官方标注估算。</div>
+        <table class="cp-table" style="font-size:0.8rem;">
+          <thead><tr><th>排名</th><th>平台</th><th>套餐</th><th>月价</th><th>月均请求数(估)</th><th>每元请求数</th><th>性价比</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>🥇</td>
+              <td class="plan-name">DeepSeek</td>
+              <td>Free</td>
+              <td class="plan-price">¥0</td>
+              <td>~1,800</td>
+              <td class="val-high">∞</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:100%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td>
+            </tr>
+            <tr>
+              <td>🥈</td>
+              <td class="plan-name">MiniMax</td>
+              <td>Max</td>
+              <td class="plan-price">¥119</td>
+              <td>~162,000</td>
+              <td class="val-high">1,361</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:92%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td>
+            </tr>
+            <tr>
+              <td>🥉</td>
+              <td class="plan-name">MiniMax</td>
+              <td>Plus</td>
+              <td class="plan-price">¥49</td>
+              <td>~54,000</td>
+              <td class="val-high">1,102</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:74%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="plan-name">腾讯云</td>
+              <td>Pro</td>
+              <td class="plan-price">¥200</td>
+              <td>~90,000</td>
+              <td class="val-mid">450</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:30%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="plan-name">阿里百炼</td>
+              <td>Pro</td>
+              <td class="plan-price">¥200</td>
+              <td>~72,000</td>
+              <td class="val-mid">360</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:24%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td class="plan-name">小米</td>
+              <td>Pro</td>
+              <td class="plan-price">¥99</td>
+              <td>~21,600</td>
+              <td class="val-mid">218</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:15%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td class="plan-name">MiniMax</td>
+              <td>Starter</td>
+              <td class="plan-price">¥29</td>
+              <td>~5,400</td>
+              <td class="val-mid">186</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:12%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td class="plan-name">智谱GLM</td>
+              <td>Pro</td>
+              <td class="plan-price">¥149</td>
+              <td>~18,000</td>
+              <td class="val-low">121</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:8%;height:100%;border-radius:4px;background:linear-gradient(90deg,#8b9cb3,#6e7681);"></div></div></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td class="plan-name">GitHub Copilot</td>
+              <td>Pro</td>
+              <td class="plan-price">$10</td>
+              <td>~3,000</td>
+              <td class="val-low">~43</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:3%;height:100%;border-radius:4px;background:linear-gradient(90deg,#8b9cb3,#6e7681);"></div></div></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td class="plan-name">Cursor</td>
+              <td>Pro</td>
+              <td class="plan-price">$20</td>
+              <td>~500快速+无限慢速</td>
+              <td class="val-low">~25</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:2%;height:100%;border-radius:4px;background:linear-gradient(90deg,#8b9cb3,#6e7681);"></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="font-size:0.72rem;color:var(--muted);margin-top:0.5rem;">* 月均请求数为估算值，基于官方标注额度×每日可用时长×30天计算；海外平台以1$≈¥7.2换算；DeepSeek Free无限但每日有免费额度限制，故标∞。不同模型能力差异未纳入此排行，请结合上方套餐卡片综合判断。</div>
+      </div>
+    </div>
+
     <!-- ==================== Token 价格趋势 ==================== -->
     <div class="cp-trend-section">
       <h2>📉 Token 价格趋势：3年暴跌 1000× </h2>
@@ -1160,6 +1344,18 @@
     <p>数据来源：各平台官网 · 价格以官网为准</p>
     <p><a href="index.html">← 返回 AINav 首页</a></p>
   </div>
+
+  <!-- FAQ accordion -->
+  <script>
+    (function(){
+      document.querySelectorAll('.cp-faq-q').forEach(function(q){
+        q.addEventListener('click', function(){
+          var item = q.parentElement;
+          item.classList.toggle('is-open');
+        });
+      });
+    })();
+  </script>
 
   <!-- Theme toggle -->
   <script>

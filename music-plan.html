@@ -74,6 +74,23 @@
     .cp-bar-fill.bar-overseas{background:linear-gradient(90deg,#a78bfa,#7c3aed)}
     .cp-bar-fill.bar-hot{background:linear-gradient(90deg,#ff6b6b,#e53935)}
     .cp-bar-fill.bar-warn{background:linear-gradient(90deg,#d29922,#bb8009)}
+    .cp-notice{margin-top:2rem;padding:0;border:1px solid rgba(210,153,34,0.35);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-notice-head{padding:0.65rem 1rem;border-bottom:1px solid rgba(210,153,34,0.2);font-weight:700;font-size:1rem;background:rgba(210,153,34,0.06)}
+    .cp-notice-body{padding:0.75rem 1rem;font-size:0.82rem;line-height:1.75}
+    .cp-notice-body ul{padding-left:1.2rem;margin:0.5rem 0 0}.cp-notice-body li{margin-bottom:0.45rem}
+    .cp-notice-body strong{color:var(--warn)}.cp-notice-body code{font-size:0.78rem;padding:0.1rem 0.35rem;border-radius:4px;background:rgba(210,153,34,0.1);border:1px solid rgba(210,153,34,0.2);color:var(--warn);font-family:inherit}
+    .cp-faq{margin-top:2rem;border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-faq-head{padding:0.65rem 1rem;border-bottom:1px solid var(--border);font-weight:700;font-size:1rem}
+    .cp-faq-item{border-bottom:1px solid var(--border)}.cp-faq-item:last-child{border-bottom:none}
+    .cp-faq-q{padding:0.6rem 1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:0.88rem;user-select:none;transition:background 0.15s}
+    .cp-faq-q:hover{background:rgba(88,166,255,0.04)}.cp-faq-q .cp-faq-arrow{font-size:0.72rem;color:var(--muted);transition:transform 0.2s;flex-shrink:0;margin-left:0.5rem}
+    .cp-faq-item.is-open .cp-faq-q .cp-faq-arrow{transform:rotate(180deg)}
+    .cp-faq-a{padding:0 1rem;max-height:0;overflow:hidden;transition:max-height 0.25s ease,padding 0.25s ease;font-size:0.82rem;line-height:1.7;color:var(--muted)}
+    .cp-faq-item.is-open .cp-faq-a{max-height:20rem;padding:0 1rem 0.75rem}.cp-faq-a strong{color:var(--text)}
+    .cp-value-rank{margin-top:2rem;border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-value-rank-head{padding:0.65rem 1rem;border-bottom:1px solid var(--border);font-weight:700;font-size:1rem}
+    .cp-value-rank-body{padding:0.75rem 1rem}.cp-value-rank .cp-table .val-high{color:var(--accent2);font-weight:700}
+    .cp-value-rank .cp-table .val-mid{color:var(--accent);font-weight:600}.cp-value-rank .cp-table .val-low{color:var(--muted)}
     .cp-tips{margin-top:2rem;padding:0;border:1px solid var(--border);border-radius:8px;background:var(--card);overflow:hidden}
     .cp-tips h2{font-size:1rem;margin:0}
     .cp-footer{max-width:76rem;margin:2rem auto 1rem;padding:0 1rem;font-size:.76rem;color:var(--muted);text-align:center}
@@ -467,6 +484,56 @@
       </div>
     </div>
 
+    <!-- ==================== 注意事项 ==================== -->
+    <div class="cp-notice">
+      <div class="cp-notice-head">⚠️ 注意事项 — 音乐套餐买前必读</div>
+      <div class="cp-notice-body">
+        <ul>
+          <li><strong>免费版通常不可商用：</strong>Suno/Udio免费版生成的音乐仅限个人欣赏，商用必须订阅付费版。</li>
+          <li><strong>"生成次数"指完整歌曲：</strong>大多数平台1次=1首完整歌曲(2-4分钟)，不是1次=1段音频。</li>
+          <li><strong>中文歌词质量仍不如英文：</strong>Suno/Udio的中文歌词生成常有语法不通，天工SkyMusic中文更自然。</li>
+          <li><strong>版权争议未定：</strong>美国版权局裁定AI生成音乐不受版权保护，商用需选有明确授权的平台。</li>
+          <li><strong>音质差异大：</strong>免费版通常输出MP3 128kbps，付费版才有320kbps/WAV，制作级用户注意。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ==================== FAQ ==================== -->
+    <div class="cp-faq">
+      <div class="cp-faq-head">❓ 常见问题 FAQ</div>
+      <div class="cp-faq-item is-open">
+        <div class="cp-faq-q">Suno 和 Udio 哪个好？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>Suno 综合更强，Udio 音质更好。</strong>Suno优势：500首/月、商用权、支持更长歌曲；Udio优势：人声音质更自然、音乐细节更丰富。两者都是$10/月，建议先试免费版再决定。</div>
+      </div>
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">AI生成音乐能商用吗？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>付费版可以，免费版不行。</strong>Suno Pro/Udio Standard的付费版附带商用授权，可发布到Spotify/网易云等平台。免费版仅限个人欣赏。注意保留订阅记录作为授权证明。</div>
+      </div>
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">国内音乐平台和海外差距大吗？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>中文歌曲国内更强，英文歌曲海外领先。</strong>天工SkyMusic对中文歌词和旋律理解更自然，但整体功能不如Suno丰富。如果主要做中文歌曲，天工¥30/月性价比很高。</div>
+      </div>
+    </div>
+
+    <!-- ==================== 性价比排行 ==================== -->
+    <div class="cp-value-rank">
+      <div class="cp-value-rank-head">📊 性价比排行 — 每元歌曲数对比</div>
+      <div class="cp-value-rank-body">
+        <div style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">公式：月均可生成歌曲数 ÷ 月价 = 每元歌曲数。数值越高性价比越好。</div>
+        <table class="cp-table" style="font-size:0.8rem;">
+          <thead><tr><th>排名</th><th>平台</th><th>套餐</th><th>月价</th><th>月均歌曲数(估)</th><th>每元歌曲数</th><th>性价比</th></tr></thead>
+          <tbody>
+            <tr><td>🥇</td><td class="plan-name">Suno</td><td>免费版</td><td class="plan-price">¥0</td><td>~300</td><td class="val-high">∞</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:100%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
+            <tr><td>🥈</td><td class="plan-name">天工SkyMusic</td><td>会员</td><td class="plan-price">¥30</td><td>~600</td><td class="val-high">20</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:70%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
+            <tr><td>🥉</td><td class="plan-name">Suno</td><td>Pro</td><td class="plan-price">$10</td><td>~500</td><td class="val-high">~7.2</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:25%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td></tr>
+            <tr><td>4</td><td class="plan-name">Udio</td><td>Standard</td><td class="plan-price">$10</td><td>~400</td><td class="val-mid">~5.8</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:20%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td></tr>
+            <tr><td>5</td><td class="plan-name">Stable Audio</td><td>Pro</td><td class="plan-price">$12</td><td>~500</td><td class="val-mid">~6</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:21%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td></tr>
+            <tr><td>6</td><td class="plan-name">AIVA</td><td>Pro</td><td class="plan-price">$33</td><td>~∞(无限)</td><td class="val-low">~∞</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:50%;height:100%;border-radius:4px;background:linear-gradient(90deg,#8b9cb3,#6e7681);"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- ==================== 趋势分析 ==================== -->
     <div class="cp-trend-section" style="margin-top:2.5rem;">
       <h2>📈 AI 音乐生成趋势</h2>
@@ -508,6 +575,7 @@
     <p><a href="index.html">← 返回 AINav 首页</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a></p>
   </div>
 
+  <script>document.querySelectorAll('.cp-faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('is-open');});});</script>
   <script>
     (function(){
       var btns=document.querySelectorAll('.theme-btn:not(.lang-btn)'),html=document.documentElement;

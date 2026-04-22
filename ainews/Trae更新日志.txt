@@ -1,0 +1,19 @@
+Trae AI最新更新：
+
+v1.4.18
+发布日期: 2025 年 07 月 15 日
+• \n"},{"attributes":{"lmkr":"1","list":"bullet1"},"insert":"*"},{"insert":"优化了部分场景下 AI 对话中 MarkDown 渲染嵌套代码块的问题
+• \n"},{"attributes":{"lmkr":"1","list":"bullet1"},"insert":"*"},{"insert":"优化了部分功能
+• \n"},{"attributes":{"anchor":"765a7fb5","lmkr":"1","heading":"h2"},"insert":"*"},{"insert":"
+
+v1.4.17
+发布日期: 2025 年 07 月 09 日
+• \n"},{"attributes":{"lmkr":"1","list":"bullet1"},"insert":"*"},{"insert":"支持管理 Preview 工具使用的服务权限，包括麦克风、摄像头和地图等
+• \n"},{"attributes":{"lmkr":"1","list":"bullet1"},"insert":"*"},{"insert":"支持在部分场景下跳过终端中正在执行的命令
+• \n"},{"attributes":{"lmkr":"1","list":"bullet1"},"insert":"*"},{"insert":"优化了部分功能
+• \n"},{"attributes":{"anchor":"5ebfe1c3","lmkr":"1","heading":"h2"},"insert":"*"},{"insert":"
+
+v1.4.16
+发布日期: 2025 年 07 月 08 日
+• \n"},{"attributes":{"lmkr":"1","list":"bullet1"},"insert":"*"},{"insert":"修复了部分场景下插件激活失败的问题
+• \n"},{"attributes":{"anchor":"b63b7b54","lmkr":"1","heading":"h2"},"insert":"*"},{"insert":"

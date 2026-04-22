@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 周报索引 - VIXGG</title>
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2B8FBWRX4N');
+    </script>
+    <!-- End Google Analytics -->
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2d49f38b39c743ac80b6d6b9ff99494d"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 20px 24px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        h1 { color: #5b21b6; font-size: 1.25rem; }
+        .home-btn {
+            padding: 8px 16px;
+            background: #7c3aed;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .home-btn:hover { background: #6d28d9; }
+        .subtitle { color: #6b7280; font-size: 0.88rem; margin-bottom: 14px; }
+        .list { display: grid; gap: 10px; }
+        .item {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 14px 16px;
+            cursor: pointer;
+            background: #fafafa;
+            transition: 0.2s;
+        }
+        .item:hover {
+            border-color: #7c3aed;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+        }
+        .wk { font-weight: 700; color: #1f2937; }
+        .meta { font-size: 0.78rem; color: #6b7280; margin-top: 6px; }
+        .preview { font-size: 0.88rem; color: #4b5563; margin-top: 8px; line-height: 1.45; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.7rem; font-weight: 600; margin-left: 8px; }
+        .b-ai { background: #d1fae5; color: #065f46; }
+        .b-kw { background: #fef3c7; color: #92400e; }
+        .empty { text-align: center; padding: 40px 20px; color: #6b7280; }
+        .nav2 { margin-top: 8px; font-size: 0.85rem; }
+        .nav2 a { color: #7c3aed; }
+    </style>
+    <script>window.WEEKLY_INVESTOR_SCOPE = 'ainews';</script>
+    <script src="../js/weekly-investor-mvp.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📅 AI 周报索引</h1>
+            <a href="index.html" class="home-btn">🏠 首页</a>
+        </div>
+        <p class="subtitle">按自然周（周一至周日）汇总本周已生成的每日分析；默认展示最近周次。</p>
+        <p class="nav2"><a href="daily_analysis_index.html">← 每日分析索引</a></p>
+        <div class="investor-index-box" id="investor-index-box">
+            <strong style="color:#5b21b6;">投资关注词</strong>
+            <span class="investor-hint">与周报详情页共用，可在此先添加后再点开某周</span>
+            <div class="investor-row" style="margin-top:10px;">
+                <input type="text" id="weekly-inv-kw-input" placeholder="标的 / 行业 / 关键词" maxlength="64" autocomplete="off" />
+                <button type="button" id="weekly-inv-kw-add">添加</button>
+            </div>
+            <div class="investor-tags" id="weekly-inv-tags"></div>
+        </div>
+        <div id="list" class="list"><div class="empty">加载中…</div></div>
+    </div>
+    <script>
+        async function load() {
+            const el = document.getElementById('list');
+            try {
+                const r = await fetch('weekly_analysis/list.json?t=' + Date.now());
+                if (!r.ok) throw new Error('list.json');
+                const data = await r.json();
+                const weeks = data.weeks || [];
+                if (!weeks.length) {
+                    el.innerHTML = '<div class="empty">暂无周报。请在项目根运行：<code style="background:#f3f4f6;padding:2px 6px;border-radius:4px;">python weekly_analysis_task.py</code></div>';
+                    return;
+                }
+                el.innerHTML = weeks.map(function (w) {
+                    const m = w.method === 'ai' ? 'b-ai' : 'b-kw';
+                    const mt = w.method === 'ai' ? 'AI' : '关键词';
+                    const esc = (s) => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+                    return '<div class="item" onclick="location.href=\'weekly_analysis.html?week=' + esc(w.week_id) + '\'">' +
+                        '<div><span class="wk">' + esc(w.week_id) + '</span><span class="badge ' + m + '">' + mt + '</span></div>' +
+                        '<div class="meta">' + esc(w.week_start) + ' ～ ' + esc(w.week_end) + ' · ' + esc(w.generated_at || '') + '</div>' +
+                        '<div class="preview">' + esc(w.preview || '—') + '</div></div>';
+                }).join('');
+            } catch (e) {
+                el.innerHTML = '<div class="empty">无法加载 weekly_analysis/list.json（若本频道尚未生成周报，请先运行周报任务）</div>';
+            }
+        }
+        load();
+        if (window.WeeklyInvestorMVP) {
+            window.WeeklyInvestorMVP.injectStyles();
+            window.WeeklyInvestorMVP.bindIndexPanel();
+        }
+    </script>
+</body>
+</html>

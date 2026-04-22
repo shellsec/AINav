@@ -74,6 +74,23 @@
     .cp-bar-fill.bar-overseas{background:linear-gradient(90deg,#a78bfa,#7c3aed)}
     .cp-bar-fill.bar-hot{background:linear-gradient(90deg,#ff6b6b,#e53935)}
     .cp-bar-fill.bar-warn{background:linear-gradient(90deg,#d29922,#bb8009)}
+    .cp-notice{margin-top:2rem;padding:0;border:1px solid rgba(210,153,34,0.35);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-notice-head{padding:0.65rem 1rem;border-bottom:1px solid rgba(210,153,34,0.2);font-weight:700;font-size:1rem;background:rgba(210,153,34,0.06)}
+    .cp-notice-body{padding:0.75rem 1rem;font-size:0.82rem;line-height:1.75}
+    .cp-notice-body ul{padding-left:1.2rem;margin:0.5rem 0 0}.cp-notice-body li{margin-bottom:0.45rem}
+    .cp-notice-body strong{color:var(--warn)}.cp-notice-body code{font-size:0.78rem;padding:0.1rem 0.35rem;border-radius:4px;background:rgba(210,153,34,0.1);border:1px solid rgba(210,153,34,0.2);color:var(--warn);font-family:inherit}
+    .cp-faq{margin-top:2rem;border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-faq-head{padding:0.65rem 1rem;border-bottom:1px solid var(--border);font-weight:700;font-size:1rem}
+    .cp-faq-item{border-bottom:1px solid var(--border)}.cp-faq-item:last-child{border-bottom:none}
+    .cp-faq-q{padding:0.6rem 1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:0.88rem;user-select:none;transition:background 0.15s}
+    .cp-faq-q:hover{background:rgba(88,166,255,0.04)}.cp-faq-q .cp-faq-arrow{font-size:0.72rem;color:var(--muted);transition:transform 0.2s;flex-shrink:0;margin-left:0.5rem}
+    .cp-faq-item.is-open .cp-faq-q .cp-faq-arrow{transform:rotate(180deg)}
+    .cp-faq-a{padding:0 1rem;max-height:0;overflow:hidden;transition:max-height 0.25s ease,padding 0.25s ease;font-size:0.82rem;line-height:1.7;color:var(--muted)}
+    .cp-faq-item.is-open .cp-faq-a{max-height:20rem;padding:0 1rem 0.75rem}.cp-faq-a strong{color:var(--text)}
+    .cp-value-rank{margin-top:2rem;border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-value-rank-head{padding:0.65rem 1rem;border-bottom:1px solid var(--border);font-weight:700;font-size:1rem}
+    .cp-value-rank-body{padding:0.75rem 1rem}.cp-value-rank .cp-table .val-high{color:var(--accent2);font-weight:700}
+    .cp-value-rank .cp-table .val-mid{color:var(--accent);font-weight:600}.cp-value-rank .cp-table .val-low{color:var(--muted)}
     .cp-tips{margin-top:2rem;padding:0;border:1px solid var(--border);border-radius:8px;background:var(--card);overflow:hidden}
     .cp-tips h2{font-size:1rem;margin:0}
     .cp-footer{max-width:76rem;margin:2rem auto 1rem;padding:0 1rem;font-size:.76rem;color:var(--muted);text-align:center}
@@ -485,6 +502,55 @@
       </div>
     </div>
 
+    <!-- ==================== 注意事项 ==================== -->
+    <div class="cp-notice">
+      <div class="cp-notice-head">⚠️ 注意事项 — 搜索套餐买前必读</div>
+      <div class="cp-notice-body">
+        <ul>
+          <li><strong>"Pro查询"≠普通查询：</strong>Perplexity的Pro查询消耗AI推理资源（GPT-5/Claude），每日限量5次免费版很快用完。</li>
+          <li><strong>ChatGPT Plus ≠ 搜索专用：</strong>$20/月包含对话+代码+图片+搜索，如果你只需要搜索，Perplexity $20/月更专业。</li>
+          <li><strong>国内免费版功能更慷慨：</strong>Kimi免费版无限对话 vs Perplexity Free仅5次Pro/日，日常使用Kimi就够了。</li>
+          <li><strong>学术搜索选秘塔：</strong>中文论文搜索体验超越Google Scholar，¥30/月学术用户首选。</li>
+          <li><strong>GEO（生成式引擎优化）是新赛道：</strong>如果你做营销/SEO，需要关注AI搜索中的品牌曝光。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ==================== FAQ ==================== -->
+    <div class="cp-faq">
+      <div class="cp-faq-head">❓ 常见问题 FAQ</div>
+      <div class="cp-faq-item is-open">
+        <div class="cp-faq-q">Perplexity 和 ChatGPT Plus 怎么选？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>搜索选Perplexity，全能选ChatGPT Plus。</strong>Perplexity专精搜索+引用溯源，学术/研究场景更强。ChatGPT Plus是全能选手（对话+代码+图片+搜索），但搜索深度不如Perplexity。两者同价$20/月，可根据主要需求选择。</div>
+      </div>
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">Kimi 免费版够用吗？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>日常搜索够用，深度研究不够。</strong>Kimi免费版支持无限对话+200万字长文档，日常搜索足够。但需要多源引用、结构化报告、Pro级模型时，免费版限制明显。Kimi+ ¥19.9/月是国内最便宜的AI搜索付费版。</div>
+      </div>
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">AI搜索会取代Google吗？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>不会完全取代，但正在分流。</strong>事实性查询（天气/新闻/价格）AI搜索更高效；浏览型查询（购物/图片/视频）传统搜索仍有优势。趋势是融合：Google AI Mode 已整合AI摘要，AI搜索也在加入更多传统搜索功能。</div>
+      </div>
+    </div>
+
+    <!-- ==================== 性价比排行 ==================== -->
+    <div class="cp-value-rank">
+      <div class="cp-value-rank-head">📊 性价比排行 — 每元Pro查询数对比</div>
+      <div class="cp-value-rank-body">
+        <div style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">公式：月均Pro/深度查询数 ÷ 月价 = 每元查询数。数值越高性价比越好。</div>
+        <table class="cp-table" style="font-size:0.8rem;">
+          <thead><tr><th>排名</th><th>平台</th><th>套餐</th><th>月价</th><th>月均Pro查询数(估)</th><th>每元查询数</th><th>性价比</th></tr></thead>
+          <tbody>
+            <tr><td>🥇</td><td class="plan-name">Kimi</td><td>免费版</td><td class="plan-price">¥0</td><td>∞(无限)</td><td class="val-high">∞</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:100%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
+            <tr><td>🥈</td><td class="plan-name">Kimi+</td><td>会员</td><td class="plan-price">¥19.9</td><td>~∞+Pro模型</td><td class="val-high">∞+</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:95%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
+            <tr><td>🥉</td><td class="plan-name">秘塔搜索</td><td>会员</td><td class="plan-price">¥30</td><td>~900</td><td class="val-high">30</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:60%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td></tr>
+            <tr><td>4</td><td class="plan-name">Perplexity</td><td>Pro</td><td class="plan-price">$20</td><td>~900</td><td class="val-mid">~6.5</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:13%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td></tr>
+            <tr><td>5</td><td class="plan-name">ChatGPT Plus</td><td>Plus</td><td class="plan-price">$20</td><td>~600</td><td class="val-low">~4.3</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:9%;height:100%;border-radius:4px;background:linear-gradient(90deg,#8b9cb3,#6e7681);"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- ==================== 趋势分析 ==================== -->
     <div class="cp-trend-section" style="margin-top:2.5rem;">
       <h2>📈 AI 搜索趋势</h2>
@@ -525,6 +591,7 @@
     <p><a href="index.html">← 返回 AINav 首页</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a></p>
   </div>
 
+  <script>document.querySelectorAll('.cp-faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('is-open');});});</script>
   <script>
     (function(){
       var btns=document.querySelectorAll('.theme-btn:not(.lang-btn)'),html=document.documentElement;

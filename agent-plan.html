@@ -131,6 +131,36 @@
     .cp-bar-fill.bar-oss { background: linear-gradient(90deg, #f0883e, #bc4c00); }
     .cp-bar-fill.bar-hot { background: linear-gradient(90deg, #ff6b6b, #e53935); }
 
+    /* ---- Notice card ---- */
+    .cp-notice { margin-top: 2rem; padding: 0; border: 1px solid rgba(210,153,34,0.35); border-radius: 10px; background: var(--card); overflow: hidden; }
+    .cp-notice-head { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(210,153,34,0.2); font-weight: 700; font-size: 1rem; background: rgba(210,153,34,0.06); }
+    .cp-notice-body { padding: 0.75rem 1rem; font-size: 0.82rem; line-height: 1.75; }
+    .cp-notice-body ul { padding-left: 1.2rem; margin: 0.5rem 0 0; }
+    .cp-notice-body li { margin-bottom: 0.45rem; }
+    .cp-notice-body strong { color: var(--warn); }
+    .cp-notice-body code { font-size: 0.78rem; padding: 0.1rem 0.35rem; border-radius: 4px; background: rgba(210,153,34,0.1); border: 1px solid rgba(210,153,34,0.2); color: var(--warn); font-family: inherit; }
+
+    /* ---- FAQ accordion ---- */
+    .cp-faq { margin-top: 2rem; border: 1px solid var(--border); border-radius: 10px; background: var(--card); overflow: hidden; }
+    .cp-faq-head { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); font-weight: 700; font-size: 1rem; }
+    .cp-faq-item { border-bottom: 1px solid var(--border); }
+    .cp-faq-item:last-child { border-bottom: none; }
+    .cp-faq-q { padding: 0.6rem 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.88rem; user-select: none; transition: background 0.15s; }
+    .cp-faq-q:hover { background: rgba(88,166,255,0.04); }
+    .cp-faq-q .cp-faq-arrow { font-size: 0.72rem; color: var(--muted); transition: transform 0.2s; flex-shrink: 0; margin-left: 0.5rem; }
+    .cp-faq-item.is-open .cp-faq-q .cp-faq-arrow { transform: rotate(180deg); }
+    .cp-faq-a { padding: 0 1rem; max-height: 0; overflow: hidden; transition: max-height 0.25s ease, padding 0.25s ease; font-size: 0.82rem; line-height: 1.7; color: var(--muted); }
+    .cp-faq-item.is-open .cp-faq-a { max-height: 20rem; padding: 0 1rem 0.75rem; }
+    .cp-faq-a strong { color: var(--text); }
+
+    /* ---- Value rank ---- */
+    .cp-value-rank { margin-top: 2rem; border: 1px solid var(--border); border-radius: 10px; background: var(--card); overflow: hidden; }
+    .cp-value-rank-head { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); font-weight: 700; font-size: 1rem; }
+    .cp-value-rank-body { padding: 0.75rem 1rem; }
+    .cp-value-rank .cp-table .val-high { color: var(--accent2); font-weight: 700; }
+    .cp-value-rank .cp-table .val-mid { color: var(--accent); font-weight: 600; }
+    .cp-value-rank .cp-table .val-low { color: var(--muted); }
+
     /* ---- Tips / Scene rec ---- */
     .cp-tips { margin-top: 2rem; padding: 0; border: 1px solid var(--border); border-radius: 8px; background: var(--card); overflow: hidden; }
     .cp-tips h2 { font-size: 1rem; margin: 0; }
@@ -975,6 +1005,141 @@
       </div>
     </div>
 
+    <!-- ==================== 注意事项 ==================== -->
+    <div class="cp-notice">
+      <div class="cp-notice-head">⚠️ 注意事项 — Agent 选购必读</div>
+      <div class="cp-notice-body">
+        <ul>
+          <li><strong>开源 Agent 免费但需自备 API：</strong>OpenClaw/Cline/Hermes 等开源 Agent 本身免费，但底层模型调用需自行购买 API 额度或订阅 Coding Plan，实际成本 ≠ ¥0。</li>
+          <li><strong>Agent 效果 80% 取决于底层模型：</strong>同一 Agent 换不同模型效果天差地别，选对模型比选对 Agent 更重要。建议优先搭配 Claude/GPT-5 级别模型。</li>
+          <li><strong>自主执行 = 自主犯错：</strong>Agent 能自动改代码，也能自动引入 Bug。生产环境务必开启<strong>人工确认</strong>模式，不要给 Agent 无限权限。</li>
+          <li><strong>MCP 生态仍在早期：</strong>2026年各 Agent 的 MCP 工具支持参差不齐，同一工具在不同 Agent 上体验差异大，选型前确认目标工具兼容性。</li>
+          <li><strong>闭源 Agent 绑定平台：</strong>Cursor/Copilot/Devin 等闭源 Agent 只能用自家模型和工具，无法自由切换，长期成本和灵活性受限。</li>
+          <li><strong>Agent 领域变化极快：</strong>每月都有新 Agent 发布/更新，当前"最佳"可能3个月后就被超越，月付比年付更灵活。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ==================== FAQ ==================== -->
+    <div class="cp-faq">
+      <div class="cp-faq-head">❓ 常见问题 FAQ</div>
+
+      <div class="cp-faq-item is-open">
+        <div class="cp-faq-q">AI Agent 和 IDE 插件（Copilot）有什么区别？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>IDE 插件</strong>是"被动建议"——你写代码它补全；<strong>Agent</strong>是"主动执行"——你描述需求，它自动读取文件、分析代码、生成修改、写入文件。Agent 能完成多步骤任务，插件只能做单步建议。类比：插件是副驾驶，Agent 是自动驾驶。</div>
+      </div>
+
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">开源 Agent 和闭源 Agent 怎么选？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>开源优势：</strong>免费、可自托管、数据不出本机、支持多模型切换。<strong>闭源优势：</strong>开箱即用、无需运维、体验更流畅。如果你是个人开发者且在意成本，选开源+国内 API；如果是团队且追求效率，选闭源（Cursor/Copilot）。</div>
+      </div>
+
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">Agent 会不会自动删除/覆盖我的代码？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>有可能，但可以防范。</strong>大多数 Agent 默认开启"自动应用修改"，这意味着它改的代码会直接写入文件。建议：①始终使用 Git，出问题可回滚；②生产环境关闭自动应用，改为手动确认；③限制 Agent 的文件访问范围（沙箱模式）。</div>
+      </div>
+
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">Devin/Codex 值得 $500/月吗？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>对大多数人不值得。</strong>Devin/Codex 定位是"AI软件工程师"，能独立完成整个任务。但 $500/月的价格是 Cursor Pro $20 的 25 倍。除非你的时薪 > $50 且经常需要处理大量重复性编程任务，否则 OpenClaw/Cline + Claude API 的组合更划算。</div>
+      </div>
+
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">MCP 是什么？为什么重要？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>MCP（Model Context Protocol）</strong>是 Anthropic 提出的统一工具调用协议，让 Agent 能连接数据库、浏览器、文件系统等外部工具。重要性：MCP 正在成为行业标准，选支持 MCP 的 Agent 意味着未来可以接入更多工具，不会被生态锁定。</div>
+      </div>
+
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">哪个 Agent 写代码最强？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>取决于底层模型。</strong>用 Claude Opus 时，Claude Code 最强；用 GPT-5 时，Copilot Workspace 最强。目前 SWE-bench 得分排名：Claude Code > Cursor Agent > OpenClaw > Cline。但差距在缩小，开源 Agent 配合强模型已能达到闭源 80-90% 的效果。</div>
+      </div>
+    </div>
+
+    <!-- ==================== 性价比排行 ==================== -->
+    <div class="cp-value-rank">
+      <div class="cp-value-rank-head">📊 性价比排行 — Agent 每月成本对比</div>
+      <div class="cp-value-rank-body">
+        <div style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">公式：月均可用任务数 ÷ 月总成本 = 每元任务数（开源 Agent 需另加 API 成本）。数值越高性价比越好。</div>
+        <table class="cp-table" style="font-size:0.8rem;">
+          <thead><tr><th>排名</th><th>Agent</th><th>月成本</th><th>底层模型</th><th>月均任务数(估)</th><th>每元任务数</th><th>性价比</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>🥇</td>
+              <td class="plan-name">Cline + DeepSeek Free</td>
+              <td class="plan-price">¥0</td>
+              <td>DeepSeek</td>
+              <td>~600</td>
+              <td class="val-high">∞</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:100%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td>
+            </tr>
+            <tr>
+              <td>🥈</td>
+              <td class="plan-name">OpenClaw + 智谱GLM Pro</td>
+              <td class="plan-price">¥149</td>
+              <td>GLM-4</td>
+              <td>~8,000</td>
+              <td class="val-high">54</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:78%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td>
+            </tr>
+            <tr>
+              <td>🥉</td>
+              <td class="plan-name">Trae Free</td>
+              <td class="plan-price">¥0</td>
+              <td>混元/DeepSeek</td>
+              <td>~500</td>
+              <td class="val-high">∞</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:100%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="plan-name">Cursor Pro</td>
+              <td class="plan-price">$20</td>
+              <td>Claude/GPT-5</td>
+              <td>~1,500</td>
+              <td class="val-mid">~11</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:15%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="plan-name">Copilot Pro</td>
+              <td class="plan-price">$10</td>
+              <td>GPT-5</td>
+              <td>~800</td>
+              <td class="val-mid">~11</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:15%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td class="plan-name">Windsurf Pro</td>
+              <td class="plan-price">$15</td>
+              <td>多模型</td>
+              <td>~1,000</td>
+              <td class="val-mid">~10</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:14%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td class="plan-name">Claude Code Max</td>
+              <td class="plan-price">$100</td>
+              <td>Claude Opus</td>
+              <td>~5,000</td>
+              <td class="val-low">~7</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:10%;height:100%;border-radius:4px;background:linear-gradient(90deg,#8b9cb3,#6e7681);"></div></div></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td class="plan-name">Devin</td>
+              <td class="plan-price">$500</td>
+              <td>自研</td>
+              <td>~3,000</td>
+              <td class="val-low">~1</td>
+              <td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:2%;height:100%;border-radius:4px;background:linear-gradient(90deg,#8b9cb3,#6e7681);"></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- ==================== Agent 趋势分析 ==================== -->
     <div class="cp-trend-section">
       <h2>📈 Agent 趋势分析</h2>
@@ -1033,6 +1198,13 @@
     <p>数据来源：各平台官网 · GitHub · 价格以官网为准</p>
     <p><a href="index.html">← 返回 AINav 首页</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="video-plan.html">视频套餐横评</a> · <a href="image-plan.html">图像套餐横评</a></p>
   </div>
+
+  <!-- FAQ accordion -->
+  <script>
+    document.querySelectorAll('.cp-faq-q').forEach(function(q){
+      q.addEventListener('click',function(){q.parentElement.classList.toggle('is-open');});
+    });
+  </script>
 
   <!-- Theme toggle -->
   <script>

@@ -1,0 +1,455 @@
+#!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+import os
+import requests
+import time as time_module
+import configparser
+import hmac
+import hashlib
+import base64
+import urllib.parse
+from html.parser import HTMLParser
+from re import sub
+from sys import stderr
+from traceback import print_exc
+import random
+from bs4 import BeautifulSoup
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+from push_logger import push_logger  # 导入推送日志记录器
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+# 初始化配置
+config = configparser.ConfigParser()
+# 确保使用UTF-8编码读取配置文件
+try:
+    with open('config.ini', 'r', encoding='utf-8') as f:
+        config.read_file(f)
+except UnicodeDecodeError:
+    # 如果UTF-8失败，尝试GBK编码
+    with open('config.ini', 'r', encoding='gbk') as f:
+        config.read_file(f)
+
+class _DeHTMLParser(HTMLParser):
+    def __init__(self):
+        HTMLParser.__init__(self)
+        self.__text = []
+
+    def handle_data(self, data):
+        text = data.strip()
+        if len(text) > 0:
+            text = sub('[ \t\r\n]+', ' ', text)
+            self.__text.append(text + ' ')
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'p':
+            self.__text.append('\n\n')
+        elif tag == 'br':
+            self.__text.append('\n')
+
+    def handle_startendtag(self, tag, attrs):
+        if tag == 'br':
+            self.__text.append('\n\n')
+
+    def text(self):
+        return ''.join(self.__text).strip()
+
+def dehtml(text):
+    """去除HTML标签"""
+    try:
+        parser = _DeHTMLParser()
+        parser.feed(text)
+        return parser.text()
+    except:
+        return text
+
+# 获取当前时间
+def get_current_time():
+    return time_module.strftime('%Y-%m-%d %H:%M:%S', time_module.localtime(time_module.time()))
+
+def generate_signature(secret):
+    """生成钉钉机器人签名"""
+    timestamp = str(round(time_module.time() * 1000))
+    secret_enc = secret.encode('utf-8')
+    string_to_sign = f"{timestamp}\n{secret}"
+    string_to_sign_enc = string_to_sign.encode('utf-8')
+    hmac_code = hmac.new(secret_enc, string_to_sign_enc, digestmod=hashlib.sha256).digest()
+    sign = urllib.parse.quote_plus(base64.b64encode(hmac_code))
+    return timestamp, sign
+
+# 钉钉消息推送
+def dingding(message):
+    try:
+        access_token = config.get('dingding', 'access_token')
+        secret = config.get('dingding', 'secret')
+        
+        # 生成签名
+        timestamp, sign = generate_signature(secret)
+        
+        # 构造带签名的URL
+        base_url = "https://oapi.dingtalk.com/robot/send"
+        params = {
+            "access_token": access_token,
+            "timestamp": timestamp,
+            "sign": sign
+        }
+        webhook = f"{base_url}?{urllib.parse.urlencode(params)}"
+        
+        headers = {
+            "Content-Type": "application/json",
+            "Charset": "UTF-8"
+        }
+        payload = {
+            "msgtype": "text",
+            "text": {"content": message},
+            "at": {"isAtAll": False}
+        }
+        response = requests.post(webhook, json=payload, headers=headers, timeout=10)
+        print(f"钉钉推送结果: {response.text}")
+    except Exception as e:
+        print(f"钉钉推送失败: {str(e)}")
+
+def wx(message):
+    """企业微信消息推送"""
+    try:
+        corpid = config.get('wechat', 'corpid')
+        corpsecret = config.get('wechat', 'corpsecret')
+        agentid = config.getint('wechat', 'agentid')
+        
+        # 获取access_token
+        token_url = f"https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={corpid}&corpsecret={corpsecret}"
+        token_res = requests.get(token_url, timeout=10)
+        access_token = token_res.json().get('access_token')
+        
+        if not access_token:
+            print("获取企业微信access_token失败")
+            return
+            
+        # 构造消息体
+        send_url = f"https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token={access_token}"
+        payload = {
+            "touser": "@all",
+            "msgtype": "text",
+            "agentid": agentid,
+            "text": {"content": message},
+            "safe": 0
+        }
+        
+        # 发送消息
+        response = requests.post(send_url, json=payload, timeout=10)
+        print(f"企业微信推送结果: {response.text}")
+        
+    except Exception as e:
+        print(f"企业微信推送失败: {str(e)}")
+
+def analyze_html_structure(html_content):
+    """分析HTML结构以帮助调试"""
+    print("\n=== 开始分析HTML结构 ===")
+    soup = BeautifulSoup(html_content, 'html.parser')
+    
+    # 1. 查找所有标题
+    print("\n页面中的标题(h1-h6):")
+    for i in range(1, 7):
+        headings = soup.find_all(f'h{i}')
+        if headings:
+            print(f"\n<h{i}> 标签 ({len(headings)}个):")
+            for h in headings[:3]:
+                print(f"- {h.text.strip()}")
+    
+    # 2. 查找所有可能的更新日志容器
+    print("\n可能的更新日志容器:")
+    containers = soup.find_all(['article', 'div', 'section'])
+    changelog_containers = []
+    
+    for container in containers:
+        classes = container.get('class', [])
+        class_str = ' '.join(classes) if classes else ''
+        text_content = container.text.strip().lower()
+        
+        # 检查是否包含更新日志相关关键词
+        if any(keyword in class_str.lower() for keyword in ['changelog', 'update', 'release', 'version']) or \
+           any(keyword in text_content for keyword in ['更新', '版本', 'changelog', 'update', 'release']):
+            changelog_containers.append(container)
+            print(f"\n容器类型: {container.name}, 类: {class_str}")
+            content_preview = container.text.strip().replace('\n', ' ')[:100]
+            print(f"内容预览: {content_preview}...")
+    
+    # 3. 查找所有版本号
+    print("\n页面中的版本号:")
+    import re
+    version_pattern = r'v?\d+\.\d+(?:\.\d+)?'
+    version_matches = re.findall(version_pattern, html_content)
+    for version in set(version_matches[:10]):  # 去重并限制数量
+        print(f"- {version}")
+    
+    print("\n=== HTML结构分析结束 ===\n")
+    return changelog_containers
+
+def get_trae_changelog():
+    """获取Trae AI更新日志"""
+    print("开始获取Trae AI更新日志...")
+    
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        'Referer': 'https://docs.trae.ai/',
+        'DNT': '1',
+        'Sec-GPC': '1',
+        'Upgrade-Insecure-Requests': '1',
+        'Connection': 'keep-alive',
+    }
+
+    max_retries = 3
+    retry_delay = 5
+    
+    for attempt in range(max_retries):
+        try:
+            changelog_url = "https://docs.trae.ai/ide/changelog?_lang=zh"
+            print(f"正在请求URL: {changelog_url} (尝试 {attempt + 1}/{max_retries})")
+            response = requests.get(changelog_url, headers=headers, timeout=30, verify=False)
+            
+            if response.status_code == 200:
+                break
+            else:
+                print(f"获取更新日志失败，状态码：{response.status_code}")
+                if attempt < max_retries - 1:
+                    time_module.sleep(retry_delay)
+        except Exception as e:
+            print(f"请求异常: {str(e)}")
+            if attempt < max_retries - 1:
+                time_module.sleep(retry_delay)
+    else:
+        print("所有重试均失败")
+        return None
+
+    if response.status_code != 200:
+        print(f"最终请求失败，状态码：{response.status_code}")
+        return None
+
+    # 保存HTML内容以便调试
+    with open('trae_debug.html', 'w', encoding='utf-8') as f:
+        f.write(response.text)
+    print(f"已保存HTML内容到trae_debug.html，长度：{len(response.text)}")
+
+    try:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        changelog_items = []
+        
+        # 方法1: 使用正则表达式提取版本和日期信息
+        import re
+        html_content = response.text
+        
+        # 提取版本和日期的模式
+        # 匹配类似 "2025 年 05 月 21 日​Trae v1.3.10 版本正式发布" 的内容
+        version_pattern = r'(\d{4}\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日)[^T]*Trae\s+(v\d+\.\d+\.\d+)\s*版本正式发布[。]*以下是变更细节：([^​]*?)(?=\d{4}\s*年|$)'
+        
+        matches = re.findall(version_pattern, html_content, re.DOTALL)
+        
+        print(f"找到 {len(matches)} 个版本匹配")
+        
+        for i, (date, version, content) in enumerate(matches[:3]):  # 只取最新3个版本
+            try:
+                # 清理日期格式
+                clean_date = re.sub(r'\s+', ' ', date.strip())
+                
+                # 清理版本号
+                clean_version = version.strip()
+                
+                # 清理和处理更新内容
+                clean_content = content.strip()
+                # 移除多余的符号和空白
+                clean_content = re.sub(r'[​\u200b]+', '', clean_content)
+                clean_content = re.sub(r'\s+', ' ', clean_content)
+                
+                # 分割更新内容为列表项
+                content_lines = []
+                if clean_content:
+                    # 按句号分割内容
+                    sentences = [s.strip() for s in clean_content.split('。') if s.strip()]
+                    for sentence in sentences[:5]:  # 最多5条更新
+                        if len(sentence) > 5:  # 过滤太短的内容
+                            content_lines.append(f"• {sentence}")
+                
+                # 组合版本信息
+                changelog_item = f"{clean_version}\n发布日期: {clean_date}\n"
+                if content_lines:
+                    changelog_item += "\n".join(content_lines)
+                else:
+                    changelog_item += "• 优化了部分功能"
+                
+                changelog_items.append(changelog_item)
+                print(f"添加版本: {clean_version} ({clean_date})")
+                
+            except Exception as e:
+                print(f"解析版本 {i+1} 时出错: {str(e)}")
+                continue
+        
+        # 方法2: 如果正则表达式失败，尝试BeautifulSoup解析
+        if not changelog_items:
+            print("正则表达式提取失败，尝试BeautifulSoup解析...")
+            
+            # 查找包含版本信息的文本节点
+            text_content = soup.get_text()
+            
+            # 按行分割并查找版本信息
+            lines = text_content.split('\n')
+            current_version = None
+            current_date = None
+            current_content = []
+            
+            for line in lines:
+                line = line.strip()
+                if not line:
+                    continue
+                
+                # 检查是否是日期行
+                date_match = re.search(r'(\d{4}\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日)', line)
+                if date_match:
+                    # 保存上一个版本的信息
+                    if current_version and len(changelog_items) < 3:
+                        changelog_item = f"{current_version}\n"
+                        if current_date:
+                            changelog_item += f"发布日期: {current_date}\n"
+                        if current_content:
+                            changelog_item += "\n".join(current_content[:5])
+                        else:
+                            changelog_item += "• 优化了部分功能"
+                        changelog_items.append(changelog_item)
+                    
+                    current_date = date_match.group(1)
+                    current_content = []
+                    
+                    # 检查同一行是否包含版本信息
+                    version_match = re.search(r'Trae\s+(v\d+\.\d+\.\d+)', line)
+                    if version_match:
+                        current_version = version_match.group(1)
+                
+                # 检查是否是版本行
+                elif re.search(r'Trae\s+(v\d+\.\d+\.\d+)', line):
+                    version_match = re.search(r'Trae\s+(v\d+\.\d+\.\d+)', line)
+                    if version_match:
+                        current_version = version_match.group(1)
+                
+                # 收集更新内容
+                elif current_version and line and not line.startswith('Trae') and len(line) > 10:
+                    if not any(skip_word in line for skip_word in ['版本正式发布', '以下是变更细节']):
+                        current_content.append(f"• {line}")
+            
+            # 处理最后一个版本
+            if current_version and len(changelog_items) < 3:
+                changelog_item = f"{current_version}\n"
+                if current_date:
+                    changelog_item += f"发布日期: {current_date}\n"
+                if current_content:
+                    changelog_item += "\n".join(current_content[:5])
+                else:
+                    changelog_item += "• 优化了部分功能"
+                changelog_items.append(changelog_item)
+        
+        # 方法3: 最后的备用方法
+        if not changelog_items:
+            print("BeautifulSoup解析也失败，使用备用方法...")
+            
+            # 简单提取页面中的版本号
+            version_matches = re.findall(r'Trae\s+(v\d+\.\d+\.\d+)', html_content)
+            date_matches = re.findall(r'(\d{4}\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日)', html_content)
+            
+            if version_matches:
+                for i, version in enumerate(version_matches[:3]):
+                    date = date_matches[i] if i < len(date_matches) else "未知日期"
+                    changelog_item = f"{version}\n发布日期: {date}\n• 版本更新，详情请查看官网"
+                    changelog_items.append(changelog_item)
+                    print(f"备用方法添加版本: {version}")
+        
+        if not changelog_items:
+            print("未能提取任何更新日志内容")
+            # 保存调试信息
+            with open('trae_output.txt', 'w', encoding='utf-8') as f:
+                f.write("未找到更新日志内容\n")
+                f.write(f"页面长度: {len(response.text)}\n")
+                f.write(f"页面标题: {soup.title.string if soup.title else '无标题'}\n")
+                # 保存页面文本内容的前1000字符
+                f.write(f"页面内容预览:\n{soup.get_text()[:1000]}")
+            return None
+        
+        # 组合所有更新日志内容
+        changelog_text = "Trae AI最新更新：\n\n" + "\n\n".join(changelog_items)
+        
+        # 保存提取的内容
+        with open('trae_output.txt', 'w', encoding='utf-8') as f:
+            f.write(changelog_text)
+        
+        print(f"成功提取 {len(changelog_items)} 条更新日志")
+        return changelog_text
+
+    except Exception as e:
+        print(f"解析更新日志失败: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return None
+
+def is_within_working_hours():
+    """检查当前时间是否在工作时间范围内（早7:30至晚22:30）"""
+    import datetime
+    current_time = datetime.datetime.now().time()
+    start_time = datetime.time(7, 30)
+    end_time = datetime.time(23, 30)
+    return start_time <= current_time <= end_time
+
+def main():
+    try:
+        print("-" * 50)
+        print(f"开始获取 Trae AI 更新日志 - {get_current_time()}")
+
+        # 1. 获取更新日志内容
+        article = get_trae_changelog()
+        if not article:
+            print("未获取到更新日志内容，跳过本次任务")
+            return
+        
+        # 2. 准备推送内容
+        todaytime = get_current_time()
+        tex = f"Trae AI更新日志 - {todaytime}\n\n{article}"
+        print("准备推送内容长度:", len(tex))
+
+        # 3. 检查内容更新
+        art_keywork = "Trae更新日志"
+        if os.path.exists(f"{art_keywork}.txt"):
+            with open(f"{art_keywork}.txt", 'r', encoding='utf-8') as g:
+                read_all = g.read()
+
+            print('读取到的文件内容长度:', len(read_all))
+            if read_all != article:
+                print('内容比对不一致，需要更新')
+                with open(f"{art_keywork}.txt", "w+", encoding='utf-8', errors='ignore') as g:
+                    g.write(article)
+
+                # 4. 推送消息
+                print("内容有更新，准备推送..")
+                dingding(tex)
+                # wx(tex)
+            else:
+                print('内容比对一致，无需更新和推送')
+        else:
+            print('首次运行，创建内容文件')
+            with open(f"{art_keywork}.txt", "w+", encoding='utf-8', errors='ignore') as g:
+                g.write(article)
+            # 首次运行也推送
+            dingding(tex)
+            # wx(tex)
+
+    except Exception as e:
+        print(f"程序运行出错: {str(e)}")
+        import traceback
+        traceback.print_exc()
+
+if __name__ == "__main__":
+    while True:
+        if is_within_working_hours():
+            print(f"当前时间: {get_current_time()}, 在工作时间范围内，执行任务..")
+            main()
+        else:
+            print(f"当前时间: {get_current_time()}, 不在工作时间范围内，等待中..")
+        
+        # 每12小时检查一次
+        time_module.sleep(12 * 60 * 60) 

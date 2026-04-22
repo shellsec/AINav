@@ -1,0 +1,23 @@
+{
+  "ai_analysis": {
+    "enabled": true,
+    "use_shared_ai_profile": true,
+    "max_tokens": null,
+    "max_retries": 3,
+    "max_news_per_batch": 100,
+    "batch_size": 50,
+    "fallback_to_keywords": true,
+    "only_important_news": false,
+    "important_news_threshold": 70,
+    "max_news_to_analyze": 200,
+    "weekly_product_pipeline": true,
+    "daily_analysis_enabled": true,
+    "daily_analysis_time": "00:05",
+    "notify_on_ai_fallback": true,
+    "fallback_notify_webhook_url": "https://oapi.dingtalk.com/robot/send?access_token=6f3f2f5d079d42c83df4a9a9cead71a4d7a7db1bb99fd4029456f4b6e813a386",
+    "fallback_notify_secret": "SECa695efca3edfa1ea2888e86c878153904c5b84808eb5912c9a98f365736ed5e4"
+  },
+  "notify_on_ai_fallback": true,
+  "fallback_notify_webhook_url": "https://oapi.dingtalk.com/robot/send?access_token=6f3f2f5d079d42c83df4a9a9cead71a4d7a7db1bb99fd4029456f4b6e813a386",
+  "fallback_notify_secret": "SECa695efca3edfa1ea2888e86c878153904c5b84808eb5912c9a98f365736ed5e4"
+}

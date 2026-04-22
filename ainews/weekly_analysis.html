@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 周报详情</title>
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2B8FBWRX4N');
+    </script>
+    <!-- End Google Analytics -->
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2d49f38b39c743ac80b6d6b9ff99494d"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #4338ca 0%, #7c3aed 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container { max-width: 960px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); padding: 24px 28px; }
+        .header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 2px solid #e5e7eb; }
+        h1 { color: #5b21b6; font-size: 1.2rem; }
+        .back-btn { padding: 8px 18px; background: #7c3aed; color: white; border-radius: 8px; text-decoration: none; font-size: 0.85rem; }
+        .card { background: #f9fafb; border-radius: 10px; padding: 18px 20px; margin-bottom: 16px; border-left: 4px solid #7c3aed; }
+        .card h2 { font-size: 1rem; margin-bottom: 10px; color: #374151; }
+        .card p, .card li { line-height: 1.55; color: #4b5563; font-size: 0.92rem; }
+        ul.norm { padding-left: 1.2rem; margin-top: 8px; }
+        ul.norm li { margin-bottom: 6px; }
+        .meta { font-size: 0.85rem; color: #6b7280; margin-bottom: 16px; }
+        .exec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 10px; }
+        .exec-card { padding: 12px 14px; background: #fff; border-radius: 8px; border-left: 4px solid #a78bfa; }
+        .exec-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; font-weight: 600; }
+        .stance { font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; background: #f3f4f6; font-weight: 700; }
+        .err { color: #b91c1c; padding: 20px; text-align: center; }
+        .disclaimer { font-size: 0.75rem; color: #9ca3af; margin-top: 20px; line-height: 1.5; }
+    </style>
+    <script>window.WEEKLY_INVESTOR_SCOPE = 'ainews';</script>
+    <script src="../js/weekly-investor-mvp.js"></script>
+    <script src="../js/weekly-page-extras.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📅 AI 周报</h1>
+            <a href="weekly_analysis_index.html" class="back-btn">← 周报索引</a>
+        </div>
+        <div class="investor-panel" id="investor-panel">
+            <div class="investor-panel-head">
+                <strong>投资关注</strong>
+                <span class="investor-hint">本地保存，仅本机浏览器 · 英文关键词不区分大小写</span>
+            </div>
+            <div class="investor-row">
+                <input type="text" id="investor-kw-input" placeholder="标的 / 行业 / 关键词，回车添加" maxlength="64" autocomplete="off" />
+                <button type="button" id="investor-kw-add">添加</button>
+            </div>
+            <div class="investor-tags" id="investor-tags"></div>
+            <label class="investor-check"><input type="checkbox" id="investor-filter-only" /> 仅显示含关注词的板块（元信息始终显示）</label>
+        </div>
+        <div id="content"><div class="err">加载中…</div></div>
+    </div>
+    <script>
+        var investorPanelBound = false;
+        function esc(s) {
+            const d = document.createElement('div');
+            d.textContent = s == null ? '' : String(s);
+            return d.innerHTML;
+        }
+        function stanceColor(st) {
+            if (st === '偏多') return '#10b981';
+            if (st === '偏空') return '#ef4444';
+            if (st === '观望') return '#6b7280';
+            return '#d97706';
+        }
+        async function load() {
+            const el = document.getElementById('content');
+            const qp = new URLSearchParams(window.location.search);
+            let week = qp.get('week');
+            try {
+                if (!week) {
+                    const lr = await fetch('weekly_analysis/list.json?t=' + Date.now());
+                    if (lr.ok) {
+                        const ld = await lr.json();
+                        const wks = ld.weeks || [];
+                        if (wks.length) week = wks[0].week_id;
+                    }
+                }
+                if (!week) {
+                    el.innerHTML = '<div class="err">请指定 ?week=YYYY-Www 或先 <a href="weekly_analysis_index.html">生成周报</a></div>';
+                    return;
+                }
+                const r = await fetch('weekly_analysis/weekly_' + encodeURIComponent(week) + '.json?t=' + Date.now());
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                const data = await r.json();
+                const a = data.analysis || {};
+                const miss = Array.isArray(data.missing_dates)
+                    ? data.missing_dates
+                    : (data.coverage && Array.isArray(data.coverage.missing_dates) ? data.coverage.missing_dates : []);
+                const covLine = miss.length
+                    ? '<br/><span style="color:#b45309;font-weight:600;">缺失日报：' + miss.map(function (m) { return esc(String(m)); }).join('、') + '</span>'
+                    : '<br/><span style="color:#059669;font-weight:600;">本周自然周 7 天均有日报</span>';
+                const fcVal = a.forecast_confidence || '中';
+                const fcLine =
+                    '<span style="margin-left:10px;padding:3px 12px;border-radius:999px;font-size:0.75rem;font-weight:700;background:#ede9fe;color:#5b21b6;vertical-align:middle;">前瞻置信·' +
+                    esc(fcVal) +
+                    '</span>';
+                const lens = Array.isArray(a.executive_lens_weekly) ? a.executive_lens_weekly : [];
+
+                let execHtml = '';
+                if (lens.length) {
+                    execHtml = '<div class="card"><h2>👔 高管视角（本周模拟）</h2><p style="font-size:0.8rem;color:#6b7280;margin:-4px 0 10px;">虚构推演，不构成投资建议。</p><div class="exec-grid">' +
+                        lens.map(function (ev) {
+                            var sc = stanceColor(ev.stance);
+                            return '<div class="exec-card" style="border-left-color:' + sc + '"><div class="exec-head"><span>' + esc(ev.role) + '</span><span class="stance" style="color:' + sc + '">' + esc(ev.stance) + '</span></div><p style="font-size:0.88rem;margin-bottom:6px;">' + esc(ev.summary) + '</p><p style="font-size:0.78rem;color:#6b7280;"><strong>关注：</strong>' + esc(ev.key_concern) + '</p></div>';
+                        }).join('') + '</div></div>';
+                }
+
+                function ul(arr) {
+                    if (!arr || !arr.length) return '<p>—</p>';
+                    return '<ul class="norm">' + arr.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>';
+                }
+                function dimTable(dims) {
+                    if (!dims || !dims.length) return '';
+                    var rows = dims.map(function (d) {
+                        return (
+                            '<tr><td style="padding:10px 8px;border-bottom:1px solid #e5e7eb;vertical-align:top;font-weight:600;color:#374151;width:6rem;">' +
+                            esc(d.dimension) +
+                            '</td><td style="padding:10px 8px;border-bottom:1px solid #e5e7eb;vertical-align:top;font-weight:600;color:#6d28d9;width:3.5rem;">' +
+                            esc(d.evidence_strength || '中') +
+                            '</td><td style="padding:10px 8px;border-bottom:1px solid #e5e7eb;line-height:1.55;">' +
+                            esc(d.observation) +
+                            '</td><td style="padding:10px 8px;border-bottom:1px solid #e5e7eb;line-height:1.5;color:#6b7280;">' +
+                            esc(d.forward_watch) +
+                            '</td></tr>'
+                        );
+                    }).join('');
+                    return '<div class="card"><h2>分维度拆解</h2><p style="font-size:0.82rem;color:#6b7280;margin:-4px 0 10px;">独立维度、证据强度（强/中/弱）与可验证的下周跟踪点。</p><table style="width:100%;border-collapse:collapse;font-size:0.88rem;"><thead><tr style="background:#f3f4f6;"><th style="text-align:left;padding:8px;border-bottom:1px solid #e5e7eb;">维度</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e5e7eb;">证据</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e5e7eb;">本周观察</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e5e7eb;">下周盯什么</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+                }
+                function calibrationCard(text) {
+                    if (!text || !String(text).trim()) return '';
+                    return '<div class="card"><h2>校准与样本</h2><p style="line-height:1.65;font-size:0.9rem;">' + esc(text) + '</p></div>';
+                }
+                function scenarioBlock(an) {
+                    var b = an.base_case_scenario;
+                    var up = an.upside_triggers;
+                    var dn = an.downside_triggers;
+                    var hasB = b && String(b).trim();
+                    var hasUp = up && up.length;
+                    var hasDn = dn && dn.length;
+                    if (!hasB && !hasUp && !hasDn) return '';
+                    var h =
+                        '<div class="card"><h2>情景与触发条件</h2><p style="font-size:0.82rem;color:#6b7280;margin:-4px 0 10px;">基线为延续假设；上下行触发宜可观察、可验证。</p>';
+                    if (hasB) {
+                        h += '<p style="font-weight:600;margin-bottom:8px;color:#1f2937;">基线情景</p><p style="line-height:1.62;margin-bottom:14px;">' + esc(b) + '</p>';
+                    }
+                    if (hasUp) {
+                        h += '<p style="font-weight:600;margin-bottom:6px;color:#047857;">上行触发</p>' + ul(up);
+                    }
+                    if (hasDn) {
+                        h += '<p style="font-weight:600;margin:12px 0 6px;color:#b45309;">下行触发</p>' + ul(dn);
+                    }
+                    h += '</div>';
+                    return h;
+                }
+                function deepCard(text) {
+                    if (!text || !String(text).trim()) return '';
+                    return '<div class="card"><h2>深入综合</h2><p style="font-size:0.82rem;color:#6b7280;margin:-4px 0 10px;">因果、二阶影响与判断假设（与总述角度不同）。</p><p style="line-height:1.65;">' + esc(text) + '</p></div>';
+                }
+                function listCard(title, hint, arr) {
+                    if (!arr || !arr.length) return '';
+                    return '<div class="card"><h2>' + esc(title) + '</h2><p style="font-size:0.82rem;color:#6b7280;margin:-4px 0 10px;">' + esc(hint) + '</p>' + ul(arr) + '</div>';
+                }
+
+                el.innerHTML =
+                    '<div class="meta">周次 <strong>' + esc(data.week_id) + '</strong> · ' + esc(data.week_start) + ' ～ ' + esc(data.week_end) +
+                    ' · 纳入日报 <strong>' + esc(String(data.days_used || 0)) + '</strong> 天 · 方法 ' + esc(data.analysis_method || '') +
+                    '<br/>生成时间 ' + esc(data.generated_at || '') +
+                    (data.channel_label ? ' · ' + esc(data.channel_label) : '') +
+                    covLine +
+                    fcLine +
+                    '</div>' +
+                    calibrationCard(a.calibration_note) +
+                    '<div class="card"><h2>本周总述</h2><p>' + esc(a.week_summary) + '</p></div>' +
+                    deepCard(a.deeper_synthesis) +
+                    dimTable(a.dimension_breakdown) +
+                    scenarioBlock(a) +
+                    '<div class="card"><h2>主题复盘</h2>' + ul(a.themes_recap) + '</div>' +
+                    '<div class="card"><h2>情绪 / 热度演变</h2><p>' + esc(a.sentiment_arc) + '</p></div>' +
+                    '<div class="card"><h2>本周关键主线</h2>' + ul(a.key_events_recap) + '</div>' +
+                    listCard('张力与未对齐', '信息中相互拉扯、证据薄弱或叙事不一致之处。', a.tension_points) +
+                    listCard('待验证问题', '需后续信息或数据才能回答的问题。', a.unresolved_questions) +
+                    '<div class="card"><h2>下周关注（前瞻，非承诺）</h2>' + ul(a.next_week_focus) + '</div>' +
+                    '<div class="card"><h2>风险</h2>' + ul(a.risks) + '</div>' +
+                    '<div class="card"><h2>展望</h2><p>' + esc(a.outlook) + '</p></div>' +
+                    execHtml +
+                    (typeof renderWeeklyExtras === 'function' ? renderWeeklyExtras(data, week) : '') +
+                    '<p class="disclaimer">内容由本地脚本基于已有日报归纳生成，仅供信息参考，不构成投资建议。周报依赖每日分析文件是否齐全；缺失日期会降低代表性。</p>';
+                if (window.WeeklyInvestorMVP) {
+                    window.WeeklyInvestorMVP.injectStyles();
+                    if (!investorPanelBound) {
+                        window.WeeklyInvestorMVP.bindDetailPanel(el);
+                        investorPanelBound = true;
+                    }
+                    window.WeeklyInvestorMVP.rememberSnapshot(el, el.innerHTML);
+                    window.WeeklyInvestorMVP.applyToContentRoot(el);
+                }
+                document.title = '周报 ' + week + ' - VIXGG';
+            } catch (e) {
+                el.innerHTML = '<div class="err">无法加载该周 JSON。请确认已运行 weekly_analysis_task.py 且周次正确。</div>';
+            }
+        }
+        load();
+    </script>
+</body>
+</html>

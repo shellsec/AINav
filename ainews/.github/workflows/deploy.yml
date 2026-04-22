@@ -1,0 +1,55 @@
+name: Build & Deploy
+
+on:
+  schedule:
+    - cron: '30 2,8,14,20 * * *'   # 每6小时执行（与 skill 错开30分钟）
+  workflow_dispatch:                 # 手动触发
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout ainews (this repo)
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run crawler & AI analysis & generate static site
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+        run: |
+          python build_static.py --base-url "/ainews" --days 7
+
+      - name: Checkout AINav (public repo)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.AINAV_REPO }}
+          token: ${{ secrets.AINAV_PAT }}
+          path: ainav
+
+      - name: Deploy to AINav/ainews/
+        run: |
+          # 清空旧文件
+          rm -rf ainav/ainews/
+          mkdir -p ainav/ainews/
+          
+          # 复制新生成的静态文件
+          cp -r docs/* ainav/ainews/
+          
+          # 提交推送
+          cd ainav
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ainews/
+          git diff --cached --quiet || git commit -m "auto: update ainews static site $(date +%Y-%m-%d)"
+          git push

@@ -74,6 +74,23 @@
     .cp-bar-fill.bar-overseas{background:linear-gradient(90deg,#a78bfa,#7c3aed)}
     .cp-bar-fill.bar-hot{background:linear-gradient(90deg,#ff6b6b,#e53935)}
     .cp-bar-fill.bar-warn{background:linear-gradient(90deg,#d29922,#bb8009)}
+    .cp-notice{margin-top:2rem;padding:0;border:1px solid rgba(210,153,34,0.35);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-notice-head{padding:0.65rem 1rem;border-bottom:1px solid rgba(210,153,34,0.2);font-weight:700;font-size:1rem;background:rgba(210,153,34,0.06)}
+    .cp-notice-body{padding:0.75rem 1rem;font-size:0.82rem;line-height:1.75}
+    .cp-notice-body ul{padding-left:1.2rem;margin:0.5rem 0 0}.cp-notice-body li{margin-bottom:0.45rem}
+    .cp-notice-body strong{color:var(--warn)}.cp-notice-body code{font-size:0.78rem;padding:0.1rem 0.35rem;border-radius:4px;background:rgba(210,153,34,0.1);border:1px solid rgba(210,153,34,0.2);color:var(--warn);font-family:inherit}
+    .cp-faq{margin-top:2rem;border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-faq-head{padding:0.65rem 1rem;border-bottom:1px solid var(--border);font-weight:700;font-size:1rem}
+    .cp-faq-item{border-bottom:1px solid var(--border)}.cp-faq-item:last-child{border-bottom:none}
+    .cp-faq-q{padding:0.6rem 1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:0.88rem;user-select:none;transition:background 0.15s}
+    .cp-faq-q:hover{background:rgba(88,166,255,0.04)}.cp-faq-q .cp-faq-arrow{font-size:0.72rem;color:var(--muted);transition:transform 0.2s;flex-shrink:0;margin-left:0.5rem}
+    .cp-faq-item.is-open .cp-faq-q .cp-faq-arrow{transform:rotate(180deg)}
+    .cp-faq-a{padding:0 1rem;max-height:0;overflow:hidden;transition:max-height 0.25s ease,padding 0.25s ease;font-size:0.82rem;line-height:1.7;color:var(--muted)}
+    .cp-faq-item.is-open .cp-faq-a{max-height:20rem;padding:0 1rem 0.75rem}.cp-faq-a strong{color:var(--text)}
+    .cp-value-rank{margin-top:2rem;border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden}
+    .cp-value-rank-head{padding:0.65rem 1rem;border-bottom:1px solid var(--border);font-weight:700;font-size:1rem}
+    .cp-value-rank-body{padding:0.75rem 1rem}.cp-value-rank .cp-table .val-high{color:var(--accent2);font-weight:700}
+    .cp-value-rank .cp-table .val-mid{color:var(--accent);font-weight:600}.cp-value-rank .cp-table .val-low{color:var(--muted)}
     .cp-tips{margin-top:2rem;padding:0;border:1px solid var(--border);border-radius:8px;background:var(--card);overflow:hidden}
     .cp-tips h2{font-size:1rem;margin:0}
     .cp-footer{max-width:76rem;margin:2rem auto 1rem;padding:0 1rem;font-size:.76rem;color:var(--muted);text-align:center}
@@ -446,6 +463,56 @@
       </div>
     </div>
 
+    <!-- ==================== 注意事项 ==================== -->
+    <div class="cp-notice">
+      <div class="cp-notice-head">⚠️ 注意事项 — 学习套餐买前必读</div>
+      <div class="cp-notice-body">
+        <ul>
+          <li><strong>AI家教 ≠ 替代真人老师：</strong>AI擅长知识讲解和练习批改，但无法替代真人老师的情感引导和思维启发，K12阶段家长仍需参与。</li>
+          <li><strong>语言学习Duolingo无对手：</strong>40+语言、AI对话、游戏化体验，$14/月性价比极高。其他语言学习平台差距明显。</li>
+          <li><strong>国内K12选洋葱/松鼠AI：</strong>国内AI教育平台对中国考纲理解更深，海外平台（Khanmigo）偏美式教育体系。</li>
+          <li><strong>免费版功能越来越强：</strong>Khan Academy全学科免费、Duolingo Free 40+语言、Quizlet Free基础功能够用，先试免费再决定付费。</li>
+          <li><strong>自适应学习是趋势：</strong>松鼠AI/Khanmigo的AI自适应学习效果显著，但价格差异大（¥199 vs $4/月），按需选择。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ==================== FAQ ==================== -->
+    <div class="cp-faq">
+      <div class="cp-faq-head">❓ 常见问题 FAQ</div>
+      <div class="cp-faq-item is-open">
+        <div class="cp-faq-q">Khanmigo 和松鼠AI怎么选？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>海外选Khanmigo，国内选松鼠AI。</strong>Khanmigo $4/月极便宜，但偏美式教育体系；松鼠AI ¥199/月较贵，但深度适配中国考纲，1对1AI自适应学习效果更好。预算有限选Khanmigo，追求成绩提升选松鼠AI。</div>
+      </div>
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">Duolingo Max 值得 $14/月吗？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>如果你认真学语言，值得。</strong>Max版的AI对话功能（Roleplay）是最大卖点，模拟真实对话场景练习。Super $7/月只有无广告+无限体力，没有AI对话。免费版已经很好，Max是锦上添花。</div>
+      </div>
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">AI辅导能替代真人家教吗？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>知识讲解70%可替代，情感引导0%不可替代。</strong>AI擅长：反复讲解、耐心批改、自适应练习；AI不擅长：发现学生的情绪问题、激发学习兴趣、培养思维方式。建议AI辅助+家长参与，而非完全依赖AI。</div>
+      </div>
+    </div>
+
+    <!-- ==================== 性价比排行 ==================== -->
+    <div class="cp-value-rank">
+      <div class="cp-value-rank-head">📊 性价比排行 — 每元学习时长对比</div>
+      <div class="cp-value-rank-body">
+        <div style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">公式：月均AI辅导可用时长(估) ÷ 月价 = 每元学习时长(分钟)。数值越高性价比越好。</div>
+        <table class="cp-table" style="font-size:0.8rem;">
+          <thead><tr><th>排名</th><th>平台</th><th>套餐</th><th>月价</th><th>月均AI辅导时长(估)</th><th>每元分钟数</th><th>性价比</th></tr></thead>
+          <tbody>
+            <tr><td>🥇</td><td class="plan-name">Khan Academy</td><td>免费版</td><td class="plan-price">¥0</td><td>∞</td><td class="val-high">∞</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:100%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
+            <tr><td>🥈</td><td class="plan-name">Duolingo</td><td>免费版</td><td class="plan-price">¥0</td><td>∞</td><td class="val-high">∞</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:100%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
+            <tr><td>🥉</td><td class="plan-name">Khanmigo</td><td>会员</td><td class="plan-price">$4</td><td>~1,800</td><td class="val-high">~65</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:85%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
+            <tr><td>4</td><td class="plan-name">洋葱学园</td><td>会员</td><td class="plan-price">¥30</td><td>~1,200</td><td class="val-mid">40</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:55%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td></tr>
+            <tr><td>5</td><td class="plan-name">Duolingo Max</td><td>Max</td><td class="plan-price">$14</td><td>~600</td><td class="val-mid">~6.2</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:8%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td></tr>
+            <tr><td>6</td><td class="plan-name">Quizlet Plus</td><td>Plus</td><td class="plan-price">$8</td><td>~300</td><td class="val-low">~5.4</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:7%;height:100%;border-radius:4px;background:linear-gradient(90deg,#8b9cb3,#6e7681);"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- ==================== 趋势分析 ==================== -->
     <div class="cp-trend-section" style="margin-top:2.5rem;">
       <h2>📈 AI 学习趋势</h2>
@@ -486,6 +553,7 @@
     <p><a href="index.html">← 返回 AINav 首页</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a></p>
   </div>
 
+  <script>document.querySelectorAll('.cp-faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('is-open');});});</script>
   <script>
     (function(){
       var btns=document.querySelectorAll('.theme-btn:not(.lang-btn)'),html=document.documentElement;

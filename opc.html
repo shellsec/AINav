@@ -245,7 +245,99 @@
     .opc-qs-step-a { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
     .opc-qs-step-a strong { color: var(--opc); font-weight: 600; }
     .opc-qs-tip { font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem; padding: 0.4rem 0.6rem; border-radius: 6px; background: rgba(88,166,255,0.05); border: 1px solid rgba(88,166,255,0.12); }
+
+    /* ---- Role Cards (点) ---- */
+    .opc-role-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin: 1rem 0; }
+    @media (max-width: 52rem) { .opc-role-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 36rem) { .opc-role-grid { grid-template-columns: 1fr; } }
+    .opc-role-card { padding: 0.75rem; border-radius: 10px; border: 1px solid var(--border); background: var(--card); position: relative; overflow: hidden; }
+    .opc-role-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+    .opc-role-card.rc-design::before { background: linear-gradient(90deg, #f472b6, #c084fc); }
+    .opc-role-card.rc-code::before { background: linear-gradient(90deg, #58a6ff, #3fb950); }
+    .opc-role-card.rc-biz::before { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+    .opc-role-card.rc-edu::before { background: linear-gradient(90deg, #3fb950, #06b6d4); }
+    .opc-role-card.rc-hobby::before { background: linear-gradient(90deg, #a78bfa, #f472b6); }
+    .opc-role-card.rc-platform::before { background: linear-gradient(90deg, #06b6d4, #58a6ff); }
+    .opc-role-icon { font-size: 1.5rem; margin-bottom: 0.2rem; }
+    .opc-role-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .opc-role-ai { font-size: 0.78rem; color: var(--accent); margin-bottom: 0.3rem; line-height: 1.5; }
+    .opc-role-ai strong { color: var(--accent); }
+    .opc-role-focus { font-size: 0.76rem; color: var(--muted); line-height: 1.6; }
+    .opc-role-focus .focus-tag { display: inline-block; padding: 0.05rem 0.3rem; border-radius: 3px; background: rgba(245,158,11,0.1); color: var(--opc); font-size: 0.7rem; font-weight: 600; margin: 0.1rem 0.15rem; }
+
+    /* ---- Path Table (线) ---- */
+    .opc-path-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; background: var(--card); margin: 1rem 0; }
+    .opc-path { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+    .opc-path th, .opc-path td { padding: 0.5rem 0.6rem; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .opc-path th { background: var(--panel); font-weight: 600; color: var(--muted); font-size: 0.72rem; white-space: nowrap; }
+    .opc-path td:first-child { font-weight: 700; white-space: nowrap; }
+    .opc-path .path-key { color: var(--accent2); font-weight: 600; }
+    .opc-path .path-skip { color: var(--muted); text-decoration: line-through; opacity: 0.6; }
+    .opc-path .path-first { color: var(--opc); font-weight: 700; }
+
+    /* ---- Team & Upgrade (面) ---- */
+    .opc-team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    @media (max-width: 48rem) { .opc-team-grid { grid-template-columns: 1fr; } }
+    .opc-team-card { padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border); background: var(--card); }
+    .opc-team-card h4 { margin: 0 0 0.4rem; font-size: 0.92rem; }
+    .opc-team-card .team-pair { font-size: 0.82rem; line-height: 1.7; margin-bottom: 0.3rem; }
+    .opc-team-card .team-pair strong { color: var(--opc); }
+    .opc-upgrade-flow { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .opc-upgrade-step { padding: 0.3rem 0.6rem; border-radius: 6px; font-size: 0.78rem; font-weight: 600; border: 1px solid var(--border); }
+    .opc-upgrade-arrow { font-size: 0.85rem; color: var(--muted); }
+
+    /* ---- Level System (10级成长) ---- */
+    .opc-level-phases { margin: 1rem 0; }
+    .opc-level-phase { border: 1px solid var(--border); border-radius: 10px; background: var(--card); overflow: hidden; margin-bottom: 0.8rem; }
+    .opc-level-phase-head { padding: 0.6rem 1rem; font-weight: 700; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
+    .opc-level-phase-body { padding: 0; }
+    .opc-level-row { display: grid; grid-template-columns: 3.5rem 1fr 1fr 1fr 1fr; gap: 0; border-top: 1px solid var(--border); font-size: 0.78rem; }
+    .opc-level-row:first-child { border-top: none; }
+    .opc-level-cell { padding: 0.5rem 0.6rem; border-right: 1px solid var(--border); }
+    .opc-level-cell:last-child { border-right: none; }
+    .opc-level-cell.lvl-num { font-weight: 800; color: var(--opc); display: flex; align-items: center; justify-content: center; font-size: 1rem; background: rgba(245,158,11,0.03); }
+    .opc-level-cell.lvl-can { color: var(--text); line-height: 1.5; }
+    .opc-level-cell.lvl-os { color: var(--muted); font-style: italic; line-height: 1.5; }
+    .opc-level-cell.lvl-check { color: var(--accent2); line-height: 1.5; }
+    .opc-level-cell.lvl-stuck { color: var(--danger); line-height: 1.5; font-size: 0.74rem; }
+    @media (max-width: 48rem) {
+      .opc-level-row { grid-template-columns: 2.8rem 1fr; }
+      .opc-level-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .opc-level-cell:last-child { border-bottom: none; }
+      .opc-level-cell.lvl-num { grid-row: span 4; }
+      .opc-level-cell:not(.lvl-num)::before { content: attr(data-label); font-weight: 700; color: var(--muted); margin-right: 0.4rem; font-size: 0.7rem; }
+    }
+
+    /* Three Walls */
+    .opc-wall-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; margin: 1.2rem 0; }
+    @media (max-width: 48rem) { .opc-wall-grid { grid-template-columns: 1fr; } }
+    .opc-wall-card { padding: 0.75rem; border-radius: 10px; position: relative; overflow: hidden; }
+    .opc-wall-card.wall-1 { border: 1px solid rgba(245,158,11,0.3); background: rgba(245,158,11,0.04); }
+    .opc-wall-card.wall-2 { border: 1px solid rgba(248,81,73,0.3); background: rgba(248,81,73,0.04); }
+    .opc-wall-card.wall-3 { border: 1px solid rgba(167,139,250,0.3); background: rgba(167,139,250,0.04); }
+    .opc-wall-num { font-size: 2rem; font-weight: 900; position: absolute; top: 0.3rem; right: 0.6rem; opacity: 0.1; line-height: 1; }
+    .opc-wall-card h5 { margin: 0 0 0.3rem; font-size: 0.92rem; }
+    .opc-wall-card.wall-1 h5 { color: var(--opc); }
+    .opc-wall-card.wall-2 h5 { color: var(--danger); }
+    .opc-wall-card.wall-3 h5 { color: var(--overseas); }
+    .opc-wall-card .wall-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+    .opc-wall-card .wall-desc strong { color: var(--text); }
+
+    /* Closing quote */
+    .opc-quote { text-align: center; padding: 1.5rem 1rem; margin: 1.5rem 0; border-radius: 10px; border: 1px solid var(--border); background: var(--card); }
+    .opc-quote-text { font-size: 1.05rem; font-weight: 700; color: var(--opc); line-height: 1.7; }
+    .opc-quote-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem; }
   </style>
+  <!-- Google Analytics (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2B8FBWRX4N');
+</script>
+<!-- End Google Analytics -->
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2d49f38b39c743ac80b6d6b9ff99494d"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
   <!-- Top bar -->
@@ -356,6 +448,224 @@
       <div class="opc-who-item"><strong>✅ 自我驱动</strong> 能自己管理自己</div>
       <div class="opc-who-item"><strong>✅ 抗风险弱</strong> 没巨额资金创业</div>
       <div class="opc-who-item"><strong>✅ 想低成本试错</strong> 先验证再投入</div>
+    </div>
+
+    <!-- ==================== 1.3 角色定位·点线面 ==================== -->
+    <div class="cp-section-hd opc-hd"><span class="cp-flag">🧭</span> 角色定位 · 点·线·面</div>
+
+    <!-- 点：6种角色卡片 -->
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.8rem;">你是哪种人？找到你的角色，AI对你意味着什么，重点看哪些环节。</p>
+    <div class="opc-role-grid">
+      <div class="opc-role-card rc-design">
+        <div class="opc-role-icon">🎨</div>
+        <div class="opc-role-name">设计师</div>
+        <div class="opc-role-ai"><strong>AI = 无限产出力的画笔</strong>，你的审美是壁垒，AI是你的执行团队</div>
+        <div class="opc-role-focus">重点看：<span class="focus-tag">设计/品牌工具栈</span> <span class="focus-tag">痛点·做不了设计</span> <span class="focus-tag">变现·知识付费</span></div>
+      </div>
+      <div class="opc-role-card rc-code">
+        <div class="opc-role-icon">👨‍💻</div>
+        <div class="opc-role-name">程序员</div>
+        <div class="opc-role-ai"><strong>AI = 10倍速的搭档</strong>，你的架构能力是核心，AI帮你从1到100</div>
+        <div class="opc-role-focus">重点看：<span class="focus-tag">产品/研发工具栈</span> <span class="focus-tag">AI员工CTO</span> <span class="focus-tag">路线图Phase 1-2</span></div>
+      </div>
+      <div class="opc-role-card rc-biz">
+        <div class="opc-role-icon">🚀</div>
+        <div class="opc-role-name">创业者</div>
+        <div class="opc-role-ai"><strong>AI = 零成本的全栈团队</strong>，你的商业嗅觉是关键，AI补齐执行力短板</div>
+        <div class="opc-role-focus">重点看：<span class="focus-tag">四大变现模式</span> <span class="focus-tag">AI员工花名册</span> <span class="focus-tag">成本计算器</span></div>
+      </div>
+      <div class="opc-role-card rc-edu">
+        <div class="opc-role-icon">🎓</div>
+        <div class="opc-role-name">教育者</div>
+        <div class="opc-role-ai"><strong>AI = 永不疲倦的助教</strong>，你的知识深度是护城河，AI帮你规模交付</div>
+        <div class="opc-role-focus">重点看：<span class="focus-tag">内容/写作工具栈</span> <span class="focus-tag">变现·知识付费</span> <span class="focus-tag">自动化运营</span></div>
+      </div>
+      <div class="opc-role-card rc-hobby">
+        <div class="opc-role-icon">🌟</div>
+        <div class="opc-role-name">爱好者</div>
+        <div class="opc-role-ai"><strong>AI = 入场券</strong>，你不需要精通一切，AI让兴趣变成产品</div>
+        <div class="opc-role-focus">重点看：<span class="focus-tag">5分钟上手指南</span> <span class="focus-tag">零代码工具</span> <span class="focus-tag">升级路线Lv1-3</span></div>
+      </div>
+      <div class="opc-role-card rc-platform">
+        <div class="opc-role-icon">🏗️</div>
+        <div class="opc-role-name">平台方</div>
+        <div class="opc-role-ai"><strong>AI = 生态加速器</strong>，你的连接能力是杠杆，AI帮你服务更多OPC</div>
+        <div class="opc-role-focus">重点看：<span class="focus-tag">自动化/运营工具栈</span> <span class="focus-tag">客服搭建</span> <span class="focus-tag">趋势分析</span></div>
+      </div>
+    </div>
+
+    <!-- 线：6种专属链路对比表 -->
+    <p style="font-size:0.85rem;color:var(--muted);margin:1rem 0 0.5rem;">你的专属链路 — 关键环节、可跳过环节、第一步做什么：</p>
+    <div class="opc-path-wrap">
+      <table class="opc-path">
+        <thead><tr><th>角色</th><th>关键环节</th><th>可跳过</th><th>第一步</th></tr></thead>
+        <tbody>
+          <tr><td>🎨 设计师</td><td><span class="path-key">品牌视觉 → 内容创作 → 知识付费</span></td><td><span class="path-skip">编程开发</span></td><td><span class="path-first">Midjourney出品牌素材包</span></td></tr>
+          <tr><td>👨‍💻 程序员</td><td><span class="path-key">产品开发 → Landing Page → 付费验证</span></td><td><span class="path-skip">视频制作</span></td><td><span class="path-first">Cursor写MVP上线</span></td></tr>
+          <tr><td>🚀 创业者</td><td><span class="path-key">选品验证 → 自动化获客 → 规模复制</span></td><td><span class="path-skip">手动客服</span></td><td><span class="path-first">ChatGPT写商业画布</span></td></tr>
+          <tr><td>🎓 教育者</td><td><span class="path-key">知识体系 → 内容矩阵 → 付费社群</span></td><td><span class="path-skip">电商卖货</span></td><td><span class="path-first">Claude整理课程大纲</span></td></tr>
+          <tr><td>🌟 爱好者</td><td><span class="path-key">兴趣探索 → AI辅助产出 → 小规模变现</span></td><td><span class="path-skip">融资/扩张</span></td><td><span class="path-first">用v0做个小工具试水</span></td></tr>
+          <tr><td>🏗️ 平台方</td><td><span class="path-key">工具整合 → 社区运营 → 生态变现</span></td><td><span class="path-skip">单品开发</span></td><td><span class="path-first">n8n搭自动化服务流</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 面：互补组队 + 升级路径 -->
+    <div class="opc-team-grid">
+      <div class="opc-team-card" style="border-left:3px solid var(--accent2);">
+        <h4>🤝 互补组队 — 1+1 &gt; 2</h4>
+        <div class="team-pair"><strong>设计师 + 程序员</strong> = 出壳出芯，产品即品牌</div>
+        <div class="team-pair"><strong>创业者 + 教育者</strong> = 做出来+教出去，双重变现</div>
+        <div class="team-pair"><strong>爱好者 + 平台方</strong> = 先用再搭，从用户变供给</div>
+      </div>
+      <div class="opc-team-card" style="border-left:3px solid var(--opc);">
+        <h4>📈 升级路径 — 从0到1的跃迁</h4>
+        <div class="opc-upgrade-flow">
+          <span class="opc-upgrade-step" style="border-color:var(--muted);color:var(--muted);">🌟 爱好者</span>
+          <span class="opc-upgrade-arrow">→</span>
+          <span class="opc-upgrade-step" style="border-color:var(--accent);color:var(--accent);">✍️ 创作者</span>
+          <span class="opc-upgrade-arrow">→</span>
+          <span class="opc-upgrade-step" style="border-color:var(--opc);color:var(--opc);">🚀 创业者</span>
+        </div>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:0.5rem;line-height:1.6;">爱好者用AI探索兴趣 → 创作者用AI稳定产出 → 创业者用AI系统赚钱。每一级都是认知+工具+行动的升级。</p>
+      </div>
+    </div>
+
+    <!-- ==================== 1.4 AI全能升级路线 ==================== -->
+    <div class="cp-section-hd opc-hd"><span class="cp-flag">⬆️</span> AI全能升级路线 — 10级成长</div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.8rem;">5个阶段、10个等级，你在哪一级？找到你的位置，看下一步怎么走。</p>
+
+    <!-- 阶段1：觉醒期 -->
+    <div class="opc-level-phases">
+      <div class="opc-level-phase">
+        <div class="opc-level-phase-head" style="border-left:3px solid var(--muted);">🌱 阶段一：觉醒期（Lv 1-2）— "原来AI能干这个"</div>
+        <div class="opc-level-phase-body">
+          <div class="opc-level-row">
+            <div class="opc-level-cell lvl-num">Lv1</div>
+            <div class="opc-level-cell lvl-can" data-label="你能做什么：">用ChatGPT聊天、问问题、翻译</div>
+            <div class="opc-level-cell lvl-os" data-label="内心OS：">"这玩意挺好玩"</div>
+            <div class="opc-level-cell lvl-check" data-label="验证标准：">每天主动打开AI对话≥3次</div>
+            <div class="opc-level-cell lvl-stuck" data-label="卡住的人：">觉得AI就是高级搜索，从不当回事</div>
+          </div>
+          <div class="opc-level-row">
+            <div class="opc-level-cell lvl-num">Lv2</div>
+            <div class="opc-level-cell lvl-can" data-label="你能做什么：">用AI写文案、出方案、做调研</div>
+            <div class="opc-level-cell lvl-os" data-label="内心OS：">"比我写得快，但不如我写得好"</div>
+            <div class="opc-level-cell lvl-check" data-label="验证标准：">工作中≥30%内容由AI初稿</div>
+            <div class="opc-level-cell lvl-stuck" data-label="卡住的人：">觉得AI输出不够好就放弃，不肯迭代提示词</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 阶段2：融合期 -->
+      <div class="opc-level-phase">
+        <div class="opc-level-phase-head" style="border-left:3px solid var(--accent);">⚡ 阶段二：融合期（Lv 3-4）— "AI是我的器官"</div>
+        <div class="opc-level-phase-body">
+          <div class="opc-level-row">
+            <div class="opc-level-cell lvl-num">Lv3</div>
+            <div class="opc-level-cell lvl-can" data-label="你能做什么：">Cursor写代码、Midjourney出图，AI是生产力工具</div>
+            <div class="opc-level-cell lvl-os" data-label="内心OS：">"没AI我活不了了"</div>
+            <div class="opc-level-cell lvl-check" data-label="验证标准：">离开AI工作效率下降≥50%</div>
+            <div class="opc-level-cell lvl-stuck" data-label="卡住的人：">只会用一个AI工具，没有建立工具链</div>
+          </div>
+          <div class="opc-level-row">
+            <div class="opc-level-cell lvl-num">Lv4</div>
+            <div class="opc-level-cell lvl-can" data-label="你能做什么：">AI客服、自动化流程，开始让AI替你干活</div>
+            <div class="opc-level-cell lvl-os" data-label="内心OS：">"我在管AI而不是在用AI"</div>
+            <div class="opc-level-cell lvl-check" data-label="验证标准：">有≥1个自动化流程在跑</div>
+            <div class="opc-level-cell lvl-stuck" data-label="卡住的人：">总想自己干完再让AI优化，永远在优化不出发</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 阶段3：死亡谷 -->
+      <div class="opc-level-phase">
+        <div class="opc-level-phase-head" style="border-left:3px solid var(--danger);">🔥 阶段三：死亡谷（Lv 5-6）— 80%的人停在这里</div>
+        <div class="opc-level-phase-body">
+          <div class="opc-level-row">
+            <div class="opc-level-cell lvl-num">Lv5</div>
+            <div class="opc-level-cell lvl-can" data-label="你能做什么：">一个人+AI做出完整产品，但不知道怎么卖</div>
+            <div class="opc-level-cell lvl-os" data-label="内心OS：">"做出来了，然后呢？"</div>
+            <div class="opc-level-cell lvl-check" data-label="验证标准：">产品上线，但月收入&lt;¥1000</div>
+            <div class="opc-level-cell lvl-stuck" data-label="卡住的人：">沉迷做产品，不验证需求，永远在做下个功能</div>
+          </div>
+          <div class="opc-level-row">
+            <div class="opc-level-cell lvl-num">Lv6</div>
+            <div class="opc-level-cell lvl-can" data-label="你能做什么：">开始获客，有人付费，但不稳定</div>
+            <div class="opc-level-cell lvl-os" data-label="内心OS：">"有人买了！但下个月呢？"</div>
+            <div class="opc-level-cell lvl-check" data-label="验证标准：">月收入¥1000-5000，但不稳定</div>
+            <div class="opc-level-cell lvl-stuck" data-label="卡住的人：">获客靠运气，没有可持续的流量来源</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 阶段4：破壁期 -->
+      <div class="opc-level-phase">
+        <div class="opc-level-phase-head" style="border-left:3px solid var(--opc);">🏆 阶段四：破壁期（Lv 7-8）— "让AI做"</div>
+        <div class="opc-level-phase-body">
+          <div class="opc-level-row">
+            <div class="opc-level-cell lvl-num">Lv7</div>
+            <div class="opc-level-cell lvl-can" data-label="你能做什么：">稳定月入过万，AI自动化覆盖≥60%业务</div>
+            <div class="opc-level-cell lvl-os" data-label="内心OS：">"我终于不用事事自己来了"</div>
+            <div class="opc-level-cell lvl-check" data-label="验证标准：">月收入¥1万+，自动化流程≥5个</div>
+            <div class="opc-level-cell lvl-stuck" data-label="卡住的人：">不敢放权给AI，总觉得不如自己来</div>
+          </div>
+          <div class="opc-level-row">
+            <div class="opc-level-cell lvl-num">Lv8</div>
+            <div class="opc-level-cell lvl-can" data-label="你能做什么：">多产品矩阵，同一套系统复制到新赛道</div>
+            <div class="opc-level-cell lvl-os" data-label="内心OS：">"我在经营系统，不是在做产品"</div>
+            <div class="opc-level-cell lvl-check" data-label="验证标准：">≥2个产品/渠道在跑，月收入¥3万+</div>
+            <div class="opc-level-cell lvl-stuck" data-label="卡住的人：">单产品舒适区，不敢试新方向</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 阶段5：自由期 -->
+      <div class="opc-level-phase">
+        <div class="opc-level-phase-head" style="border-left:3px solid var(--accent2);">🌈 阶段五：自由期（Lv 9-10）— "AI是空气"</div>
+        <div class="opc-level-phase-body">
+          <div class="opc-level-row">
+            <div class="opc-level-cell lvl-num">Lv9</div>
+            <div class="opc-level-cell lvl-can" data-label="你能做什么：">AI Agent自主运行，你只做战略决策</div>
+            <div class="opc-level-cell lvl-os" data-label="内心OS：">"我的时间终于自由了"</div>
+            <div class="opc-level-cell lvl-check" data-label="验证标准：">每日主动工作&lt;4h，月收入¥5万+</div>
+            <div class="opc-level-cell lvl-stuck" data-label="卡住的人：">不信任Agent，还在微操每个环节</div>
+          </div>
+          <div class="opc-level-row">
+            <div class="opc-level-cell lvl-num">Lv10</div>
+            <div class="opc-level-cell lvl-can" data-label="你能做什么：">AI公司自动运转，你专注于创造新可能</div>
+            <div class="opc-level-cell lvl-os" data-label="内心OS：">"AI不会替我改变世界，但让我发现——原来我就可以"</div>
+            <div class="opc-level-cell lvl-check" data-label="验证标准：">被动收入≥80%，可持续≥6个月</div>
+            <div class="opc-level-cell lvl-stuck" data-label="卡住的人：">到这一级反而迷茫——自由之后做什么？</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 三道墙 -->
+    <div class="cp-section-hd opc-hd"><span class="cp-flag">🧱</span> 三道墙 — 大多数人卡在哪</div>
+    <div class="opc-wall-grid">
+      <div class="opc-wall-card wall-1">
+        <div class="opc-wall-num">1</div>
+        <h5>第1道墙：用AI → AI是器官</h5>
+        <div class="wall-desc"><strong>卡在Lv 2-3之间。</strong>知道AI有用，但没有融入日常。觉得"AI是工具"而非"AI是我的一部分"。<br><strong>突破方式：</strong>强迫自己用AI完成80%的初稿工作，持续2周形成肌肉记忆。</div>
+      </div>
+      <div class="opc-wall-card wall-2">
+        <div class="opc-wall-num">2</div>
+        <h5>第2道墙：死亡谷 — 80%的人停在这里</h5>
+        <div class="wall-desc"><strong>卡在Lv 5-6之间。</strong>能做出东西，但卖不出去/卖不稳定。这是最痛苦的阶段——能力够了，变现没通。<br><strong>突破方式：</strong>停止做产品，先找5个真实付费用户。需求验证 &gt; 产品完美。</div>
+      </div>
+      <div class="opc-wall-card wall-3">
+        <div class="opc-wall-num">3</div>
+        <h5>第3道墙：自己做 → 让AI做</h5>
+        <div class="wall-desc"><strong>卡在Lv 7-8之间。</strong>已经能赚钱，但事事亲力亲为。知道该放权给AI，但控制欲太强。<br><strong>突破方式：</strong>每周选1个环节完全交给AI/Agent，只看结果不看过程。</div>
+      </div>
+    </div>
+
+    <!-- 收尾金句 -->
+    <div class="opc-quote">
+      <div class="opc-quote-text">"AI不会替你改变世界，但会让你发现——原来你就可以。"</div>
+      <div class="opc-quote-sub">从Lv1到Lv10，每一级的突破不是AI更强了，而是你更敢了。</div>
     </div>
 
     <!-- ==================== 1.5 快速上手 ==================== -->

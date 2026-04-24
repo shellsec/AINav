@@ -729,6 +729,7 @@ ${groupedRows}
   }
 })();
   </script>
+<script src="thinking-framework.js"></script>
 </body>
 </html>`;
 }
@@ -1568,7 +1569,13 @@ const html = `<!DOCTYPE html>
       <a href="agent-plan.html" title="AI Agent横评对比与场景推荐">Agent</a>
       <a href="video-plan.html" title="AI视频生成套餐价格对比与场景推荐">视频套餐</a>
       <a href="image-plan.html" title="AI图像生成套餐价格对比与场景推荐">图像套餐</a>
-      <a href="ai-encyclopedia-2026.html" title="AI工具百科全书免费额度与产品说明" data-i18n="encyclopedia" data-i18n-title="encyclopediaTitle">百科全书</a>
+      <a href="search-plan.html" title="AI搜索工具横评对比与场景推荐">搜索套餐</a>
+      <a href="voice-plan.html" title="AI语音工具横评对比与场景推荐">语音套餐</a>
+      <a href="music-plan.html" title="AI音乐工具横评对比与场景推荐">音乐套餐</a>
+      <a href="learning-plan.html" title="AI学习平台横评对比与场景推荐">学习套餐</a>
+      <a href="hardware-plan.html" title="AI硬件横评对比与选购推荐">硬件横评</a>
+      <a href="ai-factory-plan.html" title="AI造物流水线·从创意到商品">AI造物</a>
+      <a href="opc.html" title="一人公司·AI赋能个体创业">一人公司</a>
     </div>
     <div class="top-promo" aria-label="合作推广：多模型 API 接入" data-i18n-aria="promoAria">
       <div class="top-promo-head">
@@ -2261,6 +2268,7 @@ const html = `<!DOCTYPE html>
     });
   })();
   </script>
+<script src="thinking-framework.js"></script>
 </body>
 </html>`;
 

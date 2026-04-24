@@ -663,6 +663,26 @@
     "title": "Miro AI",
     "desc": "利用Miro AI加速创新"
   },
+  "大圣网盘资源搜索": {
+    "title": "大圣网盘资源搜索",
+    "desc": "网盘资源搜索引擎，搜索百度网盘等分享资源"
+  },
+  "百度AI网盘": {
+    "title": "百度AI网盘",
+    "desc": "百度旗下云存储，内置AI助手云一朵智能管理"
+  },
+  "阿里AI网盘": {
+    "title": "阿里AI网盘",
+    "desc": "阿里旗下不限速云存储，内置AI搜索与智能助手"
+  },
+  "夸克AI网盘": {
+    "title": "夸克AI网盘",
+    "desc": "夸克浏览器内置网盘，AI搜文件、极速上传下载"
+  },
+  "迅雷AI网盘": {
+    "title": "迅雷AI网盘",
+    "desc": "迅雷旗下云存储，AI离线下载与智能管理"
+  },
   "职徒简历": {
     "title": "Zhitu Resume",
     "desc": "Smart resume builder with GPT-based optimization & writing"

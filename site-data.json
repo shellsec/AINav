@@ -1483,6 +1483,53 @@
               "path": "/mindnote/detail/miro_ai"
             }
           ]
+        },
+        {
+          "type": "leaf",
+          "name": "网盘",
+          "id": "网盘-1",
+          "tools": [
+            {
+              "key": "大圣网盘资源搜索",
+              "title": "大圣网盘资源搜索",
+              "subtitle": "网盘资源搜索引擎，搜索百度网盘等分享资源",
+              "avatar": "icon/大圣网盘资源搜索.png",
+              "link": "https://www.dashengpan.xyz/#/?code=ohGU$8s0t",
+              "path": ""
+            },
+            {
+              "key": "百度AI网盘",
+              "title": "百度AI网盘",
+              "subtitle": "百度旗下云存储，内置AI助手云一朵智能管理",
+              "avatar": "icon/百度AI网盘.png",
+              "link": "https://pan.baidu.com/",
+              "path": ""
+            },
+            {
+              "key": "阿里AI网盘",
+              "title": "阿里AI网盘",
+              "subtitle": "阿里旗下不限速云存储，内置AI搜索与智能助手",
+              "avatar": "icon/阿里AI网盘.png",
+              "link": "https://www.aliyundrive.com/",
+              "path": ""
+            },
+            {
+              "key": "夸克AI网盘",
+              "title": "夸克AI网盘",
+              "subtitle": "夸克浏览器内置网盘，AI搜文件、极速上传下载",
+              "avatar": "icon/夸克AI网盘.png",
+              "link": "https://pan.quark.cn/",
+              "path": ""
+            },
+            {
+              "key": "迅雷AI网盘",
+              "title": "迅雷AI网盘",
+              "subtitle": "迅雷旗下云存储，AI离线下载与智能管理",
+              "avatar": "icon/迅雷AI网盘.png",
+              "link": "https://pan.xunlei.com/",
+              "path": ""
+            }
+          ]
         }
       ]
     },
@@ -8777,6 +8824,41 @@
       "subtitle": "必优科技推出的AI简历生成工具",
       "avatar": "icon/YOO简历.png",
       "link": "https://www.yoojober.com/",
+      "path": ""
+    },
+    "大圣网盘资源搜索": {
+      "title": "大圣网盘资源搜索",
+      "subtitle": "网盘资源搜索引擎，搜索百度网盘等分享资源",
+      "avatar": "icon/大圣网盘资源搜索.png",
+      "link": "https://www.dashengpan.xyz/#/?code=ohGU$8s0t",
+      "path": ""
+    },
+    "百度AI网盘": {
+      "title": "百度AI网盘",
+      "subtitle": "百度旗下云存储，内置AI助手云一朵智能管理",
+      "avatar": "icon/百度AI网盘.png",
+      "link": "https://pan.baidu.com/",
+      "path": ""
+    },
+    "阿里AI网盘": {
+      "title": "阿里AI网盘",
+      "subtitle": "阿里旗下不限速云存储，内置AI搜索与智能助手",
+      "avatar": "icon/阿里AI网盘.png",
+      "link": "https://www.aliyundrive.com/",
+      "path": ""
+    },
+    "夸克AI网盘": {
+      "title": "夸克AI网盘",
+      "subtitle": "夸克浏览器内置网盘，AI搜文件、极速上传下载",
+      "avatar": "icon/夸克AI网盘.png",
+      "link": "https://pan.quark.cn/",
+      "path": ""
+    },
+    "迅雷AI网盘": {
+      "title": "迅雷AI网盘",
+      "subtitle": "迅雷旗下云存储，AI离线下载与智能管理",
+      "avatar": "icon/迅雷AI网盘.png",
+      "link": "https://pan.xunlei.com/",
       "path": ""
     },
     "云一朵": {

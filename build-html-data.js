@@ -782,7 +782,7 @@ function renderTools(tools) {
       return `<article class="card" data-link="${esc(t.link)}" data-title="${esc(t.title)}" data-subtitle="${esc(t.subtitle || "")}" data-avatar="${esc(t.avatar || "")}">
 <button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
 <a class="card-main" href="${esc(t.link)}" target="_blank" rel="noopener noreferrer">
-${img ? `<img class="card-icon" src="${esc(img)}" alt="" width="40" height="40" loading="lazy" decoding="async">` : `<span class="card-icon-ph"></span>`}
+${img ? `<img class="card-icon" src="${esc(img)}" alt="" width="40" height="40" loading="lazy" decoding="async" onerror="this._fb=this._fb||0;var d='';try{d=new URL(this.closest('article.card').getAttribute('data-link')).hostname}catch(e){}var srcs=['https://icons.duckduckgo.com/ip3/'+d+'.ico','https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=64'];if(d&&this._fb<srcs.length){this.src=srcs[this._fb++]}else{var t=this.closest('article.card');var ch=(t?t.getAttribute('data-title'):'').trim().charAt(0).toUpperCase()||'?';var pl=['#0969da','#1a7f37','#bf3989','#8250df','#cf222e','#953800','#0550ae','#116329'];var sp=document.createElement('span');sp.className='card-icon-ph';sp.style.cssText='display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;border-radius:8px;background:'+pl[ch.charCodeAt(0)%pl.length];sp.textContent=ch;this.replaceWith(sp)}">` : `<span class="card-icon-ph"></span>`}
 <div class="card-body">
 <h3 class="card-title">${esc(t.title)}</h3>
 <p class="card-desc">${esc(t.subtitle || "")}</p>
@@ -953,6 +953,18 @@ const html = `<!DOCTYPE html>
       font-size: 0.76rem;
       color: var(--muted);
       line-height: 1.35;
+    }
+    .top-promo-ref {
+      font-size: 0.76rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    .top-promo-ref .top-promo-code {
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .top-promo-ref .top-promo-code:hover {
+      background: color-mix(in srgb, var(--accent) 22%, transparent);
     }
     .top-promo-title-row {
       display: inline-flex;
@@ -1581,10 +1593,11 @@ const html = `<!DOCTYPE html>
       <div class="top-promo-head">
         <span class="top-promo-badge" data-i18n="promoBadge">推广</span>
         <span class="top-promo-models">
-          <span>Claude Opus 4.7</span><span>GPT-5.4</span><span>Gemini 3.1 Pro</span><span>Claude Sonnet 4.6</span><span>DeepSeek V4</span>
+          <span>OpenAI: GPT</span><span>Anthropic: Claude</span><span>Google: Gemini旗舰模型</span>
         </span>
         <span class="top-promo-title" data-i18n="promoTitle">国内直连免梯</span>
-        <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册 →</a>
+        <span class="top-promo-ref" data-i18n-html="promoRef">$2优惠码 <span class="top-promo-code" translate="no" data-code="AFF_BB0FNC" style="cursor:pointer" title="点击复制优惠码">AFF_BB0FNC</span></span>
+        <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册</a>
       </div>
     </div>
   </header>
@@ -1799,6 +1812,35 @@ const html = `<!DOCTYPE html>
     });
   });
 
+  /* ---- Promo code click-to-copy ---- */
+  document.addEventListener("click", function (e) {
+    var codeEl = e.target.closest(".top-promo-code");
+    if (!codeEl) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var code = codeEl.getAttribute("data-code") || codeEl.textContent.trim();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(function () { showCopyTip(codeEl, code); });
+    } else {
+      var ta = document.createElement("textarea");
+      ta.value = code;
+      ta.style.cssText = "position:fixed;left:-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); showCopyTip(codeEl, code); } catch (ex) {}
+      document.body.removeChild(ta);
+    }
+  });
+  function showCopyTip(el, code) {
+    var lang = "zh";
+    try { lang = localStorage.getItem("ainav-lang") || "zh"; } catch (e2) {}
+    var tip = lang === "en" ? "Copied!" : "已复制!";
+    el.textContent = code + " " + tip;
+    setTimeout(function () {
+      el.textContent = code;
+    }, 1500);
+  }
+
   var btn = document.getElementById("backToTop");
   if (btn) {
     function syncScroll() {
@@ -1951,8 +1993,8 @@ const html = `<!DOCTYPE html>
         themeDark: "Dark",
         promoBadge: "Ad",
         promoTitle: "Direct Access, No VPN Needed",
-        promoCta: "Sign Up →",
-        promoRef: 'Referral code <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · Get $2 when you sign up (min. top-up $20) <a class="top-promo-link" href="https://ofox.ai" target="_blank" rel="noopener noreferrer">Learn More →</a>',
+        promoCta: "Sign Up",
+        promoRef: '$2 off code <span class="top-promo-code" translate="no" data-code="AFF_BB0FNC" style="cursor:pointer" title="Click to copy">AFF_BB0FNC</span>',
         mailToTitle: "Contact Email",
         /* -- sidebar & fav -- */
         sidebarToggle: "☰ Menu",
@@ -2039,9 +2081,9 @@ const html = `<!DOCTYPE html>
         themeLight: "浅色",
         themeDark: "深色",
         promoBadge: "合作推广",
-        promoTitle: "OpenAI · Anthropic · Gemini 旗舰模型 · 国内直连免梯",
-        promoCta: "立即注册 →",
-        promoRef: '推荐码 <span class="top-promo-code" translate="no">AFF_BB0FNC</span> · 注册填写得 $2（首充 $20 起） <a class="top-promo-link" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer">立即了解 →</a>',
+        promoTitle: "国内直连免梯",
+        promoCta: "立即注册",
+        promoRef: '$2优惠码 <span class="top-promo-code" translate="no" data-code="AFF_BB0FNC" style="cursor:pointer" title="点击复制优惠码">AFF_BB0FNC</span>',
         mailToTitle: "联系邮箱",        /* -- sidebar & fav -- */
         sidebarToggle: "☰ 导航",
         sidebarToggleAria: "展开/收起导航",

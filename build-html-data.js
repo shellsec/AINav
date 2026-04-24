@@ -1123,6 +1123,10 @@ const html = `<!DOCTYPE html>
       background: var(--promo-cta-bg);
       text-decoration: none;
     }
+    .top-plans-break {
+      flex-basis: 100%;
+      height: 0;
+    }
     .top-encyclopedia-line {
       margin: 0 0 0.45rem;
       padding: 0 0.5rem;
@@ -1577,18 +1581,19 @@ const html = `<!DOCTYPE html>
     </div>
     <div class="top-plans">
       <span class="top-plans-label">📊 横评</span>
+      <a href="model-plan.html" title="AI模型选型横评·国内+海外旗舰">模型选型</a>
       <a href="coding-plan.html" title="国内外AI编程套餐价格对比与选购推荐" data-i18n="codingPlan" data-i18n-title="codingPlanTitle">编程套餐</a>
       <a href="agent-plan.html" title="AI Agent横评对比与场景推荐">Agent</a>
+      <a href="search-plan.html" title="AI搜索工具横评对比与场景推荐">搜索套餐</a>
       <a href="video-plan.html" title="AI视频生成套餐价格对比与场景推荐">视频套餐</a>
       <a href="image-plan.html" title="AI图像生成套餐价格对比与场景推荐">图像套餐</a>
-      <a href="search-plan.html" title="AI搜索工具横评对比与场景推荐">搜索套餐</a>
+      <span class="top-plans-break"></span>
       <a href="voice-plan.html" title="AI语音工具横评对比与场景推荐">语音套餐</a>
       <a href="music-plan.html" title="AI音乐工具横评对比与场景推荐">音乐套餐</a>
       <a href="learning-plan.html" title="AI学习平台横评对比与场景推荐">学习套餐</a>
       <a href="hardware-plan.html" title="AI硬件横评对比与选购推荐">硬件横评</a>
       <a href="ai-factory-plan.html" title="AI造物流水线·从创意到商品">AI造物</a>
       <a href="opc.html" title="一人公司·AI赋能个体创业">一人公司</a>
-      <a href="model-plan.html" title="AI模型选型横评·国内+海外旗舰">模型选型</a>
     </div>
     <div class="top-promo" aria-label="合作推广：多模型 API 接入" data-i18n-aria="promoAria">
       <div class="top-promo-head">

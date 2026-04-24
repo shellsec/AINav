@@ -1581,7 +1581,7 @@ const html = `<!DOCTYPE html>
       <div class="top-promo-head">
         <span class="top-promo-badge" data-i18n="promoBadge">推广</span>
         <span class="top-promo-models">
-          <span>Claude Opus 4.7</span><span>GPT-5.4</span><span>Gemini 3.1 Pro</span><span>Claude Sonnet 4.6</span><span>DeepSeek V3.2</span>
+          <span>Claude Opus 4.7</span><span>GPT-5.4</span><span>Gemini 3.1 Pro</span><span>Claude Sonnet 4.6</span><span>DeepSeek V4</span>
         </span>
         <span class="top-promo-title" data-i18n="promoTitle">国内直连免梯</span>
         <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册 →</a>

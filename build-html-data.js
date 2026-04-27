@@ -782,7 +782,7 @@ function renderTools(tools) {
       return `<article class="card" data-link="${esc(t.link)}" data-title="${esc(t.title)}" data-subtitle="${esc(t.subtitle || "")}" data-avatar="${esc(t.avatar || "")}">
 <button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
 <a class="card-main" href="${esc(t.link)}" target="_blank" rel="noopener noreferrer">
-${img ? `<img class="card-icon" src="${esc(img)}" alt="" width="40" height="40" loading="lazy" decoding="async" onerror="this._fb=this._fb||0;var d='';try{d=new URL(this.closest('article.card').getAttribute('data-link')).hostname}catch(e){}var srcs=['https://icons.duckduckgo.com/ip3/'+d+'.ico','https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=64'];if(d&&this._fb<srcs.length){this.src=srcs[this._fb++]}else{var t=this.closest('article.card');var ch=(t?t.getAttribute('data-title'):'').trim().charAt(0).toUpperCase()||'?';var pl=['#0969da','#1a7f37','#bf3989','#8250df','#cf222e','#953800','#0550ae','#116329'];var sp=document.createElement('span');sp.className='card-icon-ph';sp.style.cssText='display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;border-radius:8px;background:'+pl[ch.charCodeAt(0)%pl.length];sp.textContent=ch;this.replaceWith(sp)}">` : `<span class="card-icon-ph"></span>`}
+${img ? `<img class="card-icon" src="${esc(img)}" alt="" width="40" height="40" loading="lazy" decoding="async" onerror="fallbackIcon(this)">` : `<span class="card-icon-ph"></span>`}
 <div class="card-body">
 <h3 class="card-title">${esc(t.title)}</h3>
 <p class="card-desc">${esc(t.subtitle || "")}</p>
@@ -1258,7 +1258,7 @@ const html = `<!DOCTYPE html>
     aside .nav-i { padding-left: calc(0.5rem + (var(--d, 0) * 10px)); }
     aside a.nav-fav { color: var(--star-on); font-weight: 600; }
     main { padding: 1.25rem 1.5rem 3rem; }
-    .block { margin-bottom: 2.5rem; scroll-margin-top: 1rem; }
+    .block { margin-bottom: 2.5rem; scroll-margin-top: 1rem; content-visibility: auto; contain-intrinsic-size: auto 500px; }
     .block.group .block { margin-left: 0; }
     .block-title {
       font-size: 1.1rem;
@@ -1631,6 +1631,7 @@ const html = `<!DOCTYPE html>
   </div>
   <button type="button" class="back-to-top" id="backToTop" aria-label="返回顶部" title="返回顶部" data-i18n-aria="backTopAria" data-i18n="backTop">↑ Top</button>
   <script>
+function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('article.card').getAttribute('data-link')).hostname}catch(e){}var srcs=['https://icons.duckduckgo.com/ip3/'+d+'.ico','https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=64'];if(d&&el._fb<srcs.length){el.src=srcs[el._fb++]}else{var t=el.closest('article.card');var ch=(t?t.getAttribute('data-title'):'').trim().charAt(0).toUpperCase()||'?';var pl=['#0969da','#1a7f37','#bf3989','#8250df','#cf222e','#953800','#0550ae','#116329'];var sp=document.createElement('span');sp.className='card-icon-ph';sp.style.cssText='display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;border-radius:8px;background:'+pl[ch.charCodeAt(0)%pl.length];sp.textContent=ch;el.replaceWith(sp)}}
 (function () {
   var FAV_KEY = "ainav-favorites-v1";
   var THEME_KEY = "ainav-theme";

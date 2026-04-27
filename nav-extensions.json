@@ -554,44 +554,34 @@
           "link": "https://huggingface.co/spaces"
         },
         {
-          "title": "Awesome Agent Skills",
-          "subtitle": "跨平台 Skills 精选目录 → Claude Code/Cursor/Windsurf/Copilot/Codex 等",
-          "link": "https://github.com/philipbankier/awesome-agent-skills"
+          "title": "Agent Skills（Addy Osmani）",
+          "subtitle": "生产级工程技能（21k+★） → Claude Code/Cursor/Copilot/Codex 等",
+          "link": "https://github.com/addyosmani/agent-skills"
         },
         {
-          "title": "micstec Skills 合集",
-          "subtitle": "多平台 Skills 合集 → Claude Code/Gemini CLI/Copilot/Cursor/Windsurf/Codex CLI",
-          "link": "https://github.com/micsapp/micstec-skills"
+          "title": "Tashan Cursor Skills",
+          "subtitle": "自主执行+自进化（95个技能+子代理） → Claude Code/Cursor/Windsurf 等",
+          "link": "https://github.com/TashanGKD/tashan-cursor-skills"
+        },
+        {
+          "title": "Composio OpenSkills",
+          "subtitle": "工具集成技能（API/数据库/联网） → 一键同步 Claude Code/Cursor 等",
+          "link": "https://github.com/ComposioHQ/OpenSkills"
+        },
+        {
+          "title": "Cursor Handbook",
+          "subtitle": "高频日常技能（代码审查/Bug修复/注释） → 开箱即用",
+          "link": "https://github.com/girijashankarj/cursor-handbook"
+        },
+        {
+          "title": "中文 Skills 合集",
+          "subtitle": "全中文提示，适配国内规范（前端/小程序/后端） → Claude Code/Cursor 等",
+          "link": "https://github.com/huangrt312/cursor-skills-collection"
         },
         {
           "title": "MCP Market Skills",
           "subtitle": "Agent Skills 目录与发现 → Claude.ai/Claude Code/Codex/ChatGPT",
           "link": "https://mcpmarket.com/tools/skills"
-        },
-        {
-          "title": "Windsurf Skills",
-          "subtitle": "Windsurf Cascade 技能系统文档 → 仅 Windsurf IDE",
-          "link": "https://docs.windsurf.com/windsurf/cascade/skills"
-        },
-        {
-          "title": "OpenCode Skills",
-          "subtitle": "OpenCode 可复用 Agent 技能 → OpenCode（兼容 Claude Code 格式）",
-          "link": "https://opencode.ai/docs/skills"
-        },
-        {
-          "title": "OpenSkills",
-          "subtitle": "通用 Skills 加载器 → Claude Code/Cursor/Windsurf/Aider/Codex 等",
-          "link": "https://github.com/numman-ali/openskills"
-        },
-        {
-          "title": "OpenCode（开源 IDE）",
-          "subtitle": "开源终端 AI 编码工具，原生支持 SKILL.md → 兼容 Claude Code 格式",
-          "link": "https://github.com/sst/opencode"
-        },
-        {
-          "title": "Cursor Skills 合集",
-          "subtitle": "Cursor IDE 最佳实践与技能集 → 仅 Cursor IDE",
-          "link": "https://github.com/araguaci/cursor-skills"
         },
         {
           "title": "Agent Skills 开放标准",
@@ -609,14 +599,14 @@
           "link": "https://skillsmp.com/zh"
         },
         {
-          "title": "AllSkills 目录",
-          "subtitle": "Claude Skills 发现与浏览目录 → Claude Code/Cursor/TRAE 等",
-          "link": "https://www.allskills.cn/"
+          "title": "Windsurf Skills",
+          "subtitle": "Windsurf Cascade 技能系统文档 → 仅 Windsurf IDE",
+          "link": "https://docs.windsurf.com/windsurf/cascade/skills"
         },
         {
-          "title": "Open Agent Skills",
-          "subtitle": "Agent Skills 编写指南 → 通用 SKILL.md 标准，适用所有兼容工具",
-          "link": "https://openagentskills.dev/zh"
+          "title": "OpenCode Skills",
+          "subtitle": "OpenCode 可复用 Agent 技能 → OpenCode（兼容 Claude Code 格式）",
+          "link": "https://opencode.ai/docs/skills"
         },
         {
           "title": "MiniMax Skills（开源）",
@@ -624,19 +614,9 @@
           "link": "https://github.com/MiniMax-AI/skills"
         },
         {
-          "title": "MiniMax SkillHub",
-          "subtitle": "MiniMax 官方技能管理平台 → MiniMax Agent/Claude Code/Cursor 等",
-          "link": "https://agent.minimax.io/skills"
-        },
-        {
           "title": "Cursor Marketplace",
           "subtitle": "Cursor 插件市场（Skills/子代理/规则/Hooks/MCP） → 仅 Cursor IDE",
           "link": "https://cursor.com/marketplace"
-        },
-        {
-          "title": "TRAE Skills",
-          "subtitle": "TRAE IDE 内置 Skills 技能包 → 仅 TRAE IDE",
-          "link": "https://www.trae.cn/"
         },
         {
           "title": "Claude Code Marketplace",

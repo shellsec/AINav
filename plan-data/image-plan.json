@@ -1,0 +1,80 @@
+{
+  "id": "image-plan",
+  "title": "AI Image Plan 图像生成套餐横评",
+  "description": "AI图像生成套餐横向对比：Midjourney、DALL-E、Leonardo.AI、LiblibAI、通义万相、即梦AI价格功能积分对比。",
+  "updated": null,
+  "sections": [],
+  "items": [
+    {
+      "name": "通义万相（阿里）",
+      "link": "https://tongyi.aliyun.com/wanxiang/",
+      "overseas": false
+    },
+    {
+      "name": "即梦AI（字节）",
+      "link": "https://jimeng.jianying.com/",
+      "overseas": false
+    },
+    {
+      "name": "LiblibAI（哩布哩布）",
+      "link": "https://www.liblib.art/",
+      "overseas": false
+    },
+    {
+      "name": "文心一格（百度）",
+      "link": "https://yige.baidu.com/",
+      "overseas": false
+    },
+    {
+      "name": "吐司Tiamat",
+      "link": "https://tiamat.world/",
+      "overseas": false
+    },
+    {
+      "name": "6pen",
+      "link": "https://6pen.art/",
+      "overseas": false
+    },
+    {
+      "name": "海艺AI",
+      "link": "https://www.haiyiai.com/",
+      "overseas": false
+    },
+    {
+      "name": "Midjourney",
+      "link": "https://www.midjourney.com/",
+      "overseas": true
+    },
+    {
+      "name": "DALL-E 3（ChatGPT）",
+      "link": "https://openai.com/dall-e-3",
+      "overseas": true
+    },
+    {
+      "name": "Leonardo.AI",
+      "link": "https://leonardo.ai/",
+      "overseas": true
+    },
+    {
+      "name": "Ideogram",
+      "link": "https://ideogram.ai/",
+      "overseas": true
+    },
+    {
+      "name": "NightCafe",
+      "link": "https://nightcafe.studio/",
+      "overseas": true
+    },
+    {
+      "name": "Adobe Firefly",
+      "link": "https://firefly.adobe.com/",
+      "overseas": true
+    },
+    {
+      "name": "FLUX（Black Forest Labs）",
+      "link": "https://blackforestlabs.ai/",
+      "overseas": true
+    }
+  ],
+  "sourceFile": "image-plan.html"
+}

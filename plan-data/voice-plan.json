@@ -1,0 +1,55 @@
+{
+  "id": "voice-plan",
+  "title": "AI Voice Plan 语音套餐横评",
+  "description": "AI语音/TTS套餐横向对比：ElevenLabs、Azure Speech、OpenAI TTS、Fish Audio、讯飞等价格功能对比。",
+  "updated": null,
+  "sections": [],
+  "items": [
+    {
+      "name": "讯飞语音",
+      "link": "https://www.xfyun.cn/",
+      "overseas": false
+    },
+    {
+      "name": "MiniMax TTS",
+      "link": "https://www.minimaxi.com/",
+      "overseas": false
+    },
+    {
+      "name": "Fish Audio",
+      "link": "https://fish.audio/",
+      "overseas": false
+    },
+    {
+      "name": "火山引擎 TTS",
+      "link": "https://www.volcengine.com/",
+      "overseas": false
+    },
+    {
+      "name": "ElevenLabs",
+      "link": "https://elevenlabs.io/",
+      "overseas": true
+    },
+    {
+      "name": "OpenAI TTS",
+      "link": "https://platform.openai.com/",
+      "overseas": true
+    },
+    {
+      "name": "Azure AI Speech",
+      "link": "https://azure.microsoft.com/products/ai-services/speech-to-text",
+      "overseas": true
+    },
+    {
+      "name": "Google Cloud TTS",
+      "link": "https://cloud.google.com/text-to-speech",
+      "overseas": true
+    },
+    {
+      "name": "PlayHT",
+      "link": "https://play.ht/",
+      "overseas": true
+    }
+  ],
+  "sourceFile": "voice-plan.html"
+}

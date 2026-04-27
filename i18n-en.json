@@ -2285,7 +2285,7 @@
   },
   "Ollama": {
     "title": "Ollama",
-    "desc": "本机拉模型后在终端对话（与「本地推理」分类互补）"
+    "desc": "本机拉模型、REST API，桌面端常用"
   },
   "MiracleVision": {
     "title": "MiracleVision",
@@ -2529,7 +2529,7 @@
   },
   "MLX": {
     "title": "MLX",
-    "desc": "Apple Silicon 优先的数组框架"
+    "desc": "Apple Silicon 优化机器学习框架（含 LM 示例）"
   },
   "Label Studio": {
     "title": "Label Studio",
@@ -3329,7 +3329,7 @@
   },
   "There's An AI For That": {
     "title": "There's An AI For That",
-    "desc": "按场景检索 AI 产品与工具"
+    "desc": "按使用场景检索 AI 产品与工具，全球最大 AI 场景目录"
   },
   "Product Hunt（人工智能）": {
     "title": "Product Hunt（人工智能）",
@@ -3687,14 +3687,6 @@
     "title": "Suna",
     "desc": "Open-source general AI Agent — automated research, data analysis & workflow execution"
   },
-  "OpenClaw Showcase": {
-    "title": "OpenClaw Showcase",
-    "desc": "AI Agent real user scenarios: automation/productivity/dev/smart home/creative"
-  },
-  "OpenClaw 中文用例大全": {
-    "title": "OpenClaw CN Use Cases",
-    "desc": "46 real scenarios: Feishu/DingTalk/WeCom automation, content, ops, knowledge mgmt"
-  },
   "Hermes Agent 官网": {
     "title": "Hermes Agent Official",
     "desc": "Open-source AI agent with memory — gets smarter with use — intro & quickstart"
@@ -3706,6 +3698,14 @@
   "Hermes Agent 橙皮书": {
     "title": "Hermes Agent Orange Book",
     "desc": "Beginner-to-expert series: architecture, skill writing, OpenClaw migration & best practices"
+  },
+  "OpenClaw Showcase": {
+    "title": "OpenClaw Showcase",
+    "desc": "AI Agent real user scenarios: automation/productivity/dev/smart home/creative"
+  },
+  "OpenClaw 中文用例大全": {
+    "title": "OpenClaw CN Use Cases",
+    "desc": "46 real scenarios: Feishu/DingTalk/WeCom automation, content, ops, knowledge mgmt"
   },
   "Hermes Agent 架构全解": {
     "title": "Hermes Agent Architecture",
@@ -3803,37 +3803,33 @@
     "title": "Hugging Face Spaces",
     "desc": "模型 Demo 与工具托管社区 → 任意 HTTP/API 调用"
   },
-  "Awesome Agent Skills": {
-    "title": "Awesome Agent Skills",
-    "desc": "跨平台 Skills 精选目录 → Claude Code/Cursor/Windsurf/Copilot/Codex 等"
+  "Agent Skills（Addy Osmani）": {
+    "title": "Agent Skills（Addy Osmani）",
+    "desc": "生产级工程技能（21k+★） → Claude Code/Cursor/Copilot/Codex 等"
   },
-  "micstec Skills 合集": {
-    "title": "micstec Skills 合集",
-    "desc": "多平台 Skills 合集 → Claude Code/Gemini CLI/Copilot/Cursor/Windsurf/Codex CLI"
+  "Official Skills": {
+    "title": "Official Skills",
+    "desc": "官方+社区精选技能集（1000+） → Claude Code/Codex/Gemini CLI/Cursor 等"
+  },
+  "Tashan Cursor Skills": {
+    "title": "Tashan Cursor Skills",
+    "desc": "自主执行+自进化（95个技能+子代理） → Claude Code/Cursor/Windsurf 等"
+  },
+  "Composio OpenSkills": {
+    "title": "Composio OpenSkills",
+    "desc": "工具集成技能（API/数据库/联网） → 一键同步 Claude Code/Cursor 等"
+  },
+  "Cursor Handbook": {
+    "title": "Cursor Handbook",
+    "desc": "高频日常技能（代码审查/Bug修复/注释） → 开箱即用"
+  },
+  "中文 Skills 合集": {
+    "title": "中文 Skills 合集",
+    "desc": "全中文提示，适配国内规范（前端/小程序/后端） → Claude Code/Cursor 等"
   },
   "MCP Market Skills": {
     "title": "MCP Market Skills",
     "desc": "Agent Skills 目录与发现 → Claude.ai/Claude Code/Codex/ChatGPT"
-  },
-  "Windsurf Skills": {
-    "title": "Windsurf Skills",
-    "desc": "Windsurf Cascade 技能系统文档 → 仅 Windsurf IDE"
-  },
-  "OpenCode Skills": {
-    "title": "OpenCode Skills",
-    "desc": "OpenCode 可复用 Agent 技能 → OpenCode（兼容 Claude Code 格式）"
-  },
-  "OpenSkills": {
-    "title": "OpenSkills",
-    "desc": "通用 Skills 加载器 → Claude Code/Cursor/Windsurf/Aider/Codex 等"
-  },
-  "OpenCode（开源 IDE）": {
-    "title": "OpenCode（开源 IDE）",
-    "desc": "开源终端 AI 编码工具，原生支持 SKILL.md → 兼容 Claude Code 格式"
-  },
-  "Cursor Skills 合集": {
-    "title": "Cursor Skills 合集",
-    "desc": "Cursor IDE 最佳实践与技能集 → 仅 Cursor IDE"
   },
   "Agent Skills 开放标准": {
     "title": "Agent Skills 开放标准",
@@ -3847,29 +3843,21 @@
     "title": "Agent Skills Marketplace",
     "desc": "800K+ skills 市场 → Claude Code/Codex CLI/ChatGPT/Cursor/Windsurf"
   },
-  "AllSkills 目录": {
-    "title": "AllSkills 目录",
-    "desc": "Claude Skills 发现与浏览目录 → Claude Code/Cursor/TRAE 等"
+  "Windsurf Skills": {
+    "title": "Windsurf Skills",
+    "desc": "Windsurf Cascade 技能系统文档 → 仅 Windsurf IDE"
   },
-  "Open Agent Skills": {
-    "title": "Open Agent Skills",
-    "desc": "Agent Skills 编写指南 → 通用 SKILL.md 标准，适用所有兼容工具"
+  "OpenCode Skills": {
+    "title": "OpenCode Skills",
+    "desc": "OpenCode 可复用 Agent 技能 → OpenCode（兼容 Claude Code 格式）"
   },
   "MiniMax Skills（开源）": {
     "title": "MiniMax Skills（开源）",
     "desc": "开源全栈技能包（前端/全栈/Android/iOS/Shader） → Claude Code/Cursor/TRAE/Windsurf"
   },
-  "MiniMax SkillHub": {
-    "title": "MiniMax SkillHub",
-    "desc": "MiniMax 官方技能管理平台 → MiniMax Agent/Claude Code/Cursor 等"
-  },
   "Cursor Marketplace": {
     "title": "Cursor Marketplace",
     "desc": "Cursor 插件市场（Skills/子代理/规则/Hooks/MCP） → 仅 Cursor IDE"
-  },
-  "TRAE Skills": {
-    "title": "TRAE Skills",
-    "desc": "TRAE IDE 内置 Skills 技能包 → 仅 TRAE IDE"
   },
   "Claude Code Marketplace": {
     "title": "Claude Code Marketplace",

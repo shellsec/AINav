@@ -1,0 +1,70 @@
+{
+  "id": "agent-plan",
+  "title": "AI Agent 横评 — Coding Agent 对比",
+  "description": "AI Coding Agent 横向对比：Claude Code、Cursor Agent、OpenClaw、Hermes、Cline、Devin、Codex CLI、ArkClaw 等国内外 Agent 功能、价格、兼容性一站式对比，帮你找到最适合的 AI 编程智能体。",
+  "updated": null,
+  "sections": [],
+  "items": [
+    {
+      "name": "ArkClaw（字节跳动）",
+      "link": "https://www.volcengine.com/activity/codingplan",
+      "overseas": false
+    },
+    {
+      "name": "CoPaw / WorkBuddy（阿里/腾讯）",
+      "link": "https://www.aliyun.com/benefit/scene/codingplan",
+      "overseas": false
+    },
+    {
+      "name": "Trae（字节跳动）",
+      "link": "https://www.trae.ai/",
+      "overseas": false
+    },
+    {
+      "name": "扣子 Coze（字节系）",
+      "link": "https://www.coze.cn/",
+      "overseas": false
+    },
+    {
+      "name": "Kimi CLI（月之暗面）",
+      "link": "https://www.kimi.com/",
+      "overseas": false
+    },
+    {
+      "name": "Qwen Code（通义灵码）",
+      "link": "https://tongyi.aliyun.com/",
+      "overseas": false
+    },
+    {
+      "name": "Claude Code（Anthropic）",
+      "link": "https://claude.ai/",
+      "overseas": true
+    },
+    {
+      "name": "Cursor Agent Mode",
+      "link": "https://cursor.sh/",
+      "overseas": true
+    },
+    {
+      "name": "GitHub Copilot Workspace",
+      "link": "https://github.com/features/copilot",
+      "overseas": true
+    },
+    {
+      "name": "OpenAI Codex CLI",
+      "link": "https://openai.com/codex",
+      "overseas": true
+    },
+    {
+      "name": "Devin（Cognition）",
+      "link": "https://www.cognition.ai/",
+      "overseas": true
+    },
+    {
+      "name": "Windsurf Cascade（Codeium）",
+      "link": "https://codeium.com/windsurf",
+      "overseas": true
+    }
+  ],
+  "sourceFile": "agent-plan.html"
+}

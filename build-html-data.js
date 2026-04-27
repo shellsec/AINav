@@ -54,6 +54,7 @@ if (fs.existsSync(dailyPath)) {
           avatar: t.avatar != null ? String(t.avatar) : "",
           link: String(t.link).trim(),
           path: t.path != null ? String(t.path) : "",
+          added: t.added != null ? String(t.added) : "",
         }));
       const hot = tree.find((n) => n.type === "leaf" && n.name === matchName);
       if (hot) {
@@ -85,6 +86,7 @@ if (fs.existsSync(extFile)) {
         avatar: t.avatar != null ? String(t.avatar) : "",
         link: String(t.link).trim(),
         path: t.path != null ? String(t.path) : "",
+        added: t.added != null ? String(t.added) : "",
       }));
       const idRaw = cat.id && String(cat.id).trim();
       tree.push({
@@ -145,6 +147,7 @@ function appendToolsToLeaf(tree, groupName, leafName, extraTools) {
       avatar: t.avatar != null ? String(t.avatar) : "",
       link,
       path: t.path != null ? String(t.path) : "",
+      added: t.added != null ? String(t.added) : "",
     });
     n++;
   }
@@ -775,16 +778,22 @@ function buildToolI18nInjection() {
 const toolI18nInjection = buildToolI18nInjection();
 
 function renderTools(tools) {
+  const now = Date.now();
+  const NEW_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
   return tools
     .map((t) => {
       const detail = t.path ? siteDetailUrl(t.path) : "";
       const img = iconSrc(t.avatar);
-      return `<article class="card" data-link="${esc(t.link)}" data-title="${esc(t.title)}" data-subtitle="${esc(t.subtitle || "")}" data-avatar="${esc(t.avatar || "")}">
+      const addedDate = t.added ? String(t.added) : "";
+      const isNew = addedDate && (now - new Date(addedDate).getTime()) < NEW_MS;
+      const newBadge = isNew ? `<span class="card-new-badge">🆕</span>` : "";
+      return `<article class="card${isNew ? " is-new" : ""}" data-link="${esc(t.link)}" data-title="${esc(t.title)}" data-subtitle="${esc(t.subtitle || "")}" data-avatar="${esc(t.avatar || "")}"${addedDate ? ` data-added="${esc(addedDate)}"` : ""}>
+<button type="button" class="card-compare-check" aria-label="加入对比" title="对比">⚖</button>
 <button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
 <a class="card-main" href="${esc(t.link)}" target="_blank" rel="noopener noreferrer">
 ${img ? `<img class="card-icon" src="${esc(img)}" alt="" width="40" height="40" loading="lazy" decoding="async" onerror="fallbackIcon(this)">` : `<span class="card-icon-ph"></span>`}
 <div class="card-body">
-<h3 class="card-title">${esc(t.title)}</h3>
+<h3 class="card-title">${esc(t.title)}${newBadge}</h3>
 <p class="card-desc">${esc(t.subtitle || "")}</p>
 </div>
 </a>
@@ -1347,6 +1356,12 @@ const html = `<!DOCTYPE html>
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
+    .card-new-badge {
+      font-size: 0.72em;
+      margin-left: 0.2rem;
+      vertical-align: super;
+      line-height: 1;
+    }
     .card-meta {
       font-size: 0.72rem;
       padding: 0 0.85rem 0.65rem;
@@ -1455,6 +1470,121 @@ const html = `<!DOCTYPE html>
       color: #fff;
       border-color: var(--accent);
     }
+    .lang-float .site-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      min-width: 36px;
+      padding: 0 0.4rem;
+      height: 32px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--muted);
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-float .site-link:hover {
+      background: var(--panel);
+      color: var(--text);
+    }
+    .compare-bar {
+      position: fixed;
+      left: 50%;
+      bottom: 1.25rem;
+      transform: translateX(-50%);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+      font-size: 0.8rem;
+      color: var(--text);
+    }
+    .compare-bar-label { font-weight: 600; color: var(--accent); }
+    .compare-bar-count { color: var(--muted); font-size: 0.76rem; }
+    .compare-bar-btn {
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .compare-bar-btn:disabled { opacity: 0.4; cursor: default; }
+    .compare-clear-btn { background: transparent; color: var(--muted); border-color: var(--border); }
+    .compare-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .compare-modal {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      max-width: 56rem;
+      width: 94%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .compare-modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .compare-close-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.2rem;
+    }
+    .compare-close-btn:hover { color: var(--text); }
+    .compare-modal-body { padding: 1rem; }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .compare-table th, .compare-table td { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .compare-table th { color: var(--muted); font-weight: 600; white-space: nowrap; width: 5rem; }
+    .compare-table td a { color: var(--accent); text-decoration: none; }
+    .compare-table td a:hover { text-decoration: underline; }
+    .card-compare-check {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      z-index: 3;
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-compare-check:hover { border-color: var(--accent); }
+    .card-compare-check.is-on { background: var(--accent); color: #fff; border-color: var(--accent); }
     .site-footer {
       margin-top: 0;
       padding: 1.25rem 1.5rem 2.25rem;
@@ -1518,7 +1648,10 @@ const html = `<!DOCTYPE html>
       aside,
       .back-to-top,
       .lang-float,
+      .compare-bar,
+      .compare-overlay,
       .card-star,
+      .card-compare-check,
       .top-toolbar,
       .top-promo-badge,
       .top-promo-features,
@@ -1626,8 +1759,23 @@ const html = `<!DOCTYPE html>
     <p class="site-built">页面数据生成时间（构建）：${esc(generatedAtLabel)}（UTC 记录：${esc(generatedAt)}）</p>
   </footer>
   <div class="lang-float">
+    <a class="lang-btn site-link" href="https://ainews.aiv123.com/" target="_blank" title="AI资讯" style="text-decoration:none;font-size:0.72rem;">资讯</a>
+    <a class="lang-btn site-link" href="https://skill.aiv123.com/" target="_blank" title="AI技能" style="text-decoration:none;font-size:0.72rem;">技能</a>
+    <a class="lang-btn site-link" href="https://chrome.aiv123.com/" target="_blank" title="Chrome插件" style="text-decoration:none;font-size:0.72rem;">插件</a>
     <button type="button" class="lang-btn" data-lang-set="en">EN</button>
     <button type="button" class="lang-btn" data-lang-set="zh">中</button>
+  </div>
+  <div class="compare-bar" id="compareBar" hidden>
+    <span class="compare-bar-label" data-i18n="compareLabel">对比</span>
+    <span class="compare-bar-count" id="compareCount">0/3</span>
+    <button type="button" class="compare-bar-btn" id="compareShowBtn" disabled data-i18n="compareShow">查看对比</button>
+    <button type="button" class="compare-bar-btn compare-clear-btn" id="compareClearBtn" data-i18n="compareClear">清空</button>
+  </div>
+  <div class="compare-overlay" id="compareOverlay" hidden>
+    <div class="compare-modal">
+      <div class="compare-modal-head"><span data-i18n="compareTitle">工具对比</span><button type="button" class="compare-close-btn" id="compareCloseBtn">✕</button></div>
+      <div class="compare-modal-body" id="compareBody"></div>
+    </div>
   </div>
   <button type="button" class="back-to-top" id="backToTop" aria-label="返回顶部" title="返回顶部" data-i18n-aria="backTopAria" data-i18n="backTop">↑ Top</button>
   <script>
@@ -2072,7 +2220,11 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         catSMSVerify: "SMS Verify · Virtual Numbers",
         catAIBooksExt: "AI Classic Books & Textbooks",
         catAIRankings: "AI Rankings · Product & Tool Charts",
-        catAISkillHub: "AI Skill · Prompt Skills & Tool Market"${toolI18nInjection}
+        catAISkillHub: "AI Skill · Prompt Skills & Tool Market"${toolI18nInjection},
+        compareLabel: "Compare",
+        compareShow: "Compare",
+        compareClear: "Clear",
+        compareTitle: "Tool Comparison"
       },
       zh: {
         /* -- top bar -- */
@@ -2160,7 +2312,11 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         catSMSVerify: "接码 · 短信验证与虚拟号",
         catAIBooksExt: "AI 经典书籍与教材",
         catAIRankings: "AI 榜单 · 产品与工具排行",
-        catAISkillHub: "AI Skill · 提示技能与工具市场"
+        catAISkillHub: "AI Skill · 提示技能与工具市场",
+        compareLabel: "对比",
+        compareShow: "查看对比",
+        compareClear: "清空",
+        compareTitle: "工具对比"
       }
     };
 
@@ -2251,6 +2407,82 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
       if (s === "en" || s === "zh") initLang = s;
     } catch (e) {}
     applyLang(initLang);
+  })();
+
+  /* ---- Compare Mode ---- */
+  (function () {
+    var MAX_COMPARE = 3;
+    var compareBar = document.getElementById("compareBar");
+    var compareCount = document.getElementById("compareCount");
+    var compareShowBtn = document.getElementById("compareShowBtn");
+    var compareClearBtn = document.getElementById("compareClearBtn");
+    var compareOverlay = document.getElementById("compareOverlay");
+    var compareBody = document.getElementById("compareBody");
+    var compareCloseBtn = document.getElementById("compareCloseBtn");
+    var selected = []; // array of {link, title, subtitle}
+
+    function updateUI() {
+      compareBar.hidden = selected.length === 0;
+      compareCount.textContent = selected.length + "/" + MAX_COMPARE;
+      compareShowBtn.disabled = selected.length < 2;
+      // sync check states
+      var links = {};
+      selected.forEach(function (s) { links[s.link] = true; });
+      document.querySelectorAll(".card-compare-check").forEach(function (btn) {
+        var card = btn.closest("article.card");
+        var lk = card ? card.getAttribute("data-link") : "";
+        btn.classList.toggle("is-on", !!links[lk]);
+        btn.textContent = links[lk] ? "✓" : "⚖";
+      });
+    }
+
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest(".card-compare-check");
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var card = btn.closest("article.card");
+      if (!card) return;
+      var link = card.getAttribute("data-link");
+      var idx = -1;
+      for (var i = 0; i < selected.length; i++) { if (selected[i].link === link) { idx = i; break; } }
+      if (idx >= 0) {
+        selected.splice(idx, 1);
+      } else {
+        if (selected.length >= MAX_COMPARE) { var l = (function(){ try{return localStorage.getItem("ainav-lang")||"zh";}catch(x){return"zh";} })(); alert(l==="en"?"Max "+MAX_COMPARE+" tools for compare":"最多对比 "+MAX_COMPARE+" 个工具"); return; }
+        selected.push({ link: link, title: card.getAttribute("data-title") || "", subtitle: card.getAttribute("data-subtitle") || "" });
+      }
+      updateUI();
+    }, true);
+
+    if (compareClearBtn) {
+      compareClearBtn.addEventListener("click", function () { selected = []; updateUI(); });
+    }
+    if (compareShowBtn) {
+      compareShowBtn.addEventListener("click", function () {
+        if (selected.length < 2) return;
+        var rows = [
+          { label: (function(){ try{return localStorage.getItem("ainav-lang")||"zh";}catch(x){return"zh";} })()==="en"?"Tool":"工具", values: selected.map(function(s){ return '<a href="'+s.link+'" target="_blank" rel="noopener noreferrer">'+s.title+'</a>'; }) },
+          { label: (function(){ try{return localStorage.getItem("ainav-lang")||"zh";}catch(x){return"zh";} })()==="en"?"Desc":"描述", values: selected.map(function(s){ return s.subtitle || "—"; }) },
+          { label: (function(){ try{return localStorage.getItem("ainav-lang")||"zh";}catch(x){return"zh";} })()==="en"?"Link":"链接", values: selected.map(function(s){ return '<a href="'+s.link+'" target="_blank" rel="noopener noreferrer" style="font-size:0.76rem;word-break:break-all">'+s.link+'</a>'; }) },
+        ];
+        var thtml = '<table class="compare-table"><tbody>';
+        rows.forEach(function (r) {
+          thtml += '<tr><th>' + r.label + '</th>';
+          r.values.forEach(function (v) { thtml += '<td>' + v + '</td>'; });
+          thtml += '</tr>';
+        });
+        thtml += '</tbody></table>';
+        compareBody.innerHTML = thtml;
+        compareOverlay.hidden = false;
+      });
+    }
+    if (compareCloseBtn) {
+      compareCloseBtn.addEventListener("click", function () { compareOverlay.hidden = true; });
+    }
+    if (compareOverlay) {
+      compareOverlay.addEventListener("click", function (e) { if (e.target === compareOverlay) compareOverlay.hidden = true; });
+    }
   })();
 
   /* ---- Auto-favicon for placeholder icons ---- */

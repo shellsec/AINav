@@ -158,7 +158,8 @@
         {
           "title": "Manus",
           "subtitle": "通用 AI Agent，自主规划、执行复杂任务，浏览器+终端+代码全栈操控",
-          "link": "https://manus.im/"
+          "link": "https://manus.im/",
+          "added": "2026-04-22"
         },
         {
           "title": "OpenHands",
@@ -168,29 +169,19 @@
         {
           "title": "Suna",
           "subtitle": "开源通用 AI Agent，自动化研究、数据分析与工作流执行",
-          "link": "https://www.suna.ai/"
+          "link": "https://www.suna.ai/",
+          "added": "2026-04-23"
         },
         {
           "title": "LobsterAI 有道龙虾",
           "subtitle": "网易有道桌面级 Agent，远程控机、多端协同与定时任务（内测/官网申请）",
-          "link": "https://lobsterai.youdao.com/"
+          "link": "https://lobsterai.youdao.com/",
+          "added": "2026-04-25"
         },
         {
           "title": "OpenClaw",
           "subtitle": "开源自托管个人 AI 助理框架，接 IM 与插件生态",
           "link": "https://github.com/openclaw/openclaw"
-        },
-        {
-          "title": "OpenClaw Showcase",
-          "subtitle": "用户真实场景展示：自动化/生产力/开发/智能家居/创意等 11 大类",
-          "link": "https://openclaw.ai/showcase",
-          "alias": "openclaw showcase,场景"
-        },
-        {
-          "title": "OpenClaw 中文用例大全",
-          "subtitle": "46 个真实场景：自动化办公·内容创作·运维·AI助理·知识管理",
-          "link": "https://github.com/AlexAnys/awesome-openclaw-usecases-zh",
-          "alias": "openclaw 中文用例,awesome usecases"
         },
         {
           "title": "OpenClaw 文档站",
@@ -284,12 +275,14 @@
         {
           "title": "QoderWork（阿里 Qoder）",
           "subtitle": "桌面办公向 Agent：描述需求、自动执行、直接交付结果",
-          "link": "https://qoder.com/zh/qoderwork"
+          "link": "https://qoder.com/zh/qoderwork",
+          "added": "2026-04-24"
         },
         {
           "title": "TRAE SOLO",
           "subtitle": "从编码扩展到日常工作场景的桌面 Agent",
-          "link": "https://solo.trae.cn/"
+          "link": "https://solo.trae.cn/",
+          "added": "2026-04-26"
         }
       ]
     },
@@ -362,18 +355,6 @@
           "subtitle": "经典自主代理项目，支持任务分解与自主执行（182K+ 星）",
           "link": "https://github.com/Significant-Gravitas/AutoGPT",
           "alias": "autogpt,自主代理"
-        },
-        {
-          "title": "OpenHands",
-          "subtitle": "开源 AI 软件开发 Agent，代码编写与终端操作场景",
-          "link": "https://github.com/All-Hands-AI/OpenHands",
-          "alias": "openhands场景,ai开发agent"
-        },
-        {
-          "title": "Gemini CLI",
-          "subtitle": "将 Gemini 引入命令行的开源 AI 代理（97K+ 星）",
-          "link": "https://github.com/google-gemini/gemini-cli",
-          "alias": "gemini cli,命令行ai"
         },
         {
           "title": "Firecrawl",
@@ -557,6 +538,11 @@
           "title": "Agent Skills（Addy Osmani）",
           "subtitle": "生产级工程技能（21k+★） → Claude Code/Cursor/Copilot/Codex 等",
           "link": "https://github.com/addyosmani/agent-skills"
+        },
+        {
+          "title": "Official Skills",
+          "subtitle": "官方+社区精选技能集（1000+） → Claude Code/Codex/Gemini CLI/Cursor 等",
+          "link": "https://officialskills.sh/"
         },
         {
           "title": "Tashan Cursor Skills",
@@ -1243,16 +1229,6 @@
           "link": "https://paperswithcode.com/"
         },
         {
-          "title": "There's An AI For That",
-          "subtitle": "按场景检索 AI 产品与工具",
-          "link": "https://theresanaiforthat.com/"
-        },
-        {
-          "title": "Product Hunt（人工智能）",
-          "subtitle": "新产品发布与社区投票",
-          "link": "https://www.producthunt.com/topics/artificial-intelligence"
-        },
-        {
           "title": "机器之心",
           "subtitle": "中文 AI 产业、论文速递与工具资讯",
           "link": "https://www.jiqizhixin.com/"
@@ -1278,34 +1254,9 @@
           "link": "https://openrouter.ai/rankings"
         },
         {
-          "title": "Toolify",
-          "subtitle": "全球 AI 工具发现与排行",
-          "link": "https://www.toolify.ai/zh/"
-        },
-        {
-          "title": "AIGCrank",
-          "subtitle": "中文 AIGC/产品排行向站点",
-          "link": "https://aigcrank.cn/"
-        },
-        {
-          "title": "Semantic Scholar",
-          "subtitle": "学术搜索、引用与 TL;DR 摘要",
-          "link": "https://www.semanticscholar.org/"
-        },
-        {
           "title": "Connected Papers",
           "subtitle": "引用关系图探索相关论文",
           "link": "https://www.connectedpapers.com/"
-        },
-        {
-          "title": "Elicit",
-          "subtitle": "论文检索、抽取与综述向问答",
-          "link": "https://elicit.org/"
-        },
-        {
-          "title": "Consensus",
-          "subtitle": "科学共识检索，引用论文片段回答",
-          "link": "https://consensus.app/"
         },
         {
           "title": "ResearchRabbit",
@@ -1518,6 +1469,7 @@
           "title": "Higgsfield",
           "subtitle": "高质量 AI 视频生成，电影级运镜与风格控制",
           "link": "https://higgsfield.ai/",
+          "added": "2026-04-22",
           "alias": "higgsfield,电影级视频"
         },
         {
@@ -1560,6 +1512,7 @@
           "title": "AI-Scientist-v2",
           "subtitle": "Sakana AI 全自动科研：从想法到论文，已发表 Nature",
           "link": "https://github.com/SakanaAI/AI-Scientist-v2",
+          "added": "2026-04-21",
           "alias": "ai-scientist,自动科研"
         },
         {
@@ -1611,11 +1564,6 @@
       "name": "硬件 · 边缘推理与跑分",
       "tools": [
         {
-          "title": "Ollama",
-          "subtitle": "本机拉模型后在终端对话（与「本地推理」分类互补）",
-          "link": "https://ollama.com/"
-        },
-        {
           "title": "NVIDIA Jetson",
           "subtitle": "边缘 GPU 模组与 JetPack、TensorRT 生态",
           "link": "https://developer.nvidia.com/embedded-computing"
@@ -1629,11 +1577,6 @@
           "title": "Rockchip 瑞芯微",
           "subtitle": "RK3588 等 SoC 与 NPU，国产板卡常用",
           "link": "https://www.rock-chips.com/"
-        },
-        {
-          "title": "MLX",
-          "subtitle": "Apple Silicon 优先的数组框架",
-          "link": "https://ml-explore.github.io/mlx/"
         },
         {
           "title": "Raspberry Pi AI",
@@ -1695,11 +1638,6 @@
           "title": "IPinfo",
           "subtitle": "IP 地理、ASN、公司等信息查询与 API",
           "link": "https://ipinfo.io/"
-        },
-        {
-          "title": "SimpleLogin",
-          "subtitle": "别名邮箱（偏隐私转发）",
-          "link": "https://simplelogin.io/"
         },
         {
           "title": "Lakera Guard",
@@ -1918,7 +1856,8 @@
         {
           "title": "Dia",
           "subtitle": "The Browser Company 新作，强调对话式与代理向浏览",
-          "link": "https://www.diabrowser.com/"
+          "link": "https://www.diabrowser.com/",
+          "added": "2026-04-25"
         },
         {
           "title": "Comet（Perplexity）",
@@ -2006,26 +1945,6 @@
           "title": "OpenRouter Rankings",
           "subtitle": "基于全网调用量的模型周榜、市占与分场景排行",
           "link": "https://openrouter.ai/rankings"
-        },
-        {
-          "title": "Open LLM Leaderboard",
-          "subtitle": "Hugging Face 开源大模型公开评测榜",
-          "link": "https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard"
-        },
-        {
-          "title": "LMSYS Chatbot Arena",
-          "subtitle": "对话模型公开对战与 Elo 排行榜",
-          "link": "https://lmarena.ai/"
-        },
-        {
-          "title": "Artificial Analysis",
-          "subtitle": "商业 API 延迟、价格与能力横向对比",
-          "link": "https://artificialanalysis.ai/"
-        },
-        {
-          "title": "SuperCLUE",
-          "subtitle": "中文大模型评测体系与排行榜",
-          "link": "https://www.superclueai.com/"
         },
         {
           "title": "月狐数据 · 黑马APP榜",

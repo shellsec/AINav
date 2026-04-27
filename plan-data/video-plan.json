@@ -1,0 +1,80 @@
+{
+  "id": "video-plan",
+  "title": "AI Video Plan 视频套餐横评",
+  "description": "AI视频生成套餐横向对比：可灵AI、即梦Seedance、海螺AI、Vidu、Runway、Pika、Sora、Luma、HeyGen价格功能积分对比。",
+  "updated": null,
+  "sections": [],
+  "items": [
+    {
+      "name": "可灵 AI（快手）",
+      "link": "https://klingai.kuaishou.com/",
+      "overseas": false
+    },
+    {
+      "name": "即梦 AI / Seedance（字节）",
+      "link": "https://jimeng.jianying.com/",
+      "overseas": false
+    },
+    {
+      "name": "海螺 AI 视频（MiniMax）",
+      "link": "https://hailuoai.video/",
+      "overseas": false
+    },
+    {
+      "name": "Vidu（生数科技）",
+      "link": "https://www.vidu.cn/",
+      "overseas": false
+    },
+    {
+      "name": "腾讯智影",
+      "link": "https://zenvideo.qq.com/",
+      "overseas": false
+    },
+    {
+      "name": "万兴播爆",
+      "link": "https://boabao.wondershare.cn/",
+      "overseas": false
+    },
+    {
+      "name": "LibTV（LiblibAI·哩布哩布）",
+      "link": "https://www.liblib.art/",
+      "overseas": false
+    },
+    {
+      "name": "Runway Gen-4",
+      "link": "https://runwayml.com/",
+      "overseas": true
+    },
+    {
+      "name": "Pika",
+      "link": "https://pika.art/",
+      "overseas": true
+    },
+    {
+      "name": "Sora（OpenAI）",
+      "link": "https://openai.com/sora",
+      "overseas": true
+    },
+    {
+      "name": "Luma Dream Machine",
+      "link": "https://lumalabs.ai/dream-machine",
+      "overseas": true
+    },
+    {
+      "name": "HeyGen",
+      "link": "https://www.heygen.com/",
+      "overseas": true
+    },
+    {
+      "name": "Synthesia",
+      "link": "https://www.synthesia.io/",
+      "overseas": true
+    },
+    {
+      "name": "Kling 国际版",
+      "link": "https://klingai.com/",
+      "overseas": true
+    }
+  ],
+  "sourceFile": "video-plan.html"
+}

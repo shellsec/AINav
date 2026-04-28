@@ -22,6 +22,9 @@
   gtag('js', new Date());
   gtag('config', 'G-2B8FBWRX4N');
 </script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6321431447511882" crossorigin="anonymous"></script>
+<!-- End Google AdSense -->
   <style>
     :root, html[data-theme="dark"] {
       --bg: #0f1419; --panel: #151b23; --card: #1c2430; --border: #2d3848;
@@ -117,6 +120,10 @@
 
     .ft-footer { margin-top: 2rem; padding: 1rem 0; border-top: 1px solid var(--border); font-size: 0.76rem; color: var(--muted); text-align: center; }
     .ft-footer a { color: var(--accent); }
+    .ad-slot { max-width: 80rem; margin: 0 auto; text-align: center; padding: 0 1rem; }
+    .ad-slot::before { content: "广告"; display: block; font-size: 0.6rem; color: var(--muted); opacity: 0.5; margin-bottom: 0.25rem; }
+    .ad-bottom { margin-top: 0.5rem; margin-bottom: 0; }
+    .ad-mid { margin-bottom: 0.75rem; }
 
     .back-to-top {
       position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100; width: 44px; height: 44px; padding: 0;
@@ -171,6 +178,9 @@
       <span class="ft-search-icon">🔍</span>
       <input type="search" id="ftSearch" class="ft-search" placeholder="搜索工具名、免费额度、分类…" autocomplete="off" spellcheck="false">
       <span class="ft-search-count" id="ftSearchCount"></span>
+    </div>
+    <div class="ad-slot ad-mid" id="ad-freetier-mid">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6321431447511882" data-ad-slot="XXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
     </div>
     <div class="ft-filter-section">
       <div class="ft-filter-label">免费等级</div>
@@ -13665,9 +13675,12 @@
 </article>
     </div>
     <div class="ft-no-results" id="ftNoResults" hidden>没有找到匹配的工具，试试其他关键词？</div>
+    <div class="ad-slot ad-bottom" id="ad-freetier-bottom">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6321431447511882" data-ad-slot="XXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
     <footer class="ft-footer">
-      <p>数据来源：各产品官网公开信息，仅供参考，以官网实时定价为准。最后更新：2026/04/28 01:11</p>
-      <p><a href="index.html">返回 AINav 首页</a> · <a href="ai-encyclopedia-2026.html">AI工具百科</a></p>
+      <p>数据来源：各产品官网公开信息，仅供参考，以官网实时定价为准。最后更新：2026/04/28 15:43</p>
+      <p><a href="index.html">返回 AINav 首页</a> · <a href="ai-encyclopedia-2026.html">AI工具百科</a> · <a href="privacy.html">隐私政策</a></p>
     </footer>
   </div>
   <button type="button" class="back-to-top" id="ftBackToTop" aria-label="回到顶部" title="回到顶部">↑</button>

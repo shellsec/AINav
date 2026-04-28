@@ -13,6 +13,17 @@
   <meta property="og:site_name" content="AINav">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='18' width='100' height='100' fill='%230969da'/><text x='50' y='72' font-size='60' text-anchor='middle' fill='white' font-family='system-ui' font-weight='700'>AI</text></svg>">
+  <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2B8FBWRX4N');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6321431447511882" crossorigin="anonymous"></script>
+<!-- End Google AdSense -->
   <style>
     :root, html[data-theme="dark"] {
       --bg: #0f1419; --panel: #151b23; --card: #1c2430; --border: #2d3848;
@@ -67,6 +78,9 @@
     .ec-cat-heading td { background: var(--panel); font-weight: 700; font-size: 0.8rem; color: var(--accent); padding: 0.5rem 0.65rem; position: sticky; top: 2.2em; z-index: 1; border-bottom: 2px solid var(--accent); }
     tr.ec-template td { opacity: 0.55; }
     tr.ec-template:hover td { opacity: 0.85; }
+    .ad-slot { max-width: 80rem; margin: 0 auto; text-align: center; padding: 0 1rem; }
+    .ad-slot::before { content: "广告"; display: block; font-size: 0.6rem; color: var(--muted); opacity: 0.5; margin-bottom: 0.25rem; }
+    .ad-bottom { margin-top: 0.5rem; margin-bottom: 0.5rem; }
     .back-to-top {
       position: fixed;
       right: 1.25rem;
@@ -1063,6 +1077,12 @@
         </tbody>
       </table>
     </div>
+    <div class="ad-slot ad-bottom" id="ad-encyclopedia-bottom">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6321431447511882" data-ad-slot="XXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+    <footer style="margin-top:1.5rem;padding:1rem 0;border-top:1px solid var(--border);font-size:0.76rem;color:var(--muted);text-align:center;">
+      <p><a href="index.html">返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="privacy.html">隐私政策</a></p>
+    </footer>
   </div>
   <button type="button" class="back-to-top" id="ecBackToTop" aria-label="回到顶部" title="回到顶部">↑</button>
   <script>

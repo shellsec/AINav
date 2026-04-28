@@ -493,6 +493,17 @@ function buildAiEncyclopediaPage() {
   <meta property="og:site_name" content="AINav">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='18' width='100' height='100' fill='%230969da'/><text x='50' y='72' font-size='60' text-anchor='middle' fill='white' font-family='system-ui' font-weight='700'>AI</text></svg>">
+  <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2B8FBWRX4N');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6321431447511882" crossorigin="anonymous"></script>
+<!-- End Google AdSense -->
   <style>
     :root, html[data-theme="dark"] {
       --bg: #0f1419; --panel: #151b23; --card: #1c2430; --border: #2d3848;
@@ -547,6 +558,9 @@ function buildAiEncyclopediaPage() {
     .ec-cat-heading td { background: var(--panel); font-weight: 700; font-size: 0.8rem; color: var(--accent); padding: 0.5rem 0.65rem; position: sticky; top: 2.2em; z-index: 1; border-bottom: 2px solid var(--accent); }
     tr.ec-template td { opacity: 0.55; }
     tr.ec-template:hover td { opacity: 0.85; }
+    .ad-slot { max-width: 80rem; margin: 0 auto; text-align: center; padding: 0 1rem; }
+    .ad-slot::before { content: "广告"; display: block; font-size: 0.6rem; color: var(--muted); opacity: 0.5; margin-bottom: 0.25rem; }
+    .ad-bottom { margin-top: 0.5rem; margin-bottom: 0.5rem; }
     .back-to-top {
       position: fixed;
       right: 1.25rem;
@@ -635,6 +649,12 @@ ${groupedRows}
         </tbody>
       </table>
     </div>
+    <div class="ad-slot ad-bottom" id="ad-encyclopedia-bottom">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6321431447511882" data-ad-slot="XXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+    <footer style="margin-top:1.5rem;padding:1rem 0;border-top:1px solid var(--border);font-size:0.76rem;color:var(--muted);text-align:center;">
+      <p><a href="index.html">返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="privacy.html">隐私政策</a></p>
+    </footer>
   </div>
   <button type="button" class="back-to-top" id="ecBackToTop" aria-label="回到顶部" title="回到顶部">↑</button>
   <script>
@@ -858,6 +878,9 @@ const html = `<!DOCTYPE html>
   gtag('config', 'G-2B8FBWRX4N');
 </script>
 <!-- End Google Analytics -->
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6321431447511882" crossorigin="anonymous"></script>
+<!-- End Google AdSense -->
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2d49f38b39c743ac80b6d6b9ff99494d"}'></script><!-- End Cloudflare Web Analytics -->
   <style>
     :root,
@@ -1518,6 +1541,9 @@ const html = `<!DOCTYPE html>
       font-size: 0.7rem;
       opacity: 0.85;
     }
+    .ad-slot { max-width: 80rem; margin: 0 auto; text-align: center; padding: 0 1rem; }
+    .ad-slot::before { content: "广告"; display: block; font-size: 0.6rem; color: var(--muted); opacity: 0.5; margin-bottom: 0.25rem; }
+    .ad-bottom { margin-top: 1rem; margin-bottom: 0; }
     .fav-hint {
       font-size: 0.75rem;
       font-weight: 400;
@@ -1657,12 +1683,16 @@ const html = `<!DOCTYPE html>
       ${renderSections(tree)}
     </main>
   </div>
+  <div class="ad-slot ad-bottom" id="ad-home-bottom">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6321431447511882" data-ad-slot="XXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
   <footer class="site-footer" role="contentinfo">
     <p class="site-tagline">本站强项：数据在本地、分类与扩展可定制、结构一目了然、覆盖面广（含 API 聚合、智能体与本地推理等）。</p>
     <p>本站为工具导航索引，所收录链接由各服务商自行运营；推广位为合作展示，不代表对其背书。</p>
     <p>使用任意外链服务时，请遵守所在地法律法规，并以各产品官网的条款、隐私政策与计费说明为准。</p>
     <p>本站不保证第三方网站的内容准确性、服务持续性、可用性及收费，亦不承担因访问或使用外链而产生的任何责任。</p>
     <p class="site-built">页面数据生成时间（构建）：${esc(generatedAtLabel)}（UTC 记录：${esc(generatedAt)}）</p>
+    <p><a href="privacy.html">隐私政策</a></p>
   </footer>
   <div class="lang-float">
     <a class="lang-btn site-link" href="https://ainews.aiv123.com/" target="_blank" title="AI资讯" style="text-decoration:none;font-size:0.72rem;">资讯</a>
@@ -2523,6 +2553,9 @@ ${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
   gtag('js', new Date());
   gtag('config', 'G-2B8FBWRX4N');
 </script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6321431447511882" crossorigin="anonymous"></script>
+<!-- End Google AdSense -->
   <style>
     :root, html[data-theme="dark"] {
       --bg: #0f1419; --panel: #151b23; --card: #1c2430; --border: #2d3848;
@@ -2618,6 +2651,10 @@ ${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
 
     .ft-footer { margin-top: 2rem; padding: 1rem 0; border-top: 1px solid var(--border); font-size: 0.76rem; color: var(--muted); text-align: center; }
     .ft-footer a { color: var(--accent); }
+    .ad-slot { max-width: 80rem; margin: 0 auto; text-align: center; padding: 0 1rem; }
+    .ad-slot::before { content: "广告"; display: block; font-size: 0.6rem; color: var(--muted); opacity: 0.5; margin-bottom: 0.25rem; }
+    .ad-bottom { margin-top: 0.5rem; margin-bottom: 0; }
+    .ad-mid { margin-bottom: 0.75rem; }
 
     .back-to-top {
       position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100; width: 44px; height: 44px; padding: 0;
@@ -2673,6 +2710,9 @@ ${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
       <input type="search" id="ftSearch" class="ft-search" placeholder="搜索工具名、免费额度、分类…" autocomplete="off" spellcheck="false">
       <span class="ft-search-count" id="ftSearchCount"></span>
     </div>
+    <div class="ad-slot ad-mid" id="ad-freetier-mid">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6321431447511882" data-ad-slot="XXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
     <div class="ft-filter-section">
       <div class="ft-filter-label">免费等级</div>
       <div class="ft-chips" id="ftLevelChips">
@@ -2699,9 +2739,12 @@ ${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
 ${cardsHtml}
     </div>
     <div class="ft-no-results" id="ftNoResults" hidden>没有找到匹配的工具，试试其他关键词？</div>
+    <div class="ad-slot ad-bottom" id="ad-freetier-bottom">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6321431447511882" data-ad-slot="XXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
     <footer class="ft-footer">
       <p>数据来源：各产品官网公开信息，仅供参考，以官网实时定价为准。最后更新：${esc(generatedAtLabel)}</p>
-      <p><a href="index.html">返回 AINav 首页</a> · <a href="ai-encyclopedia-2026.html">AI工具百科</a></p>
+      <p><a href="index.html">返回 AINav 首页</a> · <a href="ai-encyclopedia-2026.html">AI工具百科</a> · <a href="privacy.html">隐私政策</a></p>
     </footer>
   </div>
   <button type="button" class="back-to-top" id="ftBackToTop" aria-label="回到顶部" title="回到顶部">↑</button>

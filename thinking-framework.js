@@ -20,6 +20,7 @@
 .tf-pill-plan{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.18);color:var(--af)}\
 .tf-pill-debug{background:rgba(210,153,34,.08);border:1px solid rgba(210,153,34,.18);color:var(--warn)}\
 .tf-pill-agent{background:rgba(63,185,80,.08);border:1px solid rgba(63,185,80,.18);color:var(--accent2)}\
+.tf-pill-prompt{background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.18);color:#a78bfa}\
 .tf-link{font-size:.78rem;color:var(--muted);white-space:nowrap}\
 .tf-link a{color:var(--accent);font-weight:600}\
 ';
@@ -33,6 +34,7 @@
       <a href="plan.html" class="tf-pill tf-pill-plan">🗺️ Plan</a>\
       <a href="debug.html" class="tf-pill tf-pill-debug">🔧 Debug</a>\
       <a href="agent.html" class="tf-pill tf-pill-agent">🤖 Agent</a>\
+      <a href="prompt-guide.html" class="tf-pill tf-pill-prompt">📝 提示词指南</a>\
     </div>\
     <div class="tf-link"><a href="thinking-framework.html">总览 →</a></div>\
   </div>\

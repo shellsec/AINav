@@ -604,6 +604,7 @@ function buildAiEncyclopediaPage() {
     <div class="ec-top-inner">
       <div class="ec-nav">
         <a href="index.html">← 返回导航首页</a>
+        <a href="free-tier.html">🆓 免费额度</a>
         <a href="coding-plan.html">编程套餐横评</a>
         <a href="agent-plan.html">Agent横评</a>
         <a href="video-plan.html">视频套餐横评</a>
@@ -1604,6 +1605,7 @@ const html = `<!DOCTYPE html>
         <span class="global-search-count" id="searchCount"></span>
       </div>
       <div class="top-toolbar" role="group" aria-label="外观" data-i18n-aria="toolbarLabel">
+        <a href="free-tier.html" title="AI工具免费额度一览" data-i18n="freeTier" data-i18n-title="freeTierTitle">🆓 免费额度</a>
         <a href="ai-encyclopedia-2026.html" title="AI工具百科全书免费额度与产品说明" data-i18n="encyclopedia" data-i18n-title="encyclopediaTitle">AI工具百科</a>
         <a href="https://aiv123.com/chrome/" title="Chrome 插件" data-i18n="chromeExt" data-i18n-title="chromeExtTitle">Chrome插件</a>
         <button type="button" class="theme-btn" data-theme-set="system" data-i18n="themeSystem">跟随系统</button>
@@ -1616,6 +1618,7 @@ const html = `<!DOCTYPE html>
       </div>
     </div>
     <div class="top-plans">
+      <a href="free-tier.html" title="AI工具免费额度、刷新周期与新用户礼一览" data-i18n="freeTier" data-i18n-title="freeTierTitle" style="color:var(--accent2);font-weight:600">🆓 免费额度</a>
       <span class="top-plans-label">📊 横评</span>
       <a href="model-plan.html" title="AI模型选型横评·国内+海外旗舰">模型选型</a>
       <a href="coding-plan.html" title="国内外AI编程套餐价格对比与选购推荐" data-i18n="codingPlan" data-i18n-title="codingPlanTitle">编程套餐</a>
@@ -2030,6 +2033,8 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         toolbarLabel: "Appearance",
         encyclopedia: "AI Encyclopedia",
         encyclopediaTitle: "AI Tool Encyclopedia – Free Tiers & Descriptions",
+        freeTier: "🆓 Free Tier",
+        freeTierTitle: "AI Tool Free Tier Dashboard",
         codingPlan: "Coding Plans",
         codingPlanTitle: "AI Coding Plan Comparison & Buying Guide",
         chromeExt: "Chrome Extension",
@@ -2119,6 +2124,8 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         toolbarLabel: "外观",
         encyclopedia: "AI工具百科",
         encyclopediaTitle: "AI工具百科全书免费额度与产品说明",
+        freeTier: "🆓 免费额度",
+        freeTierTitle: "AI工具免费额度一览",
         codingPlan: "编程套餐横评",
         codingPlanTitle: "国内外AI编程套餐价格对比与选购推荐",
         chromeExt: "Chrome插件",
@@ -2368,4 +2375,448 @@ try {
   console.log("wrote ai-encyclopedia-2026.html");
 } catch (e) {
   console.error("ai-encyclopedia-2026.html:", e.message);
+}
+
+// ─── Free Tier Dashboard ───
+function buildFreeTierDashboard() {
+  const hintsPath = path.join(ROOT, "free-tier-hints.json");
+  let hints = {};
+  try { hints = JSON.parse(fs.readFileSync(hintsPath, "utf8")); } catch (e) { console.error("free-tier-hints.json:", e.message); }
+
+  // Load inferPricingHint from free-tier-infer.js
+  const { inferPricingHint, mergePricingHint } = require(path.join(ROOT, "free-tier-infer.js"));
+
+  // Normalize link for matching
+  function normalizeLink(link) {
+    try {
+      const u = new URL(link);
+      return u.origin + u.pathname.replace(/\/+$/, "");
+    } catch { return link.replace(/\/+$/, ""); }
+  }
+
+  // Build lookup: normalized link → hint data
+  const hintMap = {};
+  for (const [rawLink, data] of Object.entries(hints)) {
+    if (rawLink === "_readme") continue;
+    hintMap[normalizeLink(rawLink)] = data;
+  }
+
+  // Collect all tools with their categories
+  const toolEntries = [];
+  const seenLinks = new Set();
+
+  function collectFromNodes(nodes, parentCat) {
+    for (const n of nodes) {
+      const cat = n.name || parentCat;
+      if (n.type === "leaf" && n.tools) {
+        for (const t of n.tools) {
+          if (!t.link || seenLinks.has(normalizeLink(t.link))) continue;
+          seenLinks.add(normalizeLink(t.link));
+          const nl = normalizeLink(t.link);
+          const explicitHint = hintMap[nl] || null;
+          // Use inferPricingHint for tools without explicit hints, then merge if any
+          const inferred = inferPricingHint(t.link, t.title, cat);
+          const hint = explicitHint ? mergePricingHint(inferred, explicitHint) : inferred;
+          const source = explicitHint ? "manual" : "inferred";
+          toolEntries.push({ ...t, category: cat, hint, source });
+        }
+      } else if (n.type === "group" && n.children) {
+        collectFromNodes(n.children, cat);
+      }
+    }
+  }
+  collectFromNodes(tree, "");
+
+  // Also include hint-only entries (tools not in nav but in hints)
+  for (const [rawLink, data] of Object.entries(hints)) {
+    if (rawLink === "_readme") continue;
+    const nl = normalizeLink(rawLink);
+    if (!seenLinks.has(nl)) {
+      seenLinks.add(nl);
+      let title = "";
+      try { const u = new URL(rawLink); title = u.hostname.replace(/^www\./, ""); } catch { title = rawLink; }
+      toolEntries.push({ key: "hint-" + slugify(nl), title, subtitle: "", avatar: "", link: rawLink, path: "", category: "", hint: data });
+    }
+  }
+
+  // freeLevel categories for sorting & filtering
+  const LEVEL_ORDER = { "完全免费": 0, "软件免费": 1, "开源免费（自托管）": 2, "部分免费": 3, "免费访问": 4, "浏览免费": 5, "文档免费": 6, "按次计费": 7, "因站而异": 8 };
+  function levelSort(lv) { return LEVEL_ORDER[lv] != null ? LEVEL_ORDER[lv] : 9; }
+
+  // Sort by level then title
+  toolEntries.sort((a, b) => levelSort(a.hint.freeLevel) - levelSort(b.hint.freeLevel) || a.title.localeCompare(b.title, "zh"));
+
+  // Stats
+  const levelCounts = {};
+  for (const t of toolEntries) {
+    const lv = t.hint.freeLevel || "未标注";
+    levelCounts[lv] = (levelCounts[lv] || 0) + 1;
+  }
+
+  // Render cards
+  function levelBadgeClass(lv) {
+    if (lv === "完全免费") return "ft-badge-free";
+    if (lv === "部分免费") return "ft-badge-partial";
+    if (lv === "浏览免费" || lv === "免费访问" || lv === "文档免费") return "ft-badge-browse";
+    if (lv === "开源免费（自托管）" || lv === "软件免费") return "ft-badge-oss";
+    return "ft-badge-other";
+  }
+
+  function renderFtCard(t) {
+    const img = iconSrc(t.avatar);
+    const h = t.hint;
+    const lv = h ? h.freeLevel : "未标注";
+    const badgeCls = levelBadgeClass(lv);
+    const sourceTag = t.source === "manual" ? `<span class="ft-source ft-source-manual">已核实</span>` : `<span class="ft-source ft-source-inferred">推断</span>`;
+    return `<article class="ft-card" data-link="${esc(t.link)}" data-title="${esc(t.title)}" data-level="${esc(lv)}" data-category="${esc(t.category)}" data-source="${esc(t.source)}" data-search="${esc((t.title + " " + (t.subtitle||"") + " " + lv + " " + (h?h.quota:"") + " " + t.category).toLowerCase())}">
+<a class="ft-card-main" href="${esc(t.link)}" target="_blank" rel="noopener noreferrer">
+${img ? `<img class="ft-card-icon" src="${esc(img)}" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">` : `<span class="ft-card-icon-ph">${esc(t.title.charAt(0).toUpperCase())}</span>`}
+<div class="ft-card-body">
+<div class="ft-card-head"><h3 class="ft-card-title">${esc(t.title)}</h3><span class="ft-badge ${badgeCls}">${esc(lv)}</span>${sourceTag}</div>
+${t.category ? `<span class="ft-card-cat">${esc(t.category)}</span>` : ""}
+${h && h.quota ? `<p class="ft-card-quota">${esc(h.quota)}</p>` : ""}
+${h && h.dailyCycle && h.dailyCycle !== "—" ? `<p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>${esc(h.dailyCycle)}</p>` : ""}
+${h && h.firstBonus && h.firstBonus !== "—" ? `<p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>${esc(h.firstBonus)}</p>` : ""}
+${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
+</div>
+</a>
+</article>`;
+  }
+
+  const cardsHtml = toolEntries.map(renderFtCard).join("\n");
+
+  // Level filter chips
+  const levelChipEntries = Object.entries(levelCounts).sort((a,b) => levelSort(a[0]) - levelSort(b[0]));
+  const levelChipsHtml = levelChipEntries.map(([lv, cnt]) =>
+    `<button type="button" class="ft-chip${lv === "部分免费" ? " is-active" : ""}" data-filter-level="${esc(lv)}">${esc(lv)} <span class="ft-chip-count">${cnt}</span></button>`
+  ).join("");
+
+  // Category filter
+  const catSet = new Set(toolEntries.map(t => t.category).filter(Boolean));
+  const catChipsHtml = [...catSet].sort((a,b) => a.localeCompare(b, "zh")).map(c =>
+    `<button type="button" class="ft-chip" data-filter-cat="${esc(c)}">${esc(c)}</button>`
+  ).join("");
+
+  const totalCount = toolEntries.length;
+
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI工具免费额度一览 — AINav 免费额度仪表盘</title>
+  <meta name="description" content="AI工具免费额度汇总：DeepSeek、ChatGPT、Claude、Gemini、Kimi、豆包、通义千问等590+工具的免费额度、刷新周期、新用户礼一览，支持筛选与搜索。">
+  <meta name="keywords" content="AI工具免费额度,哪个AI免费,DeepSeek免费额度,ChatGPT免费,Claude免费,AI免费工具,免费AI对话,AI白嫖指南">
+  <link rel="canonical" href="https://aiv123.com/free-tier.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI工具免费额度一览 — AINav">
+  <meta property="og:description" content="590+ AI 工具免费额度、刷新周期、新用户礼一览表，支持筛选与搜索。">
+  <meta property="og:url" content="https://aiv123.com/free-tier.html">
+  <meta property="og:site_name" content="AINav">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='18' width='100' height='100' fill='%230969da'/><text x='50' y='72' font-size='60' text-anchor='middle' fill='white' font-family='system-ui' font-weight='700'>AI</text></svg>">
+  <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2B8FBWRX4N');
+</script>
+  <style>
+    :root, html[data-theme="dark"] {
+      --bg: #0f1419; --panel: #151b23; --card: #1c2430; --border: #2d3848;
+      --text: #e6edf3; --muted: #8b9cb3; --accent: #58a6ff; --accent2: #3fb950;
+      --warn: #d29922; --danger: #f85149;
+    }
+    html[data-theme="light"] {
+      --bg: #f6f8fa; --panel: #fff; --card: #fff; --border: #d0d7de;
+      --text: #1f2328; --muted: #59636e; --accent: #0969da; --accent2: #1a7f37;
+      --warn: #9a6700; --danger: #cf222e;
+    }
+    @media (prefers-color-scheme: light) {
+      html[data-theme="system"] {
+        --bg: #f6f8fa; --panel: #fff; --card: #fff; --border: #d0d7de;
+        --text: #1f2328; --muted: #59636e; --accent: #0969da; --accent2: #1a7f37;
+        --warn: #9a6700; --danger: #cf222e;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.5; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---- Top bar ---- */
+    .ft-top { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); background: var(--panel); position: sticky; top: 0; z-index: 10; }
+    .ft-top-inner { max-width: 80rem; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; justify-content: space-between; }
+    .ft-nav a { font-weight: 600; margin-right: 1rem; font-size: 0.88rem; }
+    .ft-toolbar { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+    .theme-btn { font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 5px; border: 1px solid var(--border);
+      background: var(--card); color: var(--muted); cursor: pointer; font-family: inherit; }
+    .theme-btn.is-active { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+
+    /* ---- Main ---- */
+    .ft-wrap { max-width: 80rem; margin: 0 auto; padding: 1rem; }
+    .ft-wrap h1 { font-size: 1.4rem; margin: 0 0 0.3rem; }
+    .ft-subtitle { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .ft-updated { font-size: 0.76rem; color: var(--muted); margin-bottom: 1rem; }
+    .ft-stats { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1rem; font-size: 0.85rem; }
+    .ft-stats span { color: var(--muted); }
+    .ft-stats strong { color: var(--accent2); }
+
+    /* ---- Search ---- */
+    .ft-search-wrap { max-width: 32rem; position: relative; margin-bottom: 0.75rem; }
+    .ft-search { width: 100%; padding: 0.5rem 0.65rem 0.5rem 2rem; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--card); color: var(--text); font-size: 0.9rem; outline: none; transition: border-color 0.15s; }
+    .ft-search:focus { border-color: var(--accent); }
+    .ft-search-icon { position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.9rem; pointer-events: none; }
+    .ft-search-count { position: absolute; right: 0.65rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.72rem; }
+
+    /* ---- Filter chips ---- */
+    .ft-filter-section { margin-bottom: 0.6rem; }
+    .ft-filter-label { font-size: 0.78rem; font-weight: 600; color: var(--muted); margin-bottom: 0.3rem; }
+    .ft-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.5rem; }
+    .ft-chip { font-size: 0.72rem; padding: 0.2rem 0.55rem; border-radius: 5px; border: 1px solid var(--border);
+      background: var(--card); color: var(--muted); cursor: pointer; font-family: inherit; white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s, background 0.15s; }
+    .ft-chip:hover { color: var(--text); border-color: var(--accent); }
+    .ft-chip.is-active { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); font-weight: 600; }
+    .ft-chip-count { font-size: 0.65rem; opacity: 0.7; margin-left: 0.15rem; }
+
+    /* ---- Card grid ---- */
+    .ft-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 0.75rem; }
+    .ft-card { border: 1px solid var(--border); border-radius: 10px; background: var(--card); overflow: hidden;
+      transition: border-color 0.15s, box-shadow 0.15s; }
+    .ft-card:hover { border-color: color-mix(in srgb, var(--accent) 40%, transparent); box-shadow: 0 2px 12px rgba(0,0,0,0.12); }
+    .ft-card[hidden] { display: none; }
+    .ft-card-main { display: flex; gap: 0.7rem; padding: 0.8rem; color: inherit; text-decoration: none; align-items: flex-start; }
+    .ft-card-main:hover { text-decoration: none; }
+    .ft-card-icon { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; flex-shrink: 0; background: var(--panel); }
+    .ft-card-icon-ph { width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+      background: var(--accent); color: #fff; font-weight: 700; font-size: 0.9rem; }
+    .ft-card-body { min-width: 0; flex: 1; }
+    .ft-card-head { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.2rem; flex-wrap: wrap; }
+    .ft-card-title { margin: 0; font-size: 0.92rem; font-weight: 600; }
+    .ft-badge { font-size: 0.62rem; padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; white-space: nowrap; letter-spacing: 0.02em; }
+    .ft-badge-free { background: rgba(63,185,80,0.15); color: var(--accent2); border: 1px solid rgba(63,185,80,0.3); }
+    .ft-badge-partial { background: rgba(88,166,255,0.12); color: var(--accent); border: 1px solid rgba(88,166,255,0.25); }
+    .ft-badge-browse { background: rgba(210,153,34,0.12); color: var(--warn); border: 1px solid rgba(210,153,34,0.25); }
+    .ft-badge-oss { background: rgba(139,92,246,0.12); color: #a78bfa; border: 1px solid rgba(139,92,246,0.25); }
+    .ft-badge-other { background: rgba(139,156,179,0.12); color: var(--muted); border: 1px solid rgba(139,156,179,0.25); }
+    .ft-card-cat { font-size: 0.68rem; color: var(--muted); display: inline-block; margin-bottom: 0.2rem; }
+    .ft-card-quota { margin: 0.15rem 0 0; font-size: 0.78rem; color: var(--text); line-height: 1.45; }
+    .ft-card-cycle, .ft-card-bonus { margin: 0.1rem 0 0; font-size: 0.74rem; color: var(--muted); line-height: 1.4; }
+    .ft-card-label { font-weight: 600; margin-right: 0.25rem; color: var(--text); font-size: 0.72rem; }
+    .ft-card-note { margin: 0.2rem 0 0; font-size: 0.7rem; color: var(--muted); line-height: 1.35; font-style: italic; }
+    .ft-card-updated { font-size: 0.65rem; color: var(--muted); margin-top: 0.15rem; opacity: 0.7; }
+    .ft-source { font-size: 0.58rem; padding: 0.05rem 0.32rem; border-radius: 3px; font-weight: 600; white-space: nowrap; margin-left: 0.25rem; vertical-align: middle; }
+    .ft-source-manual { background: rgba(63,185,80,0.12); color: var(--accent2); border: 1px solid rgba(63,185,80,0.25); }
+    .ft-source-inferred { background: rgba(139,156,179,0.1); color: var(--muted); border: 1px solid rgba(139,156,179,0.2); }
+
+    .ft-no-results { text-align: center; padding: 3rem 1rem; color: var(--muted); font-size: 0.95rem; }
+
+    .ft-footer { margin-top: 2rem; padding: 1rem 0; border-top: 1px solid var(--border); font-size: 0.76rem; color: var(--muted); text-align: center; }
+    .ft-footer a { color: var(--accent); }
+
+    .back-to-top {
+      position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100; width: 44px; height: 44px; padding: 0;
+      border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--accent);
+      font-size: 1.15rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35); opacity: 0; visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, background 0.15s, transform 0.15s;
+    }
+    .back-to-top:hover { background: var(--panel); color: var(--text); transform: translateY(-2px); }
+    .back-to-top.is-visible { opacity: 1; visibility: visible; }
+
+    @media (max-width: 768px) {
+      .ft-grid { grid-template-columns: 1fr; }
+      .ft-top-inner { justify-content: center; }
+    }
+    @media (min-width: 769px) and (max-width: 1100px) {
+      .ft-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <script>
+  (function () {
+    try {
+      var t = localStorage.getItem("ainav-theme");
+      if (t === "light" || t === "dark" || t === "system") document.documentElement.setAttribute("data-theme", t);
+      else document.documentElement.setAttribute("data-theme", "system");
+    } catch (e) { document.documentElement.setAttribute("data-theme", "system"); }
+  })();
+  </script>
+  <header class="ft-top">
+    <div class="ft-top-inner">
+      <div class="ft-nav">
+        <a href="index.html">← 返回导航首页</a>
+        <a href="free-tier.html" style="color:var(--accent2)">免费额度仪表盘</a>
+      </div>
+      <div class="ft-toolbar" role="group" aria-label="外观">
+        <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
+        <button type="button" class="theme-btn" data-theme-set="light">浅色</button>
+        <button type="button" class="theme-btn" data-theme-set="dark">深色</button>
+      </div>
+    </div>
+  </header>
+  <div class="ft-wrap">
+    <h1>🆓 AI工具免费额度一览</h1>
+    <p class="ft-subtitle">哪个AI免费？DeepSeek、ChatGPT、Claude、Gemini免费额度全收录，一键筛选比价</p>
+    <div class="ft-stats">
+      <span>已收录 <strong>${totalCount}</strong> 款工具</span>
+      ${Object.entries(levelCounts).sort((a,b)=>levelSort(a[0])-levelSort(b[0])).map(([lv,c])=>`<span>${lv} <strong>${c}</strong></span>`).join("")}
+    </div>
+    <div class="ft-search-wrap">
+      <span class="ft-search-icon">🔍</span>
+      <input type="search" id="ftSearch" class="ft-search" placeholder="搜索工具名、免费额度、分类…" autocomplete="off" spellcheck="false">
+      <span class="ft-search-count" id="ftSearchCount"></span>
+    </div>
+    <div class="ft-filter-section">
+      <div class="ft-filter-label">免费等级</div>
+      <div class="ft-chips" id="ftLevelChips">
+        <button type="button" class="ft-chip is-active" data-filter-level="">全部</button>
+        ${levelChipsHtml}
+      </div>
+    </div>
+    <div class="ft-filter-section">
+      <div class="ft-filter-label">分类</div>
+      <div class="ft-chips" id="ftCatChips">
+        <button type="button" class="ft-chip is-active" data-filter-cat="">全部</button>
+        ${catChipsHtml}
+      </div>
+    </div>
+    <div class="ft-filter-section">
+      <div class="ft-filter-label">数据来源</div>
+      <div class="ft-chips" id="ftSourceChips">
+        <button type="button" class="ft-chip is-active" data-filter-source="">全部</button>
+        <button type="button" class="ft-chip" data-filter-source="manual">✅ 已核实</button>
+        <button type="button" class="ft-chip" data-filter-source="inferred">🤖 推断</button>
+      </div>
+    </div>
+    <div class="ft-grid" id="ftGrid">
+${cardsHtml}
+    </div>
+    <div class="ft-no-results" id="ftNoResults" hidden>没有找到匹配的工具，试试其他关键词？</div>
+    <footer class="ft-footer">
+      <p>数据来源：各产品官网公开信息，仅供参考，以官网实时定价为准。最后更新：${esc(generatedAtLabel)}</p>
+      <p><a href="index.html">返回 AINav 首页</a> · <a href="ai-encyclopedia-2026.html">AI工具百科</a></p>
+    </footer>
+  </div>
+  <button type="button" class="back-to-top" id="ftBackToTop" aria-label="回到顶部" title="回到顶部">↑</button>
+  <script>
+function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('article.ft-card').getAttribute('data-link')).hostname}catch(e){}var srcs=['https://icons.duckduckgo.com/ip3/'+d+'.ico','https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=64'];if(d&&el._fb<srcs.length){el.src=srcs[el._fb++]}else{var t=el.closest('article.ft-card');var ch=(t?t.getAttribute('data-title'):'').trim().charAt(0).toUpperCase()||'?';var sp=document.createElement('span');sp.className='ft-card-icon-ph';sp.textContent=ch;el.replaceWith(sp)}}
+(function(){
+  var THEME_KEY="ainav-theme";
+  function setTheme(mode){
+    if(mode!=="light"&&mode!=="dark"&&mode!=="system")mode="system";
+    document.documentElement.setAttribute("data-theme",mode);
+    try{localStorage.setItem(THEME_KEY,mode);}catch(e){}
+    document.querySelectorAll(".theme-btn[data-theme-set]").forEach(function(b){
+      var m=b.getAttribute("data-theme-set");
+      b.classList.toggle("is-active",m===mode);
+      b.setAttribute("aria-pressed",m===mode?"true":"false");
+    });
+  }
+  var cur="system";
+  try{var s=localStorage.getItem(THEME_KEY);if(s==="light"||s==="dark"||s==="system")cur=s;}catch(e){}
+  setTheme(cur);
+  document.querySelectorAll(".theme-btn[data-theme-set]").forEach(function(b){
+    b.addEventListener("click",function(){setTheme(b.getAttribute("data-theme-set"));});
+  });
+
+  // Filter & Search
+  var grid=document.getElementById("ftGrid");
+  var cards=grid?grid.querySelectorAll(".ft-card"):[];
+  var noResults=document.getElementById("ftNoResults");
+  var searchInput=document.getElementById("ftSearch");
+  var searchCount=document.getElementById("ftSearchCount");
+  var activeLevel="";
+  var activeCat="";
+  var activeSource="";
+
+  function runFilter(){
+    var q=(searchInput?searchInput.value:"").trim().toLowerCase();
+    var visible=0;
+    for(var i=0;i<cards.length;i++){
+      var c=cards[i];
+      var search=(c.getAttribute("data-search")||"").toLowerCase();
+      var level=c.getAttribute("data-level")||"";
+      var cat=c.getAttribute("data-category")||"";
+      var source=c.getAttribute("data-source")||"";
+      var matchSearch=!q||search.indexOf(q)>=0;
+      var matchLevel=!activeLevel||level===activeLevel;
+      var matchCat=!activeCat||cat===activeCat;
+      var matchSource=!activeSource||source===activeSource;
+      var show=matchSearch&&matchLevel&&matchCat&&matchSource;
+      c.hidden=!show;
+      if(show)visible++;
+    }
+    if(noResults)noResults.hidden=visible>0;
+    if(searchCount)searchCount.textContent=q?(visible+" 项"):"";
+  }
+
+  if(searchInput){
+    var timer;
+    searchInput.addEventListener("input",function(){clearTimeout(timer);timer=setTimeout(runFilter,100);});
+    searchInput.addEventListener("keydown",function(e){if(e.key==="Escape"){searchInput.value="";runFilter();searchInput.blur();}});
+  }
+
+  // Level chips
+  var levelChips=document.querySelectorAll("#ftLevelChips .ft-chip");
+  levelChips.forEach(function(chip){
+    chip.addEventListener("click",function(){
+      activeLevel=chip.getAttribute("data-filter-level")||"";
+      levelChips.forEach(function(c){c.classList.remove("is-active");});
+      chip.classList.add("is-active");
+      runFilter();
+    });
+  });
+
+  // Cat chips
+  var catChips=document.querySelectorAll("#ftCatChips .ft-chip");
+  catChips.forEach(function(chip){
+    chip.addEventListener("click",function(){
+      activeCat=chip.getAttribute("data-filter-cat")||"";
+      catChips.forEach(function(c){c.classList.remove("is-active");});
+      chip.classList.add("is-active");
+      runFilter();
+    });
+  });
+
+  // Source chips
+  var sourceChips=document.querySelectorAll("#ftSourceChips .ft-chip");
+  sourceChips.forEach(function(chip){
+    chip.addEventListener("click",function(){
+      activeSource=chip.getAttribute("data-filter-source")||"";
+      sourceChips.forEach(function(c){c.classList.remove("is-active");});
+      chip.classList.add("is-active");
+      runFilter();
+    });
+  });
+
+  // Back to top
+  var btt=document.getElementById("ftBackToTop");
+  if(btt){
+    function syncBtt(){btt.classList.toggle("is-visible",window.scrollY>380);}
+    window.addEventListener("scroll",syncBtt,{passive:true});
+    syncBtt();
+    btt.addEventListener("click",function(){
+      var reduce=false;try{reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;}catch(e){}
+      window.scrollTo({top:0,behavior:reduce?"auto":"smooth"});
+    });
+  }
+})();
+  </script>
+<script src="thinking-framework.js"></script>
+</body>
+</html>`;
+}
+
+try {
+  fs.writeFileSync(path.join(ROOT, "free-tier.html"), buildFreeTierDashboard(), "utf8");
+  console.log("wrote free-tier.html");
+} catch (e) {
+  console.error("free-tier.html:", e.message);
 }

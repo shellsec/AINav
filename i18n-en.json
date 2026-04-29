@@ -2907,6 +2907,14 @@
     "title": "CryptoSkills",
     "desc": "Web3 + AI Agent 技能市场，链上自动化工具"
   },
+  "Skills Rank": {
+    "title": "Skills Rank",
+    "desc": "AI Agent 技能排行榜，发现最热门技能"
+  },
+  "LinSkills": {
+    "title": "LinSkills",
+    "desc": "AI Agent 技能导航与分发，七牛云出品"
+  },
   "AgentMail": {
     "title": "AgentMail",
     "desc": "AI Agent 邮件收发基础设施，API 驱动"

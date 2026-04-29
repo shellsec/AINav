@@ -6337,6 +6337,22 @@
           "avatar": "",
           "link": "https://cryptoskills.dev/",
           "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-14",
+          "title": "Skills Rank",
+          "subtitle": "AI Agent 技能排行榜，发现最热门技能",
+          "avatar": "",
+          "link": "https://skills-rank.com/",
+          "path": ""
+        },
+        {
+          "key": "ext-AI-Agent-技能市场与商店-15",
+          "title": "LinSkills",
+          "subtitle": "AI Agent 技能导航与分发，七牛云出品",
+          "avatar": "",
+          "link": "https://linskills.qiniu.com/",
+          "path": ""
         }
       ]
     },

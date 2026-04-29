@@ -1659,6 +1659,7 @@ const html = `<!DOCTYPE html>
       <a href="hardware-plan.html" title="AI硬件横评对比与选购推荐">硬件横评</a>
       <a href="ai-factory-plan.html" title="AI造物流水线·从创意到商品">AI造物</a>
       <a href="opc.html" title="一人公司·AI赋能个体创业">一人公司</a>
+      <a href="skill-plan.html" title="AI Skill最佳实践·先用再写一站式指南">Skill最佳实践</a>
     </div>
     <div class="top-promo" aria-label="合作推广：多模型 API 接入" data-i18n-aria="promoAria">
       <div class="top-promo-head">

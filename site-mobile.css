@@ -1,0 +1,179 @@
+/* AINav — shared mobile styles (≤768px) */
+@media (max-width: 768px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  /* Top nav: horizontal scroll instead of multi-row wall */
+  .cp-top-inner,
+  .ft-top-inner,
+  .ec-top-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .cp-nav,
+  .ft-nav,
+  .ec-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 0 -0.25rem;
+    padding: 0 0.25rem 0.25rem;
+  }
+  .cp-nav::-webkit-scrollbar,
+  .ft-nav::-webkit-scrollbar,
+  .ec-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .cp-nav a,
+  .ft-nav a,
+  .ec-nav a {
+    flex: 0 0 auto;
+    margin-right: 0.65rem !important;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    touch-action: manipulation;
+    white-space: nowrap;
+  }
+  .subnav-sep {
+    display: none;
+  }
+
+  .cp-toolbar,
+  .ft-toolbar,
+  .ec-toolbar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .theme-btn,
+  .lang-btn {
+    min-height: 44px;
+    min-width: 2.75rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.78rem;
+    touch-action: manipulation;
+  }
+
+  /* iOS: prevent zoom on input focus */
+  input[type="search"],
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  select,
+  textarea,
+  .global-search,
+  .ft-search,
+  .ec-search {
+    font-size: 16px !important;
+  }
+
+  .cp-wrap,
+  .ft-wrap,
+  .ec-wrap {
+    padding: 0.75rem;
+  }
+
+  /* Plan page tables */
+  .cp-platform-body {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cp-table {
+    min-width: 28rem;
+  }
+  .cp-faq-q {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Free tier filters */
+  .ft-chip {
+    min-height: 44px;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.78rem;
+    touch-action: manipulation;
+    flex: 0 0 auto;
+  }
+  .ft-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.25rem;
+  }
+  .ft-chips::-webkit-scrollbar {
+    display: none;
+  }
+  .ft-stats {
+    font-size: 0.78rem;
+  }
+
+  /* Encyclopedia */
+  .ec-table-wrap {
+    max-height: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .ec-table {
+    min-width: 36rem;
+    font-size: 0.72rem !important;
+  }
+  .ec-cats {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: none !important;
+    scrollbar-width: none;
+    padding-bottom: 0.25rem;
+  }
+  .ec-cats::-webkit-scrollbar {
+    display: none;
+  }
+  .ec-cat-chip {
+    flex: 0 0 auto;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    touch-action: manipulation;
+  }
+
+  /* Homepage */
+  .top-header {
+    gap: 0.5rem;
+  }
+  .global-search-wrap {
+    order: 3;
+    flex: 1 1 100%;
+    max-width: none;
+    min-width: 0;
+  }
+  .lang-float button {
+    width: 44px;
+    height: 44px;
+    font-size: 0.85rem;
+  }
+  .back-to-top {
+    right: 0.85rem;
+    bottom: calc(0.85rem + env(safe-area-inset-bottom, 0));
+  }
+  .sidebar-toggle {
+    min-height: 44px;
+    padding: 0.45rem 0.75rem !important;
+  }
+
+  /* Thinking framework hero cards */
+  .tf-hero-icon {
+    min-width: 44%;
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+}

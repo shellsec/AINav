@@ -702,6 +702,40 @@ function renderItem(item) {
   </div>`;
 }
 
+function buildSectionHtml(c, isActive) {
+  const isToolCat = c.items.length > 0 && c.items.every(i => i.isTool);
+  const scene = c.items.filter(i => !i.isTool);
+  const conn = isToolCat
+    ? c.items.filter(i => state.tools[i.id]).length
+    : scene.filter(i => getItemStatus(i.id) >= 1).length;
+  const total = isToolCat ? c.items.length : scene.length;
+  const meta = isToolCat
+    ? t('toolOwned', { conn, total })
+    : c.id === 'human'
+      ? t('sectionBoundary', { conn, total, pct: total ? Math.round((conn / total) * 100) : 0 })
+      : t('sectionConnect', { conn, total, pct: total ? Math.round((conn / total) * 100) : 0, desc: c.desc ? ' · ' + c.desc : '' });
+
+  const body = isToolCat
+    ? `<div class="tool-grid">${c.items.length ? c.items.map(renderItem).join('') : `<div class="empty-hint">${t('emptyTools')}</div>`}</div>`
+    : c.items.length
+      ? c.items.map(renderItem).join('')
+      : c.id === 'custom'
+        ? `<div class="empty-hint">${t('emptyCustom')}</div>`
+        : c.id === 'myentry'
+          ? `<div class="empty-hint">${t('emptyMyEntry')}<br><button class="btn btn-primary" style="margin-top:0.75rem" onclick="switchTab('allbuiltin')">${t('openAllBuiltin')}</button></div>`
+          : c.id === 'allbuiltin'
+            ? `<div class="empty-hint">${t('emptyAllBuiltin')}</div>`
+          : `<div class="empty-hint">${t('emptySearch')}</div>`;
+
+  return `<div class="section ${isActive ? 'active' : ''}" data-id="${c.id}">
+    <div class="section-head">
+      <h2>${c.icon || ''} ${c.name}</h2>
+      <span class="section-meta">${meta}</span>
+    </div>
+    ${body}
+  </div>`;
+}
+
 function render() {
   const stats = calcStats();
   renderDashboard(stats);
@@ -709,11 +743,15 @@ function render() {
   renderSnapshotHistory();
   renderRoiPanel(stats);
 
-  const active = document.getElementById('tabs')?.dataset.active || getFilteredCategories()[0]?.id;
   const cats = getFilteredCategories();
+  let tabActive = document.getElementById('tabs')?.dataset.active || cats[0]?.id;
+  if (!cats.some(c => c.id === tabActive) && cats.length) {
+    tabActive = cats[0].id;
+  }
+  document.getElementById('tabs').dataset.active = tabActive;
 
-  document.getElementById('legendAi').style.display = active === 'human' ? 'none' : 'flex';
-  document.getElementById('legendHuman').style.display = active === 'human' ? 'flex' : 'none';
+  document.getElementById('legendAi').style.display = tabActive === 'human' ? 'none' : 'flex';
+  document.getElementById('legendHuman').style.display = tabActive === 'human' ? 'flex' : 'none';
 
   document.getElementById('tabs').innerHTML = cats
     .map(c => {
@@ -723,64 +761,28 @@ function render() {
         ? c.items.filter(i => state.tools[i.id]).length
         : scene.filter(i => getItemStatus(i.id) >= 1).length;
       const total = isToolCat ? c.items.length : scene.length;
-      const meta = isToolCat
-        ? `${conn}/${total}`
-        : c.id === 'human'
-          ? `${conn}/${total}`
-          : `${conn}/${total}`;
-      const cls = c.id === active ? 'tab active' : 'tab';
+      const meta = `${conn}/${total}`;
+      const cls = c.id === tabActive ? 'tab active' : 'tab';
       return `<button class="${cls}" onclick="switchTab('${c.id}')">${c.icon || ''} ${c.name}<span class="badge">${meta}</span></button>`;
     })
     .join('');
 
-  if (!cats.some(c => c.id === active) && cats.length) {
-    document.getElementById('tabs').dataset.active = cats[0].id;
-  }
-  const tabActive = document.getElementById('tabs').dataset.active || cats[0]?.id;
+  const activeCat = cats.find(c => c.id === tabActive) || cats[0];
 
-  document.getElementById('sections').innerHTML = cats
-    .map(c => {
-      const isActive = c.id === tabActive;
-      const isToolCat = c.items.length > 0 && c.items.every(i => i.isTool);
-      const scene = c.items.filter(i => !i.isTool);
-      const conn = isToolCat
-        ? c.items.filter(i => state.tools[i.id]).length
-        : scene.filter(i => getItemStatus(i.id) >= 1).length;
-      const total = isToolCat ? c.items.length : scene.length;
-      const meta = isToolCat
-        ? t('toolOwned', { conn, total })
-        : c.id === 'human'
-          ? t('sectionBoundary', { conn, total, pct: total ? Math.round((conn / total) * 100) : 0 })
-          : t('sectionConnect', { conn, total, pct: total ? Math.round((conn / total) * 100) : 0, desc: c.desc ? ' · ' + c.desc : '' });
+  document.getElementById('sections').innerHTML = activeCat
+    ? buildSectionHtml(activeCat, true)
+    : `<div class="empty-hint">${t('emptySearch')}</div>`;
 
-      const body = isToolCat
-        ? `<div class="tool-grid">${c.items.length ? c.items.map(renderItem).join('') : `<div class="empty-hint">${t('emptyTools')}</div>`}</div>`
-        : c.items.length
-          ? c.items.map(renderItem).join('')
-          : c.id === 'custom'
-            ? `<div class="empty-hint">${t('emptyCustom')}</div>`
-            : c.id === 'myentry'
-              ? `<div class="empty-hint">${t('emptyMyEntry')}<br><button class="btn btn-primary" style="margin-top:0.75rem" onclick="switchTab('allbuiltin')">${t('openAllBuiltin')}</button></div>`
-              : c.id === 'allbuiltin'
-                ? `<div class="empty-hint">${t('emptyAllBuiltin')}</div>`
-              : `<div class="empty-hint">${t('emptySearch')}</div>`;
-
-      return `<div class="section ${isActive ? 'active' : ''}" data-id="${c.id}">
-        <div class="section-head">
-          <h2>${c.icon || ''} ${c.name}</h2>
-          <span class="section-meta">${meta}</span>
-        </div>
-        ${body}
-      </div>`;
-    })
-    .join('');
-
-  document.getElementById('tabs').dataset.active = tabActive;
+  requestAnimationFrame(() => {
+    const activeTab = document.querySelector(`.tab.active`);
+    activeTab?.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+  });
 }
 
 function switchTab(id) {
   document.getElementById('tabs').dataset.active = id;
   render();
+  document.querySelector('.tabs-sticky')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function setItemStatus(id, st) {
@@ -1137,6 +1139,8 @@ function syncFormFromState() {
   if (state.autoCost) state.monthlyCost = calcAutoMonthlyCost();
 }
 
+let searchRenderTimer;
+
 function bindSettings() {
   document.getElementById('hourlyRate')?.addEventListener('input', e => {
     state.hourlyRate = parseFloat(e.target.value) || 100;
@@ -1177,7 +1181,8 @@ function bindSettings() {
   document.getElementById('searchBox')?.addEventListener('input', e => {
     state.searchQuery = e.target.value;
     saveState();
-    render();
+    clearTimeout(searchRenderTimer);
+    searchRenderTimer = setTimeout(render, 180);
   });
 }
 

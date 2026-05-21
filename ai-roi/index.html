@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>AI 全面接入自查站 · 覆盖率 & ROI</title>
   <style>
     :root {
@@ -345,10 +345,106 @@
       color: var(--muted);
       font-size: 0.75rem;
     }
-    @media (max-width: 600px) {
-      .status-btns { flex-direction: row; flex-wrap: wrap; width: 100%; }
-      .status-btn { flex: 1; min-width: 60px; }
-      .item-top { flex-wrap: wrap; }
+    .tabs-sticky { margin-bottom: 1rem; }
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: env(safe-area-inset-bottom, 0);
+        -webkit-text-size-adjust: 100%;
+      }
+      .header {
+        position: static;
+        padding: 0.85rem 0.75rem 0.65rem;
+      }
+      h1 { font-size: 1.15rem; }
+      .subtitle { font-size: 0.78rem; line-height: 1.45; }
+      .dash {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+      }
+      .card { padding: 0.65rem 0.75rem; }
+      .card-value { font-size: 1.2rem; }
+      .main { padding: 0.75rem; }
+      .entry-guide ol { margin-left: 1rem; }
+      .quick-nav { gap: 0.35rem; }
+      .quick-nav .btn { flex: 1 1 calc(50% - 0.35rem); min-height: 44px; }
+      .settings { grid-template-columns: 1fr; }
+      .settings input, .settings select {
+        font-size: 16px;
+        min-height: 44px;
+        padding: 0.55rem 0.65rem;
+      }
+      .tabs-sticky {
+        position: sticky;
+        top: 0;
+        z-index: 90;
+        margin: 0 -0.75rem 0.75rem;
+        padding: 0.5rem 0.75rem;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+      }
+      .tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 0.35rem;
+        margin-bottom: 0;
+        padding-bottom: 0.15rem;
+      }
+      .tabs::-webkit-scrollbar { display: none; }
+      .tab {
+        flex: 0 0 auto;
+        min-height: 44px;
+        padding: 0.5rem 0.85rem;
+        font-size: 0.8rem;
+        touch-action: manipulation;
+      }
+      .btn {
+        min-height: 44px;
+        touch-action: manipulation;
+      }
+      .actions { gap: 0.4rem; }
+      .actions .btn { flex: 1 1 calc(50% - 0.4rem); }
+      .item-top {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .status-btns {
+        flex-direction: row;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.35rem;
+      }
+      .status-btn {
+        width: auto;
+        min-height: 44px;
+        padding: 0.45rem 0.25rem;
+        font-size: 0.72rem;
+        line-height: 1.2;
+        touch-action: manipulation;
+      }
+      .tool-grid { grid-template-columns: 1fr; }
+      .tool-item { min-height: 44px; }
+      .tool-item input { width: 22px; height: 22px; }
+      .section-head { align-items: flex-start; }
+      .section-head h2 { font-size: 0.95rem; }
+      .legend { gap: 0.5rem; font-size: 0.72rem; padding: 0.55rem 0.65rem; }
+      .roi-panel { padding: 1rem 0.85rem; }
+      .roi-grid { grid-template-columns: 1fr 1fr; }
+      .modal {
+        align-items: flex-end;
+        padding: 0;
+      }
+      .modal-box {
+        max-height: 88vh;
+        overflow-y: auto;
+        border-radius: var(--radius) var(--radius) 0 0;
+        padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom, 0));
+      }
+      .modal-actions .btn { min-width: 88px; }
+      .calibrate input { width: 64px; font-size: 16px; min-height: 36px; }
     }
     .modal {
       position: fixed; inset: 0; background: rgba(0,0,0,0.65);
@@ -493,7 +589,9 @@
     <span style="font-size:0.75rem;color:var(--muted);align-self:center" id="decisionMode">决策模式：你决策 · AI 执行</span>
   </div>
 
-  <div class="tabs" id="tabs"></div>
+  <div class="tabs-sticky">
+    <div class="tabs" id="tabs"></div>
+  </div>
   <div id="sections"></div>
 
   <div class="roi-panel" id="roiPanel"></div>

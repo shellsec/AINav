@@ -77,6 +77,12 @@
       st.textContent = ".lang-btn{margin-left:.35rem}.cp-nav a{font-weight:600;margin-right:.65rem;font-size:.88rem;line-height:1.6;display:inline-block}";
       document.head.appendChild(st);
     }
+    if (!document.querySelector('link[href*="site-mobile.css"]')) {
+      var mob = document.createElement("link");
+      mob.rel = "stylesheet";
+      mob.href = "site-mobile.css";
+      document.head.appendChild(mob);
+    }
   }
 
   function syncLangButtons(lang) {

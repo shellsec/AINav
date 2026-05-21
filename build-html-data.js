@@ -371,7 +371,8 @@ function buildAiEncyclopediaPage() {
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="site-mobile.css">
   <title>百科 — 缺少源文件</title>
 </head>
 <body style="font-family:system-ui,sans-serif;padding:1.5rem">
@@ -483,7 +484,8 @@ function buildAiEncyclopediaPage() {
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="site-mobile.css">
   <title>${esc(dynamicTitle)} — 网页版</title>
   <meta name="description" content="AINav 百科：590+ AI 工具全量索引，含免费额度、产品分类与官网链接，支持搜索与筛选。">
   <link rel="canonical" href="https://aiv123.com/ai-encyclopedia-2026.html">
@@ -855,7 +857,8 @@ const html = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="site-mobile.css">
   <title>AINav — AI 工具导航 | 590+ AI工具一网打尽</title>
   <meta name="description" content="AINav 是最全的 AI 工具导航站，收录 590+ AI 工具，涵盖 ChatGPT、Midjourney、智能体、RAG、MCP、本地推理等分类，支持收藏、搜索、深浅主题切换。">
   <meta name="keywords" content="AI工具导航,AI导航,AI工具大全,ChatGPT,Midjourney,AI工具推荐,人工智能工具,AINav">
@@ -2544,7 +2547,8 @@ ${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="site-mobile.css">
   <title>AI工具免费额度一览 — AINav 免费额度仪表盘</title>
   <meta name="description" content="AI工具免费额度汇总：DeepSeek、ChatGPT、Claude、Gemini、Kimi、豆包、通义千问等590+工具的免费额度、刷新周期、新用户礼一览，支持筛选与搜索。">
   <meta name="keywords" content="AI工具免费额度,哪个AI免费,DeepSeek免费额度,ChatGPT免费,Claude免费,AI免费工具,免费AI对话,AI白嫖指南">

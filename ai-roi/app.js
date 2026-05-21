@@ -120,6 +120,7 @@ function getAllCategories() {
 function buildAllBuiltinCategory() {
   const items = [];
   CATEGORIES.forEach(cat => {
+    if (cat.id === 'qualification') return;
     cat.items.forEach(item => {
       items.push({
         ...item,
@@ -167,7 +168,7 @@ function getEffectiveItem(item) {
 
 function getAllSceneItems() {
   return allItemsFlat()
-    .filter(i => !i.isTool)
+    .filter(i => !i.isTool && !i.isQual)
     .map(i => getEffectiveItem(i));
 }
 
@@ -184,7 +185,7 @@ function getAllowedCatIds() {
 }
 
 function isCategoryVisible(catId) {
-  if (catId === 'myentry' || catId === 'allbuiltin') return true;
+  if (catId === 'myentry' || catId === 'allbuiltin' || catId === 'qualification') return true;
   const allowed = getAllowedCatIds();
   if (!allowed) return true;
   return allowed.includes(catId);
@@ -228,7 +229,9 @@ function getFilteredCategories() {
     }),
   });
 
-  return [allFiltered, myFiltered, ...rest];
+  const qualFromRest = rest.find(c => c.id === 'qualification');
+  const restWithoutQual = rest.filter(c => c.id !== 'qualification');
+  return [allFiltered, myFiltered, ...(qualFromRest ? [qualFromRest] : []), ...restWithoutQual];
 }
 
 function getStatsScopeItems() {
@@ -248,6 +251,7 @@ function getItemStatus(id) {
 }
 
 function statusLabels(item) {
+  if (item.isQual) return getQualStatusLabels();
   return getStatusLabels(item.humanOnly);
 }
 
@@ -289,6 +293,26 @@ function weeklySavedForItem(item, st) {
   return { saved: 0, isReal: false };
 }
 
+function calcQualStats() {
+  const cat = getAllCategories().find(c => c.id === 'qualification');
+  if (!cat) {
+    return { qualTotal: 0, qualMet: 0, qualPartial: 0, qualPct: 0, qualQualified: false, qualPassNeed: 10 };
+  }
+  const items = cat.items;
+  const total = items.length;
+  let qualMet = 0;
+  let qualPartial = 0;
+  items.forEach(i => {
+    const st = getItemStatus(i.id);
+    if (st >= 2) qualMet++;
+    else if (st >= 1) qualPartial++;
+  });
+  const qualPct = total ? Math.round((qualMet / total) * 100) : 0;
+  const qualPassNeed = Math.ceil(total * 0.83);
+  const qualQualified = qualMet >= qualPassNeed;
+  return { qualTotal: total, qualMet, qualPartial, qualPct, qualQualified, qualPassNeed };
+}
+
 function calcStats() {
   const sceneItems = getStatsScopeItems();
   const aiItems = sceneItems.filter(i => !i.humanOnly);
@@ -308,7 +332,7 @@ function calcStats() {
   const catStats = {};
 
   getAllCategories().forEach(cat => {
-    if (!isCategoryVisible(cat.id)) return;
+    if (!isCategoryVisible(cat.id) || cat.id === 'qualification') return;
     const scene = cat.items.filter(i => !i.isTool);
     if (!scene.length) return;
     let cConnected = 0;
@@ -400,12 +424,14 @@ function calcStats() {
   const unrealizedPct = potentialMonthly > 0 ? Math.round((1 - monthlyValue / potentialMonthly) * 100) : 0;
 
   const misCount = Object.values(state.misDelegation).filter(Boolean).length;
+  const qual = calcQualStats();
   const maturity = calcMaturity({
     connectPct,
     humanBoundaryPct,
     monthlyROI,
     transformConnectPct,
     star,
+    qualPct: qual.qualPct,
   });
 
   return {
@@ -449,18 +475,24 @@ function calcStats() {
     transformConnectPct,
     misCount,
     maturity,
+    ...qual,
   };
 }
 
-function calcMaturity(stats) {
-  const { connectPct, humanBoundaryPct, monthlyROI, transformConnectPct } = stats;
+function calcMaturity(input) {
+  const { connectPct, humanBoundaryPct, monthlyROI, transformConnectPct, qualPct = 100 } = input;
   const levels = getMaturityLabels();
-  if (connectPct >= 60 && humanBoundaryPct >= 70) return levels[5];
-  if (connectPct >= 55 && transformConnectPct >= 20) return levels[4];
-  if (connectPct >= 50) return levels[3];
-  if (connectPct >= 40 && monthlyROI > 0) return levels[2];
-  if (connectPct >= 20) return levels[1];
-  return levels[0];
+  let rawLevel = 0;
+  if (connectPct >= 20) rawLevel = 1;
+  if (connectPct >= 40 && monthlyROI > 0) rawLevel = 2;
+  if (connectPct >= 50) rawLevel = 3;
+  if (connectPct >= 55 && transformConnectPct >= 20) rawLevel = 4;
+  if (connectPct >= 60 && humanBoundaryPct >= 70) rawLevel = 5;
+  let level = rawLevel;
+  if (qualPct < 50) level = Math.min(level, 1);
+  else if (qualPct < 67) level = Math.min(level, 2);
+  else if (qualPct < 83) level = Math.min(level, 4);
+  return { ...levels[level], qualCapped: level < rawLevel };
 }
 
 function renderDashboard(stats) {
@@ -512,6 +544,12 @@ function renderDashboard(stats) {
       <div class="progress-bar"><div class="progress-fill" style="width:${stats.toolPct}%;background:var(--star)"></div></div>
     </div>
     <div class="card">
+      <div class="card-label">${t('dashQual')}</div>
+      <div class="card-value ${stats.qualQualified ? 'green' : ''}" style="${stats.qualQualified ? '' : 'color:var(--warn)'}">${stats.qualMet}/${stats.qualTotal}</div>
+      <div class="card-sub">${t('dashQualSub', { pct: stats.qualPct, need: stats.qualPassNeed, status: stats.qualQualified ? t('dashQualPass') : t('dashQualFail') })}</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${stats.qualPct}%;background:${stats.qualQualified ? 'var(--accent2)' : 'var(--warn)'}"></div></div>
+    </div>
+    <div class="card">
       <div class="card-label">${t('dashMonthlyValue')}</div>
       <div class="card-value green">${fmtMoney(stats.monthlyValue)}</div>
       <div class="card-sub">${t('dashMonthlyValueSub', { real: stats.hasRealSavings ? t('dashRealPrefix') : '', hours: stats.weeklyHoursSaved.toFixed(1) })}</div>
@@ -535,9 +573,10 @@ function renderMaturityBar(stats) {
     .join('<span style="color:var(--border)"> → </span>');
   document.getElementById('maturityBar').innerHTML = `
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem">
-      <div><strong style="font-size:0.9rem">${t('maturityTitle')}</strong> <span class="maturity-tag">${m.label}</span></div>
+      <div><strong style="font-size:0.9rem">${t('maturityTitle')}</strong> <span class="maturity-tag">${m.label}</span>${m.qualCapped ? ` <span style="font-size:0.72rem;color:var(--warn)">${t('qualGateHint')}</span>` : ''}</div>
       <div style="font-size:0.78rem;color:var(--muted)">${m.desc}</div>
     </div>
+    <div style="margin-top:0.5rem;font-size:0.78rem;color:var(--muted)">${t('qualBarSummary', { met: stats.qualMet, total: stats.qualTotal, pct: stats.qualPct, need: stats.qualPassNeed })}</div>
     <div style="margin-top:0.5rem;display:flex;flex-wrap:wrap;gap:0.25rem;align-items:center">${steps}</div>
   `;
 }
@@ -633,6 +672,30 @@ function renderItem(item) {
 
   const loc = localizeItem(item);
   const st = getItemStatus(item.id);
+
+  if (item.isQual) {
+    const labels = getQualStatusLabels();
+    const btns = labels
+      .map(
+        (label, i) =>
+          `<button class="status-btn s${i} ${st === i ? 'active' : ''}" onclick="setItemStatus('${item.id}', ${i})">${label}</button>`
+      )
+      .join('');
+    const passHint = st >= 2 ? t('qualItemPass') : st === 1 ? t('qualItemPartial') : t('qualItemFail');
+    return `<div class="item item-qual checked-${st}">
+    <div class="item-top">
+      <span class="item-id">${item.id}</span>
+      <div class="item-body">
+        <div class="item-title">${loc.title}</div>
+        <div class="item-desc">${passHint}</div>
+        <div class="item-problem">${t('qualRisk')}：${loc.problem}</div>
+        <div class="item-tools">${t('qualCriteria')}：${loc.tools}</div>
+      </div>
+      <div class="status-btns qual-status-btns">${btns}</div>
+    </div>
+  </div>`;
+  }
+
   const eff = getEffectiveItem(loc);
   const ov = state.overrides[item.id] || {};
   const labels = statusLabels(loc);
@@ -707,12 +770,25 @@ function buildSectionHtml(c, isActive) {
   const scene = c.items.filter(i => !i.isTool);
   const conn = isToolCat
     ? c.items.filter(i => state.tools[i.id]).length
-    : scene.filter(i => getItemStatus(i.id) >= 1).length;
+    : c.id === 'qualification'
+      ? scene.filter(i => getItemStatus(i.id) >= 2).length
+      : scene.filter(i => getItemStatus(i.id) >= 1).length;
   const total = isToolCat ? c.items.length : scene.length;
   const meta = isToolCat
     ? t('toolOwned', { conn, total })
     : c.id === 'human'
       ? t('sectionBoundary', { conn, total, pct: total ? Math.round((conn / total) * 100) : 0 })
+      : c.id === 'qualification'
+        ? t('sectionQual', {
+            met: scene.filter(i => getItemStatus(i.id) >= 2).length,
+            partial: scene.filter(i => getItemStatus(i.id) === 1).length,
+            total,
+            pct: total ? Math.round((scene.filter(i => getItemStatus(i.id) >= 2).length / total) * 100) : 0,
+            pass:
+              scene.filter(i => getItemStatus(i.id) >= 2).length >= Math.ceil(total * 0.83)
+                ? t('dashQualPass')
+                : t('dashQualFail'),
+          })
       : t('sectionConnect', { conn, total, pct: total ? Math.round((conn / total) * 100) : 0, desc: c.desc ? ' · ' + c.desc : '' });
 
   const body = isToolCat
@@ -750,8 +826,10 @@ function render() {
   }
   document.getElementById('tabs').dataset.active = tabActive;
 
-  document.getElementById('legendAi').style.display = tabActive === 'human' ? 'none' : 'flex';
+  document.getElementById('legendAi').style.display =
+    tabActive === 'human' || tabActive === 'qualification' ? 'none' : 'flex';
   document.getElementById('legendHuman').style.display = tabActive === 'human' ? 'flex' : 'none';
+  document.getElementById('legendQual').style.display = tabActive === 'qualification' ? 'flex' : 'none';
 
   document.getElementById('tabs').innerHTML = cats
     .map(c => {
@@ -759,7 +837,9 @@ function render() {
       const isToolCat = scene.length === 0 && c.items.some(i => i.isTool);
       const conn = isToolCat
         ? c.items.filter(i => state.tools[i.id]).length
-        : scene.filter(i => getItemStatus(i.id) >= 1).length;
+        : c.id === 'qualification'
+          ? scene.filter(i => getItemStatus(i.id) >= 2).length
+          : scene.filter(i => getItemStatus(i.id) >= 1).length;
       const total = isToolCat ? c.items.length : scene.length;
       const meta = `${conn}/${total}`;
       const cls = c.id === tabActive ? 'tab active' : 'tab';
@@ -985,6 +1065,7 @@ function exportMarkdownReport() {
 | ${t('roiStar')} | ${stats.star} |
 | ${t('roiTransform')} | ${stats.transformConnectPct}% |
 | ${t('dashTools')} | ${stats.toolsOwned}/${stats.toolTotal} (${stats.toolPct}%) |
+| ${t('dashQual')} | ${stats.qualMet}/${stats.qualTotal} (${stats.qualPct}%) · ${stats.qualQualified ? t('dashQualPass') : t('dashQualFail')} |
 
 ## ${t('mdSec2')}
 
@@ -1001,7 +1082,24 @@ ${stats.hasRealSavings ? `| ${t('mdRealValue')} | ${fmtMoney(stats.realMonthlyVa
 ## ${t('mdSec3')}
 
 - **${t('mdLevel')}**：${stats.maturity.label}
-- **${t('mdDesc')}**：${stats.maturity.desc}
+- **${t('mdDesc')}**：${stats.maturity.desc}${stats.maturity.qualCapped ? ' · ' + t('qualGateHint') : ''}
+
+## ${t('mdSecQual')}
+
+${(() => {
+  const cat = getAllCategories().find(c => c.id === 'qualification');
+  if (!cat) return t('mdNone');
+  const labels = getQualStatusLabels();
+  return cat.items
+    .map(i => {
+      const st = getItemStatus(i.id);
+      const loc = localizeItem(i);
+      return `- **${i.id}** ${loc.title} — **${labels[st] || labels[0]}**`;
+    })
+    .join('\n');
+})()}
+
+${t('mdQualFoot', { met: stats.qualMet, total: stats.qualTotal, need: stats.qualPassNeed, status: stats.qualQualified ? t('dashQualPass') : t('dashQualFail') })}
 
 ## ${t('mdSec4')}
 
@@ -1053,7 +1151,9 @@ function saveMonthlySnapshot() {
     maturity: stats.maturity.label,
     monthlyROI: stats.monthlyROI,
     monthlyValue: stats.monthlyValue,
-    aiCoverablePct: stats.aiCoverablePct,
+    qualPct: stats.qualPct,
+    qualMet: stats.qualMet,
+    qualQualified: stats.qualQualified,
   };
   state.snapshots = state.snapshots.filter(s => s.month !== month);
   state.snapshots.push(snap);

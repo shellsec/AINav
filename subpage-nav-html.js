@@ -18,7 +18,7 @@ const SUBPAGE_NAV_LINKS = [
   { href: "hardware-plan.html", zh: "硬件", en: "Hardware", match: ["hardware-plan.html"] },
   { href: "ai-factory-plan.html", zh: "AI造物", en: "AI Factory", match: ["ai-factory-plan.html"] },
   { type: "sep" },
-  { href: "ai-roi/", zh: "AI接入自查", en: "AI Audit", match: ["ai-roi/", "ai-roi/index.html"] },
+  { href: "ai-roi/", zh: "AI技能落地", en: "AI Skills Audit", match: ["ai-roi/", "ai-roi/index.html"] },
   { href: "opc.html", zh: "一人公司", en: "OPC", match: ["opc.html", "opc-global.html", "opc-resources.html"] },
   { href: "skill-plan.html", zh: "Skill", en: "Skill", match: ["skill-plan.html"] },
   { href: "thinking-framework.html", zh: "AI第一思考", en: "Thinking", match: ["thinking-framework.html", "ask.html", "plan.html", "debug.html", "agent.html", "prompt-guide.html"] },

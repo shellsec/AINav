@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>AI 全面接入自查站 · 覆盖率 & ROI</title>
+  <title>AI 技能落地自查 · 覆盖率 & ROI</title>
   <style>
     :root {
       --bg: #0f1117;
@@ -242,6 +242,11 @@
     .item.checked-1 .item-estimate,
     .item.checked-2 .item-estimate,
     .item.checked-3 .item-estimate { display: block; }
+    .item-qual { border-left: 3px solid var(--accent); }
+    .qual-status-btns { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+    @media (max-width: 768px) {
+      .qual-status-btns { width: 100%; }
+    }
     .status-btns {
       display: flex;
       flex-direction: column;
@@ -487,8 +492,8 @@
     <p class="ainav-back"><a href="../index.html" id="ainavBackLink">← AINav 首页</a></p>
     <div class="header-top">
       <div>
-        <h1 id="headerTitle">AI 全面接入自查站</h1>
-        <p class="subtitle" id="headerSubtitle">v5 · 134+ 场景 · AI vs 人工双池 · 真实 ROI 校准 · 离线可用</p>
+        <h1 id="headerTitle">AI 技能落地自查站</h1>
+        <p class="subtitle" id="headerSubtitle">v5 · 180+ 场景与技能 · 工具/Skill/Agent · 从清单到落地 · ROI 校准 · 离线可用</p>
       </div>
       <div class="lang-switch">
         <button type="button" class="btn active" id="btnLangZh" onclick="setLang('zh')">中文</button>
@@ -503,17 +508,20 @@
   <div id="loadError" class="load-error" style="display:none"></div>
 
   <div class="card entry-guide" id="entryGuide">
-    <strong style="font-size:0.95rem" id="guideTitle">📑 内置 177+ 项，不用自己建清单</strong>
+    <strong style="font-size:0.95rem" id="guideTitle">📑 180+ 场景与技能项 — 清单到落地，不用自己建</strong>
     <p style="font-size:0.85rem;color:var(--muted);margin:0.35rem 0 0.5rem" id="guideP">
-      点 Tab <strong>「📑 全部内置项」</strong> 可一次看完所有场景；或按分类 Tab 浏览。每条右侧点按钮 = 录入。
+      点 Tab <strong>「📑 全部内置项」</strong> 看全量；或按分类浏览，含 <strong>🧩 AI 技能落地</strong>。每条右侧点按钮 = 录入接入状态。
     </p>
     <ol>
       <li id="guideStep1"><strong>看全部</strong> — Tab「📑 全部内置项」（默认）</li>
       <li id="guideStep2"><strong>勾状态</strong> — 每条右侧：偶尔 / 常态 / 高ROI</li>
-      <li id="guideStep3"><strong>填校准</strong>（可选）— 卡片内「原→现→实际省 min/周」</li>
+      <li id="guideStep3"><strong>合格线</strong> — Tab「✅ 接入合格线」12 条体系项</li>
+      <li id="guideStep4"><strong>填校准</strong>（可选）— 场景卡片内「原→现→实际省 min/周」</li>
     </ol>
     <div class="quick-nav">
       <button class="btn btn-primary" id="navAllBuiltin" onclick="switchTab('allbuiltin')">📑 全部内置项</button>
+      <button class="btn" id="navQual" onclick="switchTab('qualification')">✅ 合格线</button>
+      <button class="btn" id="navSkills" onclick="switchTab('skills')">🧩 技能落地</button>
       <button class="btn" id="navLife" onclick="switchTab('life')">🏠 生活</button>
       <button class="btn" id="navAgents" onclick="switchTab('agents')">🤖 工具/Agent</button>
       <label style="display:flex;align-items:center;gap:0.35rem;font-size:0.8rem;margin-left:0.5rem;cursor:pointer">
@@ -554,7 +562,7 @@
   <div class="settings card" style="grid-template-columns:1fr auto">
     <div>
       <label id="labelSearch">搜索场景 / 工具</label>
-      <input type="text" id="searchBox" placeholder="输入关键词，如 纪要、Cursor、RAG…" />
+      <input type="text" id="searchBox" placeholder="输入关键词，如 纪要、Cursor、龙虾、OpenClaw…" />
     </div>
   </div>
 
@@ -585,6 +593,14 @@
     <span><i class="dot" style="background:var(--star)"></i> <span id="legendHuman3">AI 仅辅助备料</span></span>
   </div>
 
+  <div class="legend" id="legendQual" style="display:none">
+    <span><strong id="legendQualTitle">✅ 接入合格线</strong></span>
+    <span><i class="dot" style="background:var(--none)"></i> <span id="legendQual0">未达标</span></span>
+    <span><i class="dot" style="background:var(--occ)"></i> <span id="legendQual1">部分</span></span>
+    <span><i class="dot" style="background:var(--reg)"></i> <span id="legendQual2">已达标</span></span>
+    <span style="font-size:0.72rem;color:var(--muted);margin-left:0.25rem">· ≥10/12 已达标 = 合格 · 影响成熟度上限</span>
+  </div>
+
   <div class="actions" style="margin-top:0">
     <span style="font-size:0.75rem;color:var(--muted);align-self:center" id="decisionMode">决策模式：你决策 · AI 执行</span>
   </div>
@@ -598,12 +614,12 @@
 </div>
 
 <div class="footer" id="footerText">
-  ai-roi v5 · 你决策 AI 执行 · 支持真实 baseline 校准 · 数据存本地
+  ai-roi v5 · 场景·技能·工具 · 你决策 AI 执行 · 数据存本地
 </div>
 
 <div id="onboardModal" class="modal" style="display:none">
   <div class="modal-box">
-    <h2 id="onboardWelcome">欢迎使用 AI 全面接入自查站</h2>
+    <h2 id="onboardWelcome">欢迎使用 AI 技能落地自查站</h2>
     <div id="onboardStep"></div>
     <div class="modal-actions">
       <button class="btn" id="btnSkip" onclick="closeOnboarding()">跳过</button>

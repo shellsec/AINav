@@ -6,14 +6,14 @@ const STATUS_MUL = [0, 0.5, 1, 1.2];
 
 const ROLE_CATS = {
   all: null,
-  office: ['life','office','complex','transform','human','industry','chat','workflow','creative','hardware'],
-  dev: ['life','dev','complex','transform','human','industry','agents','chat','workflow','hardware'],
-  biz: ['life','office','biz','complex','transform','human','industry','chat','workflow','creative'],
+  office: ['life','office','complex','transform','human','industry','skills','qualification','chat','workflow','creative','hardware'],
+  dev: ['life','dev','complex','transform','human','industry','agents','skills','qualification','chat','workflow','hardware'],
+  biz: ['life','office','biz','complex','transform','human','industry','skills','qualification','chat','workflow','creative'],
 };
 
 const DEFAULT_TOOL_PRICES = {
   A1: 145, A2: 145, A3: 145, A4: 100, A5: 100, A6: 0, A7: 0, A8: 0, A9: 100, A10: 100,
-  A11: 0, A12: 145, A13: 0, A14: 145, A15: 145, A16: 145, A17: 0,
+  A11: 0, A12: 145, A13: 0, A14: 145, A15: 145, A16: 145, A17: 0, A18: 100, A19: 100, A20: 80,
   T1: 145, T2: 145, T3: 100, T4: 30, T5: 0, T6: 0, T7: 0, T8: 0, T9: 140, T10: 0, T11: 100, T12: 0,
   F1: 0, F2: 0, F3: 140, F4: 200, F5: 0, F6: 60, F7: 80, F8: 0,
   M1: 80, M2: 80, M3: 200, M4: 80, M5: 120, M6: 60,
@@ -218,8 +218,9 @@ const CATEGORIES = [
   },
   {
     id: 'agents',
-    name: '编程 Agent',
+    name: 'Agent 工具',
     icon: '🤖',
+    desc: '编程 Agent · 个人助理 · 2026 热门：龙虾 / 爱马仕 等',
     items: [
       { id:'A1', title:'Cursor Agent · 多文件自主改码', problem:'跨文件任务慢', tools:'Cursor Pro/Business', base:0, now:0, freq:0, isTool:true },
       { id:'A2', title:'Claude Code (CC) · 终端编程 Agent', problem:'CLI 工作流', tools:'Claude Pro/Max', base:0, now:0, freq:0, isTool:true },
@@ -238,6 +239,9 @@ const CATEGORIES = [
       { id:'A15', title:'Claude Computer Use', problem:'GUI 操作 Agent', tools:'Claude', base:0, now:0, freq:0, isTool:true },
       { id:'A16', title:'Multi-hour Agent · 数小时级任务', problem:'跨步长任务', tools:'CC/Cursor/Devin', base:0, now:0, freq:0, isTool:true },
       { id:'A17', title:'TaskMaster / Spec→Task 分解', problem:'大需求拆任务', tools:'TaskMaster AI', base:0, now:0, freq:0, isTool:true },
+      { id:'A18', title:'OpenClaw（龙虾）· 自托管个人 AI 助理', problem:'IM 多通道、本地常驻、插件生态', tools:'OpenClaw + API', base:0, now:0, freq:0, isTool:true },
+      { id:'A19', title:'Hermes Agent（爱马仕）· 自进化 Agent', problem:'跨会话记忆、自学 Skill、定时任务', tools:'Hermes + API/VPS', base:0, now:0, freq:0, isTool:true },
+      { id:'A20', title:'Flowith · 画布式 Agent 工作流', problem:'多模型编排、可视化 Agent 链', tools:'Flowith', base:0, now:0, freq:0, isTool:true },
     ]
   },
   {
@@ -288,6 +292,21 @@ const CATEGORIES = [
     ]
   },
   {
+    id: 'skills',
+    name: 'AI 技能落地',
+    icon: '🧩',
+    desc: 'Skill / MCP / SOP — 把重复流程封装成可复用能力',
+    items: [
+      { id:'K1', title:'Cursor / Claude Skills · 安装与日常调用', problem:'重复操作没沉淀、每次重讲上下文', tools:'Cursor Skills / Claude Code', base:30, now:8, freq:5 },
+      { id:'K2', title:'自建 Skill（SKILL.md）封装 SOP', problem:'同类任务无法一键复用', tools:'Cursor / Claude Skill 作者', base:120, now:30, freq:0.5 },
+      { id:'K3', title:'Skill 合集选用 · 团队共享库', problem:'不知道有哪些现成技能', tools:'skills.sh / GitHub 合集', base:60, now:15, freq:0.3 },
+      { id:'K4', title:'MCP 工具接入 · Agent 可调外部能力', problem:'Agent 缺数据库/浏览器/API', tools:'MCP Server 生态', base:90, now:25, freq:0.2 },
+      { id:'K5', title:'Prompt 模板技能化（纪要/周报/PRD）', problem:'好 prompt 用完就丢', tools:'prompts/ 目录 + Skill', base:45, now:10, freq:2, prompt:'W1' },
+      { id:'K6', title:'多 Skill 编排 · 一条龙工作流', problem:'单点技能不成体系', tools:'CC / Cursor Agent + Skills', base:180, now:45, freq:0.2 },
+      { id:'K7', title:'热门 Agent 落地 · 龙虾 / 爱马仕 / IM 通道', problem:'跟风装 Agent 但未接 IM、未配 Skill', tools:'OpenClaw / Hermes / 飞书·Telegram', base:120, now:30, freq:0.3 },
+    ]
+  },
+  {
     id: 'hardware',
     name: 'AI 硬件',
     icon: '📱',
@@ -316,6 +335,27 @@ const CATEGORIES = [
       { id:'I4', title:'医疗文书 · 病历整理/出院小结（非诊断）', problem:'文书负担重', tools:'Claude/专科 AI · 人审', base:60, now:15, freq:4 },
       { id:'I5', title:'制造 · SOP/质检报告/设备维保记录', problem:'现场文档滞后', tools:'ChatGPT+MES/Notion AI', base:90, now:20, freq:2 },
       { id:'I6', title:'金融 · 合规摘要/研报/风险简报', problem:'信息密集读不完', tools:'Claude/ChatGPT/Bloomberg AI', base:120, now:30, freq:2 },
+    ]
+  },
+
+  {
+    id: 'qualification',
+    name: '接入合格线',
+    icon: '✅',
+    desc: '12 条体系项 · ≥10 项「已达标」= 合格 · 影响成熟度上限',
+    items: [
+      { id:'Q1', title:'数据分级表 · 什么能上云、什么必须本地', problem:'敏感数据误上传云模型', tools:'书面分级：公开/内部/机密/绝不上云 + 对应工具', isQual:true },
+      { id:'Q2', title:'个人 / 企业账号分离', problem:'工作数据走私人 ChatGPT', tools:'企业版/Team · 工作专用账号 · 禁混用', isQual:true },
+      { id:'Q3', title:'Top10 高频场景写入 SOP', problem:'想起来才用、无固定触发', tools:'文档化：何时用、用什么、产出放哪', isQual:true },
+      { id:'Q4', title:'Top5 已 Skill / Prompt 模板化', problem:'每次重讲上下文', tools:'Skill 库 / prompts/ · 一键调用', isQual:true },
+      { id:'Q5', title:'对外输出 100% 人审', problem:'AI 幻觉直接发出', tools:'邮件/合同/推文/merge 前固定终审人', isQual:true },
+      { id:'Q6', title:'敏感场景走本地 / 私有化', problem:'源码/客户/财务上公有云', tools:'Ollama/LM Studio/企业版 · 脱敏后再问', isQual:true },
+      { id:'Q7', title:'模型路由与成本上限', problem:'全用最贵模型、Agent 烧额度', tools:'草稿便宜/定稿强 · 月预算 · 路由表', isQual:true },
+      { id:'Q8', title:'Agent Fallback 备选路径', problem:'龙虾/爱马仕/Cloud 挂了停工', tools:'备用工具 · 纯人工 SOP · 降级清单', isQual:true },
+      { id:'Q9', title:'项目上下文包随项目更新', problem:'换项目 AI 不了解背景', tools:'CLAUDE.md / Cursor Rules / AGENTS.md', isQual:true },
+      { id:'Q10', title:'月度快照 + 删废订阅', problem:'工具越订越多、ROI 不明', tools:'本页「保存快照」· 月审订阅', isQual:true },
+      { id:'Q11', title:'误交 AI 月审', problem:'不该交的交了无复盘', tools:'🛡️ 人工池 · misDelegation 标记 · 月看', isQual:true },
+      { id:'Q12', title:'团队 Skill 共享（多人）/ 个人库（solo）', problem:'好 Skill 散落个人聊天', tools:'共享 Git/Notion · solo 则个人 Skill 库', isQual:true },
     ]
   },
 

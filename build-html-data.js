@@ -1660,7 +1660,7 @@ const html = `<!DOCTYPE html>
       <a href="hardware-plan.html" title="AI硬件横评对比与选购推荐">硬件横评</a>
       <a href="ai-factory-plan.html" title="AI造物流水线·从创意到商品">AI造物</a>
       <span class="top-plans-label">📋 落地</span>
-      <a href="ai-roi/" title="134+ 场景自查 · 覆盖率 · ROI 月报 · 离线可用" data-i18n="aiRoi" data-i18n-title="aiRoiTitle">AI 接入自查</a>
+      <a href="ai-roi/" title="180+ 场景与技能 · 清单到落地 · ROI · 离线可用" data-i18n="aiRoi" data-i18n-title="aiRoiTitle">AI 技能落地自查</a>
       <a href="opc.html" title="一人公司·AI赋能个体创业">一人公司</a>
       <a href="skill-plan.html" title="AI Skill最佳实践·先用再写一站式指南">Skill最佳实践</a>
       <span class="top-plans-label">🧠 方法论</span>
@@ -2073,8 +2073,8 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         freeTierTitle: "AI Tool Free Tier Dashboard",
         codingPlan: "Coding Plans",
         codingPlanTitle: "AI Coding Plan Comparison & Buying Guide",
-        aiRoi: "AI Adoption Audit",
-        aiRoiTitle: "134+ scenarios · coverage · ROI report · works offline",
+        aiRoi: "AI Skills Rollout Audit",
+        aiRoiTitle: "180+ scenarios & skills · checklist to rollout · ROI · offline",
         thinkingFramework: "AI Thinking",
         thinkingFrameworkTitle: "Ask · Plan · Debug · Agent · Prompt guide",
         chromeExt: "Chrome Extension",
@@ -2168,8 +2168,8 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         freeTierTitle: "AI工具免费额度一览",
         codingPlan: "编程套餐横评",
         codingPlanTitle: "国内外AI编程套餐价格对比与选购推荐",
-        aiRoi: "AI 接入自查",
-        aiRoiTitle: "134+ 场景自查 · 覆盖率 · ROI 月报 · 离线可用",
+        aiRoi: "AI 技能落地自查",
+        aiRoiTitle: "180+ 场景与技能 · 清单到落地 · ROI · 离线可用",
         thinkingFramework: "AI第一思考",
         thinkingFrameworkTitle: "Ask · Plan · Debug · Agent · 提示词指南",
         chromeExt: "Chrome插件",

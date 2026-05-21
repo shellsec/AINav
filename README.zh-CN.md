@@ -32,14 +32,17 @@ node build-html-data.js
 - **GitHub 链接**：工具栏右侧 GitHub 图标跳转到仓库。
 - **回到顶部**：滚动后右下角出现浮动按钮，一键回到页首。
 - **构建时间**：每次执行 `node build-html-data.js` 会在页脚展示构建时间。
-- **免费额度参考页**：**`free-tiers.html`** 列出当前菜单树中**去重后的全部产品链接**，正文说明来自 **`free-tier-hints.json`**（手工维护）；未维护的条目显示「未标注」，**务必以各产品官网计费为准**。
+- **免费额度参考页**：**`free-tier.html`** 列出当前菜单树中**去重后的全部产品链接**，正文说明来自 **`free-tier-hints.json`**（手工维护）；未维护的条目显示「未标注」，**务必以各产品官网计费为准**。运行 `node scripts/check-free-tier-hints.js` 可查看 hints 覆盖率。
 
 ## 仓库内主要文件
 
 | 文件 | 说明 |
 |------|------|
 | `index.html` | 导航页面（构建产物，可直接打开） |
-| `ai-encyclopedia-2026.html` | **AI 工具百科全书**（构建产物） |
+| `free-tier.html` | **免费额度仪表盘**（构建产物） |
+| `plan-nav.js` | 横评页 / OPC 统一顶栏（注入脚本） |
+| `ai-roi/` | AI 接入自查 · 覆盖率 & ROI |
+| `docs/DATA-SOURCES.md` | 数据源说明与百科合并评估 |
 | `site-data.json` | 本地维护的菜单树与工具数据（JSON，项目核心数据源） |
 | `build-html-data.js` | 读取 `site-data.json`、合并扩展、写出 `index.html` 与百科页 |
 | `download-icons.mjs` | 根据 `site-data.json` 中的 `avatar` 下载图标，生成 `icons/manifest.json` |

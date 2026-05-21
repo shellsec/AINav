@@ -91,7 +91,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
 </head>
 <body>
 <div class="cp-top"><div class="cp-top-inner">
-  <div class="cp-nav">
+  <div class="cp-nav" data-plan-nav>
     <a href="index.html">← AINav 首页</a><a href="coding-plan.html">编程套餐</a><a href="agent-plan.html">Agent</a><a href="video-plan.html">视频套餐</a><a href="image-plan.html">图像套餐</a><a href="hardware-plan.html" style="color:var(--hw)">硬件横评</a><a href="ai-factory-plan.html">AI造物</a><a href="opc.html">一人公司</a>
   </div>
   <div class="cp-toolbar">
@@ -422,6 +422,8 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
 })();
 </script>
 <div class="cp-footer">数据来源：各品牌官网、电商实时价格、行业报告 · 价格以官网为准 · <a href="index.html">← 返回 AINav 首页</a></div>
+<script src="plan-nav.js" data-active="hardware-plan.html"></script>
+<script src="plan-meta-i18n.js"></script>
 <script src="thinking-framework.js"></script>
 </body>
 </html>

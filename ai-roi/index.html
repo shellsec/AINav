@@ -1,0 +1,522 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 全面接入自查站 · 覆盖率 & ROI</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #242836;
+      --border: #2e3345;
+      --text: #e8eaef;
+      --muted: #8b92a8;
+      --accent: #6c8cff;
+      --accent2: #4ade80;
+      --warn: #fbbf24;
+      --danger: #f87171;
+      --none: #4b5563;
+      --occ: #ca8a04;
+      --reg: #16a34a;
+      --star: #a855f7;
+      --radius: 12px;
+      --font: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 1rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner { max-width: 1200px; margin: 0 auto; }
+    .ainav-back { margin-bottom: 0.5rem; font-size: 0.82rem; }
+    .ainav-back a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .ainav-back a:hover { text-decoration: underline; }
+    h1 { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .subtitle { color: var(--muted); font-size: 0.85rem; }
+    .dash {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.85rem 1rem;
+    }
+    .card-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .card-value { font-size: 1.5rem; font-weight: 700; margin-top: 0.15rem; }
+    .card-value.green { color: var(--accent2); }
+    .card-value.blue { color: var(--accent); }
+    .card-value.purple { color: var(--star); }
+    .card-sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; }
+    .progress-bar {
+      height: 6px;
+      background: var(--surface2);
+      border-radius: 99px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+    .main { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+    .settings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .settings label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .settings input, .settings select {
+      width: 100%;
+      padding: 0.5rem 0.65rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .tab {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: all 0.2s;
+    }
+    .tab:hover { border-color: var(--accent); color: var(--text); }
+    .tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .tab .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 0 0.4rem;
+      border-radius: 99px;
+      font-size: 0.7rem;
+      margin-left: 0.25rem;
+    }
+    .section { display: none; }
+    .section.active { display: block; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .section-head h2 { font-size: 1.05rem; }
+    .section-meta { font-size: 0.8rem; color: var(--muted); }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      padding: 0.65rem 0.85rem;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .legend span { display: flex; align-items: center; gap: 0.35rem; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.6rem;
+      transition: border-color 0.2s;
+    }
+    .item.checked-1 { border-left: 3px solid var(--occ); }
+    .item.checked-2 { border-left: 3px solid var(--reg); }
+    .item.checked-3 { border-left: 3px solid var(--star); }
+    .item-top {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .item-id {
+      font-size: 0.7rem;
+      color: var(--muted);
+      background: var(--surface2);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+    .item-body { flex: 1; min-width: 0; }
+    .item-title { font-weight: 600; font-size: 0.92rem; }
+    .item-desc { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+    .item-problem { font-size: 0.78rem; color: var(--warn); margin-top: 0.35rem; }
+    .item-tools { font-size: 0.75rem; color: var(--accent); margin-top: 0.25rem; }
+    .item-mode {
+      display: inline-block;
+      font-size: 0.65rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .mode-direct { background: rgba(248,113,113,0.2); color: #fca5a5; }
+    .mode-transform { background: rgba(96,165,250,0.2); color: #93c5fd; }
+    .mode-human { background: rgba(251,191,36,0.2); color: #fcd34d; }
+    .compare-bar {
+      display: flex;
+      height: 28px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 0.75rem 0;
+      border: 1px solid var(--border);
+    }
+    .compare-ai {
+      background: linear-gradient(90deg, #4ade80, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #052e16;
+      min-width: 2rem;
+      transition: width 0.4s;
+    }
+    .compare-human {
+      background: linear-gradient(90deg, #fbbf24, #f59e0b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #451a03;
+      min-width: 2rem;
+      transition: width 0.4s;
+      flex: 1;
+    }
+    .compare-legend {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .item-human-note {
+      font-size: 0.78rem;
+      color: var(--warn);
+      margin-top: 0.35rem;
+    }
+    .item-estimate {
+      font-size: 0.78rem;
+      color: var(--accent2);
+      margin-top: 0.35rem;
+      display: none;
+    }
+    .item.checked-1 .item-estimate,
+    .item.checked-2 .item-estimate,
+    .item.checked-3 .item-estimate { display: block; }
+    .status-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      flex-shrink: 0;
+    }
+    .status-btn {
+      width: 72px;
+      padding: 0.25rem 0.4rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 0.68rem;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+    }
+    .status-btn:hover { filter: brightness(1.1); }
+    .status-btn.s0.active { background: var(--none); color: #fff; border-color: var(--none); }
+    .status-btn.s1.active { background: var(--occ); color: #000; border-color: var(--occ); }
+    .status-btn.s2.active { background: var(--reg); color: #fff; border-color: var(--reg); }
+    .status-btn.s3.active { background: var(--star); color: #fff; border-color: var(--star); }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.6rem;
+    }
+    .tool-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      padding: 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .tool-item:has(input:checked) { border-color: var(--accent2); background: rgba(74,222,128,0.06); }
+    .tool-item input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--accent2); cursor: pointer; }
+    .tool-name { font-weight: 600; font-size: 0.88rem; }
+    .tool-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      background: var(--surface2);
+      color: var(--muted);
+      margin-left: 0.35rem;
+    }
+    .tool-desc { font-size: 0.76rem; color: var(--muted); margin-top: 0.2rem; }
+    .tool-price { font-size: 0.72rem; color: var(--warn); margin-top: 0.2rem; }
+    .roi-panel {
+      background: linear-gradient(135deg, #1a2332, #1a1d27);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+    .roi-panel h3 { font-size: 1rem; margin-bottom: 0.75rem; }
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+    .roi-item .label { font-size: 0.75rem; color: var(--muted); }
+    .roi-item .val { font-size: 1.25rem; font-weight: 700; margin-top: 0.15rem; }
+    .cat-bars { margin-top: 1rem; }
+    .cat-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+    }
+    .cat-row .name { width: 100px; flex-shrink: 0; color: var(--muted); }
+    .cat-row .bar-wrap { flex: 1; height: 8px; background: var(--surface2); border-radius: 99px; overflow: hidden; }
+    .cat-row .bar { height: 100%; background: var(--accent); border-radius: 99px; transition: width 0.4s; }
+    .cat-row .pct { width: 42px; text-align: right; font-weight: 600; }
+    .actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    .btn:hover { border-color: var(--accent); }
+    .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    @media (max-width: 600px) {
+      .status-btns { flex-direction: row; flex-wrap: wrap; width: 100%; }
+      .status-btn { flex: 1; min-width: 60px; }
+      .item-top { flex-wrap: wrap; }
+    }
+    .modal {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.65);
+      display: flex; align-items: center; justify-content: center; z-index: 200; padding: 1rem;
+    }
+    .modal-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem; max-width: 480px; width: 100%;
+    }
+    .modal-box h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+    .modal-actions { display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1rem; }
+    .calibrate { margin-top: 0.5rem; padding: 0.5rem; background: var(--surface2); border-radius: 8px; font-size: 0.78rem; }
+    .calibrate input { width: 70px; padding: 0.25rem; margin: 0 0.25rem; background: var(--bg); border: 1px solid var(--border); color: var(--text); border-radius: 4px; }
+    .prompt-link { font-size: 0.72rem; margin-top: 0.25rem; }
+    .prompt-link a { color: var(--accent2); }
+    .maturity-tag { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; background: var(--surface2); }
+    .entry-guide { border-left: 3px solid var(--accent); }
+    .entry-guide ol { margin: 0.5rem 0 0 1.2rem; font-size: 0.85rem; color: var(--muted); }
+    .entry-guide li { margin-bottom: 0.35rem; }
+    .entry-guide strong { color: var(--text); }
+    .load-error { background: rgba(248,113,113,0.15); border: 1px solid var(--danger); color: #fca5a5; padding: 1rem; border-radius: var(--radius); margin-bottom: 1rem; }
+    .empty-hint { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.9rem; }
+    .entry-mode .calibrate { border: 1px solid var(--accent); background: rgba(108,140,255,0.08); }
+    .quick-nav { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+    .quick-nav .btn { font-size: 0.78rem; padding: 0.35rem 0.65rem; }
+    .lang-switch { display: flex; gap: 0.35rem; margin-left: auto; align-items: center; }
+    .lang-switch .btn { font-size: 0.75rem; padding: 0.3rem 0.55rem; min-width: 2.5rem; }
+    .lang-switch .btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    @media print {
+      .actions, .settings, .customItemForm, .tabs, .modal { display: none !important; }
+      body { background: #fff; color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <p class="ainav-back"><a href="../index.html" id="ainavBackLink">← AINav 首页</a></p>
+    <div class="header-top">
+      <div>
+        <h1 id="headerTitle">AI 全面接入自查站</h1>
+        <p class="subtitle" id="headerSubtitle">v5 · 134+ 场景 · AI vs 人工双池 · 真实 ROI 校准 · 离线可用</p>
+      </div>
+      <div class="lang-switch">
+        <button type="button" class="btn active" id="btnLangZh" onclick="setLang('zh')">中文</button>
+        <button type="button" class="btn" id="btnLangEn" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+    <div class="dash" id="dashboard"></div>
+  </div>
+</div>
+
+<div class="main">
+  <div id="loadError" class="load-error" style="display:none"></div>
+
+  <div class="card entry-guide" id="entryGuide">
+    <strong style="font-size:0.95rem" id="guideTitle">📑 内置 177+ 项，不用自己建清单</strong>
+    <p style="font-size:0.85rem;color:var(--muted);margin:0.35rem 0 0.5rem" id="guideP">
+      点 Tab <strong>「📑 全部内置项」</strong> 可一次看完所有场景；或按分类 Tab 浏览。每条右侧点按钮 = 录入。
+    </p>
+    <ol>
+      <li id="guideStep1"><strong>看全部</strong> — Tab「📑 全部内置项」（默认）</li>
+      <li id="guideStep2"><strong>勾状态</strong> — 每条右侧：偶尔 / 常态 / 高ROI</li>
+      <li id="guideStep3"><strong>填校准</strong>（可选）— 卡片内「原→现→实际省 min/周」</li>
+    </ol>
+    <div class="quick-nav">
+      <button class="btn btn-primary" id="navAllBuiltin" onclick="switchTab('allbuiltin')">📑 全部内置项</button>
+      <button class="btn" id="navLife" onclick="switchTab('life')">🏠 生活</button>
+      <button class="btn" id="navAgents" onclick="switchTab('agents')">🤖 工具/Agent</button>
+      <label style="display:flex;align-items:center;gap:0.35rem;font-size:0.8rem;margin-left:0.5rem;cursor:pointer">
+        <input type="checkbox" id="entryMode" style="width:auto" onchange="toggleEntryMode(this.checked)" />
+        <span id="entryModeLabel">录入模式（高亮校准框）</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="settings card">
+    <div>
+      <label id="labelHourlyRate">时薪 / 时间价值（元/h）</label>
+      <input type="number" id="hourlyRate" value="100" min="1" />
+    </div>
+    <div>
+      <label id="labelMonthlyCost">月 AI 订阅（元）</label>
+      <input type="number" id="monthlyCost" value="300" min="0" />
+      <label style="margin-top:0.35rem;display:flex;align-items:center;gap:0.35rem;font-size:0.72rem;color:var(--muted)">
+        <input type="checkbox" id="autoCost" checked style="width:auto" />
+        <span id="labelAutoCost">按已选工具自动加总</span>
+      </label>
+    </div>
+    <div>
+      <label id="labelRiskCost">月风险成本（返工/误用，元）</label>
+      <input type="number" id="riskCost" value="0" min="0" />
+    </div>
+    <div>
+      <label id="labelWorkType">工作性质（筛选 Tab）</label>
+      <select id="workType">
+        <option value="all">全栈</option>
+        <option value="office">偏办公</option>
+        <option value="dev">偏研发</option>
+        <option value="biz">偏业务</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="settings card" style="grid-template-columns:1fr auto">
+    <div>
+      <label id="labelSearch">搜索场景 / 工具</label>
+      <input type="text" id="searchBox" placeholder="输入关键词，如 纪要、Cursor、RAG…" />
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary" id="btnExportMd" onclick="exportMarkdownReport()">导出 Markdown 报告</button>
+    <button class="btn btn-primary" id="btnSaveSnapshot" onclick="saveMonthlySnapshot()">保存本月快照</button>
+    <button class="btn" id="btnExportJson" onclick="exportData()">导出 JSON</button>
+    <button class="btn" id="btnImportJson" onclick="importData()">导入 JSON</button>
+    <button class="btn" id="btnOnboarding" onclick="showOnboarding()">新手引导</button>
+    <button class="btn" id="btnReset" onclick="resetAll()">重置</button>
+  </div>
+
+  <div class="card" id="maturityBar" style="margin-bottom:1rem;padding:0.85rem 1rem"></div>
+  <div class="card" id="snapshotHistory" style="margin-bottom:1rem;padding:0.85rem 1rem;display:none"></div>
+
+  <div class="legend" id="legendAi">
+    <span><strong id="legendAiTitle">AI 可覆盖项</strong></span>
+    <span><i class="dot" style="background:var(--none)"></i> <span id="legendAi0">未接入</span></span>
+    <span><i class="dot" style="background:var(--occ)"></i> <span id="legendAi1">偶尔（50%）</span></span>
+    <span><i class="dot" style="background:var(--reg)"></i> <span id="legendAi2">常态（100%）</span></span>
+    <span><i class="dot" style="background:var(--star)"></i> <span id="legendAi3">高 ROI（120%）</span></span>
+  </div>
+  <div class="legend" id="legendHuman" style="display:none">
+    <span><strong id="legendHumanTitle">🛡️ 不可全交 AI · 人工项</strong></span>
+    <span><i class="dot" style="background:var(--none)"></i> <span id="legendHuman0">未标注</span></span>
+    <span><i class="dot" style="background:var(--occ)"></i> <span id="legendHuman1">已标注边界</span></span>
+    <span><i class="dot" style="background:var(--reg)"></i> <span id="legendHuman2">人工流程到位</span></span>
+    <span><i class="dot" style="background:var(--star)"></i> <span id="legendHuman3">AI 仅辅助备料</span></span>
+  </div>
+
+  <div class="actions" style="margin-top:0">
+    <span style="font-size:0.75rem;color:var(--muted);align-self:center" id="decisionMode">决策模式：你决策 · AI 执行</span>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+  <div id="sections"></div>
+
+  <div class="roi-panel" id="roiPanel"></div>
+</div>
+
+<div class="footer" id="footerText">
+  ai-roi v5 · 你决策 AI 执行 · 支持真实 baseline 校准 · 数据存本地
+</div>
+
+<div id="onboardModal" class="modal" style="display:none">
+  <div class="modal-box">
+    <h2 id="onboardWelcome">欢迎使用 AI 全面接入自查站</h2>
+    <div id="onboardStep"></div>
+    <div class="modal-actions">
+      <button class="btn" id="btnSkip" onclick="closeOnboarding()">跳过</button>
+      <button class="btn btn-primary" id="onboardNext" onclick="nextOnboarding()">下一步</button>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="items-en.js"></script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

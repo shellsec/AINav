@@ -54,7 +54,6 @@ echo ========================================
 echo   构建完成！
 echo ========================================
 echo.
-echo 输出: index.html
-if exist index-en.html echo       index-en.html
+echo 输出: index.html, ai-encyclopedia-2026.html, free-tier.html, sitemap.xml
 echo.
 pause

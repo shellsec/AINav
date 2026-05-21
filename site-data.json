@@ -10,7 +10,7 @@
           "title": "DeepSeek",
           "subtitle": "日常首推：推理强、免费好用，长文与写代码",
           "avatar": "icon/DeepSeek.png",
-          "link": "https://www.deepseek.com",
+          "link": "https://chat.deepseek.com/",
           "path": ""
         },
         {
@@ -18,7 +18,7 @@
           "title": "豆包",
           "subtitle": "字节系，聊天、创作、多模态与抖音生态",
           "avatar": "icon/豆包.png",
-          "link": "https://www.doubao.com/",
+          "link": "https://www.doubao.com/chat",
           "path": ""
         },
         {
@@ -58,7 +58,7 @@
           "title": "Claude",
           "subtitle": "长文写作、复杂推理与长对话",
           "avatar": "icon/Claude.png",
-          "link": "https://www.anthropic.com/claude",
+          "link": "https://claude.ai/",
           "path": ""
         },
         {
@@ -113,7 +113,7 @@
           "title": "Claude",
           "subtitle": "Anthropic开发的大语言模型",
           "avatar": "icon/Claude.png",
-          "link": "https://www.anthropic.com/claude",
+          "link": "https://claude.ai/",
           "path": ""
         },
         {
@@ -121,7 +121,7 @@
           "title": "DeepSeek",
           "subtitle": "全新体验，无限可能，DeepSeek-V3 在开源模型中位列榜首",
           "avatar": "icon/DeepSeek.png",
-          "link": "https://www.deepseek.com",
+          "link": "https://chat.deepseek.com/",
           "path": "/detail/deepseek"
         },
         {
@@ -177,7 +177,7 @@
           "title": "Bing新必应",
           "subtitle": "微软推出的新版结合了ChatGPT功能的必应",
           "avatar": "icon/Bing新必应.png",
-          "link": "https://www.bing.com/",
+          "link": "https://www.bing.com/chat",
           "path": ""
         },
         {
@@ -209,7 +209,7 @@
           "title": "海螺问问",
           "subtitle": "MiniMax推出的免费AI智能聊天助理",
           "avatar": "icon/海螺问问.png",
-          "link": "https://hailuoai.com/",
+          "link": "https://chat.minimaxi.com/",
           "path": ""
         },
         {
@@ -225,7 +225,7 @@
           "title": "通义千问",
           "subtitle": "阿里巴巴推出的类ChatGPT响应人类指令的大模型，已免费开放",
           "avatar": "icon/通义千问.png",
-          "link": "https://tongyi.aliyun.com/",
+          "link": "https://tongyi.aliyun.com/qianwen/",
           "path": ""
         },
         {
@@ -233,7 +233,7 @@
           "title": "豆包",
           "subtitle": "字节跳动最新推出的免费AI对话助手",
           "avatar": "icon/豆包.png",
-          "link": "https://www.doubao.com/",
+          "link": "https://www.doubao.com/chat",
           "path": ""
         },
         {
@@ -297,7 +297,7 @@
           "title": "Luca面壁露卡",
           "subtitle": "面壁智能推出的千亿多模态大模型免费智能对话助手",
           "avatar": "icon/Luca面壁露卡.png",
-          "link": "https://modelbest.cn/",
+          "link": "https://luca.cn/",
           "path": ""
         },
         {
@@ -416,7 +416,7 @@
           "title": "SearchGPT",
           "subtitle": "OpenAI 推出的 AI 搜索引擎原型",
           "avatar": "icon/SearchGPT.png",
-          "link": "https://openai.com/index/searchgpt-prototype/",
+          "link": "https://chatgpt.com/",
           "path": ""
         },
         {
@@ -2035,7 +2035,7 @@
           "title": "Cursor",
           "subtitle": "AI代码编辑器，快速进行编程和软件开发",
           "avatar": "icon/Cursor.png",
-          "link": "https://cursor.sh/",
+          "link": "https://cursor.com/",
           "path": ""
         },
         {
@@ -2051,7 +2051,7 @@
           "title": "GitHub Copilot",
           "subtitle": "GitHub推出的AI编程工具",
           "avatar": "icon/GitHub Copilot.png",
-          "link": "https://github.com/features/copilot",
+          "link": "https://github.com/copilot",
           "path": "/code/detail/github_copilot"
         },
         {
@@ -2375,7 +2375,7 @@
               "title": "Midjourney",
               "subtitle": "AI图像和插画生成工具",
               "avatar": "icon/Midjourney.png",
-              "link": "https://www.midjourney.com/home",
+              "link": "https://www.midjourney.com/",
               "path": "/detail/midjourney"
             },
             {
@@ -3054,7 +3054,7 @@
           "title": "Sora",
           "subtitle": "OpenAI推出的AI文本到视频生成模型",
           "avatar": "icon/Sora.png",
-          "link": "https://openai.com/sora",
+          "link": "https://sora.com/",
           "path": "/detail/sora"
         },
         {
@@ -4924,7 +4924,7 @@
           "title": "DeepSeek",
           "subtitle": "全新体验，无限可能，DeepSeek-V3 在开源模型中位列榜首",
           "avatar": "icon/DeepSeek.png",
-          "link": "https://www.deepseek.com",
+          "link": "https://chat.deepseek.com/",
           "path": "/detail/deepseek"
         },
         {
@@ -4964,7 +4964,7 @@
           "title": "Sora",
           "subtitle": "OpenAI推出的AI文本到视频生成模型",
           "avatar": "icon/Sora.png",
-          "link": "https://openai.com/sora",
+          "link": "https://sora.com/",
           "path": "/detail/sora"
         },
         {
@@ -5068,7 +5068,7 @@
           "title": "DALL·E 3",
           "subtitle": "OpenAI旗下最新的图像生成模型",
           "avatar": "icon/DALL·E 3.png",
-          "link": "https://openai.com/dall-e-3",
+          "link": "https://chatgpt.com/",
           "path": ""
         },
         {
@@ -5076,7 +5076,7 @@
           "title": "Codex",
           "subtitle": "OpenAI旗下AI代码生成训练模型",
           "avatar": "icon/Codex.png",
-          "link": "https://openai.com/blog/openai-codex",
+          "link": "https://chatgpt.com/",
           "path": ""
         },
         {
@@ -8188,7 +8188,7 @@
       "title": "DeepSeek",
       "subtitle": "全新体验，无限可能，DeepSeek-V3 在开源模型中位列榜首",
       "avatar": "icon/DeepSeek.png",
-      "link": "https://www.deepseek.com",
+      "link": "https://chat.deepseek.com/",
       "path": "/detail/deepseek"
     },
     "Grok": {
@@ -8202,7 +8202,7 @@
       "title": "Claude",
       "subtitle": "Anthropic开发的大语言模型",
       "avatar": "icon/Claude.png",
-      "link": "https://www.anthropic.com/claude",
+      "link": "https://claude.ai/",
       "path": ""
     },
     "ChatGPT": {
@@ -8244,7 +8244,7 @@
       "title": "Copilot",
       "subtitle": "微软推出的网页版Copilot助手",
       "avatar": "icon/Copilot.png",
-      "link": "https://www.microsoft.com/zh-tw/microsoft-copilot",
+      "link": "https://copilot.microsoft.com/",
       "path": "/detail/copilot"
     },
     "热门免费AI图片": {
@@ -8258,14 +8258,14 @@
       "title": "Midjourney",
       "subtitle": "AI图像和插画生成工具",
       "avatar": "icon/Midjourney.png",
-      "link": "https://www.midjourney.com/home",
+      "link": "https://www.midjourney.com/",
       "path": "/detail/midjourney"
     },
     "Sora": {
       "title": "Sora",
       "subtitle": "OpenAI推出的AI文本到视频生成模型",
       "avatar": "icon/Sora.png",
-      "link": "https://openai.com/sora",
+      "link": "https://sora.com/",
       "path": "/detail/sora"
     },
     "Suno AI": {
@@ -9469,7 +9469,7 @@
       "title": "SearchGPT",
       "subtitle": "OpenAI 推出的 AI 搜索引擎原型",
       "avatar": "icon/SearchGPT.png",
-      "link": "https://openai.com/index/searchgpt-prototype/",
+      "link": "https://chatgpt.com/",
       "path": ""
     },
     "N搜索": {
@@ -9602,7 +9602,7 @@
       "title": "Cursor",
       "subtitle": "AI代码编辑器，快速进行编程和软件开发",
       "avatar": "icon/Cursor.png",
-      "link": "https://cursor.sh/",
+      "link": "https://cursor.com/",
       "path": ""
     },
     "Windsurf": {
@@ -9616,7 +9616,7 @@
       "title": "GitHub Copilot",
       "subtitle": "GitHub推出的AI编程工具",
       "avatar": "icon/GitHub Copilot.png",
-      "link": "https://github.com/features/copilot",
+      "link": "https://github.com/copilot",
       "path": "/code/detail/github_copilot"
     },
     "Comate": {
@@ -9903,7 +9903,7 @@
       "title": "Bing新必应",
       "subtitle": "微软推出的新版结合了ChatGPT功能的必应",
       "avatar": "icon/Bing新必应.png",
-      "link": "https://www.bing.com/",
+      "link": "https://www.bing.com/chat",
       "path": ""
     },
     "钉钉·个人版": {
@@ -9931,7 +9931,7 @@
       "title": "海螺问问",
       "subtitle": "MiniMax推出的免费AI智能聊天助理",
       "avatar": "icon/海螺问问.png",
-      "link": "https://hailuoai.com/",
+      "link": "https://chat.minimaxi.com/",
       "path": ""
     },
     "紫东太初": {
@@ -9945,14 +9945,14 @@
       "title": "通义千问",
       "subtitle": "阿里巴巴推出的类ChatGPT响应人类指令的大模型，已免费开放",
       "avatar": "icon/通义千问.png",
-      "link": "https://tongyi.aliyun.com/",
+      "link": "https://tongyi.aliyun.com/qianwen/",
       "path": ""
     },
     "豆包": {
       "title": "豆包",
       "subtitle": "字节跳动最新推出的免费AI对话助手",
       "avatar": "icon/豆包.png",
-      "link": "https://www.doubao.com/",
+      "link": "https://www.doubao.com/chat",
       "path": ""
     },
     "智谱清言": {
@@ -9987,7 +9987,7 @@
       "title": "应事AI",
       "subtitle": "MiniMax推出的AI对话助理，已免费开放",
       "avatar": "icon/应事AI.png",
-      "link": "https://hailuoai.com/",
+      "link": "https://chat.minimaxi.com/",
       "path": ""
     },
     "百川大模型": {
@@ -10015,7 +10015,7 @@
       "title": "Luca面壁露卡",
       "subtitle": "面壁智能推出的千亿多模态大模型免费智能对话助手",
       "avatar": "icon/Luca面壁露卡.png",
-      "link": "https://modelbest.cn/",
+      "link": "https://luca.cn/",
       "path": ""
     },
     "元象XChat": {
@@ -11954,14 +11954,14 @@
       "title": "DALL·E 3",
       "subtitle": "OpenAI旗下最新的图像生成模型",
       "avatar": "icon/DALL·E 3.png",
-      "link": "https://openai.com/dall-e-3",
+      "link": "https://chatgpt.com/",
       "path": ""
     },
     "Codex": {
       "title": "Codex",
       "subtitle": "OpenAI旗下AI代码生成训练模型",
       "avatar": "icon/Codex.png",
-      "link": "https://openai.com/blog/openai-codex",
+      "link": "https://chatgpt.com/",
       "path": ""
     },
     "文心大模型": {

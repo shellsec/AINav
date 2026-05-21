@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "node build-html-data.js",
-    "icons": "node download-icons.mjs"
+    "icons": "node download-icons.mjs",
+    "check:hints": "node scripts/check-free-tier-hints.js"
   }
 }

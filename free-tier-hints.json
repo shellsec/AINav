@@ -1,5 +1,13 @@
 {
   "_readme": "键名请与导航里该产品的 link 完全一致（或与本页表格中的链接一致）。构建时会做规范化匹配。未列出的产品在页面显示为「未标注」。",
+  "https://chat.deepseek.com/": {
+    "freeLevel": "部分免费",
+    "quota": "Free 可用 V4/V3.2/R1；API 按 token 计费：V4-Pro 输入¥1~12/输出¥24，V4-Flash 输入¥0.2~1/输出¥2，V3.2 输入¥0.5/输出¥2，R1 输入¥1/输出¥4（每百万Token）",
+    "dailyCycle": "免费策略随官方调整，不承诺「每日固定刷新」",
+    "firstBonus": "视官网活动/邀请规则而定",
+    "note": "V4-Pro 吞吐有限，预计下半年950超节点上市后大幅降价；V4-Flash 性价比极高",
+    "updated": "2026-04"
+  },
   "https://www.deepseek.com": {
     "freeLevel": "部分免费",
     "quota": "Free 可用 V4/V3.2/R1；API 按 token 计费：V4-Pro 输入¥1~12/输出¥24，V4-Flash 输入¥0.2~1/输出¥2，V3.2 输入¥0.5/输出¥2，R1 输入¥1/输出¥4（每百万Token）",
@@ -14,6 +22,14 @@
     "dailyCycle": "免费档可能存在速率/高峰限制，以 OpenAI 当前策略为准",
     "firstBonus": "—",
     "note": "与 ChatGPT Team/Enterprise 计费分离",
+    "updated": "2026-04"
+  },
+  "https://www.doubao.com/chat": {
+    "freeLevel": "部分免费",
+    "quota": "豆包网页/客户端通常有免费对话额度，具体以字节系产品页为准",
+    "dailyCycle": "以账户与活动规则为准",
+    "firstBonus": "不定期活动以官网为准",
+    "note": "",
     "updated": "2026-04"
   },
   "https://www.doubao.com/": {
@@ -62,6 +78,14 @@
     "dailyCycle": "以站内账户与套餐为准",
     "firstBonus": "—",
     "note": "",
+    "updated": "2026-04"
+  },
+  "https://claude.ai/": {
+    "freeLevel": "部分免费",
+    "quota": "Claude 网页版免费档因地区/账户而异；API 按量计费",
+    "dailyCycle": "网页免费限额以 Anthropic 当前政策为准",
+    "firstBonus": "—",
+    "note": "Pro 订阅与 API 为不同产品线",
     "updated": "2026-04"
   },
   "https://www.anthropic.com/claude": {

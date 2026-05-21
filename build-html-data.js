@@ -10,6 +10,7 @@
 const fs = require("fs");
 const path = require("path");
 const { loadEncyclopediaFullTable, ENCYCLOPEDIA_MD_PRIMARY } = require("./full-ai-encyclopedia.js");
+const { buildSubpageNav, buildSitemapXml } = require("./subpage-nav-html.js");
 const ROOT = __dirname;
 const siteDataPath = path.join(ROOT, "site-data.json");
 if (!fs.existsSync(siteDataPath)) {
@@ -529,6 +530,7 @@ function buildAiEncyclopediaPage() {
     .ec-top { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); background: var(--panel); }
     .ec-top-inner { max-width: 96rem; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; justify-content: space-between; }
     .ec-nav a { font-weight: 600; margin-right: 1rem; }
+    .ec-nav .subnav-sep { color: var(--muted); margin: 0 0.15rem; user-select: none; }
     .ec-toolbar { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
     .theme-btn { font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 5px; border: 1px solid var(--border);
       background: var(--card); color: var(--muted); cursor: pointer; font-family: inherit; }
@@ -617,11 +619,7 @@ function buildAiEncyclopediaPage() {
   <header class="ec-top">
     <div class="ec-top-inner">
       <div class="ec-nav">
-        <a href="index.html">← 返回导航首页</a>
-        <a href="free-tier.html">🆓 免费额度</a>
-        <a href="coding-plan.html">编程套餐横评</a>
-        <a href="agent-plan.html">Agent横评</a>
-        <a href="video-plan.html">视频套餐横评</a>
+        ${buildSubpageNav("ai-encyclopedia-2026.html", "zh")}
       </div>
       <div class="ec-toolbar" role="group" aria-label="外观">
         <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
@@ -1658,8 +1656,12 @@ const html = `<!DOCTYPE html>
       <a href="learning-plan.html" title="AI学习平台横评对比与场景推荐">学习套餐</a>
       <a href="hardware-plan.html" title="AI硬件横评对比与选购推荐">硬件横评</a>
       <a href="ai-factory-plan.html" title="AI造物流水线·从创意到商品">AI造物</a>
+      <span class="top-plans-label">📋 落地</span>
+      <a href="ai-roi/" title="134+ 场景自查 · 覆盖率 · ROI 月报 · 离线可用" data-i18n="aiRoi" data-i18n-title="aiRoiTitle">AI 接入自查</a>
       <a href="opc.html" title="一人公司·AI赋能个体创业">一人公司</a>
       <a href="skill-plan.html" title="AI Skill最佳实践·先用再写一站式指南">Skill最佳实践</a>
+      <span class="top-plans-label">🧠 方法论</span>
+      <a href="thinking-framework.html" title="Ask · Plan · Debug · Agent · 提示词指南" data-i18n="thinkingFramework" data-i18n-title="thinkingFrameworkTitle">AI第一思考</a>
     </div>
     <div class="top-promo" aria-label="合作推广：多模型 API 接入" data-i18n-aria="promoAria">
       <div class="top-promo-head">
@@ -1669,7 +1671,7 @@ const html = `<!DOCTYPE html>
         </span>
         <span class="top-promo-title" data-i18n="promoTitle">国内直连免梯</span>
         <span class="top-promo-ref" data-i18n-html="promoRef">$2优惠码 <span class="top-promo-code" translate="no" data-code="AFF_BB0FNC" style="cursor:pointer" title="点击复制优惠码">AFF_BB0FNC</span></span>
-        <a class="top-promo-cta" href="https://ofox.ai/x/ShenDao" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册</a>
+        <a class="top-promo-cta" href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册</a>
       </div>
     </div>
   </header>
@@ -2068,6 +2070,10 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         freeTierTitle: "AI Tool Free Tier Dashboard",
         codingPlan: "Coding Plans",
         codingPlanTitle: "AI Coding Plan Comparison & Buying Guide",
+        aiRoi: "AI Adoption Audit",
+        aiRoiTitle: "134+ scenarios · coverage · ROI report · works offline",
+        thinkingFramework: "AI Thinking",
+        thinkingFrameworkTitle: "Ask · Plan · Debug · Agent · Prompt guide",
         chromeExt: "Chrome Extension",
         chromeExtTitle: "Chrome Extension",
         themeSystem: "System",
@@ -2159,6 +2165,10 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         freeTierTitle: "AI工具免费额度一览",
         codingPlan: "编程套餐横评",
         codingPlanTitle: "国内外AI编程套餐价格对比与选购推荐",
+        aiRoi: "AI 接入自查",
+        aiRoiTitle: "134+ 场景自查 · 覆盖率 · ROI 月报 · 离线可用",
+        thinkingFramework: "AI第一思考",
+        thinkingFrameworkTitle: "Ask · Plan · Debug · Agent · 提示词指南",
         chromeExt: "Chrome插件",
         chromeExtTitle: "Chrome 插件",
         themeSystem: "跟随系统",
@@ -2585,6 +2595,7 @@ ${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
     .ft-top { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); background: var(--panel); position: sticky; top: 0; z-index: 10; }
     .ft-top-inner { max-width: 80rem; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; justify-content: space-between; }
     .ft-nav a { font-weight: 600; margin-right: 1rem; font-size: 0.88rem; }
+    .ft-nav .subnav-sep { color: var(--muted); margin: 0 0.15rem; user-select: none; }
     .ft-toolbar { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
     .theme-btn { font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 5px; border: 1px solid var(--border);
       background: var(--card); color: var(--muted); cursor: pointer; font-family: inherit; }
@@ -2689,8 +2700,7 @@ ${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
   <header class="ft-top">
     <div class="ft-top-inner">
       <div class="ft-nav">
-        <a href="index.html">← 返回导航首页</a>
-        <a href="free-tier.html" style="color:var(--accent2)">免费额度仪表盘</a>
+        ${buildSubpageNav("free-tier.html", "zh")}
       </div>
       <div class="ft-toolbar" role="group" aria-label="外观">
         <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
@@ -2863,4 +2873,11 @@ try {
   console.log("wrote free-tier.html");
 } catch (e) {
   console.error("free-tier.html:", e.message);
+}
+
+try {
+  fs.writeFileSync(path.join(ROOT, "sitemap.xml"), buildSitemapXml(), "utf8");
+  console.log("wrote sitemap.xml");
+} catch (e) {
+  console.error("sitemap.xml:", e.message);
 }

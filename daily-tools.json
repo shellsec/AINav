@@ -5,13 +5,13 @@
     {
       "title": "DeepSeek",
       "subtitle": "日常首推：推理强、免费好用，长文与写代码",
-      "link": "https://www.deepseek.com",
+      "link": "https://chat.deepseek.com/",
       "avatar": "icon/DeepSeek.png"
     },
     {
       "title": "豆包",
       "subtitle": "字节系，聊天、创作、多模态与抖音生态",
-      "link": "https://www.doubao.com/",
+      "link": "https://www.doubao.com/chat",
       "avatar": "icon/豆包.png"
     },
     {
@@ -41,7 +41,7 @@
     {
       "title": "Claude",
       "subtitle": "长文写作、复杂推理与长对话",
-      "link": "https://www.anthropic.com/claude",
+      "link": "https://claude.ai/",
       "avatar": "icon/Claude.png"
     },
     {

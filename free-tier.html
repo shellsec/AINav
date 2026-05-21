@@ -53,6 +53,7 @@
     .ft-top { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); background: var(--panel); position: sticky; top: 0; z-index: 10; }
     .ft-top-inner { max-width: 80rem; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; justify-content: space-between; }
     .ft-nav a { font-weight: 600; margin-right: 1rem; font-size: 0.88rem; }
+    .ft-nav .subnav-sep { color: var(--muted); margin: 0 0.15rem; user-select: none; }
     .ft-toolbar { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
     .theme-btn { font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 5px; border: 1px solid var(--border);
       background: var(--card); color: var(--muted); cursor: pointer; font-family: inherit; }
@@ -157,8 +158,26 @@
   <header class="ft-top">
     <div class="ft-top-inner">
       <div class="ft-nav">
-        <a href="index.html">← 返回导航首页</a>
-        <a href="free-tier.html" style="color:var(--accent2)">免费额度仪表盘</a>
+        <a href="index.html" style="color:var(--accent2);font-weight:700">← AINav 首页</a>
+        <a href="free-tier.html" style="color:var(--accent2);font-weight:700">🆓 免费额度</a>
+        <span class="subnav-sep">·</span>
+        <a href="model-plan.html">模型选型</a>
+        <a href="coding-plan.html">编程套餐</a>
+        <a href="agent-plan.html">Agent</a>
+        <a href="search-plan.html">搜索</a>
+        <a href="video-plan.html">视频</a>
+        <a href="image-plan.html">图像</a>
+        <a href="voice-plan.html">语音</a>
+        <a href="music-plan.html">音乐</a>
+        <a href="learning-plan.html">学习</a>
+        <a href="hardware-plan.html">硬件</a>
+        <a href="ai-factory-plan.html">AI造物</a>
+        <span class="subnav-sep">·</span>
+        <a href="ai-roi/">AI接入自查</a>
+        <a href="opc.html">一人公司</a>
+        <a href="skill-plan.html">Skill</a>
+        <a href="thinking-framework.html">AI第一思考</a>
+        <a href="ai-encyclopedia-2026.html">AI百科</a>
       </div>
       <div class="ft-toolbar" role="group" aria-label="外观">
         <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
@@ -171,8 +190,8 @@
     <h1>🆓 AI工具免费额度一览</h1>
     <p class="ft-subtitle">哪个AI免费？DeepSeek、ChatGPT、Claude、Gemini免费额度全收录，一键筛选比价</p>
     <div class="ft-stats">
-      <span>已收录 <strong>1038</strong> 款工具</span>
-      <span>软件免费 <strong>2</strong></span><span>开源免费（自托管） <strong>84</strong></span><span>部分免费 <strong>900</strong></span><span>免费访问 <strong>15</strong></span><span>浏览免费 <strong>17</strong></span><span>文档免费 <strong>2</strong></span><span>按次计费 <strong>1</strong></span><span>因站而异 <strong>17</strong></span>
+      <span>已收录 <strong>1035</strong> 款工具</span>
+      <span>软件免费 <strong>2</strong></span><span>开源免费（自托管） <strong>84</strong></span><span>部分免费 <strong>897</strong></span><span>免费访问 <strong>15</strong></span><span>浏览免费 <strong>17</strong></span><span>文档免费 <strong>2</strong></span><span>按次计费 <strong>1</strong></span><span>因站而异 <strong>17</strong></span>
     </div>
     <div class="ft-search-wrap">
       <span class="ft-search-icon">🔍</span>
@@ -186,7 +205,7 @@
       <div class="ft-filter-label">免费等级</div>
       <div class="ft-chips" id="ftLevelChips">
         <button type="button" class="ft-chip is-active" data-filter-level="">全部</button>
-        <button type="button" class="ft-chip" data-filter-level="软件免费">软件免费 <span class="ft-chip-count">2</span></button><button type="button" class="ft-chip" data-filter-level="开源免费（自托管）">开源免费（自托管） <span class="ft-chip-count">84</span></button><button type="button" class="ft-chip is-active" data-filter-level="部分免费">部分免费 <span class="ft-chip-count">900</span></button><button type="button" class="ft-chip" data-filter-level="免费访问">免费访问 <span class="ft-chip-count">15</span></button><button type="button" class="ft-chip" data-filter-level="浏览免费">浏览免费 <span class="ft-chip-count">17</span></button><button type="button" class="ft-chip" data-filter-level="文档免费">文档免费 <span class="ft-chip-count">2</span></button><button type="button" class="ft-chip" data-filter-level="按次计费">按次计费 <span class="ft-chip-count">1</span></button><button type="button" class="ft-chip" data-filter-level="因站而异">因站而异 <span class="ft-chip-count">17</span></button>
+        <button type="button" class="ft-chip" data-filter-level="软件免费">软件免费 <span class="ft-chip-count">2</span></button><button type="button" class="ft-chip" data-filter-level="开源免费（自托管）">开源免费（自托管） <span class="ft-chip-count">84</span></button><button type="button" class="ft-chip is-active" data-filter-level="部分免费">部分免费 <span class="ft-chip-count">897</span></button><button type="button" class="ft-chip" data-filter-level="免费访问">免费访问 <span class="ft-chip-count">15</span></button><button type="button" class="ft-chip" data-filter-level="浏览免费">浏览免费 <span class="ft-chip-count">17</span></button><button type="button" class="ft-chip" data-filter-level="文档免费">文档免费 <span class="ft-chip-count">2</span></button><button type="button" class="ft-chip" data-filter-level="按次计费">按次计费 <span class="ft-chip-count">1</span></button><button type="button" class="ft-chip" data-filter-level="因站而异">因站而异 <span class="ft-chip-count">17</span></button>
       </div>
     </div>
     <div class="ft-filter-section">
@@ -569,8 +588,8 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://github.com/features/copilot" data-title="GitHub Copilot" data-level="开源免费（自托管）" data-category="AI 编程工具" data-source="inferred" data-search="github copilot github推出的ai编程工具 开源免费（自托管） 公开仓库可克隆与自建；github copilot、codespaces、large file storage、企业版等另计费。 ai 编程工具">
-<a class="ft-card-main" href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">
+<article class="ft-card" data-link="https://github.com/copilot" data-title="GitHub Copilot" data-level="开源免费（自托管）" data-category="AI 编程工具" data-source="inferred" data-search="github copilot github推出的ai编程工具 开源免费（自托管） 公开仓库可克隆与自建；github copilot、codespaces、large file storage、企业版等另计费。 ai 编程工具">
+<a class="ft-card-main" href="https://github.com/copilot" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/GitHub Copilot.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
 <div class="ft-card-body">
 <div class="ft-card-head"><h3 class="ft-card-title">GitHub Copilot</h3><span class="ft-badge ft-badge-oss">开源免费（自托管）</span><span class="ft-source ft-source-inferred">推断</span></div>
@@ -1999,8 +2018,8 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://www.doubao.com/" data-title="豆包" data-level="部分免费" data-category="热门工具" data-source="manual" data-search="豆包 字节系，聊天、创作、多模态与抖音生态 部分免费 豆包网页/客户端通常有免费对话额度，具体以字节系产品页为准 热门工具">
-<a class="ft-card-main" href="https://www.doubao.com/" target="_blank" rel="noopener noreferrer">
+<article class="ft-card" data-link="https://www.doubao.com/chat" data-title="豆包" data-level="部分免费" data-category="热门工具" data-source="manual" data-search="豆包 字节系，聊天、创作、多模态与抖音生态 部分免费 豆包网页/客户端通常有免费对话额度，具体以字节系产品页为准 热门工具">
+<a class="ft-card-main" href="https://www.doubao.com/chat" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/豆包.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
 <div class="ft-card-body">
 <div class="ft-card-head"><h3 class="ft-card-title">豆包</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-manual">已核实</span></div>
@@ -2233,8 +2252,8 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://hailuoai.com/" data-title="海螺问问" data-level="部分免费" data-category="AI 聊天对话" data-source="inferred" data-search="海螺问问 minimax推出的免费ai智能聊天助理 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 ai 聊天对话">
-<a class="ft-card-main" href="https://hailuoai.com/" target="_blank" rel="noopener noreferrer">
+<article class="ft-card" data-link="https://chat.minimaxi.com/" data-title="海螺问问" data-level="部分免费" data-category="AI 聊天对话" data-source="inferred" data-search="海螺问问 minimax推出的免费ai智能聊天助理 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 ai 聊天对话">
+<a class="ft-card-main" href="https://chat.minimaxi.com/" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/海螺问问.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
 <div class="ft-card-body">
 <div class="ft-card-head"><h3 class="ft-card-title">海螺问问</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
@@ -3477,19 +3496,6 @@
 <p class="ft-card-quota">通义千问常有免费体验；企业/API 另计费</p>
 <p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>与阿里云账户、活动相关</p>
 <p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>新用户促销以控制台为准</p>
-
-</div>
-</a>
-</article>
-<article class="ft-card" data-link="https://tongyi.aliyun.com/" data-title="通义千问" data-level="部分免费" data-category="AI 聊天对话" data-source="inferred" data-search="通义千问 阿里巴巴推出的类chatgpt响应人类指令的大模型，已免费开放 部分免费 通义/百炼常有体验额度；企业包年与 api 按阿里云账单计费。 ai 聊天对话">
-<a class="ft-card-main" href="https://tongyi.aliyun.com/" target="_blank" rel="noopener noreferrer">
-<img class="ft-card-icon" src="icons/icon/通义千问.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
-<div class="ft-card-body">
-<div class="ft-card-head"><h3 class="ft-card-title">通义千问</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
-<span class="ft-card-cat">AI 聊天对话</span>
-<p class="ft-card-quota">通义/百炼常有体验额度；企业包年与 API 按阿里云账单计费。</p>
-<p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>免费体验额度周期见控制台。</p>
-<p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>新用户促销以阿里云活动为准。</p>
 
 </div>
 </a>
@@ -4950,6 +4956,19 @@
 </div>
 </a>
 </article>
+<article class="ft-card" data-link="https://www.anthropic.com/claude" data-title="anthropic.com" data-level="部分免费" data-category="" data-source="undefined" data-search="anthropic.com  部分免费 claude 网页版免费档因地区/账户而异；api 按量计费 ">
+<a class="ft-card-main" href="https://www.anthropic.com/claude" target="_blank" rel="noopener noreferrer">
+<span class="ft-card-icon-ph">A</span>
+<div class="ft-card-body">
+<div class="ft-card-head"><h3 class="ft-card-title">anthropic.com</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
+
+<p class="ft-card-quota">Claude 网页版免费档因地区/账户而异；API 按量计费</p>
+<p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>网页免费限额以 Anthropic 当前政策为准</p>
+
+<p class="ft-card-note">Pro 订阅与 API 为不同产品线</p>
+</div>
+</a>
+</article>
 <article class="ft-card" data-link="https://anylang.ai/" data-title="Anylang.ai" data-level="部分免费" data-category="AI 视频工具" data-source="inferred" data-search="anylang.ai ai视频翻译并保持音色和口型的同步 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 ai 视频工具">
 <a class="ft-card-main" href="https://anylang.ai/" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/Anylang.ai.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
@@ -5353,8 +5372,8 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://www.bing.com/" data-title="Bing新必应" data-level="部分免费" data-category="AI 聊天对话" data-source="inferred" data-search="bing新必应 微软推出的新版结合了chatgpt功能的必应 部分免费 copilot 能力与 microsoft 365 / copilot pro 订阅绑定情况见微软说明。 ai 聊天对话">
-<a class="ft-card-main" href="https://www.bing.com/" target="_blank" rel="noopener noreferrer">
+<article class="ft-card" data-link="https://www.bing.com/chat" data-title="Bing新必应" data-level="部分免费" data-category="AI 聊天对话" data-source="inferred" data-search="bing新必应 微软推出的新版结合了chatgpt功能的必应 部分免费 copilot 能力与 microsoft 365 / copilot pro 订阅绑定情况见微软说明。 ai 聊天对话">
+<a class="ft-card-main" href="https://www.bing.com/chat" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/Bing新必应.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
 <div class="ft-card-body">
 <div class="ft-card-head"><h3 class="ft-card-title">Bing新必应</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
@@ -5704,8 +5723,8 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://www.anthropic.com/claude" data-title="Claude" data-level="部分免费" data-category="热门工具" data-source="manual" data-search="claude 长文写作、复杂推理与长对话 部分免费 claude 网页版免费档因地区/账户而异；api 按量计费 热门工具">
-<a class="ft-card-main" href="https://www.anthropic.com/claude" target="_blank" rel="noopener noreferrer">
+<article class="ft-card" data-link="https://claude.ai/" data-title="Claude" data-level="部分免费" data-category="热门工具" data-source="manual" data-search="claude 长文写作、复杂推理与长对话 部分免费 claude 网页版免费档因地区/账户而异；api 按量计费 热门工具">
+<a class="ft-card-main" href="https://claude.ai/" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/Claude.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
 <div class="ft-card-body">
 <div class="ft-card-head"><h3 class="ft-card-title">Claude</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-manual">已核实</span></div>
@@ -6055,19 +6074,6 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://openai.com/blog/openai-codex" data-title="Codex" data-level="部分免费" data-category="AI 开源模型" data-source="inferred" data-search="codex openai旗下ai代码生成训练模型 部分免费 chatgpt 网页/应用有免费档；api 按 token 计费，需绑卡与用量限额，见 openai pricing。 ai 开源模型">
-<a class="ft-card-main" href="https://openai.com/blog/openai-codex" target="_blank" rel="noopener noreferrer">
-<img class="ft-card-icon" src="icons/icon/Codex.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
-<div class="ft-card-body">
-<div class="ft-card-head"><h3 class="ft-card-title">Codex</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
-<span class="ft-card-cat">AI 开源模型</span>
-<p class="ft-card-quota">ChatGPT 网页/应用有免费档；API 按 token 计费，需绑卡与用量限额，见 OpenAI Pricing。</p>
-<p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>网页免费档策略会调整；API 按账单周期结算，非「每日免费条数」模式为主。</p>
-<p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>新账号促销以官网为准。</p>
-<p class="ft-card-note">Codex / ChatGPT Team 等与消费级账号计费分离。</p>
-</div>
-</a>
-</article>
 <article class="ft-card" data-link="https://www.codiga.io/" data-title="Codiga" data-level="部分免费" data-category="AI 编程工具" data-source="inferred" data-search="codiga ai代码实时分析 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 ai 编程工具">
 <a class="ft-card-main" href="https://www.codiga.io/" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/Codiga.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
@@ -6393,25 +6399,12 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://cursor.sh/" data-title="Cursor" data-level="部分免费" data-category="AI 编程工具" data-source="inferred" data-search="cursor ai代码编辑器，快速进行编程和软件开发 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 ai 编程工具">
-<a class="ft-card-main" href="https://cursor.sh/" target="_blank" rel="noopener noreferrer">
+<article class="ft-card" data-link="https://cursor.com/" data-title="Cursor" data-level="部分免费" data-category="AI 编程工具" data-source="inferred" data-search="cursor ai代码编辑器，快速进行编程和软件开发 部分免费 ide/代码助手常见免费档与 pro 订阅；用量以各产品账户页为准。 ai 编程工具">
+<a class="ft-card-main" href="https://cursor.com/" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/Cursor.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
 <div class="ft-card-body">
 <div class="ft-card-head"><h3 class="ft-card-title">Cursor</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
 <span class="ft-card-cat">AI 编程工具</span>
-<p class="ft-card-quota">多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。</p>
-<p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>免费额度是否按自然日重置、是否按月清零，以各产品「定价 / 套餐 / 用量」页与账户后台为准；并非都有「每日赠送」。</p>
-<p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>新用户礼金、试用金、邀请奖励若有，以注册流程、活动页或邮件/控制台公告为准，通常带有效期与适用范围。</p>
-<p class="ft-card-note">本条为站内规则归纳，**不替代官网**；下单与合规以服务商当前条款为准。</p>
-</div>
-</a>
-</article>
-<article class="ft-card" data-link="https://cursor.com/" data-title="Cursor" data-level="部分免费" data-category="MCP · 模型上下文协议与工具生态" data-source="inferred" data-search="cursor 编辑器内置 mcp 接入，连接本地/远程工具 部分免费 ide/代码助手常见免费档与 pro 订阅；用量以各产品账户页为准。 mcp · 模型上下文协议与工具生态">
-<a class="ft-card-main" href="https://cursor.com/" target="_blank" rel="noopener noreferrer">
-<span class="ft-card-icon-ph">C</span>
-<div class="ft-card-body">
-<div class="ft-card-head"><h3 class="ft-card-title">Cursor</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
-<span class="ft-card-cat">MCP · 模型上下文协议与工具生态</span>
 <p class="ft-card-quota">IDE/代码助手常见免费档与 Pro 订阅；用量以各产品账户页为准。</p>
 
 <p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>教育/团队方案另计。</p>
@@ -6481,19 +6474,6 @@
 <p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>免费额度是否按自然日重置、是否按月清零，以各产品「定价 / 套餐 / 用量」页与账户后台为准；并非都有「每日赠送」。</p>
 <p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>新用户礼金、试用金、邀请奖励若有，以注册流程、活动页或邮件/控制台公告为准，通常带有效期与适用范围。</p>
 <p class="ft-card-note">本条为站内规则归纳，**不替代官网**；下单与合规以服务商当前条款为准。</p>
-</div>
-</a>
-</article>
-<article class="ft-card" data-link="https://openai.com/dall-e-3" data-title="DALL·E 3" data-level="部分免费" data-category="AI 开源模型" data-source="inferred" data-search="dall·e 3 openai旗下最新的图像生成模型 部分免费 chatgpt 网页/应用有免费档；api 按 token 计费，需绑卡与用量限额，见 openai pricing。 ai 开源模型">
-<a class="ft-card-main" href="https://openai.com/dall-e-3" target="_blank" rel="noopener noreferrer">
-<img class="ft-card-icon" src="icons/icon/DALL·E 3.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
-<div class="ft-card-body">
-<div class="ft-card-head"><h3 class="ft-card-title">DALL·E 3</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
-<span class="ft-card-cat">AI 开源模型</span>
-<p class="ft-card-quota">ChatGPT 网页/应用有免费档；API 按 token 计费，需绑卡与用量限额，见 OpenAI Pricing。</p>
-<p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>网页免费档策略会调整；API 按账单周期结算，非「每日免费条数」模式为主。</p>
-<p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>新账号促销以官网为准。</p>
-<p class="ft-card-note">Codex / ChatGPT Team 等与消费级账号计费分离。</p>
 </div>
 </a>
 </article>
@@ -6627,12 +6607,25 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://www.deepseek.com" data-title="DeepSeek" data-level="部分免费" data-category="热门工具" data-source="manual" data-search="deepseek 日常首推：推理强、免费好用，长文与写代码 部分免费 free 可用 v4/v3.2/r1；api 按 token 计费：v4-pro 输入¥1~12/输出¥24，v4-flash 输入¥0.2~1/输出¥2，v3.2 输入¥0.5/输出¥2，r1 输入¥1/输出¥4（每百万token） 热门工具">
-<a class="ft-card-main" href="https://www.deepseek.com" target="_blank" rel="noopener noreferrer">
+<article class="ft-card" data-link="https://chat.deepseek.com/" data-title="DeepSeek" data-level="部分免费" data-category="热门工具" data-source="manual" data-search="deepseek 日常首推：推理强、免费好用，长文与写代码 部分免费 free 可用 v4/v3.2/r1；api 按 token 计费：v4-pro 输入¥1~12/输出¥24，v4-flash 输入¥0.2~1/输出¥2，v3.2 输入¥0.5/输出¥2，r1 输入¥1/输出¥4（每百万token） 热门工具">
+<a class="ft-card-main" href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/DeepSeek.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
 <div class="ft-card-body">
 <div class="ft-card-head"><h3 class="ft-card-title">DeepSeek</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-manual">已核实</span></div>
 <span class="ft-card-cat">热门工具</span>
+<p class="ft-card-quota">Free 可用 V4/V3.2/R1；API 按 token 计费：V4-Pro 输入¥1~12/输出¥24，V4-Flash 输入¥0.2~1/输出¥2，V3.2 输入¥0.5/输出¥2，R1 输入¥1/输出¥4（每百万Token）</p>
+<p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>免费策略随官方调整，不承诺「每日固定刷新」</p>
+<p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>视官网活动/邀请规则而定</p>
+<p class="ft-card-note">V4-Pro 吞吐有限，预计下半年950超节点上市后大幅降价；V4-Flash 性价比极高</p>
+</div>
+</a>
+</article>
+<article class="ft-card" data-link="https://www.deepseek.com" data-title="deepseek.com" data-level="部分免费" data-category="" data-source="undefined" data-search="deepseek.com  部分免费 free 可用 v4/v3.2/r1；api 按 token 计费：v4-pro 输入¥1~12/输出¥24，v4-flash 输入¥0.2~1/输出¥2，v3.2 输入¥0.5/输出¥2，r1 输入¥1/输出¥4（每百万token） ">
+<a class="ft-card-main" href="https://www.deepseek.com" target="_blank" rel="noopener noreferrer">
+<span class="ft-card-icon-ph">D</span>
+<div class="ft-card-body">
+<div class="ft-card-head"><h3 class="ft-card-title">deepseek.com</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
+
 <p class="ft-card-quota">Free 可用 V4/V3.2/R1；API 按 token 计费：V4-Pro 输入¥1~12/输出¥24，V4-Flash 输入¥0.2~1/输出¥2，V3.2 输入¥0.5/输出¥2，R1 输入¥1/输出¥4（每百万Token）</p>
 <p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>免费策略随官方调整，不承诺「每日固定刷新」</p>
 <p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>视官网活动/邀请规则而定</p>
@@ -6819,6 +6812,19 @@
 <p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>免费额度是否按自然日重置、是否按月清零，以各产品「定价 / 套餐 / 用量」页与账户后台为准；并非都有「每日赠送」。</p>
 <p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>新用户礼金、试用金、邀请奖励若有，以注册流程、活动页或邮件/控制台公告为准，通常带有效期与适用范围。</p>
 <p class="ft-card-note">本条为站内规则归纳，**不替代官网**；下单与合规以服务商当前条款为准。</p>
+</div>
+</a>
+</article>
+<article class="ft-card" data-link="https://www.doubao.com/" data-title="doubao.com" data-level="部分免费" data-category="" data-source="undefined" data-search="doubao.com  部分免费 豆包网页/客户端通常有免费对话额度，具体以字节系产品页为准 ">
+<a class="ft-card-main" href="https://www.doubao.com/" target="_blank" rel="noopener noreferrer">
+<span class="ft-card-icon-ph">D</span>
+<div class="ft-card-body">
+<div class="ft-card-head"><h3 class="ft-card-title">doubao.com</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
+
+<p class="ft-card-quota">豆包网页/客户端通常有免费对话额度，具体以字节系产品页为准</p>
+<p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>以账户与活动规则为准</p>
+<p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>不定期活动以官网为准</p>
+
 </div>
 </a>
 </article>
@@ -9045,8 +9051,8 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://modelbest.cn/" data-title="Luca面壁露卡" data-level="部分免费" data-category="AI 聊天对话" data-source="inferred" data-search="luca面壁露卡 面壁智能推出的千亿多模态大模型免费智能对话助手 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 ai 聊天对话">
-<a class="ft-card-main" href="https://modelbest.cn/" target="_blank" rel="noopener noreferrer">
+<article class="ft-card" data-link="https://luca.cn/" data-title="Luca面壁露卡" data-level="部分免费" data-category="AI 聊天对话" data-source="inferred" data-search="luca面壁露卡 面壁智能推出的千亿多模态大模型免费智能对话助手 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 ai 聊天对话">
+<a class="ft-card-main" href="https://luca.cn/" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/Luca面壁露卡.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
 <div class="ft-card-body">
 <div class="ft-card-head"><h3 class="ft-card-title">Luca面壁露卡</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
@@ -9422,8 +9428,8 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://www.midjourney.com/home" data-title="Midjourney" data-level="部分免费" data-category="常用工具" data-source="inferred" data-search="midjourney ai图像和插画生成工具 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 常用工具">
-<a class="ft-card-main" href="https://www.midjourney.com/home" target="_blank" rel="noopener noreferrer">
+<article class="ft-card" data-link="https://www.midjourney.com/" data-title="Midjourney" data-level="部分免费" data-category="常用工具" data-source="inferred" data-search="midjourney ai图像和插画生成工具 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 常用工具">
+<a class="ft-card-main" href="https://www.midjourney.com/" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/Midjourney.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
 <div class="ft-card-body">
 <div class="ft-card-head"><h3 class="ft-card-title">Midjourney</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
@@ -11242,19 +11248,6 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://openai.com/index/searchgpt-prototype/" data-title="SearchGPT" data-level="部分免费" data-category="AI 搜索工具" data-source="inferred" data-search="searchgpt openai 推出的 ai 搜索引擎原型 部分免费 chatgpt 网页/应用有免费档；api 按 token 计费，需绑卡与用量限额，见 openai pricing。 ai 搜索工具">
-<a class="ft-card-main" href="https://openai.com/index/searchgpt-prototype/" target="_blank" rel="noopener noreferrer">
-<img class="ft-card-icon" src="icons/icon/SearchGPT.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
-<div class="ft-card-body">
-<div class="ft-card-head"><h3 class="ft-card-title">SearchGPT</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
-<span class="ft-card-cat">AI 搜索工具</span>
-<p class="ft-card-quota">ChatGPT 网页/应用有免费档；API 按 token 计费，需绑卡与用量限额，见 OpenAI Pricing。</p>
-<p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>网页免费档策略会调整；API 按账单周期结算，非「每日免费条数」模式为主。</p>
-<p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>新账号促销以官网为准。</p>
-<p class="ft-card-note">Codex / ChatGPT Team 等与消费级账号计费分离。</p>
-</div>
-</a>
-</article>
 <article class="ft-card" data-link="https://searcholic.com/" data-title="Searcholic" data-level="部分免费" data-category="AI 搜索工具" data-source="inferred" data-search="searcholic ai驱动的电子书和文档搜索引擎 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 ai 搜索工具">
 <a class="ft-card-main" href="https://searcholic.com/" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/Searcholic.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
@@ -11593,25 +11586,12 @@
 </div>
 </a>
 </article>
-<article class="ft-card" data-link="https://openai.com/sora" data-title="Sora" data-level="部分免费" data-category="AI 视频工具" data-source="inferred" data-search="sora openai推出的ai文本到视频生成模型 部分免费 chatgpt 网页/应用有免费档；api 按 token 计费，需绑卡与用量限额，见 openai pricing。 ai 视频工具">
-<a class="ft-card-main" href="https://openai.com/sora" target="_blank" rel="noopener noreferrer">
+<article class="ft-card" data-link="https://sora.com/" data-title="Sora" data-level="部分免费" data-category="AI 视频工具" data-source="inferred" data-search="sora openai推出的ai文本到视频生成模型 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 ai 视频工具">
+<a class="ft-card-main" href="https://sora.com/" target="_blank" rel="noopener noreferrer">
 <img class="ft-card-icon" src="icons/icon/Sora.png" alt="" width="36" height="36" loading="lazy" decoding="async" onerror="fallbackIcon(this)">
 <div class="ft-card-body">
 <div class="ft-card-head"><h3 class="ft-card-title">Sora</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
 <span class="ft-card-cat">AI 视频工具</span>
-<p class="ft-card-quota">ChatGPT 网页/应用有免费档；API 按 token 计费，需绑卡与用量限额，见 OpenAI Pricing。</p>
-<p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>网页免费档策略会调整；API 按账单周期结算，非「每日免费条数」模式为主。</p>
-<p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>新账号促销以官网为准。</p>
-<p class="ft-card-note">Codex / ChatGPT Team 等与消费级账号计费分离。</p>
-</div>
-</a>
-</article>
-<article class="ft-card" data-link="https://sora.com/" data-title="Sora" data-level="部分免费" data-category="AI 视频生成 · 动效与数字人" data-source="inferred" data-search="sora openai 视频生成模型，文生视频与图生视频 部分免费 多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。 ai 视频生成 · 动效与数字人">
-<a class="ft-card-main" href="https://sora.com/" target="_blank" rel="noopener noreferrer">
-<span class="ft-card-icon-ph">S</span>
-<div class="ft-card-body">
-<div class="ft-card-head"><h3 class="ft-card-title">Sora</h3><span class="ft-badge ft-badge-partial">部分免费</span><span class="ft-source ft-source-inferred">推断</span></div>
-<span class="ft-card-cat">AI 视频生成 · 动效与数字人</span>
 <p class="ft-card-quota">多数产品支持注册后使用基础免费档或领取试用额度；高阶模型、团队/企业能力多为订阅或按量计费。</p>
 <p class="ft-card-cycle"><span class="ft-card-label">刷新周期</span>免费额度是否按自然日重置、是否按月清零，以各产品「定价 / 套餐 / 用量」页与账户后台为准；并非都有「每日赠送」。</p>
 <p class="ft-card-bonus"><span class="ft-card-label">新用户礼</span>新用户礼金、试用金、邀请奖励若有，以注册流程、活动页或邮件/控制台公告为准，通常带有效期与适用范围。</p>
@@ -13705,7 +13685,7 @@
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6321431447511882" data-ad-slot="XXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
     </div>
     <footer class="ft-footer">
-      <p>数据来源：各产品官网公开信息，仅供参考，以官网实时定价为准。最后更新：2026/04/29 11:35</p>
+      <p>数据来源：各产品官网公开信息，仅供参考，以官网实时定价为准。最后更新：2026/05/21 10:49</p>
       <p><a href="index.html">返回 AINav 首页</a> · <a href="ai-encyclopedia-2026.html">AI工具百科</a> · <a href="privacy.html">隐私政策</a></p>
     </footer>
   </div>

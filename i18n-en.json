@@ -1,7 +1,7 @@
 {
   "DeepSeek": {
     "title": "DeepSeek",
-    "desc": "日常首推：推理强、免费好用，长文与写代码"
+    "desc": "Daily pick: strong reasoning, free tier, long context & coding"
   },
   "豆包": {
     "title": "Doubao",
@@ -9,7 +9,7 @@
   },
   "Kimi": {
     "title": "Kimi",
-    "desc": "长上下文，甩链接/文档做摘要与追问"
+    "desc": "Long context — paste links/docs for summaries and follow-ups"
   },
   "通义千问": {
     "title": "Tongyi Qianwen",
@@ -21,15 +21,15 @@
   },
   "ChatGPT": {
     "title": "ChatGPT",
-    "desc": "通用对话、写作、翻译与插件生态"
+    "desc": "General chat, writing, translation & plugin ecosystem"
   },
   "Claude": {
     "title": "Claude",
-    "desc": "长文写作、复杂推理与长对话"
+    "desc": "Long-form writing, complex reasoning & long conversations"
   },
   "Gemini": {
     "title": "Gemini",
-    "desc": "Google 多模态，与搜索/Workspace 联动"
+    "desc": "Google multimodal — Search & Workspace integration"
   },
   "Grok": {
     "title": "Grok",
@@ -37,15 +37,15 @@
   },
   "Perplexity": {
     "title": "Perplexity",
-    "desc": "带引用网页的搜索问答，查资料快"
+    "desc": "Web search answers with citations — fast research"
   },
   "秘塔AI搜索": {
     "title": "MetaSo AI Search",
-    "desc": "Chinese retrieval, structured results & academic oriented"
+    "desc": "Chinese search — structured results & academic focus"
   },
   "沉浸式翻译": {
     "title": "Immersive Translate",
-    "desc": "Bilingual webpage comparison, essential for papers & foreign sites"
+    "desc": "Bilingual web reading — papers & foreign sites essential"
   },
   "Coze": {
     "title": "Coze",

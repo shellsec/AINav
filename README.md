@@ -4,6 +4,11 @@
 
 English | **[中文](./README.zh-CN.md)**
 
+## ☕ Buy Me a Coke
+
+Open source takes effort — sponsorship is welcome:  
+👉 [爱发电 / Afdian](https://ifdian.net/a/shellsec)
+
 A local **AI Tool Navigator** — generates `index.html` and an encyclopedia page from `site-data.json` (locally maintained categories & tools). Extend with `nav-extensions.json` for additional categories (API aggregators, MCP, RAG, local inference, etc.).
 
 ## Requirements

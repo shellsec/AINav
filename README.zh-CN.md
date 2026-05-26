@@ -4,6 +4,11 @@
 
 **[English](./README.md)** | 中文
 
+## ☕ 请我喝可乐
+
+开源不易，欢迎赞助支持：  
+👉 [爱发电](https://ifdian.net/a/shellsec)
+
 本地 **AI 工具导航页**：从 `site-data.json`（本地维护的分类与工具数据）生成 `index.html` 与百科页；可通过 `nav-extensions.json` 追加扩展分类（API 聚合、MCP、RAG、本地推理等）。
 
 ## 环境要求

@@ -691,6 +691,12 @@
           "link": "https://notebooklm.google/"
         },
         {
+          "title": "Remio",
+          "subtitle": "本地优先 AI 记忆与知识库客户端，解析文件、网页、录音、邮件、消息、图片和笔记，建立本地索引与向量，帮助用户和 Agent 快速检索个人上下文",
+          "link": "https://remio.ai/",
+          "alias": "remio,ai记忆,个人知识库,本地优先,agent记忆"
+        },
+        {
           "title": "Notion AI",
           "subtitle": "团队文档、数据库与 AI 写作/检索一体",
           "link": "https://www.notion.so/product/ai"

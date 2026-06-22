@@ -75,6 +75,7 @@ if (fs.existsSync(extFile)) {
   try {
     const ext = JSON.parse(fs.readFileSync(extFile, "utf8"));
     let added = 0;
+    let merged = 0;
     for (const cat of ext.categories || []) {
       const name = cat.name && String(cat.name).trim();
       if (!name) continue;
@@ -90,15 +91,47 @@ if (fs.existsSync(extFile)) {
         added: t.added != null ? String(t.added) : "",
       }));
       const idRaw = cat.id && String(cat.id).trim();
-      tree.push({
-        type: "leaf",
-        name,
-        id: idRaw ? slugify(idRaw) : slugify(name + "-扩展"),
-        tools: toolsNorm,
-      });
-      added++;
+      const catId = idRaw ? slugify(idRaw) : slugify(name + "-扩展");
+      const existing = tree.find(
+        (n) => n.type === "leaf" && (n.id === catId || n.name === name)
+      );
+      if (existing && Array.isArray(existing.tools)) {
+        const byLink = new Map(
+          existing.tools.filter((t) => t && t.link).map((t) => [String(t.link).trim(), t])
+        );
+        for (const t of toolsNorm) {
+          const prev = byLink.get(t.link);
+          if (prev) {
+            prev.title = t.title;
+            prev.subtitle = t.subtitle;
+            if (t.avatar) prev.avatar = t.avatar;
+            if (t.path) prev.path = t.path;
+            if (t.added) prev.added = t.added;
+          } else {
+            existing.tools.push(t);
+            byLink.set(t.link, t);
+          }
+        }
+        merged++;
+      } else {
+        tree.push({
+          type: "leaf",
+          name,
+          id: catId,
+          tools: toolsNorm,
+        });
+        added++;
+      }
     }
-    if (added) console.log("nav-extensions.json:", added, "个扩展分类");
+    if (added || merged) {
+      console.log(
+        "nav-extensions.json:",
+        added,
+        "个扩展分类,",
+        merged,
+        "个已合并到现有分类"
+      );
+    }
   } catch (e) {
     console.error("nav-extensions.json 解析失败:", e.message);
   }
@@ -238,6 +271,8 @@ const generatedAtLabel = new Date(generatedAt).toLocaleString("zh-CN", {
   minute: "2-digit",
 });
 console.log("menus top", tree.length, "tools", Object.keys(tools).length);
+const toolCount = Object.keys(tools).length;
+const toolCountLabel = `${Math.floor(toolCount / 10) * 10}+`;
 
 const manifestPath = path.join(ROOT, "icons", "manifest.json");
 let iconManifest = {};
@@ -487,11 +522,11 @@ function buildAiEncyclopediaPage() {
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <link rel="stylesheet" href="site-mobile.css">
   <title>${esc(dynamicTitle)} — 网页版</title>
-  <meta name="description" content="AINav 百科：590+ AI 工具全量索引，含免费额度、产品分类与官网链接，支持搜索与筛选。">
+  <meta name="description" content="AINav 百科：${toolCountLabel} AI 工具全量索引，含免费额度、产品分类与官网链接，支持搜索与筛选。">
   <link rel="canonical" href="https://aiv123.com/ai-encyclopedia-2026.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="${esc(dynamicTitle)}">
-  <meta property="og:description" content="590+ AI 工具全量百科索引，含免费额度、产品分类与官网链接。">
+  <meta property="og:description" content="${toolCountLabel} AI 工具全量百科索引，含免费额度、产品分类与官网链接。">
   <meta property="og:url" content="https://aiv123.com/ai-encyclopedia-2026.html">
   <meta property="og:site_name" content="AINav">
   <meta name="twitter:card" content="summary">
@@ -859,13 +894,13 @@ const html = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <link rel="stylesheet" href="site-mobile.css">
-  <title>AINav — AI 工具导航 | 590+ AI工具一网打尽</title>
-  <meta name="description" content="AINav 是最全的 AI 工具导航站，收录 590+ AI 工具，涵盖 ChatGPT、Midjourney、智能体、RAG、MCP、本地推理等分类，支持收藏、搜索、深浅主题切换。">
+  <title>AINav — AI 工具导航 | ${toolCountLabel} AI工具一网打尽</title>
+  <meta name="description" content="AINav 是最全的 AI 工具导航站，收录 ${toolCountLabel} AI 工具，涵盖 ChatGPT、Midjourney、智能体、RAG、MCP、本地推理等分类，支持收藏、搜索、深浅主题切换。">
   <meta name="keywords" content="AI工具导航,AI导航,AI工具大全,ChatGPT,Midjourney,AI工具推荐,人工智能工具,AINav">
   <link rel="canonical" href="https://aiv123.com/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AINav — AI 工具导航 | 590+ AI工具一网打尽">
-  <meta property="og:description" content="590+ AI 工具分类导航；含 API 聚合、MCP、RAG、本地推理、智能体等扩展分类，支持收藏、搜索、深浅主题。">
+  <meta property="og:title" content="AINav — AI 工具导航 | ${toolCountLabel} AI工具一网打尽">
+  <meta property="og:description" content="${toolCountLabel} AI 工具分类导航；含 API 聚合、MCP、RAG、本地推理、智能体等扩展分类，支持收藏、搜索、深浅主题。">
   <meta property="og:url" content="https://aiv123.com/">
   <meta property="og:site_name" content="AINav">
   <meta name="twitter:card" content="summary">
@@ -2550,12 +2585,12 @@ ${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <link rel="stylesheet" href="site-mobile.css">
   <title>AI工具免费额度一览 — AINav 免费额度仪表盘</title>
-  <meta name="description" content="AI工具免费额度汇总：DeepSeek、ChatGPT、Claude、Gemini、Kimi、豆包、通义千问等590+工具的免费额度、刷新周期、新用户礼一览，支持筛选与搜索。">
+  <meta name="description" content="AI工具免费额度汇总：DeepSeek、ChatGPT、Claude、Gemini、Kimi、豆包、通义千问等${toolCountLabel}工具的免费额度、刷新周期、新用户礼一览，支持筛选与搜索。">
   <meta name="keywords" content="AI工具免费额度,哪个AI免费,DeepSeek免费额度,ChatGPT免费,Claude免费,AI免费工具,免费AI对话,AI白嫖指南">
   <link rel="canonical" href="https://aiv123.com/free-tier.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="AI工具免费额度一览 — AINav">
-  <meta property="og:description" content="590+ AI 工具免费额度、刷新周期、新用户礼一览表，支持筛选与搜索。">
+  <meta property="og:description" content="${toolCountLabel} AI 工具免费额度、刷新周期、新用户礼一览表，支持筛选与搜索。">
   <meta property="og:url" content="https://aiv123.com/free-tier.html">
   <meta property="og:site_name" content="AINav">
   <meta name="twitter:card" content="summary">
@@ -2884,4 +2919,13 @@ try {
   console.log("wrote sitemap.xml");
 } catch (e) {
   console.error("sitemap.xml:", e.message);
+}
+
+try {
+  siteDataRaw.generatedAt = generatedAt;
+  siteDataRaw.builtFrom = "local";
+  fs.writeFileSync(siteDataPath, JSON.stringify(siteDataRaw, null, 2) + "\n", "utf8");
+  console.log("updated site-data.json generatedAt");
+} catch (e) {
+  console.error("site-data.json generatedAt:", e.message);
 }

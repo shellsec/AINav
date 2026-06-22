@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skill Monitor</title>
+    <style>
+        :root { --bg: #0a0a0f; --card: #12121a; --border: #1e1e2e; --accent: #7c3aed; --accent2: #a78bfa; --text: #e2e8f0; --muted: #64748b; --green: #22c55e; --blue: #3b82f6; --orange: #f59e0b; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'SF Mono', 'Cascadia Code', 'JetBrains Mono', monospace; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+         
+        .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-bottom: 1px solid var(--border); padding: 20px 32px; }
+        .header h1 { font-size: 22px; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 4px; }
+        .header h1 a { text-decoration: none; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header .subtitle { color: var(--muted); font-size: 13px; }
+        .stats-row { display: flex; gap: 24px; margin-top: 16px; }
+        .stat { display: flex; flex-direction: column; }
+        .stat .num { font-size: 28px; font-weight: 800; color: var(--accent2); }
+        .stat .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+         
+        .tabs { display: flex; gap: 8px; padding: 16px 32px; overflow-x: auto; border-bottom: 1px solid var(--border); background: var(--card); flex-wrap: wrap; }
+        .tab { padding: 6px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; text-decoration: none; transition: all 0.2s; white-space: nowrap; border: 1px solid var(--border); color: var(--muted); background: transparent; }
+        .tab:hover { color: var(--text); border-color: var(--accent); }
+        .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .tab .count { display: inline-block; background: rgba(255,255,255,0.15); border-radius: 10px; padding: 1px 7px; font-size: 11px; margin-left: 6px; }
+        .tab.historical { opacity: 0.6; border-style: dashed; }
+        .tag-trending { background: rgba(239,68,68,0.15); color: #ef4444; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.7; } }
+
+         
+        .sort-bar { display: flex; gap: 8px; align-items: center; padding: 12px 32px; background: var(--bg); border-bottom: 1px solid var(--border); }
+        .sort-bar .sort-label { font-size: 12px; color: var(--muted); margin-right: 4px; }
+        .sort-btn { padding: 4px 12px; border-radius: 6px; font-size: 12px; cursor: pointer; text-decoration: none; transition: all 0.2s; border: 1px solid var(--border); color: var(--muted); background: transparent; font-family: inherit; }
+        .sort-btn:hover { color: var(--text); border-color: var(--accent); }
+        .sort-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+         
+        .main { max-width: 960px; margin: 0 auto; padding: 24px 32px; }
+
+         
+        .date-group { margin-bottom: 32px; }
+        .date-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .date-header .date { font-size: 14px; font-weight: 700; color: var(--accent2); }
+        .date-header .line { flex: 1; height: 1px; background: var(--border); }
+        .date-header .count { font-size: 12px; color: var(--muted); }
+
+         
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-bottom: 10px; transition: all 0.2s; position: relative; }
+        .card:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(124,58,237,0.1); }
+        .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .card-title { font-size: 15px; font-weight: 600; }
+        .card-title a { color: var(--text); text-decoration: none; }
+        .card-title a:hover { color: var(--accent2); }
+        .card-time { font-size: 12px; color: var(--muted); white-space: nowrap; margin-left: 16px; }
+        .card-desc { color: var(--muted); font-size: 13px; line-height: 1.6; margin-bottom: 10px; }
+        .card-bottom { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+        .tag-keyword { background: rgba(59,130,246,0.12); color: var(--blue); }
+        .tag-skill { background: rgba(34,197,94,0.12); color: var(--green); }
+        .tag-related { background: rgba(245,158,11,0.12); color: var(--orange); }
+        .tag-label { background: rgba(124,58,237,0.12); color: var(--accent2); }
+        a.tag { text-decoration: none; cursor: pointer; }
+        a.tag.tag-label:hover { background: rgba(124,58,237,0.25); }
+        .card-meta { display: flex; gap: 14px; font-size: 12px; color: var(--muted); }
+        .card-meta span { display: flex; align-items: center; gap: 3px; }
+
+        .empty { text-align: center; padding: 80px 20px; }
+        .empty h2 { color: var(--muted); font-size: 18px; margin-bottom: 8px; }
+        .empty p { color: var(--border); font-size: 14px; }
+
+         
+        .pagination { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 32px; padding-bottom: 32px; }
+        .pagination a, .pagination span { padding: 8px 14px; border-radius: 8px; font-size: 13px; text-decoration: none; border: 1px solid var(--border); color: var(--muted); transition: all 0.2s; }
+        .pagination a:hover { border-color: var(--accent); color: var(--text); }
+        .pagination .current { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .pagination .disabled { opacity: 0.3; cursor: not-allowed; }
+        .pagination .info { border: none; color: var(--muted); font-size: 12px; }
+
+         
+        .footer { text-align: center; padding: 24px 32px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
+        .footer a { color: var(--accent2); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+         
+        .back-to-top {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 9999;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            background: rgba(18, 18, 26, 0.92);
+            color: #fff;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(12px);
+            transition: opacity 0.25s, visibility 0.25s, transform 0.25s, border-color 0.2s, background 0.2s;
+            box-shadow: 0 4px 20px rgba(124,58,237,0.35);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            border-color: var(--accent2);
+            background: var(--accent);
+            color: #fff;
+        }
+
+         
+        @media (max-width: 640px) {
+            .header, .tabs, .sort-bar, .main { padding-left: 16px; padding-right: 16px; }
+            .stats-row { gap: 16px; }
+            .pagination { flex-wrap: wrap; }
+            .back-to-top { right: 16px; bottom: 16px; width: 40px; height: 40px; font-size: 18px; }
+        }
+    </style>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2B8FBWRX4N');
+    </script>
+    
+    
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2d49f38b39c743ac80b6d6b9ff99494d"}'></script>
+    
+</head>
+<body>
+    <div class="header">
+        <h1><a href="/skill/">🤖 AI Skill Monitor</a></h1>
+        <div class="subtitle">GitHub AI Project Monitor · Keyword/Skill Auto Tracker</div>
+        <div class="stats-row">
+            <div class="stat"><span class="num">334</span><span class="lbl">Projects</span></div>
+            <div class="stat"><span class="num">1857</span><span class="lbl">Avg Stars</span></div>
+            <div class="stat"><span class="num">34</span><span class="lbl">Labels</span></div>
+            <div class="stat"><span class="num" style="font-size:14px;margin-top:8px;">2026-06-22 17:30:26</span><span class="lbl">Last Updated</span></div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <a href="/skill/" class="tab active">All<span class="count">334</span></a>
+        <a href="/skill/trending.html" class="tab ">🔥 Trending</a>
+        <a href="/skill/huggingface.html" class="tab ">🤗 HuggingFace</a>
+        <a href="/skill/hackernews.html" class="tab ">🔶 HackerNews</a>
+        
+        <a href="/skill/label/AI%20Coding.html" class="tab  ">AI Coding<span class="count">73</span></a>
+        
+        <a href="/skill/label/RAG.html" class="tab  ">RAG<span class="count">68</span></a>
+        
+        <a href="/skill/label/LLM%20Tools.html" class="tab  ">LLM Tools<span class="count">38</span></a>
+        
+        <a href="/skill/label/AI%20Agent.html" class="tab  ">AI Agent<span class="count">30</span></a>
+        
+        <a href="/skill/label/LangChain.html" class="tab  ">LangChain<span class="count">22</span></a>
+        
+        <a href="/skill/label/Claude.html" class="tab  ">Claude<span class="count">18</span></a>
+        
+        <a href="/skill/label/MCP-Server.html" class="tab  ">MCP-Server<span class="count">13</span></a>
+        
+        <a href="/skill/label/DeepSeek.html" class="tab  ">DeepSeek<span class="count">13</span></a>
+        
+        <a href="/skill/label/MiniMax.html" class="tab  ">MiniMax<span class="count">7</span></a>
+        
+        <a href="/skill/label/Gemma.html" class="tab  ">Gemma<span class="count">7</span></a>
+        
+        <a href="/skill/label/Llama.html" class="tab  ">Llama<span class="count">6</span></a>
+        
+        <a href="/skill/label/AI%20Workflow.html" class="tab  ">AI Workflow<span class="count">5</span></a>
+        
+        <a href="/skill/label/Mistral.html" class="tab  ">Mistral<span class="count">5</span></a>
+        
+        <a href="/skill/label/Qwen.html" class="tab  ">Qwen<span class="count">5</span></a>
+        
+        <a href="/skill/label/Phi.html" class="tab  ">Phi<span class="count">4</span></a>
+        
+        <a href="/skill/label/Kimi.html" class="tab  ">Kimi<span class="count">2</span></a>
+        
+        <a href="/skill/label/Model%20Inference.html" class="tab  ">Model Inference<span class="count">1</span></a>
+        
+        <a href="/skill/label/Hermes.html" class="tab  ">Hermes<span class="count">0</span></a>
+        
+        <a href="/skill/label/Fine-tuning.html" class="tab  ">Fine-tuning<span class="count">0</span></a>
+        
+        <a href="/skill/label/Claude-Skill.html" class="tab  ">Claude-Skill<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Safety.html" class="tab  ">AI Safety<span class="count">0</span></a>
+        
+        <a href="/skill/label/Embodied%20AI.html" class="tab  ">Embodied AI<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Speech.html" class="tab  ">AI Speech<span class="count">0</span></a>
+        
+        <a href="/skill/label/GLM.html" class="tab  ">GLM<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Memory.html" class="tab  ">AI Memory<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Eval.html" class="tab  ">AI Eval<span class="count">0</span></a>
+        
+        <a href="/skill/label/AIGC.html" class="tab  ">AIGC<span class="count">0</span></a>
+        
+        <a href="/skill/label/Multimodal.html" class="tab  ">Multimodal<span class="count">0</span></a>
+        
+        <a href="/skill/label/Vector%20DB.html" class="tab  ">Vector DB<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Search.html" class="tab  ">AI Search<span class="count">0</span></a>
+        
+        <a href="/skill/label/%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86.html" class="tab  historical">📡 模型推理<span class="count">5</span></a>
+        
+        <a href="/skill/label/AI%E5%AE%89%E5%85%A8%E5%AF%B9%E9%BD%90.html" class="tab  historical">📡 AI安全对齐<span class="count">5</span></a>
+        
+        <a href="/skill/label/%E5%A4%9A%E6%A8%A1%E6%80%81.html" class="tab  historical">📡 多模态<span class="count">5</span></a>
+        
+        <a href="/skill/label/MiMo.html" class="tab  historical">📡 MiMo<span class="count">2</span></a>
+        
+    </div>
+
+    
+    <div class="sort-bar">
+        <span class="sort-label">Sort:</span>
+        <a href="?sort=updated" class="sort-btn active" data-sort="updated" onclick="return sortCards(this,'updated')">🕐 Updated</a>
+        <a href="?sort=stars" class="sort-btn " data-sort="stars" onclick="return sortCards(this,'stars')">⭐ Stars</a>
+        <a href="?sort=created" class="sort-btn " data-sort="created" onclick="return sortCards(this,'created')">🆕 Created</a>
+    </div>
+    
+
+    <div class="main">
+        
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-04-18</span>
+                    <span class="line"></span>
+                    <span class="count">9 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776526888" data-updated="1776526933">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Beehood/beehood-quiz" target="_blank">Beehood/beehood-quiz</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-18 15:42</div>
+                    </div>
+                    <div class="card-desc">An interactive quiz that predicts your ideal AI coding assistant (ChatGPT, Claude, or Copilot) based on how you think an...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 JavaScript</span>
+                            <span>📅 Updated 2026-04-18</span>
+                            <span>🆕 Created 2026-04-18</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1748064403" data-updated="1776517732">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/pratappadhy2005/agentic-ai-2.0" target="_blank">pratappadhy2005/agentic-ai-2.0</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-18 13:08</div>
+                    </div>
+                    <div class="card-desc">A modular, extensible Python framework for building Agentic AI applications using LangChain, OpenAI, and other tools. It...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LangChain.html" class="tag tag-label">LangChain</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Jupyter Notebook</span>
+                            <span>📅 Updated 2026-04-18</span>
+                            <span>🆕 Created 2025-05-24</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776511871" data-updated="1776514419">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/AIgenteur/debriefeur" target="_blank">AIgenteur/debriefeur</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-18 12:13</div>
+                    </div>
+                    <div class="card-desc">AI-powered expertise elicitation CLI — get interviewed, export agent configs for OpenClaw, Hermes, and any framework. ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Agent.html" class="tag tag-label">AI Agent</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 </span>
+                            <span>📅 Updated 2026-04-18</span>
+                            <span>🆕 Created 2026-04-18</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="1" data-created="1775611962" data-updated="1776512917">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/changkun/goalless-agents" target="_blank">changkun/goalless-agents</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-18 11:48</div>
+                    </div>
+                    <div class="card-desc">Intrinsic preferences of AI coding agents under underspecified prompts: 7 experiments across 15 models (Claude, Gemini, ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Claude.html" class="tag tag-label">Claude</a>
+                        
+                        <span class="tag tag-keyword">Claude</span>
+                        <div class="card-meta">
+                            <span>⭐ 1</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-18</span>
+                            <span>🆕 Created 2026-04-08</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1775486294" data-updated="1776501453">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/AdrianGerber/gemma-4-the-hard-way" target="_blank">AdrianGerber/gemma-4-the-hard-way</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-18 08:37</div>
+                    </div>
+                    <div class="card-desc">A C program that can run inference using Google&#39;s gemma-4-e2b-it-Q8_0 model.</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Gemma.html" class="tag tag-label">Gemma</a>
+                        
+                        <span class="tag tag-keyword">Gemma</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 C</span>
+                            <span>📅 Updated 2026-04-18</span>
+                            <span>🆕 Created 2026-04-06</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="5336" data-created="1770381535" data-updated="1776497540">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/op7418/CodePilot" target="_blank">op7418/CodePilot</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-18 07:32</div>
+                    </div>
+                    <div class="card-desc">A multi-model AI agent desktop client — connect any AI provider, extend with MCP &amp; skills, control from your phone. Bu...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Claude.html" class="tag tag-label">Claude</a>
+                        
+                        <span class="tag tag-keyword">Claude</span>
+                        <div class="card-meta">
+                            <span>⭐ 5336</span>
+                            <span>🍴 570</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-04-18</span>
+                            <span>🆕 Created 2026-02-06</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776497264" data-updated="1776497354">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/svs20790000-beep/AI-RAG-Customer-Support-Agent-Multipledoc" target="_blank">svs20790000-beep/AI-RAG-Customer-Support-Agent-Multipledoc</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-18 07:29</div>
+                    </div>
+                    <div class="card-desc">modular Retrieval-Augmented Generation (RAG) Chabot framework</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-18</span>
+                            <span>🆕 Created 2026-04-18</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="1" data-created="1768893021" data-updated="1776479956">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/linhay/nolon" target="_blank">linhay/nolon</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-18 02:39</div>
+                    </div>
+                    <div class="card-desc">macOS control plane for AI coding assistants: skills, providers, MCP</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 1</span>
+                            <span>🍴 0</span>
+                            <span>💻 Swift</span>
+                            <span>📅 Updated 2026-04-18</span>
+                            <span>🆕 Created 2026-01-20</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="1" data-created="1775978547" data-updated="1776475681">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/yash-dev007/THE-FORGE" target="_blank">yash-dev007/THE-FORGE</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-18 01:28</div>
+                    </div>
+                    <div class="card-desc">THE FORGE is a portable methodology kit that turns any AI coding assistant (Claude, Gemini, Cursor, Codex, Copilot, etc....</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 1</span>
+                            <span>🍴 0</span>
+                            <span>💻 Shell</span>
+                            <span>📅 Updated 2026-04-18</span>
+                            <span>🆕 Created 2026-04-12</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-04-17</span>
+                    <span class="line"></span>
+                    <span class="count">21 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776464852" data-updated="1776464852">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Qampanion/QampanionSkill" target="_blank">Qampanion/QampanionSkill</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 22:27</div>
+                    </div>
+                    <div class="card-desc">This repository contains the Qampanion skill for AI coding assistants (GitHub Copilot, Claude, and compatible agents).</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 </span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-17</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="5" data-created="1775746896" data-updated="1776462951">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/kessler/gemma" target="_blank">kessler/gemma</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 21:55</div>
+                    </div>
+                    <div class="card-desc">Run Google&#39;s Gemma 4 models entirely on-device, embedded in a Node.js process. Text, image, and audio in — text out. N...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Gemma.html" class="tag tag-label">Gemma</a>
+                        
+                        <span class="tag tag-keyword">Gemma</span>
+                        <div class="card-meta">
+                            <span>⭐ 5</span>
+                            <span>🍴 1</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-09</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776457307" data-updated="1776457601">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/sandsaber/AgentSpawnMCP" target="_blank">sandsaber/AgentSpawnMCP</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 20:26</div>
+                    </div>
+                    <div class="card-desc">Universal MCP server for any OpenAI-compatible LLM. Supports OpenAI and Anthropic API formats, cloud providers (OpenAI, ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/MiniMax.html" class="tag tag-label">MiniMax</a>
+                        
+                        <span class="tag tag-keyword">MiniMax</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-17</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776456859" data-updated="1776456865">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/pradeep-kumar-github/RAG-repo" target="_blank">pradeep-kumar-github/RAG-repo</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 20:14</div>
+                    </div>
+                    <div class="card-desc">Retrieval-Augmented Generation (RAG) is an AI framework that improves Large Language Model (LLM) outputs by fetching rel...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 </span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-17</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="5" data-created="1775780916" data-updated="1776449776">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/psyb0t/aigate" target="_blank">psyb0t/aigate</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 18:16</div>
+                    </div>
+                    <div class="card-desc">Self-hosted AI gateway. 82 models across 12 providers, free-tier-first routing with automatic fallback. Local CPU infere...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Claude.html" class="tag tag-label">Claude</a>
+                        
+                        <span class="tag tag-keyword">Claude</span>
+                        <div class="card-meta">
+                            <span>⭐ 5</span>
+                            <span>🍴 0</span>
+                            <span>💻 Shell</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-10</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1762381729" data-updated="1776449652">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Hanan20/AI-Research-Agent" target="_blank">Hanan20/AI-Research-Agent</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 18:14</div>
+                    </div>
+                    <div class="card-desc">An intelligent AI-powered research assistant that automatically gathers, summarizes, and saves structured research data ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LangChain.html" class="tag tag-label">LangChain</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2025-11-05</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776447444" data-updated="1776447900">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/samnaqvi3737/KnowledgeBridge" target="_blank">samnaqvi3737/KnowledgeBridge</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 17:45</div>
+                    </div>
+                    <div class="card-desc">A question-answering framework powered by a custom Retrieval-Augmented Generation (RAG) pipeline that delivers accurate,...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-17</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1772113927" data-updated="1776447716">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/eodeluga/rag-time" target="_blank">eodeluga/rag-time</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 17:41</div>
+                    </div>
+                    <div class="card-desc">RAGtime is a lightweight and intuitive Retrieval-Augmented Generation (RAG) framework built for LLM workflows. It suppor...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-02-26</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="37" data-created="1764399663" data-updated="1776441555">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/hoangsonww/AI-Agents-Orchestrator" target="_blank">hoangsonww/AI-Agents-Orchestrator</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 15:59</div>
+                    </div>
+                    <div class="card-desc">🪈 Intelligent orchestration system that coordinates multiple AI coding assistants (Claude, Codex, Gemini CLI, Copilot...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 37</span>
+                            <span>🍴 17</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2025-11-29</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776368202" data-updated="1776434785">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/TemplateMechanics/pbi-pilot" target="_blank">TemplateMechanics/pbi-pilot</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 14:06</div>
+                    </div>
+                    <div class="card-desc">AI-powered harness for Power BI development — gives GitHub Copilot, Claude Code, and other AI assistants built-in know...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 PowerShell</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-16</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="3432" data-created="1740033278" data-updated="1776433871">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/thu-pacman/chitu" target="_blank">thu-pacman/chitu</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 13:51</div>
+                    </div>
+                    <div class="card-desc">High-performance inference framework for large language models, focusing on efficiency, flexibility, and availability.</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/DeepSeek.html" class="tag tag-label">DeepSeek</a>
+                        
+                        <span class="tag tag-keyword">DeepSeek</span>
+                        <div class="card-meta">
+                            <span>⭐ 3432</span>
+                            <span>🍴 353</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2025-02-20</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="28721" data-created="1775231347" data-updated="1776427463">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/safishamsi/graphify" target="_blank">safishamsi/graphify</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 12:04</div>
+                    </div>
+                    <div class="card-desc">AI coding assistant skill (Claude Code, Codex, OpenCode, Cursor, Gemini CLI, GitHub Copilot CLI, OpenClaw, Factory Droid...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 28721</span>
+                            <span>🍴 3147</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-03</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="1" data-created="1775855150" data-updated="1776426929">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/y-abs/claude-code-brain-bootstrap" target="_blank">y-abs/claude-code-brain-bootstrap</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 11:55</div>
+                    </div>
+                    <div class="card-desc">🧠 Give your AI coding assistant the one thing it&#39;s missing: deep knowledge of your codebase. One command bootstraps 1...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 1</span>
+                            <span>🍴 0</span>
+                            <span>💻 Shell</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-10</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="10" data-created="1775986123" data-updated="1776424292">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/synergenius-fw/fwstack" target="_blank">synergenius-fw/fwstack</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 11:11</div>
+                    </div>
+                    <div class="card-desc">Compiled dev workflows for AI coding assistants. 10 deterministic pipelines &#43; community registry. Works on Claude Code, ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 10</span>
+                            <span>🍴 0</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-12</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1772817587" data-updated="1776419193">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/sidram2004/Agent-Orchestration-Framework-with-LangChain" target="_blank">sidram2004/Agent-Orchestration-Framework-with-LangChain</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 09:46</div>
+                    </div>
+                    <div class="card-desc">Agent Orchestration Framework built with LangChain that demonstrates how AI agents use LLMs to interact with external to...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LangChain.html" class="tag tag-label">LangChain</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 HTML</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-03-06</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776419017" data-updated="1776419105">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/SLohit448/agentic-rag-ai-regulation" target="_blank">SLohit448/agentic-rag-ai-regulation</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 09:45</div>
+                    </div>
+                    <div class="card-desc">An Agentic Retrieval-Augmented Generation (RAG) Q&amp;A system that intelligently routes queries (factual, synthesis, out-of...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-17</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="2" data-created="1763873267" data-updated="1776418904">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/jinyang6/chatanyllm" target="_blank">jinyang6/chatanyllm</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 09:41</div>
+                    </div>
+                    <div class="card-desc">ChatAnyLLM is a desktop GUI application for local models (Ollama, LM Studio) and cloud providers like OpenRouter. Users ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Claude.html" class="tag tag-label">Claude</a>
+                        
+                        <span class="tag tag-keyword">Claude</span>
+                        <div class="card-meta">
+                            <span>⭐ 2</span>
+                            <span>🍴 0</span>
+                            <span>💻 JavaScript</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2025-11-23</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776416815" data-updated="1776417557">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/kosiorkosa47/honeycomb" target="_blank">kosiorkosa47/honeycomb</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 09:19</div>
+                    </div>
+                    <div class="card-desc">Open-source honeypot for MCP (Model Context Protocol) servers. Collects threat intel on attacks against the AI agent eco...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Claude.html" class="tag tag-label">Claude</a>
+                        
+                        <span class="tag tag-keyword">Claude</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Rust</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-17</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776415284" data-updated="1776415288">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Priyanka-satish-25/AgriRAG-Geo-Temporal-Multimodal-RAG-for-Crop-Disease-Intelligence" target="_blank">Priyanka-satish-25/AgriRAG-Geo-Temporal-Multimodal-RAG-for-Crop-Disease-Intelligence</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 08:41</div>
+                    </div>
+                    <div class="card-desc">AgriRAG is a geo-temporal, multimodal RAG framework designed to detect and analyze crop diseases. It combines satellite ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 </span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-04-17</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1768139683" data-updated="1776405717">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/arkobera/AgenticRAG" target="_blank">arkobera/AgenticRAG</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 06:01</div>
+                    </div>
+                    <div class="card-desc">AgenticRAG is a Retrieval-Augmented Generation framework powered by Google Gemini, combining dense and sparse search to ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2026-01-11</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="13" data-created="1739220312" data-updated="1776404670">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/msu-denver/bili-core" target="_blank">msu-denver/bili-core</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-17 05:44</div>
+                    </div>
+                    <div class="card-desc">bili-core is an open-source framework for LLM benchmarking using LangChain, LangGraph, Streamlit, and Flask. It enables ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 13</span>
+                            <span>🍴 1</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-17</span>
+                            <span>🆕 Created 2025-02-10</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        
+
+        
+        <div class="pagination">
+            
+            <a href="/skill/index-page-6.html">← Prev</a>
+            
+
+            
+            
+            <a href="/skill/">1</a>
+            
+            
+            
+            <a href="/skill/index-page-2.html">2</a>
+            
+            
+            
+            <a href="/skill/index-page-3.html">3</a>
+            
+            
+            
+            <a href="/skill/index-page-4.html">4</a>
+            
+            
+            
+            <a href="/skill/index-page-5.html">5</a>
+            
+            
+            
+            <a href="/skill/index-page-6.html">6</a>
+            
+            
+            
+            <span class="current">7</span>
+            
+            
+            
+            <a href="/skill/index-page-8.html">8</a>
+            
+            
+            
+            <a href="/skill/index-page-9.html">9</a>
+            
+            
+            
+            <a href="/skill/index-page-10.html">10</a>
+            
+            
+            
+            <a href="/skill/index-page-11.html">11</a>
+            
+            
+            
+            <a href="/skill/index-page-12.html">12</a>
+            
+            
+
+            
+            <a href="/skill/index-page-8.html">Next →</a>
+            
+
+            <span class="info">Page 7 / 12</span>
+        </div>
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <button type="button" class="back-to-top" id="back-to-top" title="回到顶部" aria-label="回到顶部">↑</button>
+
+    <script>
+    function sortCards(el, field) {
+        
+        var isStatic = !window.location.search && document.querySelectorAll('.pagination a[href*="?page="]').length === 0;
+        
+        var main = document.querySelector('.main');
+        if (!main) return true;
+        var cards = Array.from(main.querySelectorAll('.card'));
+        if (cards.length === 0) return true;
+        cards.sort(function(a, b) {
+            var va, vb;
+            if (field === 'stars') {
+                va = parseInt(a.dataset.stars) || 0;
+                vb = parseInt(b.dataset.stars) || 0;
+                return vb - va;
+            } else if (field === 'created') {
+                va = parseInt(a.dataset.created) || 0;
+                vb = parseInt(b.dataset.created) || 0;
+                return vb - va;
+            } else {
+                va = parseInt(a.dataset.updated) || 0;
+                vb = parseInt(b.dataset.updated) || 0;
+                return vb - va;
+            }
+        });
+        
+        var groups = main.querySelectorAll('.date-group');
+        var container = document.createElement('div');
+        container.className = 'sorted-cards';
+        cards.forEach(function(c) { container.appendChild(c); });
+        groups.forEach(function(g) { g.remove(); });
+        var empty = main.querySelector('.empty');
+        if (empty) empty.style.display = 'none';
+        main.insertBefore(container, main.querySelector('.pagination'));
+        
+        document.querySelectorAll('.sort-btn').forEach(function(b) { b.classList.remove('active'); });
+        el.classList.add('active');
+        return false;
+    }
+
+    (function() {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        function pageScrollable() {
+            return document.documentElement.scrollHeight > window.innerHeight + 120;
+        }
+        function toggleBtn() {
+            if (pageScrollable()) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        }
+        window.addEventListener('scroll', toggleBtn, { passive: true });
+        document.addEventListener('scroll', toggleBtn, { passive: true });
+        window.addEventListener('resize', toggleBtn);
+        window.addEventListener('load', toggleBtn);
+        toggleBtn();
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+    </script>
+
+    <div class="footer">
+        Powered by <a href="https://github.com/shellsec/skill-monitor">Skill Monitor</a> · Auto-updated via GitHub Actions
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+[
+  {
+    "repoType": "model",
+    "fullName": "zai-org/GLM-5.2",
+    "description": "text-generation",
+    "url": "https://huggingface.co/models/zai-org/GLM-5.2",
+    "likes": 1917,
+    "downloads": 33589,
+    "tags": null,
+    "crawledAt": "2026-06-22 17:29:53"
+  },
+  {
+    "repoType": "model",
+    "fullName": "yuxinlu1/gemma-4-12B-coder-fable5-composer2.5-v1-GGUF",
+    "description": "text-generation",
+    "url": "https://huggingface.co/models/yuxinlu1/gemma-4-12B-coder-fable5-composer2.5-v1-GGUF",
+    "likes": 2123,
+    "downloads": 414734,
+    "tags": null,
+    "crawledAt": "2026-06-22 17:29:53"
+  },
+  {
+    "repoType": "model",
+    "fullName": "WeiboAI/VibeThinker-3B",
+    "description": "text-generation",
+    "url": "https://huggingface.co/models/WeiboAI/VibeThinker-3B",
+    "likes": 582,
+    "downloads": 32385,
+    "tags": null,
+    "crawledAt": "2026-06-22 17:29:53"
+  },
+  {
+    "repoType": "model",
+    "fullName": "MiniMaxAI/MiniMax-M3",
+    "description": "image-text-to-text",
+    "url": "https://huggingface.co/models/MiniMaxAI/MiniMax-M3",
+    "likes": 1187,
+    "downloads": 119967,
+    "tags": null,
+    "crawledAt": "2026-06-22 17:29:53"
+  },
+  {
+    "repoType": "model",
+    "fullName": "yuxinlu1/gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2-GGUF",
+    "description": "text-generation",
+    "url": "https://huggingface.co/models/yuxinlu1/gemma-4-12B-agentic-fable5-composer2.5-v2-3.5x-tau2-GGUF",
+    "likes": 315,
+    "downloads": 50314,
+    "tags": null,
+    "crawledAt": "2026-06-22 17:29:53"
+  },
+  {
+    "repoType": "model",
+    "fullName": "microsoft/FastContext-1.0-4B-SFT",
+    "description": "text-generation",
+    "url": "https://huggingface.co/models/microsoft/FastContext-1.0-4B-SFT",
+    "likes": 276,
+    "downloads": 3498,
+    "tags": null,
+    "crawledAt": "2026-06-22 17:29:53"
+  },
+  {
+    "repoType": "model",
+    "fullName": "moonshotai/Kimi-K2.7-Code",
+    "description": "image-text-to-text",
+    "url": "https://huggingface.co/models/moonshotai/Kimi-K2.7-Code",
+    "likes": 949,
+    "downloads": 412778,
+    "tags": null,
+    "crawledAt": "2026-06-22 17:29:53"
+  },
+  {
+    "repoType": "model",
+    "fullName": "unsloth/GLM-5.2-GGUF",
+    "description": "text-generation",
+    "url": "https://huggingface.co/models/unsloth/GLM-5.2-GGUF",
+    "likes": 236,
+    "downloads": 41846,
+    "tags": null,
+    "crawledAt": "2026-06-22 17:29:53"
+  },
+  {
+    "repoType": "model",
+    "fullName": "nvidia/LocateAnything-3B",
+    "description": "image-text-to-text",
+    "url": "https://huggingface.co/models/nvidia/LocateAnything-3B",
+    "likes": 2267,
+    "downloads": 247517,
+    "tags": null,
+    "crawledAt": "2026-06-22 17:29:53"
+  },
+  {
+    "repoType": "model",
+    "fullName": "HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive",
+    "description": "image-text-to-text",
+    "url": "https://huggingface.co/models/HauhauCS/Qwen3.6-35B-A3B-Uncensored-HauhauCS-Aggressive",
+    "likes": 2090,
+    "downloads": 4078305,
+    "tags": null,
+    "crawledAt": "2026-06-22 17:29:53"
+  }
+]

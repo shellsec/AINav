@@ -179,26 +179,22 @@
           "added": "2026-04-25"
         },
         {
-          "title": "OpenClaw",
-          "subtitle": "开源自托管个人 AI 助理框架，接 IM 与插件生态",
-          "link": "https://github.com/openclaw/openclaw"
-        },
-        {
-          "title": "OpenClaw 文档站",
-          "subtitle": "安装、技能与安全说明（社区文档）",
-          "link": "https://docs.openclaw.ai/"
-        },
-        {
           "title": "Hermes Agent",
-          "subtitle": "Nous Research 开源自进化 Agent，内置学习循环、跨会话记忆、技能自动创建（53K+ 星）",
+          "subtitle": "2026 开源 Agent 实战首选：记忆、技能自进化、IM 集成、MCP（55K+ 星，大量 OpenClaw 用户已迁移）",
           "link": "https://github.com/NousResearch/hermes-agent",
           "alias": "hermes,hermes agent,nousresearch,自进化agent"
         },
         {
-          "title": "Hermes Agent 官网",
-          "subtitle": "有记忆的开源 AI 智能体，越用越聪明 — 功能介绍与快速开始",
+          "title": "Hermes Agent 产品站",
+          "subtitle": "Nous Research 官方产品介绍、功能概览与快速开始",
+          "link": "https://hermes-agent.nousresearch.com/",
+          "alias": "hermes产品站,hermes official,nousresearch"
+        },
+        {
+          "title": "Hermes Agent 中文站",
+          "subtitle": "有记忆的开源 AI 智能体，越用越聪明 — 中文功能介绍与快速开始",
           "link": "https://hermes-agent.org/zh/",
-          "alias": "hermes官网,hermes agent官网"
+          "alias": "hermes官网,hermes agent官网,hermes中文站"
         },
         {
           "title": "Hermes Agent 文档",
@@ -211,6 +207,16 @@
           "subtitle": "从入门到精通系列：架构解析、技能编写、OpenClaw 迁移与最佳实践",
           "link": "https://github.com/alchaincyf/hermes-agent-orange-book",
           "alias": "hermes橙皮书,hermes教程"
+        },
+        {
+          "title": "OpenClaw",
+          "subtitle": "开源自托管个人 AI 助理框架，Stars 高；新用户建议优先 Hermes",
+          "link": "https://github.com/openclaw/openclaw"
+        },
+        {
+          "title": "OpenClaw 文档站",
+          "subtitle": "安装、技能与安全说明（社区文档）",
+          "link": "https://docs.openclaw.ai/"
         },
         {
           "title": "Lovart",
@@ -301,6 +307,12 @@
           "subtitle": "46 个真实场景：飞书/钉钉/企微办公自动化、内容创作、运维、知识管理",
           "link": "https://github.com/AlexAnys/awesome-openclaw-usecases-zh",
           "alias": "openclaw 中文用例,awesome usecases zh"
+        },
+        {
+          "title": "Hermes Agent 用例集",
+          "subtitle": "社区 262 个真实故事：Cron 自动化、IM 集成、自托管、交易 bot、Skill 编写等",
+          "link": "https://hermes-agent.nousresearch.com/docs/user-stories",
+          "alias": "hermes用例,hermes user stories,hermes showcase,hermes场景"
         },
         {
           "title": "Hermes Agent 架构全解",
@@ -535,8 +547,19 @@
           "link": "https://huggingface.co/spaces"
         },
         {
+          "title": "Skill Monitor（AINav）",
+          "subtitle": "GitHub AI 项目动态监控：Trending / HuggingFace / HackerNews 多源聚合",
+          "link": "https://skill.aiv123.com/",
+          "alias": "skill monitor,github ai监控,skill.aiv123"
+        },
+        {
+          "title": "Skills.sh",
+          "subtitle": "Agent 技能发现与分享平台，社区驱动 → Cursor/Claude Code/Codex 等",
+          "link": "https://skills.sh/"
+        },
+        {
           "title": "Agent Skills（Addy Osmani）",
-          "subtitle": "生产级工程技能（21k+★） → Claude Code/Cursor/Copilot/Codex 等",
+          "subtitle": "生产级工程技能（25k+★） → Claude Code/Cursor/Copilot/Codex 等",
           "link": "https://github.com/addyosmani/agent-skills"
         },
         {

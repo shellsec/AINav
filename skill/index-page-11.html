@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skill Monitor</title>
+    <style>
+        :root { --bg: #0a0a0f; --card: #12121a; --border: #1e1e2e; --accent: #7c3aed; --accent2: #a78bfa; --text: #e2e8f0; --muted: #64748b; --green: #22c55e; --blue: #3b82f6; --orange: #f59e0b; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'SF Mono', 'Cascadia Code', 'JetBrains Mono', monospace; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+         
+        .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-bottom: 1px solid var(--border); padding: 20px 32px; }
+        .header h1 { font-size: 22px; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 4px; }
+        .header h1 a { text-decoration: none; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header .subtitle { color: var(--muted); font-size: 13px; }
+        .stats-row { display: flex; gap: 24px; margin-top: 16px; }
+        .stat { display: flex; flex-direction: column; }
+        .stat .num { font-size: 28px; font-weight: 800; color: var(--accent2); }
+        .stat .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+         
+        .tabs { display: flex; gap: 8px; padding: 16px 32px; overflow-x: auto; border-bottom: 1px solid var(--border); background: var(--card); flex-wrap: wrap; }
+        .tab { padding: 6px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; text-decoration: none; transition: all 0.2s; white-space: nowrap; border: 1px solid var(--border); color: var(--muted); background: transparent; }
+        .tab:hover { color: var(--text); border-color: var(--accent); }
+        .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .tab .count { display: inline-block; background: rgba(255,255,255,0.15); border-radius: 10px; padding: 1px 7px; font-size: 11px; margin-left: 6px; }
+        .tab.historical { opacity: 0.6; border-style: dashed; }
+        .tag-trending { background: rgba(239,68,68,0.15); color: #ef4444; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.7; } }
+
+         
+        .sort-bar { display: flex; gap: 8px; align-items: center; padding: 12px 32px; background: var(--bg); border-bottom: 1px solid var(--border); }
+        .sort-bar .sort-label { font-size: 12px; color: var(--muted); margin-right: 4px; }
+        .sort-btn { padding: 4px 12px; border-radius: 6px; font-size: 12px; cursor: pointer; text-decoration: none; transition: all 0.2s; border: 1px solid var(--border); color: var(--muted); background: transparent; font-family: inherit; }
+        .sort-btn:hover { color: var(--text); border-color: var(--accent); }
+        .sort-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+         
+        .main { max-width: 960px; margin: 0 auto; padding: 24px 32px; }
+
+         
+        .date-group { margin-bottom: 32px; }
+        .date-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .date-header .date { font-size: 14px; font-weight: 700; color: var(--accent2); }
+        .date-header .line { flex: 1; height: 1px; background: var(--border); }
+        .date-header .count { font-size: 12px; color: var(--muted); }
+
+         
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-bottom: 10px; transition: all 0.2s; position: relative; }
+        .card:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(124,58,237,0.1); }
+        .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .card-title { font-size: 15px; font-weight: 600; }
+        .card-title a { color: var(--text); text-decoration: none; }
+        .card-title a:hover { color: var(--accent2); }
+        .card-time { font-size: 12px; color: var(--muted); white-space: nowrap; margin-left: 16px; }
+        .card-desc { color: var(--muted); font-size: 13px; line-height: 1.6; margin-bottom: 10px; }
+        .card-bottom { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+        .tag-keyword { background: rgba(59,130,246,0.12); color: var(--blue); }
+        .tag-skill { background: rgba(34,197,94,0.12); color: var(--green); }
+        .tag-related { background: rgba(245,158,11,0.12); color: var(--orange); }
+        .tag-label { background: rgba(124,58,237,0.12); color: var(--accent2); }
+        a.tag { text-decoration: none; cursor: pointer; }
+        a.tag.tag-label:hover { background: rgba(124,58,237,0.25); }
+        .card-meta { display: flex; gap: 14px; font-size: 12px; color: var(--muted); }
+        .card-meta span { display: flex; align-items: center; gap: 3px; }
+
+        .empty { text-align: center; padding: 80px 20px; }
+        .empty h2 { color: var(--muted); font-size: 18px; margin-bottom: 8px; }
+        .empty p { color: var(--border); font-size: 14px; }
+
+         
+        .pagination { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 32px; padding-bottom: 32px; }
+        .pagination a, .pagination span { padding: 8px 14px; border-radius: 8px; font-size: 13px; text-decoration: none; border: 1px solid var(--border); color: var(--muted); transition: all 0.2s; }
+        .pagination a:hover { border-color: var(--accent); color: var(--text); }
+        .pagination .current { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .pagination .disabled { opacity: 0.3; cursor: not-allowed; }
+        .pagination .info { border: none; color: var(--muted); font-size: 12px; }
+
+         
+        .footer { text-align: center; padding: 24px 32px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
+        .footer a { color: var(--accent2); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+         
+        .back-to-top {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 9999;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            background: rgba(18, 18, 26, 0.92);
+            color: #fff;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(12px);
+            transition: opacity 0.25s, visibility 0.25s, transform 0.25s, border-color 0.2s, background 0.2s;
+            box-shadow: 0 4px 20px rgba(124,58,237,0.35);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            border-color: var(--accent2);
+            background: var(--accent);
+            color: #fff;
+        }
+
+         
+        @media (max-width: 640px) {
+            .header, .tabs, .sort-bar, .main { padding-left: 16px; padding-right: 16px; }
+            .stats-row { gap: 16px; }
+            .pagination { flex-wrap: wrap; }
+            .back-to-top { right: 16px; bottom: 16px; width: 40px; height: 40px; font-size: 18px; }
+        }
+    </style>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2B8FBWRX4N');
+    </script>
+    
+    
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2d49f38b39c743ac80b6d6b9ff99494d"}'></script>
+    
+</head>
+<body>
+    <div class="header">
+        <h1><a href="/skill/">🤖 AI Skill Monitor</a></h1>
+        <div class="subtitle">GitHub AI Project Monitor · Keyword/Skill Auto Tracker</div>
+        <div class="stats-row">
+            <div class="stat"><span class="num">334</span><span class="lbl">Projects</span></div>
+            <div class="stat"><span class="num">1857</span><span class="lbl">Avg Stars</span></div>
+            <div class="stat"><span class="num">34</span><span class="lbl">Labels</span></div>
+            <div class="stat"><span class="num" style="font-size:14px;margin-top:8px;">2026-06-22 17:30:26</span><span class="lbl">Last Updated</span></div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <a href="/skill/" class="tab active">All<span class="count">334</span></a>
+        <a href="/skill/trending.html" class="tab ">🔥 Trending</a>
+        <a href="/skill/huggingface.html" class="tab ">🤗 HuggingFace</a>
+        <a href="/skill/hackernews.html" class="tab ">🔶 HackerNews</a>
+        
+        <a href="/skill/label/AI%20Coding.html" class="tab  ">AI Coding<span class="count">73</span></a>
+        
+        <a href="/skill/label/RAG.html" class="tab  ">RAG<span class="count">68</span></a>
+        
+        <a href="/skill/label/LLM%20Tools.html" class="tab  ">LLM Tools<span class="count">38</span></a>
+        
+        <a href="/skill/label/AI%20Agent.html" class="tab  ">AI Agent<span class="count">30</span></a>
+        
+        <a href="/skill/label/LangChain.html" class="tab  ">LangChain<span class="count">22</span></a>
+        
+        <a href="/skill/label/Claude.html" class="tab  ">Claude<span class="count">18</span></a>
+        
+        <a href="/skill/label/MCP-Server.html" class="tab  ">MCP-Server<span class="count">13</span></a>
+        
+        <a href="/skill/label/DeepSeek.html" class="tab  ">DeepSeek<span class="count">13</span></a>
+        
+        <a href="/skill/label/MiniMax.html" class="tab  ">MiniMax<span class="count">7</span></a>
+        
+        <a href="/skill/label/Gemma.html" class="tab  ">Gemma<span class="count">7</span></a>
+        
+        <a href="/skill/label/Llama.html" class="tab  ">Llama<span class="count">6</span></a>
+        
+        <a href="/skill/label/AI%20Workflow.html" class="tab  ">AI Workflow<span class="count">5</span></a>
+        
+        <a href="/skill/label/Mistral.html" class="tab  ">Mistral<span class="count">5</span></a>
+        
+        <a href="/skill/label/Qwen.html" class="tab  ">Qwen<span class="count">5</span></a>
+        
+        <a href="/skill/label/Phi.html" class="tab  ">Phi<span class="count">4</span></a>
+        
+        <a href="/skill/label/Kimi.html" class="tab  ">Kimi<span class="count">2</span></a>
+        
+        <a href="/skill/label/Model%20Inference.html" class="tab  ">Model Inference<span class="count">1</span></a>
+        
+        <a href="/skill/label/Hermes.html" class="tab  ">Hermes<span class="count">0</span></a>
+        
+        <a href="/skill/label/Fine-tuning.html" class="tab  ">Fine-tuning<span class="count">0</span></a>
+        
+        <a href="/skill/label/Claude-Skill.html" class="tab  ">Claude-Skill<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Safety.html" class="tab  ">AI Safety<span class="count">0</span></a>
+        
+        <a href="/skill/label/Embodied%20AI.html" class="tab  ">Embodied AI<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Speech.html" class="tab  ">AI Speech<span class="count">0</span></a>
+        
+        <a href="/skill/label/GLM.html" class="tab  ">GLM<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Memory.html" class="tab  ">AI Memory<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Eval.html" class="tab  ">AI Eval<span class="count">0</span></a>
+        
+        <a href="/skill/label/AIGC.html" class="tab  ">AIGC<span class="count">0</span></a>
+        
+        <a href="/skill/label/Multimodal.html" class="tab  ">Multimodal<span class="count">0</span></a>
+        
+        <a href="/skill/label/Vector%20DB.html" class="tab  ">Vector DB<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Search.html" class="tab  ">AI Search<span class="count">0</span></a>
+        
+        <a href="/skill/label/%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86.html" class="tab  historical">📡 模型推理<span class="count">5</span></a>
+        
+        <a href="/skill/label/AI%E5%AE%89%E5%85%A8%E5%AF%B9%E9%BD%90.html" class="tab  historical">📡 AI安全对齐<span class="count">5</span></a>
+        
+        <a href="/skill/label/%E5%A4%9A%E6%A8%A1%E6%80%81.html" class="tab  historical">📡 多模态<span class="count">5</span></a>
+        
+        <a href="/skill/label/MiMo.html" class="tab  historical">📡 MiMo<span class="count">2</span></a>
+        
+    </div>
+
+    
+    <div class="sort-bar">
+        <span class="sort-label">Sort:</span>
+        <a href="?sort=updated" class="sort-btn active" data-sort="updated" onclick="return sortCards(this,'updated')">🕐 Updated</a>
+        <a href="?sort=stars" class="sort-btn " data-sort="stars" onclick="return sortCards(this,'stars')">⭐ Stars</a>
+        <a href="?sort=created" class="sort-btn " data-sort="created" onclick="return sortCards(this,'created')">🆕 Created</a>
+    </div>
+    
+
+    <div class="main">
+        
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-04-16</span>
+                    <span class="line"></span>
+                    <span class="count">7 items</span>
+                </div>
+                
+                <div class="card" data-stars="1" data-created="1705078567" data-updated="1776323605">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/ARE2200/orchard-kit" target="_blank">ARE2200/orchard-kit</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-16 07:13</div>
+                    </div>
+                    <div class="card-desc">🌳 Build secure, aligned autonomous AI agents with boundary control, trust verification, and self-governance tools for...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%E5%AE%89%E5%85%A8%E5%AF%B9%E9%BD%90.html" class="tag tag-label">AI安全对齐</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 1</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-16</span>
+                            <span>🆕 Created 2024-01-12</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1627607959" data-updated="1776322736">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Wackodacko/agent-skills-mcp" target="_blank">Wackodacko/agent-skills-mcp</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-16 06:58</div>
+                    </div>
+                    <div class="card-desc">🛠️ Implement skills for AI agents using a Model Context Protocol server that allows easy definition and invocation ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/MCP-Server.html" class="tag tag-label">MCP-Server</a>
+                        
+                        <span class="tag tag-keyword">MCP Server</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 JavaScript</span>
+                            <span>📅 Updated 2026-04-16</span>
+                            <span>🆕 Created 2021-07-30</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1769101003" data-updated="1776322358">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/MisterBlake123/inference-hub" target="_blank">MisterBlake123/inference-hub</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-16 06:52</div>
+                    </div>
+                    <div class="card-desc">🔗 Simplify AI model serving with InferenceHub, a high-performance gateway that decouples application and compute laye...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86.html" class="tag tag-label">模型推理</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 JavaScript</span>
+                            <span>📅 Updated 2026-04-16</span>
+                            <span>🆕 Created 2026-01-22</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776321546" data-updated="1776321813">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/25se-creator/runway-ai-system" target="_blank">25se-creator/runway-ai-system</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-16 06:43</div>
+                    </div>
+                    <div class="card-desc">Real-time runway alignment detection system using computer vision for aviation safety monitoring.</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%E5%AE%89%E5%85%A8%E5%AF%B9%E9%BD%90.html" class="tag tag-label">AI安全对齐</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-16</span>
+                            <span>🆕 Created 2026-04-16</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="2" data-created="1651623066" data-updated="1776321639">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/lucas-itup/Multimodal-AI-Dermatological-Diagnosis-System" target="_blank">lucas-itup/Multimodal-AI-Dermatological-Diagnosis-System</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-16 06:40</div>
+                    </div>
+                    <div class="card-desc">🩺 Analyze skin lesions with an AI system that combines OpenCV, Vision Language Models, and literature retrieval for p...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/%E5%A4%9A%E6%A8%A1%E6%80%81.html" class="tag tag-label">多模态</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 2</span>
+                            <span>🍴 0</span>
+                            <span>💻 HTML</span>
+                            <span>📅 Updated 2026-04-16</span>
+                            <span>🆕 Created 2022-05-04</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="857" data-created="1537980053" data-updated="1776309940">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/openvinotoolkit/model_server" target="_blank">openvinotoolkit/model_server</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-16 03:25</div>
+                    </div>
+                    <div class="card-desc">A scalable inference server for models optimized with OpenVINO™</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86.html" class="tag tag-label">模型推理</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 857</span>
+                            <span>🍴 248</span>
+                            <span>💻 C&#43;&#43;</span>
+                            <span>📅 Updated 2026-04-16</span>
+                            <span>🆕 Created 2018-09-26</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="526" data-created="1731860735" data-updated="1776303076">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/prajwalshettydev/UnrealGenAISupport" target="_blank">prajwalshettydev/UnrealGenAISupport</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-16 01:31</div>
+                    </div>
+                    <div class="card-desc">Unreal Engine plugin for LLM/GenAI models &amp; MCP UE5 server. Includes OpenAI&#39;s GPT, Deepseek, Claude Sonnet/Opus APIs, Go...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Qwen.html" class="tag tag-label">Qwen</a>
+                        
+                        <span class="tag tag-keyword">Qwen</span>
+                        <div class="card-meta">
+                            <span>⭐ 526</span>
+                            <span>🍴 78</span>
+                            <span>💻 C&#43;&#43;</span>
+                            <span>📅 Updated 2026-04-16</span>
+                            <span>🆕 Created 2024-11-17</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-04-15</span>
+                    <span class="line"></span>
+                    <span class="count">3 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1774806608" data-updated="1776290307">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/tryAGI/Baseten" target="_blank">tryAGI/Baseten</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-15 21:58</div>
+                    </div>
+                    <div class="card-desc">C# SDK for the Baseten API -- model serving and deployment platform with Truss framework</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86.html" class="tag tag-label">模型推理</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 C#</span>
+                            <span>📅 Updated 2026-04-15</span>
+                            <span>🆕 Created 2026-03-29</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="4" data-created="1771769407" data-updated="1776286548">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/mattmre/EVOKORE-MCP" target="_blank">mattmre/EVOKORE-MCP</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-15 20:55</div>
+                    </div>
+                    <div class="card-desc">A unified Model Context Protocol (MCP) server that aggregates, indexes, and dynamically serves over 200&#43; specialized Age...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/MCP-Server.html" class="tag tag-label">MCP-Server</a>
+                        
+                        <span class="tag tag-keyword">MCP Server</span>
+                        <div class="card-meta">
+                            <span>⭐ 4</span>
+                            <span>🍴 1</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-04-15</span>
+                            <span>🆕 Created 2026-02-22</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776223009" data-updated="1776232930">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Vadtop/dify-ai-workflow" target="_blank">Vadtop/dify-ai-workflow</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-15 06:02</div>
+                    </div>
+                    <div class="card-desc">Dify workflow orchestration &#43; FastAPI wrapper</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Workflow.html" class="tag tag-label">AI Workflow</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-15</span>
+                            <span>🆕 Created 2026-04-15</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-04-14</span>
+                    <span class="line"></span>
+                    <span class="count">2 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776153989" data-updated="1776195506">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/kt3v/levelry-docs" target="_blank">kt3v/levelry-docs</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-14 19:38</div>
+                    </div>
+                    <div class="card-desc">Levelry MCP server integration — connect AI agents to your visual knowledge base via Model Context Protocol. Includes ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/MCP-Server.html" class="tag tag-label">MCP-Server</a>
+                        
+                        <span class="tag tag-keyword">MCP Server</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 </span>
+                            <span>📅 Updated 2026-04-14</span>
+                            <span>🆕 Created 2026-04-14</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="1" data-created="1766684860" data-updated="1776190327">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/is-leeroy-jenkins/Bro" target="_blank">is-leeroy-jenkins/Bro</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-14 18:12</div>
+                    </div>
+                    <div class="card-desc">A small app designed to run local LLMs entirely on your machine using a fine-tuned version of Google&#39;s Gemma-3-1B-IT mod...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Gemma.html" class="tag tag-label">Gemma</a>
+                        
+                        <span class="tag tag-keyword">Gemma</span>
+                        <div class="card-meta">
+                            <span>⭐ 1</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-14</span>
+                            <span>🆕 Created 2025-12-25</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-04-12</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1776033664" data-updated="1776034747">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/malouka2003/Gemma-4-Darija-Making-AI-Accessible-to-300-Million-North-Africans" target="_blank">malouka2003/Gemma-4-Darija-Making-AI-Accessible-to-300-Million-North-Africans</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-12 22:59</div>
+                    </div>
+                    <div class="card-desc">WHAT: Fine-tuned Google&#39;s Gemma 4 2B model to understand and generate Algerian Darija (Derja) - a dialect spoken by 30&#43; ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Gemma.html" class="tag tag-label">Gemma</a>
+                        
+                        <span class="tag tag-keyword">Gemma</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Jupyter Notebook</span>
+                            <span>📅 Updated 2026-04-12</span>
+                            <span>🆕 Created 2026-04-12</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-04-11</span>
+                    <span class="line"></span>
+                    <span class="count">2 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1775909348" data-updated="1775909358">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/b010001y/cicada" target="_blank">b010001y/cicada</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-11 12:09</div>
+                    </div>
+                    <div class="card-desc">🦗 金蝉脱壳 — Shed your AI agent shell, keep your soul. Migrate agent identity across frameworks (OpenClaw, Clau...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Agent.html" class="tag tag-label">AI Agent</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-11</span>
+                            <span>🆕 Created 2026-04-11</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="12" data-created="1769662840" data-updated="1775872514">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/realies/translategemma-ui" target="_blank">realies/translategemma-ui</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-11 01:55</div>
+                    </div>
+                    <div class="card-desc">Web interface for TranslateGemma, Google&#39;s open translation model</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Gemma.html" class="tag tag-label">Gemma</a>
+                        
+                        <span class="tag tag-keyword">Gemma</span>
+                        <div class="card-meta">
+                            <span>⭐ 12</span>
+                            <span>🍴 1</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-04-11</span>
+                            <span>🆕 Created 2026-01-29</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-04-10</span>
+                    <span class="line"></span>
+                    <span class="count">3 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1775832000" data-updated="1775832491">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/MalachiteN/noasr" target="_blank">MalachiteN/noasr</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-10 14:48</div>
+                    </div>
+                    <div class="card-desc">noasr is a voice IME without an ASR model, directly sends the user&#39;s audio input into Xiaomi MiMo Omni LLM. Its name imi...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/MiMo.html" class="tag tag-label">MiMo</a>
+                        
+                        <span class="tag tag-keyword">MiMo</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-10</span>
+                            <span>🆕 Created 2026-04-10</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="2" data-created="1775824075" data-updated="1775824779">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Jpridee/aliyun-bailian-billing-parser" target="_blank">Jpridee/aliyun-bailian-billing-parser</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-10 12:39</div>
+                    </div>
+                    <div class="card-desc">阿里云百炼大模型 Token 账单解析工具 | Alibaba Cloud Bailian LLM Token Billing Parser - Parse, analyze and ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Qwen.html" class="tag tag-label">Qwen</a>
+                        
+                        <span class="tag tag-keyword">Qwen</span>
+                        <div class="card-meta">
+                            <span>⭐ 2</span>
+                            <span>🍴 0</span>
+                            <span>💻 Go</span>
+                            <span>📅 Updated 2026-04-10</span>
+                            <span>🆕 Created 2026-04-10</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1775035572" data-updated="1775810505">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/vanshdhiman007/MultiLLM-chatbot" target="_blank">vanshdhiman007/MultiLLM-chatbot</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-10 08:41</div>
+                    </div>
+                    <div class="card-desc">In this chatbot you can give one prompt and compare the results from 3 different AI models alike Deepseek, ChatGPT and G...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Gemma.html" class="tag tag-label">Gemma</a>
+                        
+                        <span class="tag tag-keyword">Gemma</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 HTML</span>
+                            <span>📅 Updated 2026-04-10</span>
+                            <span>🆕 Created 2026-04-01</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-04-04</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1775318178" data-updated="1775342360">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Patrick-L-Taylor/llm-fine-tuning-prototype" target="_blank">Patrick-L-Taylor/llm-fine-tuning-prototype</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-04-04 22:39</div>
+                    </div>
+                    <div class="card-desc">Fine-tuning Meta&#39;s Llama 3.1 8B Instruct model with legal marketing copy. Supervised fine-tuning on curated examples, th...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Llama.html" class="tag tag-label">Llama</a>
+                        
+                        <span class="tag tag-keyword">Llama</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-04-04</span>
+                            <span>🆕 Created 2026-04-04</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-03-31</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1774937139" data-updated="1774937167">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/tete-cordobes/model-router" target="_blank">tete-cordobes/model-router</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-03-31 06:06</div>
+                    </div>
+                    <div class="card-desc">Claude Code plugin that routes requests to any LLM provider — GLM, MiniMax, Xiaomi Mimo, DeepSeek, and more. Zero depe...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/MiMo.html" class="tag tag-label">MiMo</a>
+                        
+                        <span class="tag tag-keyword">MiMo</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 JavaScript</span>
+                            <span>📅 Updated 2026-03-31</span>
+                            <span>🆕 Created 2026-03-31</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-03-27</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="4" data-created="1769540528" data-updated="1774630305">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/default-anton/pi-moonshot" target="_blank">default-anton/pi-moonshot</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-03-27 16:51</div>
+                    </div>
+                    <div class="card-desc">Pi extension adding Moonshot AI provider support with Kimi K2.5, Kimi Latest, and other models</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Kimi.html" class="tag tag-label">Kimi</a>
+                        
+                        <span class="tag tag-keyword">Kimi</span>
+                        <div class="card-meta">
+                            <span>⭐ 4</span>
+                            <span>🍴 1</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-03-27</span>
+                            <span>🆕 Created 2026-01-27</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-03-24</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1774258464" data-updated="1774337832">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/NMQuang/dify-project" target="_blank">NMQuang/dify-project</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-03-24 07:37</div>
+                    </div>
+                    <div class="card-desc">AI-powered workflows built with Dify, including chatbot automation, API orchestration, and real-world use cases.</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Workflow.html" class="tag tag-label">AI Workflow</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 </span>
+                            <span>📅 Updated 2026-03-24</span>
+                            <span>🆕 Created 2026-03-23</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-03-23</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="6" data-created="1773704487" data-updated="1774266134">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/wazih-shourov/Qwen3-8B-Custom-Persona-LoRA" target="_blank">wazih-shourov/Qwen3-8B-Custom-Persona-LoRA</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-03-23 11:42</div>
+                    </div>
+                    <div class="card-desc">Demonstrates LLM persona engineering by fine-tuning Qwen3 8B with QLoRA and Unsloth. The base model&#39;s Alibaba/Qwen ident...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Qwen.html" class="tag tag-label">Qwen</a>
+                        
+                        <span class="tag tag-keyword">Qwen</span>
+                        <div class="card-meta">
+                            <span>⭐ 6</span>
+                            <span>🍴 1</span>
+                            <span>💻 Jupyter Notebook</span>
+                            <span>📅 Updated 2026-03-23</span>
+                            <span>🆕 Created 2026-03-16</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-03-21</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="30" data-created="1711788294" data-updated="1774078819">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/dhakalnirajan/LLaMA-BitNet" target="_blank">dhakalnirajan/LLaMA-BitNet</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-03-21 07:40</div>
+                    </div>
+                    <div class="card-desc">LLaMA-BitNet is a repository dedicated to empowering users to train their own BitNet models built upon LLaMA 2 model, in...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Llama.html" class="tag tag-label">Llama</a>
+                        
+                        <span class="tag tag-keyword">Llama</span>
+                        <div class="card-meta">
+                            <span>⭐ 30</span>
+                            <span>🍴 2</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-03-21</span>
+                            <span>🆕 Created 2024-03-30</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-03-17</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="257" data-created="1704575538" data-updated="1773756921">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/gbaptista/ollama-ai" target="_blank">gbaptista/ollama-ai</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-03-17 14:15</div>
+                    </div>
+                    <div class="card-desc">A Ruby gem for interacting with Ollama&#39;s API that allows you to run open source AI LLMs (Large Language Models) locally.</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Mistral.html" class="tag tag-label">Mistral</a>
+                        
+                        <span class="tag tag-keyword">Mistral</span>
+                        <div class="card-meta">
+                            <span>⭐ 257</span>
+                            <span>🍴 11</span>
+                            <span>💻 Ruby</span>
+                            <span>📅 Updated 2026-03-17</span>
+                            <span>🆕 Created 2024-01-06</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-03-09</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1754879434" data-updated="1773051715">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Advantech-Containers/LLM-Langchain-AI-Agent-on-NVIDIA-Jetson" target="_blank">Advantech-Containers/LLM-Langchain-AI-Agent-on-NVIDIA-Jetson</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-03-09 10:21</div>
+                    </div>
+                    <div class="card-desc"> A high-performance, modular AI chat solution for Jetson™ edge devices. It integrates Ollama with the Meta Llama 3.2 3...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Llama.html" class="tag tag-label">Llama</a>
+                        
+                        <span class="tag tag-keyword">Llama</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Shell</span>
+                            <span>📅 Updated 2026-03-09</span>
+                            <span>🆕 Created 2025-08-11</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-02-27</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="1" data-created="1768907913" data-updated="1772191831">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/NisargaVenkatesh/llm_Behind_the_Secrets_of_Large_Language_Models" target="_blank">NisargaVenkatesh/llm_Behind_the_Secrets_of_Large_Language_Models</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-02-27 11:30</div>
+                    </div>
+                    <div class="card-desc">LoRA fine-tuned Meta-Llama-3-8B for MCQ/SAQ. MCQ answers selected via log-probability scoring over A/B/C/D; SAQ answers ...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Llama.html" class="tag tag-label">Llama</a>
+                        
+                        <span class="tag tag-keyword">Llama</span>
+                        <div class="card-meta">
+                            <span>⭐ 1</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-02-27</span>
+                            <span>🆕 Created 2026-01-20</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-01-31</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="2" data-created="1721844180" data-updated="1769894058">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/lucasjvds/ImproveLLMStorytellingWithFineTuning" target="_blank">lucasjvds/ImproveLLMStorytellingWithFineTuning</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-01-31 21:14</div>
+                    </div>
+                    <div class="card-desc">This workshop, led by Lucas José for the Google Developer Student Clubs, focuses on developing practical skills in fine...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Phi.html" class="tag tag-label">Phi</a>
+                        
+                        <span class="tag tag-keyword">Phi</span>
+                        <div class="card-meta">
+                            <span>⭐ 2</span>
+                            <span>🍴 0</span>
+                            <span>💻 Jupyter Notebook</span>
+                            <span>📅 Updated 2026-01-31</span>
+                            <span>🆕 Created 2024-07-24</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-01-15</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1752429987" data-updated="1768488219">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Saathviga9605/Promptcue" target="_blank">Saathviga9605/Promptcue</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-01-15 14:43</div>
+                    </div>
+                    <div class="card-desc">A lightweight LLM playground using OpenRouter to test open-source models like Mistral and Mixtral with prompt logging, l...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-skill">skill</span>
+                        <a href="/skill/label/Mistral.html" class="tag tag-label">Mistral</a>
+                        
+                        <span class="tag tag-keyword">Mistral</span>
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-01-15</span>
+                            <span>🆕 Created 2025-07-13</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2025-12-29</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1766707625" data-updated="1766979926">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/North-Shore-AI/crucible_deployment" target="_blank">North-Shore-AI/crucible_deployment</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2025-12-29 03:45</div>
+                    </div>
+                    <div class="card-desc">ML model deployment for the Crucible ecosystem. vLLM and Ollama integration, canary deployments, A/B testing, traffic ro...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/Model%20Inference.html" class="tag tag-label">Model Inference</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Elixir</span>
+                            <span>📅 Updated 2025-12-29</span>
+                            <span>🆕 Created 2025-12-26</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        
+
+        
+        <div class="pagination">
+            
+            <a href="/skill/index-page-10.html">← Prev</a>
+            
+
+            
+            
+            <a href="/skill/">1</a>
+            
+            
+            
+            <a href="/skill/index-page-2.html">2</a>
+            
+            
+            
+            <a href="/skill/index-page-3.html">3</a>
+            
+            
+            
+            <a href="/skill/index-page-4.html">4</a>
+            
+            
+            
+            <a href="/skill/index-page-5.html">5</a>
+            
+            
+            
+            <a href="/skill/index-page-6.html">6</a>
+            
+            
+            
+            <a href="/skill/index-page-7.html">7</a>
+            
+            
+            
+            <a href="/skill/index-page-8.html">8</a>
+            
+            
+            
+            <a href="/skill/index-page-9.html">9</a>
+            
+            
+            
+            <a href="/skill/index-page-10.html">10</a>
+            
+            
+            
+            <span class="current">11</span>
+            
+            
+            
+            <a href="/skill/index-page-12.html">12</a>
+            
+            
+
+            
+            <a href="/skill/index-page-12.html">Next →</a>
+            
+
+            <span class="info">Page 11 / 12</span>
+        </div>
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <button type="button" class="back-to-top" id="back-to-top" title="回到顶部" aria-label="回到顶部">↑</button>
+
+    <script>
+    function sortCards(el, field) {
+        
+        var isStatic = !window.location.search && document.querySelectorAll('.pagination a[href*="?page="]').length === 0;
+        
+        var main = document.querySelector('.main');
+        if (!main) return true;
+        var cards = Array.from(main.querySelectorAll('.card'));
+        if (cards.length === 0) return true;
+        cards.sort(function(a, b) {
+            var va, vb;
+            if (field === 'stars') {
+                va = parseInt(a.dataset.stars) || 0;
+                vb = parseInt(b.dataset.stars) || 0;
+                return vb - va;
+            } else if (field === 'created') {
+                va = parseInt(a.dataset.created) || 0;
+                vb = parseInt(b.dataset.created) || 0;
+                return vb - va;
+            } else {
+                va = parseInt(a.dataset.updated) || 0;
+                vb = parseInt(b.dataset.updated) || 0;
+                return vb - va;
+            }
+        });
+        
+        var groups = main.querySelectorAll('.date-group');
+        var container = document.createElement('div');
+        container.className = 'sorted-cards';
+        cards.forEach(function(c) { container.appendChild(c); });
+        groups.forEach(function(g) { g.remove(); });
+        var empty = main.querySelector('.empty');
+        if (empty) empty.style.display = 'none';
+        main.insertBefore(container, main.querySelector('.pagination'));
+        
+        document.querySelectorAll('.sort-btn').forEach(function(b) { b.classList.remove('active'); });
+        el.classList.add('active');
+        return false;
+    }
+
+    (function() {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        function pageScrollable() {
+            return document.documentElement.scrollHeight > window.innerHeight + 120;
+        }
+        function toggleBtn() {
+            if (pageScrollable()) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        }
+        window.addEventListener('scroll', toggleBtn, { passive: true });
+        document.addEventListener('scroll', toggleBtn, { passive: true });
+        window.addEventListener('resize', toggleBtn);
+        window.addEventListener('load', toggleBtn);
+        toggleBtn();
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+    </script>
+
+    <div class="footer">
+        Powered by <a href="https://github.com/shellsec/skill-monitor">Skill Monitor</a> · Auto-updated via GitHub Actions
+    </div>
+</body>
+</html>

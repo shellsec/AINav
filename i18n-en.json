@@ -1,7 +1,7 @@
 {
   "DeepSeek": {
     "title": "DeepSeek",
-    "desc": "Daily pick: strong reasoning, free tier, long context & coding"
+    "desc": "日常首推：推理强、免费好用，长文与写代码"
   },
   "豆包": {
     "title": "Doubao",
@@ -9,7 +9,7 @@
   },
   "Kimi": {
     "title": "Kimi",
-    "desc": "Long context — paste links/docs for summaries and follow-ups"
+    "desc": "长上下文，甩链接/文档做摘要与追问"
   },
   "通义千问": {
     "title": "Tongyi Qianwen",
@@ -21,15 +21,15 @@
   },
   "ChatGPT": {
     "title": "ChatGPT",
-    "desc": "General chat, writing, translation & plugin ecosystem"
+    "desc": "通用对话、写作、翻译与插件生态"
   },
   "Claude": {
     "title": "Claude",
-    "desc": "Long-form writing, complex reasoning & long conversations"
+    "desc": "长文写作、复杂推理与长对话"
   },
   "Gemini": {
     "title": "Gemini",
-    "desc": "Google multimodal — Search & Workspace integration"
+    "desc": "Google 多模态，与搜索/Workspace 联动"
   },
   "Grok": {
     "title": "Grok",
@@ -37,15 +37,15 @@
   },
   "Perplexity": {
     "title": "Perplexity",
-    "desc": "Web search answers with citations — fast research"
+    "desc": "带引用网页的搜索问答，查资料快"
   },
   "秘塔AI搜索": {
     "title": "MetaSo AI Search",
-    "desc": "Chinese search — structured results & academic focus"
+    "desc": "Chinese retrieval, structured results & academic oriented"
   },
   "沉浸式翻译": {
     "title": "Immersive Translate",
-    "desc": "Bilingual web reading — papers & foreign sites essential"
+    "desc": "Bilingual webpage comparison, essential for papers & foreign sites"
   },
   "Coze": {
     "title": "Coze",
@@ -2831,10 +2831,6 @@
     "title": "讯飞 Loomy",
     "desc": "讯飞 AI 智能体平台，语音与多模态交互"
   },
-  "Hermes Agent": {
-    "title": "Hermes Agent",
-    "desc": "Nous Research open-source self-evolving Agent with learning loop & cross-session memory (53K+ stars)"
-  },
   "Higress HiClaw": {
     "title": "Higress HiClaw",
     "desc": "阿里云 Higress 网关 + AI Agent，API 路由与智能调度"
@@ -3695,9 +3691,17 @@
     "title": "Suna",
     "desc": "Open-source general AI Agent — automated research, data analysis & workflow execution"
   },
-  "Hermes Agent 官网": {
-    "title": "Hermes Agent Official",
-    "desc": "Open-source AI agent with memory — gets smarter with use — intro & quickstart"
+  "Hermes Agent": {
+    "title": "Hermes Agent",
+    "desc": "Nous Research open-source self-evolving Agent with learning loop & cross-session memory (53K+ stars)"
+  },
+  "Hermes Agent 产品站": {
+    "title": "Hermes Agent Product Site",
+    "desc": "Official Nous Research product intro, features overview & quickstart"
+  },
+  "Hermes Agent 中文站": {
+    "title": "Hermes Agent (CN Site)",
+    "desc": "Open-source AI agent with memory — Chinese intro & quickstart"
   },
   "Hermes Agent 文档": {
     "title": "Hermes Agent Docs",
@@ -3714,6 +3718,10 @@
   "OpenClaw 中文用例大全": {
     "title": "OpenClaw CN Use Cases",
     "desc": "46 real scenarios: Feishu/DingTalk/WeCom automation, content, ops, knowledge mgmt"
+  },
+  "Hermes Agent 用例集": {
+    "title": "Hermes Agent User Stories",
+    "desc": "262 real community stories: cron automation, IM integration, self-hosting, trading bots, skill authoring"
   },
   "Hermes Agent 架构全解": {
     "title": "Hermes Agent Architecture",

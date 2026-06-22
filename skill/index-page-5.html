@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skill Monitor</title>
+    <style>
+        :root { --bg: #0a0a0f; --card: #12121a; --border: #1e1e2e; --accent: #7c3aed; --accent2: #a78bfa; --text: #e2e8f0; --muted: #64748b; --green: #22c55e; --blue: #3b82f6; --orange: #f59e0b; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'SF Mono', 'Cascadia Code', 'JetBrains Mono', monospace; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+         
+        .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-bottom: 1px solid var(--border); padding: 20px 32px; }
+        .header h1 { font-size: 22px; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 4px; }
+        .header h1 a { text-decoration: none; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header .subtitle { color: var(--muted); font-size: 13px; }
+        .stats-row { display: flex; gap: 24px; margin-top: 16px; }
+        .stat { display: flex; flex-direction: column; }
+        .stat .num { font-size: 28px; font-weight: 800; color: var(--accent2); }
+        .stat .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+         
+        .tabs { display: flex; gap: 8px; padding: 16px 32px; overflow-x: auto; border-bottom: 1px solid var(--border); background: var(--card); flex-wrap: wrap; }
+        .tab { padding: 6px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; text-decoration: none; transition: all 0.2s; white-space: nowrap; border: 1px solid var(--border); color: var(--muted); background: transparent; }
+        .tab:hover { color: var(--text); border-color: var(--accent); }
+        .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .tab .count { display: inline-block; background: rgba(255,255,255,0.15); border-radius: 10px; padding: 1px 7px; font-size: 11px; margin-left: 6px; }
+        .tab.historical { opacity: 0.6; border-style: dashed; }
+        .tag-trending { background: rgba(239,68,68,0.15); color: #ef4444; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.7; } }
+
+         
+        .sort-bar { display: flex; gap: 8px; align-items: center; padding: 12px 32px; background: var(--bg); border-bottom: 1px solid var(--border); }
+        .sort-bar .sort-label { font-size: 12px; color: var(--muted); margin-right: 4px; }
+        .sort-btn { padding: 4px 12px; border-radius: 6px; font-size: 12px; cursor: pointer; text-decoration: none; transition: all 0.2s; border: 1px solid var(--border); color: var(--muted); background: transparent; font-family: inherit; }
+        .sort-btn:hover { color: var(--text); border-color: var(--accent); }
+        .sort-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+         
+        .main { max-width: 960px; margin: 0 auto; padding: 24px 32px; }
+
+         
+        .date-group { margin-bottom: 32px; }
+        .date-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .date-header .date { font-size: 14px; font-weight: 700; color: var(--accent2); }
+        .date-header .line { flex: 1; height: 1px; background: var(--border); }
+        .date-header .count { font-size: 12px; color: var(--muted); }
+
+         
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-bottom: 10px; transition: all 0.2s; position: relative; }
+        .card:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(124,58,237,0.1); }
+        .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .card-title { font-size: 15px; font-weight: 600; }
+        .card-title a { color: var(--text); text-decoration: none; }
+        .card-title a:hover { color: var(--accent2); }
+        .card-time { font-size: 12px; color: var(--muted); white-space: nowrap; margin-left: 16px; }
+        .card-desc { color: var(--muted); font-size: 13px; line-height: 1.6; margin-bottom: 10px; }
+        .card-bottom { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+        .tag-keyword { background: rgba(59,130,246,0.12); color: var(--blue); }
+        .tag-skill { background: rgba(34,197,94,0.12); color: var(--green); }
+        .tag-related { background: rgba(245,158,11,0.12); color: var(--orange); }
+        .tag-label { background: rgba(124,58,237,0.12); color: var(--accent2); }
+        a.tag { text-decoration: none; cursor: pointer; }
+        a.tag.tag-label:hover { background: rgba(124,58,237,0.25); }
+        .card-meta { display: flex; gap: 14px; font-size: 12px; color: var(--muted); }
+        .card-meta span { display: flex; align-items: center; gap: 3px; }
+
+        .empty { text-align: center; padding: 80px 20px; }
+        .empty h2 { color: var(--muted); font-size: 18px; margin-bottom: 8px; }
+        .empty p { color: var(--border); font-size: 14px; }
+
+         
+        .pagination { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 32px; padding-bottom: 32px; }
+        .pagination a, .pagination span { padding: 8px 14px; border-radius: 8px; font-size: 13px; text-decoration: none; border: 1px solid var(--border); color: var(--muted); transition: all 0.2s; }
+        .pagination a:hover { border-color: var(--accent); color: var(--text); }
+        .pagination .current { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .pagination .disabled { opacity: 0.3; cursor: not-allowed; }
+        .pagination .info { border: none; color: var(--muted); font-size: 12px; }
+
+         
+        .footer { text-align: center; padding: 24px 32px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); }
+        .footer a { color: var(--accent2); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+         
+        .back-to-top {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 9999;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            background: rgba(18, 18, 26, 0.92);
+            color: #fff;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(12px);
+            transition: opacity 0.25s, visibility 0.25s, transform 0.25s, border-color 0.2s, background 0.2s;
+            box-shadow: 0 4px 20px rgba(124,58,237,0.35);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            border-color: var(--accent2);
+            background: var(--accent);
+            color: #fff;
+        }
+
+         
+        @media (max-width: 640px) {
+            .header, .tabs, .sort-bar, .main { padding-left: 16px; padding-right: 16px; }
+            .stats-row { gap: 16px; }
+            .pagination { flex-wrap: wrap; }
+            .back-to-top { right: 16px; bottom: 16px; width: 40px; height: 40px; font-size: 18px; }
+        }
+    </style>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2B8FBWRX4N');
+    </script>
+    
+    
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2d49f38b39c743ac80b6d6b9ff99494d"}'></script>
+    
+</head>
+<body>
+    <div class="header">
+        <h1><a href="/skill/">🤖 AI Skill Monitor</a></h1>
+        <div class="subtitle">GitHub AI Project Monitor · Keyword/Skill Auto Tracker</div>
+        <div class="stats-row">
+            <div class="stat"><span class="num">334</span><span class="lbl">Projects</span></div>
+            <div class="stat"><span class="num">1857</span><span class="lbl">Avg Stars</span></div>
+            <div class="stat"><span class="num">34</span><span class="lbl">Labels</span></div>
+            <div class="stat"><span class="num" style="font-size:14px;margin-top:8px;">2026-06-22 17:30:26</span><span class="lbl">Last Updated</span></div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <a href="/skill/" class="tab active">All<span class="count">334</span></a>
+        <a href="/skill/trending.html" class="tab ">🔥 Trending</a>
+        <a href="/skill/huggingface.html" class="tab ">🤗 HuggingFace</a>
+        <a href="/skill/hackernews.html" class="tab ">🔶 HackerNews</a>
+        
+        <a href="/skill/label/AI%20Coding.html" class="tab  ">AI Coding<span class="count">73</span></a>
+        
+        <a href="/skill/label/RAG.html" class="tab  ">RAG<span class="count">68</span></a>
+        
+        <a href="/skill/label/LLM%20Tools.html" class="tab  ">LLM Tools<span class="count">38</span></a>
+        
+        <a href="/skill/label/AI%20Agent.html" class="tab  ">AI Agent<span class="count">30</span></a>
+        
+        <a href="/skill/label/LangChain.html" class="tab  ">LangChain<span class="count">22</span></a>
+        
+        <a href="/skill/label/Claude.html" class="tab  ">Claude<span class="count">18</span></a>
+        
+        <a href="/skill/label/MCP-Server.html" class="tab  ">MCP-Server<span class="count">13</span></a>
+        
+        <a href="/skill/label/DeepSeek.html" class="tab  ">DeepSeek<span class="count">13</span></a>
+        
+        <a href="/skill/label/MiniMax.html" class="tab  ">MiniMax<span class="count">7</span></a>
+        
+        <a href="/skill/label/Gemma.html" class="tab  ">Gemma<span class="count">7</span></a>
+        
+        <a href="/skill/label/Llama.html" class="tab  ">Llama<span class="count">6</span></a>
+        
+        <a href="/skill/label/AI%20Workflow.html" class="tab  ">AI Workflow<span class="count">5</span></a>
+        
+        <a href="/skill/label/Mistral.html" class="tab  ">Mistral<span class="count">5</span></a>
+        
+        <a href="/skill/label/Qwen.html" class="tab  ">Qwen<span class="count">5</span></a>
+        
+        <a href="/skill/label/Phi.html" class="tab  ">Phi<span class="count">4</span></a>
+        
+        <a href="/skill/label/Kimi.html" class="tab  ">Kimi<span class="count">2</span></a>
+        
+        <a href="/skill/label/Model%20Inference.html" class="tab  ">Model Inference<span class="count">1</span></a>
+        
+        <a href="/skill/label/Hermes.html" class="tab  ">Hermes<span class="count">0</span></a>
+        
+        <a href="/skill/label/Fine-tuning.html" class="tab  ">Fine-tuning<span class="count">0</span></a>
+        
+        <a href="/skill/label/Claude-Skill.html" class="tab  ">Claude-Skill<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Safety.html" class="tab  ">AI Safety<span class="count">0</span></a>
+        
+        <a href="/skill/label/Embodied%20AI.html" class="tab  ">Embodied AI<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Speech.html" class="tab  ">AI Speech<span class="count">0</span></a>
+        
+        <a href="/skill/label/GLM.html" class="tab  ">GLM<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Memory.html" class="tab  ">AI Memory<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Eval.html" class="tab  ">AI Eval<span class="count">0</span></a>
+        
+        <a href="/skill/label/AIGC.html" class="tab  ">AIGC<span class="count">0</span></a>
+        
+        <a href="/skill/label/Multimodal.html" class="tab  ">Multimodal<span class="count">0</span></a>
+        
+        <a href="/skill/label/Vector%20DB.html" class="tab  ">Vector DB<span class="count">0</span></a>
+        
+        <a href="/skill/label/AI%20Search.html" class="tab  ">AI Search<span class="count">0</span></a>
+        
+        <a href="/skill/label/%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86.html" class="tab  historical">📡 模型推理<span class="count">5</span></a>
+        
+        <a href="/skill/label/AI%E5%AE%89%E5%85%A8%E5%AF%B9%E9%BD%90.html" class="tab  historical">📡 AI安全对齐<span class="count">5</span></a>
+        
+        <a href="/skill/label/%E5%A4%9A%E6%A8%A1%E6%80%81.html" class="tab  historical">📡 多模态<span class="count">5</span></a>
+        
+        <a href="/skill/label/MiMo.html" class="tab  historical">📡 MiMo<span class="count">2</span></a>
+        
+    </div>
+
+    
+    <div class="sort-bar">
+        <span class="sort-label">Sort:</span>
+        <a href="?sort=updated" class="sort-btn active" data-sort="updated" onclick="return sortCards(this,'updated')">🕐 Updated</a>
+        <a href="?sort=stars" class="sort-btn " data-sort="stars" onclick="return sortCards(this,'stars')">⭐ Stars</a>
+        <a href="?sort=created" class="sort-btn " data-sort="created" onclick="return sortCards(this,'created')">🆕 Created</a>
+    </div>
+    
+
+    <div class="main">
+        
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-06-16</span>
+                    <span class="line"></span>
+                    <span class="count">7 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1781161509" data-updated="1781610426">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/PRATIKSK7/Knowledge-Sphere" target="_blank">PRATIKSK7/Knowledge-Sphere</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-16 11:47</div>
+                    </div>
+                    <div class="card-desc">A highly scalable Retrieval-Augmented Generation (RAG) framework federating massive knowledge graphs, engineered with di...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-16</span>
+                            <span>🆕 Created 2026-06-11</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1781610176" data-updated="1781610353">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/scout099/multi-tool-research-agent" target="_blank">scout099/multi-tool-research-agent</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-16 11:45</div>
+                    </div>
+                    <div class="card-desc">多工具AI Agent | ReAct &#43; Function Calling </div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-16</span>
+                            <span>🆕 Created 2026-06-16</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1781609587" data-updated="1781610283">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/turabhaiderr/ai-tool-agent" target="_blank">turabhaiderr/ai-tool-agent</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-16 11:44</div>
+                    </div>
+                    <div class="card-desc">Engineered a Python AI agent that uses an LLM (Llama 3.3 via Groq) with function calling — the model routes natural-la...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-16</span>
+                            <span>🆕 Created 2026-06-16</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1750091159" data-updated="1781600185">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/DevNick21/Clinical_RAG_chat_bot" target="_blank">DevNick21/Clinical_RAG_chat_bot</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-16 08:56</div>
+                    </div>
+                    <div class="card-desc">A comprehensive Retrieval-Augmented Generation (RAG) system designed for analyzing clinical data from the MIMIC-IV datas...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-16</span>
+                            <span>🆕 Created 2025-06-16</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="1" data-created="1775313146" data-updated="1781599973">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/divyansh-pathak129/TRG-RAG" target="_blank">divyansh-pathak129/TRG-RAG</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-16 08:52</div>
+                    </div>
+                    <div class="card-desc">TRG-RAG (Threaded Chunk Graphs Retrieval Augmented Generation), a lightweight relational retrieval framework that approx...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 1</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-16</span>
+                            <span>🆕 Created 2026-04-04</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="12" data-created="1775132912" data-updated="1781598936">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/barleviatias/toolkit-ai" target="_blank">barleviatias/toolkit-ai</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-16 08:35</div>
+                    </div>
+                    <div class="card-desc">Package manager for AI coding assistants — manage skills, agents &amp; MCPs across Claude Code, Codex, Copilot, and Cursor</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 12</span>
+                            <span>🍴 4</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-06-16</span>
+                            <span>🆕 Created 2026-04-02</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1781586082" data-updated="1781589312">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/ULT7RA/AIEssentialsToolkit" target="_blank">ULT7RA/AIEssentialsToolkit</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-16 05:55</div>
+                    </div>
+                    <div class="card-desc">Give AI coding assistants eyes and hands inside Godot 4 — screenshots, scene inspection, property editing, game contro...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 GDScript</span>
+                            <span>📅 Updated 2026-06-16</span>
+                            <span>🆕 Created 2026-06-16</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-06-15</span>
+                    <span class="line"></span>
+                    <span class="count">8 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1781223918" data-updated="1781541340">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/christianburnham-SrPM/experiment-readout-copilot" target="_blank">christianburnham-SrPM/experiment-readout-copilot</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-15 16:35</div>
+                    </div>
+                    <div class="card-desc">Experiment Analysis Copilot helps product teams convert experiment results into actionable decisions. Combines statistic...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-15</span>
+                            <span>🆕 Created 2026-06-12</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1781446798" data-updated="1781536774">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/yomnafarag95/IEEE_Paper" target="_blank">yomnafarag95/IEEE_Paper</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-15 15:19</div>
+                    </div>
+                    <div class="card-desc">RAG-Shield is a production-grade security framework for Retrieval-Augmented Generation (RAG) systems. It defends against...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-15</span>
+                            <span>🆕 Created 2026-06-14</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1773706704" data-updated="1781531127">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/niroopn2005-art/DocMind-RAG-" target="_blank">niroopn2005-art/DocMind-RAG-</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-15 13:45</div>
+                    </div>
+                    <div class="card-desc">A powerful Retrieval-Augmented Generation (RAG) framework for building AI and LLM applications.</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-15</span>
+                            <span>🆕 Created 2026-03-17</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1781485564" data-updated="1781530000">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/airdropp20208-star/omni-agent-v2" target="_blank">airdropp20208-star/omni-agent-v2</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-15 13:26</div>
+                    </div>
+                    <div class="card-desc">Unified AI Agent Framework — hermes &#43; claude &#43; codex &#43; kimi &#43; openclaw</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Agent.html" class="tag tag-label">AI Agent</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-06-15</span>
+                            <span>🆕 Created 2026-06-15</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1780640070" data-updated="1781513876">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/pvarsha-2903/CipherRAG" target="_blank">pvarsha-2903/CipherRAG</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-15 08:57</div>
+                    </div>
+                    <div class="card-desc">A cryptographically secure Retrieval-Augmented Generation framework for confidential business documents</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/RAG.html" class="tag tag-label">RAG</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-15</span>
+                            <span>🆕 Created 2026-06-05</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1781503344" data-updated="1781503345">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Ngozikam/ai-agent-plant-advisor" target="_blank">Ngozikam/ai-agent-plant-advisor</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-15 06:02</div>
+                    </div>
+                    <div class="card-desc">AI Agent demonstrating LLM tool calling, agent loops, structured function execution, and retrieval of plant care data us...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 </span>
+                            <span>📅 Updated 2026-06-15</span>
+                            <span>🆕 Created 2026-06-15</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1781343655" data-updated="1781500754">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/smitcode/ai-skills" target="_blank">smitcode/ai-skills</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-15 05:19</div>
+                    </div>
+                    <div class="card-desc">Install reusable AI assistant skills (Claude Code, Copilot, Cursor, Windsurf) with one npx command</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 JavaScript</span>
+                            <span>📅 Updated 2026-06-15</span>
+                            <span>🆕 Created 2026-06-13</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1765666977" data-updated="1781494156">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/RynoCrypto/braiins-insights-mcp-server" target="_blank">RynoCrypto/braiins-insights-mcp-server</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-15 03:29</div>
+                    </div>
+                    <div class="card-desc">Connect your AI coding assistant (Claude Desktop, Cursor, GitHub Copilot) to real-time Bitcoin network analytics through...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Coding.html" class="tag tag-label">AI Coding</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-06-15</span>
+                            <span>🆕 Created 2025-12-13</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-06-13</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1781332633" data-updated="1781347244">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/gustav4l/llm-zoomcamp-hw1-2026" target="_blank">gustav4l/llm-zoomcamp-hw1-2026</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-13 10:40</div>
+                    </div>
+                    <div class="card-desc">Homework assignment for LLM Zoomcamp 2026 Cohort (DataTalks.Club) – Implementing Agentic RAG with function calling, to...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Jupyter Notebook</span>
+                            <span>📅 Updated 2026-06-13</span>
+                            <span>🆕 Created 2026-06-13</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-06-12</span>
+                    <span class="line"></span>
+                    <span class="count">2 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1777094939" data-updated="1781288942">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/amnotwallas/walter-ai-neural-core" target="_blank">amnotwallas/walter-ai-neural-core</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-12 18:29</div>
+                    </div>
+                    <div class="card-desc">Advanced Multi-Agent orchestration engine for AI-powered interactions. Features real-time SSE streaming, autonomous   to...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-12</span>
+                            <span>🆕 Created 2026-04-25</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1780323195" data-updated="1781275341">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/slegarraga/tool-schema" target="_blank">slegarraga/tool-schema</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-12 14:42</div>
+                    </div>
+                    <div class="card-desc">Convert any JSON Schema into a valid tool / function calling schema for OpenAI, Anthropic, Gemini and MCP. Zero dependen...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-06-12</span>
+                            <span>🆕 Created 2026-06-01</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-06-11</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="2" data-created="1781115555" data-updated="1781197717">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Ayubjon/tool-schema-lint" target="_blank">Ayubjon/tool-schema-lint</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-11 17:08</div>
+                    </div>
+                    <div class="card-desc">Lint your LLM function-calling / tool-use JSON Schemas for OpenAI, Anthropic, and Gemini compatibility before you ship �...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 2</span>
+                            <span>🍴 0</span>
+                            <span>💻 JavaScript</span>
+                            <span>📅 Updated 2026-06-11</span>
+                            <span>🆕 Created 2026-06-10</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-06-10</span>
+                    <span class="line"></span>
+                    <span class="count">3 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1778265329" data-updated="1781109252">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/ajmb73/home-agent-bridge" target="_blank">ajmb73/home-agent-bridge</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-10 16:34</div>
+                    </div>
+                    <div class="card-desc">home-agent-bridge — Bi-directional communication bridge between two AI agent frameworks (OpenClaw and Hermes Agent) ru...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Agent.html" class="tag tag-label">AI Agent</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-10</span>
+                            <span>🆕 Created 2026-05-08</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="1" data-created="1776770409" data-updated="1781097302">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/AllRates-Today/allratestoday-deepseek" target="_blank">AllRates-Today/allratestoday-deepseek</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-10 13:15</div>
+                    </div>
+                    <div class="card-desc">DeepSeek function-calling tools for live currency exchange rates and historical data — powered by AllRatesToday.</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 1</span>
+                            <span>🍴 1</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-10</span>
+                            <span>🆕 Created 2026-04-21</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1781052018" data-updated="1781052771">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/amulyakrish/Project-4-Tool-Use-And-Function-Calling" target="_blank">amulyakrish/Project-4-Tool-Use-And-Function-Calling</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-10 00:52</div>
+                    </div>
+                    <div class="card-desc">provide LLM with tools and letting LLM decide Function Calling</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-10</span>
+                            <span>🆕 Created 2026-06-10</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-06-09</span>
+                    <span class="line"></span>
+                    <span class="count">2 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1780986875" data-updated="1780989851">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/suraj7337/Tool-Calling-Agent" target="_blank">suraj7337/Tool-Calling-Agent</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-09 07:24</div>
+                    </div>
+                    <div class="card-desc">A FastAPI-based AI agent demonstrating weather/search tool calling, multi-tool execution, OpenAI function calling, Gemin...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-09</span>
+                            <span>🆕 Created 2026-06-09</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="19" data-created="1726647499" data-updated="1780978850">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Shuyib/tool_calling_api" target="_blank">Shuyib/tool_calling_api</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-09 04:20</div>
+                    </div>
+                    <div class="card-desc">This project demonstrates function-calling with Python and Ollama, utilizing the Africa&#39;s Talking API to send airtime an...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 19</span>
+                            <span>🍴 11</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-09</span>
+                            <span>🆕 Created 2024-09-18</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-06-06</span>
+                    <span class="line"></span>
+                    <span class="count">1 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1780709935" data-updated="1780709943">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Viprasol-Tech/openai-function-calling-example" target="_blank">Viprasol-Tech/openai-function-calling-example</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-06 01:39</div>
+                    </div>
+                    <div class="card-desc">Generate OpenAI-style JSON tool schemas from plain Python functions and dispatch model tool-calls back to them — by Vi...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-06</span>
+                            <span>🆕 Created 2026-06-06</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-06-05</span>
+                    <span class="line"></span>
+                    <span class="count">3 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1780631839" data-updated="1780657256">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/MarkKilong/agent-tool-caller" target="_blank">MarkKilong/agent-tool-caller</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-05 11:00</div>
+                    </div>
+                    <div class="card-desc">Agents initiate function calling through large language models (LLM) to connect to external data and systems</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-06-05</span>
+                            <span>🆕 Created 2026-06-05</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1780640656" data-updated="1780640665">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/clumsy-goose/node-starter-agent-new" target="_blank">clumsy-goose/node-starter-agent-new</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-05 06:24</div>
+                    </div>
+                    <div class="card-desc">A minimal Node.js LLM agent starter on EdgeOne Pages Functions with streaming responses, conversation memory, interrupti...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 TypeScript</span>
+                            <span>📅 Updated 2026-06-05</span>
+                            <span>🆕 Created 2026-06-05</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1780627494" data-updated="1780628897">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/skartikapps/reasoning-tool-call-llm" target="_blank">skartikapps/reasoning-tool-call-llm</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-05 03:08</div>
+                    </div>
+                    <div class="card-desc">QLoRA fine-tune of Qwen3-1.7B for structured function-calling</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-05</span>
+                            <span>🆕 Created 2026-06-05</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="date-group">
+                <div class="date-header">
+                    <span class="date">📅 2026-06-04</span>
+                    <span class="line"></span>
+                    <span class="count">2 items</span>
+                </div>
+                
+                <div class="card" data-stars="0" data-created="1780598707" data-updated="1780602838">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/BChollett/local-ai-agents" target="_blank">BChollett/local-ai-agents</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-04 19:53</div>
+                    </div>
+                    <div class="card-desc">Local-first autonomous AI systems and agent orchestration running reliably on consumer hardware. Focus on optimized loca...</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/AI%20Agent.html" class="tag tag-label">AI Agent</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 0</span>
+                            <span>🍴 0</span>
+                            <span>💻 Shell</span>
+                            <span>📅 Updated 2026-06-04</span>
+                            <span>🆕 Created 2026-06-04</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" data-stars="1" data-created="1773868639" data-updated="1780580335">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <a href="https://github.com/Julien-G-Man/tool-calling-chatbot" target="_blank">Julien-G-Man/tool-calling-chatbot</a>
+                        </div>
+                        <div class="card-time">🕐 Updated 2026-06-04 13:38</div>
+                    </div>
+                    <div class="card-desc">Tool-augmented RAG chatbot with FastAPI, React, and SQL Server function calling</div>
+                    <div class="card-bottom">
+                        <span class="tag tag-keyword">keyword</span>
+                        <a href="/skill/label/LLM%20Tools.html" class="tag tag-label">LLM Tools</a>
+                        
+                        
+                        <div class="card-meta">
+                            <span>⭐ 1</span>
+                            <span>🍴 0</span>
+                            <span>💻 Python</span>
+                            <span>📅 Updated 2026-06-04</span>
+                            <span>🆕 Created 2026-03-18</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        
+
+        
+        <div class="pagination">
+            
+            <a href="/skill/index-page-4.html">← Prev</a>
+            
+
+            
+            
+            <a href="/skill/">1</a>
+            
+            
+            
+            <a href="/skill/index-page-2.html">2</a>
+            
+            
+            
+            <a href="/skill/index-page-3.html">3</a>
+            
+            
+            
+            <a href="/skill/index-page-4.html">4</a>
+            
+            
+            
+            <span class="current">5</span>
+            
+            
+            
+            <a href="/skill/index-page-6.html">6</a>
+            
+            
+            
+            <a href="/skill/index-page-7.html">7</a>
+            
+            
+            
+            <a href="/skill/index-page-8.html">8</a>
+            
+            
+            
+            <a href="/skill/index-page-9.html">9</a>
+            
+            
+            
+            <a href="/skill/index-page-10.html">10</a>
+            
+            
+            
+            <a href="/skill/index-page-11.html">11</a>
+            
+            
+            
+            <a href="/skill/index-page-12.html">12</a>
+            
+            
+
+            
+            <a href="/skill/index-page-6.html">Next →</a>
+            
+
+            <span class="info">Page 5 / 12</span>
+        </div>
+        
+
+        
+
+        
+
+        
+    </div>
+
+    <button type="button" class="back-to-top" id="back-to-top" title="回到顶部" aria-label="回到顶部">↑</button>
+
+    <script>
+    function sortCards(el, field) {
+        
+        var isStatic = !window.location.search && document.querySelectorAll('.pagination a[href*="?page="]').length === 0;
+        
+        var main = document.querySelector('.main');
+        if (!main) return true;
+        var cards = Array.from(main.querySelectorAll('.card'));
+        if (cards.length === 0) return true;
+        cards.sort(function(a, b) {
+            var va, vb;
+            if (field === 'stars') {
+                va = parseInt(a.dataset.stars) || 0;
+                vb = parseInt(b.dataset.stars) || 0;
+                return vb - va;
+            } else if (field === 'created') {
+                va = parseInt(a.dataset.created) || 0;
+                vb = parseInt(b.dataset.created) || 0;
+                return vb - va;
+            } else {
+                va = parseInt(a.dataset.updated) || 0;
+                vb = parseInt(b.dataset.updated) || 0;
+                return vb - va;
+            }
+        });
+        
+        var groups = main.querySelectorAll('.date-group');
+        var container = document.createElement('div');
+        container.className = 'sorted-cards';
+        cards.forEach(function(c) { container.appendChild(c); });
+        groups.forEach(function(g) { g.remove(); });
+        var empty = main.querySelector('.empty');
+        if (empty) empty.style.display = 'none';
+        main.insertBefore(container, main.querySelector('.pagination'));
+        
+        document.querySelectorAll('.sort-btn').forEach(function(b) { b.classList.remove('active'); });
+        el.classList.add('active');
+        return false;
+    }
+
+    (function() {
+        var btn = document.getElementById('back-to-top');
+        if (!btn) return;
+        function pageScrollable() {
+            return document.documentElement.scrollHeight > window.innerHeight + 120;
+        }
+        function toggleBtn() {
+            if (pageScrollable()) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        }
+        window.addEventListener('scroll', toggleBtn, { passive: true });
+        document.addEventListener('scroll', toggleBtn, { passive: true });
+        window.addEventListener('resize', toggleBtn);
+        window.addEventListener('load', toggleBtn);
+        toggleBtn();
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+    </script>
+
+    <div class="footer">
+        Powered by <a href="https://github.com/shellsec/skill-monitor">Skill Monitor</a> · Auto-updated via GitHub Actions
+    </div>
+</body>
+</html>

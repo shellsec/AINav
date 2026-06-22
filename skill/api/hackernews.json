@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Identity verification on Claude",
+    "url": "https://support.claude.com/en/articles/14328960-identity-verification-on-claude",
+    "score": 745,
+    "comments": 618,
+    "by": "bathory",
+    "time": "2026-06-21 20:44",
+    "id": 48618455,
+    "keywords": "claude"
+  },
+  {
+    "title": "GPT-5.5 hallucinates 3x more than MIT-licensed GLM-5.2",
+    "url": "https://arrowtsx.dev/bigger-models/",
+    "score": 561,
+    "comments": 287,
+    "by": "oshrimpton",
+    "time": "2026-06-20 00:11",
+    "id": 48600167,
+    "keywords": "gpt"
+  },
+  {
+    "title": "Apertus – Open Foundation Model for Sovereign AI",
+    "url": "https://apertvs.ai/",
+    "score": 371,
+    "comments": 125,
+    "by": "T-A",
+    "time": "2026-06-22 05:29",
+    "id": 48622778,
+    "keywords": "ai"
+  },
+  {
+    "title": "Building reliable agentic AI systems",
+    "url": "https://martinfowler.com/articles/reliable-llm-bayer.html",
+    "score": 192,
+    "comments": 47,
+    "by": "sarangk90",
+    "time": "2026-06-21 12:28",
+    "id": 48615680,
+    "keywords": "ai"
+  },
+  {
+    "title": "The 100k whys of AI",
+    "url": "https://lcamtuf.substack.com/p/the-100000-whys-of-ai",
+    "score": 183,
+    "comments": 106,
+    "by": "surprisetalk",
+    "time": "2026-06-21 13:45",
+    "id": 48616017,
+    "keywords": "ai"
+  },
+  {
+    "title": "Good results fine tuning a local LLM like Qwen 3:0.6B to categorize questions",
+    "url": "https://www.teachmecoolstuff.com/viewarticle/fine-tuning-a-local-llm-to-categorize-questions",
+    "score": 127,
+    "comments": 30,
+    "by": "dev-experiments",
+    "time": "2026-06-22 06:55",
+    "id": 48623434,
+    "keywords": "llm"
+  },
+  {
+    "title": "Show HN: Recall – Local project memory for Claude Code",
+    "url": "https://github.com/raiyanyahya/recall",
+    "score": 111,
+    "comments": 70,
+    "by": "mateenah",
+    "time": "2026-06-22 05:05",
+    "id": 48622590,
+    "keywords": "claude"
+  },
+  {
+    "title": "Don’t use AI to write things that you present as your own work",
+    "url": "https://www.satisfice.com/blog/archives/488148",
+    "score": 88,
+    "comments": 77,
+    "by": "satisfice",
+    "time": "2026-06-21 12:50",
+    "id": 48615776,
+    "keywords": "ai"
+  },
+  {
+    "title": "Munich 1991: The Roots of the Current AI Boom",
+    "url": "https://people.idsia.ch/~juergen/ai-boom-roots-munich-1991.html",
+    "score": 48,
+    "comments": 9,
+    "by": "tosh",
+    "time": "2026-06-19 23:54",
+    "id": 48599998,
+    "keywords": "ai"
+  },
+  {
+    "title": "Show HN: Pulse – Dashboard for Claude Code, approve tool calls from your phone",
+    "url": "https://github.com/nikitadoudikov/claude-pulse",
+    "score": 37,
+    "comments": 13,
+    "by": "nikitadvd",
+    "time": "2026-06-21 04:46",
+    "id": 48612844,
+    "keywords": "claude"
+  },
+  {
+    "title": "You're probably using Agent Skills wrong",
+    "url": "https://notes.ansonbiggs.com/youre-probably-using-agent-skills-wrong/",
+    "score": 29,
+    "comments": 12,
+    "by": "MisterBiggs",
+    "time": "2026-06-22 09:02",
+    "id": 48624327,
+    "keywords": "agent"
+  },
+  {
+    "title": "I Canceled My French Tutor and Built an LLM Tool That Does It Better",
+    "url": "https://alshe.substack.com/p/i-canceled-my-french-tutor-and-built",
+    "score": 29,
+    "comments": 9,
+    "by": "Anon84",
+    "time": "2026-06-22 06:46",
+    "id": 48623371,
+    "keywords": "llm"
+  }
+]

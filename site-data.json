@@ -11,7 +11,8 @@
           "subtitle": "日常首推：推理强、免费好用，长文与写代码",
           "avatar": "icon/DeepSeek.png",
           "link": "https://chat.deepseek.com/",
-          "path": ""
+          "path": "",
+          "added": ""
         },
         {
           "key": "daily-1",
@@ -19,7 +20,8 @@
           "subtitle": "字节系，聊天、创作、多模态与抖音生态",
           "avatar": "icon/豆包.png",
           "link": "https://www.doubao.com/chat",
-          "path": ""
+          "path": "",
+          "added": ""
         },
         {
           "key": "daily-2",
@@ -27,7 +29,8 @@
           "subtitle": "长上下文，甩链接/文档做摘要与追问",
           "avatar": "icon/Kimi.png",
           "link": "https://kimi.moonshot.cn/",
-          "path": ""
+          "path": "",
+          "added": ""
         },
         {
           "key": "daily-3",
@@ -35,7 +38,8 @@
           "subtitle": "阿里系，办公、中文与钉钉场景",
           "avatar": "icon/通义千问.png",
           "link": "https://tongyi.aliyun.com/qianwen/",
-          "path": ""
+          "path": "",
+          "added": ""
         },
         {
           "key": "daily-4",
@@ -43,7 +47,8 @@
           "subtitle": "百度系，搜索与中文知识向",
           "avatar": "icon/文心一言.png",
           "link": "https://yiyan.baidu.com/",
-          "path": ""
+          "path": "",
+          "added": ""
         },
         {
           "key": "daily-5",
@@ -51,7 +56,8 @@
           "subtitle": "通用对话、写作、翻译与插件生态",
           "avatar": "icon/ChatGPT.png",
           "link": "https://chatgpt.com/",
-          "path": ""
+          "path": "",
+          "added": ""
         },
         {
           "key": "daily-6",
@@ -59,7 +65,8 @@
           "subtitle": "长文写作、复杂推理与长对话",
           "avatar": "icon/Claude.png",
           "link": "https://claude.ai/",
-          "path": ""
+          "path": "",
+          "added": ""
         },
         {
           "key": "daily-7",
@@ -67,7 +74,8 @@
           "subtitle": "Google 多模态，与搜索/Workspace 联动",
           "avatar": "icon/Google Bard.png",
           "link": "https://gemini.google.com/",
-          "path": ""
+          "path": "",
+          "added": ""
         },
         {
           "key": "daily-8",
@@ -75,7 +83,8 @@
           "subtitle": "xAI 对话，网页版与 X / SuperGrok 等生态联动",
           "avatar": "icon/Grok.png",
           "link": "https://grok.com/",
-          "path": ""
+          "path": "",
+          "added": ""
         },
         {
           "key": "daily-9",
@@ -83,7 +92,8 @@
           "subtitle": "带引用网页的搜索问答，查资料快",
           "avatar": "icon/Perplexity.png",
           "link": "https://www.perplexity.ai/",
-          "path": ""
+          "path": "",
+          "added": ""
         },
         {
           "key": "daily-10",
@@ -91,7 +101,8 @@
           "subtitle": "中文检索、结构化结果与学术向",
           "avatar": "icon/秘塔AI搜索.png",
           "link": "https://metaso.cn/",
-          "path": ""
+          "path": "",
+          "added": ""
         },
         {
           "key": "daily-11",
@@ -99,7 +110,8 @@
           "subtitle": "网页双语对照，读论文/外站必备",
           "avatar": "icon/沉浸式翻译.png",
           "link": "https://immersivetranslate.com/?via=aiv123",
-          "path": ""
+          "path": "",
+          "added": ""
         }
       ]
     },
@@ -119,7 +131,7 @@
         {
           "key": "DeepSeek",
           "title": "DeepSeek",
-          "subtitle": "全新体验，无限可能，DeepSeek-V3 在开源模型中位列榜首",
+          "subtitle": "全新体验，无限可能；DeepSeek-V4-Pro/Flash 开源旗舰，1M 上下文 Agent 场景标杆",
           "avatar": "icon/DeepSeek.png",
           "link": "https://chat.deepseek.com/",
           "path": "/detail/deepseek"
@@ -159,7 +171,7 @@
         {
           "key": "ZAI",
           "title": "Z.AI",
-          "subtitle": "智谱GLM国际版，支持GLM-5.1等顶级模型的AI对话助手",
+          "subtitle": "智谱 GLM 国际版，支持 GLM-5.2 等长程 Coding 旗舰模型",
           "avatar": "icon/ZAI.png",
           "link": "https://chat.z.ai/",
           "path": ""
@@ -4922,7 +4934,7 @@
         {
           "key": "DeepSeek",
           "title": "DeepSeek",
-          "subtitle": "全新体验，无限可能，DeepSeek-V3 在开源模型中位列榜首",
+          "subtitle": "全新体验，无限可能；DeepSeek-V4-Pro/Flash 开源旗舰，1M 上下文 Agent 场景标杆",
           "avatar": "icon/DeepSeek.png",
           "link": "https://chat.deepseek.com/",
           "path": "/detail/deepseek"
@@ -5897,12 +5909,13 @@
           "subtitle": "网易有道桌面级 Agent，远程控机、多端协同与定时任务（内测/官网申请）",
           "avatar": "",
           "link": "https://lobsterai.youdao.com/",
-          "path": ""
+          "path": "",
+          "added": "2026-04-25"
         },
         {
           "key": "ext-AI-智能体--工作流与自动化-1",
           "title": "OpenClaw",
-          "subtitle": "开源自托管个人 AI 助理框架，接 IM 与插件生态",
+          "subtitle": "开源自托管个人 AI 助理框架，Stars 高；新用户建议优先 Hermes",
           "avatar": "",
           "link": "https://github.com/openclaw/openclaw",
           "path": ""
@@ -6017,7 +6030,8 @@
           "subtitle": "桌面办公向 Agent：描述需求、自动执行、直接交付结果",
           "avatar": "",
           "link": "https://qoder.com/zh/qoderwork",
-          "path": ""
+          "path": "",
+          "added": "2026-04-24"
         },
         {
           "key": "ext-AI-智能体--工作流与自动化-16",
@@ -6025,15 +6039,17 @@
           "subtitle": "从编码扩展到日常工作场景的桌面 Agent",
           "avatar": "",
           "link": "https://solo.trae.cn/",
-          "path": ""
+          "path": "",
+          "added": "2026-04-26"
         },
         {
           "key": "ext-AI-智能体--工作流与自动化-17",
           "title": "Manus",
-          "subtitle": "通用型 AI Agent，自主完成复杂任务链（浏览/编码/分析）",
+          "subtitle": "通用 AI Agent，自主规划、执行复杂任务，浏览器+终端+代码全栈操控",
           "avatar": "",
           "link": "https://manus.im/",
-          "path": ""
+          "path": "",
+          "added": "2026-04-22"
         },
         {
           "key": "ext-AI-智能体--工作流与自动化-18",
@@ -6180,14 +6196,6 @@
           "path": ""
         },
         {
-          "key": "ext-AI-智能体--工作流与自动化-36",
-          "title": "Hermes Agent",
-          "subtitle": "Nous Research 开源 AI Agent，研究向自主智能体",
-          "avatar": "",
-          "link": "https://hermes-agent.nousresearch.com/",
-          "path": ""
-        },
-        {
           "key": "ext-AI-智能体--工作流与自动化-37",
           "title": "Higress HiClaw",
           "subtitle": "阿里云 Higress 网关 + AI Agent，API 路由与智能调度",
@@ -6218,6 +6226,69 @@
           "avatar": "",
           "link": "https://copilot.tencent.com/work/",
           "path": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-1",
+          "title": "OpenHands",
+          "subtitle": "开源 AI 软件开发 Agent（原 OpenDevin），支持代码编写与终端操作",
+          "avatar": "",
+          "link": "https://github.com/All-Hands-AI/OpenHands",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-2",
+          "title": "Suna",
+          "subtitle": "开源通用 AI Agent，自动化研究、数据分析与工作流执行",
+          "avatar": "",
+          "link": "https://www.suna.ai/",
+          "path": "",
+          "added": "2026-04-23"
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-6",
+          "title": "Hermes Agent",
+          "subtitle": "2026 开源 Agent 实战首选：记忆、技能自进化、IM 集成、MCP（55K+ 星，大量 OpenClaw 用户已迁移）",
+          "avatar": "",
+          "link": "https://github.com/NousResearch/hermes-agent",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-7",
+          "title": "Hermes Agent 产品站",
+          "subtitle": "Nous Research 官方产品介绍、功能概览与快速开始",
+          "avatar": "",
+          "link": "https://hermes-agent.nousresearch.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-8",
+          "title": "Hermes Agent 中文站",
+          "subtitle": "有记忆的开源 AI 智能体，越用越聪明 — 中文功能介绍与快速开始",
+          "avatar": "",
+          "link": "https://hermes-agent.org/zh/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-9",
+          "title": "Hermes Agent 文档",
+          "subtitle": "安装配置、CLI、消息网关、技能系统与架构说明",
+          "avatar": "",
+          "link": "https://hermes-agent.nousresearch.com/docs/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-10",
+          "title": "Hermes Agent 橙皮书",
+          "subtitle": "从入门到精通系列：架构解析、技能编写、OpenClaw 迁移与最佳实践",
+          "avatar": "",
+          "link": "https://github.com/alchaincyf/hermes-agent-orange-book",
+          "path": "",
+          "added": ""
         }
       ]
     },
@@ -6978,6 +7049,15 @@
           "avatar": "",
           "link": "https://www.lavague.ai/",
           "path": ""
+        },
+        {
+          "key": "ext-浏览器自动化--电脑操控-6",
+          "title": "OpenScreen",
+          "subtitle": "Screen Studio 开源替代，屏幕录制 + 自动缩放 + 动态模糊",
+          "avatar": "",
+          "link": "https://github.com/siddharthvaddem/openscreen",
+          "path": "",
+          "added": ""
         }
       ]
     },
@@ -7746,7 +7826,8 @@
           "subtitle": "The Browser Company 新作，强调对话式与代理向浏览",
           "avatar": "",
           "link": "https://www.diabrowser.com/",
-          "path": ""
+          "path": "",
+          "added": "2026-04-25"
         },
         {
           "key": "ext-AI-浏览器与新形态-2",
@@ -8080,6 +8161,87 @@
           "avatar": "",
           "link": "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
           "path": ""
+        },
+        {
+          "key": "ext-网络工具--隐私与安全-9",
+          "title": "Mullvad VPN",
+          "subtitle": "隐私优先 VPN，无需邮箱注册，按月付费",
+          "avatar": "",
+          "link": "https://mullvadvpn.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-网络工具--隐私与安全-10",
+          "title": "Proton VPN",
+          "subtitle": "Proton 出品，瑞士隐私 VPN，免费版可用",
+          "avatar": "",
+          "link": "https://protonvpn.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-网络工具--隐私与安全-11",
+          "title": "WireGuard",
+          "subtitle": "现代 VPN 协议，内核级极速隧道",
+          "avatar": "",
+          "link": "https://wireguard.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-网络工具--隐私与安全-12",
+          "title": "IVPN",
+          "subtitle": "隐私 VPN，无日志审计，WireGuard 支持",
+          "avatar": "",
+          "link": "https://ivpn.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-网络工具--隐私与安全-13",
+          "title": "ip-api",
+          "subtitle": "免费 IP 地理位置查询 API，支持批量",
+          "avatar": "",
+          "link": "https://ip-api.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-网络工具--隐私与安全-14",
+          "title": "DNS Leak Test",
+          "subtitle": "DNS 泄漏检测，验证 VPN/DNS 隐私",
+          "avatar": "",
+          "link": "https://dnsleaktest.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-网络工具--隐私与安全-15",
+          "title": "WhatIsMyIP",
+          "subtitle": "IP 地址与网络信息快速查询",
+          "avatar": "",
+          "link": "https://whatismyip.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-网络工具--隐私与安全-16",
+          "title": "IP.sb",
+          "subtitle": "简洁 IP 查询与地理定位",
+          "avatar": "",
+          "link": "https://ip.sb",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-网络工具--隐私与安全-17",
+          "title": "MaxMind GeoIP",
+          "subtitle": "IP 地理数据库与 GeoIP2 API",
+          "avatar": "",
+          "link": "https://www.maxmind.com",
+          "path": "",
+          "added": ""
         }
       ]
     },
@@ -8106,8 +8268,8 @@
         },
         {
           "key": "ext-GEO--AEO--AI-搜索优化-2",
-          "title": "Princeton GEO 研究（论文）",
-          "subtitle": "「GEO: Generative Engine Optimization」学术项目与引用入口",
+          "title": "Princeton GEO 论文",
+          "subtitle": "「GEO: Generative Engine Optimization」开创性学术论文",
           "avatar": "",
           "link": "https://arxiv.org/abs/2311.09735",
           "path": ""
@@ -8115,7 +8277,7 @@
         {
           "key": "ext-GEO--AEO--AI-搜索优化-3",
           "title": "HubSpot AI Search Grader",
-          "subtitle": "免费检测品牌在 AI 搜索中的可见度与推荐率",
+          "subtitle": "免费 GEO 评估：扫描 AI 引擎品牌可见性评分与改进建议",
           "avatar": "",
           "link": "https://www.hubspot.com/ai-search-grader",
           "path": ""
@@ -8151,6 +8313,1201 @@
           "avatar": "",
           "link": "https://surferseo.com/",
           "path": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-2",
+          "title": "Profound",
+          "subtitle": "市场领先的 GEO 跟踪平台，覆盖 10+ AI 引擎的可见性与情感分析",
+          "avatar": "",
+          "link": "https://www.tryprofound.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-3",
+          "title": "Ahrefs AI 概述跟踪",
+          "subtitle": "全栈 SEO 平台新增 GEO：AI 概述排名、内容助手与关键词 AI 分析",
+          "avatar": "",
+          "link": "https://ahrefs.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-4",
+          "title": "Semrush AI Toolkit",
+          "subtitle": "Semrush AI 可见性工具包：跨 LLM 品牌曝光、竞争对比与优化建议",
+          "avatar": "",
+          "link": "https://www.semrush.com/semrush-ai-toolkit/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-5",
+          "title": "Otterly AI",
+          "subtitle": "ChatGPT/Perplexity/Google AIO 等 AI 搜索表现监控与情感追踪",
+          "avatar": "",
+          "link": "https://www.otterly.ai/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-6",
+          "title": "Scrunch AI",
+          "subtitle": "检测 AI 答案中的错误叙事，品牌 AI 份额与竞争分析",
+          "avatar": "",
+          "link": "https://scrunchai.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-7",
+          "title": "Peec AI",
+          "subtitle": "实时 AI 可见性提醒，提示词级排名与来源归因分析",
+          "avatar": "",
+          "link": "https://peec.ai/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-9",
+          "title": "Writesonic GEO Suite",
+          "subtitle": "品牌 AI 可见性探索 + AI 写作优化，GEO 内容一键生成",
+          "avatar": "",
+          "link": "https://writesonic.com/generative-engine-optimization-geo",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-GEO--AEO--AI-搜索优化-10",
+          "title": "Gumshoe",
+          "subtitle": "品牌 AI 搜索可见性监控与竞争分析（免费公测中）",
+          "avatar": "",
+          "link": "https://www.gumshoe.ai/",
+          "path": "",
+          "added": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "AI 场景 · 用例与最佳实践",
+      "id": "ext-ai-usecases",
+      "tools": [
+        {
+          "key": "ext-AI-场景--用例与最佳实践-0",
+          "title": "OpenClaw Showcase",
+          "subtitle": "AI Agent 真实用户场景展示：自动化/生产力/开发/智能家居/创意等",
+          "avatar": "",
+          "link": "https://openclaw.ai/showcase",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-1",
+          "title": "OpenClaw 中文用例大全",
+          "subtitle": "46 个真实场景：飞书/钉钉/企微办公自动化、内容创作、运维、知识管理",
+          "avatar": "",
+          "link": "https://github.com/AlexAnys/awesome-openclaw-usecases-zh",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-2",
+          "title": "Hermes Agent 用例集",
+          "subtitle": "社区 262 个真实故事：Cron 自动化、IM 集成、自托管、交易 bot、Skill 编写等",
+          "avatar": "",
+          "link": "https://hermes-agent.nousresearch.com/docs/user-stories",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-3",
+          "title": "Hermes Agent 架构全解",
+          "subtitle": "自进化单体智能体的学习循环与四大核心系统深度解析",
+          "avatar": "",
+          "link": "https://cloud.tencent.com/developer/article/2652528",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-4",
+          "title": "Hermes Agent 评测与指南",
+          "subtitle": "功能评测、安装配置与国产大模型接入教程",
+          "avatar": "",
+          "link": "https://vpssos.com/zh/hermes-agent-review-how-to-use-It/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-5",
+          "title": "1000 AI/ML Projects",
+          "subtitle": "千级 ML 项目合集：入门/进阶/毕设/面试全覆盖",
+          "avatar": "",
+          "link": "https://github.com/0voice/awesome-2026-AI-Machine-Learning-1000Projects",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-6",
+          "title": "Generative AI for Beginners",
+          "subtitle": "微软出品生成式 AI 初学者课程，含 18 个实战场景与 Hands-on",
+          "avatar": "",
+          "link": "https://github.com/microsoft/generative-ai-for-beginners",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-7",
+          "title": "prompts.chat",
+          "subtitle": "开源提示词社区：按场景分类的 Prompt 库（151K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/f/prompts.chat",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-8",
+          "title": "System Prompts Collection",
+          "subtitle": "各 AI 产品系统提示词与工具信息大合集（130K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-9",
+          "title": "LLMs from Scratch",
+          "subtitle": "从零构建 ChatGPT 类模型的教学项目（87K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/rasbt/LLMs-from-scratch",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-10",
+          "title": "LangChain",
+          "subtitle": "构建 LLM 应用和 AI Agent 的框架，含丰富场景模板（129K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/langchain-ai/langchain",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-11",
+          "title": "AutoGPT",
+          "subtitle": "经典自主代理项目，支持任务分解与自主执行（182K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/Significant-Gravitas/AutoGPT",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-12",
+          "title": "Firecrawl",
+          "subtitle": "将网站转为 LLM 就绪数据的网络数据接口（91K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/firecrawl/firecrawl",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-13",
+          "title": "RAGFlow",
+          "subtitle": "结合 RAG 与 Agent 能力的上下文引擎，企业知识检索场景（74K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/infiniflow/ragflow",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-14",
+          "title": "Deep-Live-Cam",
+          "subtitle": "实时换脸与视频生成开源工具（80K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/hacksider/Deep-Live-Cam",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-15",
+          "title": "Spec Kit",
+          "subtitle": "GitHub 官方规范驱动开发工具包，AI 工程场景（75K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/github/spec-kit",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-场景--用例与最佳实践-16",
+          "title": "There's An AI For That",
+          "subtitle": "按使用场景检索 AI 产品与工具，全球最大 AI 场景目录",
+          "avatar": "",
+          "link": "https://theresanaiforthat.com/",
+          "path": "",
+          "added": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "AI Skill · 提示技能与工具市场",
+      "id": "ext-ai-skill-hub",
+      "tools": [
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-0",
+          "title": "GPT Store (ChatGPT)",
+          "subtitle": "OpenAI 官方 GPTs 商店 → 仅 ChatGPT",
+          "avatar": "",
+          "link": "https://chatgpt.com/gpts",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-1",
+          "title": "Coze 插件市场",
+          "subtitle": "扣子平台技能/插件商店 → Coze 智能体、扣子 Bot",
+          "avatar": "",
+          "link": "https://www.coze.cn/store/plugin",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-2",
+          "title": "Dify 插件市场",
+          "subtitle": "Dify 工具/插件目录 → Dify 工作流与 Agent",
+          "avatar": "",
+          "link": "https://marketplace.dify.ai/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-3",
+          "title": "Composio",
+          "subtitle": "Agent 工具集成平台，100+ 连接器 → CrewAI/LangChain/AutoGPT/OpenAI Assistants",
+          "avatar": "",
+          "link": "https://composio.dev/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-4",
+          "title": "Toolhouse",
+          "subtitle": "一行代码给 LLM 接入工具 → OpenAI/Claude/Gemini/LangChain 等",
+          "avatar": "",
+          "link": "https://toolhouse.ai/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-5",
+          "title": "CrewAI Tools",
+          "subtitle": "CrewAI 内置工具集与社区市场 → 仅 CrewAI Agent",
+          "avatar": "",
+          "link": "https://docs.crewai.com/concepts/tools",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-6",
+          "title": "LangChain Tools",
+          "subtitle": "LangChain 工具集成目录 → LangChain/LangGraph Agent",
+          "avatar": "",
+          "link": "https://python.langchain.com/docs/integrations/tools/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-7",
+          "title": "AutoGPT Marketplace",
+          "subtitle": "AutoGPT 官方技能与 Agent 市场 → 仅 AutoGPT",
+          "avatar": "",
+          "link": "https://marketplace.agpt.co/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-8",
+          "title": "Zapier AI Actions",
+          "subtitle": "开放 AI 动作接口，20K+ 应用 → ChatGPT/GPTs/Claude/Cursor 等 Agent",
+          "avatar": "",
+          "link": "https://actions.zapier.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-9",
+          "title": "Pipedream",
+          "subtitle": "开发者向集成与工作流平台 → 任意 LLM/Agent 可 HTTP 调用",
+          "avatar": "",
+          "link": "https://pipedream.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-10",
+          "title": "n8n Integrations",
+          "subtitle": "400+ 集成节点与 AI Agent 市场 → n8n 工作流与 AI Agent 节点",
+          "avatar": "",
+          "link": "https://n8n.io/integrations/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-11",
+          "title": "Hugging Face Spaces",
+          "subtitle": "模型 Demo 与工具托管社区 → 任意 HTTP/API 调用",
+          "avatar": "",
+          "link": "https://huggingface.co/spaces",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-12",
+          "title": "Agent Skills（Addy Osmani）",
+          "subtitle": "生产级工程技能（25k+★） → Claude Code/Cursor/Copilot/Codex 等",
+          "avatar": "",
+          "link": "https://github.com/addyosmani/agent-skills",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-13",
+          "title": "Official Skills",
+          "subtitle": "官方+社区精选技能集（1000+） → Claude Code/Codex/Gemini CLI/Cursor 等",
+          "avatar": "",
+          "link": "https://officialskills.sh/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-14",
+          "title": "Tashan Cursor Skills",
+          "subtitle": "自主执行+自进化（95个技能+子代理） → Claude Code/Cursor/Windsurf 等",
+          "avatar": "",
+          "link": "https://github.com/TashanGKD/tashan-cursor-skills",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-15",
+          "title": "Composio OpenSkills",
+          "subtitle": "工具集成技能（API/数据库/联网） → 一键同步 Claude Code/Cursor 等",
+          "avatar": "",
+          "link": "https://github.com/ComposioHQ/OpenSkills",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-16",
+          "title": "Cursor Handbook",
+          "subtitle": "高频日常技能（代码审查/Bug修复/注释） → 开箱即用",
+          "avatar": "",
+          "link": "https://github.com/girijashankarj/cursor-handbook",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-17",
+          "title": "中文 Skills 合集",
+          "subtitle": "全中文提示，适配国内规范（前端/小程序/后端） → Claude Code/Cursor 等",
+          "avatar": "",
+          "link": "https://github.com/huangrt312/cursor-skills-collection",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-18",
+          "title": "MCP Market Skills",
+          "subtitle": "Agent Skills 目录与发现 → Claude.ai/Claude Code/Codex/ChatGPT",
+          "avatar": "",
+          "link": "https://mcpmarket.com/tools/skills",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-19",
+          "title": "Agent Skills 开放标准",
+          "subtitle": "SKILL.md 开放标准 → Claude Code/Cursor/TRAE/Windsurf/Copilot 等 26+ 工具",
+          "avatar": "",
+          "link": "https://agentskills.io/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-20",
+          "title": "Anthropic Skills 仓库",
+          "subtitle": "官方 Skills 合集（17 个） → Claude Code 原生、Cursor/TRAE/Windsurf 兼容",
+          "avatar": "",
+          "link": "https://github.com/anthropics/skills",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-21",
+          "title": "Agent Skills Marketplace",
+          "subtitle": "800K+ skills 市场 → Claude Code/Codex CLI/ChatGPT/Cursor/Windsurf",
+          "avatar": "",
+          "link": "https://skillsmp.com/zh",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-22",
+          "title": "Windsurf Skills",
+          "subtitle": "Windsurf Cascade 技能系统文档 → 仅 Windsurf IDE",
+          "avatar": "",
+          "link": "https://docs.windsurf.com/windsurf/cascade/skills",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-23",
+          "title": "OpenCode Skills",
+          "subtitle": "OpenCode 可复用 Agent 技能 → OpenCode（兼容 Claude Code 格式）",
+          "avatar": "",
+          "link": "https://opencode.ai/docs/skills",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-24",
+          "title": "MiniMax Skills（开源）",
+          "subtitle": "开源全栈技能包（前端/全栈/Android/iOS/Shader） → Claude Code/Cursor/TRAE/Windsurf",
+          "avatar": "",
+          "link": "https://github.com/MiniMax-AI/skills",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-25",
+          "title": "Cursor Marketplace",
+          "subtitle": "Cursor 插件市场（Skills/子代理/规则/Hooks/MCP） → 仅 Cursor IDE",
+          "avatar": "",
+          "link": "https://cursor.com/marketplace",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-26",
+          "title": "Claude Code Marketplace",
+          "subtitle": "Claude Code 插件/技能市场 → Claude Code 原生、部分兼容 Cursor/TRAE",
+          "avatar": "",
+          "link": "https://claudemarketplaces.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-27",
+          "title": "oh-my-claudecode",
+          "subtitle": "Claude Code 多 Agent 编排，19 个专业角色，Team Mode 自动流水线",
+          "avatar": "",
+          "link": "https://github.com/Yeachan-Heo/oh-my-claudecode",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-28",
+          "title": "oh-my-codex",
+          "subtitle": "OpenAI Codex CLI 多 Agent 编排，30 个角色，混合模型协作",
+          "avatar": "",
+          "link": "https://github.com/Yeachan-Heo/oh-my-codex",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-29",
+          "title": "claude-howto",
+          "subtitle": "Claude Code 完整学习指南，10 模块可视化教程与生产级模板",
+          "avatar": "",
+          "link": "https://github.com/luongnv89/claude-howto",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-30",
+          "title": "Claude Code Best Practice",
+          "subtitle": "Claude Code 最佳实践合集，69 条技巧 + Agent/技能/工作流全攻略（36.5K 星）",
+          "avatar": "",
+          "link": "https://github.com/shanraisshan/claude-code-best-practice",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-12",
+          "title": "Skill Monitor（AINav）",
+          "subtitle": "GitHub AI 项目动态监控：Trending / HuggingFace / HackerNews 多源聚合",
+          "avatar": "",
+          "link": "https://skill.aiv123.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-13",
+          "title": "Skills.sh",
+          "subtitle": "Agent 技能发现与分享平台，社区驱动 → Cursor/Claude Code/Codex 等",
+          "avatar": "",
+          "link": "https://skills.sh/",
+          "path": "",
+          "added": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "Token 优化 · 成本管控与追踪",
+      "id": "ext-token-optimize",
+      "tools": [
+        {
+          "key": "ext-Token-优化--成本管控与追踪-0",
+          "title": "RTK",
+          "subtitle": "CLI 代理，过滤命令输出噪音，减少 LLM token 60-90%（Rust 单二进制）",
+          "avatar": "",
+          "link": "https://github.com/rtk-ai/rtk",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--成本管控与追踪-1",
+          "title": "Caveman",
+          "subtitle": "Claude Code/Codex 技能，压缩输出废话，token 最高省 87%（4K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/JuliusBrussee/caveman",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--成本管控与追踪-2",
+          "title": "Token Saver",
+          "subtitle": "21 种处理器按文件类型智能压缩命令输出，兼容 Claude Code/Gemini CLI",
+          "avatar": "",
+          "link": "https://github.com/ppgranger/token-saver",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--成本管控与追踪-3",
+          "title": "Tokscale",
+          "subtitle": "跨平台 CLI 追踪 AI 编程助手 token 用量与费用，含可视化排行榜（1.7K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/junhoyeo/tokscale",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--成本管控与追踪-4",
+          "title": "Token Optimizer",
+          "subtitle": "AI 对话上下文 10万+ → 8K，三层索引 + 智能压缩 + 任务隔离",
+          "avatar": "",
+          "link": "https://github.com/thanksandyou/token-optimizer",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--成本管控与追踪-5",
+          "title": "codex-tokens-compress",
+          "subtitle": "AGENTS.md 规约压缩为高密度可执行规则，含文言文极限版",
+          "avatar": "",
+          "link": "https://github.com/LuckyKuang/codex-tokens-compress",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--成本管控与追踪-6",
+          "title": "Terse",
+          "subtitle": "macOS/iOS 端 token 优化器，35+ 压缩策略，降低 prompt 成本 40-70%",
+          "avatar": "",
+          "link": "https://www.terseai.org/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--成本管控与追踪-7",
+          "title": "Token Tamer",
+          "subtitle": "JSON 格式化 + LLM token 优化工具包，精简 OpenAI/Claude/MCP 负载",
+          "avatar": "",
+          "link": "https://tokentamer.app/",
+          "path": "",
+          "added": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "Agent 记忆 · 长期上下文与状态管理",
+      "id": "ext-agent-memory",
+      "tools": [
+        {
+          "key": "ext-Agent-记忆--长期上下文与状态管理-0",
+          "title": "Mem0",
+          "subtitle": "通用 AI 记忆层，跨会话个性化，自改进记忆（25K+ 星）",
+          "avatar": "",
+          "link": "https://github.com/mem0ai/mem0",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Agent-记忆--长期上下文与状态管理-1",
+          "title": "Letta（MemGPT）",
+          "subtitle": "自编辑 Agent 运行时，虚拟上下文管理，分页长文档检索",
+          "avatar": "",
+          "link": "https://github.com/letta-ai/letta",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Agent-记忆--长期上下文与状态管理-2",
+          "title": "Zep",
+          "subtitle": "Agent 记忆与知识图谱，自动提取结构化事实，OpenAI 兼容",
+          "avatar": "",
+          "link": "https://github.com/getzep/zep",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Agent-记忆--长期上下文与状态管理-3",
+          "title": "Graphiti",
+          "subtitle": "知识图谱记忆层，时序实体与关系，支持增量更新",
+          "avatar": "",
+          "link": "https://github.com/getzep/graphiti",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Agent-记忆--长期上下文与状态管理-4",
+          "title": "Cognee",
+          "subtitle": "数据 → 知识图谱 → 记忆的流水线，支持多图数据库后端",
+          "avatar": "",
+          "link": "https://github.com/topoteretes/cognee",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Agent-记忆--长期上下文与状态管理-5",
+          "title": "LangGraph Checkpointer",
+          "subtitle": "LangGraph 内置状态持久化，支持断点续执行与时间旅行调试",
+          "avatar": "",
+          "link": "https://langchain-ai.github.io/langgraph/concepts/persistence/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Agent-记忆--长期上下文与状态管理-6",
+          "title": "Hume AI",
+          "subtitle": "情感智能记忆，EVI 语音接口带情感理解与用户偏好学习",
+          "avatar": "",
+          "link": "https://hume.ai/",
+          "path": "",
+          "added": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "AI 视频生成 · 动效与数字人",
+      "id": "ext-ai-video",
+      "tools": [
+        {
+          "key": "ext-AI-视频生成--动效与数字人-0",
+          "title": "Runway",
+          "subtitle": "Gen-4 视频生成与编辑，专业影视向，图像/文生视频",
+          "avatar": "",
+          "link": "https://runwayml.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-视频生成--动效与数字人-1",
+          "title": "Sora",
+          "subtitle": "OpenAI 视频生成模型，文生视频与图生视频",
+          "avatar": "",
+          "link": "https://sora.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-视频生成--动效与数字人-2",
+          "title": "Pika",
+          "subtitle": "Pika 2.5，快速创意短视频生成，特效与局部编辑",
+          "avatar": "",
+          "link": "https://pika.art/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-视频生成--动效与数字人-3",
+          "title": "Higgsfield",
+          "subtitle": "高质量 AI 视频生成，电影级运镜与风格控制",
+          "avatar": "",
+          "link": "https://higgsfield.ai/",
+          "path": "",
+          "added": "2026-04-22"
+        },
+        {
+          "key": "ext-AI-视频生成--动效与数字人-4",
+          "title": "Genmo",
+          "subtitle": "开源视频生成研究实验室，Mochi 模型（高保真运动）",
+          "avatar": "",
+          "link": "https://www.genmo.ai/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-视频生成--动效与数字人-5",
+          "title": "HeyGen",
+          "subtitle": "AI 数字人与视频翻译，企业营销/培训向",
+          "avatar": "",
+          "link": "https://www.heygen.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-视频生成--动效与数字人-6",
+          "title": "D-ID",
+          "subtitle": "照片驱动数字人说话，批量视频制作",
+          "avatar": "",
+          "link": "https://www.d-id.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-视频生成--动效与数字人-7",
+          "title": "Google Veo",
+          "subtitle": "Google DeepMind 视频生成模型，YouTube 集成",
+          "avatar": "",
+          "link": "https://deepmind.google/technologies/veo/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-视频生成--动效与数字人-8",
+          "title": "MiniMax 海螺视频",
+          "subtitle": "国产多模态视频生成，文/图/参考视频驱动",
+          "avatar": "",
+          "link": "https://hailuoai.com/video",
+          "path": "",
+          "added": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "AI 科研 · 学术搜索与自动化",
+      "id": "ext-ai-research",
+      "tools": [
+        {
+          "key": "ext-AI-科研--学术搜索与自动化-0",
+          "title": "AI-Scientist-v2",
+          "subtitle": "Sakana AI 全自动科研：从想法到论文，已发表 Nature",
+          "avatar": "",
+          "link": "https://github.com/SakanaAI/AI-Scientist-v2",
+          "path": "",
+          "added": "2026-04-21"
+        },
+        {
+          "key": "ext-AI-科研--学术搜索与自动化-1",
+          "title": "Elicit",
+          "subtitle": "论文检索、抽取与综述向问答",
+          "avatar": "",
+          "link": "https://elicit.org/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-科研--学术搜索与自动化-2",
+          "title": "Consensus",
+          "subtitle": "科学共识检索，引用论文片段回答",
+          "avatar": "",
+          "link": "https://consensus.app/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-科研--学术搜索与自动化-3",
+          "title": "SciSpace",
+          "subtitle": "AI 论文阅读器，PDF 对话、公式解释与方法论提取",
+          "avatar": "",
+          "link": "https://typeset.io/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-科研--学术搜索与自动化-4",
+          "title": "Semantic Scholar",
+          "subtitle": "学术搜索、引用与 TL;DR 摘要",
+          "avatar": "",
+          "link": "https://www.semanticscholar.org/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-科研--学术搜索与自动化-5",
+          "title": "VibeVoice",
+          "subtitle": "微软开源语音 AI，90 分钟超长音频合成与识别",
+          "avatar": "",
+          "link": "https://github.com/microsoft/VibeVoice",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-科研--学术搜索与自动化-6",
+          "title": "TimesFM",
+          "subtitle": "Google Research 时序预测基础模型，零样本高精度",
+          "avatar": "",
+          "link": "https://github.com/google-research/timesfm",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-科研--学术搜索与自动化-7",
+          "title": "Onyx",
+          "subtitle": "企业级 AI 搜索，多数据源（GitHub/Confluence 等）自然语言问答",
+          "avatar": "",
+          "link": "https://github.com/onyx-dot-app/onyx",
+          "path": "",
+          "added": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "临时邮箱 · 匿名收件",
+      "id": "ext-temp-email",
+      "tools": [
+        {
+          "key": "ext-临时邮箱--匿名收件-0",
+          "title": "Temp Mail",
+          "subtitle": "最流行的临时邮箱，即开即用",
+          "avatar": "",
+          "link": "https://tempmail.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-临时邮箱--匿名收件-1",
+          "title": "10 Minute Mail",
+          "subtitle": "10 分钟自动销毁临时邮箱",
+          "avatar": "",
+          "link": "https://10minutemail.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-临时邮箱--匿名收件-2",
+          "title": "Guerrilla Mail",
+          "subtitle": "老牌免费临时邮箱，支持发送",
+          "avatar": "",
+          "link": "https://guerrillamail.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-临时邮箱--匿名收件-3",
+          "title": "Maildrop",
+          "subtitle": "简洁临时邮箱，别名收件",
+          "avatar": "",
+          "link": "https://maildrop.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-临时邮箱--匿名收件-4",
+          "title": "EmailOnDeck",
+          "subtitle": "开发者友好的临时邮箱 API",
+          "avatar": "",
+          "link": "https://emailondeck.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-临时邮箱--匿名收件-5",
+          "title": "Moakt",
+          "subtitle": "免费临时邮箱，支持自定义地址",
+          "avatar": "",
+          "link": "https://moakt.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-临时邮箱--匿名收件-6",
+          "title": "SimpleLogin",
+          "subtitle": "邮箱别名服务，隐私保护最佳",
+          "avatar": "",
+          "link": "https://simplelogin.io/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-临时邮箱--匿名收件-7",
+          "title": "Proton Mail",
+          "subtitle": "瑞士端到端加密邮箱，隐私首选",
+          "avatar": "",
+          "link": "https://proton.me/mail",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-临时邮箱--匿名收件-8",
+          "title": "Tuta",
+          "subtitle": "德国全加密邮箱，无需手机号注册",
+          "avatar": "",
+          "link": "https://tuta.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-临时邮箱--匿名收件-9",
+          "title": "Zoho Mail",
+          "subtitle": "免费自定义域名邮箱，国内直连",
+          "avatar": "",
+          "link": "https://store.zoho.com.cn/referral.do?servicename=VirtualOffice&category=VirtualOffice&ref=c9437ac2bb2895156f980cc1b65072dc120416d48187e262a8a5f7c33e0643abdbeed9352a1f8786221a3446940a72f8",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-临时邮箱--匿名收件-10",
+          "title": "iCloud 邮件",
+          "subtitle": "苹果生态邮箱，iCloud 免费自带",
+          "avatar": "",
+          "link": "https://www.icloud.com/mail",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-临时邮箱--匿名收件-11",
+          "title": "DuckDuckGo Email",
+          "subtitle": "邮箱别名转发，隐藏真实邮箱",
+          "avatar": "",
+          "link": "https://duckduckgo.com/email",
+          "path": "",
+          "added": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "接码 · 短信验证与虚拟号",
+      "id": "ext-sms-verify",
+      "tools": [
+        {
+          "key": "ext-接码--短信验证与虚拟号-0",
+          "title": "Twilio",
+          "subtitle": "企业级短信/语音 API 标杆",
+          "avatar": "",
+          "link": "https://twilio.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-接码--短信验证与虚拟号-1",
+          "title": "Google Voice",
+          "subtitle": "Google 出品，免费美国虚拟号",
+          "avatar": "",
+          "link": "https://voice.google.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-接码--短信验证与虚拟号-2",
+          "title": "TextNow",
+          "subtitle": "免费加拿大/美国虚拟号(含广告)",
+          "avatar": "",
+          "link": "https://textnow.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-接码--短信验证与虚拟号-3",
+          "title": "SMS-Activate",
+          "subtitle": "在线接码平台，多国号码按次付费",
+          "avatar": "",
+          "link": "https://sms-activate.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-接码--短信验证与虚拟号-4",
+          "title": "Quackr",
+          "subtitle": "免费在线接收验证码",
+          "avatar": "",
+          "link": "https://quackr.com",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-接码--短信验证与虚拟号-5",
+          "title": "Receive SMS Online",
+          "subtitle": "免费在线接收短信验证码",
+          "avatar": "",
+          "link": "https://receivesmsonline.com",
+          "path": "",
+          "added": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "AI 榜单 · 产品与工具排行",
+      "id": "ext-ai-rankings",
+      "tools": [
+        {
+          "key": "ext-AI-榜单--产品与工具排行-0",
+          "title": "AI 产品榜（飞书 Wiki）",
+          "subtitle": "国内 AI 产品热度与排行",
+          "avatar": "",
+          "link": "https://ai-bot.cn/daily-ai-news/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-榜单--产品与工具排行-1",
+          "title": "AI 产品数据榜（飞书 Wiki）",
+          "subtitle": "AI 产品流量、增长和排行数据",
+          "avatar": "",
+          "link": "https://ai-bot.cn/daily-ai-news/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-榜单--产品与工具排行-2",
+          "title": "Toolify",
+          "subtitle": "全球 AI 工具发现与排行",
+          "avatar": "",
+          "link": "https://www.toolify.ai/zh/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-榜单--产品与工具排行-3",
+          "title": "AIGCrank",
+          "subtitle": "中文 AIGC/产品排行向站点",
+          "avatar": "",
+          "link": "https://aigcrank.cn/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-榜单--产品与工具排行-4",
+          "title": "OpenRouter Rankings",
+          "subtitle": "基于全网调用量的模型周榜、市占与分场景排行",
+          "avatar": "",
+          "link": "https://openrouter.ai/rankings",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-榜单--产品与工具排行-5",
+          "title": "月狐数据 · 黑马APP榜",
+          "subtitle": "移动应用增长黑马、活跃排行与市场洞察",
+          "avatar": "",
+          "link": "https://www.moonfox.cn/topCharts/mobileApp/darkHorse",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-榜单--产品与工具排行-6",
+          "title": "Similarweb",
+          "subtitle": "网站流量排名与竞品分析，AI 产品全球访问量排行",
+          "avatar": "",
+          "link": "https://www.similarweb.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-榜单--产品与工具排行-7",
+          "title": "AIcpt",
+          "subtitle": "全球 AI 产品流量与增长周榜",
+          "avatar": "",
+          "link": "https://aicpb.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-榜单--产品与工具排行-8",
+          "title": "Product Hunt",
+          "subtitle": "新产品每日发布与社区投票排行",
+          "avatar": "",
+          "link": "https://www.producthunt.com/",
+          "path": "",
+          "added": ""
+        }
+      ]
+    },
+    {
+      "type": "leaf",
+      "name": "AI 经典书籍与教材",
+      "id": "ext-ai-books",
+      "tools": [
+        {
+          "key": "ext-AI-经典书籍与教材-0",
+          "title": "《深度学习》（花书）",
+          "subtitle": "Ian Goodfellow 等著，深度学习圣经，在线版免费",
+          "avatar": "",
+          "link": "https://www.deeplearningbook.org/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-经典书籍与教材-1",
+          "title": "《动手学深度学习》",
+          "subtitle": "李沐出品，代码+理论交互式教材，在线版免费",
+          "avatar": "",
+          "link": "https://zh.d2l.ai/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-经典书籍与教材-2",
+          "title": "《机器学习》（西瓜书）",
+          "subtitle": "周志华著，中文机器学习最权威教材",
+          "avatar": "",
+          "link": "https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-经典书籍与教材-3",
+          "title": "《人工智能：一种现代方法》",
+          "subtitle": "Stuart Russell 著，全球最广泛采用的 AI 教材（第四版）",
+          "avatar": "",
+          "link": "https://aima.cs.berkeley.edu/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-经典书籍与教材-4",
+          "title": "《自然语言处理综论》",
+          "subtitle": "Jurafsky & Martin，NLP 最权威教材，第三版在线免费",
+          "avatar": "",
+          "link": "https://web.stanford.edu/~jurafsky/slp3/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-经典书籍与教材-5",
+          "title": "《Attention Is All You Need》论文",
+          "subtitle": "Transformer 开创性论文，改变 AI 格局",
+          "avatar": "",
+          "link": "https://arxiv.org/abs/1706.03762",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-经典书籍与教材-6",
+          "title": "《The Little Book of Deep Learning》",
+          "subtitle": "François Fleuret，深度学习精简入门小册，免费电子书",
+          "avatar": "",
+          "link": "https://fleuret.org/public/lbdl.pdf",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-AI-经典书籍与教材-7",
+          "title": "《百面机器学习》",
+          "subtitle": "葫芦娃著，机器学习面试必备，覆盖核心考点",
+          "avatar": "",
+          "link": "https://book.douban.com/subject/30282803/",
+          "path": "",
+          "added": ""
         }
       ]
     }
@@ -12358,5 +13715,5 @@
     }
   },
   "builtFrom": "local",
-  "generatedAt": "2026-04-08T14:45:24.163Z"
+  "generatedAt": "2026-06-22T10:17:38.621Z"
 }

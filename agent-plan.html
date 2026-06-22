@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Agent 横评 — Coding Agent 对比 — AINav</title>
-  <meta name="description" content="AI Coding Agent 横向对比：Claude Code、Cursor Agent、OpenClaw、Hermes、Cline、Devin、Codex CLI、ArkClaw 等国内外 Agent 功能、价格、兼容性一站式对比，帮你找到最适合的 AI 编程智能体。">
+  <meta name="description" content="AI Coding Agent 横向对比：Hermes（2026 开源首选）、Claude Code（Fable 5/Opus 4.8）、Cursor、OpenClaw、Cline、Codex CLI 等；搭配 GLM-5.2、DeepSeek-V4-Pro 选型指南。">
   <link rel="canonical" href="https://aiv123.com/agent-plan.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="AI Agent 横评 — Coding Agent 对比">
@@ -219,7 +219,7 @@
       <span style="color:var(--muted)"><strong style="color:var(--text)">OpenAI: GPT</strong> <span style="color:var(--muted)">·</span> <strong style="color:var(--text)">Anthropic: Claude</strong> <span style="color:var(--muted)">·</span> <strong style="color:var(--text)">Google: Gemini旗舰模型</strong> <span style="color:var(--muted)">· 国内直连免梯</span> <span class="plan-promo-code" data-code="AFF_BB0FNC" style="color:var(--accent2);font-weight:600;cursor:pointer" title="点击复制优惠码">$2优惠码 AFF_BB0FNC</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">立即注册</a>
     </div>
     <h1 data-i18n="title">🤖 AI Agent 横评</h1>
-    <p class="cp-subtitle" data-i18n="subtitle">国内外 AI Coding Agent 一站式对比：功能、价格、兼容性、场景推荐，帮你找到最适合的 AI 编程智能体。</p>
+    <p class="cp-subtitle" data-i18n="subtitle">国内外 AI Coding Agent 一站式对比：2026 年开源首选 Hermes，模型底座推荐 GLM-5.2 / DeepSeek-V4-Pro / Claude Opus 4.8。</p>
 
     <!-- Legend -->
     <div class="cp-legend">
@@ -425,20 +425,20 @@
               <tr>
                 <td class="plan-name">Pro</td>
                 <td class="plan-price">$20/月</td>
-                <td class="plan-models"><a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Claude Sonnet 4</a></td>
+                <td class="plan-models"><a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Claude Sonnet 4.6</a></td>
                 <td class="plan-limit">中度使用，约30-45分钟/天</td>
               </tr>
               <tr>
                 <td class="plan-name">Max 1× <span class="cp-badge badge-rec">👍</span></td>
                 <td class="plan-price">$100/月</td>
-                <td class="plan-models"><a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Claude Opus 4</a>, Sonnet 4</td>
-                <td class="plan-limit">每日数小时主力开发</td>
+                <td class="plan-models"><a href="https://www.anthropic.com/claude/fable" target="_blank" rel="noopener noreferrer">Claude Fable 5</a>（暂停）, <a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Opus 4.8</a>, Sonnet 4.6</td>
+                <td class="plan-limit">长程 Agent；Fable 5 于 6/12 起全球暂停，自动回落 Opus 4.8</td>
               </tr>
               <tr>
                 <td class="plan-name">Max 2×</td>
                 <td class="plan-price">$200/月</td>
-                <td class="plan-models">Opus 4, Sonnet 4</td>
-                <td class="plan-limit">并行AI会话，重度用户</td>
+                <td class="plan-models">Opus 4.8, Sonnet 4.6, Fable 5（恢复后）</td>
+                <td class="plan-limit">并行 AI 会话，重度长程开发</td>
               </tr>
             </tbody>
           </table>
@@ -449,7 +449,7 @@
             <span class="feat-tag">多模态</span>
             <span class="feat-tag">自托管</span>
           </div>
-          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">终端 CLI Agent，Anthropic 官方出品，MCP 协议原生支持，代码理解能力业界顶级</div>
+          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">终端 CLI Agent，Anthropic 官方出品；Fable 5 为 1M 上下文长程旗舰（2026/6/9 发布，6/12 起暂停访问），日常主力仍为 Opus 4.8 / Sonnet 4.6</div>
         </div>
       </div>
 
@@ -485,7 +485,7 @@
             <span class="feat-tag">多模态</span>
             <span class="feat-tag">自托管</span>
           </div>
-          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">基于 VS Code 的 AI IDE，Agent 模式可自动执行多步编辑/终端命令，支持 MCP 工具调用</div>
+          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">基于 VS Code 的 AI IDE，Agent 模式可自动执行多步编辑/终端命令；支持 MCP 与 Agent Skills（<code>npx skills add</code> / Marketplace）</div>
         </div>
       </div>
 
@@ -632,7 +632,41 @@
 
     <div class="cp-platforms">
 
-      <!-- 1. OpenClaw -->
+      <!-- 1. Hermes Agent -->
+      <div class="cp-platform oss">
+        <div class="cp-platform-head">
+          <span class="cp-platform-name"><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer">Hermes Agent</a></span>
+          <span class="cp-badge badge-oss">🔓 开源</span>
+          <span class="cp-badge badge-hot">🔥 热门</span>
+          <span class="cp-badge badge-rec">👍 首选</span>
+          <span class="cp-badge badge-free">🆓 免费</span>
+        </div>
+        <div class="cp-platform-body">
+          <table class="cp-table">
+            <thead><tr><th>类型</th><th>价格</th><th>接入方式</th><th>备注</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="plan-name">开源自托管 <span class="cp-badge badge-rec">👍</span></td>
+                <td class="plan-price">免费（按 API 用量）</td>
+                <td class="plan-models">CLI / IM 网关 / API，兼容 8+ 平台</td>
+                <td class="plan-limit">55K+ ⭐ · 2026 社区首选</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="feat-tags">
+            <span class="feat-tag yes">CLI</span>
+            <span class="feat-tag yes">MCP</span>
+            <span class="feat-tag yes">多模型</span>
+            <span class="feat-tag yes">记忆</span>
+            <span class="feat-tag yes">多模态</span>
+            <span class="feat-tag yes">自托管</span>
+            <span class="feat-tag yes">技能自进化</span>
+          </div>
+          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">2026 年开源 Agent 实战首选：跨会话记忆、技能自动创建、IM 集成完善；大量 OpenClaw 用户已迁移至 Hermes。推荐搭配 <strong>GLM-5.2</strong> / <strong>DeepSeek-V4-Pro</strong> Coding Plan</div>
+        </div>
+      </div>
+
+      <!-- 2. OpenClaw -->
       <div class="cp-platform oss">
         <div class="cp-platform-head">
           <span class="cp-platform-name"><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer">OpenClaw</a></span>
@@ -645,10 +679,10 @@
             <thead><tr><th>类型</th><th>价格</th><th>接入方式</th><th>备注</th></tr></thead>
             <tbody>
               <tr>
-                <td class="plan-name">开源自托管 <span class="cp-badge badge-rec">👍</span></td>
+                <td class="plan-name">开源自托管</td>
                 <td class="plan-price">免费（按 API 用量）</td>
                 <td class="plan-models">CLI / API，兼容 8+ 平台</td>
-                <td class="plan-limit">53K+ ⭐ GitHub</td>
+                <td class="plan-limit">75K+ ⭐ GitHub</td>
               </tr>
             </tbody>
           </table>
@@ -660,39 +694,7 @@
             <span class="feat-tag yes">自托管</span>
             <span class="feat-tag">IDE内置</span>
           </div>
-          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">最热门的开源 Agent，兼容智谱/MiniMax/火山/百炼/Kimi/腾讯/DeepSeek/小米等 8+ 国内平台，支持 MCP 和持久记忆</div>
-        </div>
-      </div>
-
-      <!-- 2. Hermes Agent -->
-      <div class="cp-platform oss">
-        <div class="cp-platform-head">
-          <span class="cp-platform-name"><a href="https://github.com/hermes-agent/hermes" target="_blank" rel="noopener noreferrer">Hermes Agent</a></span>
-          <span class="cp-badge badge-oss">🔓 开源</span>
-          <span class="cp-badge badge-new">✨ 新品</span>
-          <span class="cp-badge badge-free">🆓 免费</span>
-        </div>
-        <div class="cp-platform-body">
-          <table class="cp-table">
-            <thead><tr><th>类型</th><th>价格</th><th>接入方式</th><th>备注</th></tr></thead>
-            <tbody>
-              <tr>
-                <td class="plan-name">开源自托管 <span class="cp-badge badge-rec">👍</span></td>
-                <td class="plan-price">免费（按 API 用量）</td>
-                <td class="plan-models">CLI / API，兼容 8+ 平台</td>
-                <td class="plan-limit">53K+ ⭐ GitHub</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="feat-tags">
-            <span class="feat-tag yes">CLI</span>
-            <span class="feat-tag yes">MCP</span>
-            <span class="feat-tag yes">多模型</span>
-            <span class="feat-tag yes">记忆</span>
-            <span class="feat-tag yes">多模态</span>
-            <span class="feat-tag yes">自托管</span>
-          </div>
-          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">开源 Agent 后起之秀，特色是多模态支持（图片/语音），同样兼容 8+ 国内平台，MCP + 记忆</div>
+          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">早期爆款开源 Agent，Stars 仍高；插件生态成熟，但 2026 年活跃开发者更多转向 Hermes（记忆/技能/IM 体验更完整）。新用户建议优先 Hermes</div>
         </div>
       </div>
 
@@ -864,8 +866,8 @@
             </tr>
           </thead>
           <tbody>
+            <tr><td>Hermes 🔥👍</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">8+</td><td>按API</td></tr>
             <tr><td>OpenClaw 🔥</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">8+</td><td>按API</td></tr>
-            <tr><td>Hermes ✨</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">8+</td><td>按API</td></tr>
             <tr><td>Cline / Roo</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>5+</td><td>按API</td></tr>
             <tr><td>Claude Code</td><td>—</td><td>—</td><td class="yes">✓</td><td>—</td><td>—</td><td class="yes">✓</td><td>—</td><td>—</td><td>5+</td><td>$20/月</td></tr>
             <tr><td>Cursor</td><td>—</td><td class="yes">✓</td><td>—</td><td>—</td><td>—</td><td class="yes">✓</td><td>—</td><td>—</td><td>5+</td><td>$20/月</td></tr>
@@ -892,18 +894,18 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
         <!-- GitHub Stars -->
         <div style="border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden;">
-          <div style="padding:0.55rem 1rem;border-bottom:1px solid var(--border);font-weight:700;font-size:0.88rem;">⭐ GitHub Stars 排行（开源 Agent）</div>
+          <div style="padding:0.55rem 1rem;border-bottom:1px solid var(--border);font-weight:700;font-size:0.88rem;">⭐ 开源 Agent 热度（Stars + 实战活跃）</div>
           <div style="padding:0.75rem 1rem;">
             <div class="cp-bar-chart">
-              <div class="cp-bar-row"><span class="cp-bar-label">OpenClaw</span><div class="cp-bar-track"><div class="cp-bar-fill bar-oss" style="width:100%">53K+</div></div></div>
-              <div class="cp-bar-row"><span class="cp-bar-label">Hermes</span><div class="cp-bar-track"><div class="cp-bar-fill bar-oss" style="width:100%">53K+</div></div></div>
+              <div class="cp-bar-row"><span class="cp-bar-label">Hermes 👍</span><div class="cp-bar-track"><div class="cp-bar-fill bar-oss" style="width:100%">55K+ · 实战首选</div></div></div>
+              <div class="cp-bar-row"><span class="cp-bar-label">OpenClaw</span><div class="cp-bar-track"><div class="cp-bar-fill bar-oss" style="width:100%">75K+</div></div></div>
               <div class="cp-bar-row"><span class="cp-bar-label">Cline</span><div class="cp-bar-track"><div class="cp-bar-fill bar-domestic" style="width:42%">22K+</div></div></div>
               <div class="cp-bar-row"><span class="cp-bar-label">Aider</span><div class="cp-bar-track"><div class="cp-bar-fill bar-domestic" style="width:38%">20K+</div></div></div>
               <div class="cp-bar-row"><span class="cp-bar-label">OpenHands</span><div class="cp-bar-track"><div class="cp-bar-fill bar-domestic" style="width:72%">38K+</div></div></div>
               <div class="cp-bar-row"><span class="cp-bar-label">Kilo Code</span><div class="cp-bar-track"><div class="cp-bar-fill bar-overseas" style="width:8%">4K+</div></div></div>
               <div class="cp-bar-row"><span class="cp-bar-label">Goose</span><div class="cp-bar-track"><div class="cp-bar-fill bar-overseas" style="width:16%">8K+</div></div></div>
             </div>
-            <div style="font-size:0.72rem;color:var(--muted);margin-top:0.4rem;">数据截至 2026 年 4 月，GitHub Stars 仅供参考</div>
+            <div style="font-size:0.72rem;color:var(--muted);margin-top:0.4rem;">数据截至 2026 年 6 月：Stars 仅供参考，Hermes 在社区讨论量、IM 集成与迁移热度上已超过 OpenClaw</div>
           </div>
         </div>
         <!-- 价格区间 -->
@@ -913,7 +915,7 @@
             <table class="cp-table" style="font-size:0.78rem;">
               <thead><tr><th>价格档</th><th>Agent</th><th>适合</th></tr></thead>
               <tbody>
-                <tr><td class="plan-name" style="color:var(--accent2)">🆓 ¥0</td><td>OpenClaw, Hermes, Cline, Aider, Trae</td><td>个人/入门</td></tr>
+                <tr><td class="plan-name" style="color:var(--accent2)">🆓 ¥0</td><td>Hermes, OpenClaw, Cline, Aider, Trae</td><td>个人/入门</td></tr>
                 <tr><td class="plan-name" style="color:var(--accent)">$10-20/月</td><td>Copilot Pro, Claude Pro, Cursor Pro, Windsurf Pro</td><td>主流开发者</td></tr>
                 <tr><td class="plan-name" style="color:var(--warn)">$100-200/月</td><td>Claude Max, Cursor Ultra, Codex Pro</td><td>重度用户</td></tr>
                 <tr><td class="plan-name" style="color:var(--hot)">$500+/月</td><td>Devin</td><td>企业级</td></tr>
@@ -937,8 +939,8 @@
           <div style="padding:0.75rem;border-radius:8px;border:1px solid rgba(63,185,80,0.25);background:rgba(63,185,80,0.04);">
             <div style="font-weight:700;font-size:0.88rem;margin-bottom:0.5rem;">👤 个人开发者（预算有限）</div>
             <div style="font-size:0.8rem;line-height:1.7;">
-              <div>🏆 <strong>首选：</strong><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer">OpenClaw</a> + <a href="https://www.bigmodel.cn/glm-coding?ic=H2G5GCAOFT" target="_blank" rel="noopener noreferrer">智谱GLM Pro</a> — 最强性价比组合</div>
-              <div>💰 <strong>零成本：</strong><a href="https://github.com/cline/cline" target="_blank" rel="noopener noreferrer">Cline</a> + <a href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek Free</a> — ¥0 开始</div>
+              <div>🏆 <strong>首选：</strong><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer">Hermes Agent</a> + <a href="https://www.bigmodel.cn/glm-coding?ic=H2G5GCAOFT" target="_blank" rel="noopener noreferrer">智谱 GLM-5.2 Pro</a> — 2026 开源 Agent 最佳组合</div>
+              <div>💰 <strong>零成本：</strong><a href="https://github.com/cline/cline" target="_blank" rel="noopener noreferrer">Cline</a> + <a href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek-V4-Flash Free</a> — ¥0 开始</div>
               <div>⚡ <strong>国内最省：</strong><a href="https://www.trae.ai/" target="_blank" rel="noopener noreferrer">Trae</a> 免费IDE — 零配置上手</div>
             </div>
           </div>
@@ -947,9 +949,9 @@
           <div style="padding:0.75rem;border-radius:8px;border:1px solid rgba(255,107,107,0.25);background:rgba(255,107,107,0.04);">
             <div style="font-weight:700;font-size:0.88rem;margin-bottom:0.5rem;">🔥 重度 AI 编程（每日6h+）</div>
             <div style="font-size:0.8rem;line-height:1.7;">
-              <div>🏆 <strong>首选：</strong><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude Code Max</a> $100/月 — 代码理解力最强</div>
+              <div>🏆 <strong>首选：</strong><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude Code Max</a> $100/月 — Opus 4.8 / Fable 5（恢复后）长程最强</div>
               <div>⚡ <strong>双修：</strong>Claude Max + <a href="https://cursor.sh/" target="_blank" rel="noopener noreferrer">Cursor Pro</a> — CLI + IDE 双 Agent</div>
-              <div>💡 <strong>开源重装：</strong>OpenClaw + 智谱GLM Max ¥469/月 — 国产顶配</div>
+              <div>💡 <strong>开源重装：</strong><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer">Hermes</a> + 智谱 GLM-5.2 Max ¥469/月 — 国产长程顶配</div>
             </div>
           </div>
 
@@ -959,7 +961,7 @@
             <div style="font-size:0.8rem;line-height:1.7;">
               <div>🏆 <strong>首选：</strong><a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">Copilot Workspace</a> $39/月 — GitHub 原生集成</div>
               <div>🇨🇳 <strong>国内：</strong><a href="https://www.volcengine.com/activity/codingplan" target="_blank" rel="noopener noreferrer">ArkClaw</a> — 字节企业级 Agent</div>
-              <div>🔒 <strong>私有化：</strong>OpenClaw / OpenHands 自托管 — 数据不出内网</div>
+              <div>🔒 <strong>私有化：</strong><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer">Hermes</a> / OpenHands 自托管 — 数据不出内网</div>
             </div>
           </div>
 
@@ -967,7 +969,8 @@
           <div style="padding:0.75rem;border-radius:8px;border:1px solid rgba(240,136,62,0.25);background:rgba(240,136,62,0.04);">
             <div style="font-weight:700;font-size:0.88rem;margin-bottom:0.5rem;">🔓 开源控 / 自托管</div>
             <div style="font-size:0.8rem;line-height:1.7;">
-              <div>🏆 <strong>首选：</strong><a href="https://github.com/hermes-agent/hermes" target="_blank" rel="noopener noreferrer">Hermes Agent</a> — 多模态 + 记忆 + MCP</div>
+              <div>🏆 <strong>首选：</strong><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer">Hermes Agent</a> — 记忆 + 技能自进化 + IM + MCP，社区最活跃</div>
+              <div>📦 <strong>备选：</strong><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer">OpenClaw</a> — 插件生态成熟，适合已有技能库用户</div>
               <div>⚡ <strong>全自主：</strong><a href="https://github.com/All-Hands-AI/OpenHands" target="_blank" rel="noopener noreferrer">OpenHands</a> — Web UI，类 Devin</div>
               <div>🛠 <strong>极简：</strong><a href="https://github.com/Aider-AI/aider" target="_blank" rel="noopener noreferrer">Aider</a> — CLI 最轻量，本地模型友好</div>
             </div>
@@ -987,7 +990,7 @@
           <div style="padding:0.75rem;border-radius:8px;border:1px solid rgba(167,139,250,0.25);background:rgba(167,139,250,0.04);">
             <div style="font-weight:700;font-size:0.88rem;margin-bottom:0.5rem;">🔀 多模型 / 不想被绑死</div>
             <div style="font-size:0.8rem;line-height:1.7;">
-              <div>🏆 <strong>首选：</strong><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer">OpenClaw</a> — 8+ 平台自由切换</div>
+              <div>🏆 <strong>首选：</strong><a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer">Hermes Agent</a> — 8+ 平台自由切换，2026 迁移首选</div>
               <div>🌍 <strong>海外多模型：</strong><a href="https://codeium.com/windsurf" target="_blank" rel="noopener noreferrer">Windsurf</a> — 支持 20+ 模型</div>
               <div>💡 <strong>原则：</strong>开源 Agent + 按量 API = 最灵活，随时换模型不浪费订阅</div>
             </div>
@@ -1012,8 +1015,8 @@
       <div class="cp-notice-head">⚠️ 注意事项 — Agent 选购必读</div>
       <div class="cp-notice-body">
         <ul>
-          <li><strong>开源 Agent 免费但需自备 API：</strong>OpenClaw/Cline/Hermes 等开源 Agent 本身免费，但底层模型调用需自行购买 API 额度或订阅 Coding Plan，实际成本 ≠ ¥0。</li>
-          <li><strong>Agent 效果 80% 取决于底层模型：</strong>同一 Agent 换不同模型效果天差地别，选对模型比选对 Agent 更重要。建议优先搭配 Claude/GPT-5 级别模型。</li>
+          <li><strong>开源 Agent 免费但需自备 API：</strong>Hermes/OpenClaw/Cline 等开源 Agent 本身免费，但底层模型调用需自行购买 API 额度或订阅 Coding Plan，实际成本 ≠ ¥0。2026 年推荐 Hermes + GLM-5.2 或 DeepSeek-V4。</li>
+          <li><strong>Agent 效果 80% 取决于底层模型：</strong>同一 Agent 换不同模型效果天差地别。长程任务优先 GLM-5.2 / DeepSeek-V4-Pro / Claude Opus 4.8；Fable 5 暂停期间由 Opus 4.8 承接。</li>
           <li><strong>自主执行 = 自主犯错：</strong>Agent 能自动改代码，也能自动引入 Bug。生产环境务必开启<strong>人工确认</strong>模式，不要给 Agent 无限权限。</li>
           <li><strong>MCP 生态仍在早期：</strong>2026年各 Agent 的 MCP 工具支持参差不齐，同一工具在不同 Agent 上体验差异大，选型前确认目标工具兼容性。</li>
           <li><strong>闭源 Agent 绑定平台：</strong>Cursor/Copilot/Devin 等闭源 Agent 只能用自家模型和工具，无法自由切换，长期成本和灵活性受限。</li>
@@ -1043,7 +1046,7 @@
 
       <div class="cp-faq-item">
         <div class="cp-faq-q">Devin/Codex 值得 $500/月吗？<span class="cp-faq-arrow">▼</span></div>
-        <div class="cp-faq-a"><strong>对大多数人不值得。</strong>Devin/Codex 定位是"AI软件工程师"，能独立完成整个任务。但 $500/月的价格是 Cursor Pro $20 的 25 倍。除非你的时薪 > $50 且经常需要处理大量重复性编程任务，否则 OpenClaw/Cline + Claude API 的组合更划算。</div>
+        <div class="cp-faq-a"><strong>对大多数人不值得。</strong>Devin/Codex 定位是"AI软件工程师"，能独立完成整个任务。但 $500/月的价格是 Cursor Pro $20 的 25 倍。除非你的时薪 &gt; $50 且经常需要处理大量重复性编程任务，否则 Hermes/Cline + GLM-5.2 或 DeepSeek-V4 API 的组合更划算。</div>
       </div>
 
       <div class="cp-faq-item">
@@ -1156,16 +1159,16 @@
               <div>• <strong>阶段一（2023）：</strong>代码补全 — Copilot 模式，一行一行建议</div>
               <div>• <strong>阶段二（2024-2025）：</strong>对话式编程 — Chat 模式，多文件编辑</div>
               <div>• <strong>阶段三（2026）：</strong>自主执行 — Agent 模式，理解需求→拆解任务→执行→验证→提交</div>
-              <div style="color:var(--muted);font-size:0.8rem;margin-top:0.3rem;">→ 现在正处于阶段三的爆发期，Devin/OpenClaw/Hermes 代表了这个方向</div>
+              <div style="color:var(--muted);font-size:0.8rem;margin-top:0.3rem;">→ 现在正处于阶段三的爆发期，Hermes / Claude Code / Cursor Agent 代表了这个方向</div>
             </div>
           </div>
 
           <div style="margin-bottom:1rem;">
-            <div style="font-weight:700;color:var(--accent);margin-bottom:0.3rem;">2️⃣ MCP 卟议 — 统一 Agent 工具调用</div>
+            <div style="font-weight:700;color:var(--accent);margin-bottom:0.3rem;">2️⃣ MCP 协议 — 统一 Agent 工具调用</div>
             <div style="padding-left:0.6rem;">
               <div>• <strong>什么是 MCP：</strong>Model Context Protocol，Anthropic 推出的开放协议，让 Agent 统一调用外部工具</div>
               <div>• <strong>为什么重要：</strong>之前每个 Agent 自己造轮子连接数据库/API/文件系统，MCP 统一后工具生态共享</div>
-              <div>• <strong>现状：</strong>OpenClaw/Hermes/Cline/Cursor/Claude Code 已支持，IDE Agent 纷纷接入</div>
+              <div>• <strong>现状：</strong>Hermes/OpenClaw/Cline/Cursor/Claude Code 已支持，IDE Agent 纷纷接入</div>
               <div style="color:var(--muted);font-size:0.8rem;margin-top:0.3rem;">→ 选 Agent 优先选支持 MCP 的，生态红利才刚开始</div>
             </div>
           </div>
@@ -1173,8 +1176,8 @@
           <div style="margin-bottom:1rem;">
             <div style="font-weight:700;color:var(--warn);margin-bottom:0.3rem;">3️⃣ 开源 Agent 生态爆发</div>
             <div style="padding-left:0.6rem;">
-              <div>• <strong>趋势：</strong>OpenClaw/Hermes 的 GitHub Stars 均超 53K，增速超过同期 Cursor</div>
-              <div>• <strong>驱动力：</strong>国内低价 API + 开源 Agent = 月成本不到 ¥50，比海外订阅便宜 5-10×</div>
+              <div>• <strong>趋势：</strong>Hermes 已成 2026 开源 Agent 实战首选（记忆/技能/IM 完整度领先）；OpenClaw Stars 仍高但新增用户更多选 Hermes</div>
+              <div>• <strong>模型侧：</strong>GLM-5.2、DeepSeek-V4-Pro 全量开放后，开源 Agent + 国产 Coding Plan 月成本 &lt; ¥50</div>
               <div>• <strong>风险：</strong>开源项目维护靠社区，稳定性不如商业产品，生产环境需谨慎</div>
             </div>
           </div>
@@ -1197,6 +1200,7 @@
 
   <!-- Footer -->
   <div class="cp-footer">
+    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-06-22</span></p>
     <p>数据来源：各平台官网 · GitHub · 价格以官网为准</p>
     <p><a href="index.html">← 返回 AINav 首页</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="video-plan.html">视频套餐横评</a> · <a href="image-plan.html">图像套餐横评</a></p>
   </div>

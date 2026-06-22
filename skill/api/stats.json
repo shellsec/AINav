@@ -1,0 +1,32 @@
+{
+  "total": 334,
+  "labelCount": {
+    "AI Agent": 30,
+    "AI Coding": 73,
+    "AI Workflow": 5,
+    "AI安全对齐": 5,
+    "Claude": 18,
+    "DeepSeek": 13,
+    "Gemma": 7,
+    "Kimi": 2,
+    "LLM Tools": 38,
+    "LangChain": 22,
+    "Llama": 6,
+    "MCP-Server": 13,
+    "MiMo": 2,
+    "MiniMax": 7,
+    "Mistral": 5,
+    "Model Inference": 1,
+    "Phi": 4,
+    "Qwen": 5,
+    "RAG": 68,
+    "多模态": 5,
+    "模型推理": 5
+  },
+  "typeCount": {
+    "keyword": 252,
+    "skill": 82
+  },
+  "avgStars": 1857,
+  "lastUpdated": "2026-06-22 17:30:26"
+}

@@ -6750,6 +6750,14 @@
           "path": ""
         },
         {
+          "key": "Remio",
+          "title": "Remio",
+          "subtitle": "本地优先 AI 记忆与知识库桌面应用，解析文件、网页、录音、邮件、消息、图片和笔记，建立本地索引/向量，让用户和 Agent 获取精准上下文，减少反复 grep、扫文件或整篇塞进 prompt 的 token 与成本；CLI/Agent 技能需配合桌面客户端使用",
+          "avatar": "icon/Remio.png",
+          "link": "https://remio.ai/",
+          "path": ""
+        },
+        {
           "key": "ext-AI-知识库--笔记与企业检索-4",
           "title": "Tana",
           "subtitle": "大纲 + 超级标签 + AI 的工作知识库",

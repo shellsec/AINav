@@ -5,6 +5,7 @@
 const SUBPAGE_NAV_LINKS = [
   { href: "index.html", zh: "← AINav 首页", en: "← AINav Home", match: ["index.html", ""] },
   { href: "free-tier.html", zh: "🆓 免费额度", en: "🆓 Free Tier", match: ["free-tier.html"] },
+  { href: "token-optimization.html", zh: "Token优化", en: "Token Opt", match: ["token-optimization.html"] },
   { type: "sep" },
   { href: "model-plan.html", zh: "模型选型", en: "Models", match: ["model-plan.html"] },
   { href: "coding-plan.html", zh: "编程套餐", en: "Coding", match: ["coding-plan.html"] },
@@ -46,6 +47,7 @@ const SITEMAP_URLS = [
   { loc: "https://aiv123.com/ai-factory-plan.html", changefreq: "monthly", priority: "0.7" },
   { loc: "https://aiv123.com/plan.html", changefreq: "monthly", priority: "0.6" },
   { loc: "https://aiv123.com/thinking-framework.html", changefreq: "monthly", priority: "0.6" },
+  { loc: "https://aiv123.com/token-optimization.html", changefreq: "monthly", priority: "0.72" },
   { loc: "https://aiv123.com/ask.html", changefreq: "monthly", priority: "0.6" },
   { loc: "https://aiv123.com/debug.html", changefreq: "monthly", priority: "0.6" },
   { loc: "https://aiv123.com/agent.html", changefreq: "monthly", priority: "0.6" },

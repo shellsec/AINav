@@ -156,7 +156,7 @@
           if(el.textContent.indexOf('场景推荐')!==-1||el.textContent.indexOf('Recommendations')!==-1)el.textContent=dict.sectionRec;
         });
         var fp=document.querySelectorAll('.cp-footer p');
-        if(fp[0])fp[0].textContent=dict.footer;
+        if (fp[1]) fp[1].textContent = dict.footer;
         var pb=document.querySelector('.cp-wrap > div:first-child');
         if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
         document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang-set')===lang)});
@@ -168,20 +168,7 @@
 </head>
 <body>
   <div class="cp-top"><div class="cp-top-inner">
-    <div class="cp-nav" data-plan-nav>
-      <a href="index.html">← AINav 首页</a>
-      <a href="coding-plan.html">编程套餐横评</a>
-      <a href="agent-plan.html">Agent横评</a> · <a href="model-plan.html">模型选型</a>
-      <a href="video-plan.html">视频套餐横评</a>
-      <a href="image-plan.html">图像套餐横评</a>
-      <a href="music-plan.html">音乐套餐横评</a>
-      <a href="search-plan.html">搜索套餐横评</a>
-      <a href="voice-plan.html">语音套餐横评</a>
-      <a href="learning-plan.html">学习套餐横评</a>
-      <a href="hardware-plan.html">硬件横评</a>
-      <a href="ai-factory-plan.html">AI造物</a>
-      <a href="skill-plan.html">Skill最佳实践</a> · <a href="ai-encyclopedia-2026.html">AI百科</a>
-    </div>
+    <div class="cp-nav" data-plan-nav></div>
     <div class="cp-toolbar">
       <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
       <button type="button" class="theme-btn" data-theme-set="light">浅色</button>
@@ -198,6 +185,8 @@
     <h1 data-i18n="title">🔍 AI Search Plan 搜索套餐横评</h1>
     <p class="cp-subtitle" data-i18n="subtitle">国内外 AI 搜索订阅套餐一站式对比：价格、查询量、Pro模型、文件上传，帮你选出最划算的 AI 搜索方案。</p>
 
+    
+    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-06-26</span></p>
     <div class="cp-legend">
       <div class="cp-legend-item"><span class="cp-badge badge-hot">🔥 热门</span> 高人气</div>
       <div class="cp-legend-item"><span class="cp-badge badge-new">✨ 新品</span> 新上线</div>
@@ -219,7 +208,7 @@
           <table class="cp-table">
             <thead><tr><th>套餐</th><th>月价</th><th>说明</th><th>备注</th></tr></thead>
             <tbody>
-              <tr><td class="plan-name">免费版</td><td class="plan-price">¥0</td><td>无限对话</td><td>长文档解析</td></tr>
+              <tr><td class="plan-name">免费版</td><td class="plan-price">¥0</td><td>高额免费额度</td><td>长文档解析</td></tr>
               <tr><td class="plan-name">Kimi+</td><td class="plan-price">¥19.9/月</td><td>优先响应+更多文件</td><td>国内最便宜</td></tr>
               <tr><td class="plan-name">Kimi Pro</td><td class="plan-price">¥59/月</td><td>最强模型+无限文件</td><td>重度使用</td></tr>
             </tbody>
@@ -307,7 +296,7 @@
             <thead><tr><th>套餐</th><th>月价</th><th>查询量/日</th><th>Pro模型</th></tr></thead>
             <tbody>
               <tr><td class="plan-name">Free</td><td class="plan-price">$0</td><td>5次Pro/日</td><td>基础模型</td></tr>
-              <tr><td class="plan-name">PRO <span class="cp-badge badge-rec">👍</span></td><td class="plan-price">$20/月</td><td>600次Pro/日</td><td>GPT-5/Claude/Gemini</td></tr>
+              <tr><td class="plan-name">PRO <span class="cp-badge badge-rec">👍</span></td><td class="plan-price">$20/月</td><td>约300+ Pro搜索/日</td><td>GPT-5 / Claude Opus 4.8 / Gemini 3.1 Pro</td></tr>
               <tr><td class="plan-name">Enterprise</td><td class="plan-price">定制</td><td>无限</td><td>团队+API</td></tr>
             </tbody>
           </table>
@@ -327,8 +316,8 @@
           <table class="cp-table">
             <thead><tr><th>套餐</th><th>月价</th><th>说明</th><th>Pro模型</th></tr></thead>
             <tbody>
-              <tr><td class="plan-name">Free</td><td class="plan-price">$0</td><td>有限搜索</td><td>GPT-4o-mini</td></tr>
-              <tr><td class="plan-name">Plus</td><td class="plan-price">$20/月</td><td>GPT-5+搜索</td><td>GPT-5/Claude/Gemini</td></tr>
+              <tr><td class="plan-name">Free</td><td class="plan-price">$0</td><td>有限搜索</td><td>GPT-4.1 mini</td></tr>
+              <tr><td class="plan-name">Plus</td><td class="plan-price">$20/月</td><td>GPT-5+搜索</td><td>GPT-5 + 联网搜索</td></tr>
               <tr><td class="plan-name">Pro</td><td class="plan-price">$200/月</td><td>无限Pro+深度研究</td><td>最强模型</td></tr>
             </tbody>
           </table>
@@ -368,7 +357,7 @@
             <thead><tr><th>套餐</th><th>月价</th><th>说明</th><th>Pro模型</th></tr></thead>
             <tbody>
               <tr><td class="plan-name">Free</td><td class="plan-price">$0</td><td>有限次数</td><td>基础模型</td></tr>
-              <tr><td class="plan-name">Pro</td><td class="plan-price">$15/月</td><td>无限搜索</td><td>GPT-5/Claude/Gemini</td></tr>
+              <tr><td class="plan-name">Pro</td><td class="plan-price">$15/月</td><td>无限搜索</td><td>多模型切换（以官网为准）</td></tr>
               <tr><td class="plan-name">Enterprise</td><td class="plan-price">定制</td><td>团队+API</td><td>自定义</td></tr>
             </tbody>
           </table>
@@ -389,7 +378,7 @@
             <thead><tr><th>套餐</th><th>月价</th><th>说明</th><th>备注</th></tr></thead>
             <tbody>
               <tr><td class="plan-name">Free</td><td class="plan-price">$0</td><td>有限次数</td><td>基础Grok</td></tr>
-              <tr><td class="plan-name">Premium+</td><td class="plan-price">$30/月</td><td>无限搜索+Grok3</td><td>X平台深度集成</td></tr>
+              <tr><td class="plan-name">Premium+</td><td class="plan-price">$30/月</td><td>无限搜索+Grok 4</td><td>X平台深度集成</td></tr>
             </tbody>
           </table>
           <div class="feat-tags">
@@ -428,9 +417,10 @@
         <table class="cp-matrix">
           <thead><tr><th>平台</th><th>免费版</th><th>Pro模型</th><th>文件上传</th><th>学术搜索</th><th>API</th><th>中文优化</th><th>引用溯源</th><th>深度研究</th></tr></thead>
           <tbody>
-            <tr><td>Kimi</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td>—</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td></tr>
+            <tr><td>Kimi</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td></tr>
             <tr><td>秘塔搜索</td><td class="yes">✓</td><td>—</td><td>—</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td></tr>
             <tr><td>天工AI</td><td class="yes">✓</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="yes">✓</td><td>—</td><td>—</td></tr>
+            <tr><td>夸克AI</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td>—</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td></tr>
             <tr><td>Perplexity</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
             <tr><td>ChatGPT Plus</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td>—</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
             <tr><td>Google AI</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
@@ -496,7 +486,7 @@
           <div style="padding:.75rem;border-radius:8px;border:1px solid rgba(167,139,250,.25);background:rgba(167,139,250,.04);">
             <div style="font-weight:700;font-size:.88rem;margin-bottom:.5rem;">🆓 免费体验 / 日常搜索</div>
             <div style="font-size:.8rem;line-height:1.7;">
-              <div>🏆 <strong>首选：</strong>Kimi免费版 — 无限对话+长文档</div>
+              <div>🏆 <strong>首选：</strong>Kimi 免费版 — 高额额度+长文档</div>
               <div>🌍 <strong>海外：</strong>Perplexity Free — 5次Pro/日</div>
               <div>📝 <strong>学术：</strong>秘塔免费版 — 中文论文搜索</div>
             </div>
@@ -512,7 +502,7 @@
         <ul>
           <li><strong>"Pro查询"≠普通查询：</strong>Perplexity的Pro查询消耗AI推理资源（GPT-5/Claude），每日限量5次免费版很快用完。</li>
           <li><strong>ChatGPT Plus ≠ 搜索专用：</strong>$20/月包含对话+代码+图片+搜索，如果你只需要搜索，Perplexity $20/月更专业。</li>
-          <li><strong>国内免费版功能更慷慨：</strong>Kimi免费版无限对话 vs Perplexity Free仅5次Pro/日，日常使用Kimi就够了。</li>
+          <li><strong>国内免费版功能更慷慨：</strong>Kimi 免费版高额额度 vs Perplexity Free 仅约 5 次 Pro/日，日常轻量搜索 Kimi 够用。</li>
           <li><strong>学术搜索选秘塔：</strong>中文论文搜索体验超越Google Scholar，¥30/月学术用户首选。</li>
           <li><strong>GEO（生成式引擎优化）是新赛道：</strong>如果你做营销/SEO，需要关注AI搜索中的品牌曝光。</li>
         </ul>
@@ -528,7 +518,7 @@
       </div>
       <div class="cp-faq-item">
         <div class="cp-faq-q">Kimi 免费版够用吗？<span class="cp-faq-arrow">▼</span></div>
-        <div class="cp-faq-a"><strong>日常搜索够用，深度研究不够。</strong>Kimi免费版支持无限对话+200万字长文档，日常搜索足够。但需要多源引用、结构化报告、Pro级模型时，免费版限制明显。Kimi+ ¥19.9/月是国内最便宜的AI搜索付费版。</div>
+        <div class="cp-faq-a"><strong>日常搜索够用，深度研究不够。</strong>Kimi 免费版支持高额额度+200万字长文档，日常搜索足够。但需要多源引用、结构化报告、Pro级模型时，免费版限制明显。Kimi+ ¥19.9/月是国内最便宜的AI搜索付费版。</div>
       </div>
       <div class="cp-faq-item">
         <div class="cp-faq-q">AI搜索会取代Google吗？<span class="cp-faq-arrow">▼</span></div>
@@ -547,7 +537,7 @@
             <tr><td>🥇</td><td class="plan-name">Kimi</td><td>免费版</td><td class="plan-price">¥0</td><td>∞(无限)</td><td class="val-high">∞</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:100%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
             <tr><td>🥈</td><td class="plan-name">Kimi+</td><td>会员</td><td class="plan-price">¥19.9</td><td>~∞+Pro模型</td><td class="val-high">∞+</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:95%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
             <tr><td>🥉</td><td class="plan-name">秘塔搜索</td><td>会员</td><td class="plan-price">¥30</td><td>~900</td><td class="val-high">30</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:60%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td></tr>
-            <tr><td>4</td><td class="plan-name">Perplexity</td><td>Pro</td><td class="plan-price">$20</td><td>~900</td><td class="val-mid">~6.5</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:13%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td></tr>
+            <tr><td>4</td><td class="plan-name">Perplexity</td><td>Pro</td><td class="plan-price">$20</td><td>~9,000</td><td class="val-mid">~6.5</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:13%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td></tr>
             <tr><td>5</td><td class="plan-name">ChatGPT Plus</td><td>Plus</td><td class="plan-price">$20</td><td>~600</td><td class="val-low">~4.3</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:9%;height:100%;border-radius:4px;background:linear-gradient(90deg,#8b9cb3,#6e7681);"></div></div></td></tr>
           </tbody>
         </table>
@@ -572,7 +562,7 @@
             <div style="padding-left:.6rem;">
               <div>• Kimi 200万字上下文领先全球，长文档解析无对手</div>
               <div>• 秘塔搜索专注学术，中文论文搜索体验超越Google Scholar</div>
-              <div>• 国内免费版功能普遍比海外慷慨（Kimi无限对话 vs Perplexity 5次/日）</div>
+              <div>• 国内免费版功能普遍比海外慷慨（Kimi 高额免费额度 vs Perplexity 5次/日）</div>
             </div>
           </div>
           <div>
@@ -590,9 +580,8 @@
   </div>
 
   <div class="cp-footer">
-      <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-06-22</span></p>
-    <p>数据来源：各平台官网 · 价格以官网为准</p>
-    <p><a href="index.html">← 返回 AINav 首页</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a> · <a href="model-plan.html">模型选型</a></p>
+      <p>数据来源：各平台官网 · 价格以官网为准</p>
+    <p><a href="index.html">← 返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a> · <a href="model-plan.html">模型选型</a></p>
   </div>
 
   <script>document.querySelectorAll('.cp-faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('is-open');});});</script>
@@ -662,7 +651,7 @@
           if(el.textContent.indexOf('场景推荐')!==-1||el.textContent.indexOf('Recommendations')!==-1)el.textContent=dict.sectionRec;
         });
         var fp=document.querySelectorAll('.cp-footer p');
-        if(fp[0])fp[0].textContent=dict.footer;
+        if (fp[1]) fp[1].textContent = dict.footer;
         var pb=document.querySelector('.cp-wrap > div:first-child');
         if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
         document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang-set')===lang)});

@@ -188,18 +188,7 @@
 <body>
   <div class="cp-top">
     <div class="cp-top-inner">
-      <nav class="cp-nav" data-plan-nav>
-        <a href="index.html">← AINav 首页</a>
-        <a href="coding-plan.html">编程套餐横评</a>
-        <a href="agent-plan.html">Agent横评</a>
-        <a href="model-plan.html">模型选型</a>
-        <a href="skill-plan.html" style="color:var(--accent)">Skill最佳实践</a>
-        <a href="video-plan.html">视频套餐</a>
-        <a href="image-plan.html">图像套餐</a>
-        <a href="search-plan.html">搜索套餐</a>
-        <a href="ai-factory-plan.html">AI造物</a>
-        <a href="ai-encyclopedia-2026.html">AI百科</a>
-      </nav>
+      <nav class="cp-nav" data-plan-nav></nav>
       <div class="cp-toolbar">
         <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
         <button type="button" class="theme-btn" data-theme-set="light">浅色</button>
@@ -211,7 +200,7 @@
   <div class="cp-wrap">
     <h1>⚡ AI Skill 最佳实践</h1>
     <p class="cp-subtitle">先用起来 &gt; 再选好 &gt; 最后才写 — 一条命令装完三大必装合集，立刻享受生产级 AI 编程</p>
-    <p class="cp-updated">更新于 2026-06-22 · 实战验证 · <a href="https://skill.aiv123.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">GitHub AI 项目动态监控</a> · npx skills add 一键安装</p>
+    <p class="cp-updated">更新于 2026-06-26 · 实战验证 · <a href="skill/" style="color:var(--accent)">AI Skill 动态监控</a>（334+ 项目）· <a href="token-optimization.html" style="color:var(--accent)">Token 优化指南</a> · npx skills add 一键安装</p>
 
     <div class="cp-legend">
       <span class="cp-legend-item"><span class="cp-badge badge-t1">第一梯队</span> 必装</span>
@@ -527,6 +516,24 @@ git pull
           </div>
         </div>
       </div>
+
+      <div class="cp-platform t2">
+        <div class="cp-platform-head">
+          <span class="cp-platform-name"><a href="https://github.com/JuliusBrussee/caveman" target="_blank" rel="noopener noreferrer">JuliusBrussee/caveman</a></span>
+          <span class="cp-badge badge-t2">省 Token</span>
+          <span class="cp-badge badge-hot">77k+ ★</span>
+        </div>
+        <div class="cp-platform-body">
+          <strong>定位：</strong>压缩 Agent 废话输出，三省通用 Skill（Cursor / Claude Code / Codex）<br>
+          <strong>作用：</strong>输出层约 65–87% 压缩；含 <code>/caveman-compress</code> 压规约文件<br>
+          <strong class="good">✅ 长会话、Token 成本高时必装</strong> — 与 <a href="token-optimization.html">RTK / Headroom 等见 Token 优化指南</a><br>
+          <div class="cp-code" style="margin-top:0.4rem;">
+            <div class="cp-code-head"><span>安装</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+            <pre><code>npx skills add JuliusBrussee/caveman --global
+<span class="cmt"># 或 Tokless 一键：npx tokless</span></code></pre>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- 第三梯队 -->
@@ -567,6 +574,7 @@ git pull
         <div class="cp-summary-item"><span class="arrow">→</span><div><strong>AI 联网 / 调用接口 / 工作流：</strong>搭配 <code>ComposioHQ/awesome-codex-skills</code></div></div>
         <div class="cp-summary-item"><span class="arrow">→</span><div><strong>产品需求管理：</strong>搭配 <code>yunshu_skillshub</code></div></div>
         <div class="cp-summary-item"><span class="arrow">→</span><div><strong>中文开发 / 精选合集：</strong>搭配 <code>awesome-agent-skills</code>（含中文 README）</div></div>
+        <div class="cp-summary-item"><span class="arrow">→</span><div><strong>Token 成本高 / 长会话：</strong>装 <code>caveman</code>，CLI 层配 <a href="token-optimization.html">RTK · Headroom</a></div></div>
         <div class="cp-summary-item"><span class="arrow">→</span><div><strong>最佳实战组合：</strong>必装三件套 + 任一场景方案 = 完美</div></div>
       </div>
     </div>
@@ -577,6 +585,7 @@ git pull
     <div class="cp-section-hd step2-hd"><span class="cp-flag">🏪</span> Skill 市场与商店完整列表</div>
 
     <div class="cp-tool-grid">
+      <div class="cp-tool-card"><a href="skill/">AI Skill Monitor</a><span class="cp-tool-desc">AINav 收录：GitHub AI 项目/Skill 自动追踪（334+）</span></div>
       <div class="cp-tool-card"><a href="https://skills.sh/" target="_blank" rel="noopener noreferrer">Skills.sh</a><span class="cp-tool-desc">Agent 技能发现与分享平台，社区驱动</span></div>
       <div class="cp-tool-card"><a href="https://skills-rank.com/" target="_blank" rel="noopener noreferrer">Skills Rank</a><span class="cp-tool-desc">AI Agent 技能排行榜，发现最热门技能</span></div>
       <div class="cp-tool-card"><a href="https://linskills.qiniu.com/" target="_blank" rel="noopener noreferrer">LinSkills</a><span class="cp-tool-desc">AI Agent 技能导航与分发，七牛云出品，国内直连</span></div>
@@ -607,7 +616,7 @@ git pull
         </thead>
         <tbody>
           <tr><td>Claude Code</td><td><code>SKILL.md</code> / <code>.claude/skills/</code></td><td>项目级 / 全局级</td><td>Markdown</td><td class="yes">✓</td></tr>
-          <tr><td>Cursor</td><td><code>.cursorrules</code> / <code>.cursor/rules/</code></td><td>项目级 / 用户级</td><td>纯文本 / Markdown</td><td class="yes">✓</td></tr>
+          <tr><td>Cursor</td><td><code>.cursor/rules/*.mdc</code>（推荐）/ <code>.cursorrules</code></td><td>项目级 / 用户级</td><td>Markdown / MDC</td><td class="yes">✓</td></tr>
           <tr><td>Codex CLI</td><td><code>AGENTS.md</code></td><td>项目级</td><td>Markdown</td><td class="yes">✓</td></tr>
           <tr><td>Gemini CLI</td><td><code>GEMINI.md</code></td><td>项目级 / 全局级</td><td>Markdown</td><td class="yes">✓</td></tr>
           <tr><td>Windsurf</td><td><code>.windsurfrules</code></td><td>项目级 / 用户级</td><td>纯文本 / Markdown</td><td class="yes">✓</td></tr>
@@ -730,6 +739,11 @@ mkdir -p .github && cp SKILL.md .github/copilot-instructions.md</code></pre>
       </div>
 
       <div class="cp-faq-item">
+        <div class="cp-faq-q" onclick="toggleFaq(this)">Skill 装多了 Token 爆炸怎么办？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>三层处理：</strong>① 精简全局 Skill，项目级只留必要的；② 装 <code>caveman</code> 压 Agent 输出；③ CLI/MCP 层用 <a href="token-optimization.html">RTK、Headroom、mcprune</a> 等（见 Token 优化指南）。Skill 本身是规约文本，也会占上下文——不是装越多越好。</div>
+      </div>
+
+      <div class="cp-faq-item">
         <div class="cp-faq-q" onclick="toggleFaq(this)">怎么更新已安装的 Skill？<span class="cp-faq-arrow">▼</span></div>
         <div class="cp-faq-a"><strong>三步搞定</strong>：① <code>cd ~/.agents/skills</code>（Windows: <code>C:\Users\用户名\.agents\skills</code>）② <code>git pull</code> ③ Cursor 用户执行 Reload Skills，Claude Code 用户重启 claude 即可。前提是安装时选了 Symlink 而非 Copy。</div>
       </div>
@@ -739,20 +753,21 @@ mkdir -p .github && cp SKILL.md .github/copilot-instructions.md</code></pre>
     <!-- 底部 -->
     <!-- ============================================================ -->
     <div class="cp-footer">
-      <p>AINav · AI Skill 最佳实践 · <a href="index.html">返回首页</a> · <a href="agent-plan.html">Agent横评</a> · <a href="coding-plan.html">编程套餐横评</a></p>
+      <p>AINav · AI Skill 最佳实践 · <a href="index.html">返回首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="agent-plan.html">Agent横评</a> · <a href="coding-plan.html">编程套餐横评</a></p>
       <p>数据仅供参考，以各平台官网为准。如有错误欢迎反馈。</p>
     </div>
   </div>
 
   <script>
     (function() {
-      var saved = localStorage.getItem('cp-theme') || 'system';
+      var saved = localStorage.getItem('ainav-theme') || localStorage.getItem('cp-theme') || 'system';
       document.documentElement.setAttribute('data-theme', saved);
       document.querySelectorAll('.theme-btn').forEach(function(btn) {
         if (btn.getAttribute('data-theme-set') === saved) btn.classList.add('is-active');
         btn.addEventListener('click', function() {
           var t = this.getAttribute('data-theme-set');
           document.documentElement.setAttribute('data-theme', t);
+          try { localStorage.setItem('ainav-theme', t); } catch (e) {}
           localStorage.setItem('cp-theme', t);
           document.querySelectorAll('.theme-btn').forEach(function(b) { b.classList.remove('is-active'); });
           this.classList.add('is-active');

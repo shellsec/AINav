@@ -4,7 +4,7 @@
   "items": [
     {
       "title": "DeepSeek",
-      "subtitle": "日常首推：推理强、免费好用，长文与写代码",
+      "subtitle": "V4-Pro/Flash 免费强，长文推理与写代码日常首选",
       "link": "https://chat.deepseek.com/",
       "avatar": "icon/DeepSeek.png"
     },
@@ -15,64 +15,64 @@
       "avatar": "icon/豆包.png"
     },
     {
-      "title": "Kimi",
-      "subtitle": "长上下文，甩链接/文档做摘要与追问",
-      "link": "https://kimi.moonshot.cn/",
-      "avatar": "icon/Kimi.png"
+      "title": "元宝",
+      "subtitle": "腾讯混元，微信生态与多端 AI 对话",
+      "link": "https://yuanbao.tencent.com/",
+      "avatar": "icon/腾讯元宝.png"
     },
     {
-      "title": "通义千问",
-      "subtitle": "阿里系，办公、中文与钉钉场景",
-      "link": "https://tongyi.aliyun.com/qianwen/",
-      "avatar": "icon/通义千问.png"
-    },
-    {
-      "title": "文心一言",
-      "subtitle": "百度系，搜索与中文知识向",
-      "link": "https://yiyan.baidu.com/",
-      "avatar": "icon/文心一言.png"
+      "title": "Gemini",
+      "subtitle": "Gemini 3.1 Pro，多模态与 Google 生态",
+      "link": "https://gemini.google.com/",
+      "avatar": "icon/Google Bard.png"
     },
     {
       "title": "ChatGPT",
-      "subtitle": "通用对话、写作、翻译与插件生态",
+      "subtitle": "GPT-5 + Codex，对话、深度研究与 Agent",
       "link": "https://chatgpt.com/",
       "avatar": "icon/ChatGPT.png"
     },
     {
       "title": "Claude",
-      "subtitle": "长文写作、复杂推理与长对话",
+      "subtitle": "Opus 4.8 / Sonnet 4.6，写作、推理与 Claude Code",
       "link": "https://claude.ai/",
       "avatar": "icon/Claude.png"
     },
     {
-      "title": "Gemini",
-      "subtitle": "Google 多模态，与搜索/Workspace 联动",
-      "link": "https://gemini.google.com/",
-      "avatar": "icon/Google Bard.png"
-    },
-    {
       "title": "Grok",
-      "subtitle": "xAI 对话，网页版与 X / SuperGrok 等生态联动",
+      "subtitle": "Grok 4 + X 实时搜索，观点犀利",
       "link": "https://grok.com/",
       "avatar": "icon/Grok.png"
     },
     {
+      "title": "Cursor",
+      "subtitle": "AI IDE + Agent 模式，Tab 无限、含用量池",
+      "link": "https://cursor.com/",
+      "avatar": "icon/Cursor.png"
+    },
+    {
+      "title": "智谱清言",
+      "subtitle": "GLM-5.2，开源生态强，Coding Plan 高性价比",
+      "link": "https://chatglm.cn/",
+      "avatar": "icon/智谱清言.png"
+    },
+    {
+      "title": "Kimi",
+      "subtitle": "K2.6 长上下文，甩链接/文档做摘要与追问",
+      "link": "https://www.kimi.com/",
+      "avatar": "icon/Kimi.png"
+    },
+    {
       "title": "Perplexity",
-      "subtitle": "带引用网页的搜索问答，查资料快",
+      "subtitle": "带引用网页的搜索问答，GPT-5 / Claude / Gemini",
       "link": "https://www.perplexity.ai/",
       "avatar": "icon/Perplexity.png"
     },
     {
-      "title": "秘塔AI搜索",
-      "subtitle": "中文检索、结构化结果与学术向",
-      "link": "https://metaso.cn/",
-      "avatar": "icon/秘塔AI搜索.png"
-    },
-    {
-      "title": "沉浸式翻译",
-      "subtitle": "网页双语对照，读论文/外站必备",
-      "link": "https://immersivetranslate.com/?via=aiv123",
-      "avatar": "icon/沉浸式翻译.png"
+      "title": "Manus",
+      "subtitle": "通用 AI Agent，自主规划执行复杂任务，浏览器+终端+代码",
+      "link": "https://manus.im/",
+      "avatar": ""
     }
   ]
 }

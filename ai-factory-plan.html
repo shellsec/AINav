@@ -116,9 +116,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
 </head>
 <body>
 <div class="cp-top"><div class="cp-top-inner">
-  <div class="cp-nav" data-plan-nav>
-    <a href="index.html">← AINav 首页</a><a href="coding-plan.html">编程套餐</a><a href="agent-plan.html">Agent</a><a href="video-plan.html">视频套餐</a><a href="image-plan.html">图像套餐</a><a href="hardware-plan.html">硬件横评</a><a href="ai-factory-plan.html" style="color:var(--af)">AI造物</a><a href="opc.html">一人公司</a>
-  </div>
+  <div class="cp-nav" data-plan-nav></div>
   <div class="cp-toolbar">
     <button class="theme-btn" data-theme-set="system">跟随系统</button><button class="theme-btn" data-theme-set="light">浅色</button><button class="theme-btn is-active" data-theme-set="dark">深色</button>
   </div>
@@ -127,7 +125,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
 <div class="cp-wrap">
 <h1>🏭 AI造物流水线 & 提效实战</h1>
 <p class="cp-subtitle">从创意到商品的全链路指南 + AI提效10x/100x/1000x落地方法 + 高ROI场景（AI剪辑/内容批量/客服/出图/播客）。一人即可跑通。</p>
-<p class="cp-updated">更新于 2026年6月 · 每环工具、成本、案例均为实测</p>
+<p class="cp-updated">更新于 2026-06-26 · 工具与流程经实测；价格以官网为准</p>
 
 <!-- ===== 完整链路全景 ===== -->
 <div class="cp-section-hd af-hd"><span class="cp-flag">🔗</span> 完整链路全景</div>
@@ -153,14 +151,14 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
 <div class="cp-section-hd af-hd"><span class="cp-flag">🔍</span> 逐环详解 — 每个环节的工具、成本、要点</div>
 
 <!-- Step 1: AI文生图 -->
-<div class="cp-section-hd af-hd" style="font-size:.95rem;margin-top:1rem"><span class="cp-flag">1</span> AI文生图 — 30秒出设计图</div>
+<div class="cp-section-hd af-hd" style="font-size:.95rem;margin-top:1rem"><span class="cp-flag">1</span> AI文生图 — 30秒出设计图 <span style="font-size:.76rem;font-weight:400;color:var(--muted);margin-left:.5rem">完整对比见 <a href="image-plan.html">图像套餐横评</a></span></div>
 <div class="af-grid">
   <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name"><a href="https://midjourney.com/" target="_blank" rel="noopener noreferrer">Midjourney V7</a> <span class="cp-badge badge-hot">🔥</span> <span class="cp-badge badge-overseas">🌍</span></div><div class="af-tool-price">$10/月</div></div>
   <div class="af-tool-body"><ul><li><strong>质量：</strong>文生图天花板，设计感和细节最强</li><li><strong>用法：</strong>描述产品外观→出4张方案→选最佳→放大</li><li><strong>3D友好：</strong>适合生成产品概念图，给图生3D用</li><li><strong>技巧：</strong>加 "product photography, white background, 3D render" 出图更适合转3D</li></ul>
   <div class="af-tool-tags"><span class="af-tag t-good">质量最高</span><span class="af-tag t-info">3D友好</span><span class="af-tag t-warn">需VPN</span></div></div>
   <div class="af-tool-foot">造物链路首选出图工具</div></div>
 
-  <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name"><a href="https://flux1.ai/" target="_blank" rel="noopener noreferrer">FLUX.1</a> <span class="cp-badge badge-rec">👍</span> <span class="cp-badge badge-free">免费</span></div><div class="af-tool-price">免费/按量</div></div>
+  <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name"><a href="https://blackforestlabs.ai/" target="_blank" rel="noopener noreferrer">FLUX.1（BFL）</a> <span class="cp-badge badge-rec">👍</span> <span class="cp-badge badge-free">免费</span></div><div class="af-tool-price">免费/按量</div></div>
   <div class="af-tool-body"><ul><li><strong>质量：</strong>开源最强，接近MJ水平</li><li><strong>优势：</strong>可本地部署，无限出图，零成本</li><li><strong>3D友好：</strong>支持ControlNet精确控制姿态</li><li><strong>硬件：</strong>本地跑需8GB+显存GPU</li></ul>
   <div class="af-tool-tags"><span class="af-tag t-good">免费</span><span class="af-tag t-good">本地部署</span><span class="af-tag t-info">ControlNet</span><span class="af-tag t-warn">需GPU</span></div></div>
   <div class="af-tool-foot">零成本首选，本地部署无限出图</div></div>
@@ -203,7 +201,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
 <!-- Step 3: 3D打印 -->
 <div class="cp-section-hd af-hd" style="font-size:.95rem;margin-top:1rem"><span class="cp-flag">3</span> 3D打印实物 — 从数字到实体</div>
 <div class="af-grid">
-  <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name"><a href="https://www.bambulab.com/" target="_blank" rel="noopener noreferrer">拓竹 Bambu Lab A1 Mini</a> <span class="cp-badge badge-hot">🔥</span> <span class="cp-badge badge-rec">👍</span></div><div class="af-tool-price">¥1,599</div></div>
+  <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name"><a href="https://www.bambulab.com/" target="_blank" rel="noopener noreferrer">拓竹 Bambu Lab A1 Mini</a> <span class="cp-badge badge-hot">🔥</span> <span class="cp-badge badge-rec">👍</span></div><div class="af-tool-price">¥1,299起</div></div>
   <div class="af-tool-body"><ul><li><strong>类型：</strong>FDM熔融沉积，PLA/PETG/ABS</li><li><strong>精度：</strong>0.1mm层高，产品级够用</li><li><strong>速度：</strong>比传统FDM快3-5倍</li><li><strong>多色：</strong>AMS Lite支持4色打印</li><li><strong>耗材：</strong>PLA约¥60/卷（1kg），打印小件约¥1-5</li></ul>
   <div class="af-tool-tags"><span class="af-tag t-good">性价比最高</span><span class="af-tag t-good">多色打印</span><span class="af-tag t-good">即插即用</span></div></div>
   <div class="af-tool-foot">入门首选，小件成本¥1-5</div></div>
@@ -227,10 +225,10 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
 <!-- Step 4: 编程开发 -->
 <div class="cp-section-hd af-hd" style="font-size:.95rem;margin-top:1rem"><span class="cp-flag">4</span> 编程开发功能 — AI写嵌入式代码</div>
 <div class="af-grid">
-  <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name"><a href="https://www.cursor.com/" target="_blank" rel="noopener noreferrer">Cursor</a> <span class="cp-badge badge-hot">🔥</span> <span class="cp-badge badge-rec">👍</span></div><div class="af-tool-price">$20/月</div></div>
-  <div class="af-tool-body"><ul><li><strong>能力：</strong>写ESP32/Arduino固件代码，实测可用</li><li><strong>语言：</strong>C/C++/MicroPython全支持</li><li><strong>案例：</strong>从零写一个ESP32语音助手，约2小时</li><li><strong>技巧：</strong>先给芯片型号+需求，再迭代</li></ul>
+  <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name"><a href="https://www.cursor.com/" target="_blank" rel="noopener noreferrer">Cursor</a> <span class="cp-badge badge-hot">🔥</span> <span class="cp-badge badge-rec">👍</span></div><div class="af-tool-price">$20/月 Pro</div></div>
+  <div class="af-tool-body"><ul><li><strong>能力：</strong>写ESP32/Arduino固件代码，实测可用</li><li><strong>语言：</strong>C/C++/MicroPython全支持</li><li><strong>案例：</strong>从零写一个ESP32语音助手，约2小时</li><li><strong>技巧：</strong>先给芯片型号+需求，再迭代</li><li><strong>硬件：</strong>选型见 <a href="hardware-plan.html">硬件横评</a></li></ul>
   <div class="af-tool-tags"><span class="af-tag t-good">AI编程最强</span><span class="af-tag t-good">嵌入式实测</span><span class="af-tag t-ai">AI写代码</span></div></div>
-  <div class="af-tool-foot">编程环节核心工具</div></div>
+  <div class="af-tool-foot">编程环节核心工具（Agent 用量池另计）</div></div>
 
   <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name"><a href="https://www.espressif.com/zh-hans" target="_blank" rel="noopener noreferrer">ESP32 开发板</a> <span class="cp-badge badge-rec">👍</span> <span class="cp-badge badge-cn">🇨🇳</span></div><div class="af-tool-price">¥15-35</div></div>
   <div class="af-tool-body"><ul><li><strong>芯片：</strong>WiFi+蓝牙双模，240MHz双核</li><li><strong>AI能力：</strong>可跑轻量端侧模型，接云端大模型</li><li><strong>生态：</strong>Arduino/ESP-IDF/MicroPython</li><li><strong>传感器：</strong>温湿度/光照/陀螺仪/麦克风，¥2-10/个</li></ul>
@@ -449,10 +447,10 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
     <strong>判断标准：</strong>如果这件事有明确的输入和输出 → AI可以做<br>
     <strong>常见10x点：</strong><br>
     <ul>
-      <li>写代码 → Cursor / Claude Code</li>
+      <li>写代码 → Cursor / Claude Code / Codex CLI</li>
       <li>写文案 → ChatGPT / GLM</li>
-      <li>做图 → MJ / FLUX / 即梦AI</li>
-      <li>剪视频 → CapCut / 剪映AI</li>
+      <li>做图 → MJ / FLUX / 即梦AI · <a href="image-plan.html">图像横评</a></li>
+      <li>剪视频 → CapCut / Runway / Veo 3 · <a href="video-plan.html">视频横评</a></li>
       <li>做PPT → Gamma / 讯飞智文</li>
     </ul>
     <strong>关键：</strong>先在一个点上跑通10x，不要同时铺开
@@ -538,7 +536,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
     </ul>
     <div class="af-tool-tags"><span class="af-tag t-good">画质最高</span><span class="af-tag t-ai">文生视频</span><span class="af-tag t-warn">需VPN</span></div>
   </div>
-  <div class="af-tool-foot">创意视频首选，影视级输出</div></div>
+  <div class="af-tool-foot">创意视频首选 · 对比 <a href="video-plan.html">视频套餐横评</a></div></div>
 
   <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name"><a href="https://www.heygen.com/" target="_blank" rel="noopener noreferrer">HeyGen</a> <span class="cp-badge badge-rec">👍</span> <span class="cp-badge badge-overseas">🌍</span></div><div class="af-tool-price">$24/月</div></div>
   <div class="af-tool-body">
@@ -574,7 +572,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
     <ul>
       <li><strong>方法：</strong>ChatGPT写50条知识科普文案 → 剪映图文成片批量生成 → 5个账号分发</li>
       <li><strong>产出：</strong>日更10条/号，50条/天，月1500条</li>
-      <li><strong>成本：</strong>ChatGPT ¥140/月 + 剪映 ¥30/月 = ¥170/月</li>
+      <li><strong>成本：</strong>ChatGPT Plus ~$20/月（约 ¥145） + 剪映 ¥30/月 = ¥170/月</li>
       <li><strong>收入：</strong>5个号月广告分成¥3,000-8,000</li>
       <li><strong>提效：</strong>传统1条/天 → AI 50条/天 = <strong>50x</strong></li>
     </ul>
@@ -952,14 +950,14 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
 
 <div class="cp-footer">
   <p>AI造物流水线 · 从创意到商品 · 一人即可跑通</p>
-  <p><a href="index.html">← 返回 AINav 首页</a> · <a href="thinking-framework.html">AI第一思考</a></p>
+  <p><a href="index.html">← 返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="hardware-plan.html">硬件横评</a> · <a href="image-plan.html">图像套餐横评</a> · <a href="video-plan.html">视频套餐横评</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="thinking-framework.html">AI第一思考</a></p>
 </div>
 </div>
 
 <script>
 // Theme switcher
 (function(){
-  var saved=localStorage.getItem('theme')||'dark';
+  var saved=localStorage.getItem('ainav-theme')||'dark';
   document.documentElement.setAttribute('data-theme',saved);
   document.querySelectorAll('.theme-btn').forEach(function(b){
     b.classList.toggle('is-active',b.getAttribute('data-theme-set')===saved);
@@ -968,7 +966,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
     b.addEventListener('click',function(){
       var t=b.getAttribute('data-theme-set');
       document.documentElement.setAttribute('data-theme',t);
-      localStorage.setItem('theme',t);
+      localStorage.setItem('ainav-theme',t);
       document.querySelectorAll('.theme-btn').forEach(function(x){x.classList.toggle('is-active',x.getAttribute('data-theme-set')===t)});
     });
   });

@@ -1366,55 +1366,85 @@
     },
     {
       "id": "ext-token-optimize",
-      "name": "Token 优化 · 成本管控与追踪",
+      "name": "Token 优化 · Cursor / Claude Code / Codex",
       "tools": [
         {
           "title": "RTK",
-          "subtitle": "CLI 代理，过滤命令输出噪音，减少 LLM token 60-90%（Rust 单二进制）",
+          "subtitle": "GitHub 专题 #1（66K+ 星）：Cursor/Claude Code/Codex CLI 输出压缩 60–90%，Rust 单二进制",
           "link": "https://github.com/rtk-ai/rtk",
-          "alias": "rtk,token优化,cli代理"
+          "alias": "rtk,token优化,cursor,claude code,codex,cli代理"
         },
         {
-          "title": "Caveman",
-          "subtitle": "Claude Code/Codex 技能，压缩输出废话，token 最高省 87%（4K+ 星）",
-          "link": "https://github.com/JuliusBrussee/caveman",
-          "alias": "caveman,山顶洞人,输出压缩"
+          "title": "Headroom",
+          "subtitle": "专题 #2（51K+ 星）：全栈上下文压缩层，库·代理·MCP·wrap → token-optimization.html",
+          "link": "https://github.com/headroomlabs-ai/headroom",
+          "alias": "headroom,上下文压缩,代理,mcp,cursor,claude code,codex"
         },
         {
-          "title": "Token Saver",
-          "subtitle": "21 种处理器按文件类型智能压缩命令输出，兼容 Claude Code/Gemini CLI",
-          "link": "https://github.com/ppgranger/token-saver",
-          "alias": "token-saver,输出压缩,内容感知"
-        },
-        {
-          "title": "Tokscale",
-          "subtitle": "跨平台 CLI 追踪 AI 编程助手 token 用量与费用，含可视化排行榜（1.7K+ 星）",
-          "link": "https://github.com/junhoyeo/tokscale",
-          "alias": "tokscale,token追踪,token统计"
+          "title": "LeanCTX",
+          "subtitle": "专题 #3（2.9K+ 星）：上下文智能层，控制 Agent 可见信息，与压缩互补",
+          "link": "https://github.com/yvgude/lean-ctx",
+          "alias": "lean-ctx,leanctx,上下文门控,注入控制,cursor,claude code,codex"
         },
         {
           "title": "Token Optimizer",
-          "subtitle": "AI 对话上下文 10万+ → 8K，三层索引 + 智能压缩 + 任务隔离",
-          "link": "https://github.com/thanksandyou/token-optimizer",
-          "alias": "token-optimizer,上下文压缩"
+          "subtitle": "专题 #6（1.4K+ 星）：Claude Code/Codex 插件，ghost token 排查、智能压缩与 Dashboard",
+          "link": "https://github.com/alexgreensh/token-optimizer",
+          "alias": "token-optimizer,claude插件,上下文工程"
+        },
+        {
+          "title": "jcodemunch-mcp",
+          "subtitle": "专题 #5（1.9K+ 星）：MCP 代码探索压缩 95%+，大仓扫引用省 Token",
+          "link": "https://github.com/jgravelle/jcodemunch-mcp",
+          "alias": "jcodemunch,mcp,代码探索"
+        },
+        {
+          "title": "Tokless",
+          "subtitle": "专题工具：一键安装/更新 RTK、Caveman 等省 Token 插件的统一 CLI",
+          "link": "https://github.com/HoangP8/tokless",
+          "alias": "tokless,插件聚合,安装器"
+        },
+        {
+          "title": "Caveman",
+          "subtitle": "三省通用 Skill：压缩 Agent 废话输出约 65–87%，含 /caveman-compress 压规约文件（77K+ 星）",
+          "link": "https://github.com/JuliusBrussee/caveman",
+          "alias": "caveman,山顶洞人,输出压缩,cursor,claude code,codex"
+        },
+        {
+          "title": "Tokscale",
+          "subtitle": "追踪 Cursor / Claude Code / Codex 等编码助手 token 用量与费用，含排行榜（4K+ 星）",
+          "link": "https://github.com/junhoyeo/tokscale",
+          "alias": "tokscale,token追踪,cursor,claude code,codex"
         },
         {
           "title": "codex-tokens-compress",
-          "subtitle": "AGENTS.md 规约压缩为高密度可执行规则，含文言文极限版",
+          "subtitle": "压缩 AGENTS.md / Cursor Rules / CLAUDE.md 等规约，降低每轮会话固定 prompt 成本",
           "link": "https://github.com/LuckyKuang/codex-tokens-compress",
-          "alias": "agents压缩,指令压缩"
+          "alias": "agents压缩,指令压缩,cursor rules,claude.md"
         },
         {
-          "title": "Terse",
-          "subtitle": "macOS/iOS 端 token 优化器，35+ 压缩策略，降低 prompt 成本 40-70%",
-          "link": "https://www.terseai.org/",
-          "alias": "terse,prompt压缩,macOS"
+          "title": "mcprune",
+          "subtitle": "三省接 Playwright MCP 时剪枝浏览器快照 75–95%，保留 ref 可点击（零 ML）",
+          "link": "https://github.com/hamr0/mcprune",
+          "alias": "mcprune,浏览器快照,playwright剪枝,cursor mcp"
+        },
+        {
+          "title": "agent-browser",
+          "subtitle": "文本优先浏览器 MCP（无障碍树 + 意图过滤 + 页面 diff），三端接 MCP 即用",
+          "link": "https://github.com/malovnik/agent-browser",
+          "alias": "agent-browser,无障碍树,页面diff,mcp浏览器"
+        },
+        {
+          "title": "caveman-shrink",
+          "subtitle": "MCP 中间件：压缩工具 description 等 prose 字段，三省 MCP 配置包一层即用",
+          "link": "https://www.npmjs.com/package/caveman-shrink",
+          "alias": "caveman-shrink,mcp压缩,工具描述"
         },
         {
           "title": "Token Tamer",
-          "subtitle": "JSON 格式化 + LLM token 优化工具包，精简 OpenAI/Claude/MCP 负载",
+          "subtitle": "精简 MCP / JSON 工具返回体，降低浏览器与自定义 MCP 的上下文负载",
           "link": "https://tokentamer.app/",
-          "alias": "token-tamer,json压缩"
+          "alias": "token-tamer,json压缩,mcp负载"
         }
       ]
     },

@@ -8,7 +8,7 @@
         {
           "key": "daily-0",
           "title": "DeepSeek",
-          "subtitle": "日常首推：推理强、免费好用，长文与写代码",
+          "subtitle": "V4-Pro/Flash 免费强，长文推理与写代码日常首选",
           "avatar": "icon/DeepSeek.png",
           "link": "https://chat.deepseek.com/",
           "path": "",
@@ -25,91 +25,91 @@
         },
         {
           "key": "daily-2",
-          "title": "Kimi",
-          "subtitle": "长上下文，甩链接/文档做摘要与追问",
-          "avatar": "icon/Kimi.png",
-          "link": "https://kimi.moonshot.cn/",
+          "title": "元宝",
+          "subtitle": "腾讯混元，微信生态与多端 AI 对话",
+          "avatar": "icon/腾讯元宝.png",
+          "link": "https://yuanbao.tencent.com/",
           "path": "",
           "added": ""
         },
         {
           "key": "daily-3",
-          "title": "通义千问",
-          "subtitle": "阿里系，办公、中文与钉钉场景",
-          "avatar": "icon/通义千问.png",
-          "link": "https://tongyi.aliyun.com/qianwen/",
-          "path": "",
-          "added": ""
-        },
-        {
-          "key": "daily-4",
-          "title": "文心一言",
-          "subtitle": "百度系，搜索与中文知识向",
-          "avatar": "icon/文心一言.png",
-          "link": "https://yiyan.baidu.com/",
-          "path": "",
-          "added": ""
-        },
-        {
-          "key": "daily-5",
-          "title": "ChatGPT",
-          "subtitle": "通用对话、写作、翻译与插件生态",
-          "avatar": "icon/ChatGPT.png",
-          "link": "https://chatgpt.com/",
-          "path": "",
-          "added": ""
-        },
-        {
-          "key": "daily-6",
-          "title": "Claude",
-          "subtitle": "长文写作、复杂推理与长对话",
-          "avatar": "icon/Claude.png",
-          "link": "https://claude.ai/",
-          "path": "",
-          "added": ""
-        },
-        {
-          "key": "daily-7",
           "title": "Gemini",
-          "subtitle": "Google 多模态，与搜索/Workspace 联动",
+          "subtitle": "Gemini 3.1 Pro，多模态与 Google 生态",
           "avatar": "icon/Google Bard.png",
           "link": "https://gemini.google.com/",
           "path": "",
           "added": ""
         },
         {
-          "key": "daily-8",
+          "key": "daily-4",
+          "title": "ChatGPT",
+          "subtitle": "GPT-5 + Codex，对话、深度研究与 Agent",
+          "avatar": "icon/ChatGPT.png",
+          "link": "https://chatgpt.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "daily-5",
+          "title": "Claude",
+          "subtitle": "Opus 4.8 / Sonnet 4.6，写作、推理与 Claude Code",
+          "avatar": "icon/Claude.png",
+          "link": "https://claude.ai/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "daily-6",
           "title": "Grok",
-          "subtitle": "xAI 对话，网页版与 X / SuperGrok 等生态联动",
+          "subtitle": "Grok 4 + X 实时搜索，观点犀利",
           "avatar": "icon/Grok.png",
           "link": "https://grok.com/",
           "path": "",
           "added": ""
         },
         {
+          "key": "daily-7",
+          "title": "Cursor",
+          "subtitle": "AI IDE + Agent 模式，Tab 无限、含用量池",
+          "avatar": "icon/Cursor.png",
+          "link": "https://cursor.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "daily-8",
+          "title": "智谱清言",
+          "subtitle": "GLM-5.2，开源生态强，Coding Plan 高性价比",
+          "avatar": "icon/智谱清言.png",
+          "link": "https://chatglm.cn/",
+          "path": "",
+          "added": ""
+        },
+        {
           "key": "daily-9",
+          "title": "Kimi",
+          "subtitle": "K2.6 长上下文，甩链接/文档做摘要与追问",
+          "avatar": "icon/Kimi.png",
+          "link": "https://www.kimi.com/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "daily-10",
           "title": "Perplexity",
-          "subtitle": "带引用网页的搜索问答，查资料快",
+          "subtitle": "带引用网页的搜索问答，GPT-5 / Claude / Gemini",
           "avatar": "icon/Perplexity.png",
           "link": "https://www.perplexity.ai/",
           "path": "",
           "added": ""
         },
         {
-          "key": "daily-10",
-          "title": "秘塔AI搜索",
-          "subtitle": "中文检索、结构化结果与学术向",
-          "avatar": "icon/秘塔AI搜索.png",
-          "link": "https://metaso.cn/",
-          "path": "",
-          "added": ""
-        },
-        {
           "key": "daily-11",
-          "title": "沉浸式翻译",
-          "subtitle": "网页双语对照，读论文/外站必备",
-          "avatar": "icon/沉浸式翻译.png",
-          "link": "https://immersivetranslate.com/?via=aiv123",
+          "title": "Manus",
+          "subtitle": "通用 AI Agent，自主规划执行复杂任务，浏览器+终端+代码",
+          "avatar": "",
+          "link": "https://manus.im/",
           "path": "",
           "added": ""
         }
@@ -8854,78 +8854,123 @@
     },
     {
       "type": "leaf",
-      "name": "Token 优化 · 成本管控与追踪",
+      "name": "Token 优化 · Cursor / Claude Code / Codex",
       "id": "ext-token-optimize",
       "tools": [
         {
-          "key": "ext-Token-优化--成本管控与追踪-0",
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-0",
           "title": "RTK",
-          "subtitle": "CLI 代理，过滤命令输出噪音，减少 LLM token 60-90%（Rust 单二进制）",
+          "subtitle": "GitHub 专题 #1（66K+ 星）：Cursor/Claude Code/Codex CLI 输出压缩 60–90%，Rust 单二进制",
           "avatar": "",
           "link": "https://github.com/rtk-ai/rtk",
           "path": "",
           "added": ""
         },
         {
-          "key": "ext-Token-优化--成本管控与追踪-1",
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-headroom",
+          "title": "Headroom",
+          "subtitle": "专题 #2（51K+ 星）：全栈上下文压缩层，库·代理·MCP·wrap → token-optimization.html",
+          "avatar": "",
+          "link": "https://github.com/headroomlabs-ai/headroom",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-1",
           "title": "Caveman",
-          "subtitle": "Claude Code/Codex 技能，压缩输出废话，token 最高省 87%（4K+ 星）",
+          "subtitle": "三省通用 Skill：压缩 Agent 废话输出约 65–87%，含 /caveman-compress 压规约文件（77K+ 星）",
           "avatar": "",
           "link": "https://github.com/JuliusBrussee/caveman",
           "path": "",
           "added": ""
         },
         {
-          "key": "ext-Token-优化--成本管控与追踪-2",
-          "title": "Token Saver",
-          "subtitle": "21 种处理器按文件类型智能压缩命令输出，兼容 Claude Code/Gemini CLI",
-          "avatar": "",
-          "link": "https://github.com/ppgranger/token-saver",
-          "path": "",
-          "added": ""
-        },
-        {
-          "key": "ext-Token-优化--成本管控与追踪-3",
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-2",
           "title": "Tokscale",
-          "subtitle": "跨平台 CLI 追踪 AI 编程助手 token 用量与费用，含可视化排行榜（1.7K+ 星）",
+          "subtitle": "追踪 Cursor / Claude Code / Codex 等编码助手 token 用量与费用，含排行榜（4K+ 星）",
           "avatar": "",
           "link": "https://github.com/junhoyeo/tokscale",
           "path": "",
           "added": ""
         },
         {
-          "key": "ext-Token-优化--成本管控与追踪-4",
-          "title": "Token Optimizer",
-          "subtitle": "AI 对话上下文 10万+ → 8K，三层索引 + 智能压缩 + 任务隔离",
-          "avatar": "",
-          "link": "https://github.com/thanksandyou/token-optimizer",
-          "path": "",
-          "added": ""
-        },
-        {
-          "key": "ext-Token-优化--成本管控与追踪-5",
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-3",
           "title": "codex-tokens-compress",
-          "subtitle": "AGENTS.md 规约压缩为高密度可执行规则，含文言文极限版",
+          "subtitle": "压缩 AGENTS.md / Cursor Rules / CLAUDE.md 等规约，降低每轮会话固定 prompt 成本",
           "avatar": "",
           "link": "https://github.com/LuckyKuang/codex-tokens-compress",
           "path": "",
           "added": ""
         },
         {
-          "key": "ext-Token-优化--成本管控与追踪-6",
-          "title": "Terse",
-          "subtitle": "macOS/iOS 端 token 优化器，35+ 压缩策略，降低 prompt 成本 40-70%",
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-4",
+          "title": "mcprune",
+          "subtitle": "三省接 Playwright MCP 时剪枝浏览器快照 75–95%，保留 ref 可点击（零 ML）",
           "avatar": "",
-          "link": "https://www.terseai.org/",
+          "link": "https://github.com/hamr0/mcprune",
           "path": "",
           "added": ""
         },
         {
-          "key": "ext-Token-优化--成本管控与追踪-7",
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-5",
+          "title": "agent-browser",
+          "subtitle": "文本优先浏览器 MCP（无障碍树 + 意图过滤 + 页面 diff），三端接 MCP 即用",
+          "avatar": "",
+          "link": "https://github.com/malovnik/agent-browser",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-6",
+          "title": "caveman-shrink",
+          "subtitle": "MCP 中间件：压缩工具 description 等 prose 字段，三省 MCP 配置包一层即用",
+          "avatar": "",
+          "link": "https://www.npmjs.com/package/caveman-shrink",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-7",
           "title": "Token Tamer",
-          "subtitle": "JSON 格式化 + LLM token 优化工具包，精简 OpenAI/Claude/MCP 负载",
+          "subtitle": "精简 MCP / JSON 工具返回体，降低浏览器与自定义 MCP 的上下文负载",
           "avatar": "",
           "link": "https://tokentamer.app/",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-2",
+          "title": "Token Optimizer",
+          "subtitle": "专题 #6（1.4K+ 星）：Claude Code/Codex 插件，ghost token 排查、智能压缩与 Dashboard",
+          "avatar": "",
+          "link": "https://github.com/alexgreensh/token-optimizer",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-3",
+          "title": "jcodemunch-mcp",
+          "subtitle": "专题 #5（1.9K+ 星）：MCP 代码探索压缩 95%+，大仓扫引用省 Token",
+          "avatar": "",
+          "link": "https://github.com/jgravelle/jcodemunch-mcp",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-4",
+          "title": "Tokless",
+          "subtitle": "专题工具：一键安装/更新 RTK、Caveman 等省 Token 插件的统一 CLI",
+          "avatar": "",
+          "link": "https://github.com/HoangP8/tokless",
+          "path": "",
+          "added": ""
+        },
+        {
+          "key": "ext-Token-优化--Cursor--Claude-Code--Codex-2",
+          "title": "LeanCTX",
+          "subtitle": "专题 #3（2.9K+ 星）：上下文智能层，控制 Agent 可见信息，与压缩互补",
+          "avatar": "",
+          "link": "https://github.com/yvgude/lean-ctx",
           "path": "",
           "added": ""
         }
@@ -13715,5 +13760,5 @@
     }
   },
   "builtFrom": "local",
-  "generatedAt": "2026-06-22T10:41:07.831Z"
+  "generatedAt": "2026-06-26T09:47:29.583Z"
 }

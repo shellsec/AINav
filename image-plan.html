@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Image Plan 图像生成套餐横评 — AINav</title>
-  <meta name="description" content="AI图像生成套餐横向对比：Midjourney、DALL-E、Leonardo.AI、LiblibAI、通义万相、即梦AI价格功能积分对比。">
+  <meta name="description" content="AI图像生成套餐横向对比：Midjourney、GPT Image、Leonardo.AI、LiblibAI、通义万相、即梦AI价格功能积分对比。">
   <link rel="canonical" href="https://aiv123.com/image-plan.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="AI Image Plan 图像生成套餐横评">
@@ -206,10 +206,10 @@
           if(el.textContent.indexOf('图像生成趋势')!==-1||el.textContent.indexOf('Image Generation Trends')!==-1)el.textContent=dict.sectionTrend;
         });
         var fp=document.querySelectorAll('.cp-footer p');
-        if(fp[0])fp[0].textContent=dict.footer;
+        if (fp[1]) fp[1].textContent = dict.footer;
         if(fp[1])fp[1].innerHTML='<a href="index.html">'+dict.footerHome+'</a>';
         var pb=document.querySelector('.cp-wrap > div:first-child');
-        if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
+        if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus 4.8</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini 3.1 Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
         document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang-set')===lang)});
       }
       applyLang(currentLang);document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang-set'))})});
@@ -219,20 +219,7 @@
 </head>
 <body>
   <div class="cp-top"><div class="cp-top-inner">
-    <div class="cp-nav" data-plan-nav>
-      <a href="index.html">← AINav 首页</a>
-      <a href="coding-plan.html">编程套餐横评</a>
-      <a href="agent-plan.html">Agent横评</a> · <a href="model-plan.html">模型选型</a>
-      <a href="video-plan.html">视频套餐横评</a>
-      <a href="image-plan.html">图像套餐横评</a>
-      <a href="music-plan.html">音乐套餐横评</a>
-      <a href="search-plan.html">搜索套餐横评</a>
-      <a href="voice-plan.html">语音套餐横评</a>
-      <a href="learning-plan.html">学习套餐横评</a>
-      <a href="hardware-plan.html">硬件横评</a>
-      <a href="ai-factory-plan.html">AI造物</a>
-      <a href="skill-plan.html">Skill最佳实践</a> · <a href="ai-encyclopedia-2026.html">AI百科</a>
-    </div>
+    <div class="cp-nav" data-plan-nav></div>
     <div class="cp-toolbar">
       <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
       <button type="button" class="theme-btn" data-theme-set="light">浅色</button>
@@ -244,11 +231,13 @@
 
   <div class="cp-wrap">
     <div style="margin-bottom:1rem;padding:.55rem .85rem;border-radius:8px;border:1px solid var(--border);background:var(--card);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.35rem .6rem;font-size:.84rem;line-height:1.5;">
-      <span style="color:var(--muted)"><strong style="color:var(--text)">OpenAI: GPT</strong> <span style="color:var(--muted)">·</span> <strong style="color:var(--text)">Anthropic: Claude</strong> <span style="color:var(--muted)">·</span> <strong style="color:var(--text)">Google: Gemini旗舰模型</strong> <span style="color:var(--muted)">· 国内直连免梯</span> <span class="plan-promo-code" data-code="AFF_BB0FNC" style="color:var(--accent2);font-weight:600;cursor:pointer" title="点击复制优惠码">$2优惠码 AFF_BB0FNC</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">立即注册</a>
+      <span style="color:var(--muted)"><strong style="color:var(--text)">OpenAI: GPT-5</strong> <span style="color:var(--muted)">·</span> <strong style="color:var(--text)">Anthropic: Claude Opus 4.8</strong> <span style="color:var(--muted)">·</span> <strong style="color:var(--text)">Google: Gemini 3.1 Pro</strong> <span style="color:var(--muted)">· 国内直连免梯</span> <span class="plan-promo-code" data-code="AFF_BB0FNC" style="color:var(--accent2);font-weight:600;cursor:pointer" title="点击复制优惠码">$2优惠码 AFF_BB0FNC</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">立即注册</a>
     </div>
     <h1 data-i18n="title">🎨 AI Image Plan 图像生成套餐横评</h1>
     <p class="cp-subtitle" data-i18n="subtitle">国内外 AI 图像生成套餐一站式对比：价格、积分、功能、场景推荐，帮你选出最划算的 AI 绘画方案。</p>
 
+    
+    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-06-26</span> · <a href="video-plan.html">视频套餐横评</a></p>
     <div class="cp-legend">
       <div class="cp-legend-item"><span class="cp-badge badge-hot">🔥 热门</span> 高人气</div>
       <div class="cp-legend-item"><span class="cp-badge badge-new">✨ 新品</span> 新上线</div>
@@ -449,16 +438,16 @@
           </table>
           <div class="feat-tags">
             <span class="feat-tag yes">文生图</span><span class="feat-tag yes">图生图</span><span class="feat-tag yes">风格调参</span>
-            <span class="feat-tag yes">V7模型</span><span class="feat-tag no">模型训练</span><span class="feat-tag no">API</span>
+            <span class="feat-tag yes">V7模型</span><span class="feat-tag no">模型训练</span><span class="feat-tag yes">API</span>
           </div>
           <div style="font-size:.76rem;color:var(--muted);margin-top:.4rem">AI绘画画质天花板，V7模型艺术表现力最强，$30/月Standard版最划算，慢速模式无限用</div>
         </div>
       </div>
 
-      <!-- 2. DALL-E 3 / ChatGPT -->
+      <!-- 2. GPT Image / ChatGPT -->
       <div class="cp-platform overseas">
         <div class="cp-platform-head">
-          <span class="cp-platform-name"><a href="https://openai.com/dall-e-3" target="_blank" rel="noopener noreferrer">DALL-E 3（ChatGPT）</a></span>
+          <span class="cp-platform-name"><a href="https://openai.com/index/image-generation-api/" target="_blank" rel="noopener noreferrer">GPT Image（ChatGPT）</a></span>
           <span class="cp-badge badge-overseas">🌍</span>
           <span class="cp-badge badge-hot">🔥 热门</span>
         </div>
@@ -466,9 +455,9 @@
           <table class="cp-table">
             <thead><tr><th>套餐</th><th>月价</th><th>说明</th><th>备注</th></tr></thead>
             <tbody>
-              <tr><td class="plan-name">ChatGPT Free</td><td class="plan-price">$0</td><td>有限次数/日</td><td class="plan-limit">DALL-E 3 基础</td></tr>
-              <tr><td class="plan-name">ChatGPT Plus</td><td class="plan-price">$20/月</td><td>更多DALL-E额度</td><td class="plan-limit">含GPT-4o+DALL-E</td></tr>
-              <tr><td class="plan-name">ChatGPT Pro</td><td class="plan-price">$200/月</td><td>无限DALL-E</td><td class="plan-limit">含所有OpenAI功能</td></tr>
+              <tr><td class="plan-name">ChatGPT Free</td><td class="plan-price">$0</td><td>有限次数/日</td><td class="plan-limit">GPT Image 基础额度</td></tr>
+              <tr><td class="plan-name">ChatGPT Plus</td><td class="plan-price">$20/月</td><td>更多 GPT Image 额度</td><td class="plan-limit">含 GPT Image / DALL·E 等</td></tr>
+              <tr><td class="plan-name">ChatGPT Pro</td><td class="plan-price">$200/月</td><td>GPT Image 高配额</td><td class="plan-limit">含所有OpenAI功能</td></tr>
             </tbody>
           </table>
           <div class="feat-tags">
@@ -624,7 +613,7 @@
             <tr><td>文心一格</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
             <tr><td>吐司Tiamat</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
             <tr><td>Midjourney</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td>—</td><td class="yes">✓</td><td>—</td></tr>
-            <tr><td>DALL-E 3</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+            <tr><td>GPT Image</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
             <tr><td>Leonardo.AI</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
             <tr><td>Ideogram</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
             <tr><td>NightCafe</td><td class="yes">✓</td><td class="yes">✓</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="yes">✓</td></tr>
@@ -634,7 +623,7 @@
         </table>
       </div>
       <div style="font-size:.76rem;color:var(--muted);margin-top:.5rem">
-        "文字渲染"指生成图中嵌入文字（Logo/海报等）· "模型训练"指支持 LoRA/微调 · 数据截至2026年4月
+        "文字渲染"指生成图中嵌入文字（Logo/海报等）· "模型训练"指支持 LoRA/微调 · 数据截至2026-06-26
       </div>
     </div>
 
@@ -693,7 +682,7 @@
             <div style="font-size:.8rem;line-height:1.7;">
               <div>🏆 <strong>首选：</strong><a href="https://ideogram.ai/" target="_blank" rel="noopener noreferrer">Ideogram Plus</a> $20/月 — 文字最强</div>
               <div>💰 <strong>省钱：</strong>Ideogram Basic $8/月 — 400张够用</div>
-              <div>🤖 <strong>对话式：</strong>DALL-E 3（ChatGPT Plus）— 自然语言描述</div>
+              <div>🤖 <strong>对话式：</strong>GPT Image（ChatGPT Plus）— 自然语言描述</div>
             </div>
           </div>
 
@@ -763,8 +752,8 @@
         <div class="cp-faq-a"><strong>画质天花板，但价格偏高。</strong>如果你是专业设计师追求极致画质，$30/月值得。如果你是普通用户/电商，通义万相¥39/月或免费版已够用。差距在细节（手部/光影），不在基础画面。</div>
       </div>
       <div class="cp-faq-item">
-        <div class="cp-faq-q">DALL-E 3 和 Midjourney 怎么选？<span class="cp-faq-arrow">▼</span></div>
-        <div class="cp-faq-a"><strong>DALL-E 3 强在理解力，Midjourney 强在美感。</strong>DALL-E 3 通过ChatGPT Plus $20/月使用，自然语言描述即可生成，适合非专业用户。Midjourney 需要学习Prompt语法，但出图质量更高。两者不冲突，ChatGPT Plus还包含对话功能。</div>
+        <div class="cp-faq-q">GPT Image 和 Midjourney 怎么选？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>GPT Image 强在理解力，Midjourney 强在美感。</strong>GPT Image 通过 ChatGPT Plus $20/月使用，自然语言描述即可生成，适合非专业用户。Midjourney 需要学习Prompt语法，但出图质量更高。两者不冲突，ChatGPT Plus还包含对话功能。</div>
       </div>
       <div class="cp-faq-item">
         <div class="cp-faq-q">AI生成图片有版权吗？<span class="cp-faq-arrow">▼</span></div>
@@ -788,7 +777,7 @@
             <tr><td>🥈</td><td class="plan-name">LiblibAI</td><td>专业版</td><td class="plan-price">¥70</td><td>~9,000</td><td class="val-high">129</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:85%;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fb950,#2ea043);"></div></div></td></tr>
             <tr><td>🥉</td><td class="plan-name">通义万相</td><td>会员</td><td class="plan-price">¥39</td><td>~4,800</td><td class="val-high">123</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:82%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td></tr>
             <tr><td>4</td><td class="plan-name">Leonardo.AI</td><td>Artisan</td><td class="plan-price">$30</td><td>~8,500</td><td class="val-mid">~40</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:27%;height:100%;border-radius:4px;background:linear-gradient(90deg,#58a6ff,#388bfd);"></div></div></td></tr>
-            <tr><td>5</td><td class="plan-name">Ideogram</td><td>Plus</td><td class="plan-price">$20</td><td>~4,000</td><td class="val-mid">~29</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:19%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td></tr>
+            <tr><td>5</td><td class="plan-name">Ideogram</td><td>Plus</td><td class="plan-price">$20</td><td>~1,000</td><td class="val-mid">~29</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:19%;height:100%;border-radius:4px;background:linear-gradient(90deg,#d29922,#bb8009);"></div></div></td></tr>
             <tr><td>6</td><td class="plan-name">Midjourney</td><td>Standard</td><td class="plan-price">$30</td><td>~900</td><td class="val-low">~4.3</td><td><div style="background:var(--border);border-radius:4px;height:0.7rem;overflow:hidden;width:5rem;display:inline-block;vertical-align:middle;"><div style="width:3%;height:100%;border-radius:4px;background:linear-gradient(90deg,#8b9cb3,#6e7681);"></div></div></td></tr>
           </tbody>
         </table>
@@ -842,9 +831,8 @@
   </div>
 
   <div class="cp-footer">
-      <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-06-22</span></p>
-    <p>数据来源：各平台官网 · 价格以官网为准</p>
-    <p><a href="index.html">← 返回 AINav 首页</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a> · <a href="model-plan.html">模型选型</a> · <a href="video-plan.html">视频套餐横评</a></p>
+      <p>数据来源：各平台官网 · 价格以官网为准</p>
+    <p><a href="index.html">← 返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a> · <a href="model-plan.html">模型选型</a> · <a href="video-plan.html">视频套餐横评</a></p>
   </div>
 
   <script>document.querySelectorAll('.cp-faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('is-open');});});</script>
@@ -870,8 +858,8 @@
         document.querySelectorAll('.cp-tips h2').forEach(function(el){if(el.textContent.indexOf('场景推荐')!==-1)el.textContent=dict.sectionRec});
         document.querySelectorAll('h2').forEach(function(el){if(el.textContent.indexOf('图像生成趋势')!==-1||el.textContent.indexOf('Image Generation Trends')!==-1)el.textContent=dict.sectionTrend});
         document.querySelectorAll('.theme-btn:not(.lang-btn)').forEach(function(b){var s=b.getAttribute('data-theme-set');if(s==='system')b.textContent=dict.themeSystem;else if(s==='light')b.textContent=dict.themeLight;else if(s==='dark')b.textContent=dict.themeDark});
-        var fp=document.querySelectorAll('.cp-footer p');if(fp[0])fp[0].textContent=dict.footer;
-        var pb=document.querySelector('.cp-wrap > div:first-child');if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
+        var fp=document.querySelectorAll('.cp-footer p');if (fp[1]) fp[1].textContent = dict.footer;
+        var pb=document.querySelector('.cp-wrap > div:first-child');if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus 4.8</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini 3.1 Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
         document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang-set')===lang)});
       }
       applyLang(currentLang);document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang-set'))})});

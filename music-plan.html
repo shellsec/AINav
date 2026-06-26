@@ -156,9 +156,9 @@
           if(el.textContent.indexOf('场景推荐')!==-1||el.textContent.indexOf('Recommendations')!==-1)el.textContent=dict.sectionRec;
         });
         var fp=document.querySelectorAll('.cp-footer p');
-        if(fp[0])fp[0].textContent=dict.footer;
+        if (fp[1]) fp[1].textContent = dict.footer;
         var pb=document.querySelector('.cp-wrap > div:first-child');
-        if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
+        if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus 4.8</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini 3.1 Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
         document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang-set')===lang)});
       }
       applyLang(currentLang);document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang-set'))})});
@@ -168,20 +168,7 @@
 </head>
 <body>
   <div class="cp-top"><div class="cp-top-inner">
-    <div class="cp-nav" data-plan-nav>
-      <a href="index.html">← AINav 首页</a>
-      <a href="coding-plan.html">编程套餐横评</a>
-      <a href="agent-plan.html">Agent横评</a> · <a href="model-plan.html">模型选型</a>
-      <a href="video-plan.html">视频套餐横评</a>
-      <a href="image-plan.html">图像套餐横评</a>
-      <a href="music-plan.html">音乐套餐横评</a>
-      <a href="search-plan.html">搜索套餐横评</a>
-      <a href="voice-plan.html">语音套餐横评</a>
-      <a href="learning-plan.html">学习套餐横评</a>
-      <a href="hardware-plan.html">硬件横评</a>
-      <a href="ai-factory-plan.html">AI造物</a>
-      <a href="skill-plan.html">Skill最佳实践</a> · <a href="ai-encyclopedia-2026.html">AI百科</a>
-    </div>
+    <div class="cp-nav" data-plan-nav></div>
     <div class="cp-toolbar">
       <button type="button" class="theme-btn" data-theme-set="system">跟随系统</button>
       <button type="button" class="theme-btn" data-theme-set="light">浅色</button>
@@ -193,11 +180,13 @@
 
   <div class="cp-wrap">
     <div style="margin-bottom:1rem;padding:.55rem .85rem;border-radius:8px;border:1px solid var(--border);background:var(--card);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.35rem .6rem;font-size:.84rem;line-height:1.5;">
-      <span style="color:var(--muted)"><strong style="color:var(--text)">OpenAI: GPT</strong> <span style="color:var(--muted)">·</span> <strong style="color:var(--text)">Anthropic: Claude</strong> <span style="color:var(--muted)">·</span> <strong style="color:var(--text)">Google: Gemini旗舰模型</strong> <span style="color:var(--muted)">· 国内直连免梯</span> <span class="plan-promo-code" data-code="AFF_BB0FNC" style="color:var(--accent2);font-weight:600;cursor:pointer" title="点击复制优惠码">$2优惠码 AFF_BB0FNC</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">立即注册</a>
+      <span style="color:var(--muted)"><strong style="color:var(--text)">OpenAI: GPT-5</strong> <span style="color:var(--muted)">·</span> <strong style="color:var(--text)">Anthropic: Claude Opus 4.8</strong> <span style="color:var(--muted)">·</span> <strong style="color:var(--text)">Google: Gemini 3.1 Pro</strong> <span style="color:var(--muted)">· 国内直连免梯</span> <span class="plan-promo-code" data-code="AFF_BB0FNC" style="color:var(--accent2);font-weight:600;cursor:pointer" title="点击复制优惠码">$2优惠码 AFF_BB0FNC</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">立即注册</a>
     </div>
     <h1 data-i18n="title">🎵 AI Music Plan 音乐套餐横评</h1>
     <p class="cp-subtitle" data-i18n="subtitle">国内外 AI 音乐生成套餐一站式对比：价格、生成次数、商用权、音质，帮你选出最划算的 AI 作曲方案。</p>
 
+    
+    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-06-26</span></p>
     <div class="cp-legend">
       <div class="cp-legend-item"><span class="cp-badge badge-hot">🔥 热门</span> 高人气</div>
       <div class="cp-legend-item"><span class="cp-badge badge-new">✨ 新品</span> 新上线</div>
@@ -286,21 +275,21 @@
             <thead><tr><th>套餐</th><th>月价</th><th>生成次数/月</th><th>备注</th></tr></thead>
             <tbody>
               <tr><td class="plan-name">Free</td><td class="plan-price">$0</td><td>10首/日</td><td>非商用+署名</td></tr>
-              <tr><td class="plan-name">Pro <span class="cp-badge badge-rec">👍</span></td><td class="plan-price">$10/月</td><td>500首</td><td>商用权</td></tr>
+              <tr><td class="plan-name">Pro <span class="cp-badge badge-rec">👍</span></td><td class="plan-price">$10/月</td><td>~500 credits</td><td>商用权</td></tr>
               <tr><td class="plan-name">Premier</td><td class="plan-price">$30/月</td><td>2000首</td><td>商用权+优先</td></tr>
             </tbody>
           </table>
           <div class="feat-tags">
 <span class="feat-tag yes">人声</span><span class="feat-tag yes">纯音乐</span><span class="feat-tag yes">歌词生成</span><span class="feat-tag yes">商用</span><span class="feat-tag yes">API</span>
           </div>
-          <div style="font-size:.76rem;color:var(--muted);margin-top:.4rem">AI音乐生成领域标杆，v4模型人声自然度领先，支持歌词自动生成+多风格</div>
+          <div style="font-size:.76rem;color:var(--muted);margin-top:.4rem">AI音乐生成领域标杆，v4.5 模型人声自然度领先，支持歌词自动生成+多风格（额度以 credits 计）</div>
         </div>
       </div>
 
             <div class="cp-platform overseas">
         <div class="cp-platform-head">
           <span class="cp-platform-name"><a href="https://www.udio.com/" target="_blank" rel="noopener noreferrer">Udio</a></span>
-          <span class="cp-badge badge-hot">🔥 热门</span> <span class="cp-badge badge-new">✨ 新品</span>
+          <span class="cp-badge badge-hot">🔥 热门</span>
         </div>
         <div class="cp-platform-body">
           <table class="cp-table">
@@ -308,7 +297,7 @@
             <tbody>
               <tr><td class="plan-name">Free</td><td class="plan-price">$0</td><td>10首/日</td><td>非商用</td></tr>
               <tr><td class="plan-name">Standard</td><td class="plan-price">$10/月</td><td>400首</td><td>商用权</td></tr>
-              <tr><td class="plan-name">Pro</td><td class="plan-price">$30/月</td><td>1500首</td><td>商用权+优先</td></tr>
+              <tr><td class="plan-name">Pro</td><td class="plan-price">$30/月</td><td>~1,500 credits</td><td>商用权+优先</td></tr>
               <tr><td class="plan-name">Ultra</td><td class="plan-price">$60/月</td><td>3000首</td><td>商用权+最优先</td></tr>
             </tbody>
           </table>
@@ -454,7 +443,7 @@
           <div style="padding:.75rem;border-radius:8px;border:1px solid rgba(63,185,80,.25);background:rgba(63,185,80,.04);">
             <div style="font-weight:700;font-size:.88rem;margin-bottom:.5rem;">🎤 歌曲创作 / 社交分享</div>
             <div style="font-size:.8rem;line-height:1.7;">
-              <div>🏆 <strong>首选：</strong><a href="https://suno.com/" target="_blank" rel="noopener noreferrer">Suno Pro</a> $10/月 — 500首+商用权</div>
+              <div>🏆 <strong>首选：</strong><a href="https://suno.com/" target="_blank" rel="noopener noreferrer">Suno Pro</a> $10/月 — ~500 credits + 商用权</div>
               <div>💰 <strong>省钱：</strong>Udio Standard $10/月 — 音质更好</div>
               <div>🇨🇳 <strong>国内：</strong>天工SkyMusic ¥30/月 — 中文优化</div>
             </div>
@@ -478,7 +467,7 @@
           <div style="padding:.75rem;border-radius:8px;border:1px solid rgba(167,139,250,.25);background:rgba(167,139,250,.04);">
             <div style="font-weight:700;font-size:.88rem;margin-bottom:.5rem;">📦 商用 / 内容创作者</div>
             <div style="font-size:.8rem;line-height:1.7;">
-              <div>🏆 <strong>首选：</strong>Suno Pro $10/月 — 商用权+500首</div>
+              <div>🏆 <strong>首选：</strong>Suno Pro $10/月 — 商用权 + ~500 credits</div>
               <div>🎬 <strong>配乐：</strong>Stable Audio Pro $12/月 — 商用+音效</div>
               <div>⚠️ <strong>注意：</strong>免费版通常不可商用，必须订阅</div>
             </div>
@@ -506,7 +495,7 @@
       <div class="cp-faq-head">❓ 常见问题 FAQ</div>
       <div class="cp-faq-item is-open">
         <div class="cp-faq-q">Suno 和 Udio 哪个好？<span class="cp-faq-arrow">▼</span></div>
-        <div class="cp-faq-a"><strong>Suno 综合更强，Udio 音质更好。</strong>Suno优势：500首/月、商用权、支持更长歌曲；Udio优势：人声音质更自然、音乐细节更丰富。两者都是$10/月，建议先试免费版再决定。</div>
+        <div class="cp-faq-a"><strong>Suno 综合更强，Udio 音质更好。</strong>Suno优势：~500 credits/月、商用权、支持更长歌曲；Udio优势：人声音质更自然、音乐细节更丰富。两者都是$10/月，建议先试免费版再决定。</div>
       </div>
       <div class="cp-faq-item">
         <div class="cp-faq-q">AI生成音乐能商用吗？<span class="cp-faq-arrow">▼</span></div>
@@ -574,9 +563,8 @@
   </div>
 
   <div class="cp-footer">
-      <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-06-22</span></p>
-    <p>数据来源：各平台官网 · 价格以官网为准</p>
-    <p><a href="index.html">← 返回 AINav 首页</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a> · <a href="model-plan.html">模型选型</a></p>
+      <p>数据来源：各平台官网 · 价格以官网为准</p>
+    <p><a href="index.html">← 返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a> · <a href="model-plan.html">模型选型</a></p>
   </div>
 
   <script>document.querySelectorAll('.cp-faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('is-open');});});</script>
@@ -646,9 +634,9 @@
           if(el.textContent.indexOf('场景推荐')!==-1||el.textContent.indexOf('Recommendations')!==-1)el.textContent=dict.sectionRec;
         });
         var fp=document.querySelectorAll('.cp-footer p');
-        if(fp[0])fp[0].textContent=dict.footer;
+        if (fp[1]) fp[1].textContent = dict.footer;
         var pb=document.querySelector('.cp-wrap > div:first-child');
-        if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
+        if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus 4.8</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini 3.1 Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
         document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang-set')===lang)});
       }
       applyLang(currentLang);document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang-set'))})});

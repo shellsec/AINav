@@ -348,7 +348,7 @@ const catI18nMap = {
   "数据 · 微调 · 合成与评测": "catDataTrain",
   "论文 · 资讯 · 榜单与评测": "catPaperRanking",
   "终端与 CLI 上的 AI": "catCLI",
-  "Token 优化 · 成本管控与追踪": "catTokenOpt",
+  "Token 优化 · Cursor / Claude Code / Codex": "catTokenOpt",
   "Agent 记忆 · 长期上下文与状态管理": "catAgentMemory",
   "AI 视频生成 · 动效与数字人": "catAIVideo",
   "AI 科研 · 学术搜索与自动化": "catAIResearch",
@@ -688,7 +688,7 @@ ${groupedRows}
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6321431447511882" data-ad-slot="XXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
     </div>
     <footer style="margin-top:1.5rem;padding:1rem 0;border-top:1px solid var(--border);font-size:0.76rem;color:var(--muted);text-align:center;">
-      <p><a href="index.html">返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="privacy.html">隐私政策</a></p>
+      <p><a href="index.html">返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="privacy.html">隐私政策</a></p>
     </footer>
   </div>
   <button type="button" class="back-to-top" id="ecBackToTop" aria-label="回到顶部" title="回到顶部">↑</button>
@@ -862,8 +862,13 @@ function renderSections(nodes) {
   const parts = [];
   for (const n of nodes) {
     if (n.type === "leaf") {
+      const guideLink =
+        n.id === "ext-token-optimize"
+          ? `<p class="block-guide"><a href="token-optimization.html">安装配置与最佳实践 →</a></p>`
+          : "";
       parts.push(`<section class="block" id="${esc(n.id)}">
 <h2 class="block-title"${catI18nAttr(n.name)}>${esc(n.name)}</h2>
+${guideLink}
 <div class="grid">${renderTools(n.tools)}</div>
 </section>`);
     } else if (n.type === "group") {
@@ -1336,10 +1341,15 @@ const html = `<!DOCTYPE html>
       color: var(--text);
     }
     .group > .block-title { font-size: 1.2rem; }
+    .block-guide { margin: -0.35rem 0 0.85rem; font-size: 0.82rem; }
+    .block-guide a { font-weight: 600; color: var(--accent); }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 0.75rem;
+    }
+    #热门工具-0 .grid {
+      grid-template-columns: repeat(3, 1fr);
     }
     .card {
       position: relative;
@@ -1428,6 +1438,7 @@ const html = `<!DOCTYPE html>
     }
     @media (max-width: 860px) {
       .layout { grid-template-columns: 1fr; }
+      #热门工具-0 .grid { grid-template-columns: repeat(2, 1fr); }
       .top-header { flex-wrap: wrap; }
       .global-search-wrap { min-width: 10rem; }
       aside {
@@ -1681,6 +1692,7 @@ const html = `<!DOCTYPE html>
     </div>
     <div class="top-plans">
       <a href="free-tier.html" title="AI工具免费额度、刷新周期与新用户礼一览" data-i18n="freeTier" data-i18n-title="freeTierTitle" style="color:var(--accent2);font-weight:600">🆓 免费额度</a>
+      <a href="token-optimization.html" title="Cursor / Claude Code / Codex Token 优化安装配置与最佳实践" data-i18n="tokenOptimize" data-i18n-title="tokenOptimizeTitle" style="color:var(--accent2);font-weight:600">Token优化</a>
       <span class="top-plans-label">📊 横评</span>
       <a href="model-plan.html" title="AI模型选型横评·国内+海外旗舰">模型选型</a>
       <a href="coding-plan.html" title="国内外AI编程套餐价格对比与选购推荐" data-i18n="codingPlan" data-i18n-title="codingPlanTitle">编程套餐</a>
@@ -2106,6 +2118,8 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         encyclopediaTitle: "AI Tool Encyclopedia – Free Tiers & Descriptions",
         freeTier: "🆓 Free Tier",
         freeTierTitle: "AI Tool Free Tier Dashboard",
+        tokenOptimize: "Token Opt",
+        tokenOptimizeTitle: "Token optimization for Cursor / Claude Code / Codex",
         codingPlan: "Coding Plans",
         codingPlanTitle: "AI Coding Plan Comparison & Buying Guide",
         aiRoi: "AI Skills Rollout Audit",
@@ -2178,7 +2192,7 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         catDataTrain: "Data · Fine-tuning & Evaluation",
         catPaperRanking: "Papers · News & Rankings",
         catCLI: "CLI & Terminal AI",
-        catTokenOpt: "Token Optimization · Cost Control & Tracking",
+        catTokenOpt: "Token Optimization · Cursor / Claude Code / Codex",
         catAgentMemory: "Agent Memory · Long-term Context & State",
         catAIVideo: "AI Video Generation · Motion & Digital Human",
         catAIResearch: "AI Research · Academic Search & Automation",
@@ -2201,6 +2215,8 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         encyclopediaTitle: "AI工具百科全书免费额度与产品说明",
         freeTier: "🆓 免费额度",
         freeTierTitle: "AI工具免费额度一览",
+        tokenOptimize: "Token优化",
+        tokenOptimizeTitle: "Cursor / Claude Code / Codex Token 优化安装配置与最佳实践",
         codingPlan: "编程套餐横评",
         codingPlanTitle: "国内外AI编程套餐价格对比与选购推荐",
         aiRoi: "AI 技能落地自查",
@@ -2272,7 +2288,7 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         catDataTrain: "数据 · 微调 · 合成与评测",
         catPaperRanking: "论文 · 资讯 · 榜单与评测",
         catCLI: "终端与 CLI 上的 AI",
-        catTokenOpt: "Token 优化 · 成本管控与追踪",
+        catTokenOpt: "Token 优化 · Cursor / Claude Code / Codex",
         catAgentMemory: "Agent 记忆 · 长期上下文与状态管理",
         catAIVideo: "AI 视频生成 · 动效与数字人",
         catAIResearch: "AI 科研 · 学术搜索与自动化",
@@ -2794,7 +2810,7 @@ ${cardsHtml}
     </div>
     <footer class="ft-footer">
       <p>数据来源：各产品官网公开信息，仅供参考，以官网实时定价为准。最后更新：${esc(generatedAtLabel)}</p>
-      <p><a href="index.html">返回 AINav 首页</a> · <a href="ai-encyclopedia-2026.html">AI工具百科</a> · <a href="privacy.html">隐私政策</a></p>
+      <p><a href="index.html">返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="ai-encyclopedia-2026.html">AI工具百科</a> · <a href="privacy.html">隐私政策</a></p>
     </footer>
   </div>
   <button type="button" class="back-to-top" id="ftBackToTop" aria-label="回到顶部" title="回到顶部">↑</button>

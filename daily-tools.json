@@ -21,12 +21,6 @@
       "avatar": "icon/腾讯元宝.png"
     },
     {
-      "title": "Gemini",
-      "subtitle": "Gemini 3.1 Pro，多模态与 Google 生态",
-      "link": "https://gemini.google.com/",
-      "avatar": "icon/Google Bard.png"
-    },
-    {
       "title": "ChatGPT",
       "subtitle": "GPT-5 + Codex，对话、深度研究与 Agent",
       "link": "https://chatgpt.com/",
@@ -37,6 +31,12 @@
       "subtitle": "Opus 4.8 / Sonnet 4.6，写作、推理与 Claude Code",
       "link": "https://claude.ai/",
       "avatar": "icon/Claude.png"
+    },
+    {
+      "title": "Gemini",
+      "subtitle": "Gemini 3.1 Pro，多模态与 Google 生态",
+      "link": "https://gemini.google.com/",
+      "avatar": "icon/Google Bard.png"
     },
     {
       "title": "Grok",

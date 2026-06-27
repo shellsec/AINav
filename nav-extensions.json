@@ -714,6 +714,11 @@
           "link": "https://notebooklm.google/"
         },
         {
+          "title": "Remio",
+          "subtitle": "本地优先第二大脑，自动采集网页/会议/文件，Agent 问答与任务",
+          "link": "https://www.remio.ai/"
+        },
+        {
           "title": "Notion AI",
           "subtitle": "团队文档、数据库与 AI 写作/检索一体",
           "link": "https://www.notion.so/product/ai"

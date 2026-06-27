@@ -10,6 +10,17 @@
           "link": "https://www.runninghub.cn/"
         }
       ]
+    },
+    {
+      "group": "AI 写作工具",
+      "leaf": "常用工具",
+      "tools": [
+        {
+          "title": "Auferet",
+          "subtitle": "免费 AI 角色扮演游戏，AI 游戏主持人能记住你的世界与上传的设定，支持 5e 与 Pathfinder 2e，可单人或多人，网页与安卓端。",
+          "link": "https://auferet.com"
+        }
+      ]
     }
   ]
 }

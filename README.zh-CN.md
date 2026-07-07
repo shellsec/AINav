@@ -48,6 +48,7 @@ node build-html-data.js
 | `plan-nav.js` | 横评页 / OPC 统一顶栏（注入脚本） |
 | `ai-roi/` | AI 接入自查 · 覆盖率 & ROI |
 | `docs/DATA-SOURCES.md` | 数据源说明与百科合并评估 |
+| `docs/update-cadence.md` | 各频道维护节奏（建议每 1～2 周巡检快层） |
 | `site-data.json` | 本地维护的菜单树与工具数据（JSON，项目核心数据源） |
 | `build-html-data.js` | 读取 `site-data.json`、合并扩展、写出 `index.html` 与百科页 |
 | `download-icons.mjs` | 根据 `site-data.json` 中的 `avatar` 下载图标，生成 `icons/manifest.json` |

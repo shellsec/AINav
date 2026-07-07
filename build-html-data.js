@@ -99,17 +99,27 @@ if (fs.existsSync(extFile)) {
         const byLink = new Map(
           existing.tools.filter((t) => t && t.link).map((t) => [String(t.link).trim(), t])
         );
+        const byTitle = new Map(
+          existing.tools.filter((t) => t && t.title).map((t) => [String(t.title).trim(), t])
+        );
         for (const t of toolsNorm) {
-          const prev = byLink.get(t.link);
+          const prev = byTitle.get(t.title) || byLink.get(t.link);
           if (prev) {
+            if (prev.link !== t.link) {
+              byLink.delete(String(prev.link).trim());
+              prev.link = t.link;
+              byLink.set(t.link, prev);
+            }
             prev.title = t.title;
             prev.subtitle = t.subtitle;
             if (t.avatar) prev.avatar = t.avatar;
             if (t.path) prev.path = t.path;
             if (t.added) prev.added = t.added;
+            byTitle.set(t.title, prev);
           } else {
             existing.tools.push(t);
             byLink.set(t.link, t);
+            byTitle.set(t.title, t);
           }
         }
         merged++;

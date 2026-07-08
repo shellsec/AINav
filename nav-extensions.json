@@ -10,6 +10,12 @@
           "link": "https://openrouter.ai/"
         },
         {
+          "title": "Otari",
+          "subtitle": "Mozilla.ai 开源 LLM 控制面：40+ 厂商路由、虚拟 Key、预算与用量治理",
+          "link": "https://otari.ai/",
+          "added": "2026-07-07"
+        },
+        {
           "title": "OpenRouter Models",
           "subtitle": "模型目录：筛选文本/图像/嵌入等，比价、上下文与吞吐量",
           "link": "https://openrouter.ai/models"
@@ -160,6 +166,30 @@
           "subtitle": "通用 AI Agent，自主规划、执行复杂任务，浏览器+终端+代码全栈操控",
           "link": "https://manus.im/",
           "added": "2026-04-22"
+        },
+        {
+          "title": "OpenAI Symphony",
+          "subtitle": "开源 Codex 编排：工单→隔离 autonomous run，Harness Engineering 下一步",
+          "link": "https://github.com/openai/symphony",
+          "added": "2026-07-07"
+        },
+        {
+          "title": "Microsoft Webwright",
+          "subtitle": "代码驱动浏览器 Agent，插件对接 Claude Code/Codex/OpenClaw",
+          "link": "https://github.com/microsoft/Webwright",
+          "added": "2026-07-07"
+        },
+        {
+          "title": "Grok Voice Agent Builder",
+          "subtitle": "xAI 无代码语音 Agent：端到端 Grok Voice + 电话/MCP/知识库",
+          "link": "https://x.ai/news/grok-voice-agent-builder",
+          "added": "2026-07-07"
+        },
+        {
+          "title": "Claude Science",
+          "subtitle": "Anthropic 科研 Workbench：工具集成、可审计产物、算力调度（beta）",
+          "link": "https://www.anthropic.com/news/claude-science-ai-workbench",
+          "added": "2026-07-07"
         },
         {
           "title": "OpenHands",
@@ -558,6 +588,18 @@
           "link": "https://skills.sh/"
         },
         {
+          "title": "CocoLoop",
+          "subtitle": "国内 OpenClaw Skill 商店，CLS 安全评级 + 镜像加速，兼容 ClawHub",
+          "link": "https://hub.cocoloop.cn/",
+          "added": "2026-07-07"
+        },
+        {
+          "title": "Microsoft SkillOpt",
+          "subtitle": "Agent Skills 自进化/夜间优化，支持 Claude/Codex/Copilot/OpenClaw",
+          "link": "https://github.com/microsoft/SkillOpt",
+          "added": "2026-07-07"
+        },
+        {
           "title": "Agent Skills（Addy Osmani）",
           "subtitle": "生产级工程技能（25k+★） → Claude Code/Cursor/Copilot/Codex 等",
           "link": "https://github.com/addyosmani/agent-skills"
@@ -715,8 +757,15 @@
         },
         {
           "title": "Remio",
-          "subtitle": "本地优先第二大脑，自动采集网页/会议/文件，Agent 问答与任务",
-          "link": "https://www.remio.ai/"
+          "subtitle": "remio 3.0 rOS：本地第二大脑 + aApps，CLI 供 Cursor/OpenClaw 调知识库",
+          "link": "https://www.remio.ai/",
+          "added": "2026-07-07"
+        },
+        {
+          "title": "Pinecone Nexus",
+          "subtitle": "Agent 知识引擎公测：企业数据编译为可查询 Context + KnowQL",
+          "link": "https://www.pinecone.io/blog/pinecone-nexus-public-preview/",
+          "added": "2026-07-07"
         },
         {
           "title": "Notion AI",
@@ -2130,6 +2179,19 @@
           "title": "Gumshoe",
           "subtitle": "品牌 AI 搜索可见性监控与竞争分析（免费公测中）",
           "link": "https://www.gumshoe.ai/"
+        }
+      ]
+    },
+    {
+      "id": "AI-编程工具-0",
+      "name": "AI 编程工具",
+      "tools": [
+        {
+          "title": "ZCode",
+          "subtitle": "智谱 ADE 桌面端 · ZCode 3.0 Agent + GLM-5.2 深度适配，直连 GLM Coding Plan",
+          "link": "https://zcode.z.ai/cn",
+          "avatar": "icon/智谱清言.png",
+          "added": "2026-07-07"
         }
       ]
     }

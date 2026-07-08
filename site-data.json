@@ -2043,6 +2043,15 @@
           "path": ""
         },
         {
+          "key": "ZCode",
+          "title": "ZCode",
+          "subtitle": "智谱 ADE 桌面端 · ZCode 3.0 Agent + GLM-5.2 深度适配，直连 GLM Coding Plan",
+          "avatar": "icon/智谱清言.png",
+          "link": "https://zcode.z.ai/cn",
+          "path": "",
+          "added": "2026-07-07"
+        },
+        {
           "key": "Cursor",
           "title": "Cursor",
           "subtitle": "AI代码编辑器，快速进行编程和软件开发",
@@ -5895,6 +5904,15 @@
           "avatar": "",
           "link": "https://www.streamlake.com/product/wanqing",
           "path": ""
+        },
+        {
+          "key": "ext-AI-模型-API--路由聚合--推理云-1",
+          "title": "Otari",
+          "subtitle": "Mozilla.ai 开源 LLM 控制面：40+ 厂商路由、虚拟 Key、预算与用量治理",
+          "avatar": "",
+          "link": "https://otari.ai/",
+          "path": "",
+          "added": "2026-07-07"
         }
       ]
     },
@@ -6289,6 +6307,42 @@
           "link": "https://github.com/alchaincyf/hermes-agent-orange-book",
           "path": "",
           "added": ""
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-1",
+          "title": "OpenAI Symphony",
+          "subtitle": "开源 Codex 编排：工单→隔离 autonomous run，Harness Engineering 下一步",
+          "avatar": "",
+          "link": "https://github.com/openai/symphony",
+          "path": "",
+          "added": "2026-07-07"
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-2",
+          "title": "Microsoft Webwright",
+          "subtitle": "代码驱动浏览器 Agent，插件对接 Claude Code/Codex/OpenClaw",
+          "avatar": "",
+          "link": "https://github.com/microsoft/Webwright",
+          "path": "",
+          "added": "2026-07-07"
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-3",
+          "title": "Grok Voice Agent Builder",
+          "subtitle": "xAI 无代码语音 Agent：端到端 Grok Voice + 电话/MCP/知识库",
+          "avatar": "",
+          "link": "https://x.ai/news/grok-voice-agent-builder",
+          "path": "",
+          "added": "2026-07-07"
+        },
+        {
+          "key": "ext-AI-智能体--工作流与自动化-4",
+          "title": "Claude Science",
+          "subtitle": "Anthropic 科研 Workbench：工具集成、可审计产物、算力调度（beta）",
+          "avatar": "",
+          "link": "https://www.anthropic.com/news/claude-science-ai-workbench",
+          "path": "",
+          "added": "2026-07-07"
         }
       ]
     },
@@ -6887,11 +6941,20 @@
         {
           "key": "ext-AI-知识库--笔记与企业检索-1",
           "title": "Remio",
-          "subtitle": "本地优先第二大脑，自动采集网页/会议/文件，Agent 问答与任务",
+          "subtitle": "remio 3.0 rOS：本地第二大脑 + aApps，CLI 供 Cursor/OpenClaw 调知识库",
           "avatar": "",
           "link": "https://www.remio.ai/",
           "path": "",
-          "added": ""
+          "added": "2026-07-07"
+        },
+        {
+          "key": "ext-AI-知识库--笔记与企业检索-2",
+          "title": "Pinecone Nexus",
+          "subtitle": "Agent 知识引擎公测：企业数据编译为可查询 Context + KnowQL",
+          "avatar": "",
+          "link": "https://www.pinecone.io/blog/pinecone-nexus-public-preview/",
+          "path": "",
+          "added": "2026-07-07"
         }
       ]
     },
@@ -8858,6 +8921,24 @@
           "link": "https://skills.sh/",
           "path": "",
           "added": ""
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-14",
+          "title": "CocoLoop",
+          "subtitle": "国内 OpenClaw Skill 商店，CLS 安全评级 + 镜像加速，兼容 ClawHub",
+          "avatar": "",
+          "link": "https://hub.cocoloop.cn/",
+          "path": "",
+          "added": "2026-07-07"
+        },
+        {
+          "key": "ext-AI-Skill--提示技能与工具市场-15",
+          "title": "Microsoft SkillOpt",
+          "subtitle": "Agent Skills 自进化/夜间优化，支持 Claude/Codex/Copilot/OpenClaw",
+          "avatar": "",
+          "link": "https://github.com/microsoft/SkillOpt",
+          "path": "",
+          "added": "2026-07-07"
         }
       ]
     },
@@ -11008,6 +11089,14 @@
       "avatar": "icon/Trae.png",
       "link": "https://www.trae.ai/",
       "path": ""
+    },
+    "ZCode": {
+      "title": "ZCode",
+      "subtitle": "智谱 ADE 桌面端 · ZCode 3.0 Agent + GLM-5.2 深度适配，直连 GLM Coding Plan",
+      "avatar": "icon/智谱清言.png",
+      "link": "https://zcode.z.ai/cn",
+      "path": "",
+      "added": "2026-07-07"
     },
     "Cursor": {
       "title": "Cursor",
@@ -13769,5 +13858,5 @@
     }
   },
   "builtFrom": "local",
-  "generatedAt": "2026-07-07T02:21:20.586Z"
+  "generatedAt": "2026-07-07T15:22:10.273Z"
 }

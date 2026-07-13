@@ -7,3 +7,5 @@ node_modules/
 .DS_Store
 Thumbs.db
 AINav_art/
+# PAT 需 workflow 权限后才能推送；此前勿提交以免 push 被拒
+.github/workflows/

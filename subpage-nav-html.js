@@ -1,61 +1,43 @@
 /**
  * Shared subpage navigation HTML for encyclopedia, free-tier, etc.
- * Also exports sitemap URL list for build-html-data.js
+ * Data source: nav-links.json (single source of truth with plan-nav.js).
  */
-const SUBPAGE_NAV_LINKS = [
-  { href: "index.html", zh: "← AINav 首页", en: "← AINav Home", match: ["index.html", ""] },
-  { href: "free-tier.html", zh: "🆓 免费额度", en: "🆓 Free Tier", match: ["free-tier.html"] },
-  { href: "token-optimization.html", zh: "Token优化", en: "Token Opt", match: ["token-optimization.html"] },
-  { type: "sep" },
-  { href: "model-plan.html", zh: "模型选型", en: "Models", match: ["model-plan.html"] },
-  { href: "coding-plan.html", zh: "编程套餐", en: "Coding", match: ["coding-plan.html"] },
-  { href: "agent-plan.html", zh: "Agent", en: "Agent", match: ["agent-plan.html"] },
-  { href: "search-plan.html", zh: "搜索", en: "Search", match: ["search-plan.html"] },
-  { href: "video-plan.html", zh: "视频", en: "Video", match: ["video-plan.html"] },
-  { href: "image-plan.html", zh: "图像", en: "Image", match: ["image-plan.html"] },
-  { href: "voice-plan.html", zh: "语音", en: "Voice", match: ["voice-plan.html"] },
-  { href: "music-plan.html", zh: "音乐", en: "Music", match: ["music-plan.html"] },
-  { href: "learning-plan.html", zh: "学习", en: "Learning", match: ["learning-plan.html"] },
-  { href: "hardware-plan.html", zh: "硬件", en: "Hardware", match: ["hardware-plan.html"] },
-  { href: "ai-factory-plan.html", zh: "AI造物", en: "AI Factory", match: ["ai-factory-plan.html"] },
-  { type: "sep" },
-  { href: "ai-roi/", zh: "AI技能落地", en: "AI Skills Audit", match: ["ai-roi/", "ai-roi/index.html"] },
-  { href: "opc.html", zh: "一人公司", en: "OPC", match: ["opc.html", "opc-global.html", "opc-resources.html"] },
-  { href: "skill-plan.html", zh: "Skill", en: "Skill", match: ["skill-plan.html"] },
-  { href: "thinking-framework.html", zh: "AI第一思考", en: "Thinking", match: ["thinking-framework.html", "ask.html", "plan.html", "debug.html", "agent.html", "prompt-guide.html"] },
-  { href: "ai-encyclopedia-2026.html", zh: "AI百科", en: "Encyclopedia", match: ["ai-encyclopedia-2026.html"] },
-];
+const fs = require("fs");
+const path = require("path");
 
-const SITEMAP_URLS = [
-  { loc: "https://aiv123.com/", changefreq: "weekly", priority: "1.0" },
-  { loc: "https://aiv123.com/free-tier.html", changefreq: "weekly", priority: "0.85" },
-  { loc: "https://aiv123.com/ai-encyclopedia-2026.html", changefreq: "weekly", priority: "0.8" },
-  { loc: "https://aiv123.com/ai-roi/", changefreq: "weekly", priority: "0.8" },
-  { loc: "https://aiv123.com/skill-plan.html", changefreq: "monthly", priority: "0.75" },
-  { loc: "https://aiv123.com/prompt-guide.html", changefreq: "monthly", priority: "0.65" },
-  { loc: "https://aiv123.com/privacy.html", changefreq: "yearly", priority: "0.3" },
-  { loc: "https://aiv123.com/model-plan.html", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://aiv123.com/coding-plan.html", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://aiv123.com/agent-plan.html", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://aiv123.com/search-plan.html", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://aiv123.com/video-plan.html", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://aiv123.com/image-plan.html", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://aiv123.com/voice-plan.html", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://aiv123.com/music-plan.html", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://aiv123.com/learning-plan.html", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://aiv123.com/hardware-plan.html", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://aiv123.com/ai-factory-plan.html", changefreq: "monthly", priority: "0.7" },
-  { loc: "https://aiv123.com/plan.html", changefreq: "monthly", priority: "0.6" },
-  { loc: "https://aiv123.com/thinking-framework.html", changefreq: "monthly", priority: "0.6" },
-  { loc: "https://aiv123.com/token-optimization.html", changefreq: "monthly", priority: "0.72" },
-  { loc: "https://aiv123.com/ask.html", changefreq: "monthly", priority: "0.6" },
-  { loc: "https://aiv123.com/debug.html", changefreq: "monthly", priority: "0.6" },
-  { loc: "https://aiv123.com/agent.html", changefreq: "monthly", priority: "0.6" },
-  { loc: "https://aiv123.com/opc.html", changefreq: "monthly", priority: "0.6" },
-  { loc: "https://aiv123.com/opc-global.html", changefreq: "monthly", priority: "0.6" },
-  { loc: "https://aiv123.com/opc-resources.html", changefreq: "monthly", priority: "0.6" },
-  { loc: "https://aiv123.com/chrome/", changefreq: "monthly", priority: "0.7" },
-];
+const NAV_LINKS_PATH = path.join(__dirname, "nav-links.json");
+
+function loadNavData() {
+  const raw = JSON.parse(fs.readFileSync(NAV_LINKS_PATH, "utf8"));
+  return {
+    links: Array.isArray(raw.links) ? raw.links : [],
+    sitemap: Array.isArray(raw.sitemap) ? raw.sitemap : [],
+  };
+}
+
+function getSubpageNavLinks() {
+  return loadNavData().links.filter((item) => {
+    if (item.type === "sep") return (item.nav || ["sub"]).includes("sub");
+    return (item.nav || ["sub", "plan"]).includes("sub");
+  });
+}
+
+function getPlanNavLinks() {
+  return loadNavData()
+    .links.filter((item) => item.type !== "sep" && (item.nav || ["sub", "plan"]).includes("plan"))
+    .map((item) => ({
+      href: item.href,
+      zh: item.zh,
+      en: item.en,
+      match: item.match || [item.href],
+    }));
+}
+
+function getHomeTopPlanLinks() {
+  return loadNavData().links.filter(
+    (item) => item.type !== "sep" && (item.nav || []).includes("home") && item.homeGroup
+  );
+}
 
 function isActive(link, activePage) {
   if (!activePage || !link.match) return false;
@@ -65,20 +47,117 @@ function isActive(link, activePage) {
 
 function buildSubpageNav(activePage, lang) {
   const useEn = lang === "en";
-  return SUBPAGE_NAV_LINKS.map((item) => {
-    if (item.type === "sep") return '<span class="subnav-sep">·</span>';
-    const label = useEn ? item.en : item.zh;
-    const active = isActive(item, activePage);
-    const style = active ? ' style="color:var(--accent2);font-weight:700"' : "";
-    return `<a href="${item.href}"${style}>${label}</a>`;
-  }).join("\n        ");
+  return getSubpageNavLinks()
+    .map((item) => {
+      if (item.type === "sep") return '<span class="subnav-sep">·</span>';
+      const label = useEn ? item.en : item.zh;
+      const active = isActive(item, activePage);
+      const style = active ? ' style="color:var(--accent2);font-weight:700"' : "";
+      return `<a href="${item.href}"${style}>${label}</a>`;
+    })
+    .join("\n        ");
+}
+
+function buildHomeTopPlansHtml(esc) {
+  const escape =
+    typeof esc === "function"
+      ? esc
+      : (s) =>
+          String(s == null ? "" : s)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+
+  const items = getHomeTopPlanLinks();
+  const byGroup = { highlight: [], compare: [], landing: [], method: [] };
+  for (const item of items) {
+    if (byGroup[item.homeGroup]) byGroup[item.homeGroup].push(item);
+  }
+
+  function renderLink(item, opts) {
+    const zh = item.homeZh || item.zh;
+    const title = item.homeTitle || zh;
+    const highlight = opts && opts.highlight;
+    const i18n = item.homeI18n
+      ? ` data-i18n="${escape(item.homeI18n)}" data-i18n-title="${escape(item.homeI18n)}Title"`
+      : "";
+    const style = highlight ? ' style="color:var(--accent2);font-weight:600"' : "";
+    const breakAfter = item.homeBreakAfter ? '\n      <span class="top-plans-break"></span>' : "";
+    return `<a href="${escape(item.href)}" title="${escape(title)}"${i18n}${style}>${escape(zh)}</a>${breakAfter}`;
+  }
+
+  const parts = [];
+  for (const item of byGroup.highlight) parts.push(renderLink(item, { highlight: true }));
+  if (byGroup.compare.length) {
+    parts.push('<span class="top-plans-label">📊 横评</span>');
+    for (const item of byGroup.compare) parts.push(renderLink(item));
+  }
+  if (byGroup.landing.length) {
+    parts.push('<span class="top-plans-label">📋 落地</span>');
+    for (const item of byGroup.landing) parts.push(renderLink(item));
+  }
+  if (byGroup.method.length) {
+    parts.push('<span class="top-plans-label">🧠 方法论</span>');
+    for (const item of byGroup.method) parts.push(renderLink(item));
+  }
+  return parts.join("\n      ");
 }
 
 function buildSitemapXml() {
-  const body = SITEMAP_URLS.map(
-    (u) => `  <url>\n    <loc>${u.loc}</loc>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`
-  ).join("\n");
+  const { sitemap } = loadNavData();
+  const body = sitemap
+    .map(
+      (u) =>
+        `  <url>\n    <loc>${u.loc}</loc>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`
+    )
+    .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
 }
 
-module.exports = { SUBPAGE_NAV_LINKS, SITEMAP_URLS, buildSubpageNav, buildSitemapXml, isActive };
+/** Rewrite plan-nav.js LINKS from nav-links.json so file:// pages stay self-contained. */
+function syncPlanNavJs() {
+  const planNavPath = path.join(__dirname, "plan-nav.js");
+  let src = fs.readFileSync(planNavPath, "utf8");
+  const links = getPlanNavLinks();
+  const body = links
+    .map((item) => {
+      const match = JSON.stringify(item.match);
+      return `    { href: ${JSON.stringify(item.href)}, zh: ${JSON.stringify(item.zh)}, en: ${JSON.stringify(item.en)}, match: ${match} }`;
+    })
+    .join(",\n");
+  const next = src.replace(/var LINKS = \[[\s\S]*?\];/, `var LINKS = [\n${body}\n  ];`);
+  if (!/var LINKS = \[/.test(src)) {
+    console.warn("syncPlanNavJs: LINKS block not found in plan-nav.js");
+    return false;
+  }
+  if (next !== src) fs.writeFileSync(planNavPath, next, "utf8");
+  console.log("synced plan-nav.js from nav-links.json (", links.length, "links)");
+  return true;
+}
+
+module.exports = {
+  SUBPAGE_NAV_LINKS: null, // lazy; prefer getters
+  SITEMAP_URLS: null,
+  loadNavData,
+  getSubpageNavLinks,
+  getPlanNavLinks,
+  getHomeTopPlanLinks,
+  buildSubpageNav,
+  buildHomeTopPlansHtml,
+  buildSitemapXml,
+  syncPlanNavJs,
+  isActive,
+};
+
+// Keep backward-compatible enumerable snapshots
+Object.defineProperty(module.exports, "SUBPAGE_NAV_LINKS", {
+  get: getSubpageNavLinks,
+  enumerable: true,
+});
+Object.defineProperty(module.exports, "SITEMAP_URLS", {
+  get() {
+    return loadNavData().sitemap;
+  },
+  enumerable: true,
+});

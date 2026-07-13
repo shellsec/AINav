@@ -10,8 +10,14 @@
 const fs = require("fs");
 const path = require("path");
 const { loadEncyclopediaFullTable, ENCYCLOPEDIA_MD_PRIMARY } = require("./full-ai-encyclopedia.js");
-const { buildSubpageNav, buildSitemapXml } = require("./subpage-nav-html.js");
+const {
+  buildSubpageNav,
+  buildHomeTopPlansHtml,
+  buildSitemapXml,
+  syncPlanNavJs,
+} = require("./subpage-nav-html.js");
 const ROOT = __dirname;
+syncPlanNavJs();
 const siteDataPath = path.join(ROOT, "site-data.json");
 if (!fs.existsSync(siteDataPath)) {
   console.error("缺少 site-data.json，请先准备工具数据文件");
@@ -39,12 +45,14 @@ for (const [key, t] of Object.entries(tools)) {
 
 /** 可选 daily-tools.json：将「热门工具」等分类替换为自用日常清单（删文件即恢复包内默认） */
 const dailyPath = path.join(ROOT, "daily-tools.json");
+let hotToolsAsOf = "";
 if (fs.existsSync(dailyPath)) {
   try {
     const daily = JSON.parse(fs.readFileSync(dailyPath, "utf8"));
     const mode = daily.mode && String(daily.mode);
     const matchName =
       (daily.matchName && String(daily.matchName).trim()) || "热门工具";
+    if (daily.asOf) hotToolsAsOf = String(daily.asOf).trim();
     if (mode === "replace-hot" && Array.isArray(daily.items) && daily.items.length) {
       const normalized = daily.items
         .filter((t) => t && t.title && t.link)
@@ -260,10 +268,18 @@ if (fs.existsSync(appendLeafPath)) {
       const leafName = b.leaf && String(b.leaf).trim();
       const list = Array.isArray(b.tools) ? b.tools : [];
       if (!groupName || !leafName || !list.length) continue;
-      if (!appendToolsToLeaf(tree, groupName, leafName, list)) {
-        console.warn(
-          `append-leaf-tools.json: 未找到「${groupName}」/「${leafName}」，跳过该块`
-        );
+      const g = tree.find((n) => n.type === "group" && n.name === groupName);
+      if (!g || !Array.isArray(g.children)) {
+        console.warn(`append-leaf-tools.json: 未找到分组「${groupName}」，跳过`);
+        continue;
+      }
+      const leaf = g.children.find((c) => c.type === "leaf" && c.name === leafName);
+      if (!leaf || !Array.isArray(leaf.tools)) {
+        console.warn(`append-leaf-tools.json: 未找到「${groupName}」/「${leafName}」，跳过`);
+        continue;
+      }
+      if (appendToolsToLeaf(tree, groupName, leafName, list)) {
+        console.log(`append-leaf-tools.json: 已向「${groupName}/${leafName}」追加条目`);
       }
     }
   } catch (e) {
@@ -308,6 +324,27 @@ function esc(s) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function normalizeHintLink(link) {
+  try {
+    const u = new URL(link);
+    return u.origin + u.pathname.replace(/\/+$/, "");
+  } catch {
+    return String(link || "").replace(/\/+$/, "");
+  }
+}
+
+/** link → free-tier-hints entry（构建期给卡片打免费档标签） */
+const pricingHintMap = {};
+try {
+  const hintsRaw = JSON.parse(fs.readFileSync(path.join(ROOT, "free-tier-hints.json"), "utf8"));
+  for (const [rawLink, data] of Object.entries(hintsRaw)) {
+    if (rawLink === "_readme" || !data) continue;
+    pricingHintMap[normalizeHintLink(rawLink)] = data;
+  }
+} catch (e) {
+  /* optional */
 }
 
 /** Map Chinese category name → i18n key for data-i18n attribute */
@@ -843,7 +880,29 @@ function buildToolI18nInjection() {
 }
 const toolI18nInjection = buildToolI18nInjection();
 
-function renderTools(tools) {
+function inferCardTags(catName, tool) {
+  const tags = new Set();
+  const cat = String(catName || "");
+  const blob = `${cat} ${tool.title || ""} ${tool.subtitle || ""} ${tool.link || ""}`;
+  if (/热门/.test(cat)) tags.add("hot");
+  if (/聊天|对话|助手|Chat|LLM|模型/.test(blob) || /chat\.|claude\.ai|chatgpt|gemini\.google|grok\.com|doubao|yuanbao|kimi|deepseek|chatglm/i.test(blob)) {
+    tags.add("chat");
+  }
+  if (/编程|代码|Coding|开发|IDE|Cursor|Copilot|Claude Code/.test(blob)) tags.add("coding");
+  if (/图像|绘画|图片|Image|Midjourney|Stable Diffusion|绘图/.test(blob)) tags.add("image");
+  if (/视频|Video|可灵|Runway|Luma/.test(blob)) tags.add("video");
+  if (/语音|TTS|ASR|Voice|配音/.test(blob)) tags.add("voice");
+  if (/搜索|Search|Perplexity|秘塔/.test(blob)) tags.add("search");
+  if (/MCP|RAG|本地|推理|Ollama|知识库|Agent|智能体/.test(blob)) tags.add("build");
+  const cnHint =
+    /\.cn(?:\/|$)|doubao|deepseek|yuanbao|chatglm|kimi\.com|moonshot|通义|文心|智谱|腾讯|阿里|百度|字节|秘塔|元宝|豆包|清言/i.test(
+      blob
+    );
+  tags.add(cnHint ? "cn" : "intl");
+  return [...tags];
+}
+
+function renderTools(tools, catName) {
   const now = Date.now();
   const NEW_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
   return tools
@@ -853,15 +912,33 @@ function renderTools(tools) {
       const addedDate = t.added ? String(t.added) : "";
       const isNew = addedDate && (now - new Date(addedDate).getTime()) < NEW_MS;
       const newBadge = isNew ? `<span class="card-new-badge">🆕</span>` : "";
-      return `<article class="card${isNew ? " is-new" : ""}" data-link="${esc(t.link)}" data-title="${esc(t.title)}" data-subtitle="${esc(t.subtitle || "")}" data-avatar="${esc(t.avatar || "")}"${addedDate ? ` data-added="${esc(addedDate)}"` : ""}>
-<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏">☆</button>
+      const tags = inferCardTags(catName, t);
+      const tagsAttr = tags.length ? ` data-tags="${esc(tags.join(" "))}"` : "";
+      const hint = pricingHintMap[normalizeHintLink(t.link)];
+      const freeLevel = hint && hint.freeLevel ? String(hint.freeLevel) : "";
+      const freeAttr = freeLevel ? ` data-free="${esc(freeLevel)}"` : "";
+      const priceBadge = freeLevel
+        ? `<span class="card-price-badge" title="来自免费额度已核实数据">${esc(freeLevel)}</span>`
+        : "";
+      const regionLabel = tags.includes("cn") ? "国内" : tags.includes("intl") ? "国际" : "";
+      const regionBadge = regionLabel
+        ? `<span class="card-region-badge">${esc(regionLabel)}</span>`
+        : "";
+      const ftLink = freeLevel
+        ? `<a class="card-meta" href="free-tier.html?q=${esc(encodeURIComponent(t.title))}" data-i18n="cardFreeTier">免费额度</a>`
+        : "";
+      return `<article class="card${isNew ? " is-new" : ""}" data-link="${esc(t.link)}" data-title="${esc(t.title)}" data-subtitle="${esc(t.subtitle || "")}" data-avatar="${esc(t.avatar || "")}"${addedDate ? ` data-added="${esc(addedDate)}"` : ""}${tagsAttr}${freeAttr}>
+<button type="button" class="card-star" aria-label="加入常用收藏" title="常用收藏" data-i18n-title="favTitle">☆</button>
+<button type="button" class="card-compare" aria-label="加入对比" title="加入对比" data-i18n-aria="compareAddAria" data-i18n-title="compareAdd">⇄</button>
 <a class="card-main" href="${esc(t.link)}" target="_blank" rel="noopener noreferrer">
 ${img ? `<img class="card-icon" src="${esc(img)}" alt="" width="40" height="40" loading="lazy" decoding="async" onerror="fallbackIcon(this)">` : `<span class="card-icon-ph"></span>`}
 <div class="card-body">
 <h3 class="card-title">${esc(t.title)}${newBadge}</h3>
+${priceBadge || regionBadge ? `<div class="card-badges">${priceBadge}${regionBadge}</div>` : ""}
 <p class="card-desc">${esc(t.subtitle || "")}</p>
 </div>
 </a>
+${ftLink}
 ${detail ? `<a class="card-meta" href="${esc(detail)}" target="_blank" rel="noopener noreferrer">站内详情</a>` : ""}
 </article>`;
     })
@@ -876,10 +953,15 @@ function renderSections(nodes) {
         n.id === "ext-token-optimize"
           ? `<p class="block-guide"><a href="token-optimization.html">安装配置与最佳实践 →</a></p>`
           : "";
+      const asOfNote =
+        /热门/.test(n.name || "") && hotToolsAsOf
+          ? `<p class="block-asof"><span data-i18n="hotAsOfPrefix">模型信息截至</span> ${esc(hotToolsAsOf)}</p>`
+          : "";
       parts.push(`<section class="block" id="${esc(n.id)}">
 <h2 class="block-title"${catI18nAttr(n.name)}>${esc(n.name)}</h2>
+${asOfNote}
 ${guideLink}
-<div class="grid">${renderTools(n.tools)}</div>
+<div class="grid">${renderTools(n.tools, n.name)}</div>
 </section>`);
     } else if (n.type === "group") {
       parts.push(`<section class="block group" id="${esc(n.id)}">
@@ -1278,6 +1360,40 @@ const html = `<!DOCTYPE html>
     }
     .block.is-search-hidden { display: none; }
     .card.is-search-hidden { display: none; }
+    .tag-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.55rem 0 0.15rem;
+      align-items: center;
+    }
+    .tag-filters-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-right: 0.15rem;
+    }
+    .tag-chip {
+      font-size: 0.72rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--muted);
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .tag-chip:hover { color: var(--text); border-color: var(--accent); }
+    .tag-chip.is-active {
+      color: var(--accent);
+      border-color: var(--accent);
+      font-weight: 600;
+      background: rgba(88, 166, 255, 0.08);
+    }
+    .block-asof {
+      margin: -0.15rem 0 0.55rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
     .theme-btn {
       font-size: 0.72rem;
       padding: 0.2rem 0.5rem;
@@ -1396,6 +1512,142 @@ const html = `<!DOCTYPE html>
     .card-star.is-on {
       color: var(--star-on);
     }
+    .card-compare {
+      position: absolute;
+      top: 6px;
+      right: 38px;
+      z-index: 3;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border: none;
+      border-radius: 6px;
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.85rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+    .card-compare:hover { color: var(--accent); }
+    .card-compare.is-on {
+      color: var(--accent);
+      font-weight: 700;
+      border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+    .card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-top: 0.28rem;
+    }
+    .card-price-badge,
+    .card-region-badge {
+      font-size: 0.65rem;
+      line-height: 1.2;
+      padding: 0.12rem 0.35rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--panel);
+    }
+    .card-price-badge {
+      color: var(--accent2);
+      border-color: color-mix(in srgb, var(--accent2) 35%, var(--border));
+      background: color-mix(in srgb, var(--accent2) 10%, transparent);
+    }
+    .compare-dock {
+      position: fixed;
+      left: 50%;
+      bottom: 1.1rem;
+      transform: translateX(-50%);
+      z-index: 120;
+      max-width: min(92vw, 42rem);
+      width: max-content;
+    }
+    .compare-dock[hidden] { display: none !important; }
+    .compare-dock-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem 0.55rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+      backdrop-filter: blur(8px);
+    }
+    .compare-dock-label { font-size: 0.78rem; font-weight: 700; color: var(--accent); }
+    .compare-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .compare-chip {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .compare-chip:hover { border-color: var(--accent); color: var(--accent); }
+    .compare-dock-actions { display: flex; gap: 0.35rem; margin-left: auto; }
+    .compare-dock-btn {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .compare-dock-btn.primary {
+      background: color-mix(in srgb, var(--accent) 18%, var(--panel));
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .compare-panel {
+      position: fixed;
+      inset: 0;
+      z-index: 130;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .compare-panel[hidden] { display: none !important; }
+    .compare-panel-box {
+      width: min(96vw, 52rem);
+      max-height: min(82vh, 36rem);
+      overflow: auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.1rem 1.15rem;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    }
+    .compare-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .compare-panel-head h3 { margin: 0; font-size: 1rem; }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .compare-table th, .compare-table td {
+      border-bottom: 1px solid var(--border);
+      padding: 0.45rem 0.4rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    .compare-table th { color: var(--muted); font-weight: 600; width: 5.5rem; }
+    .compare-table a { color: var(--accent); }
     .card-main {
       display: flex;
       gap: 0.75rem;
@@ -1639,6 +1891,9 @@ const html = `<!DOCTYPE html>
       .lang-float,
       .compare-bar,
       .card-star,
+      .card-compare,
+      .compare-dock,
+      .compare-panel,
       .top-toolbar,
       .top-promo-badge,
       .top-promo-features,
@@ -1701,27 +1956,7 @@ const html = `<!DOCTYPE html>
       </div>
     </div>
     <div class="top-plans">
-      <a href="free-tier.html" title="AI工具免费额度、刷新周期与新用户礼一览" data-i18n="freeTier" data-i18n-title="freeTierTitle" style="color:var(--accent2);font-weight:600">🆓 免费额度</a>
-      <a href="token-optimization.html" title="Cursor / Claude Code / Codex Token 优化安装配置与最佳实践" data-i18n="tokenOptimize" data-i18n-title="tokenOptimizeTitle" style="color:var(--accent2);font-weight:600">Token优化</a>
-      <span class="top-plans-label">📊 横评</span>
-      <a href="model-plan.html" title="AI模型选型横评·国内+海外旗舰">模型选型</a>
-      <a href="coding-plan.html" title="国内外AI编程套餐价格对比与选购推荐" data-i18n="codingPlan" data-i18n-title="codingPlanTitle">编程套餐</a>
-      <a href="agent-plan.html" title="AI Agent横评对比与场景推荐">Agent</a>
-      <a href="search-plan.html" title="AI搜索工具横评对比与场景推荐">搜索套餐</a>
-      <a href="video-plan.html" title="AI视频生成套餐价格对比与场景推荐">视频套餐</a>
-      <a href="image-plan.html" title="AI图像生成套餐价格对比与场景推荐">图像套餐</a>
-      <span class="top-plans-break"></span>
-      <a href="voice-plan.html" title="AI语音工具横评对比与场景推荐">语音套餐</a>
-      <a href="music-plan.html" title="AI音乐工具横评对比与场景推荐">音乐套餐</a>
-      <a href="learning-plan.html" title="AI学习平台横评对比与场景推荐">学习套餐</a>
-      <a href="hardware-plan.html" title="AI硬件横评对比与选购推荐">硬件横评</a>
-      <a href="ai-factory-plan.html" title="AI造物流水线·从创意到商品">AI造物</a>
-      <span class="top-plans-label">📋 落地</span>
-      <a href="ai-roi/" title="180+ 场景与技能 · 清单到落地 · ROI · 离线可用" data-i18n="aiRoi" data-i18n-title="aiRoiTitle">AI 技能落地自查</a>
-      <a href="opc.html" title="一人公司·AI赋能个体创业">一人公司</a>
-      <a href="skill-plan.html" title="AI Skill最佳实践·先用再写一站式指南">Skill最佳实践</a>
-      <span class="top-plans-label">🧠 方法论</span>
-      <a href="thinking-framework.html" title="Ask · Plan · Debug · Agent · 提示词指南" data-i18n="thinkingFramework" data-i18n-title="thinkingFrameworkTitle">AI第一思考</a>
+      ${buildHomeTopPlansHtml(esc)}
     </div>
     <div class="top-promo" aria-label="合作推广：多模型 API 接入" data-i18n-aria="promoAria">
       <div class="top-promo-head">
@@ -1738,6 +1973,18 @@ const html = `<!DOCTYPE html>
   <div class="layout">
     <aside><button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="展开/收起导航" data-i18n-aria="sidebarToggleAria" data-i18n="sidebarToggle">☰ 导航</button>${navHtml}</aside>
     <main>
+      <div class="tag-filters" id="tagFilters" role="group" aria-label="场景筛选" data-i18n-aria="tagFiltersAria">
+        <span class="tag-filters-label" data-i18n="tagFiltersLabel">筛选</span>
+        <button type="button" class="tag-chip is-active" data-tag="" data-i18n="tagAll">全部</button>
+        <button type="button" class="tag-chip" data-tag="chat" data-i18n="tagChat">对话</button>
+        <button type="button" class="tag-chip" data-tag="coding" data-i18n="tagCoding">编程</button>
+        <button type="button" class="tag-chip" data-tag="search" data-i18n="tagSearch">搜索</button>
+        <button type="button" class="tag-chip" data-tag="image" data-i18n="tagImage">图像</button>
+        <button type="button" class="tag-chip" data-tag="video" data-i18n="tagVideo">视频</button>
+        <button type="button" class="tag-chip" data-tag="cn" data-i18n="tagCn">国内</button>
+        <button type="button" class="tag-chip" data-tag="intl" data-i18n="tagIntl">国际</button>
+        <button type="button" class="tag-chip" data-tag="build" data-i18n="tagBuild">Agent/RAG</button>
+      </div>
       <section class="block fav-block is-empty" id="fav-block">
         <h2 class="block-title" data-i18n="catFav">常用收藏 <span class="fav-hint" data-i18n="favHint">点击各卡片右上角星标固定到此处</span><span class="fav-actions"><button type="button" class="fav-action-btn" id="favExport" data-i18n="favExport">导出</button><button type="button" class="fav-action-btn" id="favImport" data-i18n="favImport">导入</button></span></h2>
         <p class="fav-empty" id="favEmpty">暂无收藏；在下方分类中点亮 ☆ 即可出现在这里（数据保存在本机浏览器）。</p>
@@ -1765,6 +2012,25 @@ const html = `<!DOCTYPE html>
     <button type="button" class="lang-btn" data-lang-set="zh">中</button>
   </div>
   <button type="button" class="back-to-top" id="backToTop" aria-label="返回顶部" title="返回顶部" data-i18n-aria="backTopAria" data-i18n="backTop">↑ Top</button>
+  <div class="compare-dock" id="compareDock" hidden>
+    <div class="compare-dock-inner">
+      <span class="compare-dock-label" data-i18n="compareLabel">对比</span>
+      <div class="compare-chips" id="compareChips"></div>
+      <div class="compare-dock-actions">
+        <button type="button" class="compare-dock-btn primary" id="compareOpen" data-i18n="compareOpen">查看对比</button>
+        <button type="button" class="compare-dock-btn" id="compareClear" data-i18n="compareClear">清空</button>
+      </div>
+    </div>
+  </div>
+  <div class="compare-panel" id="comparePanel" hidden>
+    <div class="compare-panel-box" role="dialog" aria-modal="true" aria-labelledby="comparePanelTitle">
+      <div class="compare-panel-head">
+        <h3 id="comparePanelTitle" data-i18n="comparePanelTitle">工具对比</h3>
+        <button type="button" class="compare-dock-btn" id="compareClose" data-i18n="compareClose">关闭</button>
+      </div>
+      <div id="comparePanelBody"></div>
+    </div>
+  </div>
   <script>
 function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('article.card').getAttribute('data-link')).hostname}catch(e){}var srcs=['https://icons.duckduckgo.com/ip3/'+d+'.ico','https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=64'];if(d&&el._fb<srcs.length){el.src=srcs[el._fb++]}else{var t=el.closest('article.card');var ch=(t?t.getAttribute('data-title'):'').trim().charAt(0).toUpperCase()||'?';var pl=['#0969da','#1a7f37','#bf3989','#8250df','#cf222e','#953800','#0550ae','#116329'];var sp=document.createElement('span');sp.className='card-icon-ph';sp.style.cssText='display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;border-radius:8px;background:'+pl[ch.charCodeAt(0)%pl.length];sp.textContent=ch;el.replaceWith(sp)}}
 (function () {
@@ -1930,6 +2196,138 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
 
   applyFavs(loadFavs());
 
+  /* ---- Compare basket (max 4) ---- */
+  var COMPARE_KEY = "ainav-compare-v1";
+  var COMPARE_MAX = 4;
+  function loadCompare() {
+    try {
+      var raw = localStorage.getItem(COMPARE_KEY);
+      if (!raw) return [];
+      var a = JSON.parse(raw);
+      return Array.isArray(a) ? a.slice(0, COMPARE_MAX) : [];
+    } catch (e) { return []; }
+  }
+  function saveCompare(list) {
+    try { localStorage.setItem(COMPARE_KEY, JSON.stringify(list.slice(0, COMPARE_MAX))); } catch (e) {}
+  }
+  function syncCompareBtns(list) {
+    var map = {};
+    for (var i = 0; i < list.length; i++) map[list[i].link] = true;
+    document.querySelectorAll("article.card .card-compare").forEach(function (btn) {
+      var art = btn.closest("article.card");
+      if (!art || art.closest("#favGrid")) return;
+      var on = !!map[art.getAttribute("data-link")];
+      btn.classList.toggle("is-on", on);
+      var lang = (function(){ try { return localStorage.getItem("ainav-lang")||"zh"; }catch(e){return"zh";} })();
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.title = on ? (lang==="en"?"Remove from compare":"移出对比") : (lang==="en"?"Add to compare":"加入对比");
+    });
+  }
+  function renderCompareDock(list) {
+    var dock = document.getElementById("compareDock");
+    var chips = document.getElementById("compareChips");
+    if (!dock || !chips) return;
+    dock.hidden = list.length === 0;
+    chips.innerHTML = "";
+    list.forEach(function (item, idx) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "compare-chip";
+      b.textContent = item.title || item.link;
+      b.title = "移除";
+      b.addEventListener("click", function () {
+        var next = loadCompare();
+        next.splice(idx, 1);
+        saveCompare(next);
+        applyCompare(next);
+      });
+      chips.appendChild(b);
+    });
+  }
+  function applyCompare(list) {
+    syncCompareBtns(list);
+    renderCompareDock(list);
+  }
+  function toggleCompare(art) {
+    if (!art) return;
+    var item = {
+      link: art.getAttribute("data-link") || "",
+      title: art.getAttribute("data-title") || "",
+      subtitle: art.getAttribute("data-subtitle") || "",
+      free: art.getAttribute("data-free") || "",
+      tags: art.getAttribute("data-tags") || "",
+    };
+    if (!item.link) return;
+    var list = loadCompare();
+    var idx = -1;
+    for (var i = 0; i < list.length; i++) if (list[i].link === item.link) { idx = i; break; }
+    if (idx >= 0) {
+      list.splice(idx, 1);
+    } else {
+      if (list.length >= COMPARE_MAX) {
+        var lang = (function(){ try { return localStorage.getItem("ainav-lang")||"zh"; }catch(e){return"zh";} })();
+        alert(lang === "en" ? "Compare up to " + COMPARE_MAX + " tools" : "最多对比 " + COMPARE_MAX + " 个工具");
+        return;
+      }
+      list.push(item);
+    }
+    saveCompare(list);
+    applyCompare(list);
+  }
+  function openComparePanel() {
+    var list = loadCompare();
+    var panel = document.getElementById("comparePanel");
+    var body = document.getElementById("comparePanelBody");
+    if (!panel || !body || !list.length) return;
+    var lang = (function(){ try { return localStorage.getItem("ainav-lang")||"zh"; }catch(e){return"zh";} })();
+    var rows = [
+      { k: lang==="en"?"Name":"名称", v: list.map(function(i){ return '<a href="'+i.link+'" target="_blank" rel="noopener noreferrer">'+escHtml(i.title||i.link)+'</a>'; }) },
+      { k: lang==="en"?"Summary":"简介", v: list.map(function(i){ return escHtml(i.subtitle||"—"); }) },
+      { k: lang==="en"?"Free tier":"免费档", v: list.map(function(i){ return escHtml(i.free|| (lang==="en"?"Unverified":"未核实")); }) },
+      { k: lang==="en"?"Tags":"标签", v: list.map(function(i){ return escHtml((i.tags||"").replace(/\s+/g,", ")||"—"); }) },
+      { k: lang==="en"?"Links":"链接", v: list.map(function(i){
+        return '<a href="'+i.link+'" target="_blank" rel="noopener noreferrer">'+(lang==="en"?"Open":"打开")+'</a>' +
+          ' · <a href="free-tier.html">'+(lang==="en"?"Free tier":"免费额度")+'</a>';
+      }) },
+    ];
+    var html = '<table class="compare-table"><tbody>';
+    rows.forEach(function(r){
+      html += '<tr><th>'+r.k+'</th>' + r.v.map(function(c){ return '<td>'+c+'</td>'; }).join('') + '</tr>';
+    });
+    html += '</tbody></table>';
+    if (list.length >= 2) {
+      html += '<p style="margin:0.75rem 0 0;font-size:0.78rem;color:var(--muted)">' +
+        (lang==="en"
+          ? 'Tip: for coding/agent plans see Coding / Agent comparison pages.'
+          : '提示：编程/Agent 深度横评见「编程套餐」「Agent」页。') +
+        ' <a href="coding-plan.html">coding-plan</a> · <a href="agent-plan.html">agent-plan</a> · <a href="model-plan.html">model-plan</a></p>';
+    }
+    body.innerHTML = html;
+    panel.hidden = false;
+  }
+  function escHtml(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  document.addEventListener("click", function (e) {
+    var cmp = e.target.closest(".card-compare");
+    if (cmp) {
+      var art = cmp.closest("article.card");
+      if (!art || art.closest("#favGrid")) return;
+      e.preventDefault();
+      e.stopPropagation();
+      toggleCompare(art);
+      return;
+    }
+    if (e.target.id === "compareOpen") { openComparePanel(); return; }
+    if (e.target.id === "compareClear") { saveCompare([]); applyCompare([]); return; }
+    if (e.target.id === "compareClose" || e.target.id === "comparePanel") {
+      var panel = document.getElementById("comparePanel");
+      if (panel) panel.hidden = true;
+    }
+  }, true);
+  applyCompare(loadCompare());
+
   function setTheme(mode) {
     if (mode !== "light" && mode !== "dark" && mode !== "system") mode = "system";
     document.documentElement.setAttribute("data-theme", mode);
@@ -2005,11 +2403,12 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
     });
   }
 
-  /* ---- Global Search ---- */
+  /* ---- Global Search + Tag Filters ---- */
   var searchInput = document.getElementById("globalSearch");
   var searchCountEl = document.getElementById("searchCount");
   var allBlocks = document.querySelectorAll("main > .block, main .block.group > .block");
   var allCards = document.querySelectorAll("main article.card:not(.fav-card)");
+  var activeTag = "";
   var searchTimer;
   if (searchInput) {
     searchInput.addEventListener("input", function () {
@@ -2020,20 +2419,26 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
       if (e.key === "Escape") { searchInput.value = ""; runGlobalSearch(); searchInput.blur(); }
     });
   }
+  document.querySelectorAll("#tagFilters .tag-chip").forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      activeTag = chip.getAttribute("data-tag") || "";
+      document.querySelectorAll("#tagFilters .tag-chip").forEach(function (c) {
+        c.classList.toggle("is-active", c === chip);
+      });
+      runGlobalSearch();
+    });
+  });
   function runGlobalSearch() {
-    var q = (searchInput.value || "").trim().toLowerCase();
+    var q = (searchInput && searchInput.value || "").trim().toLowerCase();
     var visible = 0;
-    if (!q) {
-      allCards.forEach(function (c) { c.classList.remove("is-search-hidden"); });
-      allBlocks.forEach(function (b) { b.classList.remove("is-search-hidden"); });
-      searchCountEl.textContent = "";
-      return;
-    }
     allCards.forEach(function (c) {
       if (c.closest("#favGrid")) return;
       var title = (c.getAttribute("data-title") || "").toLowerCase();
       var sub = (c.getAttribute("data-subtitle") || "").toLowerCase();
-      var show = title.indexOf(q) >= 0 || sub.indexOf(q) >= 0;
+      var tags = (c.getAttribute("data-tags") || "").toLowerCase().split(/\s+/);
+      var matchQ = !q || title.indexOf(q) >= 0 || sub.indexOf(q) >= 0;
+      var matchTag = !activeTag || tags.indexOf(activeTag) >= 0;
+      var show = matchQ && matchTag;
       c.classList.toggle("is-search-hidden", !show);
       if (show) visible++;
     });
@@ -2041,7 +2446,12 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
       var hasCards = b.querySelectorAll("article.card:not(.fav-card):not(.is-search-hidden)");
       b.classList.toggle("is-search-hidden", hasCards.length === 0);
     });
+    if (!searchCountEl) return;
     var curLang = (function(){ try { return localStorage.getItem("ainav-lang") || "zh"; } catch(e){ return "zh"; } })();
+    if (!q && !activeTag) {
+      searchCountEl.textContent = "";
+      return;
+    }
     if (curLang === "en") {
       searchCountEl.textContent = visible ? visible + " items" : "No results";
     } else {
@@ -2123,6 +2533,26 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
       en: {
         /* -- top bar -- */
         searchPlaceholder: "Search tools… ( / or Ctrl+K )",
+        tagFiltersAria: "Scenario filters",
+        tagFiltersLabel: "Filter",
+        tagAll: "All",
+        tagChat: "Chat",
+        tagCoding: "Coding",
+        tagSearch: "Search",
+        tagImage: "Image",
+        tagVideo: "Video",
+        tagCn: "China",
+        tagIntl: "Intl",
+        tagBuild: "Agent/RAG",
+        hotAsOfPrefix: "Model info as of",
+        compareLabel: "Compare",
+        compareOpen: "Open",
+        compareClear: "Clear",
+        compareClose: "Close",
+        comparePanelTitle: "Tool compare",
+        compareAdd: "Add to compare",
+        compareAddAria: "Add to compare",
+        cardFreeTier: "Free tier",
         toolbarLabel: "Appearance",
         encyclopedia: "AI Encyclopedia",
         encyclopediaTitle: "AI Tool Encyclopedia – Free Tiers & Descriptions",
@@ -2220,6 +2650,26 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
       zh: {
         /* -- top bar -- */
         searchPlaceholder: "搜索工具名称或描述… ( / 或 Ctrl+K )",
+        tagFiltersAria: "场景筛选",
+        tagFiltersLabel: "筛选",
+        tagAll: "全部",
+        tagChat: "对话",
+        tagCoding: "编程",
+        tagSearch: "搜索",
+        tagImage: "图像",
+        tagVideo: "视频",
+        tagCn: "国内",
+        tagIntl: "国际",
+        tagBuild: "Agent/RAG",
+        hotAsOfPrefix: "模型信息截至",
+        compareLabel: "对比",
+        compareOpen: "查看对比",
+        compareClear: "清空",
+        compareClose: "关闭",
+        comparePanelTitle: "工具对比",
+        compareAdd: "加入对比",
+        compareAddAria: "加入对比",
+        cardFreeTier: "免费额度",
         toolbarLabel: "外观",
         encyclopedia: "AI工具百科",
         encyclopediaTitle: "AI工具百科全书免费额度与产品说明",
@@ -2540,7 +2990,7 @@ function buildFreeTierDashboard() {
       seenLinks.add(nl);
       let title = "";
       try { const u = new URL(rawLink); title = u.hostname.replace(/^www\./, ""); } catch { title = rawLink; }
-      toolEntries.push({ key: "hint-" + slugify(nl), title, subtitle: "", avatar: "", link: rawLink, path: "", category: "", hint: data });
+      toolEntries.push({ key: "hint-" + slugify(nl), title, subtitle: "", avatar: "", link: rawLink, path: "", category: "", hint: data, source: "manual" });
     }
   }
 
@@ -2548,15 +2998,35 @@ function buildFreeTierDashboard() {
   const LEVEL_ORDER = { "完全免费": 0, "软件免费": 1, "开源免费（自托管）": 2, "部分免费": 3, "免费访问": 4, "浏览免费": 5, "文档免费": 6, "按次计费": 7, "因站而异": 8 };
   function levelSort(lv) { return LEVEL_ORDER[lv] != null ? LEVEL_ORDER[lv] : 9; }
 
-  // Sort by level then title
-  toolEntries.sort((a, b) => levelSort(a.hint.freeLevel) - levelSort(b.hint.freeLevel) || a.title.localeCompare(b.title, "zh"));
+  // Sort: verified first, then level, then title
+  toolEntries.sort((a, b) => {
+    const am = a.source === "manual" ? 0 : 1;
+    const bm = b.source === "manual" ? 0 : 1;
+    if (am !== bm) return am - bm;
+    return levelSort(a.hint.freeLevel) - levelSort(b.hint.freeLevel) || a.title.localeCompare(b.title, "zh");
+  });
 
   // Stats
   const levelCounts = {};
+  let manualCount = 0;
+  let inferredCount = 0;
   for (const t of toolEntries) {
     const lv = t.hint.freeLevel || "未标注";
     levelCounts[lv] = (levelCounts[lv] || 0) + 1;
+    if (t.source === "manual") manualCount++;
+    else inferredCount++;
   }
+
+  let priorityCoverage = "";
+  try {
+    const priPath = path.join(ROOT, "free-tier-priority.json");
+    if (fs.existsSync(priPath)) {
+      const pri = JSON.parse(fs.readFileSync(priPath, "utf8"));
+      const priLinks = (pri.links || []).map((l) => normalizeLink(l));
+      const ok = priLinks.filter((l) => hintMap[l]).length;
+      priorityCoverage = `优先清单已核实 <strong>${ok}/${priLinks.length}</strong>`;
+    }
+  } catch (e) {}
 
   // Render cards
   function levelBadgeClass(lv) {
@@ -2593,7 +3063,7 @@ ${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
   // Level filter chips
   const levelChipEntries = Object.entries(levelCounts).sort((a,b) => levelSort(a[0]) - levelSort(b[0]));
   const levelChipsHtml = levelChipEntries.map(([lv, cnt]) =>
-    `<button type="button" class="ft-chip${lv === "部分免费" ? " is-active" : ""}" data-filter-level="${esc(lv)}">${esc(lv)} <span class="ft-chip-count">${cnt}</span></button>`
+    `<button type="button" class="ft-chip" data-filter-level="${esc(lv)}">${esc(lv)} <span class="ft-chip-count">${cnt}</span></button>`
   ).join("");
 
   // Category filter
@@ -2723,6 +3193,12 @@ ${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
     .ft-source { font-size: 0.58rem; padding: 0.05rem 0.32rem; border-radius: 3px; font-weight: 600; white-space: nowrap; margin-left: 0.25rem; vertical-align: middle; }
     .ft-source-manual { background: rgba(63,185,80,0.12); color: var(--accent2); border: 1px solid rgba(63,185,80,0.25); }
     .ft-source-inferred { background: rgba(139,156,179,0.1); color: var(--muted); border: 1px solid rgba(139,156,179,0.2); }
+    .ft-trust {
+      max-width: 80rem; margin: 0 auto 0.85rem; padding: 0.65rem 0.85rem;
+      border: 1px solid rgba(63,185,80,0.28); border-radius: 8px;
+      background: rgba(63,185,80,0.06); color: var(--text); font-size: 0.82rem; line-height: 1.55;
+    }
+    .ft-trust strong { color: var(--accent2); }
 
     .ft-no-results { text-align: center; padding: 3rem 1rem; color: var(--muted); font-size: 0.95rem; }
 
@@ -2777,8 +3253,16 @@ ${h && h.note ? `<p class="ft-card-note">${esc(h.note)}</p>` : ""}
   <div class="ft-wrap">
     <h1>🆓 AI工具免费额度一览</h1>
     <p class="ft-subtitle">哪个AI免费？DeepSeek、ChatGPT、Claude、Gemini免费额度全收录，一键筛选比价</p>
+    <div class="ft-trust">
+      <strong>可信度说明：</strong>标「已核实」的条目来自手工维护的 hints；其余为规则推断，仅供参考，务必以官网计费为准。
+      当前已核实 <strong>${manualCount}</strong> / 共 <strong>${toolEntries.length}</strong>
+      ${priorityCoverage ? " · " + priorityCoverage : ""}
+      · 构建时间 ${esc(generatedAtLabel)}
+    </div>
     <div class="ft-stats">
       <span>已收录 <strong>${totalCount}</strong> 款工具</span>
+      <span>已核实 <strong>${manualCount}</strong></span>
+      <span>推断 <strong>${inferredCount}</strong></span>
       ${Object.entries(levelCounts).sort((a,b)=>levelSort(a[0])-levelSort(b[0])).map(([lv,c])=>`<span>${lv} <strong>${c}</strong></span>`).join("")}
     </div>
     <div class="ft-search-wrap">
@@ -2880,7 +3364,12 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
     var timer;
     searchInput.addEventListener("input",function(){clearTimeout(timer);timer=setTimeout(runFilter,100);});
     searchInput.addEventListener("keydown",function(e){if(e.key==="Escape"){searchInput.value="";runFilter();searchInput.blur();}});
+    try{
+      var q0=new URLSearchParams(location.search).get("q");
+      if(q0) searchInput.value=q0;
+    }catch(e){}
   }
+  runFilter();
 
   // Level chips
   var levelChips=document.querySelectorAll("#ftLevelChips .ft-chip");

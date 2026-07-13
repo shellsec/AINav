@@ -16,7 +16,6 @@
       zh: { h1: "🏭 AI 造物计划", sub: "10x / 100x / 1000x 三档造物路径：设计→打样→上架，工具与成本实测。" },
       en: { h1: "🏭 AI Factory Plan", sub: "10x / 100x / 1000x paths from design to listing — tools and costs verified." },
     },
-    },
     "skill-plan.html": {
       zh: { h1: "⚡ AI Skill 最佳实践", sub: "先用起来 > 再选好 > 最后才写 — 一条命令装完三大必装合集，立刻享受生产级 AI 编程" },
       en: { h1: "⚡ AI Skill Best Practices", sub: "Use first, curate second, author last — one-command installs for production AI coding." },

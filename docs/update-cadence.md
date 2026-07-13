@@ -47,7 +47,7 @@ node build-html-data.js
 |--------|-------------|--------|
 | 扩展导航 | `nav-extensions.json` | 新代表产品、死链、与热门/plan 重复是否必要 |
 | 媒体类 plan | `video/image/voice/music/search/learning-plan.html` | 停服归档、性价比表、新模型替换 |
-| 顶栏与交叉链 | `nav-extensions.json`、`subpage-nav-html.js`、`plan-nav.js` | 新专题是否进顶栏 |
+| 顶栏与交叉链 | `nav-links.json`（同步 `plan-nav.js` / 子站顶栏） | 新专题是否进顶栏 |
 | 百科（快层相关行） | `Full_AI_Encyclopedia_Final_Verified_2026.md` | 仅「热门工具」+ 近期改过的扩展分类行，**不必全表扫** |
 | 英文 | `i18n-en.json` / `build-i18n-en.cjs` | 热门、plan 改完后顺带补 title/desc |
 

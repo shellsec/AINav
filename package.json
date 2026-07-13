@@ -2,7 +2,7 @@
   "name": "ainav",
   "version": "1.0.0",
   "private": false,
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "description": "AINav — 本地 AI 工具导航：从 site-data.json 与扩展配置生成 index / 百科页，数据本地维护",
   "repository": {
     "type": "git",
@@ -11,6 +11,10 @@
   "scripts": {
     "build": "node build-html-data.js",
     "icons": "node download-icons.mjs",
-    "check:hints": "node scripts/check-free-tier-hints.js"
+    "check:hints": "node scripts/check-free-tier-hints.js",
+    "check:hints:all": "node scripts/check-free-tier-hints.js --all",
+    "check:links": "node scripts/audit-links.mjs",
+    "check:dead": "node scripts/check-dead-links.mjs",
+    "check": "node scripts/audit-links.mjs && node scripts/check-free-tier-hints.js"
   }
 }

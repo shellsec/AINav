@@ -1,6 +1,6 @@
 # AINav
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/shellsec/AINav/blob/main/LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 **[English](./README.md)** | 中文
 
@@ -9,92 +9,135 @@
 开源不易，欢迎赞助支持：  
 👉 [爱发电](https://ifdian.net/a/shellsec)
 
-本地 **AI 工具导航页**：从 `site-data.json`（本地维护的分类与工具数据）生成 `index.html` 与百科页；可通过 `nav-extensions.json` 追加扩展分类（API 聚合、MCP、RAG、本地推理等）。
+本地 **AI 工具导航站**：从 `site-data.json` 生成 `index.html`、免费额度页与百科页；可用 `nav-extensions.json` 追加扩展分类（API 聚合、MCP、RAG、本地推理等）。另含编程/Agent/模型等横评页、`ai-roi/` 技能落地自查等专题。
 
 ## 环境要求
 
-- **Node.js** 18+（需支持 `fetch`，用于 `download-icons.mjs`；`build-html-data.js` 使用 CommonJS）
+- **Node.js** 18+（`download-icons.mjs` / 死链检测需要 `fetch`；`build-html-data.js` 为 CommonJS）
 
 ## 快速开始
 
 ```bash
-# 1. 生成 index.html 与百科页
-node build-html-data.js
+# 1. 生成 index.html、free-tier.html、百科页、sitemap（并同步 plan-nav）
+npm run build
+# 或：node build-html-data.js
 
-# 2.（可选）下载图标到 ./icons/，再生成一次以使用本地图标
-node download-icons.mjs
-node build-html-data.js
+# 2.（可选）下载图标到 ./icons/，再构建一次以使用本地图标
+npm run icons
+npm run build
 ```
 
-用浏览器打开 **`index.html`** 即可使用；页脚有 **「各工具免费额度 · 计费参考表」** 链到百科页。
+用浏览器打开 **`index.html`** 即可。页眉/页脚可进入 **免费额度**、各横评页与百科。
+
+## 常用命令
+
+```bash
+npm run build            # 生成页面；从 nav-links.json 同步 plan-nav.js
+npm run icons            # 按 avatar 下载图标
+npm run check            # 链接一致性 + 优先免费额度 hints 门禁
+npm run check:hints      # 仅检查 free-tier-priority.json 白名单是否已核实
+npm run check:hints:all  # 全量 hints 覆盖率（缺一条也会 exit 1）
+npm run check:links      # site / extensions / 百科占位 URL 静态审计
+npm run check:dead       # HTTP 探测热门 + 优先白名单外链（加 --ext 含扩展分类）
+```
+
+CI（`.github/workflows/ci.yml`）在 push / PR 时会跑：`build` → `audit-links` → `check:hints` → `check:dead`（死链步骤允许失败以免偶发网络误伤）。
 
 ## 页面功能（纯前端）
 
-- **常用收藏**：每张工具卡右上角可点亮星标；收藏区在正文最上方「常用收藏」，侧栏有 **★ 常用收藏** 锚点跳转。列表保存在浏览器 **`localStorage`**（键名 `ainav-favorites-v1`），支持导入/导出。
-- **浅色 / 深色 / 跟随系统**：页眉有主题按钮，写入 **`localStorage`**（`ainav-theme`：`light` | `dark` | `system`）。`system` 与系统 `prefers-color-scheme` 联动；打印样式会尽量压暗侧栏与装饰，便于投影与纸质阅读。
-- **中英文切换**：工具栏点击 `中` / `EN` 按钮即可切换 UI 文案与分类名；工具卡描述保持原语言。偏好保存在 `localStorage`（`ainav-lang`）。
-- **搜索快捷键**：按 `/` 或 `Ctrl+K`（Mac ⌘K）可直接聚焦搜索框。
-- **GitHub 链接**：工具栏右侧 GitHub 图标跳转到仓库。
-- **回到顶部**：滚动后右下角出现浮动按钮，一键回到页首。
-- **构建时间**：每次执行 `node build-html-data.js` 会在页脚展示构建时间。
-- **免费额度参考页**：**`free-tier.html`** 列出当前菜单树中**去重后的全部产品链接**，正文说明来自 **`free-tier-hints.json`**（手工维护）；未维护的条目显示「未标注」，**务必以各产品官网计费为准**。运行 `node scripts/check-free-tier-hints.js` 可查看 hints 覆盖率。
+### 首页 `index.html`
+
+- **常用收藏**：卡片右上角 ☆；正文顶部「常用收藏」+ 侧栏锚点。数据在 `localStorage`（`ainav-favorites-v1`），支持导入/导出。
+- **轻量对比**：卡片「⇄」加入对比篮（最多 **4** 个，`ainav-compare-v1`）；底部托盘可打开对照表，并链到编程 / Agent / 模型横评。
+- **场景筛选**：对话 / 编程 / 搜索 / 图像 / 视频 / 国内 / 国际 / Agent·RAG，可与搜索叠加。
+- **免费档 / 地区角标**：若 `link` 命中 `free-tier-hints.json`，卡片显示免费档（如「部分免费」）及国内/国际标签；可跳转 `free-tier.html?q=产品名`。
+- **热门时效**：`daily-tools.json` 的 `asOf` 会显示为「模型信息截至 YYYY-MM-DD」。
+- **浅色 / 深色 / 跟随系统**：`ainav-theme` = `light` | `dark` | `system`。
+- **中 / EN**：UI 与分类名切换；工具描述可走 `i18n-en.json`。偏好键 `ainav-lang`。
+- **搜索**：`/` 或 `Ctrl+K`（Mac ⌘K）聚焦搜索框。
+- **顶栏横评入口**：由 `nav-links.json` 生成（与子站顶栏同源）。
+- **构建时间**：页脚展示每次 `npm run build` 的生成时间。
+
+### 免费额度 `free-tier.html`
+
+- 菜单树去重后的产品列表；支持搜索、免费等级 / 分类 / **已核实·推断** 筛选。
+- **已核实**来自手工 `free-tier-hints.json`；其余为规则推断，页顶有可信度说明。
+- 列表默认 **已核实优先**；仍以各产品官网计费为准。
+
+### 其它页面（节选）
+
+| 页面 | 说明 |
+|------|------|
+| `ai-encyclopedia-2026.html` | 百科长表（源：`Full_AI_Encyclopedia_Final_Verified_2026.md`） |
+| `*-plan.html` / `token-optimization.html` | 模型、编程、Agent、媒体等横评；顶栏用 `plan-nav.js` |
+| `opc.html` 等 | 一人公司专题 |
+| `thinking-framework.html` / `ask`·`plan`·`debug`·`agent` | AI 第一思考框架 |
+| `ai-roi/` | 技能落地自查 · ROI（独立子应用） |
 
 ## 仓库内主要文件
 
 | 文件 | 说明 |
 |------|------|
-| `index.html` | 导航页面（构建产物，可直接打开） |
-| `free-tier.html` | **免费额度仪表盘**（构建产物） |
-| `plan-nav.js` | 横评页 / OPC 统一顶栏（注入脚本） |
-| `ai-roi/` | AI 接入自查 · 覆盖率 & ROI |
-| `docs/DATA-SOURCES.md` | 数据源说明与百科合并评估 |
-| `docs/update-cadence.md` | 各频道维护节奏（建议每 1～2 周巡检快层） |
-| `site-data.json` | 本地维护的菜单树与工具数据（JSON，项目核心数据源） |
-| `build-html-data.js` | 读取 `site-data.json`、合并扩展、写出 `index.html` 与百科页 |
-| `download-icons.mjs` | 根据 `site-data.json` 中的 `avatar` 下载图标，生成 `icons/manifest.json` |
-| `nav-extensions.json` | **本地扩展分类**：在基础数据后追加多个大类及工具条目 |
-| `category-order.json` | **可选**：一级分类与子分组顺序（见下文） |
-| `daily-tools.json` | **可选**：替换「热门工具」条目为日常清单 |
-| `free-tier-hints.json` | **可选**：按产品 `link` 填写免费档、额度、周期、新用户赠送等 |
-| `icons/` | 本地化图标目录（可选） |
+| `index.html` / `free-tier.html` / `ai-encyclopedia-2026.html` | 构建产物，可直接打开 |
+| `site-data.json` | 核心：菜单树与工具数据 |
+| `build-html-data.js` | 合并配置并写出上述 HTML + `sitemap.xml` |
+| `nav-links.json` | **子站顶栏 / 首页横评条 / plan-nav / sitemap 唯一数据源** |
+| `plan-nav.js` | 横评页顶栏脚本（构建时由 `nav-links.json` 同步 LINKS） |
+| `subpage-nav-html.js` | 构建期子站导航 HTML / sitemap / 同步 plan-nav |
+| `nav-extensions.json` | 扩展分类（可 merge 到已有大类） |
+| `category-order.json` | 可选：一级与子分组顺序 |
+| `daily-tools.json` | 可选：替换「热门工具」；可写 `asOf` |
+| `append-leaf-tools.json` | 可选：向「分组/叶子」追加工具 |
+| `free-tier-hints.json` | 按产品 `link` 手工填写免费档等 |
+| `free-tier-priority.json` | 优先核实白名单（CI / `check:hints` 门禁） |
+| `free-tier-infer.js` | 无 hints 时的推断规则 |
+| `i18n-en.json` | 工具英文 title/desc |
+| `download-icons.mjs` / `icons/` | 图标下载与本地目录 |
+| `docs/DATA-SOURCES.md` | 双轨数据源与合并评估 |
+| `docs/update-cadence.md` | 内容更新节奏建议 |
+| `ai-roi/` | AI 技能落地自查 |
+| `.github/workflows/ci.yml` | 构建与检查流水线 |
+
+## 顶栏与导航（改一处即可）
+
+跨页顶栏链接统一维护在 **`nav-links.json`**：
+
+1. 编辑 `links`（及可选 `sitemap`）。
+2. 执行 `npm run build`。
+3. 构建会：写入子站顶栏、生成首页「横评/落地/方法论」条、同步 `plan-nav.js` 的 `LINKS`、更新 `sitemap.xml`。
+
+条目字段要点：`href` / `zh` / `en` / `match`；`nav` 含 `sub` | `plan` | `home`；首页分组用 `homeGroup`（`highlight` | `compare` | `landing` | `method`）。
 
 ## 热门工具 · 日常向调整
 
-默认「热门工具」来自上游包里的排序。若希望改成 **自用日常高频** 清单：
+1. 编辑 **`daily-tools.json`**（`mode: "replace-hot"` 替换名为「热门工具」的分类）。
+2. 建议填写 **`asOf": "YYYY-MM-DD"`**，首页热门区会显示时效。
+3. `npm run build`。恢复默认：删文件或改掉 `mode` 后再构建。
 
-1. 编辑项目根目录 **`daily-tools.json`**（已提供示例：`mode: "replace-hot"` 会替换名为「热门工具」的分类）。
-2. 执行 `node build-html-data.js`。
-3. **恢复包内默认**：删除 `daily-tools.json` 或把 `mode` 改成非 `replace-hot`，再构建。
+`items` 可写 `title`、`subtitle`、`link`；可选 `avatar`。
 
-`items` 中可写 `title`、`subtitle`、`link`；可选 `avatar`（如 `icon/ChatGPT.png`）以便与已有 `icons/manifest.json` 对齐显示本地图标。
+当前「热门」**不是**实时排行榜，顺序即 `items` 数组顺序。真·热门需自建统计后再手工写回。
 
-### 「热门」排序怎么定？
+## 免费额度维护
 
-当前仓库内的「热门」**不是**实时排行榜：`daily-tools.json` 里 **`items` 数组顺序就是页面展示顺序**，完全由你本地维护。
+1. 在 **`free-tier-hints.json`** 用产品 `link`（建议与导航一致）填写 `freeLevel`、`quota`、`dailyCycle`、`firstBonus`、`note`、`updated`。
+2. 把必须长期核实的产品 `link` 放进 **`free-tier-priority.json`**（通常含热门 + 旗舰）。
+3. `npm run check:hints` 通过后再 `npm run build`。
 
-建议的分层思路（**当前 `daily-tools.json` 已按此精简为 12 条**，可按团队习惯再改）：
-
-1. **国内通用对话**：DeepSeek、豆包、Kimi、通义、文心（BAT+新锐，覆盖多数中文日常）。
-2. **国际旗舰对话**：ChatGPT、Claude、Gemini、Grok。
-3. **搜索 / 研究向**：Perplexity、秘塔（与纯聊天区分）。
-4. **高频效率**：沉浸式翻译（读外网/论文极常用）。
-
-已从热门里拿掉、避免首屏臃肿的：**Copilot**（与 ChatGPT/Edge 场景重叠）、**跃问 / MiMo / MiniMax 海螺**（垂类或账号门槛）、**Manus**（Agent 代表可留在下方「AI 聊天」等分类找）、**Notion AI**（笔记向，非通用对话）。需要时把对应条目从备份或上游分类抄回 `items` 即可。
-
-若要 **数据驱动的真·热门**，需要自建统计（例如托管页用短链/分析、或仅团队内投票表），再把结果**手工写回** `items` 顺序；本仓库构建脚本不会自动拉取第三方 MAU。
+未在 hints 中的条目会走推断并标「推断」；全站覆盖率可用 `npm run check:hints:all` 查看（默认门禁不要求 100%）。
 
 ## 分类顺序（侧边栏）
 
-编辑 **`category-order.json`**（可选）：
+编辑 **`category-order.json`**：
 
-- **`topLevel`**：字符串数组，按你想要的顺序列出**一级分类**。每一项填侧边栏上的**显示名称**（`name`），或扩展分类的 **`id`**（如 `ext-api-router`）。未出现在列表里的分类会**自动排在后面**，并保持它们之间的原有相对顺序。
-- **`childrenOrder`**：对象，键为**一级分组名**（如 `"AI 办公工具"`），值为该组下**子分类**名称数组，用于调整「办公工具 → 幻灯片 / 思维导图 …」等顺序。
+- **`topLevel`**：一级分类 `name` 或扩展 `id` 的期望顺序；未列出的排在后面。
+- **`childrenOrder`**：键为一级分组名，值为子分类名数组。
 
-修改后执行 `node build-html-data.js`。删除 `category-order.json` 即恢复默认顺序（包内 + 扩展追加顺序）。
+改完执行 `npm run build`。
 
 ## 自定义扩展分类
 
-编辑 **`nav-extensions.json`**，在 `categories` 数组中增加或修改对象：
+编辑 **`nav-extensions.json`** 的 `categories`：
 
 ```json
 {
@@ -110,27 +153,20 @@ node build-html-data.js
 }
 ```
 
-- **`id`**：可选，用作页面锚点（会经脚本规范化），便于侧栏跳转。
-- **`avatar`**：可选，指定本地图标路径（如 `icon/ChatGPT.png`）。
+- **`id`**：可选锚点（会规范化）。
+- **`avatar`**：可选本地图标路径。
 
-保存后执行：
-
-```bash
-node build-html-data.js
-```
+若扩展 `name`/`id` 与已有叶子分类相同，会 **合并** 到该类，而不是新建顶栏项。保存后 `npm run build`。
 
 ## 数据维护
 
-所有工具数据存储在 **`site-data.json`** 中，可直接编辑：
+- **新增工具**：在 `site-data.json` 对应 `tools` 中加 `title` + `link`（可选 `subtitle`、`avatar`），或走 `nav-extensions.json` / `append-leaf-tools.json`。
+- **新增分类**：`menus` 增加 leaf/group，或用扩展 JSON。
+- **改后必跑**：`npm run build`。
+- 扩展与外链为人工维护，请定期 `npm run check:dead` 抽检。
 
-- **新增工具**：在对应分类的 `tools` 数组中添加条目（需含 `title`、`link`，可选 `subtitle`、`avatar`）。
-- **新增分类**：在 `menus` 数组中添加 `{ type: "leaf", name: "分类名", id: "slug", tools: [...] }`，或使用 `nav-extensions.json` 追加。
-- **修改后**：执行 `node build-html-data.js` 重新生成页面。
-
-也可以通过 `nav-extensions.json` 扩展（见上文），避免直接修改 `site-data.json`。
-
-扩展区条目为人工维护链接，不保证第三方站点长期可用；请按需自行增删。
+更细的更新节奏见 [`docs/update-cadence.md`](./docs/update-cadence.md)；数据源双轨说明见 [`docs/DATA-SOURCES.md`](./docs/DATA-SOURCES.md)。
 
 ## 许可
 
-[MIT License](https://github.com/shellsec/AINav/blob/main/LICENSE) — 仅覆盖本仓库中的脚本、配置与自建数据。所收录工具的名称、图标与链接归各自服务商所有，使用时请遵守目标网站服务条款。
+[GPLv3](https://www.gnu.org/licenses/gpl-3.0) — 仅覆盖本仓库中的脚本、配置与自建数据；衍生作品须按 GPLv3 开源。所收录工具的名称、图标与链接归各自服务商所有，使用时请遵守目标网站服务条款。

@@ -1,0 +1,21 @@
+{
+  "_readme": "免费额度「优先核实」白名单：CI / check:hints 仅对这些 link 强制要求有 free-tier-hints.json 条目。通常含热门工具 + 常见旗舰。键请与产品 link 一致（可带或不带尾斜杠）。",
+  "links": [
+    "https://chat.deepseek.com/",
+    "https://www.doubao.com/chat",
+    "https://yuanbao.tencent.com/",
+    "https://chatgpt.com/",
+    "https://claude.ai/",
+    "https://gemini.google.com/",
+    "https://grok.com/",
+    "https://cursor.com/",
+    "https://chatglm.cn/",
+    "https://www.kimi.com/",
+    "https://www.perplexity.ai/",
+    "https://manus.im/",
+    "https://tongyi.aliyun.com/qianwen/",
+    "https://yiyan.baidu.com/",
+    "https://metaso.cn/",
+    "https://copilot.microsoft.com/"
+  ]
+}

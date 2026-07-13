@@ -9,73 +9,133 @@ English | **[中文](./README.zh-CN.md)**
 Open source takes effort — sponsorship is welcome:  
 👉 [爱发电 / Afdian](https://ifdian.net/a/shellsec)
 
-A local **AI Tool Navigator** — generates `index.html` and an encyclopedia page from `site-data.json` (locally maintained categories & tools). Extend with `nav-extensions.json` for additional categories (API aggregators, MCP, RAG, local inference, etc.).
+A local **AI tool navigator**: builds `index.html`, a free-tier dashboard, and an encyclopedia page from `site-data.json`. Extend categories via `nav-extensions.json` (API routers, MCP, RAG, local inference, etc.). Also includes comparison (`*-plan.html`) pages and an `ai-roi/` skills/ROI audit app.
 
 ## Requirements
 
-- **Node.js** 18+ (`fetch` support for `download-icons.mjs`; `build-html-data.js` uses CommonJS)
+- **Node.js** 18+ (`fetch` for `download-icons.mjs` / dead-link checks; `build-html-data.js` is CommonJS)
 
 ## Quick Start
 
 ```bash
-# 1. Generate index.html and encyclopedia page
-node build-html-data.js
+# 1. Generate index.html, free-tier.html, encyclopedia, sitemap (+ sync plan-nav)
+npm run build
+# or: node build-html-data.js
 
-# 2. (Optional) Download icons to ./icons/, then rebuild to use local icons
-node download-icons.mjs
-node build-html-data.js
+# 2. (Optional) Download icons, then rebuild
+npm run icons
+npm run build
 ```
 
-Open **`index.html`** in your browser. The footer links to the **AI Tools Encyclopedia** page.
+Open **`index.html`** in a browser. Header/footer link to free-tier, plan pages, and the encyclopedia.
+
+## Commands
+
+```bash
+npm run build            # regenerate pages; sync plan-nav.js from nav-links.json
+npm run icons            # download icons from avatar fields
+npm run check            # link consistency + priority free-tier hints gate
+npm run check:hints      # require free-tier-priority.json links to be in hints
+npm run check:hints:all  # full hints coverage (exit 1 if any missing)
+npm run check:links      # static audit: site vs extensions, placeholder URLs
+npm run check:dead       # HTTP probe hot + priority links (add --ext for extensions)
+```
+
+CI (`.github/workflows/ci.yml`) on push/PR runs: `build` → `audit-links` → `check:hints` → `check:dead` (`check:dead` is `continue-on-error` to avoid flaky network failures).
 
 ## Page Features (Pure Frontend)
 
-- **Favorites**: Star any tool card; favorites appear at the top under "常用收藏" with a sidebar anchor. Saved in `localStorage` (`ainav-favorites-v1`). Import/export supported.
-- **Light / Dark / System theme**: Toggle in the header. Stored in `localStorage` (`ainav-theme`: `light` | `dark` | `system`). System mode follows `prefers-color-scheme`.
-- **Chinese / English switching**: Click `中` / `EN` buttons in the toolbar to switch UI text and category names. Tool card descriptions remain in their original language. Preference saved in `localStorage` (`ainav-lang`).
-- **Search shortcuts**: Press `/` or `Ctrl+K` (⌘K on Mac) to focus the search box.
-- **GitHub link**: A GitHub icon in the toolbar links to the repo.
-- **Back to top**: A floating button appears on scroll for quick navigation back.
-- **Build timestamp**: Shown in the footer after each `node build-html-data.js` run.
-- **Free-tier reference**: The encyclopedia page lists all products with free-tier info from `free-tier-hints.json` (manually maintained). Unlisted entries show "未标注" — always refer to official pricing.
+### Home — `index.html`
+
+- **Favorites**: star on each card; top “常用收藏” block + sidebar anchor. Stored in `localStorage` (`ainav-favorites-v1`); import/export supported.
+- **Compare basket**: “⇄” on cards (max **4**, key `ainav-compare-v1`); bottom dock opens a small compare table and links to Coding / Agent / Model plan pages.
+- **Scenario filters**: Chat / Coding / Search / Image / Video / China / Intl / Agent·RAG (combinable with search).
+- **Pricing / region badges**: if a tool `link` matches `free-tier-hints.json`, the card shows free-tier level and a China/Intl tag; links to `free-tier.html?q=…`.
+- **Hot tools freshness**: `daily-tools.json` `asOf` renders as “model info as of YYYY-MM-DD”.
+- **Theme**: light / dark / system (`ainav-theme`).
+- **ZH / EN UI**: toolbar toggle (`ainav-lang`); tool copy may use `i18n-en.json`.
+- **Search shortcuts**: `/` or `Ctrl+K` (⌘K on Mac).
+- **Top plan bar**: generated from `nav-links.json` (same source as subpage nav).
+- **Build timestamp**: footer shows last `npm run build` time.
+
+### Free tier — `free-tier.html`
+
+- Deduped products from the menu tree; search + filters by level / category / **verified vs inferred**.
+- **Verified** rows come from hand-maintained `free-tier-hints.json`; others are rule-inferred (trust banner on page).
+- List prefers verified entries first. Always defer to official pricing.
+
+### Other surfaces (selected)
+
+| Page | Role |
+|------|------|
+| `ai-encyclopedia-2026.html` | Long encyclopedia table (from Markdown source) |
+| `*-plan.html` / `token-optimization.html` | Model / coding / agent / media comparisons (`plan-nav.js`) |
+| `opc.html` etc. | One-person company guides |
+| `thinking-framework.html` + ask/plan/debug/agent | “AI-first thinking” framework |
+| `ai-roi/` | Skills landing checklist & ROI (standalone) |
 
 ## Key Files
 
 | File | Description |
 |------|-------------|
-| `index.html` | Navigator page (build output, open directly) |
-| `ai-encyclopedia-2026.html` | **AI Tools Encyclopedia** (build output) |
-| `site-data.json` | Locally maintained menu tree & tool data (core data source) |
-| `build-html-data.js` | Reads `site-data.json`, merges extensions, outputs HTML pages |
-| `download-icons.mjs` | Downloads icons from `avatar` fields, generates `icons/manifest.json` |
-| `nav-extensions.json` | **Extension categories**: append custom sections & tools |
-| `category-order.json` | **Optional**: top-level & sub-category ordering |
-| `daily-tools.json` | **Optional**: replace "热门工具" with your own picks |
-| `free-tier-hints.json` | **Optional**: free-tier info per product |
-| `icons/` | Local icon directory (optional) |
+| `index.html` / `free-tier.html` / `ai-encyclopedia-2026.html` | Build outputs (open directly) |
+| `site-data.json` | Core menu tree & tools |
+| `build-html-data.js` | Merge configs → HTML + `sitemap.xml` |
+| `nav-links.json` | **Single source** for subpage nav, home plan bar, plan-nav, sitemap |
+| `plan-nav.js` | Plan-page top nav (LINKS synced from `nav-links.json` on build) |
+| `subpage-nav-html.js` | Build-time nav HTML / sitemap / plan-nav sync |
+| `nav-extensions.json` | Extra categories (may merge into existing leaves) |
+| `category-order.json` | Optional top-level & child order |
+| `daily-tools.json` | Optional “热门工具” replacement; optional `asOf` |
+| `append-leaf-tools.json` | Optional append tools under group/leaf |
+| `free-tier-hints.json` | Manual free-tier notes keyed by product `link` |
+| `free-tier-priority.json` | Priority links that `check:hints` / CI must cover |
+| `free-tier-infer.js` | Inference when no manual hint |
+| `i18n-en.json` | English titles/descriptions |
+| `download-icons.mjs` / `icons/` | Icon download & local assets |
+| `docs/DATA-SOURCES.md` | Dual data sources & merge notes |
+| `docs/update-cadence.md` | Suggested content update cadence |
+| `ai-roi/` | Skills / ROI audit app |
+| `.github/workflows/ci.yml` | Build & check pipeline |
 
-## Custom "Hot Tools" (Daily Picks)
+## Navigation (edit once)
 
-Edit **`daily-tools.json`** to replace the default "热门工具" section with your own frequently-used list:
+Cross-page nav lives in **`nav-links.json`**:
 
-1. Edit `daily-tools.json` (set `mode: "replace-hot"` to replace the default).
-2. Run `node build-html-data.js`.
-3. **Restore defaults**: Delete `daily-tools.json` or change `mode` to something other than `replace-hot`, then rebuild.
+1. Edit `links` (and optional `sitemap`).
+2. Run `npm run build`.
+3. Build updates subpage nav, home plan bar, `plan-nav.js` `LINKS`, and `sitemap.xml`.
 
-Each item in `items` can include `title`, `subtitle`, `link`, and optionally `avatar` (e.g. `icon/ChatGPT.png`).
+Useful fields: `href` / `zh` / `en` / `match`; `nav` includes `sub` | `plan` | `home`; home groups use `homeGroup` (`highlight` | `compare` | `landing` | `method`).
+
+## Custom “Hot Tools”
+
+1. Edit **`daily-tools.json`** (`mode: "replace-hot"` replaces the “热门工具” section).
+2. Set **`asOf": "YYYY-MM-DD"`** so the home section shows freshness.
+3. `npm run build`. Restore defaults by deleting the file or changing `mode`.
+
+Item fields: `title`, `subtitle`, `link`, optional `avatar`. Order of `items` is display order (not a live ranking).
+
+## Free-tier maintenance
+
+1. Add entries to **`free-tier-hints.json`** keyed by product `link` (`freeLevel`, `quota`, `dailyCycle`, `firstBonus`, `note`, `updated`).
+2. Keep must-verify products in **`free-tier-priority.json`** (usually hot tools + flagships).
+3. Pass `npm run check:hints`, then `npm run build`.
+
+Missing hints are inferred and labeled “inferred”. Full coverage: `npm run check:hints:all` (not required by default CI gate).
 
 ## Category Order (Sidebar)
 
-Edit **`category-order.json`** (optional):
+Edit **`category-order.json`**:
 
-- **`topLevel`**: String array of top-level category names or extension `id`s in your preferred order. Unlisted categories appear after, in their original order.
-- **`childrenOrder`**: Object mapping a parent group name to an array of child category names for ordering.
+- **`topLevel`**: preferred order of category `name`s or extension `id`s; unlisted keep relative order at the end.
+- **`childrenOrder`**: map parent group name → child name array.
 
-Run `node build-html-data.js` after changes. Delete the file to restore default order.
+Then `npm run build`.
 
 ## Extension Categories
 
-Edit **`nav-extensions.json`**, add objects to the `categories` array:
+Edit **`nav-extensions.json`** `categories`:
 
 ```json
 {
@@ -91,26 +151,19 @@ Edit **`nav-extensions.json`**, add objects to the `categories` array:
 }
 ```
 
-- **`id`**: Optional, used as page anchor (normalized by the script).
-- **`avatar`**: Optional, local icon path (e.g. `icon/ChatGPT.png`).
+- **`id`**: optional anchor (normalized).
+- **`avatar`**: optional local icon path.
 
-Then run:
-
-```bash
-node build-html-data.js
-```
+If `name`/`id` matches an existing leaf, tools are **merged** into it. Then `npm run build`.
 
 ## Data Maintenance
 
-All tool data lives in **`site-data.json`** — edit directly:
+- **Add a tool**: `site-data.json` `tools` (`title` + `link`; optional `subtitle`, `avatar`), or use `nav-extensions.json` / `append-leaf-tools.json`.
+- **Add a category**: leaf/group under `menus`, or extensions JSON.
+- **After edits**: always `npm run build`.
+- Periodically run `npm run check:dead` on hot/priority links.
 
-- **Add a tool**: Append to the `tools` array of the target category (requires `title` and `link`; optional `subtitle`, `avatar`).
-- **Add a category**: Append `{ type: "leaf", name: "Category", id: "slug", tools: [...] }` to `menus`, or use `nav-extensions.json`.
-- **After changes**: Run `node build-html-data.js` to regenerate pages.
-
-Alternatively, use `nav-extensions.json` to avoid modifying `site-data.json` directly.
-
-Extension entries are manually maintained links; third-party sites may become unavailable over time.
+See [`docs/update-cadence.md`](./docs/update-cadence.md) and [`docs/DATA-SOURCES.md`](./docs/DATA-SOURCES.md).
 
 ## License
 

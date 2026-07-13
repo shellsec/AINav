@@ -27,8 +27,10 @@
 
 | 文件 | 用途 |
 |------|------|
-| `free-tier-hints.json` | 免费额度手工标注（运行 `node scripts/check-free-tier-hints.js` 查覆盖率） |
-| `daily-tools.json` | 覆盖「热门工具」顺序 |
+| `free-tier-hints.json` | 免费额度手工标注（`npm run check:hints` 查优先白名单；`--all` 看全量） |
+| `free-tier-priority.json` | 优先核实 link 列表（热门/旗舰） |
+| `nav-links.json` | 子站顶栏 / plan-nav / sitemap 唯一源 |
+| `daily-tools.json` | 覆盖「热门工具」顺序（可含 `asOf`） |
 | `nav-extensions.json` | 扩展大类（MCP、RAG 等） |
 | `i18n-en.json` | 工具卡英文 title/desc |
 

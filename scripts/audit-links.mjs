@@ -21,7 +21,7 @@ function walkTools(nodes, out = []) {
 
 const site = JSON.parse(fs.readFileSync(path.join(root, "site-data.json"), "utf8"));
 const ext = JSON.parse(fs.readFileSync(path.join(root, "nav-extensions.json"), "utf8"));
-const siteTools = walkTools(site.tree || []);
+const siteTools = walkTools(site.menus || site.tree || []);
 const extTools = (ext.categories || []).flatMap((c) =>
   (c.tools || []).map((t) => ({
     title: String(t.title || "").trim(),

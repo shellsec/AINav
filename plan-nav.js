@@ -8,7 +8,7 @@
   script.setAttribute("data-plan-nav-done", "1");
 
   var LINKS = [
-    { href: "index.html", zh: "← AINav 首页", en: "← AINav Home", match: ["index.html"] },
+    { href: "index.html", zh: "← AINav 首页", en: "← AINav Home", match: ["index.html",""] },
     { href: "free-tier.html", zh: "🆓 免费额度", en: "🆓 Free Tier", match: ["free-tier.html"] },
     { href: "token-optimization.html", zh: "Token优化", en: "Token Opt", match: ["token-optimization.html"] },
     { href: "model-plan.html", zh: "模型选型", en: "Models", match: ["model-plan.html"] },
@@ -22,11 +22,11 @@
     { href: "learning-plan.html", zh: "学习", en: "Learning", match: ["learning-plan.html"] },
     { href: "hardware-plan.html", zh: "硬件", en: "Hardware", match: ["hardware-plan.html"] },
     { href: "ai-factory-plan.html", zh: "AI造物", en: "AI Factory", match: ["ai-factory-plan.html"] },
-    { href: "ai-roi/", zh: "AI技能落地", en: "AI Skills Audit", match: ["ai-roi/", "ai-roi/index.html"] },
-    { href: "opc.html", zh: "一人公司", en: "OPC", match: ["opc.html", "opc-global.html", "opc-resources.html"] },
+    { href: "ai-roi/", zh: "AI技能落地", en: "AI Skills Audit", match: ["ai-roi/","ai-roi/index.html"] },
+    { href: "opc.html", zh: "一人公司", en: "OPC", match: ["opc.html","opc-global.html","opc-resources.html"] },
     { href: "skill-plan.html", zh: "Skill", en: "Skill", match: ["skill-plan.html"] },
-    { href: "thinking-framework.html", zh: "AI第一思考", en: "Thinking", match: ["thinking-framework.html"] },
-    { href: "ai-encyclopedia-2026.html", zh: "AI百科", en: "Encyclopedia", match: ["ai-encyclopedia-2026.html"] },
+    { href: "thinking-framework.html", zh: "AI第一思考", en: "Thinking", match: ["thinking-framework.html","ask.html","plan.html","debug.html","agent.html","prompt-guide.html"] },
+    { href: "ai-encyclopedia-2026.html", zh: "AI百科", en: "Encyclopedia", match: ["ai-encyclopedia-2026.html"] }
   ];
 
   var activePage = script.getAttribute("data-active") || location.pathname.split("/").pop() || "";

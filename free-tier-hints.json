@@ -135,5 +135,45 @@
     "firstBonus": "—",
     "note": "与个人免费版 Notion 权益请对照官网",
     "updated": "2026-04"
+  },
+  "https://yuanbao.tencent.com/": {
+    "freeLevel": "部分免费",
+    "quota": "腾讯元宝网页/客户端通常有免费对话；高级能力与会员另计",
+    "dailyCycle": "以腾讯账户与产品内公示为准",
+    "firstBonus": "活动以官网为准",
+    "note": "与微信生态深度绑定",
+    "updated": "2026-07"
+  },
+  "https://cursor.com/": {
+    "freeLevel": "部分免费",
+    "quota": "Hobby 免费档含有限 Agent/补全；Pro 等订阅含用量池",
+    "dailyCycle": "免费档限额以 Cursor 当前政策为准",
+    "firstBonus": "新用户试用以官网为准",
+    "note": "详见站内 Token 优化与编程套餐横评",
+    "updated": "2026-07"
+  },
+  "https://chatglm.cn/": {
+    "freeLevel": "部分免费",
+    "quota": "智谱清言网页常有免费对话；Coding Plan / API 另计费",
+    "dailyCycle": "以智谱账户与套餐为准",
+    "firstBonus": "—",
+    "note": "GLM 开源权重与网页产品权益分离",
+    "updated": "2026-07"
+  },
+  "https://www.kimi.com/": {
+    "freeLevel": "部分免费",
+    "quota": "免费用户有基础用量；高峰或长上下文可能受限",
+    "dailyCycle": "以月之暗面官方说明为准",
+    "firstBonus": "—",
+    "note": "与 kimi.moonshot.cn 为同产品入口",
+    "updated": "2026-07"
+  },
+  "https://manus.im/": {
+    "freeLevel": "部分免费",
+    "quota": "通常提供有限免费试用/积分；完整 Agent 能力需付费档",
+    "dailyCycle": "以官网账户与套餐为准",
+    "firstBonus": "新用户赠送以活动页为准",
+    "note": "通用 Agent，额度变化快，务必以官网为准",
+    "updated": "2026-07"
   }
 }

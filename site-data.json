@@ -5658,6 +5658,14 @@
           "path": ""
         },
         {
+          "key": "api-32",
+          "title": "CoderPlan",
+          "subtitle": "LLM API 中转，OpenAI 兼容接口，按量付费，支持 Claude/GPT/Gemini/DeepSeek 全模型",
+          "avatar": "icon/CoderPlan.png",
+          "link": "https://coderplan.ai/",
+          "path": ""
+        },
+        {
           "key": "ext-AI-模型-API--路由聚合--推理云-1",
           "title": "OpenRouter Models",
           "subtitle": "模型目录：筛选文本/图像/嵌入等，比价、上下文与吞吐量",

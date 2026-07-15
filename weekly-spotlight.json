@@ -1,0 +1,61 @@
+{
+  "_readme": "首页「本周精选 + 更新」数据源。每周改 picks（建议 3 条）与 updates；构建时 npm run build。href 优先链站内详情。",
+  "weekOf": "2026-07-15",
+  "introZh": "AINav：导航找得到，详情与横评帮你判断适不适合用。",
+  "introEn": "AINav: find tools fast, then use detail pages and comparisons to decide what fits.",
+  "picks": [
+    {
+      "title": "ZCode",
+      "blurbZh": "智谱官方 ADE，GLM-5.2 + Coding Plan 原生适配，国内编程首选之一。",
+      "blurbEn": "Zhipu’s official ADE — native GLM-5.2 + Coding Plan for CN coding workflows.",
+      "href": "tools/ZCode.html",
+      "external": "https://zcode.z.ai/cn",
+      "tagZh": "编程",
+      "tagEn": "Coding"
+    },
+    {
+      "title": "Cursor",
+      "blurbZh": "AI IDE 标杆：Agent / MCP 成熟，适合全职写代码。",
+      "blurbEn": "Flagship AI IDE — mature Agent/MCP, built for full-time coding.",
+      "href": "tools/Cursor.html",
+      "external": "https://cursor.com/",
+      "tagZh": "编程",
+      "tagEn": "Coding"
+    },
+    {
+      "title": "DeepSeek",
+      "blurbZh": "免费层强、长文与写代码日常够用，性价比常青树。",
+      "blurbEn": "Strong free tier for long context and coding — perennial value pick.",
+      "href": "tools/DeepSeek.html",
+      "external": "https://chat.deepseek.com/",
+      "tagZh": "对话",
+      "tagEn": "Chat"
+    }
+  ],
+  "updates": [
+    {
+      "date": "07-15",
+      "textZh": "上线工具详情目录：热门与头部产品可进站内页看适合谁 / 免费档。",
+      "textEn": "Tool detail pages launched — hot picks now have on-site “who it’s for / free tier” pages.",
+      "href": "tools/index.html"
+    },
+    {
+      "date": "07-15",
+      "textZh": "新增关于 / 联系 / 免责声明，隐私政策可收录。",
+      "textEn": "Added About, Contact, Disclaimer; Privacy Policy is indexable.",
+      "href": "about.html"
+    },
+    {
+      "date": "07-07",
+      "textZh": "导航收录智谱 ZCode（AI 编程工具分类）。",
+      "textEn": "Added Zhipu ZCode under AI Coding tools.",
+      "href": "tools/ZCode.html"
+    },
+    {
+      "date": "07-07",
+      "textZh": "Agent 横评补充 Loop Engineering 与近期工作流工具说明。",
+      "textEn": "Agent comparison updated with Loop Engineering notes.",
+      "href": "agent-plan.html"
+    }
+  ]
+}

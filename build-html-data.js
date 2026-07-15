@@ -14,8 +14,10 @@ const {
   buildSubpageNav,
   buildHomeTopPlansHtml,
   buildSitemapXml,
+  buildLegalFooterLinks,
   syncPlanNavJs,
 } = require("./subpage-nav-html.js");
+const { buildToolPages } = require("./scripts/build-tool-pages.js");
 const ROOT = __dirname;
 syncPlanNavJs();
 const siteDataPath = path.join(ROOT, "site-data.json");
@@ -75,6 +77,18 @@ if (fs.existsSync(dailyPath)) {
     }
   } catch (e) {
     console.error("daily-tools.json:", e.message);
+  }
+}
+
+/** 可选 weekly-spotlight.json：首页「本周精选 + 更新」 */
+let weeklySpotlight = null;
+const spotlightPath = path.join(ROOT, "weekly-spotlight.json");
+if (fs.existsSync(spotlightPath)) {
+  try {
+    weeklySpotlight = JSON.parse(fs.readFileSync(spotlightPath, "utf8"));
+  } catch (e) {
+    console.error("weekly-spotlight.json:", e.message);
+    weeklySpotlight = null;
   }
 }
 
@@ -735,7 +749,7 @@ ${groupedRows}
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6321431447511882" data-ad-slot="XXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
     </div>
     <footer style="margin-top:1.5rem;padding:1rem 0;border-top:1px solid var(--border);font-size:0.76rem;color:var(--muted);text-align:center;">
-      <p><a href="index.html">返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="privacy.html">隐私政策</a></p>
+      <p><a href="index.html">返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · ${buildLegalFooterLinks()}</p>
     </footer>
   </div>
   <button type="button" class="back-to-top" id="ecBackToTop" aria-label="回到顶部" title="回到顶部">↑</button>
@@ -943,6 +957,74 @@ ${detail ? `<a class="card-meta" href="${esc(detail)}" target="_blank" rel="noop
 </article>`;
     })
     .join("\n");
+}
+
+function renderHomeSpotlight(data) {
+  if (!data || !Array.isArray(data.picks) || !data.picks.length) return "";
+  const weekOf = data.weekOf ? String(data.weekOf) : "";
+  const picks = data.picks.filter((p) => p && p.title).slice(0, 3);
+  const updates = Array.isArray(data.updates) ? data.updates.filter((u) => u && (u.textZh || u.text)).slice(0, 6) : [];
+  if (!picks.length) return "";
+
+  const pickHtml = picks
+    .map((p) => {
+      const title = String(p.title).trim();
+      const href = (p.href && String(p.href).trim()) || "#";
+      const blurb = (p.blurbZh != null ? String(p.blurbZh) : p.blurb != null ? String(p.blurb) : "") || "";
+      const blurbEn = p.blurbEn != null ? String(p.blurbEn) : blurb;
+      const tag = p.tagZh != null ? String(p.tagZh) : p.tag != null ? String(p.tag) : "";
+      const tagEn = p.tagEn != null ? String(p.tagEn) : tag;
+      const tool = titleToTool[title];
+      const avatar = (tool && tool.avatar) || p.avatar || "";
+      const src = avatar ? iconSrc(avatar) : "";
+      const iconHtml = src
+        ? `<img class="home-pick-icon" src="${esc(src)}" alt="" width="28" height="28" loading="lazy" decoding="async" onerror="this.outerHTML='<span class=\\'home-pick-icon-ph\\'>${esc(title.slice(0, 1))}</span>'">`
+        : `<span class="home-pick-icon-ph" aria-hidden="true">${esc(title.slice(0, 1))}</span>`;
+      return `<a class="home-pick" href="${esc(href)}">
+<div class="home-pick-top">
+${iconHtml}
+<span class="home-pick-title">${esc(title)}</span>
+${tag ? `<span class="home-pick-tag" data-zh="${esc(tag)}" data-en="${esc(tagEn)}">${esc(tag)}</span>` : ""}
+</div>
+<p class="home-pick-blurb" data-zh="${esc(blurb)}" data-en="${esc(blurbEn)}">${esc(blurb)}</p>
+<span class="home-pick-more" data-i18n="spotlightReadMore">查看详情 →</span>
+</a>`;
+    })
+    .join("\n");
+
+  const updateHtml = updates
+    .map((u) => {
+      const date = u.date != null ? String(u.date) : "";
+      const text = u.textZh != null ? String(u.textZh) : u.text != null ? String(u.text) : "";
+      const textEn = u.textEn != null ? String(u.textEn) : text;
+      const href = u.href ? String(u.href).trim() : "";
+      const body = href
+        ? `<a href="${esc(href)}" data-zh="${esc(text)}" data-en="${esc(textEn)}">${esc(text)}</a>`
+        : `<span data-zh="${esc(text)}" data-en="${esc(textEn)}">${esc(text)}</span>`;
+      return `<li>${date ? `<time datetime="${esc(weekOf || date)}">${esc(date)}</time>` : ""}${body}</li>`;
+    })
+    .join("\n");
+
+  const introZh = data.introZh != null ? String(data.introZh) : "AINav：导航找得到，详情与横评帮你判断适不适合用。";
+  const introEn = data.introEn != null ? String(data.introEn) : introZh;
+
+  return `<section class="home-spotlight" id="home-spotlight" aria-label="本周精选与更新" data-i18n-aria="spotlightAria">
+<p class="home-spotlight-intro"><span data-zh="${esc(introZh)}" data-en="${esc(introEn)}">${esc(introZh)}</span>
+<a href="about.html" data-i18n="spotlightAbout">关于本站</a> ·
+<a href="tools/index.html" data-i18n="spotlightTools">工具详情</a> ·
+<a href="free-tier.html" data-i18n="spotlightFree">免费额度</a>
+</p>
+<div class="home-spotlight-col">
+<h2><span data-i18n="spotlightPicks">本周精选</span>${weekOf ? `<span class="home-spotlight-week">${esc(weekOf)}</span>` : ""}</h2>
+${pickHtml}
+</div>
+<div class="home-spotlight-col">
+<h2 data-i18n="spotlightUpdates">本周更新</h2>
+<ul class="home-updates">
+${updateHtml || `<li><span data-i18n="spotlightNoUpdates">暂无更新条目</span></li>`}
+</ul>
+</div>
+</section>`;
 }
 
 function renderSections(nodes) {
@@ -1291,6 +1373,156 @@ const html = `<!DOCTYPE html>
     .top-plans-break {
       flex-basis: 100%;
       height: 0;
+    }
+    .home-spotlight {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 0.85rem 1rem;
+      margin: 0 0 0.85rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card);
+    }
+    .home-spotlight-col h2 {
+      margin: 0 0 0.55rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+    .home-spotlight-week {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .home-spotlight-intro {
+      grid-column: 1 / -1;
+      margin: 0 0 0.15rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .home-spotlight-intro a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .home-spotlight-intro a:hover { text-decoration: underline; }
+    .home-pick {
+      display: block;
+      padding: 0.55rem 0.65rem;
+      margin: 0 0 0.4rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--panel);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .home-pick:last-child { margin-bottom: 0; }
+    .home-pick:hover {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 6%, var(--panel));
+      text-decoration: none;
+    }
+    .home-pick-top {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.2rem;
+    }
+    .home-pick-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      object-fit: cover;
+      flex: 0 0 auto;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+    .home-pick-icon-ph {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      flex: 0 0 auto;
+      border: 1px solid var(--border);
+      background: var(--card);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .home-pick-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .home-pick-tag {
+      margin-left: auto;
+      font-size: 0.68rem;
+      padding: 0.08rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .home-pick-blurb {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .home-pick-more {
+      display: inline-block;
+      margin-top: 0.25rem;
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .home-updates {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .home-updates li {
+      margin: 0 0 0.45rem;
+      padding: 0 0 0.45rem;
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.8rem;
+      line-height: 1.45;
+    }
+    .home-updates li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .home-updates time {
+      display: inline-block;
+      min-width: 2.6rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent2);
+      margin-right: 0.35rem;
+    }
+    .home-updates a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .home-updates a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    @media (max-width: 860px) {
+      .home-spotlight {
+        grid-template-columns: 1fr;
+        padding: 0.75rem 0.85rem;
+      }
     }
     .top-encyclopedia-line {
       margin: 0 0 0.45rem;
@@ -1974,6 +2206,7 @@ const html = `<!DOCTYPE html>
   <div class="layout">
     <aside><button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="展开/收起导航" data-i18n-aria="sidebarToggleAria" data-i18n="sidebarToggle">☰ 导航</button>${navHtml}</aside>
     <main>
+      ${renderHomeSpotlight(weeklySpotlight)}
       <div class="tag-filters" id="tagFilters" role="group" aria-label="场景筛选" data-i18n-aria="tagFiltersAria">
         <span class="tag-filters-label" data-i18n="tagFiltersLabel">筛选</span>
         <button type="button" class="tag-chip is-active" data-tag="" data-i18n="tagAll">全部</button>
@@ -2003,7 +2236,7 @@ const html = `<!DOCTYPE html>
     <p>使用任意外链服务时，请遵守所在地法律法规，并以各产品官网的条款、隐私政策与计费说明为准。</p>
     <p>本站不保证第三方网站的内容准确性、服务持续性、可用性及收费，亦不承担因访问或使用外链而产生的任何责任。</p>
     <p class="site-built">页面数据生成时间（构建）：${esc(generatedAtLabel)}（UTC 记录：${esc(generatedAt)}）</p>
-    <p><a href="privacy.html">隐私政策</a></p>
+    <p>${buildLegalFooterLinks()}</p>
   </footer>
   <div class="lang-float">
     <a class="lang-btn site-link" href="https://ainews.aiv123.com/" target="_blank" title="AI资讯" style="text-decoration:none;font-size:0.72rem;">资讯</a>
@@ -2579,6 +2812,14 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         promoCta: "Sign Up",
         promoRef: '$2 off code <span class="top-promo-code" translate="no" data-code="AFF_BB0FNC" style="cursor:pointer" title="Click to copy">AFF_BB0FNC</span>',
         mailToTitle: "Contact Email",
+        spotlightAria: "This week's picks and updates",
+        spotlightPicks: "This week's picks",
+        spotlightUpdates: "Updates",
+        spotlightReadMore: "Read more →",
+        spotlightAbout: "About",
+        spotlightTools: "Tool details",
+        spotlightFree: "Free tier",
+        spotlightNoUpdates: "No updates yet",
         /* -- sidebar & fav -- */
         sidebarToggle: "☰ Menu",
         sidebarToggleAria: "Toggle navigation",
@@ -2697,7 +2938,16 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         promoTitle: "国内直连免梯",
         promoCta: "立即注册",
         promoRef: '$2优惠码 <span class="top-promo-code" translate="no" data-code="AFF_BB0FNC" style="cursor:pointer" title="点击复制优惠码">AFF_BB0FNC</span>',
-        mailToTitle: "联系邮箱",        /* -- sidebar & fav -- */
+        mailToTitle: "联系邮箱",
+        spotlightAria: "本周精选与更新",
+        spotlightPicks: "本周精选",
+        spotlightUpdates: "本周更新",
+        spotlightReadMore: "查看详情 →",
+        spotlightAbout: "关于本站",
+        spotlightTools: "工具详情",
+        spotlightFree: "免费额度",
+        spotlightNoUpdates: "暂无更新条目",
+        /* -- sidebar & fav -- */
         sidebarToggle: "☰ 导航",
         sidebarToggleAria: "展开/收起导航",
         catFav: "★ 常用收藏",
@@ -2817,6 +3067,11 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
       document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
         var key = el.getAttribute("data-i18n-aria");
         if (dict[key] !== undefined) el.setAttribute("aria-label", dict[key]);
+      });
+      /* home spotlight bilingual snippets */
+      document.querySelectorAll("#home-spotlight [data-zh][data-en]").forEach(function (el) {
+        var v = el.getAttribute(lang === "en" ? "data-en" : "data-zh");
+        if (v != null) el.textContent = v;
       });
 
       /* Update search count text language */
@@ -3309,7 +3564,7 @@ ${cardsHtml}
     </div>
     <footer class="ft-footer">
       <p>数据来源：各产品官网公开信息，仅供参考，以官网实时定价为准。最后更新：${esc(generatedAtLabel)}</p>
-      <p><a href="index.html">返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="ai-encyclopedia-2026.html">AI工具百科</a> · <a href="privacy.html">隐私政策</a></p>
+      <p><a href="index.html">返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="ai-encyclopedia-2026.html">AI工具百科</a> · ${buildLegalFooterLinks()}</p>
     </footer>
   </div>
   <button type="button" class="back-to-top" id="ftBackToTop" aria-label="回到顶部" title="回到顶部">↑</button>
@@ -3435,10 +3690,20 @@ try {
 }
 
 try {
-  fs.writeFileSync(path.join(ROOT, "sitemap.xml"), buildSitemapXml(), "utf8");
+  const toolResult = buildToolPages(ROOT);
+  fs.writeFileSync(
+    path.join(ROOT, "sitemap.xml"),
+    buildSitemapXml([
+      { loc: "https://aiv123.com/about.html", changefreq: "yearly", priority: "0.4" },
+      { loc: "https://aiv123.com/contact.html", changefreq: "yearly", priority: "0.4" },
+      { loc: "https://aiv123.com/disclaimer.html", changefreq: "yearly", priority: "0.3" },
+      ...(toolResult.sitemapExtras || []),
+    ]),
+    "utf8"
+  );
   console.log("wrote sitemap.xml");
 } catch (e) {
-  console.error("sitemap.xml:", e.message);
+  console.error("tool pages / sitemap:", e.message);
 }
 
 try {

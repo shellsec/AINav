@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Windsurf — 适合谁、免费额度与付费建议 — AINav</title>
+  <meta name="description" content="Windsurf：部分免费；🎁推荐奖励；程序员必备神器。">
+  <link rel="canonical" href="https://aiv123.com/tools/Windsurf.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Windsurf — AINav 工具详情">
+  <meta property="og:description" content="Windsurf：部分免费；🎁推荐奖励；程序员必备神器。">
+  <meta property="og:url" content="https://aiv123.com/tools/Windsurf.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='18' width='100' height='100' fill='%230969da'/><text x='50' y='72' font-size='60' text-anchor='middle' fill='white' font-family='system-ui' font-weight='700'>AI</text></svg>">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Windsurf 免费吗？","acceptedAnswer":{"@type":"Answer","text":"部分免费；🎁推荐奖励。支持Windsurf代码补全、Debug与解释；复杂项目限额。 每日 100 次 AI 补全。"}},{"@type":"Question","name":"Windsurf 适合谁？","acceptedAnswer":{"@type":"Answer","text":"程序员、软件工程师、学生"}},{"@type":"Question","name":"付费是否值得？","acceptedAnswer":{"@type":"Answer","text":"功能增强：解锁无限次高级模型（Claude 3.5）补全；付费建议：全栈推荐。"}}]}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2B8FBWRX4N');
+  </script>
+  <script>
+  (function () {
+    try {
+      var t = localStorage.getItem("ainav-theme");
+      if (t === "light" || t === "dark" || t === "system") document.documentElement.setAttribute("data-theme", t);
+      else document.documentElement.setAttribute("data-theme", "system");
+    } catch (e) { document.documentElement.setAttribute("data-theme", "system"); }
+  })();
+  </script>
+  <style>
+    :root, html[data-theme="dark"] {
+      --bg:#0f1419; --panel:#151b23; --card:#1c2430; --border:#2d3848;
+      --text:#e6edf3; --muted:#8b9cb3; --accent:#58a6ff; --accent2:#3fb950;
+    }
+    html[data-theme="light"] {
+      --bg:#f6f8fa; --panel:#fff; --card:#fff; --border:#d0d7de;
+      --text:#1f2328; --muted:#59636e; --accent:#0969da; --accent2:#1a7f37;
+    }
+    @media (prefers-color-scheme: light) {
+      html[data-theme="system"] {
+        --bg:#f6f8fa; --panel:#fff; --card:#fff; --border:#d0d7de;
+        --text:#1f2328; --muted:#59636e; --accent:#0969da; --accent2:#1a7f37;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Segoe UI",system-ui,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+    a { color: var(--accent); }
+    .top { padding:0.75rem 1rem; border-bottom:1px solid var(--border); background:var(--panel); }
+    .top-inner { max-width:46rem; margin:0 auto; display:flex; flex-wrap:wrap; gap:0.75rem 1rem; align-items:center; }
+    .top a { font-weight:600; font-size:0.88rem; text-decoration:none; }
+    .top a:hover { text-decoration:underline; }
+    .wrap { max-width:46rem; margin:0 auto; padding:1.5rem 1.15rem 3.5rem; }
+    .hero { display:flex; gap:0.9rem; align-items:flex-start; margin-bottom:1rem; }
+    .tool-avatar, .tool-avatar-fallback {
+      width:48px; height:48px; border-radius:10px; flex:0 0 auto; object-fit:cover;
+      background:var(--panel); border:1px solid var(--border);
+    }
+    .tool-avatar-fallback { display:inline-flex; align-items:center; justify-content:center; font-weight:700; color:var(--accent); }
+    h1 { font-size:1.45rem; margin:0 0 0.25rem; }
+    .meta { font-size:0.82rem; color:var(--muted); margin:0; }
+    .badge { display:inline-block; font-size:0.72rem; padding:0.12rem 0.45rem; border-radius:999px; border:1px solid var(--border); color:var(--muted); margin-right:0.35rem; }
+    .cta { display:inline-block; margin:0.85rem 0 0.4rem; padding:0.55rem 1rem; border-radius:8px; background:var(--accent); color:#fff !important; text-decoration:none; font-weight:700; font-size:0.9rem; }
+    .cta:hover { filter:brightness(1.05); text-decoration:none; }
+    .cta-sec { margin-left:0.5rem; font-size:0.85rem; }
+    h2 { font-size:1.05rem; margin:1.75rem 0 0.45rem; color:var(--accent); border-bottom:1px solid var(--border); padding-bottom:0.25rem; }
+    p { margin:0.45rem 0; }
+    ul { margin:0.35rem 0; padding-left:1.3rem; }
+    li { margin:0.25rem 0; color:var(--muted); }
+    li strong { color:var(--text); }
+    .panel { border:1px solid var(--border); border-radius:10px; background:var(--card); padding:0.85rem 1rem; margin:0.75rem 0; }
+    .chips { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.5rem; }
+    .chips a { font-size:0.8rem; padding:0.25rem 0.55rem; border:1px solid var(--border); border-radius:6px; text-decoration:none; background:var(--panel); }
+    .chips a:hover { border-color:var(--accent); }
+    .foot { margin-top:2.5rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.78rem; color:var(--muted); text-align:center; }
+    .foot a { color:var(--accent); }
+    .note { font-size:0.8rem; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <a href="../index.html">← AINav 首页</a>
+      <a href="index.html">工具详情目录</a>
+      <a href="../free-tier.html">免费额度</a>
+      <a href="../ai-encyclopedia-2026.html">百科</a>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="hero">
+      <img class="tool-avatar" src="../icon/Windsurf.png" alt="" width="48" height="48" loading="lazy" onerror="this.style.display='none'">
+      <div>
+        <h1>Windsurf</h1>
+        <p class="meta">
+          <span class="badge">AI 编程工具</span>
+          <span class="badge">部分免费；🎁推荐奖励</span>
+          百科更新日期：04-04
+        </p>
+        <a class="cta" href="https://codeium.com/windsurf" target="_blank" rel="noopener noreferrer">打开官网</a>
+        <a class="cta-sec" href="../free-tier.html?q=Windsurf">查免费额度</a>
+      </div>
+    </div>
+
+    <p>Windsurf 属于「AI 编程工具」类目。程序员必备神器。 编辑侧印象：⭐⭐⭐⭐：代码补全准确，大幅提升开发效率。 导航摘要：Codeium推出的AI代码编辑器，支持多种编程语言</p>
+
+    <h2>适合谁</h2>
+    <div class="panel">
+      <p>程序员、软件工程师、学生</p>
+      <p class="note">常见底层模型 / 能力底座：Claude 3.5 / GPT-4o</p>
+    </div>
+
+    <h2>免费情况与额度</h2>
+    <div class="panel">
+      <ul>
+        <li><strong>免费档</strong>：部分免费；🎁推荐奖励</li>
+        <li><strong>额度概要</strong>：支持Windsurf代码补全、Debug与解释；复杂项目限额。</li>
+        <li><strong>刷新 / 周期</strong>：每日 100 次 AI 补全。</li>
+        <li><strong>新用户礼</strong>：注册送 14 天 Pro 试用。</li>
+      </ul>
+      <p class="note">额度与活动会变动，订阅前请以官网计费页为准。也可在 <a href="../free-tier.html?q=Windsurf">免费额度页</a> 对照核实状态。</p>
+    </div>
+
+    <h2>付费价值与选型提示</h2>
+    <div class="panel">
+      <p>功能增强：解锁无限次高级模型（Claude 3.5）补全；付费建议：全栈推荐。</p>
+      <p class="note">⭐⭐⭐⭐：代码补全准确，大幅提升开发效率。</p>
+    </div>
+
+    <h2>相关横评与站内入口</h2>
+    <div class="chips">
+      <a href="../coding-plan.html">编程套餐横评</a><a href="../agent-plan.html">Agent 横评</a><a href="../token-optimization.html">Token 优化</a>
+      <a href="../ai-encyclopedia-2026.html">完整百科表</a>
+      <a href="../about.html">关于本站</a>
+    </div>
+
+    <h2>同分类其它工具</h2>
+    <div class="chips">
+      <a href="通义灵码.html">通义灵码</a><a href="CodeGeeX.html">CodeGeeX</a><a href="Devin.html">Devin</a><a href="GitHub-Copilot.html">GitHub Copilot</a><a href="Trae.html">Trae</a><a href="v0.dev.html">v0.dev</a>
+    </div>
+
+    <h2>使用前请注意</h2>
+    <ul>
+      <li>本页为导航与整理信息，不构成购买建议。</li>
+      <li>外链服务由第三方运营，条款、隐私与计费以其官网为准。</li>
+      <li>发现错误可到 <a href="../contact.html">联系页</a> 反馈。</li>
+    </ul>
+
+    <div class="foot">
+      <p>
+        <a href="../index.html">首页</a> ·
+        <a href="index.html">工具详情</a> ·
+        <a href="../about.html">关于</a> ·
+        <a href="../contact.html">联系</a> ·
+        <a href="../privacy.html">隐私</a> ·
+        <a href="../disclaimer.html">免责声明</a>
+      </p>
+    </div>
+  </main>
+</body>
+</html>

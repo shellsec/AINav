@@ -126,6 +126,21 @@ CI（`.github/workflows/ci.yml`）在 push / PR 时会跑：`build` → `audit-l
 
 未在 hints 中的条目会走推断并标「推断」；全站覆盖率可用 `npm run check:hints:all` 查看（默认门禁不要求 100%）。
 
+首页首屏「本周精选 + 更新」：编辑 **`weekly-spotlight.json`**（`picks` 建议 3 条，`updates` 若干条），执行 `npm run build`。精选优先链到 `tools/*.html` 站内详情。
+
+## 合规页与工具详情（AdSense / SEO 向）
+
+| 文件 | 说明 |
+|------|------|
+| `about.html` / `contact.html` / `disclaimer.html` | 关于、联系、免责（可收录） |
+| `privacy.html` | 隐私政策（含 AdSense / Analytics 说明） |
+| `ads.txt` / `robots.txt` | 广告授权与爬虫入口 |
+| `tool-pages.json` | 详情页生成名单（与 `daily-tools.json` 合并） |
+| `scripts/build-tool-pages.js` | 从百科表生成 `tools/*.html` |
+| `tools/` | 构建产物：工具详情与目录页 |
+
+改名单后执行 `npm run build`（或 `npm run build:tools`）。站点地图会自动并入 `tools/` 与合规页。
+
 ## 分类顺序（侧边栏）
 
 编辑 **`category-order.json`**：

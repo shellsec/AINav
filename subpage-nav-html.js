@@ -104,15 +104,38 @@ function buildHomeTopPlansHtml(esc) {
   return parts.join("\n      ");
 }
 
-function buildSitemapXml() {
+function buildSitemapXml(extraUrls) {
   const { sitemap } = loadNavData();
-  const body = sitemap
+  const extras = Array.isArray(extraUrls) ? extraUrls : [];
+  const seen = new Set();
+  const merged = [];
+  for (const u of [...sitemap, ...extras]) {
+    if (!u || !u.loc || seen.has(u.loc)) continue;
+    seen.add(u.loc);
+    merged.push(u);
+  }
+  const body = merged
     .map(
       (u) =>
-        `  <url>\n    <loc>${u.loc}</loc>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`
+        `  <url>\n    <loc>${u.loc}</loc>\n    <changefreq>${u.changefreq || "monthly"}</changefreq>\n    <priority>${u.priority || "0.5"}</priority>\n  </url>`
     )
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+}
+
+/** 页脚合规链接（首页 / 子页共用文案） */
+function buildLegalFooterLinks(opts) {
+  const o = opts || {};
+  const prefix = o.prefix != null ? String(o.prefix) : "";
+  const sep = o.sep != null ? o.sep : " · ";
+  const links = [
+    ["about.html", "关于"],
+    ["contact.html", "联系"],
+    ["tools/index.html", "工具详情"],
+    ["privacy.html", "隐私政策"],
+    ["disclaimer.html", "免责声明"],
+  ];
+  return links.map(([href, label]) => `<a href="${prefix}${href}">${label}</a>`).join(sep);
 }
 
 /** Rewrite plan-nav.js LINKS from nav-links.json so file:// pages stay self-contained. */
@@ -146,6 +169,7 @@ module.exports = {
   buildSubpageNav,
   buildHomeTopPlansHtml,
   buildSitemapXml,
+  buildLegalFooterLinks,
   syncPlanNavJs,
   isActive,
 };

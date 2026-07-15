@@ -1,0 +1,23 @@
+{
+  "_readme": "工具详情页生成名单。titles 会与 daily-tools.json 合并去重；改完后 npm run build。",
+  "baseUrl": "https://aiv123.com",
+  "outDir": "tools",
+  "includeDailyTools": true,
+  "titles": [
+    "ZCode",
+    "Trae",
+    "Windsurf",
+    "GitHub Copilot",
+    "通义灵码",
+    "CodeGeeX",
+    "Claude Code",
+    "OpenRouter",
+    "GroqCloud",
+    "Together AI",
+    "v0.dev",
+    "Devin",
+    "扣子 Coze",
+    "Dify",
+    "n8n"
+  ]
+}

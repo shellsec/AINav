@@ -305,156 +305,6 @@
       flex-basis: 100%;
       height: 0;
     }
-    .home-spotlight {
-      display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 0.85rem 1rem;
-      margin: 0 0 0.85rem;
-      padding: 0.85rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--card);
-    }
-    .home-spotlight-col h2 {
-      margin: 0 0 0.55rem;
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      flex-wrap: wrap;
-    }
-    .home-spotlight-week {
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: var(--muted);
-    }
-    .home-spotlight-intro {
-      grid-column: 1 / -1;
-      margin: 0 0 0.15rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-    .home-spotlight-intro a {
-      color: var(--accent);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .home-spotlight-intro a:hover { text-decoration: underline; }
-    .home-pick {
-      display: block;
-      padding: 0.55rem 0.65rem;
-      margin: 0 0 0.4rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--panel);
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.15s, background 0.15s;
-    }
-    .home-pick:last-child { margin-bottom: 0; }
-    .home-pick:hover {
-      border-color: var(--accent);
-      background: color-mix(in srgb, var(--accent) 6%, var(--panel));
-      text-decoration: none;
-    }
-    .home-pick-top {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      margin-bottom: 0.2rem;
-    }
-    .home-pick-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      object-fit: cover;
-      flex: 0 0 auto;
-      border: 1px solid var(--border);
-      background: var(--card);
-    }
-    .home-pick-icon-ph {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      flex: 0 0 auto;
-      border: 1px solid var(--border);
-      background: var(--card);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .home-pick-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .home-pick-tag {
-      margin-left: auto;
-      font-size: 0.68rem;
-      padding: 0.08rem 0.4rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .home-pick-blurb {
-      margin: 0;
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-    .home-pick-more {
-      display: inline-block;
-      margin-top: 0.25rem;
-      font-size: 0.72rem;
-      color: var(--accent);
-      font-weight: 600;
-    }
-    .home-updates {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .home-updates li {
-      margin: 0 0 0.45rem;
-      padding: 0 0 0.45rem;
-      border-bottom: 1px dashed var(--border);
-      font-size: 0.8rem;
-      line-height: 1.45;
-    }
-    .home-updates li:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-    .home-updates time {
-      display: inline-block;
-      min-width: 2.6rem;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--accent2);
-      margin-right: 0.35rem;
-    }
-    .home-updates a {
-      color: var(--text);
-      text-decoration: none;
-    }
-    .home-updates a:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
-    @media (max-width: 860px) {
-      .home-spotlight {
-        grid-template-columns: 1fr;
-        padding: 0.75rem 0.85rem;
-      }
-    }
     .top-encyclopedia-line {
       margin: 0 0 0.45rem;
       padding: 0 0.5rem;
@@ -1221,52 +1071,6 @@
 <a class="nav-i" href="#ext-temp-email" data-i18n="catTempEmail">临时邮箱 · 匿名收件</a>
 <a class="nav-i" href="#ext-sms-verify" data-i18n="catSMSVerify">接码 · 短信验证与虚拟号</a></aside>
     <main>
-      <section class="home-spotlight" id="home-spotlight" aria-label="本周精选与更新" data-i18n-aria="spotlightAria">
-<p class="home-spotlight-intro"><span data-zh="AINav：导航找得到，详情与横评帮你判断适不适合用。" data-en="AINav: find tools fast, then use detail pages and comparisons to decide what fits.">AINav：导航找得到，详情与横评帮你判断适不适合用。</span>
-<a href="about.html" data-i18n="spotlightAbout">关于本站</a> ·
-<a href="tools/index.html" data-i18n="spotlightTools">工具详情</a> ·
-<a href="free-tier.html" data-i18n="spotlightFree">免费额度</a>
-</p>
-<div class="home-spotlight-col">
-<h2><span data-i18n="spotlightPicks">本周精选</span><span class="home-spotlight-week">2026-07-15</span></h2>
-<a class="home-pick" href="tools/ZCode.html">
-<div class="home-pick-top">
-<img class="home-pick-icon" src="icons/icon/智谱清言.png" alt="" width="28" height="28" loading="lazy" decoding="async" onerror="this.outerHTML='<span class=\'home-pick-icon-ph\'>Z</span>'">
-<span class="home-pick-title">ZCode</span>
-<span class="home-pick-tag" data-zh="编程" data-en="Coding">编程</span>
-</div>
-<p class="home-pick-blurb" data-zh="智谱官方 ADE，GLM-5.2 + Coding Plan 原生适配，国内编程首选之一。" data-en="Zhipu’s official ADE — native GLM-5.2 + Coding Plan for CN coding workflows.">智谱官方 ADE，GLM-5.2 + Coding Plan 原生适配，国内编程首选之一。</p>
-<span class="home-pick-more" data-i18n="spotlightReadMore">查看详情 →</span>
-</a>
-<a class="home-pick" href="tools/Cursor.html">
-<div class="home-pick-top">
-<img class="home-pick-icon" src="icons/icon/Cursor.png" alt="" width="28" height="28" loading="lazy" decoding="async" onerror="this.outerHTML='<span class=\'home-pick-icon-ph\'>C</span>'">
-<span class="home-pick-title">Cursor</span>
-<span class="home-pick-tag" data-zh="编程" data-en="Coding">编程</span>
-</div>
-<p class="home-pick-blurb" data-zh="AI IDE 标杆：Agent / MCP 成熟，适合全职写代码。" data-en="Flagship AI IDE — mature Agent/MCP, built for full-time coding.">AI IDE 标杆：Agent / MCP 成熟，适合全职写代码。</p>
-<span class="home-pick-more" data-i18n="spotlightReadMore">查看详情 →</span>
-</a>
-<a class="home-pick" href="tools/DeepSeek.html">
-<div class="home-pick-top">
-<img class="home-pick-icon" src="icons/icon/DeepSeek.png" alt="" width="28" height="28" loading="lazy" decoding="async" onerror="this.outerHTML='<span class=\'home-pick-icon-ph\'>D</span>'">
-<span class="home-pick-title">DeepSeek</span>
-<span class="home-pick-tag" data-zh="对话" data-en="Chat">对话</span>
-</div>
-<p class="home-pick-blurb" data-zh="免费层强、长文与写代码日常够用，性价比常青树。" data-en="Strong free tier for long context and coding — perennial value pick.">免费层强、长文与写代码日常够用，性价比常青树。</p>
-<span class="home-pick-more" data-i18n="spotlightReadMore">查看详情 →</span>
-</a>
-</div>
-<div class="home-spotlight-col">
-<h2 data-i18n="spotlightUpdates">本周更新</h2>
-<ul class="home-updates">
-<li><time datetime="2026-07-15">07-15</time><a href="tools/index.html" data-zh="上线工具详情目录：热门与头部产品可进站内页看适合谁 / 免费档。" data-en="Tool detail pages launched — hot picks now have on-site “who it’s for / free tier” pages.">上线工具详情目录：热门与头部产品可进站内页看适合谁 / 免费档。</a></li>
-<li><time datetime="2026-07-15">07-15</time><a href="about.html" data-zh="新增关于 / 联系 / 免责声明，隐私政策可收录。" data-en="Added About, Contact, Disclaimer; Privacy Policy is indexable.">新增关于 / 联系 / 免责声明，隐私政策可收录。</a></li>
-<li><time datetime="2026-07-15">07-07</time><a href="tools/ZCode.html" data-zh="导航收录智谱 ZCode（AI 编程工具分类）。" data-en="Added Zhipu ZCode under AI Coding tools.">导航收录智谱 ZCode（AI 编程工具分类）。</a></li>
-<li><time datetime="2026-07-15">07-07</time><a href="agent-plan.html" data-zh="Agent 横评补充 Loop Engineering 与近期工作流工具说明。" data-en="Agent comparison updated with Loop Engineering notes.">Agent 横评补充 Loop Engineering 与近期工作流工具说明。</a></li>
-</ul>
-</div>
-</section>
       <div class="tag-filters" id="tagFilters" role="group" aria-label="场景筛选" data-i18n-aria="tagFiltersAria">
         <span class="tag-filters-label" data-i18n="tagFiltersLabel">筛选</span>
         <button type="button" class="tag-chip is-active" data-tag="" data-i18n="tagAll">全部</button>
@@ -17414,7 +17218,7 @@
     <p>本站为工具导航索引，所收录链接由各服务商自行运营；推广位为合作展示，不代表对其背书。</p>
     <p>使用任意外链服务时，请遵守所在地法律法规，并以各产品官网的条款、隐私政策与计费说明为准。</p>
     <p>本站不保证第三方网站的内容准确性、服务持续性、可用性及收费，亦不承担因访问或使用外链而产生的任何责任。</p>
-    <p class="site-built">页面数据生成时间（构建）：2026/07/15 16:24（UTC 记录：2026-07-15T08:24:58.845Z）</p>
+    <p class="site-built">页面数据生成时间（构建）：2026/07/15 16:27（UTC 记录：2026-07-15T08:27:41.177Z）</p>
     <p><a href="about.html">关于</a> · <a href="contact.html">联系</a> · <a href="tools/index.html">工具详情</a> · <a href="privacy.html">隐私政策</a> · <a href="disclaimer.html">免责声明</a></p>
   </footer>
   <div class="lang-float">
@@ -17991,14 +17795,6 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         promoCta: "Sign Up",
         promoRef: '$2 off code <span class="top-promo-code" translate="no" data-code="AFF_BB0FNC" style="cursor:pointer" title="Click to copy">AFF_BB0FNC</span>',
         mailToTitle: "Contact Email",
-        spotlightAria: "This week's picks and updates",
-        spotlightPicks: "This week's picks",
-        spotlightUpdates: "Updates",
-        spotlightReadMore: "Read more →",
-        spotlightAbout: "About",
-        spotlightTools: "Tool details",
-        spotlightFree: "Free tier",
-        spotlightNoUpdates: "No updates yet",
         /* -- sidebar & fav -- */
         sidebarToggle: "☰ Menu",
         sidebarToggleAria: "Toggle navigation",
@@ -18120,14 +17916,6 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         promoCta: "立即注册",
         promoRef: '$2优惠码 <span class="top-promo-code" translate="no" data-code="AFF_BB0FNC" style="cursor:pointer" title="点击复制优惠码">AFF_BB0FNC</span>',
         mailToTitle: "联系邮箱",
-        spotlightAria: "本周精选与更新",
-        spotlightPicks: "本周精选",
-        spotlightUpdates: "本周更新",
-        spotlightReadMore: "查看详情 →",
-        spotlightAbout: "关于本站",
-        spotlightTools: "工具详情",
-        spotlightFree: "免费额度",
-        spotlightNoUpdates: "暂无更新条目",
         /* -- sidebar & fav -- */
         sidebarToggle: "☰ 导航",
         sidebarToggleAria: "展开/收起导航",

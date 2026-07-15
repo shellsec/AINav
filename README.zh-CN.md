@@ -126,8 +126,6 @@ CI（`.github/workflows/ci.yml`）在 push / PR 时会跑：`build` → `audit-l
 
 未在 hints 中的条目会走推断并标「推断」；全站覆盖率可用 `npm run check:hints:all` 查看（默认门禁不要求 100%）。
 
-首页首屏「本周精选 + 更新」：编辑 **`weekly-spotlight.json`**（`picks` 建议 3 条，`updates` 若干条），执行 `npm run build`。精选优先链到 `tools/*.html` 站内详情。
-
 ## 合规页与工具详情（AdSense / SEO 向）
 
 | 文件 | 说明 |

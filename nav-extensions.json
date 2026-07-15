@@ -2187,6 +2187,12 @@
       "name": "AI 编程工具",
       "tools": [
         {
+          "title": "MonkeyCode",
+          "subtitle": "在线 AI 编程平台：免安装、云端开发环境、主流模型与手机端，开源可私有化",
+          "link": "https://monkeycode-ai.com/?ic=019dd772-4515-776b-a158-a20e0ecbc25c",
+          "added": "2026-07-15"
+        },
+        {
           "title": "ZCode",
           "subtitle": "智谱 ADE 桌面端 · ZCode 3.0 Agent + GLM-5.2 深度适配，直连 GLM Coding Plan",
           "link": "https://zcode.z.ai/cn",

@@ -207,7 +207,7 @@
     </div>
     <h1 data-i18n="title">🤖 AI Agent 横评</h1>
     <p class="cp-subtitle" data-i18n="subtitle">国内外 AI Coding Agent 一站式对比：2026 年开源首选 Hermes，模型底座推荐 GLM-5.2 / DeepSeek-V4-Pro / Claude Opus 4.8。</p>
-    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-07-07</span> · <a href="#loop-engineering">Loop Engineering</a> · <a href="token-optimization.html">Token 优化指南</a> · <a href="coding-plan.html">编程套餐横评</a></p>
+    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-07-15</span> · <a href="#loop-engineering">Loop Engineering</a> · <a href="token-optimization.html">Token 优化指南</a> · <a href="coding-plan.html">编程套餐横评</a></p>
 
     <!-- Legend -->
     <div class="cp-legend">
@@ -485,8 +485,8 @@
               <tr>
                 <td class="plan-name">Pro <span class="cp-badge badge-rec">👍</span></td>
                 <td class="plan-price">$20/月</td>
-                <td class="plan-models">Agent Mode + 含 Agent 用量池（$20 档，Tab 无限）</td>
-                <td class="plan-limit">主流选择</td>
+                <td class="plan-models">Agent Mode + 用量池（含 <strong>Grok 4.5</strong> / Claude / GPT 等）</td>
+                <td class="plan-limit">主流选择；Grok 4.5 全套餐</td>
               </tr>
               <tr>
                 <td class="plan-name">Ultra</td>
@@ -503,7 +503,40 @@
             <span class="feat-tag">多模态</span>
             <span class="feat-tag">自托管</span>
           </div>
-          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">基于 VS Code 的 AI IDE，Agent 模式可自动执行多步编辑/终端命令；支持 MCP 与 Agent Skills（<code>npx skills add</code> / Marketplace）</div>
+          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">基于 VS Code 的 AI IDE，Agent 模式可自动执行多步编辑/终端命令；支持 MCP 与 Agent Skills。2026-07 起全套餐可选 <strong>Grok 4.5</strong>（与 xAI 联合训练向）；亦可用独立 <a href="https://x.ai/cli" target="_blank" rel="noopener noreferrer">Grok Build</a> CLI。</div>
+        </div>
+      </div>
+
+      <!-- 2b. Grok Build -->
+      <div class="cp-platform overseas">
+        <div class="cp-platform-head">
+          <span class="cp-platform-name"><a href="https://x.ai/cli" target="_blank" rel="noopener noreferrer">Grok Build（xAI）</a></span>
+          <span class="cp-badge badge-overseas">🌍</span>
+          <span class="cp-badge badge-hot">🆕 4.5</span>
+        </div>
+        <div class="cp-platform-body">
+          <table class="cp-table">
+            <thead><tr><th>入口</th><th>说明</th><th>备注</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="plan-name">Grok Build CLI</td>
+                <td class="plan-models">默认模型 <strong>Grok 4.5</strong>；编程 / Agent / 知识工作</td>
+                <td class="plan-limit">发布期或有限时免费，以官网为准</td>
+              </tr>
+              <tr>
+                <td class="plan-name">API <code>grok-4.5</code></td>
+                <td class="plan-models">约 $2 / $6 每百万 token（输入/输出）；reasoning_effort 可调</td>
+                <td class="plan-limit">Console；欧盟可用性可能滞后</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="feat-tags">
+            <span class="feat-tag yes">CLI</span>
+            <span class="feat-tag yes">Agent</span>
+            <span class="feat-tag yes">工具调用</span>
+            <span class="feat-tag">自托管</span>
+          </div>
+          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">xAI 官方 coding agent；与 Cursor 内置 Grok 4.5 互补——要独立 CLI/API 走 Build / Console。</div>
         </div>
       </div>
 

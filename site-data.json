@@ -62,7 +62,7 @@
         {
           "key": "daily-6",
           "title": "Grok",
-          "subtitle": "Grok 4 + X 实时搜索，观点犀利",
+          "subtitle": "Grok 4.5：编程/Agent 旗舰，Cursor 全套餐可用，兼 X 实时搜索",
           "avatar": "icon/Grok.png",
           "link": "https://grok.com/",
           "path": "",
@@ -71,7 +71,7 @@
         {
           "key": "daily-7",
           "title": "Cursor",
-          "subtitle": "AI IDE + Agent 模式，Tab 无限、含用量池",
+          "subtitle": "AI IDE + Agent；全套餐可用 Grok 4.5，Tab 无限、含用量池",
           "avatar": "icon/Cursor.png",
           "link": "https://cursor.com/",
           "path": "",
@@ -139,7 +139,7 @@
         {
           "key": "Grok",
           "title": "Grok",
-          "subtitle": "Grok 是由 xAI 开发的人工智能助手，旨在提供实用且真实的答案，助力用户理解宇宙和解决各种问题。",
+          "subtitle": "Grok 4.5：编程/Agent 旗舰，Cursor 与 Grok Build 可用，兼 X 实时搜索",
           "avatar": "icon/Grok.png",
           "link": "https://grok.com/",
           "path": "/detail/grok"
@@ -2378,6 +2378,15 @@
           "avatar": "icon/Warp.png",
           "link": "https://www.warp.dev/warp-ai",
           "path": ""
+        },
+        {
+          "key": "ext-AI-编程工具-0",
+          "title": "MonkeyCode",
+          "subtitle": "在线 AI 编程平台：免安装、云端开发环境、主流模型与手机端，开源可私有化",
+          "avatar": "",
+          "link": "https://monkeycode-ai.com/?ic=019dd772-4515-776b-a158-a20e0ecbc25c",
+          "path": "",
+          "added": "2026-07-15"
         }
       ]
     },
@@ -9685,7 +9694,7 @@
     },
     "Grok": {
       "title": "Grok",
-      "subtitle": "Grok 是由 xAI 开发的人工智能助手，旨在提供实用且真实的答案，助力用户理解宇宙和解决各种问题。",
+      "subtitle": "Grok 4.5：编程/Agent 旗舰，Cursor 与 Grok Build 可用，兼 X 实时搜索",
       "avatar": "icon/Grok.png",
       "link": "https://grok.com/",
       "path": "/detail/grok"
@@ -13858,5 +13867,5 @@
     }
   },
   "builtFrom": "local",
-  "generatedAt": "2026-07-13T09:25:31.012Z"
+  "generatedAt": "2026-07-15T03:11:40.150Z"
 }

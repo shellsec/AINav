@@ -80,8 +80,11 @@ pre{background:var(--panel);border:1px solid var(--border);border-radius:8px;pad
 <div class="cp-wrap">
 
 <h1>Token 优化指南</h1>
-<p class="cp-subtitle">面向 <strong>Cursor · Claude Code · Codex</strong>。已用 GitHub API 扫描 <a href="https://github.com/topics/token-optimization" target="_blank" rel="noopener noreferrer"><code>token-optimization</code> 专题</a>（<strong>802</strong> 仓，按 stars 排序，2026-06），见 <a href="#ecosystem">专题分析</a>；安装配置见各章节。</p>
-<p class="cp-updated">专题 #1 <a href="https://github.com/rtk-ai/rtk">RTK</a>（66K★）· #2 <a href="https://github.com/headroomlabs-ai/headroom">Headroom</a>（51K★）· #3 <a href="https://github.com/yvgude/lean-ctx">LeanCTX</a>（2.9K★）· <a href="index.html#ext-token-optimize">AINav 工具卡片</a></p>
+<p class="cp-subtitle">面向 <strong>Cursor · Claude Code · Codex</strong>（Cursor 全套餐已可用 <strong>Grok 4.5</strong>）。已用 GitHub API 扫描 <a href="https://github.com/topics/token-optimization" target="_blank" rel="noopener noreferrer"><code>token-optimization</code> 专题</a>（<strong>802</strong> 仓，按 stars 排序，2026-06），见 <a href="#ecosystem">专题分析</a>；安装配置见各章节。</p>
+<p class="cp-updated">最后更新：2026-07-15 · 专题 #1 <a href="https://github.com/rtk-ai/rtk">RTK</a>（66K★）· #2 <a href="https://github.com/headroomlabs-ai/headroom">Headroom</a>（51K★）· #3 <a href="https://github.com/yvgude/lean-ctx">LeanCTX</a>（2.9K★）· <a href="index.html#ext-token-optimize">AINav 工具卡片</a></p>
+<div class="highlight warn-box" style="margin:0.75rem 0 1rem;padding:0.65rem 0.85rem;border:1px solid var(--border);border-radius:8px;font-size:0.82rem;line-height:1.5">
+  <strong>Grok 4.5（2026-07）：</strong>主打编程/Agent，API 约 <code>$2 / $6</code> 每百万 token（输入/输出），官方称任务 token 效率更高。在 Cursor 选 Grok 4.5 时仍建议配合下文 RTK / Headroom / Rules 压缩，避免 Agent 多轮把「便宜单价」打成「贵账单」。独立 CLI 见 <a href="https://x.ai/cli" target="_blank" rel="noopener noreferrer">Grok Build</a>。
+</div>
 
 <nav class="tok-nav" aria-label="页内导航">
   <a href="#headroom">Headroom</a>

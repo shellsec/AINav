@@ -5,8 +5,8 @@
 (function () {
   var META = {
     "model-plan.html": {
-      zh: { h1: "🧠 AI 模型选型横评", sub: "10 款 AI 旗舰模型技术特性 × 适用场景映射，架构假设深度解析，帮你精准匹配最优模型。" },
-      en: { h1: "🧠 AI Model Selection Guide", sub: "Ten flagship models — capabilities, architecture, and scenario mapping to pick the best fit." },
+      zh: { h1: "🧠 AI 模型选型横评", sub: "11 款 AI 旗舰模型技术特性 × 适用场景映射（含 Grok 4.5），架构假设深度解析，帮你精准匹配最优模型。" },
+      en: { h1: "🧠 AI Model Selection Guide", sub: "Eleven flagship models including Grok 4.5 — capabilities, architecture, and scenario mapping to pick the best fit." },
     },
     "hardware-plan.html": {
       zh: { h1: "🕶️ AI Hardware Plan 硬件横评", sub: "AI硬件产品一站式对比：价格、功能、特性、场景推荐，帮你选出最值得入手的AI硬件。" },

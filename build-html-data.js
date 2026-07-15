@@ -1945,6 +1945,7 @@ const html = `<!DOCTYPE html>
       <div class="top-toolbar" role="group" aria-label="外观" data-i18n-aria="toolbarLabel">
         <a href="free-tier.html" title="AI工具免费额度一览" data-i18n="freeTier" data-i18n-title="freeTierTitle">🆓 免费额度</a>
         <a href="ai-encyclopedia-2026.html" title="AI工具百科全书免费额度与产品说明" data-i18n="encyclopedia" data-i18n-title="encyclopediaTitle">AI工具百科</a>
+        <a href="https://monkeycode-ai.com/?ic=019dd772-4515-776b-a158-a20e0ecbc25c" target="_blank" rel="noopener noreferrer sponsored" title="MonkeyCode 在线 AI 编程：免安装、云端环境、多模型" data-i18n="monkeyCode" data-i18n-title="monkeyCodeTitle">MonkeyCode</a>
         <a href="https://aiv123.com/chrome/" title="Chrome 插件" data-i18n="chromeExt" data-i18n-title="chromeExtTitle">Chrome插件</a>
         <button type="button" class="theme-btn" data-theme-set="system" data-i18n="themeSystem">跟随系统</button>
         <button type="button" class="theme-btn" data-theme-set="light" data-i18n="themeLight">浅色</button>
@@ -2568,6 +2569,8 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         thinkingFrameworkTitle: "Ask · Plan · Debug · Agent · Prompt guide",
         chromeExt: "Chrome Extension",
         chromeExtTitle: "Chrome Extension",
+        monkeyCode: "MonkeyCode",
+        monkeyCodeTitle: "MonkeyCode — online AI coding, cloud IDE, multi-model",
         themeSystem: "System",
         themeLight: "Light",
         themeDark: "Dark",
@@ -2685,6 +2688,8 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         thinkingFrameworkTitle: "Ask · Plan · Debug · Agent · 提示词指南",
         chromeExt: "Chrome插件",
         chromeExtTitle: "Chrome 插件",
+        monkeyCode: "MonkeyCode",
+        monkeyCodeTitle: "MonkeyCode 在线 AI 编程：免安装、云端环境、多模型",
         themeSystem: "跟随系统",
         themeLight: "浅色",
         themeDark: "深色",

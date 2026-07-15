@@ -106,11 +106,11 @@
   },
   "https://grok.com/": {
     "freeLevel": "部分免费",
-    "quota": "xAI 常提供免费试用层；SuperGrok 等为付费",
-    "dailyCycle": "以 xAI 官网与 X 生态联动规则为准",
-    "firstBonus": "—",
-    "note": "",
-    "updated": "2026-04"
+    "quota": "网页/APP 常有免费对话层；Grok 4.5 旗舰与更高限额多在 SuperGrok / Premium+；API 约 $2/$6 每百万 token（输入/输出）",
+    "dailyCycle": "免费档消息限额随负载与套餐变化，以 xAI / X 官方为准",
+    "firstBonus": "发布期 Grok Build / Cursor 或有限时免费额度，以活动页为准",
+    "note": "Grok 4.5（2026-07）主打编程与 Agent；Cursor 全套餐与 Grok Build / xAI Console 可用；欧盟可用性可能滞后",
+    "updated": "2026-07"
   },
   "https://copilot.microsoft.com/": {
     "freeLevel": "部分免费",

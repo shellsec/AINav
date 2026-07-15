@@ -1,7 +1,7 @@
 {
   "mode": "replace-hot",
   "matchName": "热门工具",
-  "asOf": "2026-07-13",
+  "asOf": "2026-07-15",
   "items": [
     {
       "title": "DeepSeek",
@@ -41,13 +41,13 @@
     },
     {
       "title": "Grok",
-      "subtitle": "Grok 4 + X 实时搜索，观点犀利",
+      "subtitle": "Grok 4.5：编程/Agent 旗舰，Cursor 全套餐可用，兼 X 实时搜索",
       "link": "https://grok.com/",
       "avatar": "icon/Grok.png"
     },
     {
       "title": "Cursor",
-      "subtitle": "AI IDE + Agent 模式，Tab 无限、含用量池",
+      "subtitle": "AI IDE + Agent；全套餐可用 Grok 4.5，Tab 无限、含用量池",
       "link": "https://cursor.com/",
       "avatar": "icon/Cursor.png"
     },

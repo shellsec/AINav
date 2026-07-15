@@ -33,7 +33,7 @@
   },
   "Grok": {
     "title": "Grok",
-    "desc": "xAI 对话，网页版与 X / SuperGrok 等生态联动"
+    "desc": "Grok 4.5 — coding/agent flagship; on Cursor all plans; X real-time search"
   },
   "Perplexity": {
     "title": "Perplexity",
@@ -917,7 +917,7 @@
   },
   "Cursor": {
     "title": "Cursor",
-    "desc": "编辑器内置 MCP 接入，连接本地/远程工具"
+    "desc": "AI IDE + Agent; Grok 4.5 on all plans; Tab unlimited + usage pool; MCP"
   },
   "Windsurf": {
     "title": "Windsurf",

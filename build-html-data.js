@@ -47,14 +47,12 @@ for (const [key, t] of Object.entries(tools)) {
 
 /** 可选 daily-tools.json：将「热门工具」等分类替换为自用日常清单（删文件即恢复包内默认） */
 const dailyPath = path.join(ROOT, "daily-tools.json");
-let hotToolsAsOf = "";
 if (fs.existsSync(dailyPath)) {
   try {
     const daily = JSON.parse(fs.readFileSync(dailyPath, "utf8"));
     const mode = daily.mode && String(daily.mode);
     const matchName =
       (daily.matchName && String(daily.matchName).trim()) || "热门工具";
-    if (daily.asOf) hotToolsAsOf = String(daily.asOf).trim();
     if (mode === "replace-hot" && Array.isArray(daily.items) && daily.items.length) {
       const normalized = daily.items
         .filter((t) => t && t.title && t.link)
@@ -1068,13 +1066,8 @@ function renderSections(nodes) {
         n.id === "ext-token-optimize"
           ? `<p class="block-guide"><a href="token-optimization.html">安装配置与最佳实践 →</a></p>`
           : "";
-      const asOfNote =
-        /热门/.test(n.name || "") && hotToolsAsOf
-          ? `<p class="block-asof"><span data-i18n="hotAsOfPrefix">模型信息截至</span> ${esc(hotToolsAsOf)}</p>`
-          : "";
       parts.push(`<section class="block" id="${esc(n.id)}">
 <h2 class="block-title"${catI18nAttr(n.name)}>${esc(n.name)}</h2>
-${asOfNote}
 ${guideLink}
 <div class="grid">${renderTools(n.tools, n.name)}</div>
 </section>`);
@@ -1503,11 +1496,6 @@ const html = `<!DOCTYPE html>
       border-color: var(--accent);
       font-weight: 600;
       background: rgba(88, 166, 255, 0.08);
-    }
-    .block-asof {
-      margin: -0.15rem 0 0.55rem;
-      font-size: 0.75rem;
-      color: var(--muted);
     }
     .theme-btn {
       font-size: 0.72rem;
@@ -2660,7 +2648,6 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         tagCn: "China",
         tagIntl: "Intl",
         tagBuild: "Agent/RAG",
-        hotAsOfPrefix: "Model info as of",
         compareLabel: "Compare",
         compareOpen: "Open",
         compareClear: "Clear",
@@ -2779,7 +2766,6 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         tagCn: "国内",
         tagIntl: "国际",
         tagBuild: "Agent/RAG",
-        hotAsOfPrefix: "模型信息截至",
         compareLabel: "对比",
         compareOpen: "查看对比",
         compareClear: "清空",

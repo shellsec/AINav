@@ -210,6 +210,80 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
   </div>
 </div>
 
+<!-- 链路补充（来自实战） -->
+<div style="margin-top:1.25rem;padding:1rem 1.1rem;border-radius:10px;border:1px solid rgba(167,139,250,.25);background:rgba(167,139,250,.05)">
+  <div style="font-weight:700;font-size:.95rem;margin-bottom:.55rem;color:var(--af3)">链路还要补上的 4 条实战原则</div>
+  <div style="display:grid;grid-template-columns:1fr;gap:.55rem;font-size:.82rem;color:var(--muted);line-height:1.65;text-align:left">
+    <div><strong style="color:var(--text)">1. 人负责判断，AI 负责执行</strong> — 「100% AI 写代码」说的是 Execute；选题、好玩与否、砍范围、何时停，必须人拍板（Ideate / Debug）。</div>
+    <div><strong style="color:var(--text)">2. 好玩 &gt; 物理真实</strong> — Ideate/Debug 时可以故意调「不真实」的参数（如食物堆更容易倒），体验优先于仿真。</div>
+    <div><strong style="color:var(--text)">3. 做不出产物，就先造工具</strong> — Agent 放大器：AI 画不了整张地图 → 让它做地图编辑器 → 你用工具搭。这是 Vibe Coding 最高杠杆之一。</div>
+    <div><strong style="color:var(--text)">4. 多会话 + 上下文策略</strong> — 新功能用干净会话；修 Bug 用长上下文会话；2～3 路并行各管模块，减少互相踩文件。这是 Ask/Agent 的工作流，不是玄学。</div>
+  </div>
+</div>
+
+<!-- 实战案例 -->
+<div style="margin-top:1.5rem">
+  <div style="font-size:1.05rem;font-weight:700;margin-bottom:.75rem;padding-bottom:.3rem;border-bottom:2px solid var(--border)">📚 实战案例 · 五步怎么走的</div>
+  <p style="font-size:.8rem;color:var(--muted);margin:0 0 .85rem;line-height:1.6">公开案例用来对照链路，不是背书。读完问自己：哪一步是我在做，哪一步我甩给了 AI。</p>
+
+  <div class="tf-card" style="margin-bottom:.85rem">
+    <div class="tf-card-hd">
+      <span class="tf-card-icon">🐹</span>
+      <span class="tf-card-name" style="color:var(--text)">Capybara 外卖游戏 · Vibe Jam 2026 冠军</span>
+      <span class="tf-card-tag" style="background:rgba(63,185,80,.12);color:var(--accent2)">完整五步</span>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0 0 .55rem">
+      9 年 iOS 开发者，15 天、约 &lt;$150、Claude Code 写出 2.7 万行（自称零手写），奖金 $25k。引擎 Three.js；贴图/3D/音乐另用图像与音频模型。
+    </p>
+    <div style="font-size:.78rem;color:var(--muted);line-height:1.75;border:1px solid var(--border);border-radius:8px;padding:.65rem .8rem;background:var(--panel)">
+      <strong style="color:var(--af3)">Ideate</strong>：一句「水豚骑摩托送外卖」→ 与 GPT/Grok 脑暴；食物改为堆叠掉落，因「真实不一定好玩」。<br>
+      <strong style="color:var(--accent)">Ask</strong>：精力在 Prompt / 需求表达，不是敲代码；强调不是一句 Prompt 出成品。<br>
+      <strong style="color:var(--af)">Plan</strong>：第 1 周先跑通核心玩法；第 2 周再打磨 PS1 风格、联机与工具链。<br>
+      <strong style="color:var(--warn)">Debug</strong>：Sandbox 调驾驶手感；长会话修 Bug；地图整城生成失败后改思路。<br>
+      <strong style="color:var(--accent2)">Agent</strong>：2～3 路 Claude 并行；让 AI 做地图/道路/过场编辑器，再用工具继续开发。
+    </div>
+    <p style="font-size:.76rem;margin:.55rem 0 0;color:var(--muted)">
+      原文：<a href="https://eu.36kr.com/zh/p/3896358295029383" target="_blank" rel="noopener noreferrer">36氪报道</a> ·
+      <a href="https://www.reddit.com/r/vibecoding/comments/1urz4mc/i_won_25k_with_a_capybara_game_entirely_made_with/" target="_blank" rel="noopener noreferrer">Reddit</a> ·
+      <a href="https://leocoout.medium.com/how-i-made-25k-in-15-days-with-a-game-built-entirely-by-claude-code-94b3b817f0ce" target="_blank" rel="noopener noreferrer">作者 Medium</a> ·
+      试玩：<a href="https://capybara-vibejam26.leocoout.dev/" target="_blank" rel="noopener noreferrer">游戏页</a>
+    </p>
+  </div>
+
+  <div class="tf-card" style="margin-bottom:.85rem">
+    <div class="tf-card-hd">
+      <span class="tf-card-icon">🛠️</span>
+      <span class="tf-card-name" style="color:var(--text)">同一项目的「造工具」杠杆</span>
+      <span class="tf-card-tag" style="background:rgba(88,166,255,.1);color:var(--accent)">Agent 专项</span>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0">
+      整城地图一次生成失败 → 不硬刚，改为让 Claude 做<strong>游戏内编辑器</strong>（地形、刷材质、摆模型、自动铺路、过场时间轴）。作者认为最大提效不是那 2.7 万行业务代码，而是这套工具链。对照：Agent 页的「放大器」= 让 AI 提高你下一轮的产能，而不只是多吐几行代码。
+    </p>
+  </div>
+
+  <div class="tf-card" style="margin-bottom:.85rem">
+    <div class="tf-card-hd">
+      <span class="tf-card-icon">🎮</span>
+      <span class="tf-card-name" style="color:var(--text)">Vibe Jam 赛制本身</span>
+      <span class="tf-card-tag" style="background:rgba(249,115,22,.1);color:var(--af)">Ideate+Plan</span>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0">
+      Pieter Levels 主办的年度比赛：强制「代码绝大部分由 AI 生成」。这等于赛前就把 Ideate/Plan 的约束写死——你必须用意图驱动，而不是手写堆量。适合用来理解：<strong>外部约束也能当创想边界</strong>（做什么、不做什么、用什么工具栈）。赛站：<a href="https://vibej.am/2026/" target="_blank" rel="noopener noreferrer">vibej.am/2026</a>
+    </p>
+  </div>
+
+  <div class="tf-card">
+    <div class="tf-card-hd">
+      <span class="tf-card-icon">📦</span>
+      <span class="tf-card-name" style="color:var(--text)">资产墙：代码 Agent ≠ 全栈造梦</span>
+      <span class="tf-card-tag" style="background:rgba(210,153,34,.1);color:var(--warn)">Plan 专项</span>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0">
+      业界实测常见结论：Claude Code 等擅长玩法/脚手架，但贴图、Sprite、3D、音频仍要图像/3D/音频模型或外包管线。Capybara 案例也是「代码一路 + 多模态资产多路」。Plan 时就要拆：哪些交给 Coding Agent，哪些交给资产工具——否则会在 Ask 里空耗。
+    </p>
+  </div>
+</div>
+
 <div class="cp-footer">
       <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-07-15</span></p>
   <p>AI第一思考 · Ideate·Ask·Plan·Debug·Agent · 一切提效的底层逻辑</p>

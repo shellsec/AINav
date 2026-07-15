@@ -836,6 +836,7 @@ ${groupedRows}
 })();
   </script>
 <script src="thinking-framework.js"></script>
+<script src="back-to-top.js"></script>
 </body>
 </html>`;
 }
@@ -3026,6 +3027,7 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
   })();
   </script>
 <script src="thinking-framework.js"></script>
+<script src="back-to-top.js"></script>
 </body>
 </html>`;
 
@@ -3525,6 +3527,7 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
 })();
   </script>
 <script src="thinking-framework.js"></script>
+<script src="back-to-top.js"></script>
 </body>
 </html>`;
 }

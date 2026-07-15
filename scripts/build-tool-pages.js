@@ -329,6 +329,7 @@ function buildToolHtml({ row, siteTool, baseUrl, siblings }) {
       </p>
     </div>
   </main>
+<script src="../back-to-top.js"></script>
 </body>
 </html>
 `;
@@ -422,6 +423,7 @@ function buildIndexHtml(pages, baseUrl) {
       </p>
     </div>
   </main>
+<script src="../back-to-top.js"></script>
 </body>
 </html>
 `;

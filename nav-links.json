@@ -172,10 +172,10 @@
       "href": "thinking-framework.html",
       "zh": "AI第一思考",
       "en": "Thinking",
-      "match": ["thinking-framework.html", "ask.html", "plan.html", "debug.html", "agent.html", "prompt-guide.html"],
+      "match": ["thinking-framework.html", "ideate.html", "ask.html", "plan.html", "debug.html", "agent.html", "prompt-guide.html"],
       "nav": ["sub", "plan", "home"],
       "homeGroup": "method",
-      "homeTitle": "Ask · Plan · Debug · Agent · 提示词指南",
+      "homeTitle": "Ideate · Ask · Plan · Debug · Agent · 提示词指南",
       "homeI18n": "thinkingFramework"
     },
     {
@@ -211,6 +211,7 @@
     { "loc": "https://aiv123.com/ai-factory-plan.html", "changefreq": "monthly", "priority": "0.7" },
     { "loc": "https://aiv123.com/plan.html", "changefreq": "monthly", "priority": "0.6" },
     { "loc": "https://aiv123.com/thinking-framework.html", "changefreq": "monthly", "priority": "0.6" },
+    { "loc": "https://aiv123.com/ideate.html", "changefreq": "monthly", "priority": "0.6" },
     { "loc": "https://aiv123.com/token-optimization.html", "changefreq": "monthly", "priority": "0.72" },
     { "loc": "https://aiv123.com/ask.html", "changefreq": "monthly", "priority": "0.6" },
     { "loc": "https://aiv123.com/debug.html", "changefreq": "monthly", "priority": "0.6" },

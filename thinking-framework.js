@@ -16,6 +16,7 @@
 .tf-pill-wrap{display:flex;gap:.4rem;flex:1;justify-content:center;flex-wrap:wrap}\
 .tf-pill{padding:.25rem .6rem;border-radius:5px;font-size:.78rem;font-weight:600;white-space:nowrap;text-decoration:none;transition:transform .15s,box-shadow .15s}\
 .tf-pill:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.15)}\
+.tf-pill-ideate{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);color:#a78bfa}\
 .tf-pill-ask{background:rgba(88,166,255,.08);border:1px solid rgba(88,166,255,.18);color:var(--accent)}\
 .tf-pill-plan{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.18);color:var(--af)}\
 .tf-pill-debug{background:rgba(210,153,34,.08);border:1px solid rgba(210,153,34,.18);color:var(--warn)}\
@@ -30,6 +31,7 @@
   <div class="tf-bar">\
     <div class="tf-bar-title">💡 AI第一思考<span>一切提效的底层逻辑</span></div>\
     <div class="tf-pill-wrap">\
+      <a href="ideate.html" class="tf-pill tf-pill-ideate">✨ Ideate</a>\
       <a href="ask.html" class="tf-pill tf-pill-ask">💬 Ask</a>\
       <a href="plan.html" class="tf-pill tf-pill-plan">🗺️ Plan</a>\
       <a href="debug.html" class="tf-pill tf-pill-debug">🔧 Debug</a>\

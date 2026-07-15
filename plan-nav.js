@@ -25,7 +25,7 @@
     { href: "ai-roi/", zh: "AI技能落地", en: "AI Skills Audit", match: ["ai-roi/","ai-roi/index.html"] },
     { href: "opc.html", zh: "一人公司", en: "OPC", match: ["opc.html","opc-global.html","opc-resources.html"] },
     { href: "skill-plan.html", zh: "Skill", en: "Skill", match: ["skill-plan.html"] },
-    { href: "thinking-framework.html", zh: "AI第一思考", en: "Thinking", match: ["thinking-framework.html","ask.html","plan.html","debug.html","agent.html","prompt-guide.html"] },
+    { href: "thinking-framework.html", zh: "AI第一思考", en: "Thinking", match: ["thinking-framework.html","ideate.html","ask.html","plan.html","debug.html","agent.html","prompt-guide.html"] },
     { href: "ai-encyclopedia-2026.html", zh: "AI百科", en: "Encyclopedia", match: ["ai-encyclopedia-2026.html"] }
   ];
 

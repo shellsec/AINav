@@ -109,6 +109,42 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
 【成功长什么样】：
 【下一步 Ask 要问的第一句】：</div>
 
+<div class="cp-section-hd" id="prompts"><span>📝</span> 可复制提示词</div>
+<p style="font-size:.8rem;color:var(--muted);margin:0 0 .75rem;line-height:1.6">把括号里的内容换成你的场景，整段复制到 ChatGPT / Claude / Cursor。</p>
+<div class="af-grid">
+  <div class="af-tool"><div class="af-tool-head">① 痛点脑暴</div>
+  <div class="af-tool-body"><div class="tpl">你是产品创想教练。我所处领域是：[领域/职业]。
+请帮我列出 10 个「真实存在、又贵又慢又丑」的痛点或流程空白。
+要求：
+1. 每个痛点一句话描述 + 谁在痛 + 现有替代方案差在哪
+2. 优先可被 AI / 软件 在 2 周内做出 MVP 的
+3. 不要空口号，不要「赋能」「数字化转型」这类词
+输出：编号列表。</div></div></div>
+  <div class="af-tool"><div class="af-tool-head">② 点子发散 → 筛选</div>
+  <div class="af-tool-body"><div class="tpl">基于这个痛点：[粘贴痛点]。
+请先发散 8～10 个半成品点子（允许荒唐），再按「工期≤2周 / 预算≤¥XXX / 我能验收」筛到 2 个。
+对每个入选点子输出：
+- 一句话概念
+- 核心玩法或核心功能（只 1 个）
+- 最大风险
+- 为什么值得做
+不要开始写代码或详细方案。</div></div></div>
+  <div class="af-tool"><div class="af-tool-head">③ 差异化一句话</div>
+  <div class="af-tool-body"><div class="tpl">我的选题是：[点子]。
+请帮我写成一句差异化定位，格式固定：
+「对【谁】，我提供【什么】，比【替代方案】更好在【一点】。」
+再给 3 个备选说法。最后问我 3 个澄清问题，帮我砍范围到「本期只做」。</div></div></div>
+  <div class="af-tool"><div class="af-tool-head">④ 交给 Ask 的交接包</div>
+  <div class="af-tool-body"><div class="tpl">请根据我填好的创想便签，整理成下一段「Ask 第一句」可直接粘贴的需求包：
+【谁】：[ ]
+【痛点】：[ ]
+【差异化一句话】：[ ]
+【本期只做】：[ ]
+【成功标准】：[ ]
+【约束】：平台/预算/工期 = [ ]
+输出：一段完整 Ask 提示词（含角色、任务、约束、输出格式），不要执行任务本身。</div></div></div>
+</div>
+
 <div class="cp-section-hd"><span>🔗</span> 下一步</div>
 <p style="font-size:.88rem;color:var(--muted);line-height:1.8">
   选题定了 → 去 <a href="ask.html">Ask</a> 把问题问准 → <a href="plan.html">Plan</a> 拆路径。<br>

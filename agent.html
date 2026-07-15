@@ -261,6 +261,46 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
   </div></div>
 </div>
 
+<div class="cp-section-hd" id="prompts"><span class="cp-flag">📝</span> 可复制提示词</div>
+<div class="af-grid">
+  <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name">① 执行简报（开干前）</div></div>
+  <div class="af-tool-body">
+    <div style="padding:.6rem;border-radius:6px;background:rgba(63,185,80,.04);border:1px solid rgba(63,185,80,.14);font-size:.78rem;line-height:1.75;white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace">按已确认的 Plan 执行 Step [N]：[步骤名]。
+
+目标产出：[文件/功能]
+验收标准：[可勾选的标准]
+约束：只改 [路径/模块]；不要动 [禁止区]；技术栈保持 [ ]。
+不确定时先问，不要擅自扩大范围。
+完成后用清单对照验收标准自检，再汇报改动摘要。</div>
+  </div></div>
+  <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name">② 造工具（放大器）</div></div>
+  <div class="af-tool-body">
+    <div style="padding:.6rem;border-radius:6px;background:rgba(88,166,255,.04);border:1px solid rgba(88,166,255,.12);font-size:.78rem;line-height:1.75;white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace">直接生成 [大产物，如整张地图/整站文案] 效果差。
+请不要硬刚生成最终产物，先做一个「编辑器/生成器」工具：
+- 输入：[我怎么操作]
+- 输出：[工具产出什么中间件]
+- 界面/命令：[CLI / 网页按钮 / 编辑器面板]
+做成后我用工具批量搭内容。先只做工具 MVP，附使用说明。</div>
+  </div></div>
+  <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name">③ 并行会话分工</div></div>
+  <div class="af-tool-body">
+    <div style="padding:.6rem;border-radius:6px;background:rgba(167,139,250,.04);border:1px solid rgba(167,139,250,.14);font-size:.78rem;line-height:1.75;white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace">本会话只负责模块：[模块名，如地图 / UI / 物理]。
+允许改动的路径：[目录列表]
+禁止改动：[其它模块路径]
+接口约定：[与其它模块的边界，如事件名/API]
+完成后只提交本模块 diff 说明，不要跨模块重构。</div>
+  </div></div>
+  <div class="af-tool"><div class="af-tool-head"><div class="af-tool-name">④ 写入 Rules / CLAUDE.md</div></div>
+  <div class="af-tool-body">
+    <div style="padding:.6rem;border-radius:6px;background:rgba(249,115,22,.04);border:1px solid rgba(249,115,22,.12);font-size:.78rem;line-height:1.75;white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace">根据我们刚才确认的约定，生成一段可粘贴进 CLAUDE.md / Cursor Rules 的项目规约，包含：
+- 技术栈与目录约定
+- 必须做 / 禁止做
+- 提交前自检清单
+- 常见错误的防复发规则
+语气简洁，条目化，不要解释性废话。</div>
+  </div></div>
+</div>
+
 <!-- ==================== 闭环 ==================== -->
 <div class="cp-section-hd"><span class="cp-flag">🔄</span> 闭环 — Agent化的5大原则 + 演进路线</div>
 

@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="site-mobile.css">
   <title>AI Agent 横评 — Coding Agent 对比 — AINav</title>
   <meta name="description" content="AI Coding Agent 横向对比：Hermes（2026 开源首选）、Claude Code（Fable 5/Opus 4.8）、Cursor、OpenClaw、Cline、Codex CLI 等；搭配 GLM-5.2、DeepSeek-V4-Pro 选型指南。">
   <link rel="canonical" href="https://aiv123.com/agent-plan.html">
@@ -207,7 +208,7 @@
     </div>
     <h1 data-i18n="title">🤖 AI Agent 横评</h1>
     <p class="cp-subtitle" data-i18n="subtitle">国内外 AI Coding Agent 一站式对比：2026 年开源首选 Hermes，模型底座推荐 GLM-5.2 / DeepSeek-V4-Pro / Claude Opus 4.8。</p>
-    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-07-15</span> · <a href="#loop-engineering">Loop Engineering</a> · <a href="token-optimization.html">Token 优化指南</a> · <a href="coding-plan.html">编程套餐横评</a></p>
+    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-07-15</span> · <a href="#loop-engineering">Loop Engineering</a> · <a href="token-optimization.html">Token 优化指南</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="thinking-framework.html">AI第一思考</a></p>
 
     <!-- Legend -->
     <div class="cp-legend">
@@ -219,8 +220,17 @@
       <div class="cp-legend-item"><span class="cp-badge badge-free">🆓 免费</span> 零成本可用</div>
     </div>
 
+    <nav class="page-toc" aria-label="本页目录">
+      <div class="page-toc-hd">📑 本页目录</div>
+      <ul class="page-toc-list">
+        <li><a href="#domestic">国内 Agent</a></li>
+        <li><a href="#overseas">海外 Agent</a></li>
+        <li><a href="#oss">开源 / 自托管</a></li>
+      </ul>
+    </nav>
+
     <!-- ==================== 国内 Coding Agent ==================== -->
-    <div class="cp-section-hd"><span class="cp-flag">🇨🇳</span> 国内 Coding Agent</div>
+    <div class="cp-section-hd" id="domestic"><span class="cp-flag">🇨🇳</span> 国内 Coding Agent</div>
 
     <div class="cp-platforms">
 
@@ -425,7 +435,7 @@
     </div><!-- /cp-platforms (国内) -->
 
     <!-- ==================== 海外 Coding Agent ==================== -->
-    <div class="cp-section-hd overseas-hd"><span class="cp-flag">🌍</span> 海外 Coding Agent</div>
+    <div class="cp-section-hd overseas-hd" id="overseas"><span class="cp-flag">🌍</span> 海外 Coding Agent</div>
 
     <div class="cp-platforms">
 
@@ -679,7 +689,7 @@
     </div><!-- /cp-platforms (海外) -->
 
     <!-- ==================== 开源 / 自托管 Agent ==================== -->
-    <div class="cp-section-hd oss-hd"><span class="cp-flag">🔓</span> 开源 / 自托管 Agent</div>
+    <div class="cp-section-hd oss-hd" id="oss"><span class="cp-flag">🔓</span> 开源 / 自托管 Agent</div>
 
     <div class="cp-platforms">
 

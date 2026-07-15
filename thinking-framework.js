@@ -1,6 +1,7 @@
 /**
- * AI Thinking Framework — Ask · Plan · Debug · Agent
- * 底部链接组件，指向4个独立详细页面
+ * AI Thinking Framework — Ideate · Ask · Plan · Debug · Agent
+ * 页脚前静态入口条（非 fixed 浮窗）。
+ * 首页已有顶栏「AI第一思考」+ 回顶按钮，故不做底部常驻浮窗，避免遮挡导航浏览。
  * 用法：<script src="thinking-framework.js"></script>
  */
 (function(){

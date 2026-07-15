@@ -113,6 +113,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
     <div class="tf-card-points">
       <span class="tf-card-point">痛点发现</span>
       <span class="tf-card-point">选项发散</span>
+      <span class="tf-card-point">可复制提示词</span>
       <span class="tf-card-point">差异化一句话</span>
       <span class="tf-card-point">交给 Ask</span>
     </div>
@@ -131,8 +132,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
     <div class="tf-card-points">
       <span class="tf-card-point">5个层级</span>
       <span class="tf-card-point">万能公式</span>
-      <span class="tf-card-point">4个痛点</span>
-      <span class="tf-card-point">3个案例</span>
+      <span class="tf-card-point">可复制模板</span>
       <span class="tf-card-point">闭环迭代</span>
     </div>
     <div class="tf-card-link" style="color:var(--accent)">查看详细解读 →</div>
@@ -150,8 +150,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
     <div class="tf-card-points">
       <span class="tf-card-point">5个必答题</span>
       <span class="tf-card-point">Plan模板</span>
-      <span class="tf-card-point">4个痛点</span>
-      <span class="tf-card-point">对比案例</span>
+      <span class="tf-card-point">可复制提示词</span>
       <span class="tf-card-point">闭环验收</span>
     </div>
     <div class="tf-card-link" style="color:var(--af)">查看详细解读 →</div>
@@ -169,8 +168,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
     <div class="tf-card-points">
       <span class="tf-card-point">3层方法</span>
       <span class="tf-card-point">场景速查</span>
-      <span class="tf-card-point">4个痛点</span>
-      <span class="tf-card-point">3个案例</span>
+      <span class="tf-card-point">可复制定位词</span>
       <span class="tf-card-point">模板防复发</span>
     </div>
     <div class="tf-card-link" style="color:var(--warn)">查看详细解读 →</div>
@@ -188,8 +186,8 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
     <div class="tf-card-points">
       <span class="tf-card-point">3个阶段</span>
       <span class="tf-card-point">工具矩阵</span>
-      <span class="tf-card-point">5大原则</span>
-      <span class="tf-card-point">演进案例</span>
+      <span class="tf-card-point">造工具</span>
+      <span class="tf-card-point">可复制提示词</span>
       <span class="tf-card-point">人审设置</span>
     </div>
     <div class="tf-card-link" style="color:var(--accent2)">查看详细解读 →</div>
@@ -210,54 +208,127 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
   </div>
 </div>
 
+<!-- 五步提示词速查 -->
+<div style="margin-top:1.35rem;padding:1rem 1.1rem;border-radius:10px;border:1px solid var(--border);background:var(--card)">
+  <div style="font-weight:700;font-size:.95rem;margin-bottom:.45rem">📝 五步可复制提示词</div>
+  <p style="font-size:.8rem;color:var(--muted);margin:0 0 .65rem;line-height:1.6">每步页面底部有整段可粘贴 Prompt。总览只做入口：</p>
+  <div style="display:flex;flex-wrap:wrap;gap:.4rem;font-size:.8rem">
+    <a href="ideate.html#prompts" style="padding:.3rem .65rem;border-radius:6px;border:1px solid rgba(167,139,250,.25);background:rgba(167,139,250,.08);color:var(--af3);font-weight:600;text-decoration:none">Ideate 脑暴</a>
+    <a href="ask.html#prompts" style="padding:.3rem .65rem;border-radius:6px;border:1px solid rgba(88,166,255,.25);background:rgba(88,166,255,.08);color:var(--accent);font-weight:600;text-decoration:none">Ask 公式</a>
+    <a href="plan.html#prompts" style="padding:.3rem .65rem;border-radius:6px;border:1px solid rgba(249,115,22,.25);background:rgba(249,115,22,.08);color:var(--af);font-weight:600;text-decoration:none">Plan 只出计划</a>
+    <a href="debug.html#prompts" style="padding:.3rem .65rem;border-radius:6px;border:1px solid rgba(210,153,34,.25);background:rgba(210,153,34,.08);color:var(--warn);font-weight:600;text-decoration:none">Debug 定位</a>
+    <a href="agent.html#prompts" style="padding:.3rem .65rem;border-radius:6px;border:1px solid rgba(63,185,80,.25);background:rgba(63,185,80,.08);color:var(--accent2);font-weight:600;text-decoration:none">Agent 执行/造工具</a>
+    <a href="prompt-guide.html" style="padding:.3rem .65rem;border-radius:6px;border:1px solid var(--border);background:var(--panel);color:var(--muted);font-weight:600;text-decoration:none">提示词指南 →</a>
+  </div>
+</div>
+
 <!-- 链路补充（来自实战） -->
 <div style="margin-top:1.25rem;padding:1rem 1.1rem;border-radius:10px;border:1px solid rgba(167,139,250,.25);background:rgba(167,139,250,.05)">
-  <div style="font-weight:700;font-size:.95rem;margin-bottom:.55rem;color:var(--af3)">链路还要补上的 4 条实战原则</div>
+  <div style="font-weight:700;font-size:.95rem;margin-bottom:.55rem;color:var(--af3)">链路还要补上的实战原则</div>
   <div style="display:grid;grid-template-columns:1fr;gap:.55rem;font-size:.82rem;color:var(--muted);line-height:1.65;text-align:left">
     <div><strong style="color:var(--text)">1. 人负责判断，AI 负责执行</strong> — 「100% AI 写代码」说的是 Execute；选题、好玩与否、砍范围、何时停，必须人拍板（Ideate / Debug）。</div>
     <div><strong style="color:var(--text)">2. 好玩 &gt; 物理真实</strong> — Ideate/Debug 时可以故意调「不真实」的参数（如食物堆更容易倒），体验优先于仿真。</div>
     <div><strong style="color:var(--text)">3. 做不出产物，就先造工具</strong> — Agent 放大器：AI 画不了整张地图 → 让它做地图编辑器 → 你用工具搭。这是 Vibe Coding 最高杠杆之一。</div>
-    <div><strong style="color:var(--text)">4. 多会话 + 上下文策略</strong> — 新功能用干净会话；修 Bug 用长上下文会话；2～3 路并行各管模块，减少互相踩文件。这是 Ask/Agent 的工作流，不是玄学。</div>
+    <div><strong style="color:var(--text)">4. 多会话 + 上下文策略</strong> — 新功能用干净会话；修 Bug 用长上下文会话；2～3 路并行各管模块，减少互相踩文件。</div>
+    <div><strong style="color:var(--text)">5. 把约束写进 Rules / CLAUDE.md</strong> — 赛制、编码约定、禁止事项提前固化，减少每次 Ask 重复解释（Capybara 把 VibeJam 规则丢进 <code>/rules</code>）。</div>
+    <div><strong style="color:var(--text)">6. 模块化提问，别一次「做亚马逊」</strong> — Plan/Ask 拆成可验收小目标；大上下文会「忘」——独立产品里也常见「过长单会话质量掉崖」。</div>
   </div>
 </div>
 
 <!-- 实战案例 -->
 <div style="margin-top:1.5rem">
   <div style="font-size:1.05rem;font-weight:700;margin-bottom:.75rem;padding-bottom:.3rem;border-bottom:2px solid var(--border)">📚 实战案例 · 五步怎么走的</div>
-  <p style="font-size:.8rem;color:var(--muted);margin:0 0 .85rem;line-height:1.6">公开案例用来对照链路，不是背书。读完问自己：哪一步是我在做，哪一步我甩给了 AI。</p>
+  <p style="font-size:.8rem;color:var(--muted);margin:0 0 .85rem;line-height:1.6">公开案例用来对照链路，不是背书。读完问自己：哪一步是我在做，哪一步我甩给了 AI。案例持续增补。</p>
 
   <div class="tf-card" style="margin-bottom:.85rem">
     <div class="tf-card-hd">
       <span class="tf-card-icon">🐹</span>
-      <span class="tf-card-name" style="color:var(--text)">Capybara 外卖游戏 · Vibe Jam 2026 冠军</span>
+      <span class="tf-card-name" style="color:var(--text)">Capybara 外卖 · Vibe Jam 2026 冠军</span>
       <span class="tf-card-tag" style="background:rgba(63,185,80,.12);color:var(--accent2)">完整五步</span>
     </div>
     <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0 0 .55rem">
-      9 年 iOS 开发者，15 天、约 &lt;$150、Claude Code 写出 2.7 万行（自称零手写），奖金 $25k。引擎 Three.js；贴图/3D/音乐另用图像与音频模型。
+      @leocoout · 9 年 iOS · 15 天 · 约 &lt;$150 · Claude Code ≈2.7 万行 / 188+ commit · 奖金 $25k。Three.js；贴图/3D/音频分给图像与音频模型；还用过 <a href="https://github.com/OpusGameLabs/game-creator" target="_blank" rel="noopener noreferrer">game-creator Skill</a>。
     </p>
     <div style="font-size:.78rem;color:var(--muted);line-height:1.75;border:1px solid var(--border);border-radius:8px;padding:.65rem .8rem;background:var(--panel)">
-      <strong style="color:var(--af3)">Ideate</strong>：一句「水豚骑摩托送外卖」→ 与 GPT/Grok 脑暴；食物改为堆叠掉落，因「真实不一定好玩」。<br>
-      <strong style="color:var(--accent)">Ask</strong>：精力在 Prompt / 需求表达，不是敲代码；强调不是一句 Prompt 出成品。<br>
-      <strong style="color:var(--af)">Plan</strong>：第 1 周先跑通核心玩法；第 2 周再打磨 PS1 风格、联机与工具链。<br>
-      <strong style="color:var(--warn)">Debug</strong>：Sandbox 调驾驶手感；长会话修 Bug；地图整城生成失败后改思路。<br>
-      <strong style="color:var(--accent2)">Agent</strong>：2～3 路 Claude 并行；让 AI 做地图/道路/过场编辑器，再用工具继续开发。
+      <strong style="color:var(--af3)">Ideate</strong>：一句「水豚骑摩托送外卖」→ GPT/Grok 脑暴；堆叠掉落因「真实不一定好玩」。<br>
+      <strong style="color:var(--accent)">Ask</strong>：精力在 Prompt；赛制规则进 <code>/rules</code>；非一句 Prompt 出成品。<br>
+      <strong style="color:var(--af)">Plan</strong>：周 1 核心玩法闭环；周 2 风格、联机、编辑器。<br>
+      <strong style="color:var(--warn)">Debug</strong>：Sandbox 调手感；长会话修 Bug；整城生成失败后改思路。<br>
+      <strong style="color:var(--accent2)">Agent</strong>：2～3 路并行；地图/道路/过场编辑器 = 造工具放大产能。
     </div>
     <p style="font-size:.76rem;margin:.55rem 0 0;color:var(--muted)">
-      原文：<a href="https://eu.36kr.com/zh/p/3896358295029383" target="_blank" rel="noopener noreferrer">36氪报道</a> ·
-      <a href="https://www.reddit.com/r/vibecoding/comments/1urz4mc/i_won_25k_with_a_capybara_game_entirely_made_with/" target="_blank" rel="noopener noreferrer">Reddit</a> ·
+      <a href="https://eu.36kr.com/zh/p/3896358295029383" target="_blank" rel="noopener noreferrer">36氪</a> ·
       <a href="https://leocoout.medium.com/how-i-made-25k-in-15-days-with-a-game-built-entirely-by-claude-code-94b3b817f0ce" target="_blank" rel="noopener noreferrer">作者 Medium</a> ·
-      试玩：<a href="https://capybara-vibejam26.leocoout.dev/" target="_blank" rel="noopener noreferrer">游戏页</a>
+      <a href="https://www.reddit.com/r/vibecoding/comments/1urz4mc/i_won_25k_with_a_capybara_game_entirely_made_with/" target="_blank" rel="noopener noreferrer">Reddit</a> ·
+      <a href="https://capybara-vibejam26.leocoout.dev/" target="_blank" rel="noopener noreferrer">试玩</a> ·
+      评委综述：<a href="https://levels.io/vibe-jam-2026-winners-quality" target="_blank" rel="noopener noreferrer">levels.io</a>
+    </p>
+  </div>
+
+  <div class="tf-card" style="margin-bottom:.85rem">
+    <div class="tf-card-hd">
+      <span class="tf-card-icon">🛒</span>
+      <span class="tf-card-name" style="color:var(--text)">Vibe Jam 2026 二三名（对照赛道）</span>
+      <span class="tf-card-tag" style="background:rgba(249,115,22,.1);color:var(--af)">Ideate 多样性</span>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0">
+      🥈 <strong>Fanto's Mega-Mart</strong>（$10k）· 🥉 <strong>WenWare</strong>（$5k，兼 Most Played）。同年还有 Best Art / Most Original / Most Polished 等专项奖。说明同一赛制下，Ideate 选题可以走玩法、美术、气氛、荒诞完全不同的方向——链路相同，创想不同。<br>
+      试玩索引：<a href="https://vibej.am/2026/" target="_blank" rel="noopener noreferrer">vibej.am/2026</a> ·
+      Mega-Mart <a href="https://fantos-megamart.vercel.app/" target="_blank" rel="noopener noreferrer">打开</a> ·
+      WenWare <a href="https://wen-ware.com/" target="_blank" rel="noopener noreferrer">打开</a>
     </p>
   </div>
 
   <div class="tf-card" style="margin-bottom:.85rem">
     <div class="tf-card-hd">
       <span class="tf-card-icon">🛠️</span>
-      <span class="tf-card-name" style="color:var(--text)">同一项目的「造工具」杠杆</span>
+      <span class="tf-card-name" style="color:var(--text)">「造工具」杠杆（同一冠军项目拆解）</span>
       <span class="tf-card-tag" style="background:rgba(88,166,255,.1);color:var(--accent)">Agent 专项</span>
     </div>
     <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0">
-      整城地图一次生成失败 → 不硬刚，改为让 Claude 做<strong>游戏内编辑器</strong>（地形、刷材质、摆模型、自动铺路、过场时间轴）。作者认为最大提效不是那 2.7 万行业务代码，而是这套工具链。对照：Agent 页的「放大器」= 让 AI 提高你下一轮的产能，而不只是多吐几行代码。
+      整城一次生成失败 → 不做硬刚，改为让 Claude 做<strong>游戏内编辑器</strong>（地形、刷材质、摆模型、自动铺路、过场时间轴）。作者认为最大提效来自工具链，而非业务代码行数。对照 <a href="agent.html">Agent</a>：放大器 = 提高下一轮产能。
+    </p>
+  </div>
+
+  <div class="tf-card" style="margin-bottom:.85rem">
+    <div class="tf-card-hd">
+      <span class="tf-card-icon">📸</span>
+      <span class="tf-card-name" style="color:var(--text)">Photo AI · levelsio 一人公司产品</span>
+      <span class="tf-card-tag" style="background:rgba(167,139,250,.12);color:var(--af3)">Ideate+Plan 商业</span>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0">
+      非比赛向：抓住「AI 写真」窗口，极简栈（PHP/SQLite 等）+ API 算力（Replicate）快速上线，公开迭代至高 MRR。五步映射偏：
+      <strong style="color:var(--af3)">Ideate</strong> 选对浪头与一句话价值（Fire your photographer）→
+      <strong style="color:var(--af)">Plan</strong> 砍复杂度、付费从第一天起 →
+      <strong style="color:var(--warn)">Debug</strong> 用真实付费用户反馈调「好看」→
+      Coding Agent 是加速器，分发与品味仍是人。<br>
+      综述：<a href="https://www.indiehackers.com/post/photo-ai-by-pieter-levels-complete-deep-dive-case-study-0-to-132k-mrr-in-18-months-3a9a2b1579" target="_blank" rel="noopener noreferrer">Indie Hackers 案例</a> ·
+      产品 <a href="https://photoai.com/" target="_blank" rel="noopener noreferrer">photoai.com</a>
+    </p>
+  </div>
+
+  <div class="tf-card" style="margin-bottom:.85rem">
+    <div class="tf-card-hd">
+      <span class="tf-card-icon">🕹️</span>
+      <span class="tf-card-name" style="color:var(--text)">经典游戏 Web 移植（小时级）</span>
+      <span class="tf-card-tag" style="background:rgba(63,185,80,.12);color:var(--accent2)">Agent 极限</span>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0">
+      levelsio 公开称用 AI 约 1 小时把 <em>Return to Castle Wolfenstein</em> 搬到 Web 并加多人；另有旧 Quake 2 地图复活为网页联机。映射：目标极清晰（移植+联机）时，Ask/Plan 很短，Agent 吞吐拉满；但仍依赖人对「可玩边界」的验收（Debug）。<br>
+      <a href="https://levels.io/vibe-jam-2026-winners-quality" target="_blank" rel="noopener noreferrer">相关博文索引（文内链接）</a>
+    </p>
+  </div>
+
+  <div class="tf-card" style="margin-bottom:.85rem">
+    <div class="tf-card-hd">
+      <span class="tf-card-icon">📱</span>
+      <span class="tf-card-name" style="color:var(--text)">国内：两周半上线微信小程序 / 7 天周报工具</span>
+      <span class="tf-card-tag" style="background:rgba(88,166,255,.1);color:var(--accent)">完整五步·轻量</span>
+    </div>
+    <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0">
+      中文圈常见模式：Cursor/Claude「先对话定需求 → MVP 验证 → 模式扩展」；另有 7 天「AI 周报生成器」（骨架→核心→样式→部署）叙事。共同点：<strong>需求对话先于代码</strong>，与 Ideate→Ask→Plan 同构，规模比比赛游戏小，更适合日常产品。<br>
+      参考：<a href="https://www.80aj.com/2026/05/08/ai-wechat-minicode-dev/" target="_blank" rel="noopener noreferrer">小程序两周半上线</a> ·
+      <a href="https://cloud.tencent.com/developer/article/2680241" target="_blank" rel="noopener noreferrer">7 天周报生成器</a>
     </p>
   </div>
 
@@ -265,10 +336,12 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
     <div class="tf-card-hd">
       <span class="tf-card-icon">🎮</span>
       <span class="tf-card-name" style="color:var(--text)">Vibe Jam 赛制本身</span>
-      <span class="tf-card-tag" style="background:rgba(249,115,22,.1);color:var(--af)">Ideate+Plan</span>
+      <span class="tf-card-tag" style="background:rgba(249,115,22,.1);color:var(--af)">Ideate+Plan 约束</span>
     </div>
     <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0">
-      Pieter Levels 主办的年度比赛：强制「代码绝大部分由 AI 生成」。这等于赛前就把 Ideate/Plan 的约束写死——你必须用意图驱动，而不是手写堆量。适合用来理解：<strong>外部约束也能当创想边界</strong>（做什么、不做什么、用什么工具栈）。赛站：<a href="https://vibej.am/2026/" target="_blank" rel="noopener noreferrer">vibej.am/2026</a>
+      Pieter Levels 主办，赞助含 Cursor / Bolt / Glif / Tripo 等；规则要求代码绝大部分由 AI 生成。等于赛前写死 Ideate/Plan 边界：必须意图驱动。评委称 2026 作品质量接近「真游戏」门槛。<br>
+      <a href="https://vibej.am/2026/" target="_blank" rel="noopener noreferrer">vibej.am/2026</a> ·
+      <a href="https://levels.io/vibe-jam-2026-winners-quality" target="_blank" rel="noopener noreferrer">获奖综述</a>
     </p>
   </div>
 
@@ -279,7 +352,8 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
       <span class="tf-card-tag" style="background:rgba(210,153,34,.1);color:var(--warn)">Plan 专项</span>
     </div>
     <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin:0">
-      业界实测常见结论：Claude Code 等擅长玩法/脚手架，但贴图、Sprite、3D、音频仍要图像/3D/音频模型或外包管线。Capybara 案例也是「代码一路 + 多模态资产多路」。Plan 时就要拆：哪些交给 Coding Agent，哪些交给资产工具——否则会在 Ask 里空耗。
+      Coding Agent 擅玩法/脚手架；贴图、Sprite、3D、音频仍要图像/3D/音频管线（Capybara：GPT Images / Grok / Tripo / Suno / ElevenLabs）。Plan 时拆清「代码一路 + 资产多路」，避免在 Ask 里空耗。<br>
+      延伸阅读（游戏资产墙实测）：<a href="https://sorceress.games/blog/use-claude-code-for-vibe-coding-game-dev-test" target="_blank" rel="noopener noreferrer">Claude Code × 游戏资产</a>
     </p>
   </div>
 </div>
@@ -287,7 +361,7 @@ html[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#fff;--border:#d0d7de;
 <div class="cp-footer">
       <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-07-15</span></p>
   <p>AI第一思考 · Ideate·Ask·Plan·Debug·Agent · 一切提效的底层逻辑</p>
-  <p><a href="index.html">← 返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="ai-factory-plan.html">AI造物流水线</a> · <a href="coding-plan.html">编程套餐横评</a></p>
+  <p><a href="index.html">← 返回 AINav 首页</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="ai-factory-plan.html">AI造物流水线</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="ideate.html">Ideate</a> · <a href="agent.html">Agent</a></p>
 </div>
 
 </div>

@@ -882,6 +882,121 @@ function buildToolI18nInjection() {
 }
 const toolI18nInjection = buildToolI18nInjection();
 
+/** 国内产品判定：域名白名单 + 厂商关键词；默认国际 */
+const CN_HOST_SUFFIXES = [
+  ".cn",
+  ".com.cn",
+  "aliyun.com",
+  "alibaba.com",
+  "alibabacloud.com",
+  "aliyundrive.com",
+  "baidu.com",
+  "tencent.com",
+  "qq.com",
+  "weixin.qq.com",
+  "doubao.com",
+  "bytedance.com",
+  "feishu.cn",
+  "dingtalk.com",
+  "jianying.com",
+  "deepseek.com",
+  "moonshot.cn",
+  "kimi.com",
+  "zhipuai.cn",
+  "chatglm.cn",
+  "bigmodel.cn",
+  "z.ai",
+  "xfyun.cn",
+  "iflytek.com",
+  "xunfei.cn",
+  "huaweicloud.com",
+  "huawei.com",
+  "sensetime.com",
+  "minimaxi.com",
+  "minimax.io",
+  "hailuoai.com",
+  "zhihu.com",
+  "360.com",
+  "meitu.com",
+  "volcengine.com",
+  "volces.com",
+  "modelscope.cn",
+  "tiangong.cn",
+  "metaso.cn",
+  "coze.cn",
+  "coze.site",
+  "stepfun.com",
+  "baichuan-ai.com",
+  "xverse.cn",
+  "klingai.com",
+  "trae.ai",
+  "marscode.cn",
+  "codegeex.cn",
+  "youdao.com",
+  "163.com",
+  "jd.com",
+  "gaoding.com",
+  "yuque.com",
+  "manus.im",
+  "qimi.com",
+  "wanzhi.com",
+  "higress.ai",
+  "liblib.art",
+  "runninghub.cn",
+  "siliconflow.cn",
+  "ima.qq.com",
+  "aidaxue.com",
+  "luca.cn",
+  "miraclevision.com",
+  "haimian.com",
+  "piccopilot.com",
+  "xiezuocat.com",
+  "writingo.net",
+  "whee.com",
+  "kaipai.com",
+  "littlefrog.ai",
+  "qoder.com",
+  "d.design",
+  "x-design.com",
+  "designkit.com",
+  "cosmoplat.cn",
+  "ia.ac.cn",
+];
+
+const CN_BRAND_RE =
+  /腾讯|阿里|百度|字节|智谱|月之暗面|科大讯飞|华为|商汤|美图|快手|哔哩|钉钉|飞书|通义|文心|豆包|元宝|清言|秘塔|昆仑|天工|阶跃|百川|面壁|火山|混元|扣子|即梦|剪映|美团|京东|网易|小米|有道|语雀|稿定|海螺|紫东太初|文心一言|通义千问|通义灵码|讯飞星火|DeepSeek|ChatGLM|CodeGeeX|Kimi|MiniMax|ZCode|Trae|MarsCode|Coze|Manus|元宝|混元|可灵|天工|秘塔|智谱清言|Z\.AI|智谱\s*GLM/i;
+
+function hostnameOf(link) {
+  try {
+    return new URL(String(link || "")).hostname.replace(/^www\./i, "").toLowerCase();
+  } catch (e) {
+    return "";
+  }
+}
+
+function hostMatchesCn(host) {
+  if (!host) return false;
+  for (const suf of CN_HOST_SUFFIXES) {
+    const s = suf.toLowerCase();
+    if (s.startsWith(".")) {
+      if (host.endsWith(s) || host === s.slice(1)) return true;
+    } else if (host === s || host.endsWith("." + s)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function isChinaOriginTool(tool) {
+  const title = String((tool && tool.title) || "");
+  const subtitle = String((tool && tool.subtitle) || "");
+  const link = String((tool && tool.link) || "");
+  const host = hostnameOf(link);
+  if (hostMatchesCn(host)) return true;
+  if (CN_BRAND_RE.test(`${title} ${subtitle}`)) return true;
+  return false;
+}
+
 function inferCardTags(catName, tool) {
   const tags = new Set();
   const cat = String(catName || "");
@@ -890,17 +1005,15 @@ function inferCardTags(catName, tool) {
   if (/聊天|对话|助手|Chat|LLM|模型/.test(blob) || /chat\.|claude\.ai|chatgpt|gemini\.google|grok\.com|doubao|yuanbao|kimi|deepseek|chatglm/i.test(blob)) {
     tags.add("chat");
   }
-  if (/编程|代码|Coding|开发|IDE|Cursor|Copilot|Claude Code/.test(blob)) tags.add("coding");
+  if (/编程|代码|Coding|开发|IDE|Cursor|Copilot|Claude Code|ZCode|通义灵码|CodeGeeX|MarsCode|Trae/.test(blob)) {
+    tags.add("coding");
+  }
   if (/图像|绘画|图片|Image|Midjourney|Stable Diffusion|绘图/.test(blob)) tags.add("image");
-  if (/视频|Video|可灵|Runway|Luma/.test(blob)) tags.add("video");
+  if (/视频|Video|可灵|Runway|Luma|即梦/.test(blob)) tags.add("video");
   if (/语音|TTS|ASR|Voice|配音/.test(blob)) tags.add("voice");
   if (/搜索|Search|Perplexity|秘塔/.test(blob)) tags.add("search");
   if (/MCP|RAG|本地|推理|Ollama|知识库|Agent|智能体/.test(blob)) tags.add("build");
-  const cnHint =
-    /\.cn(?:\/|$)|doubao|deepseek|yuanbao|chatglm|kimi\.com|moonshot|通义|文心|智谱|腾讯|阿里|百度|字节|秘塔|元宝|豆包|清言/i.test(
-      blob
-    );
-  tags.add(cnHint ? "cn" : "intl");
+  tags.add(isChinaOriginTool(tool) ? "cn" : "intl");
   return [...tags];
 }
 

@@ -208,7 +208,7 @@
     </div>
     <h1 data-i18n="title">🤖 AI Agent 横评</h1>
     <p class="cp-subtitle" data-i18n="subtitle">国内外 AI Coding Agent 一站式对比：2026 年开源首选 Hermes，模型底座推荐 GLM-5.2 / DeepSeek-V4-Pro / Claude Opus 4.8。</p>
-    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-07-15</span> · <a href="#loop-engineering">Loop Engineering</a> · <a href="token-optimization.html">Token 优化指南</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="thinking-framework.html">AI第一思考</a></p>
+    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-07-27</span> · <a href="#loop-engineering">Loop Engineering</a> · <a href="token-optimization.html">Token 优化指南</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="thinking-framework.html">AI第一思考</a></p>
 
     <!-- Legend -->
     <div class="cp-legend">
@@ -457,16 +457,16 @@
                 <td class="plan-limit">中度使用，约30-45分钟/天</td>
               </tr>
               <tr>
-                <td class="plan-name">Max 1× <span class="cp-badge badge-rec">👍</span></td>
+                <td class="plan-name">Max 5× <span class="cp-badge badge-rec">👍</span></td>
                 <td class="plan-price">$100/月</td>
-                <td class="plan-models"><a href="https://www.anthropic.com/claude/fable" target="_blank" rel="noopener noreferrer">Claude Fable 5</a>（暂停）, <a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Opus 4.8</a>, Sonnet 4.6</td>
-                <td class="plan-limit">长程 Agent；Fable 5 于 6/12 起全球暂停，自动回落 Opus 4.8</td>
+                <td class="plan-models"><a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Opus 4.8</a>, Sonnet 4.6（约 5× Pro）</td>
+                <td class="plan-limit">日用长程 Agent；与 Chat 共用额度窗口</td>
               </tr>
               <tr>
-                <td class="plan-name">Max 2×</td>
+                <td class="plan-name">Max 20×</td>
                 <td class="plan-price">$200/月</td>
-                <td class="plan-models">Opus 4.8, Sonnet 4.6, Fable 5（恢复后）</td>
-                <td class="plan-limit">并行 AI 会话，重度长程开发</td>
+                <td class="plan-models">Opus 4.8, Sonnet 4.6（约 20× Pro）</td>
+                <td class="plan-limit">并行会话 / 重度长程</td>
               </tr>
             </tbody>
           </table>
@@ -477,7 +477,7 @@
             <span class="feat-tag">多模态</span>
             <span class="feat-tag">自托管</span>
           </div>
-          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">终端 CLI Agent，Anthropic 官方出品；Fable 5 为 1M 上下文长程旗舰（2026/6/9 发布，6/12 起暂停访问），日常主力仍为 Opus 4.8 / Sonnet 4.6</div>
+          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">终端 CLI Agent，Anthropic 官方出品。Claude Code 含在 Claude 订阅内（Pro / Max），无单独许可证。主力模型以 Opus 4.8 / Sonnet 4.6 为准；价格见 <a href="https://claude.ai/pricing" target="_blank" rel="noopener noreferrer">claude.ai/pricing</a>。</div>
         </div>
       </div>
 
@@ -495,14 +495,20 @@
               <tr>
                 <td class="plan-name">Pro <span class="cp-badge badge-rec">👍</span></td>
                 <td class="plan-price">$20/月</td>
-                <td class="plan-models">Agent Mode + 用量池（含 <strong>Grok 4.5</strong> / Claude / GPT 等）</td>
-                <td class="plan-limit">主流选择；Grok 4.5 全套餐</td>
+                <td class="plan-models">Agent Mode + 约 $20 API 池（Claude / GPT / Grok 等）</td>
+                <td class="plan-limit">日常主力</td>
+              </tr>
+              <tr>
+                <td class="plan-name">Pro+</td>
+                <td class="plan-price">$60/月</td>
+                <td class="plan-models">约 $70 API 池，更高 Agent 额度</td>
+                <td class="plan-limit">日用易触顶时升档</td>
               </tr>
               <tr>
                 <td class="plan-name">Ultra</td>
                 <td class="plan-price">$200/月</td>
-                <td class="plan-models">移除大部分限制</td>
-                <td class="plan-limit">重度用户</td>
+                <td class="plan-models">约 $400 API 池，重度 Agent</td>
+                <td class="plan-limit">全天跑 Agent</td>
               </tr>
             </tbody>
           </table>
@@ -513,7 +519,7 @@
             <span class="feat-tag">多模态</span>
             <span class="feat-tag">自托管</span>
           </div>
-          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">基于 VS Code 的 AI IDE，Agent 模式可自动执行多步编辑/终端命令；支持 MCP 与 Agent Skills。2026-07 起全套餐可选 <strong>Grok 4.5</strong>（与 xAI 联合训练向）；亦可用独立 <a href="https://x.ai/cli" target="_blank" rel="noopener noreferrer">Grok Build</a> CLI。</div>
+          <div style="font-size:0.76rem;color:var(--muted);margin-top:0.4rem;">基于 VS Code 的 AI IDE；2026-07-27 档位 Pro / Pro+ / Ultra（另有 Hobby、Teams）。详见 <a href="coding-plan.html">编程套餐横评</a> · <a href="https://cursor.com/pricing" target="_blank" rel="noopener noreferrer">官方定价</a>。亦可用 <a href="https://x.ai/cli" target="_blank" rel="noopener noreferrer">Grok Build</a> CLI。</div>
         </div>
       </div>
 

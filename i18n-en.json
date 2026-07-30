@@ -9,7 +9,7 @@
   },
   "Kimi": {
     "title": "Kimi",
-    "desc": "长上下文，甩链接/文档做摘要与追问"
+    "desc": "K3 flagship: 2.8T open weights, 1M context, long-doc / Agent / coding"
   },
   "通义千问": {
     "title": "Tongyi Qianwen",

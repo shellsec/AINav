@@ -1,7 +1,7 @@
 {
   "mode": "replace-hot",
   "matchName": "热门工具",
-  "asOf": "2026-07-15",
+  "asOf": "2026-07-30",
   "items": [
     {
       "title": "DeepSeek",
@@ -59,7 +59,7 @@
     },
     {
       "title": "Kimi",
-      "subtitle": "K2.6 长上下文，甩链接/文档做摘要与追问",
+      "subtitle": "K3 旗舰：2.8T 开源、1M 上下文，长文/Agent/编程",
       "link": "https://www.kimi.com/",
       "avatar": "icon/Kimi.png"
     },

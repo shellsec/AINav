@@ -1107,7 +1107,7 @@
           <tbody>
             <tr><td class="plan-name">Agent loop</td><td>LLM 调工具 → 结果写回上下文 → 重复直到完成</td><td>所有 Coding Agent 底座</td></tr>
             <tr><td class="plan-name">Verification loop</td><td>跑测试 / rubric 打分，不过则带反馈重试</td><td>Cursor <code>stop</code> hook、CI + Agent</td></tr>
-            <tr><td class="plan-name">Event loop</td><td>cron / Webhook 触发自动跑</td><td>Claude <code>/loop</code>、GitHub Actions、OpenClaw Gateway</td></tr>
+            <tr><td class="plan-name">Event loop</td><td>cron / Webhook 触发自动跑</td><td>Claude <code>/loop</code>、GitHub Actions、OpenClaw Gateway；只要 App 定时、不想接 Key → <a href="token-optimization.html#consumer-schedule">消费端定时</a></td></tr>
             <tr><td class="plan-name">Hill-climbing loop</td><td>用 trace 分析改 prompt / 工具配置</td><td>LangSmith、<a href="https://github.com/microsoft/SkillOpt" target="_blank" rel="noopener noreferrer">SkillOpt</a></td></tr>
           </tbody>
         </table>

@@ -1065,7 +1065,7 @@ function renderSections(nodes) {
     if (n.type === "leaf") {
       const guideLink =
         n.id === "ext-token-optimize"
-          ? `<p class="block-guide"><a href="token-optimization.html">安装配置与最佳实践 →</a></p>`
+          ? `<p class="block-guide"><a href="token-optimization.html">安装配置与最佳实践 →</a> · <a href="token-optimization.html#consumer-schedule">消费端定时（免接 Token）→</a></p>`
           : "";
       parts.push(`<section class="block" id="${esc(n.id)}">
 <h2 class="block-title"${catI18nAttr(n.name)}>${esc(n.name)}</h2>

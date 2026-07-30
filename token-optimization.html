@@ -81,12 +81,13 @@ pre{background:var(--panel);border:1px solid var(--border);border-radius:8px;pad
 
 <h1>Token 优化指南</h1>
 <p class="cp-subtitle">面向 <strong>Cursor · Claude Code · Codex</strong>（Cursor 全套餐已可用 <strong>Grok 4.5</strong>）。已用 GitHub API 扫描 <a href="https://github.com/topics/token-optimization" target="_blank" rel="noopener noreferrer"><code>token-optimization</code> 专题</a>（<strong>802</strong> 仓，按 stars 排序，2026-06），见 <a href="#ecosystem">专题分析</a>；安装配置见各章节。</p>
-<p class="cp-updated">最后更新：2026-07-27 · 专题 #1 <a href="https://github.com/rtk-ai/rtk">RTK</a>（66K★）· #2 <a href="https://github.com/headroomlabs-ai/headroom">Headroom</a>（51K★）· #3 <a href="https://github.com/yvgude/lean-ctx">LeanCTX</a>（2.9K★）· <a href="index.html#ext-token-optimize">AINav 工具卡片</a></p>
+<p class="cp-updated">最后更新：2026-07-30 · 专题 #1 <a href="https://github.com/rtk-ai/rtk">RTK</a>（66K★）· #2 <a href="https://github.com/headroomlabs-ai/headroom">Headroom</a>（51K★）· #3 <a href="https://github.com/yvgude/lean-ctx">LeanCTX</a>（2.9K★）· <a href="index.html#ext-token-optimize">AINav 工具卡片</a></p>
 <div class="highlight warn-box" style="margin:0.75rem 0 1rem;padding:0.65rem 0.85rem;border:1px solid var(--border);border-radius:8px;font-size:0.82rem;line-height:1.5">
   <strong>Grok 4.5（2026-07）：</strong>主打编程/Agent，API 约 <code>$2 / $6</code> 每百万 token（输入/输出），官方称任务 token 效率更高。在 Cursor 选 Grok 4.5 时仍建议配合下文 RTK / Headroom / Rules 压缩，避免 Agent 多轮把「便宜单价」打成「贵账单」。独立 CLI 见 <a href="https://x.ai/cli" target="_blank" rel="noopener noreferrer">Grok Build</a>。
 </div>
 
 <nav class="tok-nav" aria-label="页内导航">
+  <a href="#consumer-schedule">消费端定时</a>
   <a href="#headroom">Headroom</a>
   <a href="#leanctx">LeanCTX</a>
   <a href="#headroom-practice">Headroom 最佳实践</a>
@@ -109,6 +110,28 @@ pre{background:var(--panel);border:1px solid var(--border);border-radius:8px;pad
   <span>MCP 负载</span><span class="arr">→</span>
   <span style="color:var(--accent2)">Tokscale 观测</span>
 </div>
+
+<h2 class="cp-section-hd tok-hd" id="consumer-schedule"><span class="cp-flag">⏰</span> 消费端定时 · 免接 API Token</h2>
+<p class="cp-subtitle" style="margin-top:0">把「全天随聊」改成「每天到点跑一次」，少开对话轮次，直接省<strong>会员额度</strong>——不用自己填 API Key / Coding Plan。能力与限额以各 App 实时页为准；刊例核对截至 2026-07-30。</p>
+<div class="highlight" style="margin-bottom:.85rem"><strong>省额度逻辑：</strong>定时简报 ≈ 少轮次闲聊。仍受各家「活跃任务数 / 会员档」限制（如 Gemini 约 10 个活跃任务）。要 OpenClaw / Hermes 自建 cron，见 <a href="agent-plan.html#loop-engineering">Agent · Loop Engineering</a>（需自备模型 Token）。下文 Headroom / RTK 等面向<strong>编码三省</strong>压缩。</div>
+<table class="tok-table">
+  <thead>
+    <tr><th>产品</th><th>定时能力</th><th>大致门槛</th><th>典型用途</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>ChatGPT</strong></td><td>Scheduled Tasks</td><td>Plus / Pro / Enterprise</td><td>日报、提醒、周期监控</td></tr>
+    <tr><td><strong>Gemini</strong></td><td>Scheduled Actions</td><td>AI Pro / Ultra（部分 Workspace）</td><td>邮件/日历简报、周期内容</td></tr>
+    <tr><td><strong>微软 Copilot</strong></td><td>Copilot Tasks</td><td>个人账号 / M365 体系</td><td>提醒、任务、办公联动</td></tr>
+    <tr><td><strong>Kimi</strong></td><td>定时任务</td><td>App/网页账号（额度看会员）</td><td>周期简报、提醒</td></tr>
+    <tr><td><strong>腾讯元宝</strong></td><td>定时任务</td><td>微信/QQ 系账号</td><td>提醒、定时查询</td></tr>
+    <tr><td><strong>智谱清言 / GLM</strong></td><td>定时任务</td><td>智谱账号（会员更稳）</td><td>定时执行、提醒</td></tr>
+    <tr><td><strong>豆包</strong></td><td>任务模式 + 定时</td><td>字节账号；多在订阅/灰度</td><td>到点生成报告/整理交付</td></tr>
+    <tr><td><strong>通义 / QwenWork</strong></td><td>定时任务</td><td>阿里账号（办公端更完整）</td><td>周期办公、云端到点跑</td></tr>
+    <tr><td><strong>Claude Cowork</strong></td><td><code>/schedule</code></td><td>Pro / Max 等</td><td>桌面周期办公任务</td></tr>
+    <tr><td><strong>Manus</strong></td><td>Scheduled Tasks</td><td>产品订阅/积分（非自备 Key）</td><td>日报、研究、周期抓取</td></tr>
+  </tbody>
+</table>
+<p style="font-size:.8rem;color:var(--muted);margin:.55rem 0 1.2rem;line-height:1.6"><strong>选型速记：</strong>海外通用 → ChatGPT / Gemini · 微信生态 → 元宝 · 长文简报 → Kimi · 要「做完交活」→ 豆包任务 / Manus · 微软办公 → Copilot。Claude Code <code>/loop</code>、OpenClaw 等<strong>不在本表</strong>（开发/自托管，需接模型 Token）。</p>
 
 <h2 class="cp-section-hd tok-hd" id="headroom"><span class="cp-flag">🚀</span> Headroom — 专题旗舰（全栈压缩）</h2>
 <p class="cp-subtitle" style="margin-top:0"><a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">headroomlabs-ai/headroom</a> — 专题 <strong>#2</strong>（51K★）：全栈压缩<strong>工具输出、日志、RAG、文件与历史</strong>，CCR 可逆。适合重度编码 / 长任务 / RAG / 团队控本 → <a href="#headroom-practice">最佳实践</a>。</p>

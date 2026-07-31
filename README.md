@@ -4,6 +4,16 @@
 
 English | **[中文](./README.zh-CN.md)**
 
+## 🚀 Recommended: [ofox.ai](https://ofox.io/x/aiv123)
+
+> **In short**: One account for GPT-5.5 / Claude 4.8 Opus / Gemini 3.5 Flash and **100+** top models. First top-up gets an extra **$3** credit.
+
+[👉 Sign up](https://ofox.io/x/aiv123) · Global dedicated lines · Enterprise SLA · No conversation retention
+
+| ⚡️ Fast & Stable | 🧠 Full Model Coverage | 🛡️ Privacy |
+|:---:|:---:|:---:|
+| Global dedicated lines, enterprise SLA | 100+ models, one account | No conversation retention |
+
 ## ☕ Buy Me a Coke
 
 Open source takes effort — sponsorship is welcome:  

@@ -30,6 +30,15 @@
     },
     { "type": "sep", "nav": ["sub"] },
     {
+      "href": "model-finder.html",
+      "zh": "模型推荐器",
+      "en": "Model Finder",
+      "match": ["model-finder.html"],
+      "nav": ["sub", "plan", "home"],
+      "homeGroup": "compare",
+      "homeTitle": "3问选出最适合你的大模型·国内+海外"
+    },
+    {
       "href": "model-plan.html",
       "zh": "模型选型",
       "en": "Models",
@@ -198,6 +207,7 @@
     { "loc": "https://aiv123.com/contact.html", "changefreq": "yearly", "priority": "0.4" },
     { "loc": "https://aiv123.com/disclaimer.html", "changefreq": "yearly", "priority": "0.3" },
     { "loc": "https://aiv123.com/tools/index.html", "changefreq": "weekly", "priority": "0.75" },
+    { "loc": "https://aiv123.com/model-finder.html", "changefreq": "monthly", "priority": "0.75" },
     { "loc": "https://aiv123.com/model-plan.html", "changefreq": "monthly", "priority": "0.7" },
     { "loc": "https://aiv123.com/coding-plan.html", "changefreq": "monthly", "priority": "0.7" },
     { "loc": "https://aiv123.com/agent-plan.html", "changefreq": "monthly", "priority": "0.7" },

@@ -11,6 +11,7 @@
     { href: "index.html", zh: "← AINav 首页", en: "← AINav Home", match: ["index.html",""] },
     { href: "free-tier.html", zh: "🆓 免费额度", en: "🆓 Free Tier", match: ["free-tier.html"] },
     { href: "token-optimization.html", zh: "Token优化", en: "Token Opt", match: ["token-optimization.html"] },
+    { href: "model-finder.html", zh: "模型推荐器", en: "Model Finder", match: ["model-finder.html"] },
     { href: "model-plan.html", zh: "模型选型", en: "Models", match: ["model-plan.html"] },
     { href: "coding-plan.html", zh: "编程套餐", en: "Coding", match: ["coding-plan.html"] },
     { href: "agent-plan.html", zh: "Agent", en: "Agent", match: ["agent-plan.html"] },

@@ -33,7 +33,7 @@
   },
   "Grok": {
     "title": "Grok",
-    "desc": "Grok 4.5 — coding/agent flagship; on Cursor all plans; X real-time search"
+    "desc": "Grok 4.6 — coding/agent flagship; on Cursor all plans; X real-time search"
   },
   "Perplexity": {
     "title": "Perplexity",
@@ -53,7 +53,7 @@
   },
   "Z.AI": {
     "title": "Z.AI",
-    "desc": "智谱GLM国际版，支持GLM-5.1等顶级模型的AI对话助手"
+    "desc": "Zhipu GLM international; GLM-5.3 long-horizon coding flagship"
   },
   "Le Chat": {
     "title": "Le Chat",
@@ -917,7 +917,7 @@
   },
   "Cursor": {
     "title": "Cursor",
-    "desc": "AI IDE + Agent; Grok 4.5 on all plans; Tab unlimited + usage pool; MCP"
+    "desc": "AI IDE + Agent; Grok 4.6 on all plans; Tab unlimited + usage pool; MCP"
   },
   "Windsurf": {
     "title": "Windsurf",

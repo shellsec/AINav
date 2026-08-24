@@ -1,11 +1,11 @@
 {
   "mode": "replace-hot",
   "matchName": "热门工具",
-  "asOf": "2026-07-30",
+  "asOf": "2026-08-20",
   "items": [
     {
       "title": "DeepSeek",
-      "subtitle": "V4-Pro/Flash 免费强，长文推理与写代码日常首选",
+      "subtitle": "V4-Pro 0813 免费强，长文推理与写代码日常首选",
       "link": "https://chat.deepseek.com/",
       "avatar": "icon/DeepSeek.png"
     },
@@ -23,37 +23,37 @@
     },
     {
       "title": "ChatGPT",
-      "subtitle": "GPT-5 + Codex，对话、深度研究与 Agent",
+      "subtitle": "GPT-5.6 Sol / Luna，对话、深度研究与 Agent",
       "link": "https://chatgpt.com/",
       "avatar": "icon/ChatGPT.png"
     },
     {
       "title": "Claude",
-      "subtitle": "Opus 4.8 / Sonnet 4.6，写作、推理与 Claude Code",
+      "subtitle": "Opus 5 / Fable 5，写作、推理与 Claude Code",
       "link": "https://claude.ai/",
       "avatar": "icon/Claude.png"
     },
     {
       "title": "Gemini",
-      "subtitle": "Gemini 3.1 Pro，多模态与 Google 生态",
+      "subtitle": "Gemini 3.7 Flash，多模态与 Google 生态",
       "link": "https://gemini.google.com/",
       "avatar": "icon/Google Bard.png"
     },
     {
       "title": "Grok",
-      "subtitle": "Grok 4.5：编程/Agent 旗舰，Cursor 全套餐可用，兼 X 实时搜索",
+      "subtitle": "Grok 4.6：编程/Agent 旗舰，Cursor 全套餐可用，兼 X 实时搜索",
       "link": "https://grok.com/",
       "avatar": "icon/Grok.png"
     },
     {
       "title": "Cursor",
-      "subtitle": "AI IDE + Agent；全套餐可用 Grok 4.5，Tab 无限、含用量池",
+      "subtitle": "AI IDE + Agent；全套餐可用 Grok 4.6，Tab 无限、含用量池",
       "link": "https://cursor.com/",
       "avatar": "icon/Cursor.png"
     },
     {
       "title": "智谱清言",
-      "subtitle": "GLM-5.2，开源生态强，Coding Plan 高性价比",
+      "subtitle": "GLM-5.3，开源生态强，Coding Plan 已切新模型",
       "link": "https://chatglm.cn/",
       "avatar": "icon/智谱清言.png"
     },
@@ -65,7 +65,7 @@
     },
     {
       "title": "Perplexity",
-      "subtitle": "带引用网页的搜索问答，GPT-5 / Claude / Gemini",
+      "subtitle": "带引用网页的搜索问答，GPT-5.6 / Claude / Gemini",
       "link": "https://www.perplexity.ai/",
       "avatar": "icon/Perplexity.png"
     },

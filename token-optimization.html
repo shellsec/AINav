@@ -80,10 +80,10 @@ pre{background:var(--panel);border:1px solid var(--border);border-radius:8px;pad
 <div class="cp-wrap">
 
 <h1>Token 优化指南</h1>
-<p class="cp-subtitle">面向 <strong>Cursor · Claude Code · Codex</strong>（Cursor 全套餐已可用 <strong>Grok 4.5</strong>）。已用 GitHub API 扫描 <a href="https://github.com/topics/token-optimization" target="_blank" rel="noopener noreferrer"><code>token-optimization</code> 专题</a>（<strong>802</strong> 仓，按 stars 排序，2026-06），见 <a href="#ecosystem">专题分析</a>；安装配置见各章节。</p>
-<p class="cp-updated">最后更新：2026-07-30 · 专题 #1 <a href="https://github.com/rtk-ai/rtk">RTK</a>（66K★）· #2 <a href="https://github.com/headroomlabs-ai/headroom">Headroom</a>（51K★）· #3 <a href="https://github.com/yvgude/lean-ctx">LeanCTX</a>（2.9K★）· <a href="index.html#ext-token-optimize">AINav 工具卡片</a></p>
+<p class="cp-subtitle">面向 <strong>Cursor · Claude Code · Codex</strong>（Cursor 全套餐已可用 <strong>Grok 4.6</strong>）。已用 GitHub API 扫描 <a href="https://github.com/topics/token-optimization" target="_blank" rel="noopener noreferrer"><code>token-optimization</code> 专题</a>（<strong>802</strong> 仓，按 stars 排序，2026-06），见 <a href="#ecosystem">专题分析</a>；安装配置见各章节。</p>
+<p class="cp-updated">最后更新：2026-08-24 · 专题 #1 <a href="https://github.com/rtk-ai/rtk">RTK</a>（66K★）· #2 <a href="https://github.com/headroomlabs-ai/headroom">Headroom</a>（51K★）· #3 <a href="https://github.com/yvgude/lean-ctx">LeanCTX</a>（2.9K★）· <a href="index.html#ext-token-optimize">AINav 工具卡片</a></p>
 <div class="highlight warn-box" style="margin:0.75rem 0 1rem;padding:0.65rem 0.85rem;border:1px solid var(--border);border-radius:8px;font-size:0.82rem;line-height:1.5">
-  <strong>Grok 4.5（2026-07）：</strong>主打编程/Agent，API 约 <code>$2 / $6</code> 每百万 token（输入/输出），官方称任务 token 效率更高。在 Cursor 选 Grok 4.5 时仍建议配合下文 RTK / Headroom / Rules 压缩，避免 Agent 多轮把「便宜单价」打成「贵账单」。独立 CLI 见 <a href="https://x.ai/cli" target="_blank" rel="noopener noreferrer">Grok Build</a>。
+  <strong>刊例速记（2026-08-24）：</strong>GPT-5.6 Sol API 现价 <code>$4/$20</code>（8/21 促销，至少到 11/21）；Grok 4.6 仍 <code>$2/$6</code>，≥200K 整单翻倍、缓存 <code>$0.50</code>；DeepSeek V4-Pro 8/16 起峰谷 <code>$0.66/$1.98</code> ↔ <code>$1.32/$3.96</code>。单价便宜不等于账单便宜，Agent 多轮仍建议配合下文压缩。
 </div>
 
 <nav class="tok-nav" aria-label="页内导航">
@@ -112,7 +112,7 @@ pre{background:var(--panel);border:1px solid var(--border);border-radius:8px;pad
 </div>
 
 <h2 class="cp-section-hd tok-hd" id="consumer-schedule"><span class="cp-flag">⏰</span> 消费端定时 · 免接 API Token</h2>
-<p class="cp-subtitle" style="margin-top:0">把「全天随聊」改成「每天到点跑一次」，少开对话轮次，直接省<strong>会员额度</strong>——不用自己填 API Key / Coding Plan。能力与限额以各 App 实时页为准；刊例核对截至 2026-07-30。</p>
+<p class="cp-subtitle" style="margin-top:0">把「全天随聊」改成「每天到点跑一次」，少开对话轮次，直接省<strong>会员额度</strong>——不用自己填 API Key / Coding Plan。能力与限额以各 App 实时页为准；刊例核对截至 2026-08-20。</p>
 <div class="highlight" style="margin-bottom:.85rem"><strong>省额度逻辑：</strong>定时简报 ≈ 少轮次闲聊。仍受各家「活跃任务数 / 会员档」限制（如 Gemini 约 10 个活跃任务）。要 OpenClaw / Hermes 自建 cron，见 <a href="agent-plan.html#loop-engineering">Agent · Loop Engineering</a>（需自备模型 Token）。下文 Headroom / RTK 等面向<strong>编码三省</strong>压缩。</div>
 <table class="tok-table">
   <thead>

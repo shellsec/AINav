@@ -13,6 +13,7 @@
     { href: "token-optimization.html", zh: "Token优化", en: "Token Opt", match: ["token-optimization.html"] },
     { href: "model-finder.html", zh: "模型推荐器", en: "Model Finder", match: ["model-finder.html"] },
     { href: "model-plan.html", zh: "模型选型", en: "Models", match: ["model-plan.html"] },
+    { href: "local-model-plan.html", zh: "本地模型", en: "Local", match: ["local-model-plan.html"] },
     { href: "coding-plan.html", zh: "编程套餐", en: "Coding", match: ["coding-plan.html"] },
     { href: "agent-plan.html", zh: "Agent", en: "Agent", match: ["agent-plan.html"] },
     { href: "search-plan.html", zh: "搜索", en: "Search", match: ["search-plan.html"] },

@@ -159,7 +159,7 @@
         var fp=document.querySelectorAll('.cp-footer p');
         if (fp[1]) fp[1].textContent = dict.footer;
         var pb=document.querySelector('.cp-wrap > div:first-child');
-        if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
+        if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5.6 Sol</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
         document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang-set')===lang)});
       }
       applyLang(currentLang);document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang-set'))})});
@@ -187,7 +187,7 @@
     <p class="cp-subtitle" data-i18n="subtitle">国内外 AI 搜索订阅套餐一站式对比：价格、查询量、Pro模型、文件上传，帮你选出最划算的 AI 搜索方案。</p>
 
     
-    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-07-27</span></p>
+    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-08-20</span></p>
     <div class="cp-legend">
       <div class="cp-legend-item"><span class="cp-badge badge-hot">🔥 热门</span> 高人气</div>
       <div class="cp-legend-item"><span class="cp-badge badge-new">✨ 新品</span> 新上线</div>
@@ -297,14 +297,14 @@
             <thead><tr><th>套餐</th><th>月价</th><th>查询量/日</th><th>Pro模型</th></tr></thead>
             <tbody>
               <tr><td class="plan-name">Free</td><td class="plan-price">$0</td><td>5次Pro/日</td><td>基础模型</td></tr>
-              <tr><td class="plan-name">PRO <span class="cp-badge badge-rec">👍</span></td><td class="plan-price">$20/月</td><td>约300+ Pro搜索/日</td><td>GPT-5 / Claude Opus 4.8 / Gemini 3.1 Pro</td></tr>
+              <tr><td class="plan-name">PRO <span class="cp-badge badge-rec">👍</span></td><td class="plan-price">$20/月</td><td>约300+ Pro搜索/日</td><td>GPT-5.6 / Claude Opus 5 / Gemini 3.1 Pro</td></tr>
               <tr><td class="plan-name">Enterprise</td><td class="plan-price">定制</td><td>无限</td><td>团队+API</td></tr>
             </tbody>
           </table>
           <div class="feat-tags">
 <span class="feat-tag yes">Pro模型</span><span class="feat-tag yes">文件上传</span><span class="feat-tag yes">学术搜索</span><span class="feat-tag yes">API</span><span class="feat-tag yes">引用溯源</span>
           </div>
-          <div style="font-size:.76rem;color:var(--muted);margin-top:.4rem">AI搜索领域标杆，Pro版可切换GPT-5/Claude/Gemini，引用溯源最完整</div>
+          <div style="font-size:.76rem;color:var(--muted);margin-top:.4rem">AI搜索领域标杆，Pro版可切换GPT-5.6/Claude/Gemini，引用溯源最完整</div>
         </div>
       </div>
 
@@ -318,14 +318,14 @@
             <thead><tr><th>套餐</th><th>月价</th><th>说明</th><th>Pro模型</th></tr></thead>
             <tbody>
               <tr><td class="plan-name">Free</td><td class="plan-price">$0</td><td>有限搜索</td><td>GPT-4.1 mini</td></tr>
-              <tr><td class="plan-name">Plus</td><td class="plan-price">$20/月</td><td>GPT-5+搜索</td><td>GPT-5 + 联网搜索</td></tr>
+              <tr><td class="plan-name">Plus</td><td class="plan-price">$20/月</td><td>GPT-5.6+搜索</td><td>GPT-5.6 Sol + 联网搜索</td></tr>
               <tr><td class="plan-name">Pro</td><td class="plan-price">$200/月</td><td>无限Pro+深度研究</td><td>最强模型</td></tr>
             </tbody>
           </table>
           <div class="feat-tags">
 <span class="feat-tag yes">联网搜索</span><span class="feat-tag yes">文件上传</span><span class="feat-tag yes">多模态</span><span class="feat-tag yes">深度研究</span>
           </div>
-          <div style="font-size:.76rem;color:var(--muted);margin-top:.4rem">ChatGPT Plus含搜索功能，GPT-5 + 深度研究模式，但搜索非核心功能</div>
+          <div style="font-size:.76rem;color:var(--muted);margin-top:.4rem">ChatGPT Plus含搜索功能，GPT-5.6 Sol + 深度研究模式，但搜索非核心功能</div>
         </div>
       </div>
 
@@ -379,7 +379,7 @@
             <thead><tr><th>套餐</th><th>月价</th><th>说明</th><th>备注</th></tr></thead>
             <tbody>
               <tr><td class="plan-name">Free</td><td class="plan-price">$0</td><td>有限次数</td><td>基础 Grok</td></tr>
-              <tr><td class="plan-name">Premium+</td><td class="plan-price">$30/月</td><td>更高搜索额度 + Grok 4.5</td><td>X 平台深度集成</td></tr>
+              <tr><td class="plan-name">Premium+</td><td class="plan-price">$30/月</td><td>更高搜索额度 + Grok 4.6</td><td>X 平台深度集成</td></tr>
             </tbody>
           </table>
           <div class="feat-tags">
@@ -473,7 +473,7 @@
             <div style="font-size:.8rem;line-height:1.7;">
               <div>🏆 <strong>首选：</strong><a href="https://www.phind.com/" target="_blank" rel="noopener noreferrer">Phind Pro</a> $15/月 — 编程专用</div>
               <div>🔧 <strong>全能：</strong>Perplexity Pro — 多模型+代码运行</div>
-              <div>💰 <strong>省钱：</strong>ChatGPT Plus $20/月 — GPT-5+代码</div>
+              <div>💰 <strong>省钱：</strong>ChatGPT Plus $20/月 — GPT-5.6+代码</div>
             </div>
           </div>
           <div style="padding:.75rem;border-radius:8px;border:1px solid rgba(210,153,34,.25);background:rgba(210,153,34,.04);">
@@ -501,7 +501,7 @@
       <div class="cp-notice-head">⚠️ 注意事项 — 搜索套餐买前必读</div>
       <div class="cp-notice-body">
         <ul>
-          <li><strong>"Pro查询"≠普通查询：</strong>Perplexity的Pro查询消耗AI推理资源（GPT-5/Claude），每日限量5次免费版很快用完。</li>
+          <li><strong>"Pro查询"≠普通查询：</strong>Perplexity的Pro查询消耗AI推理资源（GPT-5.6/Claude），每日限量5次免费版很快用完。</li>
           <li><strong>ChatGPT Plus ≠ 搜索专用：</strong>$20/月包含对话+代码+图片+搜索，如果你只需要搜索，Perplexity $20/月更专业。</li>
           <li><strong>国内免费版功能更慷慨：</strong>Kimi 免费版高额额度 vs Perplexity Free 仅约 5 次 Pro/日，日常轻量搜索 Kimi 够用。</li>
           <li><strong>学术搜索选秘塔：</strong>中文论文搜索体验超越Google Scholar，¥30/月学术用户首选。</li>
@@ -654,7 +654,7 @@
         var fp=document.querySelectorAll('.cp-footer p');
         if (fp[1]) fp[1].textContent = dict.footer;
         var pb=document.querySelector('.cp-wrap > div:first-child');
-        if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
+        if(pb){pb.innerHTML='<span style="color:var(--muted)">'+dict.promoText+'</span> <strong style="color:var(--text)">GPT-5.6 Sol</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Claude Opus</strong> <span style="color:var(--muted)">'+dict.promoOr+'</span> <strong style="color:var(--text)">Gemini Pro</strong> <span style="color:var(--muted)">'+dict.promoNoNet+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="color:var(--accent2);font-weight:600;text-decoration:none;">OfoxAI</a> <span style="color:var(--muted)">'+dict.promoDesc+'</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">'+dict.promoCta+'</a>'}
         document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('is-active',b.getAttribute('data-lang-set')===lang)});
       }
       applyLang(currentLang);document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang-set'))})});

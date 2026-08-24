@@ -26,7 +26,7 @@
 | 检查项 | 文件 / 页面 | 看什么 |
 |--------|-------------|--------|
 | 热门工具 | `daily-tools.json` | 副标题里的型号（V4、K2.6、Opus、Gemini 等）、链接是否 404 |
-| Coding / Agent / Model 横评 | `coding-plan.html`、`agent-plan.html`、`model-plan.html` | 套餐价、默认模型、兼容矩阵、Agent 用量池表述 |
+| Coding / Agent / Model 横评 | `coding-plan.html`、`agent-plan.html`、`model-plan.html`、`local-model-plan.html` | 套餐价、默认模型、兼容矩阵、Agent 用量池；本地页核对排行榜/显存/街货价 |
 | Token 专题 | `token-optimization.html` | Cursor / Claude Code / Codex 默认模型与计费口径 |
 | 免费额度 | `free-tier-hints.json` + 构建出的 `free-tier.html` | 免费层可用哪档模型、新用户赠送 |
 | 页脚日期 | 上述 plan 页「最后更新」 | 有实质修改时改为当天 |
@@ -70,7 +70,7 @@ node build-html-data.js
 
 | 事件 | 必改 |
 |------|------|
-| 旗舰换代（如 GPT-5、Opus 4.8、Gemini 3.1、DeepSeek V4） | 热门（若相关）+ 对应 plan + 免费额度 |
+| 旗舰换代（如 GPT-5.6、Opus 5、Grok 4.6、Qwen 3.8 Max） | 热门（若相关）+ 对应 plan + 免费额度 |
 | 国内 Coding Plan 套餐 / 兼容矩阵变化 | `coding-plan.html`、百科相关行 |
 | 产品停服 / 改名 / 域名变更 | 对应卡片 + 百科；停服标「归档」 |
 | 仅 API 上新、网页默认不变 | plan / API 区即可，热门可不动 |

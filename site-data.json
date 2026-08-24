@@ -8,7 +8,7 @@
         {
           "key": "daily-0",
           "title": "DeepSeek",
-          "subtitle": "V4-Pro/Flash 免费强，长文推理与写代码日常首选",
+          "subtitle": "V4-Pro 0813 免费强，长文推理与写代码日常首选",
           "avatar": "icon/DeepSeek.png",
           "link": "https://chat.deepseek.com/",
           "path": "",
@@ -35,7 +35,7 @@
         {
           "key": "daily-3",
           "title": "ChatGPT",
-          "subtitle": "GPT-5 + Codex，对话、深度研究与 Agent",
+          "subtitle": "GPT-5.6 Sol / Luna，对话、深度研究与 Agent",
           "avatar": "icon/ChatGPT.png",
           "link": "https://chatgpt.com/",
           "path": "",
@@ -44,7 +44,7 @@
         {
           "key": "daily-4",
           "title": "Claude",
-          "subtitle": "Opus 4.8 / Sonnet 4.6，写作、推理与 Claude Code",
+          "subtitle": "Opus 5 / Fable 5，写作、推理与 Claude Code",
           "avatar": "icon/Claude.png",
           "link": "https://claude.ai/",
           "path": "",
@@ -53,7 +53,7 @@
         {
           "key": "daily-5",
           "title": "Gemini",
-          "subtitle": "Gemini 3.1 Pro，多模态与 Google 生态",
+          "subtitle": "Gemini 3.7 Flash，多模态与 Google 生态",
           "avatar": "icon/Google Bard.png",
           "link": "https://gemini.google.com/",
           "path": "",
@@ -62,7 +62,7 @@
         {
           "key": "daily-6",
           "title": "Grok",
-          "subtitle": "Grok 4.5：编程/Agent 旗舰，Cursor 全套餐可用，兼 X 实时搜索",
+          "subtitle": "Grok 4.6：编程/Agent 旗舰，Cursor 全套餐可用，兼 X 实时搜索",
           "avatar": "icon/Grok.png",
           "link": "https://grok.com/",
           "path": "",
@@ -71,7 +71,7 @@
         {
           "key": "daily-7",
           "title": "Cursor",
-          "subtitle": "AI IDE + Agent；全套餐可用 Grok 4.5，Tab 无限、含用量池",
+          "subtitle": "AI IDE + Agent；全套餐可用 Grok 4.6，Tab 无限、含用量池",
           "avatar": "icon/Cursor.png",
           "link": "https://cursor.com/",
           "path": "",
@@ -80,7 +80,7 @@
         {
           "key": "daily-8",
           "title": "智谱清言",
-          "subtitle": "GLM-5.2，开源生态强，Coding Plan 高性价比",
+          "subtitle": "GLM-5.3，开源生态强，Coding Plan 已切新模型",
           "avatar": "icon/智谱清言.png",
           "link": "https://chatglm.cn/",
           "path": "",
@@ -98,7 +98,7 @@
         {
           "key": "daily-10",
           "title": "Perplexity",
-          "subtitle": "带引用网页的搜索问答，GPT-5 / Claude / Gemini",
+          "subtitle": "带引用网页的搜索问答，GPT-5.6 / Claude / Gemini",
           "avatar": "icon/Perplexity.png",
           "link": "https://www.perplexity.ai/",
           "path": "",
@@ -139,7 +139,7 @@
         {
           "key": "Grok",
           "title": "Grok",
-          "subtitle": "Grok 4.5：编程/Agent 旗舰，Cursor 与 Grok Build 可用，兼 X 实时搜索",
+          "subtitle": "Grok 4.6：编程/Agent 旗舰，Cursor 与 Grok Build 可用，兼 X 实时搜索",
           "avatar": "icon/Grok.png",
           "link": "https://grok.com/",
           "path": "/detail/grok"
@@ -171,7 +171,7 @@
         {
           "key": "ZAI",
           "title": "Z.AI",
-          "subtitle": "智谱 GLM 国际版，支持 GLM-5.2 等长程 Coding 旗舰模型",
+          "subtitle": "智谱 GLM 国际版，支持 GLM-5.3 等长程 Coding 旗舰模型",
           "avatar": "icon/ZAI.png",
           "link": "https://chat.z.ai/",
           "path": ""
@@ -2045,7 +2045,7 @@
         {
           "key": "ZCode",
           "title": "ZCode",
-          "subtitle": "智谱 ADE 桌面端 · ZCode 3.0 Agent + GLM-5.2 深度适配，直连 GLM Coding Plan",
+          "subtitle": "智谱 ADE 桌面端 · ZCode 3.0 Agent + GLM-5.3 深度适配，直连 GLM Coding Plan",
           "avatar": "icon/智谱清言.png",
           "link": "https://zcode.z.ai/cn",
           "path": "",
@@ -9694,7 +9694,7 @@
     },
     "Grok": {
       "title": "Grok",
-      "subtitle": "Grok 4.5：编程/Agent 旗舰，Cursor 与 Grok Build 可用，兼 X 实时搜索",
+      "subtitle": "Grok 4.6：编程/Agent 旗舰，Cursor 与 Grok Build 可用，兼 X 实时搜索",
       "avatar": "icon/Grok.png",
       "link": "https://grok.com/",
       "path": "/detail/grok"
@@ -11101,7 +11101,7 @@
     },
     "ZCode": {
       "title": "ZCode",
-      "subtitle": "智谱 ADE 桌面端 · ZCode 3.0 Agent + GLM-5.2 深度适配，直连 GLM Coding Plan",
+      "subtitle": "智谱 ADE 桌面端 · ZCode 3.0 Agent + GLM-5.3 深度适配，直连 GLM Coding Plan",
       "avatar": "icon/智谱清言.png",
       "link": "https://zcode.z.ai/cn",
       "path": "",
@@ -13867,5 +13867,5 @@
     }
   },
   "builtFrom": "local",
-  "generatedAt": "2026-08-12T09:47:08.452Z"
+  "generatedAt": "2026-08-20T10:24:33.098Z"
 }

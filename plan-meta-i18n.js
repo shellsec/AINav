@@ -5,8 +5,12 @@
 (function () {
   var META = {
     "model-plan.html": {
-      zh: { h1: "🧠 AI 模型选型横评", sub: "11 款 AI 旗舰模型技术特性 × 适用场景映射（含 Grok 4.5），架构假设深度解析，帮你精准匹配最优模型。" },
-      en: { h1: "🧠 AI Model Selection Guide", sub: "Eleven flagship models including Grok 4.5 — capabilities, architecture, and scenario mapping to pick the best fit." },
+      zh: { h1: "🧠 AI 模型选型横评", sub: "2026-08 旗舰映射：DeepSeek-V4-Pro、GLM-5.3、Kimi K3、Qwen 3.8 Max、GPT-5.6 Sol、Claude Opus 5、Grok 4.6。" },
+      en: { h1: "🧠 AI Model Selection Guide", sub: "August 2026 flagships including Qwen 3.8 Max, Grok 4.6, GLM-5.3, GPT-5.6 Sol, and Claude Opus 5." },
+    },
+    "local-model-plan.html": {
+      zh: { h1: "本地模型横评", sub: "按显存选能跑的开源权重：排行榜 × GGUF 量化 × 国内 GPU 街货价。云端旗舰请看模型选型；本地 Agent 配模看 Agent 横评。" },
+      en: { h1: "Local Model Guide", sub: "Pick open weights by VRAM: leaderboards, GGUF quants, and GPU street prices. Cloud flagships live on the model page." },
     },
     "hardware-plan.html": {
       zh: { h1: "🕶️ AI Hardware Plan 硬件横评", sub: "AI硬件产品一站式对比：价格、功能、特性、场景推荐，帮你选出最值得入手的AI硬件。" },

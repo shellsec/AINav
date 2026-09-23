@@ -62,7 +62,7 @@
         {
           "key": "daily-6",
           "title": "Grok",
-          "subtitle": "Grok 4.7：编程/Agent 旗舰，Cursor 可用，兼 X 实时搜索",
+          "subtitle": "Grok 4.7：编程与 Agent，Cursor 可用，兼 X 实时搜索",
           "avatar": "icon/Grok.png",
           "link": "https://grok.com/",
           "path": "",
@@ -89,7 +89,7 @@
         {
           "key": "daily-9",
           "title": "Kimi",
-          "subtitle": "K3 旗舰 + Code 桌面版：1M 上下文，长文/Agent/编程",
+          "subtitle": "K3 旗舰 + Code 桌面版，1M 上下文，长文 / Agent / 编程",
           "avatar": "icon/Kimi.png",
           "link": "https://www.kimi.com/",
           "path": "",
@@ -5926,9 +5926,18 @@
         {
           "key": "ext-AI-模型-API--路由聚合--推理云-0",
           "title": "Jev (TypeSafe AI)",
-          "subtitle": "决策专用 System One：不生成文本，返回类型安全概率决策；输入约 $0.042/MTok，输出免费",
+          "subtitle": "决策专用 System One：闭源云 API；不聊天，返回类型安全概率",
           "avatar": "",
           "link": "https://typesafe.ai/",
+          "path": "",
+          "added": "2026-09-23"
+        },
+        {
+          "key": "ext-AI-模型-API--路由聚合--推理云-1",
+          "title": "Laya (Convai)",
+          "subtitle": "开源决策模型：Apache 2.0 权重，Choice/Score/Noul，可自托管",
+          "avatar": "",
+          "link": "https://huggingface.co/convaiinnovations/laya",
           "path": "",
           "added": "2026-09-23"
         }
@@ -13876,5 +13885,5 @@
     }
   },
   "builtFrom": "local",
-  "generatedAt": "2026-09-23T02:59:14.540Z"
+  "generatedAt": "2026-09-23T05:24:09.074Z"
 }

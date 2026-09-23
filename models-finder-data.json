@@ -595,14 +595,47 @@
         "support": 8,
         "edge": 1
       },
-      "blurb": "不生成文本的决策模型；输入 .042/MTok，输出免费；70–500ms。",
+      "blurb": "不聊天的决策模型；输入约 $0.042/MTok，输出免费。详见决策模型专题。",
       "why": [
         "软件内结构化决策",
         "不能聊天/写代码",
         "Early Access"
       ],
       "link": "https://typesafe.ai/",
-      "plan": "model-plan.html"
+      "plan": "decision-model-plan.html"
+    },
+    {
+      "id": "laya-convai",
+      "name": "Laya",
+      "vendor": "Convai Innovations",
+      "region": "intl",
+      "badge": "开源决策",
+      "active": true,
+      "cn": false,
+      "edge": true,
+      "freeish": true,
+      "quality": 7,
+      "cost": 10,
+      "speed": 10,
+      "context": 4,
+      "fit": {
+        "coding": 2,
+        "agent": 8,
+        "rag": 3,
+        "chat": 1,
+        "vision": 1,
+        "writing": 1,
+        "support": 8,
+        "edge": 7
+      },
+      "blurb": "Apache 2.0 开源决策权重；Choice/Score/Noul；自托管。详见决策模型专题。",
+      "why": [
+        "可自托管再训",
+        "基座需微调才强",
+        "不是聊天模型"
+      ],
+      "link": "https://huggingface.co/convaiinnovations/laya",
+      "plan": "decision-model-plan.html"
     },
     {
       "id": "mimo-v2-6",

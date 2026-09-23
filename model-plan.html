@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <link rel="stylesheet" href="site-mobile.css">
   <title>AI 模型旗舰横评对比 — 国内+海外 — AINav</title>
-  <meta name="description" content="2026-09 旗舰横评：Claude Opus 5.5 / Fable 5.1、GPT-6 Sol/Luna、Grok 4.7、Kimi K3、MiMo-V2.6、Jev 决策模型、Hy4、GLM-5.3、DeepSeek-V4-Pro。">
+  <meta name="description" content="2026-09 旗舰横评：Claude Opus 5.5 / Fable 5.1、GPT-6 Sol/Luna、Grok 4.7、Kimi K3、MiMo-V2.6、Hy4、GLM-5.3、DeepSeek-V4-Pro。决策模型见专题页。">
   <link rel="canonical" href="https://aiv123.com/model-plan.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="AI 模型旗舰横评对比 — 国内+海外">
-  <meta property="og:description" content="2026-09 旗舰横评 · 含 Opus 5.5、GPT-6 Sol、Grok 4.7、MiMo-V2.6、Jev。">
+  <meta property="og:description" content="2026-09 旗舰横评 · 含 Opus 5.5、GPT-6 Sol、Grok 4.7、MiMo-V2.6。">
   <meta property="og:url" content="https://aiv123.com/model-plan.html">
   <meta property="og:site_name" content="AINav">
   <meta name="twitter:card" content="summary">
@@ -119,9 +119,9 @@
       <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">立即注册</a>
     </div>
     <h1>🧠 AI 模型选型横评</h1>
-    <p class="cp-subtitle">2026-09 旗舰映射：Claude Opus 5.5 / Fable 5.1、GPT-6 Sol / Luna、Grok 4.7、Kimi K3、MiMo-V2.6、Step 5 Preview、Hy4、GLM-5.3、DeepSeek-V4-Pro；决策专用见 <strong>Jev</strong>。Agent 名次对照 <a href="https://arena.ai/leaderboard/agent" target="_blank" rel="noopener noreferrer">Arena Agent 榜</a>（2026-09-05）。</p>
-    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-09-23</span> · 本周：Opus 5.5、GPT-6 Sol/Luna、Grok 4.7、MiMo-V2.6、Jev；刊例以各厂商价表为准</p>
-    <p style="margin:0 0 1rem;font-size:.88rem;">不确定选哪个？先用 <a href="model-finder.html" style="font-weight:700;">模型推荐器</a> 答 3 个问题，再回来看横评细节。要本机跑权重（Ollama / 显存 / GGUF）请看 <a href="local-model-plan.html" style="font-weight:700;">本地模型横评</a>。</p>
+    <p class="cp-subtitle">2026-09 旗舰：Claude Opus 5.5 / Fable 5.1、GPT-6 Sol / Luna、Grok 4.7、Kimi K3、MiMo-V2.6、Step 5 Preview、Hy4、GLM-5.3、DeepSeek-V4-Pro。要分类/路由/打分这类<strong>非聊天</strong>决策，另见 <a href="decision-model-plan.html">决策模型</a>。Agent 名次对照 <a href="https://arena.ai/leaderboard/agent" target="_blank" rel="noopener noreferrer">Arena Agent 榜</a>（2026-09-05）。</p>
+    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-09-23</span> · 刊例以各厂商价表为准</p>
+    <p style="margin:0 0 1rem;font-size:.88rem;">不确定选哪个？先用 <a href="model-finder.html" style="font-weight:700;">模型推荐器</a> 答 3 个问题，再回来看横评。本机跑权重（Ollama / 显存 / GGUF）看 <a href="local-model-plan.html" style="font-weight:700;">本地模型</a>。</p>
 
     <div class="cp-legend">
       <span class="cp-legend-item"><span class="cp-badge badge-deepseek">DeepSeek</span> 长上下文</span>
@@ -132,7 +132,7 @@
       <span class="cp-legend-item"><span class="cp-badge badge-minimax">MiniMax</span> 速度</span>
       <span class="cp-legend-item"><span class="cp-badge badge-gemma">Gemma</span> 端侧</span>
       <span class="cp-legend-item"><span class="cp-badge badge-overseas">Fable 5.1 / Opus 5.5 / GPT-6 / Grok 4.7</span> 海外旗舰</span>
-      <span class="cp-legend-item"><span class="cp-badge badge-new">Jev</span> 决策 System One</span>
+      <span class="cp-legend-item"><a href="decision-model-plan.html" class="cp-badge badge-new" style="text-decoration:none;">决策模型</a> Jev / Laya</span>
     </div>
 
     <div class="cp-section-hd"><span class="cp-flag">🇨🇳</span> 国内旗舰模型</div>
@@ -175,7 +175,7 @@
           <strong>核心技术：</strong><span class="tech-tag">2.8T 开源</span><span class="tech-tag">1M 上下文</span><span class="tech-tag">原生多模态</span><span class="tech-tag">Arena Agent #7</span><br>
           <strong class="good">✓ 天然适合：</strong>长仓工程、多步 Agent、知识工作与深度推理<br>
           <strong class="bad">✗ 天然不适合：</strong>极致低价批量（可用 K2.x / Flash 档）<br>
-          <strong>设计理念：</strong>开源前沿旗舰；Kimi Code / Work / API（<code>kimi-k3</code>）可用；2026-09-21/22 上线 <strong>Kimi Code Desktop</strong>（macOS/Windows）。Arena Agent（2026-09-05）K3 Max 排第 7
+          <strong>设计理念：</strong>开源旗舰；Kimi Code / Work / API（<code>kimi-k3</code>）可用。2026-09 起有 <strong>Kimi Code 桌面版</strong>（macOS / Windows）。Arena Agent（2026-09-05）K3 Max 第 7
         </div>
       </div>
 
@@ -186,10 +186,10 @@
           <span class="cp-badge badge-qwen">开源全模态</span>
         </div>
         <div class="cp-platform-body">
-          <strong>核心技术：</strong><span class="tech-tag">Pro / Flash</span><span class="tech-tag">AA 智能指数 46</span><span class="tech-tag">Live RL</span><span class="tech-tag">HF 开源</span><br>
-          <strong class="good">✓ 天然适合：</strong>要最强开源全模态底座、Agent 基准对标 Opus 5 / GPT-5.6 Sol 档<br>
-          <strong class="bad">✗ 天然不适合：</strong>对标 Claude Fable 5.1 / GPT-6 Astra 的闭源极限；Coding Plan 档位仍以官网 V2.5 刊例为准<br>
-          <strong>设计理念：</strong>2026-09-22 开源 Pro/Flash；AI-Bot / AIBase 称 AA 综合智能指数 46，超越 Kimi K3 与 Qwen3.8 Max，但仍低于顶级闭源。HF：XiaomiMiMo
+          <strong>核心技术：</strong><span class="tech-tag">Pro / Flash</span><span class="tech-tag">AA 指数约 46</span><span class="tech-tag">HF 开源</span><br>
+          <strong class="good">✓ 天然适合：</strong>要开源全模态底座、Agent 基准接近 Opus 5 / 上一代 Sol 档<br>
+          <strong class="bad">✗ 天然不适合：</strong>对标 Fable 5.1 / GPT-6 Astra；Token Plan 刊例仍以官网 V2.5 为准<br>
+          <strong>设计理念：</strong>2026-09-22 开源 Pro/Flash。多家评测称 AA 综合智能指数约 46，开源侧很靠前，仍低于顶级闭源。权重见 Hugging Face XiaomiMiMo
         </div>
       </div>
 
@@ -200,9 +200,9 @@
         </div>
         <div class="cp-platform-body">
           <strong>核心技术：</strong><span class="tech-tag">600B MoE</span><span class="tech-tag">激活 ~27B</span><span class="tech-tag">1M 上下文</span><span class="tech-tag">原生多模态</span><br>
-          <strong class="good">✓ 天然适合：</strong>真实世界 Agentic 长任务、要开源性价比逼近 K3 档<br>
-          <strong class="bad">✗ 天然不适合：</strong>把 Preview 当最终 GA；完整权重预计 10/15（以阶跃公告为准）<br>
-          <strong>设计理念：</strong>阶跃星辰 2026-09-20 全量开放；API / Studio 可用。套餐池仍见 coding-plan Step Plan
+          <strong class="good">✓ 天然适合：</strong>长程 Agentic 任务、要开源性价比逼近 K3 档<br>
+          <strong class="bad">✗ 天然不适合：</strong>把 Preview 当最终 GA；完整权重节奏以阶跃公告为准<br>
+          <strong>设计理念：</strong>阶跃星辰 2026-09-20 起 API / Studio 可用。套餐池见 <a href="coding-plan.html">编程套餐</a> Step Plan
         </div>
       </div>
 
@@ -275,7 +275,7 @@
           <strong>核心技术：</strong><span class="tech-tag">Sol / Luna</span><span class="tech-tag">对齐 Astra 训练法</span><span class="tech-tag">日常工作降本</span><br>
           <strong class="good">✓ 天然适合：</strong>ChatGPT 日常付费默认、要接近旗舰但更省钱的编程/办公/Agent<br>
           <strong class="bad">✗ 天然不适合：</strong>无妥协极限仍选 <strong>GPT-6 Astra</strong>；国内直连需网关<br>
-          <strong>设计理念：</strong>2026-09-23 官方发布。OpenAI 称 Astra 仍是整体最强；Sol/Luna 把 Astra 级能力下放到更快更经济尺寸。多家二次报道称 API 价较 GPT-5.6 促销价约降 50%——<strong>以 OpenAI 价表为准</strong>，本站暂不写死绝对刊例
+          <strong>设计理念：</strong>2026-09-23 发布。OpenAI 称 Astra 仍是整体最强；Sol / Luna 把接近旗舰的能力放到更快、更省的尺寸。报道称 API 价较 GPT-5.6 促销价约降一半——<strong>绝对刊例以 OpenAI 价表为准</strong>，本站不写死
         </div>
       </div>
 
@@ -304,7 +304,7 @@
           <strong>核心技术：</strong><span class="tech-tag">Claude 5.5 首款</span><span class="tech-tag">近 Fable 5.1</span><span class="tech-tag">成本↓约40%</span><span class="tech-tag">速度↑约30%</span><br>
           <strong class="good">✓ 天然适合：</strong>日常长程 Coding / Claude Code 主力；要接近 Fable 智商但更省<br>
           <strong class="bad">✗ 天然不适合：</strong>中文略弱、需梯子、端侧；绝对刊例以 Anthropic 价表为准<br>
-          <strong>设计理念：</strong>2026-09-23 上线 Claude / AWS / Google Cloud / Azure。官方称多数任务表现与 Fable 5.1 相当，典型任务成本较 Opus 5 约降 40%、输出约提速 30%；9 项测试中 7 项领先（含编程）。上代 Opus 5（$5/$25）仍可作对照基线
+          <strong>设计理念：</strong>2026-09-23 上线 Claude 与主要云。官方称多数任务接近 Fable 5.1，典型任务成本较 Opus 5 约降 40%、输出约提速 30%。刊例以 Anthropic 为准；上代 Opus 5（$5/$25）可作对照
         </div>
       </div>
 
@@ -332,28 +332,15 @@
           <strong>核心技术：</strong><span class="tech-tag">~2.1T</span><span class="tech-tag">$2/$6</span><span class="tech-tag">长任务</span><span class="tech-tag">编程/知识工作</span><br>
           <strong class="good">✓ 天然适合：</strong>写代码、数小时级长跑 Agent、要高性价比旗舰<br>
           <strong class="bad">✗ 天然不适合：</strong>对标 Claude Fable 5.1 / GPT-6 Astra 的极限档；长上下文溢价规则以 xAI 价表为准<br>
-          <strong>设计理念：</strong>2026-09-21/22 多方报道上线。定位编程与知识工作，速度约同类两倍、价格约旗舰一半；API 报道为输入 $2 / 输出 $6 每百万 token（与 4.6 刊例同量级）。综合仍居第二梯队首位（逊于 Fable 5.1 / Astra）
+          <strong>设计理念：</strong>2026-09-21/22 上线。主打编程与知识工作长任务；报道称速度约同类两倍、价格约旗舰一半，API 约 $2/$6 每百万 token（与 4.6 刊例同量级）。综合仍逊于 Fable 5.1 / Astra
         </div>
       </div>
     </div>
 
-    <div class="cp-section-hd" id="jev"><span class="cp-flag">⚡</span> 决策专用 · System One（非聊天模型）</div>
-    <div class="cp-platforms">
-      <div class="cp-platform overseas featured">
-        <div class="cp-platform-head">
-          <span class="cp-platform-name"><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">Jev（TypeSafe AI）</a></span>
-          <span class="cp-badge badge-new">🆕 9/15</span>
-          <span class="cp-badge badge-overseas">海外</span>
-          <span class="cp-badge badge-rec">决策 API</span>
-        </div>
-        <div class="cp-platform-body">
-          <strong>核心技术：</strong><span class="tech-tag">不生成文本</span><span class="tech-tag">RLCD</span><span class="tech-tag">Choice / Score / Noul</span><span class="tech-tag">70–500ms</span><span class="tech-tag">$0.042/MTok 入 · 出免费</span><br>
-          <strong class="good">✓ 天然适合：</strong>软件里的结构化决策——分类、路由、打分、是否分支、LLM 输出校验；Agent 工作流中的「快决策层」<br>
-          <strong class="bad">✗ 天然不适合：</strong>聊天、写代码、生成说明文案；需要自然语言输出时仍用 LLM<br>
-          <strong>设计理念：</strong>TypeSafe AI（前 OpenAI 研究员 Diogo Almeida 等）2026-09-15 出隐身：第一款 <strong>System One</strong> 模型。输入程序状态 + 预定义题型，并行返回类型安全概率决策；官方称同档智能下可快 40–200×、输出 token 免费。Early Access：<a href="https://typesafe.ai/" target="_blank" rel="noopener noreferrer">typesafe.ai</a>。ainews（AIBase 9/20–21）亦有报道
-        </div>
-      </div>
-    </div>
+    <div class="cp-section-hd" id="decision"><span class="cp-flag">⚡</span> 决策模型（非聊天）</div>
+    <p style="font-size:.85rem;line-height:1.7;margin:0 0 1rem;padding:.75rem 1rem;border:1px solid var(--border);border-radius:10px;background:var(--card);">
+      分类、路由、打分、是否分支这类<strong>给程序用的结构化决策</strong>，不要和聊天旗舰混选。闭源云 API 看 TypeSafe <strong>Jev</strong>；开源权重看 <strong>Laya</strong>（Apache 2.0）等。详见专题 <a href="decision-model-plan.html" style="font-weight:700;">决策模型</a>。
+    </p>
 
     <div class="cp-section-hd"><span class="cp-flag">📊</span> 技术特性 × 场景速查表</div>
     <div class="cp-matrix-wrap">
@@ -376,7 +363,7 @@
           <tr><td class="model-name" style="color:var(--overseas)">Claude Opus 5.5</td><td>成本↓~40% · 速度↑~30% · 近 Fable</td><td class="good">日常长程 Coding 主力</td><td class="bad">中文、梯子；刊例看官方</td></tr>
           <tr><td class="model-name" style="color:var(--overseas)">Gemini 3.8 Flash</td><td>$0.75/$3.75 至 12/31 · 元旦翻倍</td><td class="good">速度、工程 Agent</td><td class="bad">不是 3.1 Pro 替代</td></tr>
           <tr><td class="model-name" style="color:var(--overseas)">Grok 4.7</td><td>$2/$6 · ~2.1T · 长任务</td><td class="good">工程编码、长跑 Agent</td><td class="bad">逊于 Fable / Astra</td></tr>
-          <tr><td class="model-name" style="color:var(--overseas)">Jev (TypeSafe)</td><td>$0.042/MTok 入 · 出免费 · 70–500ms</td><td class="good">软件内结构化决策</td><td class="bad">不聊天、不生成文本</td></tr>
+          <tr><td class="model-name" style="color:var(--overseas)"><a href="decision-model-plan.html">Jev / Laya</a></td><td>决策专用 · 云 API / 开源权重</td><td class="good">软件内结构化决策</td><td class="bad">不聊天、不生成文本</td></tr>
         </tbody>
       </table>
     </div>
@@ -461,11 +448,11 @@
     <div class="cp-scenario">
       <div class="cp-scenario-head">🛡️ 场景 5：长程 Agent（Arena 2026-09-05）</div>
       <div class="cp-scenario-body">
-        <span class="candidate">候选：Claude Fable 5.1、Claude Opus 5、Kimi K3、Hy4 preview</span><br>
-        <span class="recommend">👉 推荐：冲极限 Fable 5.1 / 日常 Opus 5；国内 Kimi K3 或 Hy4</span>
+        <span class="candidate">候选：Claude Fable 5.1、Claude Opus 5.5、Kimi K3、Hy4 preview</span><br>
+        <span class="recommend">👉 推荐：冲极限 Fable 5.1 / 日常 Opus 5.5；国内 Kimi K3 或 Hy4</span>
         <ul class="reason">
           <li>Fable 5.1（9/1）接档 Fable 5，Arena Agent 总分第一；缓存读降到 $0.25</li>
-          <li>Opus 5 High/Max 分列第 2、第 3，可操控性最好，日常主力仍是它</li>
+          <li>日常主力用 Opus 5.5；极限定用 Fable 5.1（Arena Agent #1）</li>
           <li>国内：Kimi K3 Max 第 7；Hy4 preview 第 10（preview，单价更低）</li>
         </ul>
       </div>
@@ -480,8 +467,8 @@
         <div class="cp-summary-item"><span class="cp-badge badge-qwen">开源旗舰</span> Max 档 <span class="arrow">→</span> Qwen 3.8 Max</div>
         <div class="cp-summary-item"><span class="cp-badge badge-minimax">速度</span> 实时交互 <span class="arrow">→</span> MiniMax M2.7</div>
         <div class="cp-summary-item"><span class="cp-badge badge-gemma">端侧</span> 离线/隐私 <span class="arrow">→</span> Gemma 4 / <a href="local-model-plan.html">本地横评</a></div>
-        <div class="cp-summary-item"><span class="cp-badge badge-gpt">通用</span> ChatGPT <span class="arrow">→</span> GPT-5.6 Sol</div>
-        <div class="cp-summary-item"><span class="cp-badge badge-claude">深度</span> 日常 Coding <span class="arrow">→</span> Opus 5</div>
+        <div class="cp-summary-item"><span class="cp-badge badge-gpt">通用</span> ChatGPT <span class="arrow">→</span> GPT-6 Sol</div>
+        <div class="cp-summary-item"><span class="cp-badge badge-claude">深度</span> 日常 Coding <span class="arrow">→</span> Opus 5.5</div>
         <div class="cp-summary-item"><span class="cp-badge badge-claude">长程</span> Agent 极限 <span class="arrow">→</span> Fable 5.1</div>
         <div class="cp-summary-item"><span class="cp-badge badge-gemini">速度档</span> Google <span class="arrow">→</span> Gemini 3.8 Flash</div>
         <div class="cp-summary-item"><span class="cp-badge badge-overseas">Coding/Agent</span> 工程编码 <span class="arrow">→</span> Grok 4.7 / Claude Opus 5.5</div>
@@ -491,7 +478,7 @@
 
     <div class="cp-footer">
       <p>数据来源：各模型官方技术博客与论文 · Agent 名次对照 <a href="https://arena.ai/leaderboard/agent" target="_blank" rel="noopener noreferrer">Arena Agent Leaderboard</a>（2026-09-05）</p>
-      <p><a href="index.html">← 返回 AINav 首页</a> · <a href="model-finder.html">模型推荐器</a> · <a href="local-model-plan.html">本地模型</a> · <a href="low-filter-api-plan.html">低过滤云 API</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a></p>
+      <p><a href="index.html">← 返回 AINav 首页</a> · <a href="model-finder.html">模型推荐器</a> · <a href="local-model-plan.html">本地模型</a> · <a href="decision-model-plan.html">决策模型</a> · <a href="low-filter-api-plan.html">低过滤云 API</a> · <a href="free-tier.html">🆓 免费额度</a> · <a href="token-optimization.html">Token优化</a> · <a href="coding-plan.html">编程套餐横评</a> · <a href="agent-plan.html">Agent横评</a></p>
     </div>
   </div>
 

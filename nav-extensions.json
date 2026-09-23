@@ -6,8 +6,14 @@
       "tools": [
         {
           "title": "Jev (TypeSafe AI)",
-          "subtitle": "决策专用 System One：不生成文本，返回类型安全概率决策；输入约 $0.042/MTok，输出免费",
+          "subtitle": "决策专用 System One：闭源云 API；不聊天，返回类型安全概率",
           "link": "https://typesafe.ai/",
+          "added": "2026-09-23"
+        },
+        {
+          "title": "Laya (Convai)",
+          "subtitle": "开源决策模型：Apache 2.0 权重，Choice/Score/Noul，可自托管",
+          "link": "https://huggingface.co/convaiinnovations/laya",
           "added": "2026-09-23"
         },
         {

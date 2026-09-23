@@ -5,12 +5,16 @@
 (function () {
   var META = {
     "model-plan.html": {
-      zh: { h1: "🧠 AI 模型选型横评", sub: "2026-09 旗舰：Opus 5.5、GPT-6 Sol/Luna、Grok 4.7、Kimi K3、MiMo-V2.6、Jev。" },
-      en: { h1: "🧠 AI Model Selection Guide", sub: "Sept 2026: Opus 5.5, GPT-6 Sol/Luna, Grok 4.7, Kimi K3, MiMo-V2.6, Jev." },
+      zh: { h1: "🧠 AI 模型选型横评", sub: "2026-09 旗舰：Opus 5.5、GPT-6 Sol/Luna、Grok 4.7、Kimi K3、MiMo-V2.6。决策模型另见专题页。" },
+      en: { h1: "🧠 AI Model Selection Guide", sub: "Sept 2026: Opus 5.5, GPT-6 Sol/Luna, Grok 4.7, Kimi K3, MiMo-V2.6. Decision models have their own page." },
     },
     "local-model-plan.html": {
       zh: { h1: "本地模型横评", sub: "按显存选能跑的开源权重：排行榜 × GGUF 量化 × 国内 GPU 街货价。云端旗舰请看模型选型；本地 Agent 配模看 Agent 横评。" },
       en: { h1: "Local Model Guide", sub: "Pick open weights by VRAM: leaderboards, GGUF quants, and GPU street prices. Cloud flagships live on the model page." },
+    },
+    "decision-model-plan.html": {
+      zh: { h1: "决策模型", sub: "System One / 结构化决策：闭源云 API（Jev）与开源权重（Laya 等），不是聊天机器人。" },
+      en: { h1: "Decision Models", sub: "System One — hosted Jev and open-weight Laya for software gates, not chatbots." },
     },
     "low-filter-api-plan.html": {
       zh: { h1: "低过滤云 API", sub: "Abliterated / Uncensored 推理 API · 云端调用 · OpenAI 兼容 · 按量计费。" },

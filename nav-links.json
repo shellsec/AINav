@@ -57,6 +57,16 @@
       "homeTitle": "本地模型横评·显存分档与硬件价格"
     },
     {
+      "href": "decision-model-plan.html",
+      "zh": "决策模型",
+      "en": "Decision",
+      "match": ["decision-model-plan.html"],
+      "nav": ["sub", "plan", "home"],
+      "homeGroup": "compare",
+      "homeZh": "决策模型",
+      "homeTitle": "决策模型·Jev 云 API / Laya 开源权重"
+    },
+    {
       "href": "low-filter-api-plan.html",
       "zh": "低过滤API",
       "en": "Low-filter",
@@ -229,6 +239,7 @@
     { "loc": "https://aiv123.com/model-finder.html", "changefreq": "monthly", "priority": "0.75" },
     { "loc": "https://aiv123.com/model-plan.html", "changefreq": "monthly", "priority": "0.7" },
     { "loc": "https://aiv123.com/local-model-plan.html", "changefreq": "weekly", "priority": "0.72" },
+    { "loc": "https://aiv123.com/decision-model-plan.html", "changefreq": "monthly", "priority": "0.65" },
     { "loc": "https://aiv123.com/low-filter-api-plan.html", "changefreq": "monthly", "priority": "0.65" },
     { "loc": "https://aiv123.com/coding-plan.html", "changefreq": "monthly", "priority": "0.7" },
     { "loc": "https://aiv123.com/agent-plan.html", "changefreq": "monthly", "priority": "0.7" },

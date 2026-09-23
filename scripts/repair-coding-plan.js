@@ -70,7 +70,7 @@ rep(
 rep(
   /<div style="margin-bottom:1rem;padding:\.55rem[\s\S]*?<\/div>\s*<div class="cp-title-row">/,
   `<div style="margin-bottom:1rem;padding:.55rem .85rem;border-radius:8px;border:1px solid var(--border);background:var(--card);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.35rem .6rem;font-size:.84rem;line-height:1.5;">
-      <span style="color:var(--muted)"><strong style="color:var(--text)">OpenAI: GPT-5</strong> <span style="color:var(--muted)">/</span> <strong style="color:var(--text)">Anthropic: Claude Opus</strong> <span style="color:var(--muted)">/</span> <strong style="color:var(--text)">Google: Gemini 旗舰模型</strong> <span style="color:var(--muted)">· 国内直连免梯</span> <span class="plan-promo-code" data-code="AFF_BB0FNC" style="color:var(--accent2);font-weight:600;cursor:pointer" title="点击复制优惠码">$2 试用 AFF_BB0FNC</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">立即注册</a>
+      <span style="color:var(--muted)"><strong style="color:var(--accent2)">合作推广</strong> <span style="color:var(--muted)">·</span> <span style="color:var(--text)">GPT / Claude / Gemini</span> <span style="color:var(--muted)">·</span> <span style="color:var(--text)">100+ 模型</span> <span style="color:var(--muted)">·</span> <span style="color:var(--text)">文本 / 图像 / 视频</span> <span style="color:var(--muted)">·</span> <span style="color:var(--text)">支持缓存</span> <span style="color:var(--muted)">·</span> <span style="color:var(--text)">不留存对话</span> <span style="color:var(--muted)">·</span> <span style="color:var(--accent2);font-weight:600">首充赠 $3</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">立即注册</a>
     </div>
         <div class="cp-title-row">`
 );
@@ -602,9 +602,7 @@ const zhBlock = `        zh: {
           thUsage5h: '用量/5h', thUsage2: '用量', thDesc: '说明',
           footer: '数据来源各平台官网 · 价格以官网为准',
           footerHome: '← 返回 AINav 首页',
-          promoText: '想用', promoOr: '/', promoNoNet: '但无梯？',
-          promoDesc: '一个 API Key 直连 100+ 模型，OpenAI 兼容格式',
-          promoCta: '立即注册 →',
+          promoHtml: '<strong style="color:var(--accent2)">合作推广</strong> <span style="color:var(--muted)">·</span> <span style="color:var(--text)">GPT / Claude / Gemini</span> <span style="color:var(--muted)">·</span> <span style="color:var(--text)">100+ 模型</span> <span style="color:var(--muted)">·</span> <span style="color:var(--text)">文本 / 图像 / 视频</span> <span style="color:var(--muted)">·</span> <span style="color:var(--text)">支持缓存</span> <span style="color:var(--muted)">·</span> <span style="color:var(--text)">不留存对话</span> <span style="color:var(--muted)">·</span> <span style="color:var(--accent2);font-weight:600">首充赠 $3</span> <a href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-flex;align-items:center;font-size:.78rem;font-weight:600;color:var(--accent2);padding:.2rem .55rem;border-radius:5px;border:1px solid rgba(63,185,80,.4);background:rgba(63,185,80,.1);text-decoration:none;white-space:nowrap;">立即注册</a>',
           badgeRush: '⏰ 抢购', badgeHot: '🔥 性价比', badgeNew: '🆕 新品', badgeRec: '推荐',
         },`;
 

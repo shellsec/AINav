@@ -106,6 +106,7 @@ const planFiles = [
   "hardware-plan.html",
   "model-plan.html",
   "local-model-plan.html",
+  "low-filter-api-plan.html",
   "opc-global.html",
   "opc-resources.html",
 ];
@@ -501,7 +502,7 @@ patchDomesticOverseas("image-plan.html", "国内图像", "海外图像");
 }
 
 // skill-plan + hardware + model: mobile already; light thinking link if missing
-for (const f of ["skill-plan.html", "hardware-plan.html", "model-plan.html", "local-model-plan.html", "search-plan.html", "music-plan.html", "learning-plan.html", "voice-plan.html", "token-optimization.html"]) {
+for (const f of ["skill-plan.html", "hardware-plan.html", "model-plan.html", "local-model-plan.html", "low-filter-api-plan.html", "search-plan.html", "music-plan.html", "learning-plan.html", "voice-plan.html", "token-optimization.html"]) {
   if (!fs.existsSync(path.join(root, f))) continue;
   let html = read(f);
   const before = html;

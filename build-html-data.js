@@ -1367,39 +1367,60 @@ const html = `<!DOCTYPE html>
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 0.15rem 0.35rem;
-      margin: 0.4rem auto 0;
-      padding: 0.35rem 0.65rem;
-      max-width: 52rem;
+      gap: 0.1rem 0.18rem;
+      margin: 0.3rem auto 0;
+      padding: 0.22rem 0.5rem;
+      max-width: min(72rem, 96%);
       border-radius: 8px;
       border: 1px solid var(--border);
       background: var(--card);
-    }
-    .top-plans-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-right: 0.2rem;
-      white-space: nowrap;
+      line-height: 1.3;
     }
     .top-plans a {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 500;
       color: var(--muted);
       text-decoration: none;
-      padding: 0.15rem 0.45rem;
-      border-radius: 4px;
-      transition: color 0.15s, background 0.15s;
+      padding: 0.1rem 0.38rem;
+      border-radius: 5px;
+      border: 1px solid transparent;
+      transition: color 0.15s, background 0.15s, border-color 0.15s;
       white-space: nowrap;
     }
     .top-plans a:hover {
       color: var(--accent2);
       background: var(--promo-cta-bg);
+      border-color: color-mix(in srgb, var(--accent2) 18%, var(--border));
       text-decoration: none;
     }
+    .top-plans-sep {
+      flex: 0 0 auto;
+      width: 1px;
+      height: 0.8em;
+      margin: 0 0.2rem;
+      background: var(--border);
+      opacity: 0.75;
+      align-self: center;
+    }
+    .top-plans-label,
+    .top-plans-row,
     .top-plans-break {
-      flex-basis: 100%;
-      height: 0;
+      display: none;
+    }
+    @media (max-width: 640px) {
+      .top-plans {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        max-width: none;
+        margin-left: 0.35rem;
+        margin-right: 0.35rem;
+        padding: 0.28rem 0.45rem;
+      }
+      .top-plans::-webkit-scrollbar { display: none; }
+      .top-plans a { flex: 0 0 auto; }
     }
     .top-encyclopedia-line {
       margin: 0 0 0.45rem;
@@ -2063,14 +2084,13 @@ const html = `<!DOCTYPE html>
     <div class="top-plans">
       ${buildHomeTopPlansHtml(esc)}
     </div>
-    <div class="top-promo" aria-label="合作推广：多模型 API 接入" data-i18n-aria="promoAria">
+    <div class="top-promo" aria-label="合作推广：多模型 API" data-i18n-aria="promoAria">
       <div class="top-promo-head">
-        <span class="top-promo-badge" data-i18n="promoBadge">推广</span>
-        <span class="top-promo-models">
-          <span>OpenAI: GPT</span><span>Anthropic: Claude</span><span>Google: Gemini旗舰模型</span>
+        <span class="top-promo-badge" data-i18n="promoBadge">合作推广</span>
+        <span class="top-promo-models" data-i18n-html="promoModels">
+          <span>GPT / Claude / Gemini</span><span>100+ 模型</span><span>文本 / 图像 / 视频</span><span>支持缓存</span><span>不留存对话</span>
         </span>
-        <span class="top-promo-title" data-i18n="promoTitle">国内直连免梯</span>
-        <span class="top-promo-ref" data-i18n-html="promoRef">$2优惠码 <span class="top-promo-code" translate="no" data-code="AFF_BB0FNC" style="cursor:pointer" title="点击复制优惠码">AFF_BB0FNC</span></span>
+        <span class="top-promo-title" data-i18n-html="promoTitle"><strong style="color:var(--accent2)">首充赠 $3</strong></span>
         <a class="top-promo-cta" href="https://ofox.io/x/aiv123" target="_blank" rel="noopener noreferrer sponsored" data-i18n="promoCta">立即注册</a>
       </div>
     </div>
@@ -2677,10 +2697,12 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         themeSystem: "System",
         themeLight: "Light",
         themeDark: "Dark",
-        promoBadge: "Ad",
-        promoTitle: "Direct Access, No VPN Needed",
-        promoCta: "Sign Up",
-        promoRef: '$2 off code <span class="top-promo-code" translate="no" data-code="AFF_BB0FNC" style="cursor:pointer" title="Click to copy">AFF_BB0FNC</span>',
+        promoBadge: "Recommended",
+        promoAria: "Recommended: multi-model API",
+        promoModels: '<span>GPT / Claude / Gemini</span><span>100+ models</span><span>Text / image / video</span><span>Caching</span><span>No conversation retention</span>',
+        promoTitle: '<strong style="color:var(--accent2)">Extra $3 on first top-up</strong>',
+        promoCta: "Sign up",
+        promoRef: '',
         mailToTitle: "Contact Email",
         /* -- sidebar & fav -- */
         sidebarToggle: "☰ Menu",
@@ -2796,9 +2818,11 @@ function fallbackIcon(el){el._fb=el._fb||0;var d='';try{d=new URL(el.closest('ar
         themeLight: "浅色",
         themeDark: "深色",
         promoBadge: "合作推广",
-        promoTitle: "国内直连免梯",
+        promoAria: "合作推广：多模型 API",
+        promoModels: '<span>GPT / Claude / Gemini</span><span>100+ 模型</span><span>文本 / 图像 / 视频</span><span>支持缓存</span><span>不留存对话</span>',
+        promoTitle: '<strong style="color:var(--accent2)">首充赠 $3</strong>',
         promoCta: "立即注册",
-        promoRef: '$2优惠码 <span class="top-promo-code" translate="no" data-code="AFF_BB0FNC" style="cursor:pointer" title="点击复制优惠码">AFF_BB0FNC</span>',
+        promoRef: '',
         mailToTitle: "联系邮箱",
         /* -- sidebar & fav -- */
         sidebarToggle: "☰ 导航",

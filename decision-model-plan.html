@@ -110,6 +110,29 @@
     .tech-tag { display: inline-block; margin: 0.1rem 0.25rem 0.1rem 0; padding: 0.05rem 0.4rem; border-radius: 4px; font-size: 0.72rem; background: var(--panel); border: 1px solid var(--border); color: var(--muted); }
     .good { color: var(--accent2); }
     .bad { color: var(--muted); }
+    .cp-howto { border: 1px solid var(--border); border-radius: 10px; background: var(--card); overflow: hidden; margin-bottom: 1rem; }
+    .cp-howto-head { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); font-weight: 700; font-size: 0.95rem; background: var(--panel); display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+    .cp-howto-body { padding: 0.75rem 1rem; font-size: 0.84rem; line-height: 1.7; }
+    .cp-howto-body ol { margin: 0.35rem 0 0; padding-left: 1.25rem; }
+    .cp-howto-body li { margin-bottom: 0.3rem; }
+    .cp-howto-body p { margin: 0 0 0.4rem; }
+    .cp-scene-grid { display: grid; grid-template-columns: 1fr; gap: 0.85rem; }
+    @media (min-width: 52rem) { .cp-scene-grid { grid-template-columns: 1fr 1fr; } }
+    .cp-scene { border: 1px solid var(--border); border-radius: 10px; background: var(--card); overflow: hidden; }
+    .cp-scene-hd { padding: 0.55rem 0.9rem; border-bottom: 1px solid var(--border); font-weight: 700; font-size: 0.9rem; background: var(--panel); }
+    .cp-scene-bd { padding: 0.55rem 0.9rem 0.7rem; font-size: 0.82rem; line-height: 1.65; }
+    .cp-scene-bd ul { margin: 0; padding-left: 1.15rem; }
+    .cp-scene-bd li { margin-bottom: 0.28rem; }
+    .cp-scene-note { margin: 0.45rem 0 0; padding: 0.4rem 0.55rem; border-radius: 6px; background: rgba(210,153,34,0.08); border: 1px solid rgba(210,153,34,0.28); color: var(--warn); font-size: 0.78rem; line-height: 1.55; }
+    .cp-scene-note.danger { background: rgba(248,81,73,0.08); border-color: rgba(248,81,73,0.3); color: var(--danger); }
+    .cp-ex { margin: 0.75rem 0 0; padding: 0.65rem 0.85rem; border-radius: 8px; background: var(--panel); border: 1px dashed var(--border); font-size: 0.8rem; line-height: 1.65; color: var(--muted); }
+    .cp-ex strong { color: var(--text); }
+    .cp-foot-blocks { display: grid; grid-template-columns: 1fr; gap: 0.85rem; margin-top: 1.2rem; }
+    @media (min-width: 52rem) { .cp-foot-blocks { grid-template-columns: 1fr 1fr 1fr; } }
+    .cp-foot-block { border: 1px solid var(--border); border-radius: 10px; background: var(--card); padding: 0.75rem 0.9rem; font-size: 0.82rem; line-height: 1.65; }
+    .cp-foot-block h3 { margin: 0 0 0.45rem; font-size: 0.92rem; }
+    .cp-foot-block ul { margin: 0; padding-left: 1.15rem; }
+    .cp-foot-block li { margin-bottom: 0.28rem; }
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B8FBWRX4N"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2B8FBWRX4N');</script>
@@ -310,7 +333,7 @@
             <tbody>
               <tr>
                 <td class="plan-name">定位</td>
-                <td>约 0.6B 并行决策复现：Choice / Boolean / Score；单次前向出完整分布</td>
+                <td>研究复现：底座 Qwen3-0.6B；Choice / Boolean / Score；单次前向出完整分布</td>
               </tr>
               <tr>
                 <td class="plan-name">权重 / 协议</td>
@@ -326,7 +349,7 @@
             </tbody>
           </table>
           <p style="margin:0.4rem 0 0;font-size:0.82rem;color:var(--muted);">
-            适合学接口、小模型实验；公开评测多偏迷宫 / 小游戏等可控环境，不是 Jev 的托管替代品。推理侧通常要 NVIDIA GPU。
+            <strong>0.6B 限制只在这里：</strong>底座是 Qwen3-0.6B，复杂长推理、长上下文容易丢信息；公开演示偏迷宫 / ViZDoom 等可控环境。学接口、小模型实验可以；不要当 Jev 云 API 的平替。推理侧通常要 NVIDIA GPU。
           </p>
         </div>
       </div>
@@ -339,6 +362,181 @@
         <div class="cp-platform-body">
           SemIf / OpenJev、各类 open-jev：在<strong>冻结聊天 LLM</strong>上读 logits / 复现 API 外形，不算独立决策权重。daf-jev 等是 Jev 客户端工具包。普通开源聊天模型的 JSON mode / tool call 仍归 <a href="model-plan.html">模型选型</a>。
         </div>
+      </div>
+    </div>
+
+    <div class="cp-section-hd" id="howto"><span>如何使用</span></div>
+    <p style="font-size:0.84rem;color:var(--muted);margin:0 0 0.85rem;">统一形态（与官方题型对齐，不是第三套 API）：<code>context（程序状态 / 文本） + [question1, question2, …]</code> → 每条题返回有界答案与概率。Jev / Laya 题型为 Choice / Score / Noul；NanoJev 为 Choice / Boolean / Score。上层拿概率做阈值、加权、路由，不靠模型吐 JSON。</p>
+
+    <div class="cp-howto">
+      <div class="cp-howto-head"><span class="cp-badge badge-overseas">托管</span> Jev 云 API</div>
+      <div class="cp-howto-body">
+        <p><strong>什么时候用：</strong>不想运维权重、要托管校准决策、把窄问题嵌进工作流 / Agent 闸门。</p>
+        <ol>
+          <li>在 <a href="https://typesafe.ai/" target="_blank" rel="noopener noreferrer">typesafe.ai</a> 开 Early Access，按官网 Docs 拿调用凭证。</li>
+          <li><strong>输入：</strong>非结构化程序状态（文本 / 结构化字段）+ 事先定好的题（Choice / Score / Noul）。</li>
+          <li><strong>输出：</strong>类型安全答案 + 校准概率 / 置信度；一次查询可并行多题；不生成自由文本。</li>
+          <li><strong>上层怎么用：</strong>对「是否投诉 / 是否升级」等 Noul 设阈值；对 Choice 取最高概率分支；对 Score 做加权。刊例与配额以官网为准（本页产品表仅摘核实口径）。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="cp-howto">
+      <div class="cp-howto-head"><span class="cp-badge badge-rec">自托管</span> Laya（生产向开源）</div>
+      <div class="cp-howto-body">
+        <p><strong>适合谁：</strong>数据不出机房、要可再训、可对标 Jev 请求形的本机 / 内网服务。</p>
+        <ol>
+          <li>权重：<a href="https://huggingface.co/convaiinnovations/laya" target="_blank" rel="noopener noreferrer">HF convaiinnovations/laya</a>；代码 / 说明：<a href="https://github.com/NandhaKishorM/laya" target="_blank" rel="noopener noreferrer">GitHub</a>；<code>pip install laya</code>。</li>
+          <li>最短路径：<code>Router(preload=True).predict(state, questions)</code>；或 <code>laya.load(...)</code> 单 checkpoint。题型同 Jev：Choice / Score / Noul。</li>
+          <li>可选 <code>pip install "laya[serve]"</code> + <code>laya-serve</code>，HTTP 形与 TypeSafe System One 同形，换 base URL 即可。</li>
+          <li>官方写明：基座在 typed-decisions 上接近随机，强效果靠微调；出厂概率偏自信，上线前用自己的数据做温度校准。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="cp-howto">
+      <div class="cp-howto-head"><span class="cp-badge badge-warn">研究复现</span> NanoJev（0.6B）</div>
+      <div class="cp-howto-body">
+        <p><strong>适合谁：</strong>学并行决策接口、小模型实验、对照迷宫 / 游戏环境。不是 Jev 商业替代。</p>
+        <ol>
+          <li>权重：<a href="https://huggingface.co/C-Tianyu/NanoJev" target="_blank" rel="noopener noreferrer">HF C-Tianyu/NanoJev</a>（如 <code>unified-games-v1</code>）；仓库：<a href="https://github.com/TianyuCodings/NanoJev" target="_blank" rel="noopener noreferrer">TianyuCodings/NanoJev</a>。</li>
+          <li>输入 state + questions（Choice / Boolean / Score）；输出候选分布 / yes-no 概率 / 有序分档概率——单次前向，不解码输出 token。</li>
+          <li>本地可用仓库脚本起推理服务；底座 Qwen3-0.6B，复杂推理与超长上下文别指望。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="cp-ex">
+      <strong>短例子（工单预审，用概率不当 JSON）：</strong>
+      Context = 工单正文与元数据。Questions 例如：是否像投诉（Noul/Boolean）、是否紧急（Score 或 Noul）、是否该升级人工（Noul）。
+      返回每条 yes/no（或分档）概率后，上层写规则：投诉≥0.7 且紧急≥0.6 → 进投诉队列；升级≥0.75 → 转人工；否则自动分派。全文仍不生成客服回复——回复交给 LLM。
+    </div>
+
+    <div class="cp-section-hd" id="scenes"><span>场景怎么用</span></div>
+    <p style="font-size:0.84rem;color:var(--muted);margin:0 0 0.85rem;">每条：做什么判断 → 产出干什么。高风险域限制写死在块内，不当终审。</p>
+
+    <div class="cp-scene-grid">
+      <div class="cp-scene">
+        <div class="cp-scene-hd">Agent</div>
+        <div class="cp-scene-bd">
+          <ul>
+            <li>下一步动作路由 → 选工具 / 子流程，替代 LLM 吐 JSON 再解析</li>
+            <li>对话是否已可结束 / 是否需澄清 → 状态机跳转</li>
+            <li>调用敏感工具前预检 → 权限闸门（低置信则拒或人工）</li>
+            <li>LLM 输出是否跑偏题 / 是否像幻觉 → 自检后再展示</li>
+            <li>多 Agent 分派（谁处理）→ 固定候选人 Choice</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cp-scene">
+        <div class="cp-scene-hd">办公 / 客服</div>
+        <div class="cp-scene-bd">
+          <ul>
+            <li>工单多标签（投诉 / 退款 / 技术）→ 队列路由</li>
+            <li>客服质检：是否承诺法外权益、是否态度失控 → 抽检池</li>
+            <li>合同 / 公文预审：是否缺签章页、是否含金额变更 → 标红给人核</li>
+            <li>报销初审：票据与事由是否明显不符 → 退回补材料</li>
+            <li>简历硬性条件（学历 / 年限 / 到岗）→ 筛入面试池</li>
+            <li>文档是否像含密钥路径 / 身份证号特征 → 拦截外发</li>
+            <li>会议纪要是否含待办 / 决策句 → 生成待办清单的前置打标</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cp-scene">
+        <div class="cp-scene-hd">风控 · 内容特征</div>
+        <div class="cp-scene-bd">
+          <ul>
+            <li>告警文案是否像误报 → 降级或并入噪声队列</li>
+            <li>评论 / 私信是否像广告灌水 → 进审核队列</li>
+            <li>用户输入是否像越权索要（角色 / 权限）→ 拒绝或降权工具</li>
+            <li>正文是否含敏感外链特征 → 标记人工看</li>
+          </ul>
+          <p class="cp-scene-note">只做文本特征预审 / 分级辅助。不写钓鱼制作、绕过、最终拦截规则实现；安全终审必须规则或人工。</p>
+        </div>
+      </div>
+
+      <div class="cp-scene">
+        <div class="cp-scene-hd">教育 · 电商 · 内容</div>
+        <div class="cp-scene-bd">
+          <ul>
+            <li>作业是否跑题、题干是否歧义 → 退回重写（<strong>不是判分</strong>）</li>
+            <li>评论多标签（物流 / 品质 / 客服）→ 归因看板</li>
+            <li>售后初分：是否像质量问题 vs 使用问题 → 分流工单</li>
+            <li>商家消息是否引导站外交易 → 违规预审</li>
+            <li>稿件 / 脚本预审：是否缺事实出处、是否像广告植入 → 编辑队列</li>
+            <li>新闻是否像突发事件 → 加急编排（仍要编辑确认）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cp-scene">
+        <div class="cp-scene-hd">医疗（非诊断）</div>
+        <div class="cp-scene-bd">
+          <ul>
+            <li>描述是否像急症表述 → 引导就医 / 紧急通道文案</li>
+            <li>是否在索要处方 / 具体用药方案 → 拒答并转合规话术</li>
+            <li>是否含自伤表述 → 危机资源引导（不代替危机干预）</li>
+            <li>客服是否在给诊疗建议 → 质检下线</li>
+          </ul>
+          <p class="cp-scene-note danger">不能做疾病诊断、不能开处方。仅非诊断文本特征；终审与处置必须人工 / 合规流程。</p>
+        </div>
+      </div>
+
+      <div class="cp-scene">
+        <div class="cp-scene-hd">法律 · 金融 · 研发</div>
+        <div class="cp-scene-bd">
+          <ul>
+            <li>合同条款是否像高风险（单方解约 / 无限责任）→ 律师预审队列（<strong>不能替代律师</strong>）</li>
+            <li>咨询是否像在求「胜诉保证」→ 拒答并转人工法务</li>
+            <li>贷款申请叙述是否像材料不全 → 补件提示（<strong>不能做信贷审批或投资建议</strong>）</li>
+            <li>需求是否缺验收标准、Bug 是否像严重故障 → 排期 / P0 标签</li>
+            <li>提交说明是否像带了密钥路径 → 拦截合并（不教如何藏密钥）</li>
+          </ul>
+          <p class="cp-scene-note danger">法律 / 信贷 / 投资结论只能当辅助特征，必须规则或持牌人工复核。</p>
+        </div>
+      </div>
+
+      <div class="cp-scene">
+        <div class="cp-scene-hd">游戏 / 仿真 / 机器人</div>
+        <div class="cp-scene-bd">
+          <ul>
+            <li>环境文本观测上的局部布尔：NPC 是否可见威胁 → 行为树分支</li>
+            <li>任务目标是否已满足 → 关卡结算前置</li>
+            <li>仿真日志是否像异常态 → 重置或人工接管</li>
+          </ul>
+          <p class="cp-scene-note">只做观测文本上的布尔 / 选择；不写自动驾驶控制参数。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cp-foot-blocks" id="limits">
+      <div class="cp-foot-block">
+        <h3>通用模板</h3>
+        <ul>
+          <li><strong>Context</strong>：工单 / 对话 / 状态 JSON / 文档片段</li>
+          <li><strong>Questions</strong>：多条固定题（Choice / Score / Noul 或 Boolean）</li>
+          <li><strong>输出</strong>：每条 yes 与 no（或选项）概率</li>
+          <li><strong>上层</strong>：阈值 + 加权打分 → 路由 / 闸门 / 打标</li>
+        </ul>
+      </div>
+      <div class="cp-foot-block">
+        <h3>统一限制</h3>
+        <ul>
+          <li>不生成自由文本</li>
+          <li>诊断、信贷、法律判决、安全最终拦截：只能当辅助特征，必须规则或人工复核</li>
+          <li><strong>NanoJev</strong>：0.6B，不适合强推理；上下文越长越易丢信息</li>
+          <li>适合：前置预审、路由、可审计打分、本地轻量判断</li>
+        </ul>
+      </div>
+      <div class="cp-foot-block">
+        <h3>和普通 LLM 怎么选</h3>
+        <ul>
+          <li>要写文章 / 代码 / 摘要 / 对话 → <strong>普通 LLM</strong></li>
+          <li>同一段文本批量做可审计 yes/no、避免 JSON 解析崩 → <strong>这类决策模型</strong></li>
+          <li>常见组合：LLM 生成，决策模型做闸门与分拣</li>
+        </ul>
       </div>
     </div>
 

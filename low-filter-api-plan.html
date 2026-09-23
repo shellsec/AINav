@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <link rel="stylesheet" href="site-mobile.css">
   <title>低过滤云 API — Abliterated / Uncensored 推理 · OpenAI 兼容按量 — AINav</title>
-  <meta name="description" content="低过滤云 API 横评：Venice.ai、NinjaChat 等 OpenAI 兼容、按量计费的文本/代码推理接口。面向红队与安全评测，减少过度拒答；不含越狱教程，不收录以成人生成为卖点的服务。">
+  <meta name="description" content="低过滤云 API：Venice / NinjaChat；红队与 Strix 自动化审计的模型档位（Flash 快扫 ≠ 深扫最强）。OpenAI 兼容、按量计费。">
   <link rel="canonical" href="https://aiv123.com/low-filter-api-plan.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="低过滤云 API — Abliterated / Uncensored 推理">
-  <meta property="og:description" content="云端调用、OpenAI 兼容、按量计费。Venice.ai 首选，NinjaChat 次选；红队与安全评测用途。">
+  <meta property="og:description" content="Venice 首选、NinjaChat 次选；Strix 档位：Flash 快扫、V4-Pro/GLM 深扫、GPT/Claude 最强报告。">
   <meta property="og:url" content="https://aiv123.com/low-filter-api-plan.html">
   <meta property="og:site_name" content="AINav">
   <meta name="twitter:card" content="summary">
@@ -133,18 +133,19 @@
 
   <div class="cp-wrap">
     <h1>低过滤云 API</h1>
-    <p class="cp-subtitle">Abliterated / Uncensored 推理 API · 云端调用 · OpenAI 兼容 · 按量计费。</p>
-    <p class="cp-related">日常旗舰请看 <a href="model-plan.html">模型选型</a>；本机跑开源权重看 <a href="local-model-plan.html">本地模型</a>；编程套餐看 <a href="coding-plan.html">编程套餐</a>。主流推理云（OpenRouter / Together 等）在百科「AI 模型 API」分类。</p>
-    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-09-23</span></p>
+    <p class="cp-subtitle">Abliterated / Uncensored 推理 API · 云端调用 · OpenAI 兼容 · 按量计费。含 Strix 自动化审计的模型档位对照。</p>
+    <p class="cp-related">日常旗舰请看 <a href="model-plan.html">模型选型</a>；本机跑开源权重看 <a href="local-model-plan.html">本地模型</a>；编程套餐看 <a href="coding-plan.html">编程套餐</a>；Agent 编排看 <a href="agent-plan.html">Agent 横评</a>。主流推理云（OpenRouter / Together 等）在百科「AI 模型 API」分类。</p>
+    <p class="cp-updated-line"><span class="cp-updated">最后更新：2026-09-23</span> · Strix 模型 ID 对照 <a href="https://docs.strix.ai/llm-providers/overview" target="_blank" rel="noopener noreferrer">docs.strix.ai</a></p>
 
     <div class="cp-notice">
       <div class="cp-notice-head">用途边界</div>
       <div class="cp-notice-body">
-        本页只收<strong>能长期用的文本 / 代码云 API</strong>：OpenAI 兼容、按量计费、适合接到现有 SDK 或 IDE。适用场景是红队、安全评测、减少过度拒答对评测的干扰。
+        本页只收<strong>能长期用的文本 / 代码云 API</strong>：OpenAI 兼容、按量计费、适合接到现有 SDK 或 IDE；并对照 <strong>Strix</strong> 等自动化审计该配哪档模型。适用场景是红队、安全评测、减少过度拒答对评测的干扰。
         <ul>
-          <li><strong>不提供</strong>越狱教程、绕过安全策略的操作步骤，也不讨论如何攻击第三方系统。</li>
+          <li><strong>不提供</strong>越狱教程、绕过安全策略的操作步骤，也不讨论如何攻击第三方系统。只测你有权测试的目标。</li>
           <li><strong>不收录</strong>以成人生成为卖点的图像 / 视频服务；站点即便有文本接口，卖点偏此也不进推荐卡。</li>
           <li>「低过滤 / abliterated」<strong>不等于</strong>零审查、不等于可违法使用。服务商仍可能有 ToS、地区限制与日志政策，以官网为准。</li>
+          <li>Strix 选型：官方推荐是 glm-5.3 / gpt-5.4 / claude-sonnet-4-6 / gemini-3-pro；<strong>DeepSeek Flash 是便宜快扫，不是最强深扫</strong>。</li>
         </ul>
       </div>
     </div>
@@ -368,12 +369,93 @@ r = client.chat.completions.create(
       </div>
     </div>
 
+    <div class="cp-section-hd" id="strix"><span>Strix 自动化审计 · 模型怎么选</span></div>
+    <p style="font-size:0.85rem;line-height:1.7;margin:0 0 0.85rem;color:var(--muted);">
+      <a href="https://github.com/usestrix/strix" target="_blank" rel="noopener noreferrer">Strix</a>（Apache 2.0）是开源 AI 渗透 Agent：多 Agent 侦察 / 利用 / 验证，要求漏洞带可复现 PoC。底层走 LiteLLM，<code>STRIX_LLM</code> 用 <code>provider/model</code> 格式。
+      <strong>官方推荐档</strong>：<code>glm-5.3</code> / <code>gpt-5.4</code> / <code>claude-sonnet-4-6</code> / <code>gemini-3-pro</code>（见 <a href="https://docs.strix.ai/llm-providers/overview" target="_blank" rel="noopener noreferrer">LLM Providers</a>）。
+      下表按<strong>用途分档</strong>——<strong>DeepSeek Flash 只做便宜快扫，不是最强深扫</strong>。
+    </p>
+    <div class="cp-matrix-wrap">
+      <table class="cp-matrix">
+        <thead>
+          <tr><th>用途</th><th>Strix 里写（<code>STRIX_LLM</code>）</th><th>渠道</th><th>定位</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="model-name">日常快扫</td>
+            <td><code>deepseek/deepseek-flash</code></td>
+            <td>DeepSeek 官网</td>
+            <td>对应 <strong>V4.1-Flash</strong>；便宜、快。复杂攻击链弱。<strong>别当深扫主力。</strong></td>
+          </tr>
+          <tr>
+            <td class="model-name">深扫 / DeepSeek 家</td>
+            <td><code>deepseek/deepseek-v4-pro</code></td>
+            <td>DeepSeek 官网</td>
+            <td>Strix 配置表仍列此 ID。注意：官方自 2026-09-14 起，该 ID <strong>暂时转发到 V4.1-Flash</strong> 直至 V4.1-Pro 上线——深扫更稳默认仍用下面的 <code>glm-5.3</code>。</td>
+          </tr>
+          <tr>
+            <td class="model-name">性价比主力（默认）</td>
+            <td><code>openrouter/z-ai/glm-5.3</code></td>
+            <td>OpenRouter</td>
+            <td><span class="cp-badge badge-rec">Strix 默认</span> 综合好；文档 Quick Start 即此 ID。</td>
+          </tr>
+          <tr>
+            <td class="model-name">更省 GLM</td>
+            <td><code>openrouter/z-ai/glm-5.3-flash</code></td>
+            <td>OpenRouter</td>
+            <td>浅扫 / 控成本；别指望顶替 5.3 全量深扫。</td>
+          </tr>
+          <tr>
+            <td class="model-name">最强报告</td>
+            <td><code>openai/gpt-5.4</code> · <code>anthropic/claude-sonnet-4-6</code></td>
+            <td>官方 API</td>
+            <td>贵但稳；关键评估、要报告质量时用。Sonnet 限额紧时成本会飙（第三方横评有单次数十美元案例）。</td>
+          </tr>
+          <tr>
+            <td class="model-name">官方推荐 · Gemini</td>
+            <td><code>vertex_ai/gemini-3-pro-preview</code></td>
+            <td>Google Vertex</td>
+            <td>与上列同属官方推荐大模型档。Vertex 文档写安全测试综合表现好；另有 Flash 预览偏快偏省。需 GCP / ADC，不是 DeepSeek 式「便宜快扫」替代品。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src" style="margin:0.45rem 0 0.8rem;">
+      配置示例：<code>export STRIX_LLM="openrouter/z-ai/glm-5.3"</code> + <code>LLM_API_KEY</code>。
+      事实口径：Strix 文档（2026-09）· 用途分档以本站对照表为准。第三方文章里的「GLM 5.1 / DeepSeek v3.2」勿与上表 Flash、V4-Pro、GLM-5.3 混读。
+    </p>
+    <code class="cp-code"># 性价比默认（官方 Quick Start）
+export STRIX_LLM="openrouter/z-ai/glm-5.3"
+export LLM_API_KEY="…"
+
+# 日常快扫（便宜）— 不是深扫最强
+# export STRIX_LLM="deepseek/deepseek-flash"
+
+# 深扫 / DeepSeek 家强模型
+# export STRIX_LLM="deepseek/deepseek-v4-pro"
+
+strix --target ./app-directory</code>
+
     <div class="cp-section-hd"><span>场景怎么选</span></div>
     <div class="cp-scenario">
-      <div class="cp-scenario-head">红队 / 安全评测</div>
+      <div class="cp-scenario-head">红队 / 安全评测（样本不被过度拒答污染）</div>
       <div class="cp-scenario-body">
         <div class="recommend">Venice 低过滤开源 ID，或 NinjaChat <code>uncensored-ai</code></div>
-        <div class="reason">评测拒答率、有害内容分类、策略覆盖时，过度拒答会污染样本。用低过滤开源权重做对照，不等于取消你自己的安全层——对外服务仍应自建过滤。</div>
+        <div class="reason">评测拒答率、有害内容分类、策略覆盖时，过度拒答会污染样本。用低过滤开源权重做对照，不等于取消你自己的安全层——对外服务仍应自建过滤。这和下面 Strix「要长程 Agent 智商」不是同一档选型。</div>
+      </div>
+    </div>
+    <div class="cp-scenario">
+      <div class="cp-scenario-head">Strix · CI / PR 快扫</div>
+      <div class="cp-scenario-body">
+        <div class="recommend"><code>deepseek/deepseek-flash</code> 或 <code>openrouter/z-ai/glm-5.3-flash</code>；默认稳妥用 <code>glm-5.3</code></div>
+        <div class="reason">要短、要省。Flash 复杂链弱，适合 diff / quick 门禁。第三方案例口径：Quick 约数分钟到十几分钟、费用常见个位数美元量级——以你自己账单为准，本站不写死刊例。</div>
+      </div>
+    </div>
+    <div class="cp-scenario">
+      <div class="cp-scenario-head">Strix · 全面深扫 / 要可交付报告</div>
+      <div class="cp-scenario-body">
+        <div class="recommend">先 <code>openrouter/z-ai/glm-5.3</code>；DeepSeek 生态注意 <code>deepseek-v4-pro</code> 过渡期可能仍落到 Flash——要报告质量用 <code>gpt-5.4</code> / <code>claude-sonnet-4-6</code>（或 Vertex <code>gemini-3-pro-preview</code>）</div>
+        <div class="reason"><strong>不要用 Flash 顶深扫。</strong>文章与独立横评都指向：弱模型会漏报或早停；编排层很重要，但模型智商仍是拉开差距的关键。贵模型单次可能很高（如 Sonnet 经中转限额后的极端账单），先小目标试跑。</div>
       </div>
     </div>
     <div class="cp-scenario">
@@ -384,10 +466,10 @@ r = client.chat.completions.create(
       </div>
     </div>
     <div class="cp-scenario">
-      <div class="cp-scenario-head">本机已有 GPU</div>
+      <div class="cp-scenario-head">本机已有 GPU / 数据不能出域</div>
       <div class="cp-scenario-body">
-        <div class="recommend">优先看 <a href="local-model-plan.html">本地模型横评</a></div>
-        <div class="reason">云 API 省运维；24GB 卡跑开源权重往往更便宜、数据不出机。低过滤云 API 适合没卡、或要 405B 这种单卡装不下的权重。</div>
+        <div class="recommend">优先看 <a href="local-model-plan.html">本地模型横评</a>；Strix 可接 Ollama / 兼容本地入口</div>
+        <div class="reason">云 API 省运维；隐私优先再自托管。Strix 官方也写：关键评估仍建议云端强模型，小参数本机 Agent 往往跟不动多步工具循环。</div>
       </div>
     </div>
 
@@ -395,7 +477,11 @@ r = client.chat.completions.create(
       <div class="cp-faq-head">常见问题</div>
       <div class="cp-faq-item is-open">
         <div class="cp-faq-q">和 OpenRouter、Together 有什么区别？<span class="cp-faq-arrow">▼</span></div>
-        <div class="cp-faq-a">主流推理云也会上架部分 abliterated 开源权重，但产品定位是<strong>全模型路由</strong>，不是本页这种对照。日常多模型、旗舰编码请走百科「AI 模型 API」和 <a href="model-plan.html">模型选型</a>。本页只整理「明确做低过滤文本 API、且能接到代码里」的少数服务。</div>
+        <div class="cp-faq-a">主流推理云也会上架部分 abliterated 开源权重，但产品定位是<strong>全模型路由</strong>，不是本页这种对照。日常多模型、旗舰编码请走百科「AI 模型 API」和 <a href="model-plan.html">模型选型</a>。Strix 默认的 <code>openrouter/z-ai/glm-5.3</code> 走的是 OpenRouter 上的智谱线，属于「Agent 智商」选型，不是「低过滤权重」选型。</div>
+      </div>
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">DeepSeek Flash 能不能当 Strix 深扫主力？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>不能。</strong>Flash（现为 V4.1-Flash，API <code>deepseek-flash</code>）只适合便宜快扫。深扫默认用 <code>glm-5.3</code>；DeepSeek 的 <code>deepseek-v4-pro</code> 在 V4.1-Pro 上线前可能仍转发 Flash。报告质量优先再上 GPT-5.4 / Claude Sonnet 4.6 / Gemini 3 Pro。</div>
       </div>
       <div class="cp-faq-item">
         <div class="cp-faq-q">Pro 套餐无限聊，API 是不是也无限？<span class="cp-faq-arrow">▼</span></div>
@@ -407,15 +493,18 @@ r = client.chat.completions.create(
       </div>
       <div class="cp-faq-item">
         <div class="cp-faq-q">低过滤是不是「零审查」？<span class="cp-faq-arrow">▼</span></div>
-        <div class="cp-faq-a"><strong>不是。</strong>Abliterated 权重通常只是削弱了训练里的拒答方向，服务商仍有条款、支付风控和地区政策。本站不用「零审查」当标题，也不保证任何请求都会被执行。违法用途不要做。</div>
+        <div class="cp-faq-a"><strong>不是。</strong>Abliterated 权重通常只是削弱了训练里的拒答方向，服务商仍有条款、支付风控和地区政策。Strix 等自动化审计只测你有权测的目标。本站不用「零审查」当标题，也不保证任何请求都会被执行。违法用途不要做。</div>
       </div>
     </div>
 
     <div class="cp-summary">
       <h2>一句话怎么选</h2>
       <div class="cp-summary-grid">
-        <div class="cp-summary-item"><span class="cp-badge badge-rec">首选</span> <span class="arrow">→</span> Venice 低过滤开源 ID + 按量 credits</div>
-        <div class="cp-summary-item"><span class="cp-badge badge-new">次选</span> <span class="arrow">→</span> NinjaChat <code>uncensored-ai</code>（注意 www）</div>
+        <div class="cp-summary-item"><span class="cp-badge badge-rec">首选 API</span> <span class="arrow">→</span> Venice 低过滤开源 ID + 按量 credits</div>
+        <div class="cp-summary-item"><span class="cp-badge badge-new">次选 API</span> <span class="arrow">→</span> NinjaChat <code>uncensored-ai</code>（注意 www）</div>
+        <div class="cp-summary-item"><span class="cp-badge badge-rec">Strix 默认</span> <span class="arrow">→</span> <code>openrouter/z-ai/glm-5.3</code></div>
+        <div class="cp-summary-item"><span class="cp-badge badge-warn">Strix 快扫</span> <span class="arrow">→</span> Flash（非深扫最强）</div>
+        <div class="cp-summary-item"><span class="cp-badge badge-overseas">Strix 报告</span> <span class="arrow">→</span> GPT-5.4 / Sonnet 4.6 / Gemini 3 Pro</div>
         <div class="cp-summary-item"><span class="cp-badge badge-warn">观望</span> <span class="arrow">→</span> Unfil / Hypereal，单价未独立核实</div>
         <div class="cp-summary-item"><span class="cp-badge badge-skip">跳过</span> <span class="arrow">→</span> Web 站、成人生成、企业红队网关</div>
       </div>
@@ -423,7 +512,7 @@ r = client.chat.completions.create(
   </div>
 
   <div class="cp-footer">
-    <p>价格与模型 ID 以各官网为准 · Venice <a href="https://docs.venice.ai/overview/pricing" target="_blank" rel="noopener noreferrer">pricing</a> / FAQ · NinjaChat <a href="https://docs.ninjachat.ai/pricing" target="_blank" rel="noopener noreferrer">pricing</a></p>
+    <p>价格与模型 ID 以各官网为准 · Venice <a href="https://docs.venice.ai/overview/pricing" target="_blank" rel="noopener noreferrer">pricing</a> · NinjaChat <a href="https://docs.ninjachat.ai/pricing" target="_blank" rel="noopener noreferrer">pricing</a> · Strix <a href="https://docs.strix.ai/llm-providers/overview" target="_blank" rel="noopener noreferrer">LLM providers</a></p>
     <p>本页不提供越狱教程，不收录以成人生成为卖点的服务。合法合规使用。</p>
     <p><a href="index.html">← 返回 AINav 首页</a> · <a href="model-plan.html">模型选型</a> · <a href="local-model-plan.html">本地模型</a> · <a href="coding-plan.html">编程套餐</a> · <a href="agent-plan.html">Agent 横评</a> · <a href="free-tier.html">免费额度</a></p>
   </div>

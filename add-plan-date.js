@@ -13,6 +13,7 @@ const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 const planFiles = [
   'model-plan.html',
   'local-model-plan.html',
+  'low-filter-api-plan.html',
   'coding-plan.html',
   'agent-plan.html',
   'video-plan.html',

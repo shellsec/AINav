@@ -8,6 +8,7 @@ const PLAN_FILES = [
   "agent-plan.html",
   "model-plan.html",
   "local-model-plan.html",
+  "low-filter-api-plan.html",
   "video-plan.html",
   "image-plan.html",
   "voice-plan.html",

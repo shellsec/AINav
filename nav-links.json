@@ -6,7 +6,8 @@
       "zh": "← AINav 首页",
       "en": "← AINav Home",
       "match": ["index.html", ""],
-      "nav": ["sub", "plan"]
+      "nav": ["sub", "plan"],
+      "planGroup": "tools"
     },
     {
       "href": "free-tier.html",
@@ -14,7 +15,8 @@
       "en": "🆓 Free Tier",
       "match": ["free-tier.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "highlight",
+      "homeGroup": "tools",
+      "planGroup": "tools",
       "homeTitle": "AI工具免费额度、刷新周期与新用户礼一览",
       "homeI18n": "freeTier"
     },
@@ -24,7 +26,8 @@
       "en": "Token Opt",
       "match": ["token-optimization.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "highlight",
+      "homeGroup": "tools",
+      "planGroup": "tools",
       "homeTitle": "Cursor / Claude Code / Codex Token 优化安装配置与最佳实践",
       "homeI18n": "tokenOptimize"
     },
@@ -35,7 +38,8 @@
       "en": "Model Finder",
       "match": ["model-finder.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
+      "homeGroup": "models",
+      "planGroup": "models",
       "homeTitle": "3问选出最适合你的大模型·国内+海外"
     },
     {
@@ -44,7 +48,8 @@
       "en": "Models",
       "match": ["model-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
+      "homeGroup": "models",
+      "planGroup": "models",
       "homeTitle": "AI模型选型横评·国内+海外旗舰"
     },
     {
@@ -53,8 +58,20 @@
       "en": "Local",
       "match": ["local-model-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
+      "homeGroup": "models",
+      "planGroup": "models",
       "homeTitle": "本地模型横评·显存分档与硬件价格"
+    },
+    {
+      "href": "edge-model-plan.html",
+      "zh": "端侧模型",
+      "en": "On-device",
+      "match": ["edge-model-plan.html"],
+      "nav": ["sub", "plan", "home"],
+      "homeGroup": "models",
+      "planGroup": "models",
+      "homeZh": "端侧模型",
+      "homeTitle": "端侧模型·按终端分·OlliteRT"
     },
     {
       "href": "decision-model-plan.html",
@@ -62,7 +79,8 @@
       "en": "Decision",
       "match": ["decision-model-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
+      "homeGroup": "models",
+      "planGroup": "models",
       "homeZh": "决策模型",
       "homeTitle": "决策模型·Jev 云 API / Laya 开源权重"
     },
@@ -72,8 +90,9 @@
       "en": "Low-filter",
       "match": ["low-filter-api-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
-      "homeZh": "低过滤云 API",
+      "homeGroup": "models",
+      "planGroup": "models",
+      "homeZh": "低过滤API",
       "homeTitle": "低过滤云 API·OpenAI 兼容按量推理"
     },
     {
@@ -82,7 +101,8 @@
       "en": "Coding",
       "match": ["coding-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
+      "homeGroup": "plans",
+      "planGroup": "plans",
       "homeTitle": "国内外AI编程套餐价格对比与选购推荐",
       "homeI18n": "codingPlan"
     },
@@ -92,7 +112,8 @@
       "en": "Agent",
       "match": ["agent-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
+      "homeGroup": "plans",
+      "planGroup": "plans",
       "homeTitle": "AI Agent横评对比与场景推荐"
     },
     {
@@ -101,8 +122,9 @@
       "en": "Search",
       "match": ["search-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
-      "homeZh": "搜索套餐",
+      "homeGroup": "plans",
+      "planGroup": "plans",
+      "homeZh": "搜索",
       "homeTitle": "AI搜索工具横评对比与场景推荐"
     },
     {
@@ -111,8 +133,9 @@
       "en": "Video",
       "match": ["video-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
-      "homeZh": "视频套餐",
+      "homeGroup": "plans",
+      "planGroup": "plans",
+      "homeZh": "视频",
       "homeTitle": "AI视频生成套餐价格对比与场景推荐"
     },
     {
@@ -121,10 +144,10 @@
       "en": "Image",
       "match": ["image-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
-      "homeZh": "图像套餐",
-      "homeTitle": "AI图像生成套餐价格对比与场景推荐",
-      "homeBreakAfter": true
+      "homeGroup": "plans",
+      "planGroup": "plans",
+      "homeZh": "图像",
+      "homeTitle": "AI图像生成套餐价格对比与场景推荐"
     },
     {
       "href": "voice-plan.html",
@@ -132,8 +155,9 @@
       "en": "Voice",
       "match": ["voice-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
-      "homeZh": "语音套餐",
+      "homeGroup": "plans",
+      "planGroup": "plans",
+      "homeZh": "语音",
       "homeTitle": "AI语音工具横评对比与场景推荐"
     },
     {
@@ -142,8 +166,9 @@
       "en": "Music",
       "match": ["music-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
-      "homeZh": "音乐套餐",
+      "homeGroup": "plans",
+      "planGroup": "plans",
+      "homeZh": "音乐",
       "homeTitle": "AI音乐工具横评对比与场景推荐"
     },
     {
@@ -152,8 +177,9 @@
       "en": "Learning",
       "match": ["learning-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
-      "homeZh": "学习套餐",
+      "homeGroup": "plans",
+      "planGroup": "plans",
+      "homeZh": "学习",
       "homeTitle": "AI学习平台横评对比与场景推荐"
     },
     {
@@ -162,8 +188,9 @@
       "en": "Hardware",
       "match": ["hardware-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
-      "homeZh": "硬件横评",
+      "homeGroup": "plans",
+      "planGroup": "plans",
+      "homeZh": "硬件",
       "homeTitle": "AI硬件横评对比与选购推荐"
     },
     {
@@ -172,7 +199,8 @@
       "en": "AI Factory",
       "match": ["ai-factory-plan.html"],
       "nav": ["sub", "plan", "home"],
-      "homeGroup": "compare",
+      "homeGroup": "plans",
+      "planGroup": "plans",
       "homeTitle": "AI造物流水线·从创意到商品"
     },
     { "type": "sep", "nav": ["sub"] },
@@ -183,7 +211,8 @@
       "match": ["ai-roi/", "ai-roi/index.html"],
       "nav": ["sub", "plan", "home"],
       "homeGroup": "landing",
-      "homeZh": "AI 技能落地自查",
+      "planGroup": "landing",
+      "homeZh": "落地自查",
       "homeTitle": "180+ 场景与技能 · 清单到落地 · ROI · 离线可用",
       "homeI18n": "aiRoi"
     },
@@ -194,6 +223,7 @@
       "match": ["opc.html", "opc-global.html", "opc-resources.html"],
       "nav": ["sub", "plan", "home"],
       "homeGroup": "landing",
+      "planGroup": "landing",
       "homeTitle": "一人公司·AI赋能个体创业"
     },
     {
@@ -203,7 +233,8 @@
       "match": ["skill-plan.html"],
       "nav": ["sub", "plan", "home"],
       "homeGroup": "landing",
-      "homeZh": "Skill最佳实践",
+      "planGroup": "landing",
+      "homeZh": "Skill实践",
       "homeTitle": "AI Skill最佳实践·先用再写一站式指南"
     },
     {
@@ -213,6 +244,7 @@
       "match": ["thinking-framework.html", "ideate.html", "ask.html", "plan.html", "debug.html", "agent.html", "prompt-guide.html"],
       "nav": ["sub", "plan", "home"],
       "homeGroup": "method",
+      "planGroup": "method",
       "homeTitle": "Ideate · Ask · Plan · Debug · Agent · 提示词指南",
       "homeI18n": "thinkingFramework"
     },
@@ -221,7 +253,8 @@
       "zh": "AI百科",
       "en": "Encyclopedia",
       "match": ["ai-encyclopedia-2026.html"],
-      "nav": ["sub", "plan"]
+      "nav": ["sub", "plan"],
+      "planGroup": "method"
     }
   ],
   "sitemap": [
@@ -239,6 +272,7 @@
     { "loc": "https://aiv123.com/model-finder.html", "changefreq": "monthly", "priority": "0.75" },
     { "loc": "https://aiv123.com/model-plan.html", "changefreq": "monthly", "priority": "0.7" },
     { "loc": "https://aiv123.com/local-model-plan.html", "changefreq": "weekly", "priority": "0.72" },
+    { "loc": "https://aiv123.com/edge-model-plan.html", "changefreq": "weekly", "priority": "0.7" },
     { "loc": "https://aiv123.com/decision-model-plan.html", "changefreq": "monthly", "priority": "0.65" },
     { "loc": "https://aiv123.com/low-filter-api-plan.html", "changefreq": "monthly", "priority": "0.65" },
     { "loc": "https://aiv123.com/coding-plan.html", "changefreq": "monthly", "priority": "0.7" },

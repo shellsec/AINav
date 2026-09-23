@@ -30,6 +30,7 @@ function getPlanNavLinks() {
       zh: item.zh,
       en: item.en,
       match: item.match || [item.href],
+      planGroup: item.planGroup || "plans",
     }));
 }
 
@@ -70,9 +71,21 @@ function buildHomeTopPlansHtml(esc) {
             .replace(/"/g, "&quot;");
 
   const items = getHomeTopPlanLinks();
-  const byGroup = { highlight: [], compare: [], landing: [], method: [] };
+  const groupOrder = [
+    { key: "tools", highlight: true },
+    { key: "models", highlight: false },
+    { key: "plans", highlight: false },
+    { key: "landing", highlight: false },
+    { key: "method", highlight: false },
+    { key: "highlight", highlight: true },
+    { key: "compare", highlight: false },
+  ];
+  const byGroup = {};
+  for (const g of groupOrder) byGroup[g.key] = [];
   for (const item of items) {
-    if (byGroup[item.homeGroup]) byGroup[item.homeGroup].push(item);
+    const g = item.homeGroup || "plans";
+    if (!byGroup[g]) byGroup[g] = [];
+    byGroup[g].push(item);
   }
 
   function renderLink(item, opts) {
@@ -83,23 +96,18 @@ function buildHomeTopPlansHtml(esc) {
       ? ` data-i18n="${escape(item.homeI18n)}" data-i18n-title="${escape(item.homeI18n)}Title"`
       : "";
     const style = highlight ? ' style="color:var(--accent2);font-weight:600"' : "";
-    const breakAfter = item.homeBreakAfter ? '\n      <span class="top-plans-break"></span>' : "";
-    return `<a href="${escape(item.href)}" title="${escape(title)}"${i18n}${style}>${escape(zh)}</a>${breakAfter}`;
+    return `<a href="${escape(item.href)}" title="${escape(title)}"${i18n}${style}>${escape(zh)}</a>`;
   }
 
   const parts = [];
-  for (const item of byGroup.highlight) parts.push(renderLink(item, { highlight: true }));
-  if (byGroup.compare.length) {
-    parts.push('<span class="top-plans-label">📊 横评</span>');
-    for (const item of byGroup.compare) parts.push(renderLink(item));
-  }
-  if (byGroup.landing.length) {
-    parts.push('<span class="top-plans-label">📋 落地</span>');
-    for (const item of byGroup.landing) parts.push(renderLink(item));
-  }
-  if (byGroup.method.length) {
-    parts.push('<span class="top-plans-label">🧠 方法论</span>');
-    for (const item of byGroup.method) parts.push(renderLink(item));
+  const seen = new Set();
+  for (const g of groupOrder) {
+    if (seen.has(g.key)) continue;
+    seen.add(g.key);
+    const list = byGroup[g.key] || [];
+    if (!list.length) continue;
+    if (parts.length) parts.push('<span class="top-plans-sep" aria-hidden="true"></span>');
+    for (const item of list) parts.push(renderLink(item, { highlight: g.highlight }));
   }
   return parts.join("\n      ");
 }
@@ -146,7 +154,8 @@ function syncPlanNavJs() {
   const body = links
     .map((item) => {
       const match = JSON.stringify(item.match);
-      return `    { href: ${JSON.stringify(item.href)}, zh: ${JSON.stringify(item.zh)}, en: ${JSON.stringify(item.en)}, match: ${match} }`;
+      const group = item.planGroup ? `, group: ${JSON.stringify(item.planGroup)}` : "";
+      return `    { href: ${JSON.stringify(item.href)}, zh: ${JSON.stringify(item.zh)}, en: ${JSON.stringify(item.en)}, match: ${match}${group} }`;
     })
     .join(",\n");
   const next = src.replace(/var LINKS = \[[\s\S]*?\];/, `var LINKS = [\n${body}\n  ];`);

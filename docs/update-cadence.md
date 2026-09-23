@@ -26,7 +26,7 @@
 | 检查项 | 文件 / 页面 | 看什么 |
 |--------|-------------|--------|
 | 热门工具 | `daily-tools.json` | 副标题里的型号（V4、K2.6、Opus、Gemini 等）、链接是否 404 |
-| Coding / Agent / Model 横评 | `coding-plan.html`、`agent-plan.html`、`model-plan.html`、`local-model-plan.html`、`decision-model-plan.html`、`low-filter-api-plan.html` | 套餐价、默认模型、兼容矩阵、Agent 用量池；本地页核对排行榜/显存/街货价；决策模型核对 Jev（闭源）与 Laya / NanoJev（开源）；低过滤云 API 核对 Venice / NinjaChat 价表 |
+| Coding / Agent / Model 横评 | `coding-plan.html`、`agent-plan.html`、`model-plan.html`、`local-model-plan.html`、`edge-model-plan.html`、`decision-model-plan.html`、`low-filter-api-plan.html` | 套餐价、默认模型、兼容矩阵、Agent 用量池；本地页核对排行榜/显存/街货价；端侧页核对 OlliteRT 模型表与能干活档；决策模型核对 Jev（闭源）与 Laya / NanoJev（开源）；低过滤云 API 核对 Venice / NinjaChat 价表与 Strix `STRIX_LLM` 档位（Flash≠深扫） |
 | Token 专题 | `token-optimization.html` | Cursor / Claude Code / Codex 默认模型与计费口径 |
 | 免费额度 | `free-tier-hints.json` + 构建出的 `free-tier.html` | 免费层可用哪档模型、新用户赠送 |
 | 页脚日期 | 上述 plan 页「最后更新」 | 有实质修改时改为当天 |

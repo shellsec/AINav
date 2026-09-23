@@ -12,13 +12,17 @@
       zh: { h1: "本地模型横评", sub: "按显存选能跑的开源权重：排行榜 × GGUF 量化 × 国内 GPU 街货价。云端旗舰请看模型选型；本地 Agent 配模看 Agent 横评。" },
       en: { h1: "Local Model Guide", sub: "Pick open weights by VRAM: leaderboards, GGUF quants, and GPU street prices. Cloud flagships live on the model page." },
     },
+    "edge-model-plan.html": {
+      zh: { h1: "端侧模型", sub: "手机 / 边缘设备上跑 LLM：OlliteRT、Gemma 4 E2B、MiniCPM5 等；电脑本地请看本地模型页。" },
+      en: { h1: "On-device Models", sub: "Phone / edge LLMs: OlliteRT, Gemma 4 E2B, MiniCPM5. Desktop GGUF lives on the Local Models page." },
+    },
     "decision-model-plan.html": {
       zh: { h1: "决策模型", sub: "System One / 结构化决策：闭源云 API（Jev）与开源权重（Laya 等），不是聊天机器人。" },
       en: { h1: "Decision Models", sub: "System One — hosted Jev and open-weight Laya for software gates, not chatbots." },
     },
     "low-filter-api-plan.html": {
-      zh: { h1: "低过滤云 API", sub: "Abliterated / Uncensored 推理 API · 云端调用 · OpenAI 兼容 · 按量计费。" },
-      en: { h1: "Low-filter Cloud APIs", sub: "Abliterated / uncensored inference APIs — cloud, OpenAI-compatible, pay-as-you-go." },
+      zh: { h1: "低过滤云 API", sub: "Abliterated 推理 API + Strix 审计模型档位：Flash 快扫 ≠ 深扫最强。" },
+      en: { h1: "Low-filter Cloud APIs", sub: "Abliterated APIs + Strix model tiers — Flash is cheap scan, not deep-scan best." },
     },
     "hardware-plan.html": {
       zh: { h1: "🕶️ AI Hardware Plan 硬件横评", sub: "AI硬件产品一站式对比：价格、功能、特性、场景推荐，帮你选出最值得入手的AI硬件。" },

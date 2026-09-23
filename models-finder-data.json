@@ -56,7 +56,7 @@
       "zh": "端侧 / 离线隐私",
       "en": "On-device",
       "hint": "本地部署、IoT、无云",
-      "related": "local-model-plan.html"
+      "related": "edge-model-plan.html"
     }
   ],
   "constraints": [
@@ -404,7 +404,7 @@
         "不做 1M 长任务"
       ],
       "link": "https://ai.google.dev/gemma",
-      "plan": "local-model-plan.html"
+      "plan": "edge-model-plan.html"
     },
     {
       "id": "gpt-6-sol",

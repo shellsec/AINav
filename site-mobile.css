@@ -15,6 +15,19 @@
     padding-bottom: env(safe-area-inset-bottom, 0);
   }
 
+  /* Top plans: compact wrap; narrow screens scroll */
+  .top-plans {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .top-plans::-webkit-scrollbar { display: none; }
+  .top-plans a { flex: 0 0 auto; }
+
   /* Top nav: horizontal scroll instead of multi-row wall */
   .cp-top-inner,
   .ft-top-inner,
@@ -34,6 +47,9 @@
     margin: 0 -0.25rem;
     padding: 0 0.25rem 0.25rem;
   }
+  .cp-nav.cp-nav--compact {
+    flex-wrap: nowrap;
+  }
   .cp-nav::-webkit-scrollbar,
   .ft-nav::-webkit-scrollbar,
   .ec-nav::-webkit-scrollbar {
@@ -49,6 +65,10 @@
     align-items: center;
     touch-action: manipulation;
     white-space: nowrap;
+  }
+  .cp-nav.cp-nav--compact a {
+    margin-right: 0 !important;
+    min-height: 40px;
   }
   .subnav-sep {
     display: none;

@@ -1,180 +1,197 @@
-# AINav
+**语言 / Language:** 中文 | [English](README.en.md)
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[aiv123.com](https://aiv123.com/) · AI 工具导航，600+ 工具一网打尽
 
-English | **[中文](./README.zh-CN.md)**
+## 🚀 推荐使用 [ofox.ai](https://ofox.io/x/aiv123)
 
-## 🚀 Recommended: [ofox.ai](https://ofox.io/x/aiv123)
+> **一句话**：一个账号直达最新 GPT / Claude / Gemini 等 **100+** 顶尖模型，首充额外赠 **$3** 额度。
 
-> **In short**: One account for GPT-5.5 / Claude 4.8 Opus / Gemini 3.5 Flash and **100+** top models. First top-up gets an extra **$3** credit.
+文本、图像、视频、向量一站调用；支持缓存，重复请求更省更快。
 
-[👉 Sign up](https://ofox.io/x/aiv123) · Global dedicated lines · Enterprise SLA · No conversation retention
+[👉 注册领取](https://ofox.io/x/aiv123) · 全球专线 · 企业级 SLA · 不留存对话
 
-| ⚡️ Fast & Stable | 🧠 Full Model Coverage | 🛡️ Privacy |
+| ⚡️ 极速更省 | 🧠 模型与模态 | 🛡️ 隐私安全 |
 |:---:|:---:|:---:|
-| Global dedicated lines, enterprise SLA | 100+ models, one account | No conversation retention |
+| 全球专线，企业级 SLA，支持缓存 | 100+ 模型 · 文本 / 图像 / 视频 / 向量 | 不留存任何对话 |
 
-## ☕ Buy Me a Coke
+## ☕ 请我喝可乐
 
-Open source takes effort — sponsorship is welcome:  
-👉 [爱发电 / Afdian](https://ifdian.net/a/shellsec)
+开源不易，欢迎赞助支持：  
+👉 [爱发电](https://ifdian.net/a/shellsec)
 
-A local **AI tool navigator**: builds `index.html`, a free-tier dashboard, and an encyclopedia page from `site-data.json`. Extend categories via `nav-extensions.json` (API routers, MCP, RAG, local inference, etc.). Also includes comparison (`*-plan.html`) pages and an `ai-roi/` skills/ROI audit app.
+---
 
-## Requirements
+本地 **AI 工具导航站**：从 `site-data.json` 生成 `index.html`、免费额度页与百科页；可用 `nav-extensions.json` 追加扩展分类（API 聚合、MCP、RAG、本地推理等）。另含编程/Agent/模型等横评页、`ai-roi/` 技能落地自查等专题。
 
-- **Node.js** 18+ (`fetch` for `download-icons.mjs` / dead-link checks; `build-html-data.js` is CommonJS)
+## 环境要求
 
-## Quick Start
+- **Node.js** 18+（`download-icons.mjs` / 死链检测需要 `fetch`；`build-html-data.js` 为 CommonJS）
+
+## 快速开始
 
 ```bash
-# 1. Generate index.html, free-tier.html, encyclopedia, sitemap (+ sync plan-nav)
+# 1. 生成 index.html、free-tier.html、百科页、sitemap（并同步 plan-nav）
 npm run build
-# or: node build-html-data.js
+# 或：node build-html-data.js
 
-# 2. (Optional) Download icons, then rebuild
+# 2.（可选）下载图标到 ./icons/，再构建一次以使用本地图标
 npm run icons
 npm run build
 ```
 
-Open **`index.html`** in a browser. Header/footer link to free-tier, plan pages, and the encyclopedia.
+用浏览器打开 **`index.html`** 即可。页眉/页脚可进入 **免费额度**、各横评页与百科。
 
-## Commands
+## 常用命令
 
 ```bash
-npm run build            # regenerate pages; sync plan-nav.js from nav-links.json
-npm run icons            # download icons from avatar fields
-npm run check            # link consistency + priority free-tier hints gate
-npm run check:hints      # require free-tier-priority.json links to be in hints
-npm run check:hints:all  # full hints coverage (exit 1 if any missing)
-npm run check:links      # static audit: site vs extensions, placeholder URLs
-npm run check:dead       # HTTP probe hot + priority links (add --ext for extensions)
+npm run build            # 生成页面；从 nav-links.json 同步 plan-nav.js
+npm run icons            # 按 avatar 下载图标
+npm run check            # 链接一致性 + 优先免费额度 hints 门禁
+npm run check:hints      # 仅检查 free-tier-priority.json 白名单是否已核实
+npm run check:hints:all  # 全量 hints 覆盖率（缺一条也会 exit 1）
+npm run check:links      # site / extensions / 百科占位 URL 静态审计
+npm run check:dead       # HTTP 探测热门 + 优先白名单外链（加 --ext 含扩展分类）
 ```
 
-CI (`.github/workflows/ci.yml`) on push/PR runs: `build` → `audit-links` → `check:hints` → `check:dead` (`check:dead` is `continue-on-error` to avoid flaky network failures).
+CI（`.github/workflows/ci.yml`）在 push / PR 时会跑：`build` → `audit-links` → `check:hints` → `check:dead`（死链步骤允许失败以免偶发网络误伤）。
 
-## Page Features (Pure Frontend)
+## 页面功能（纯前端）
 
-### Home — `index.html`
+### 首页 `index.html`
 
-- **Favorites**: star on each card; top “常用收藏” block + sidebar anchor. Stored in `localStorage` (`ainav-favorites-v1`); import/export supported.
-- **Compare basket**: “⇄” on cards (max **4**, key `ainav-compare-v1`); bottom dock opens a small compare table and links to Coding / Agent / Model plan pages.
-- **Scenario filters**: Chat / Coding / Search / Image / Video / China / Intl / Agent·RAG (combinable with search).
-- **Pricing / region badges**: if a tool `link` matches `free-tier-hints.json`, the card shows free-tier level and a China/Intl tag; links to `free-tier.html?q=…`.
-- **Hot tools freshness**: `daily-tools.json` `asOf` renders as “model info as of YYYY-MM-DD”.
-- **Theme**: light / dark / system (`ainav-theme`).
-- **ZH / EN UI**: toolbar toggle (`ainav-lang`); tool copy may use `i18n-en.json`.
-- **Search shortcuts**: `/` or `Ctrl+K` (⌘K on Mac).
-- **Top plan bar**: generated from `nav-links.json` (same source as subpage nav).
-- **Build timestamp**: footer shows last `npm run build` time.
+- **常用收藏**：卡片右上角 ☆；正文顶部「常用收藏」+ 侧栏锚点。数据在 `localStorage`（`ainav-favorites-v1`），支持导入/导出。
+- **轻量对比**：卡片「⇄」加入对比篮（最多 **4** 个，`ainav-compare-v1`）；底部托盘可打开对照表，并链到编程 / Agent / 模型横评。
+- **场景筛选**：对话 / 编程 / 搜索 / 图像 / 视频 / 国内 / 国际 / Agent·RAG，可与搜索叠加。
+- **免费档 / 地区角标**：若 `link` 命中 `free-tier-hints.json`，卡片显示免费档（如「部分免费」）及国内/国际标签；可跳转 `free-tier.html?q=产品名`。
+- **热门时效**：`daily-tools.json` 的 `asOf` 会显示为「模型信息截至 YYYY-MM-DD」。
+- **浅色 / 深色 / 跟随系统**：`ainav-theme` = `light` | `dark` | `system`。
+- **中 / EN**：UI 与分类名切换；工具描述可走 `i18n-en.json`。偏好键 `ainav-lang`。
+- **搜索**：`/` 或 `Ctrl+K`（Mac ⌘K）聚焦搜索框。
+- **顶栏横评入口**：由 `nav-links.json` 生成（与子站顶栏同源）。
+- **构建时间**：页脚展示每次 `npm run build` 的生成时间。
 
-### Free tier — `free-tier.html`
+### 免费额度 `free-tier.html`
 
-- Deduped products from the menu tree; search + filters by level / category / **verified vs inferred**.
-- **Verified** rows come from hand-maintained `free-tier-hints.json`; others are rule-inferred (trust banner on page).
-- List prefers verified entries first. Always defer to official pricing.
+- 菜单树去重后的产品列表；支持搜索、免费等级 / 分类 / **已核实·推断** 筛选。
+- **已核实**来自手工 `free-tier-hints.json`；其余为规则推断，页顶有可信度说明。
+- 列表默认 **已核实优先**；仍以各产品官网计费为准。
 
-### Other surfaces (selected)
+### 其它页面（节选）
 
-| Page | Role |
+| 页面 | 说明 |
 |------|------|
-| `ai-encyclopedia-2026.html` | Long encyclopedia table (from Markdown source) |
-| `*-plan.html` / `token-optimization.html` | Model / coding / agent / media comparisons (`plan-nav.js`) |
-| `opc.html` etc. | One-person company guides |
-| `thinking-framework.html` + ask/plan/debug/agent | “AI-first thinking” framework |
-| `ai-roi/` | Skills landing checklist & ROI (standalone) |
+| `ai-encyclopedia-2026.html` | 百科长表（源：`Full_AI_Encyclopedia_Final_Verified_2026.md`） |
+| `*-plan.html` / `token-optimization.html` | 模型、编程、Agent、媒体等横评；顶栏用 `plan-nav.js` |
+| `opc.html` 等 | 一人公司专题 |
+| `thinking-framework.html` / `ask`·`plan`·`debug`·`agent` | AI 第一思考框架 |
+| `ai-roi/` | 技能落地自查 · ROI（独立子应用） |
 
-## Key Files
+## 仓库内主要文件
 
-| File | Description |
-|------|-------------|
-| `index.html` / `free-tier.html` / `ai-encyclopedia-2026.html` | Build outputs (open directly) |
-| `site-data.json` | Core menu tree & tools |
-| `build-html-data.js` | Merge configs → HTML + `sitemap.xml` |
-| `nav-links.json` | **Single source** for subpage nav, home plan bar, plan-nav, sitemap |
-| `plan-nav.js` | Plan-page top nav (LINKS synced from `nav-links.json` on build) |
-| `subpage-nav-html.js` | Build-time nav HTML / sitemap / plan-nav sync |
-| `nav-extensions.json` | Extra categories (may merge into existing leaves) |
-| `category-order.json` | Optional top-level & child order |
-| `daily-tools.json` | Optional “热门工具” replacement; optional `asOf` |
-| `append-leaf-tools.json` | Optional append tools under group/leaf |
-| `free-tier-hints.json` | Manual free-tier notes keyed by product `link` |
-| `free-tier-priority.json` | Priority links that `check:hints` / CI must cover |
-| `free-tier-infer.js` | Inference when no manual hint |
-| `i18n-en.json` | English titles/descriptions |
-| `download-icons.mjs` / `icons/` | Icon download & local assets |
-| `docs/DATA-SOURCES.md` | Dual data sources & merge notes |
-| `docs/update-cadence.md` | Suggested content update cadence |
-| `ai-roi/` | Skills / ROI audit app |
-| `.github/workflows/ci.yml` | Build & check pipeline |
+| 文件 | 说明 |
+|------|------|
+| `index.html` / `free-tier.html` / `ai-encyclopedia-2026.html` | 构建产物，可直接打开 |
+| `site-data.json` | 核心：菜单树与工具数据 |
+| `build-html-data.js` | 合并配置并写出上述 HTML + `sitemap.xml` |
+| `nav-links.json` | **子站顶栏 / 首页横评条 / plan-nav / sitemap 唯一数据源** |
+| `plan-nav.js` | 横评页顶栏脚本（构建时由 `nav-links.json` 同步 LINKS） |
+| `subpage-nav-html.js` | 构建期子站导航 HTML / sitemap / 同步 plan-nav |
+| `nav-extensions.json` | 扩展分类（可 merge 到已有大类） |
+| `category-order.json` | 可选：一级与子分组顺序 |
+| `daily-tools.json` | 可选：替换「热门工具」；可写 `asOf` |
+| `append-leaf-tools.json` | 可选：向「分组/叶子」追加工具 |
+| `free-tier-hints.json` | 按产品 `link` 手工填写免费档等 |
+| `free-tier-priority.json` | 优先核实白名单（CI / `check:hints` 门禁） |
+| `free-tier-infer.js` | 无 hints 时的推断规则 |
+| `i18n-en.json` | 工具英文 title/desc |
+| `download-icons.mjs` / `icons/` | 图标下载与本地目录 |
+| `docs/DATA-SOURCES.md` | 双轨数据源与合并评估 |
+| `docs/update-cadence.md` | 内容更新节奏建议 |
+| `ai-roi/` | AI 技能落地自查 |
+| `.github/workflows/ci.yml` | 构建与检查流水线 |
 
-## Navigation (edit once)
+## 顶栏与导航（改一处即可）
 
-Cross-page nav lives in **`nav-links.json`**:
+跨页顶栏链接统一维护在 **`nav-links.json`**：
 
-1. Edit `links` (and optional `sitemap`).
-2. Run `npm run build`.
-3. Build updates subpage nav, home plan bar, `plan-nav.js` `LINKS`, and `sitemap.xml`.
+1. 编辑 `links`（及可选 `sitemap`）。
+2. 执行 `npm run build`。
+3. 构建会：写入子站顶栏、生成首页「横评/落地/方法论」条、同步 `plan-nav.js` 的 `LINKS`、更新 `sitemap.xml`。
 
-Useful fields: `href` / `zh` / `en` / `match`; `nav` includes `sub` | `plan` | `home`; home groups use `homeGroup` (`highlight` | `compare` | `landing` | `method`).
+条目字段要点：`href` / `zh` / `en` / `match`；`nav` 含 `sub` | `plan` | `home`；首页分组用 `homeGroup`（`highlight` | `compare` | `landing` | `method`）。
 
-## Custom “Hot Tools”
+## 热门工具 · 日常向调整
 
-1. Edit **`daily-tools.json`** (`mode: "replace-hot"` replaces the “热门工具” section).
-2. Set **`asOf": "YYYY-MM-DD"`** so the home section shows freshness.
-3. `npm run build`. Restore defaults by deleting the file or changing `mode`.
+1. 编辑 **`daily-tools.json`**（`mode: "replace-hot"` 替换名为「热门工具」的分类）。
+2. 建议填写 **`asOf": "YYYY-MM-DD"`**，首页热门区会显示时效。
+3. `npm run build`。恢复默认：删文件或改掉 `mode` 后再构建。
 
-Item fields: `title`, `subtitle`, `link`, optional `avatar`. Order of `items` is display order (not a live ranking).
+`items` 可写 `title`、`subtitle`、`link`；可选 `avatar`。
 
-## Free-tier maintenance
+当前「热门」**不是**实时排行榜，顺序即 `items` 数组顺序。真·热门需自建统计后再手工写回。
 
-1. Add entries to **`free-tier-hints.json`** keyed by product `link` (`freeLevel`, `quota`, `dailyCycle`, `firstBonus`, `note`, `updated`).
-2. Keep must-verify products in **`free-tier-priority.json`** (usually hot tools + flagships).
-3. Pass `npm run check:hints`, then `npm run build`.
+## 免费额度维护
 
-Missing hints are inferred and labeled “inferred”. Full coverage: `npm run check:hints:all` (not required by default CI gate).
+1. 在 **`free-tier-hints.json`** 用产品 `link`（建议与导航一致）填写 `freeLevel`、`quota`、`dailyCycle`、`firstBonus`、`note`、`updated`。
+2. 把必须长期核实的产品 `link` 放进 **`free-tier-priority.json`**（通常含热门 + 旗舰）。
+3. `npm run check:hints` 通过后再 `npm run build`。
 
-## Category Order (Sidebar)
+未在 hints 中的条目会走推断并标「推断」；全站覆盖率可用 `npm run check:hints:all` 查看（默认门禁不要求 100%）。
 
-Edit **`category-order.json`**:
+## 合规页与工具详情（AdSense / SEO 向）
 
-- **`topLevel`**: preferred order of category `name`s or extension `id`s; unlisted keep relative order at the end.
-- **`childrenOrder`**: map parent group name → child name array.
+| 文件 | 说明 |
+|------|------|
+| `about.html` / `contact.html` / `disclaimer.html` | 关于、联系、免责（可收录） |
+| `privacy.html` | 隐私政策（含 AdSense / Analytics 说明） |
+| `ads.txt` / `robots.txt` | 广告授权与爬虫入口 |
+| `tool-pages.json` | 详情页生成名单（与 `daily-tools.json` 合并） |
+| `scripts/build-tool-pages.js` | 从百科表生成 `tools/*.html` |
+| `tools/` | 构建产物：工具详情与目录页 |
 
-Then `npm run build`.
+改名单后执行 `npm run build`（或 `npm run build:tools`）。站点地图会自动并入 `tools/` 与合规页。
 
-## Extension Categories
+## 分类顺序（侧边栏）
 
-Edit **`nav-extensions.json`** `categories`:
+编辑 **`category-order.json`**：
+
+- **`topLevel`**：一级分类 `name` 或扩展 `id` 的期望顺序；未列出的排在后面。
+- **`childrenOrder`**：键为一级分组名，值为子分类名数组。
+
+改完执行 `npm run build`。
+
+## 自定义扩展分类
+
+编辑 **`nav-extensions.json`** 的 `categories`：
 
 ```json
 {
   "id": "my-section",
-  "name": "My Category",
+  "name": "我的分类标题",
   "tools": [
     {
-      "title": "Product Name",
-      "subtitle": "One-line description",
+      "title": "产品名",
+      "subtitle": "一句话说明",
       "link": "https://example.com/"
     }
   ]
 }
 ```
 
-- **`id`**: optional anchor (normalized).
-- **`avatar`**: optional local icon path.
+- **`id`**：可选锚点（会规范化）。
+- **`avatar`**：可选本地图标路径。
 
-If `name`/`id` matches an existing leaf, tools are **merged** into it. Then `npm run build`.
+若扩展 `name`/`id` 与已有叶子分类相同，会 **合并** 到该类，而不是新建顶栏项。保存后 `npm run build`。
 
-## Data Maintenance
+## 数据维护
 
-- **Add a tool**: `site-data.json` `tools` (`title` + `link`; optional `subtitle`, `avatar`), or use `nav-extensions.json` / `append-leaf-tools.json`.
-- **Add a category**: leaf/group under `menus`, or extensions JSON.
-- **After edits**: always `npm run build`.
-- Periodically run `npm run check:dead` on hot/priority links.
+- **新增工具**：在 `site-data.json` 对应 `tools` 中加 `title` + `link`（可选 `subtitle`、`avatar`），或走 `nav-extensions.json` / `append-leaf-tools.json`。
+- **新增分类**：`menus` 增加 leaf/group，或用扩展 JSON。
+- **改后必跑**：`npm run build`。
+- 扩展与外链为人工维护，请定期 `npm run check:dead` 抽检。
 
-See [`docs/update-cadence.md`](./docs/update-cadence.md) and [`docs/DATA-SOURCES.md`](./docs/DATA-SOURCES.md).
+更细的更新节奏见 [`docs/update-cadence.md`](./docs/update-cadence.md)；数据源双轨说明见 [`docs/DATA-SOURCES.md`](./docs/DATA-SOURCES.md)。
 
-## License
+## 许可
 
-[GPLv3](https://www.gnu.org/licenses/gpl-3.0) — covers scripts, configs, and self-built data in this repository only. Derivative works must also be open-sourced under GPLv3. Product names, icons, and links belong to their respective owners.
+[GPLv3](https://www.gnu.org/licenses/gpl-3.0) — 仅覆盖本仓库中的脚本、配置与自建数据；衍生作品须按 GPLv3 开源。所收录工具的名称、图标与链接归各自服务商所有，使用时请遵守目标网站服务条款。

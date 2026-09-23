@@ -1,38 +1,178 @@
 {
   "_readme": "模型推荐器数据源。改完后同步到 model-finder.html 内嵌 DATA（file:// 可用）。评分 1–10，越高越好；cost 越高越便宜。",
-  "updated": "2026-08-24",
+  "updated": "2026-09-23",
   "scenarios": [
-    { "id": "coding", "zh": "编程 / 写完整应用", "en": "Coding", "hint": "工程交付、前后端、长程 Coding", "related": "coding-plan.html" },
-    { "id": "agent", "zh": "AI 智能体 / 多步工作流", "en": "Agents", "hint": "工具调用、长程 Agent、编排", "related": "agent-plan.html" },
-    { "id": "rag", "zh": "长文档 / RAG", "en": "Long docs / RAG", "hint": "百万字论文、法规、知识库", "related": "model-plan.html" },
-    { "id": "chat", "zh": "通用对话", "en": "Chat", "hint": "助手、闲聊、日常问答", "related": "model-plan.html" },
-    { "id": "vision", "zh": "视觉 / 多模态", "en": "Vision", "hint": "图像、视频、文档理解", "related": "image-plan.html" },
-    { "id": "writing", "zh": "写作 / 内容创作", "en": "Writing", "hint": "文案、创意、多语言", "related": "model-plan.html" },
-    { "id": "support", "zh": "客服 / 高并发", "en": "Support", "hint": "低延迟、流式、7×24", "related": "model-plan.html" },
-    { "id": "edge", "zh": "端侧 / 离线隐私", "en": "On-device", "hint": "本地部署、IoT、无云", "related": "local-model-plan.html" }
+    {
+      "id": "coding",
+      "zh": "编程 / 写完整应用",
+      "en": "Coding",
+      "hint": "工程交付、前后端、长程 Coding",
+      "related": "coding-plan.html"
+    },
+    {
+      "id": "agent",
+      "zh": "AI 智能体 / 多步工作流",
+      "en": "Agents",
+      "hint": "工具调用、长程 Agent、编排",
+      "related": "agent-plan.html"
+    },
+    {
+      "id": "rag",
+      "zh": "长文档 / RAG",
+      "en": "Long docs / RAG",
+      "hint": "百万字论文、法规、知识库",
+      "related": "model-plan.html"
+    },
+    {
+      "id": "chat",
+      "zh": "通用对话",
+      "en": "Chat",
+      "hint": "助手、闲聊、日常问答",
+      "related": "model-plan.html"
+    },
+    {
+      "id": "vision",
+      "zh": "视觉 / 多模态",
+      "en": "Vision",
+      "hint": "图像、视频、文档理解",
+      "related": "image-plan.html"
+    },
+    {
+      "id": "writing",
+      "zh": "写作 / 内容创作",
+      "en": "Writing",
+      "hint": "文案、创意、多语言",
+      "related": "model-plan.html"
+    },
+    {
+      "id": "support",
+      "zh": "客服 / 高并发",
+      "en": "Support",
+      "hint": "低延迟、流式、7×24",
+      "related": "model-plan.html"
+    },
+    {
+      "id": "edge",
+      "zh": "端侧 / 离线隐私",
+      "en": "On-device",
+      "hint": "本地部署、IoT、无云",
+      "related": "local-model-plan.html"
+    }
   ],
   "constraints": [
-    { "id": "any", "zh": "不限", "en": "Any" },
-    { "id": "cn", "zh": "国内直连优先", "en": "CN direct" },
-    { "id": "budget", "zh": "预算敏感 / 性价比", "en": "Budget" },
-    { "id": "free", "zh": "想先免费试用", "en": "Free tier" },
-    { "id": "edge", "zh": "必须端侧 / 离线", "en": "On-device only" }
+    {
+      "id": "any",
+      "zh": "不限",
+      "en": "Any"
+    },
+    {
+      "id": "cn",
+      "zh": "国内直连优先",
+      "en": "CN direct"
+    },
+    {
+      "id": "budget",
+      "zh": "预算敏感 / 性价比",
+      "en": "Budget"
+    },
+    {
+      "id": "free",
+      "zh": "想先免费试用",
+      "en": "Free tier"
+    },
+    {
+      "id": "edge",
+      "zh": "必须端侧 / 离线",
+      "en": "On-device only"
+    }
   ],
   "priorities": [
-    { "id": "quality", "zh": "质量优先", "en": "Quality" },
-    { "id": "cost", "zh": "成本优先", "en": "Cost" },
-    { "id": "speed", "zh": "速度优先", "en": "Speed" },
-    { "id": "context", "zh": "长上下文优先", "en": "Long context" }
+    {
+      "id": "quality",
+      "zh": "质量优先",
+      "en": "Quality"
+    },
+    {
+      "id": "cost",
+      "zh": "成本优先",
+      "en": "Cost"
+    },
+    {
+      "id": "speed",
+      "zh": "速度优先",
+      "en": "Speed"
+    },
+    {
+      "id": "context",
+      "zh": "长上下文优先",
+      "en": "Long context"
+    }
   ],
   "hotQuestions": [
-    { "id": "hq-coding", "zh": "最适合编程的模型", "en": "Best for coding", "scenario": "coding", "constraint": "any", "priority": "quality" },
-    { "id": "hq-agent", "zh": "最适合 Agent 的模型", "en": "Best for agents", "scenario": "agent", "constraint": "any", "priority": "quality" },
-    { "id": "hq-rag", "zh": "长上下文最强", "en": "Best long context", "scenario": "rag", "constraint": "any", "priority": "context" },
-    { "id": "hq-cheap", "zh": "性价比最高", "en": "Best value", "scenario": "chat", "constraint": "budget", "priority": "cost" },
-    { "id": "hq-cn", "zh": "国内直连旗舰", "en": "Best CN-accessible", "scenario": "coding", "constraint": "cn", "priority": "quality" },
-    { "id": "hq-fast", "zh": "最快 / 低延迟", "en": "Fastest", "scenario": "support", "constraint": "any", "priority": "speed" },
-    { "id": "hq-vision", "zh": "最佳视觉理解", "en": "Best vision", "scenario": "vision", "constraint": "any", "priority": "quality" },
-    { "id": "hq-edge", "zh": "端侧 / 隐私本地", "en": "On-device", "scenario": "edge", "constraint": "edge", "priority": "quality" }
+    {
+      "id": "hq-coding",
+      "zh": "最适合编程的模型",
+      "en": "Best for coding",
+      "scenario": "coding",
+      "constraint": "any",
+      "priority": "quality"
+    },
+    {
+      "id": "hq-agent",
+      "zh": "最适合 Agent 的模型",
+      "en": "Best for agents",
+      "scenario": "agent",
+      "constraint": "any",
+      "priority": "quality"
+    },
+    {
+      "id": "hq-rag",
+      "zh": "长上下文最强",
+      "en": "Best long context",
+      "scenario": "rag",
+      "constraint": "any",
+      "priority": "context"
+    },
+    {
+      "id": "hq-cheap",
+      "zh": "性价比最高",
+      "en": "Best value",
+      "scenario": "chat",
+      "constraint": "budget",
+      "priority": "cost"
+    },
+    {
+      "id": "hq-cn",
+      "zh": "国内直连旗舰",
+      "en": "Best CN-accessible",
+      "scenario": "coding",
+      "constraint": "cn",
+      "priority": "quality"
+    },
+    {
+      "id": "hq-fast",
+      "zh": "最快 / 低延迟",
+      "en": "Fastest",
+      "scenario": "support",
+      "constraint": "any",
+      "priority": "speed"
+    },
+    {
+      "id": "hq-vision",
+      "zh": "最佳视觉理解",
+      "en": "Best vision",
+      "scenario": "vision",
+      "constraint": "any",
+      "priority": "quality"
+    },
+    {
+      "id": "hq-edge",
+      "zh": "端侧 / 隐私本地",
+      "en": "On-device",
+      "scenario": "edge",
+      "constraint": "edge",
+      "priority": "quality"
+    }
   ],
   "models": [
     {
@@ -49,9 +189,22 @@
       "cost": 8,
       "speed": 5,
       "context": 10,
-      "fit": { "coding": 7, "agent": 8, "rag": 10, "chat": 6, "vision": 4, "writing": 6, "support": 4, "edge": 1 },
+      "fit": {
+        "coding": 7,
+        "agent": 8,
+        "rag": 10,
+        "chat": 6,
+        "vision": 4,
+        "writing": 6,
+        "support": 4,
+        "edge": 1
+      },
       "blurb": "1M 上下文 + 开源权重。8/16 起峰谷价：低峰 $0.66/$1.98，高峰 $1.32/$3.96。",
-      "why": ["1M 上下文 + CSA/HCA", "开源 Agent 底座友好", "不适合极低延迟与端侧"],
+      "why": [
+        "1M 上下文 + CSA/HCA",
+        "开源 Agent 底座友好",
+        "不适合极低延迟与端侧"
+      ],
       "link": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
       "plan": "model-plan.html"
     },
@@ -69,9 +222,22 @@
       "cost": 7,
       "speed": 6,
       "context": 9,
-      "fit": { "coding": 10, "agent": 9, "rag": 7, "chat": 6, "vision": 4, "writing": 6, "support": 5, "edge": 1 },
+      "fit": {
+        "coding": 10,
+        "agent": 9,
+        "rag": 7,
+        "chat": 6,
+        "vision": 4,
+        "writing": 6,
+        "support": 5,
+        "edge": 1
+      },
       "blurb": "5.2 底座 + 后训练；Coding Plan 全量切到 5.3，对标 Opus 5。",
-      "why": ["常开思考 · 长程工程", "Coding Plan 积分制", "思考关不掉"],
+      "why": [
+        "常开思考 · 长程工程",
+        "Coding Plan 积分制",
+        "思考关不掉"
+      ],
       "link": "https://z.ai/blog/glm-5.3",
       "plan": "coding-plan.html"
     },
@@ -89,9 +255,22 @@
       "cost": 6,
       "speed": 6,
       "context": 9,
-      "fit": { "coding": 8, "agent": 10, "rag": 8, "chat": 7, "vision": 7, "writing": 7, "support": 5, "edge": 1 },
-      "blurb": "多步 Agent 与长仓工程强；开源前沿旗舰。",
-      "why": ["2.8T · 1M · 原生多模态", "适合复杂工作流", "极致低价批量可换 Flash 档"],
+      "fit": {
+        "coding": 8,
+        "agent": 10,
+        "rag": 8,
+        "chat": 7,
+        "vision": 7,
+        "writing": 7,
+        "support": 5,
+        "edge": 1
+      },
+      "blurb": "多步 Agent 与长仓工程强；开源前沿旗舰。Arena Agent #7（K3 Max）。",
+      "why": [
+        "2.8T · 1M · 原生多模态",
+        "适合复杂工作流",
+        "极致低价批量可换 Flash 档"
+      ],
       "link": "https://www.kimi.com/zh-cn/blog/kimi-k3",
       "plan": "agent-plan.html"
     },
@@ -109,10 +288,56 @@
       "cost": 7,
       "speed": 6,
       "context": 9,
-      "fit": { "coding": 8, "agent": 8, "rag": 8, "chat": 7, "vision": 6, "writing": 8, "support": 6, "edge": 1 },
+      "fit": {
+        "coding": 8,
+        "agent": 8,
+        "rag": 8,
+        "chat": 7,
+        "vision": 6,
+        "writing": 8,
+        "support": 6,
+        "edge": 1
+      },
       "blurb": "2.4T Max 档首次开源；API $2/$6。单卡请改 Qwen3.8-27B。",
-      "why": ["开源能力榜第一档", "编码/Cowork 强", "不是 24GB GGUF"],
+      "why": [
+        "开源能力榜第一档",
+        "编码/Cowork 强",
+        "不是 24GB GGUF"
+      ],
       "link": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+      "plan": "model-plan.html"
+    },
+    {
+      "id": "hy4-preview",
+      "name": "Hy4 preview",
+      "vendor": "腾讯混元",
+      "region": "cn",
+      "badge": "开源 Agent",
+      "active": true,
+      "cn": true,
+      "edge": false,
+      "freeish": true,
+      "quality": 8,
+      "cost": 9,
+      "speed": 6,
+      "context": 10,
+      "fit": {
+        "coding": 8,
+        "agent": 8,
+        "rag": 8,
+        "chat": 6,
+        "vision": 4,
+        "writing": 6,
+        "support": 5,
+        "edge": 1
+      },
+      "blurb": "770B MoE / 49B 激活，Apache 2.0。API $0.83/$2.50。Arena Agent #10。",
+      "why": [
+        "国内直连开源 Agent",
+        "任务成本中位约 $0.27",
+        "preview，尚未 GA"
+      ],
+      "link": "https://huggingface.co/tencent/Hy4-preview",
       "plan": "model-plan.html"
     },
     {
@@ -129,9 +354,22 @@
       "cost": 8,
       "speed": 10,
       "context": 4,
-      "fit": { "coding": 4, "agent": 4, "rag": 3, "chat": 8, "vision": 3, "writing": 5, "support": 10, "edge": 1 },
+      "fit": {
+        "coding": 4,
+        "agent": 4,
+        "rag": 3,
+        "chat": 8,
+        "vision": 3,
+        "writing": 5,
+        "support": 10,
+        "edge": 1
+      },
       "blurb": "约 30 tok/s，实时对话与高并发客服优先。",
-      "why": ["流式低延迟", "高并发 API", "不适合超长文档深度推理"],
+      "why": [
+        "流式低延迟",
+        "高并发 API",
+        "不适合超长文档深度推理"
+      ],
       "link": "https://www.minimaxi.com",
       "plan": "model-plan.html"
     },
@@ -149,15 +387,28 @@
       "cost": 10,
       "speed": 8,
       "context": 3,
-      "fit": { "coding": 3, "agent": 2, "rag": 2, "chat": 6, "vision": 5, "writing": 5, "support": 7, "edge": 10 },
+      "fit": {
+        "coding": 3,
+        "agent": 2,
+        "rag": 2,
+        "chat": 6,
+        "vision": 5,
+        "writing": 5,
+        "support": 7,
+        "edge": 10
+      },
       "blurb": "端侧 / 离线 / 隐私本地的平台级开源方案。",
-      "why": ["E2B 端侧 · Apache 2.0", "140+ 语言", "不做 1M 长任务"],
+      "why": [
+        "E2B 端侧 · Apache 2.0",
+        "140+ 语言",
+        "不做 1M 长任务"
+      ],
       "link": "https://ai.google.dev/gemma",
       "plan": "local-model-plan.html"
     },
     {
-      "id": "gpt-5-6-sol",
-      "name": "GPT-5.6 Sol",
+      "id": "gpt-6-sol",
+      "name": "GPT-6 Sol / Luna",
       "vendor": "OpenAI",
       "region": "intl",
       "badge": "通用旗舰",
@@ -169,15 +420,28 @@
       "cost": 4,
       "speed": 7,
       "context": 8,
-      "fit": { "coding": 8, "agent": 8, "rag": 6, "chat": 10, "vision": 8, "writing": 9, "support": 6, "edge": 1 },
-      "blurb": "ChatGPT 付费默认；免费档 Luna。API $4/$20 促销至少到 11/21。",
-      "why": ["Sol/Terra/Luna 三档", "Chat 推理滑条", "国内需网关/梯子"],
+      "fit": {
+        "coding": 8,
+        "agent": 8,
+        "rag": 6,
+        "chat": 10,
+        "vision": 8,
+        "writing": 9,
+        "support": 6,
+        "edge": 1
+      },
+      "blurb": "2026-09-23 发布；Astra 仍为无妥协旗舰。API 价以 OpenAI 价表为准（报道称较 5.6 促销约降 50%）。",
+      "why": [
+        "Sol/Luna 日常工作降本",
+        "极限仍选 Astra",
+        "国内需网关/梯子"
+      ],
       "link": "https://chatgpt.com",
       "plan": "model-plan.html"
     },
     {
-      "id": "claude-opus-5",
-      "name": "Claude Opus 5",
+      "id": "claude-opus-5-5",
+      "name": "Claude Opus 5.5",
       "vendor": "Anthropic",
       "region": "intl",
       "badge": "深度推理",
@@ -189,35 +453,94 @@
       "cost": 4,
       "speed": 5,
       "context": 9,
-      "fit": { "coding": 10, "agent": 9, "rag": 8, "chat": 7, "vision": 6, "writing": 8, "support": 4, "edge": 1 },
-      "blurb": "最强普遍可用 Claude；$5/$25。冲极限再用 Fable 5。",
-      "why": ["接近 Fable、半价", "Claude Code 重任务主力", "中文略弱 · 需梯子"],
-      "link": "https://www.anthropic.com/news/claude-opus-5",
+      "fit": {
+        "coding": 10,
+        "agent": 9,
+        "rag": 8,
+        "chat": 7,
+        "vision": 6,
+        "writing": 8,
+        "support": 4,
+        "edge": 1
+      },
+      "blurb": "2026-09-23：官方称多数任务近 Fable 5.1，成本较 Opus 5 约降 40%、速度约 +30%。刊例以 Anthropic 为准。",
+      "why": [
+        "日常 Coding 主力",
+        "近 Fable、更省",
+        "中文略弱 · 需梯子"
+      ],
+      "link": "https://claude.ai/",
       "plan": "coding-plan.html"
     },
     {
-      "id": "gemini-3-7-flash",
-      "name": "Gemini 3.7 Flash",
+      "id": "claude-fable-5-1",
+      "name": "Claude Fable 5.1",
+      "vendor": "Anthropic",
+      "region": "intl",
+      "badge": "长程 Agent",
+      "active": true,
+      "cn": false,
+      "edge": false,
+      "freeish": false,
+      "quality": 10,
+      "cost": 2,
+      "speed": 4,
+      "context": 9,
+      "fit": {
+        "coding": 10,
+        "agent": 10,
+        "rag": 8,
+        "chat": 6,
+        "vision": 6,
+        "writing": 7,
+        "support": 3,
+        "edge": 1
+      },
+      "blurb": "9/1 接档 Fable 5。刊例 $10/$50，缓存读 $0.25。Arena Agent #1。",
+      "why": [
+        "长程 Agent 最强公开档",
+        "缓存更便宜，日常仍先用 Opus 5.5",
+        "需梯子"
+      ],
+      "link": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "plan": "agent-plan.html"
+    },
+    {
+      "id": "gemini-3-8-flash",
+      "name": "Gemini 3.8 Flash",
       "vendor": "Google",
       "region": "intl",
-      "badge": "速度/多模态",
+      "badge": "速度/Agent",
       "active": true,
       "cn": false,
       "edge": false,
       "freeish": true,
-      "quality": 7,
+      "quality": 8,
       "cost": 8,
       "speed": 9,
       "context": 8,
-      "fit": { "coding": 5, "agent": 5, "rag": 6, "chat": 8, "vision": 8, "writing": 7, "support": 8, "edge": 1 },
-      "blurb": "8/13 GA；$0.75/$3.75 引入价至 12/31，2027-01-01 翻倍。",
-      "why": ["目前最能打的 Gemini 公开速度层", "引入价有期限", "1M 研究可仍看 3.1 Pro"],
+      "fit": {
+        "coding": 7,
+        "agent": 7,
+        "rag": 6,
+        "chat": 8,
+        "vision": 8,
+        "writing": 7,
+        "support": 8,
+        "edge": 1
+      },
+      "blurb": "9/2 接档 3.7；$0.75/$3.75 引入价至 12/31，2027-01-01 翻倍。",
+      "why": [
+        "同价同速、工程与 Agent 加码",
+        "Arena Agent #17（3.7 已落到 #35）",
+        "1M 研究可仍看 3.1 Pro"
+      ],
       "link": "https://gemini.google.com",
-      "plan": "image-plan.html"
+      "plan": "model-plan.html"
     },
     {
-      "id": "grok-4-6",
-      "name": "Grok 4.6",
+      "id": "grok-4-7",
+      "name": "Grok 4.7",
       "vendor": "xAI",
       "region": "intl",
       "badge": "Coding/Agent",
@@ -229,11 +552,90 @@
       "cost": 7,
       "speed": 7,
       "context": 7,
-      "fit": { "coding": 9, "agent": 10, "rag": 6, "chat": 6, "vision": 6, "writing": 6, "support": 5, "edge": 1 },
-      "blurb": "8/12 发布；Cursor / Grok Build 首日。$2/$6，200K 整单翻倍。",
-      "why": ["长跑 Agent 更强", "标价没变、缓存更贵", "非中文生态首选"],
-      "link": "https://x.ai/news/grok-4-6",
+      "fit": {
+        "coding": 9,
+        "agent": 10,
+        "rag": 6,
+        "chat": 6,
+        "vision": 6,
+        "writing": 6,
+        "support": 5,
+        "edge": 1
+      },
+      "blurb": "2026-09-21/22 上线；~.1T；/；长任务 coding/agent。",
+      "why": [
+        "长跑 Agent 更强",
+        "高性价比第二梯队",
+        "非中文生态首选"
+      ],
+      "link": "https://x.ai/",
       "plan": "coding-plan.html"
+    },
+    {
+      "id": "jev-typesafe",
+      "name": "Jev",
+      "vendor": "TypeSafe AI",
+      "region": "intl",
+      "badge": "决策 System One",
+      "active": true,
+      "cn": false,
+      "edge": false,
+      "freeish": false,
+      "quality": 8,
+      "cost": 9,
+      "speed": 10,
+      "context": 5,
+      "fit": {
+        "coding": 3,
+        "agent": 9,
+        "rag": 4,
+        "chat": 1,
+        "vision": 1,
+        "writing": 1,
+        "support": 8,
+        "edge": 1
+      },
+      "blurb": "不生成文本的决策模型；输入 .042/MTok，输出免费；70–500ms。",
+      "why": [
+        "软件内结构化决策",
+        "不能聊天/写代码",
+        "Early Access"
+      ],
+      "link": "https://typesafe.ai/",
+      "plan": "model-plan.html"
+    },
+    {
+      "id": "mimo-v2-6",
+      "name": "MiMo-V2.6",
+      "vendor": "Xiaomi",
+      "region": "cn",
+      "badge": "开源全模态",
+      "active": true,
+      "cn": true,
+      "edge": false,
+      "freeish": true,
+      "quality": 9,
+      "cost": 8,
+      "speed": 7,
+      "context": 8,
+      "fit": {
+        "coding": 8,
+        "agent": 8,
+        "rag": 6,
+        "chat": 7,
+        "vision": 8,
+        "writing": 6,
+        "support": 7,
+        "edge": 2
+      },
+      "blurb": "2026-09-22 开源 Pro/Flash；AA 智能指数约 46，报道称登顶开源。",
+      "why": [
+        "最强开源全模态报道",
+        "非 24GB 单卡默认",
+        "套餐刊例仍看 V2.5"
+      ],
+      "link": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
+      "plan": "model-plan.html"
     }
   ]
 }

@@ -26,7 +26,7 @@
         {
           "key": "daily-2",
           "title": "元宝",
-          "subtitle": "腾讯混元，微信生态与多端 AI 对话",
+          "subtitle": "混元 Hy4 preview，微信生态与多端 AI 对话",
           "avatar": "icon/腾讯元宝.png",
           "link": "https://yuanbao.tencent.com/",
           "path": "",
@@ -35,7 +35,7 @@
         {
           "key": "daily-3",
           "title": "ChatGPT",
-          "subtitle": "GPT-5.6 Sol / Luna，对话、深度研究与 Agent",
+          "subtitle": "GPT-6 Sol / Luna，对话、深度研究与 Agent",
           "avatar": "icon/ChatGPT.png",
           "link": "https://chatgpt.com/",
           "path": "",
@@ -44,7 +44,7 @@
         {
           "key": "daily-4",
           "title": "Claude",
-          "subtitle": "Opus 5 / Fable 5，写作、推理与 Claude Code",
+          "subtitle": "Opus 5.5 / Fable 5.1，写作、推理与 Claude Code",
           "avatar": "icon/Claude.png",
           "link": "https://claude.ai/",
           "path": "",
@@ -53,7 +53,7 @@
         {
           "key": "daily-5",
           "title": "Gemini",
-          "subtitle": "Gemini 3.7 Flash，多模态与 Google 生态",
+          "subtitle": "Gemini 3.8 Flash，多模态、工程 Agent 与 Google 生态",
           "avatar": "icon/Google Bard.png",
           "link": "https://gemini.google.com/",
           "path": "",
@@ -62,7 +62,7 @@
         {
           "key": "daily-6",
           "title": "Grok",
-          "subtitle": "Grok 4.6：编程/Agent 旗舰，Cursor 全套餐可用，兼 X 实时搜索",
+          "subtitle": "Grok 4.7：编程/Agent 旗舰，Cursor 可用，兼 X 实时搜索",
           "avatar": "icon/Grok.png",
           "link": "https://grok.com/",
           "path": "",
@@ -71,7 +71,7 @@
         {
           "key": "daily-7",
           "title": "Cursor",
-          "subtitle": "AI IDE + Agent；全套餐可用 Grok 4.6，Tab 无限、含用量池",
+          "subtitle": "AI IDE + Agent；多模型用量池含 Grok / Claude / GPT，Tab 无限",
           "avatar": "icon/Cursor.png",
           "link": "https://cursor.com/",
           "path": "",
@@ -89,7 +89,7 @@
         {
           "key": "daily-9",
           "title": "Kimi",
-          "subtitle": "K3 旗舰：2.8T 开源、1M 上下文，长文/Agent/编程",
+          "subtitle": "K3 旗舰 + Code 桌面版：1M 上下文，长文/Agent/编程",
           "avatar": "icon/Kimi.png",
           "link": "https://www.kimi.com/",
           "path": "",
@@ -98,7 +98,7 @@
         {
           "key": "daily-10",
           "title": "Perplexity",
-          "subtitle": "带引用网页的搜索问答，GPT-5.6 / Claude / Gemini",
+          "subtitle": "带引用网页的搜索问答，GPT-6 / Claude / Gemini",
           "avatar": "icon/Perplexity.png",
           "link": "https://www.perplexity.ai/",
           "path": "",
@@ -5922,6 +5922,15 @@
           "link": "https://otari.ai/",
           "path": "",
           "added": "2026-07-07"
+        },
+        {
+          "key": "ext-AI-模型-API--路由聚合--推理云-0",
+          "title": "Jev (TypeSafe AI)",
+          "subtitle": "决策专用 System One：不生成文本，返回类型安全概率决策；输入约 $0.042/MTok，输出免费",
+          "avatar": "",
+          "link": "https://typesafe.ai/",
+          "path": "",
+          "added": "2026-09-23"
         }
       ]
     },
@@ -13867,5 +13876,5 @@
     }
   },
   "builtFrom": "local",
-  "generatedAt": "2026-08-20T10:24:33.098Z"
+  "generatedAt": "2026-09-23T02:59:14.540Z"
 }

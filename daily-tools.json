@@ -1,7 +1,7 @@
 {
   "mode": "replace-hot",
   "matchName": "热门工具",
-  "asOf": "2026-08-20",
+  "asOf": "2026-09-23",
   "items": [
     {
       "title": "DeepSeek",
@@ -17,37 +17,37 @@
     },
     {
       "title": "元宝",
-      "subtitle": "腾讯混元，微信生态与多端 AI 对话",
+      "subtitle": "混元 Hy4 preview，微信生态与多端 AI 对话",
       "link": "https://yuanbao.tencent.com/",
       "avatar": "icon/腾讯元宝.png"
     },
     {
       "title": "ChatGPT",
-      "subtitle": "GPT-5.6 Sol / Luna，对话、深度研究与 Agent",
+      "subtitle": "GPT-6 Sol / Luna，对话、深度研究与 Agent",
       "link": "https://chatgpt.com/",
       "avatar": "icon/ChatGPT.png"
     },
     {
       "title": "Claude",
-      "subtitle": "Opus 5 / Fable 5，写作、推理与 Claude Code",
+      "subtitle": "Opus 5.5 / Fable 5.1，写作、推理与 Claude Code",
       "link": "https://claude.ai/",
       "avatar": "icon/Claude.png"
     },
     {
       "title": "Gemini",
-      "subtitle": "Gemini 3.7 Flash，多模态与 Google 生态",
+      "subtitle": "Gemini 3.8 Flash，多模态、工程 Agent 与 Google 生态",
       "link": "https://gemini.google.com/",
       "avatar": "icon/Google Bard.png"
     },
     {
       "title": "Grok",
-      "subtitle": "Grok 4.6：编程/Agent 旗舰，Cursor 全套餐可用，兼 X 实时搜索",
+      "subtitle": "Grok 4.7：编程/Agent 旗舰，Cursor 可用，兼 X 实时搜索",
       "link": "https://grok.com/",
       "avatar": "icon/Grok.png"
     },
     {
       "title": "Cursor",
-      "subtitle": "AI IDE + Agent；全套餐可用 Grok 4.6，Tab 无限、含用量池",
+      "subtitle": "AI IDE + Agent；多模型用量池含 Grok / Claude / GPT，Tab 无限",
       "link": "https://cursor.com/",
       "avatar": "icon/Cursor.png"
     },
@@ -59,13 +59,13 @@
     },
     {
       "title": "Kimi",
-      "subtitle": "K3 旗舰：2.8T 开源、1M 上下文，长文/Agent/编程",
+      "subtitle": "K3 旗舰 + Code 桌面版：1M 上下文，长文/Agent/编程",
       "link": "https://www.kimi.com/",
       "avatar": "icon/Kimi.png"
     },
     {
       "title": "Perplexity",
-      "subtitle": "带引用网页的搜索问答，GPT-5.6 / Claude / Gemini",
+      "subtitle": "带引用网页的搜索问答，GPT-6 / Claude / Gemini",
       "link": "https://www.perplexity.ai/",
       "avatar": "icon/Perplexity.png"
     },

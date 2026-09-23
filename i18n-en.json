@@ -9,7 +9,7 @@
   },
   "Kimi": {
     "title": "Kimi",
-    "desc": "K3 flagship: 2.8T open weights, 1M context, long-doc / Agent / coding"
+    "desc": "K3 flagship + Code Desktop: 2.8T open weights, 1M context, long-doc / Agent / coding"
   },
   "通义千问": {
     "title": "Tongyi Qianwen",
@@ -21,19 +21,19 @@
   },
   "ChatGPT": {
     "title": "ChatGPT",
-    "desc": "通用对话、写作、翻译与插件生态"
+    "desc": "GPT-6 Sol / Luna — chat, deep research, and Agent"
   },
   "Claude": {
     "title": "Claude",
-    "desc": "长文写作、复杂推理与长对话"
+    "desc": "Opus 5.5 / Fable 5.1 — writing, reasoning, and Claude Code"
   },
   "Gemini": {
     "title": "Gemini",
-    "desc": "Google 多模态，与搜索/Workspace 联动"
+    "desc": "Gemini 3.8 Flash — multimodal, coding agents, Google ecosystem"
   },
   "Grok": {
     "title": "Grok",
-    "desc": "Grok 4.6 — coding/agent flagship; on Cursor all plans; X real-time search"
+    "desc": "Grok 4.7 — coding/agent flagship; Cursor usable; X real-time search"
   },
   "Perplexity": {
     "title": "Perplexity",

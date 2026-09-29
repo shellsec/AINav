@@ -259,19 +259,32 @@
               <tr>
                 <td class="plan-name">计费</td>
                 <td class="plan-price">输入约 $0.042 / 百万 token；输出不计费</td>
-                <!-- 来源：TypeSafe 2026-09-15 博文 -->
+                <!-- 来源：TypeSafe 2026-09-15 博文；Datawhale 2026-09-20 同口径 -->
               </tr>
               <tr>
                 <td class="plan-name">入口</td>
-                <td><a href="https://typesafe.ai/" target="_blank" rel="noopener noreferrer">typesafe.ai</a> · <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">发布说明</a></td>
+                <td>
+                  <a href="https://typesafe.ai/" target="_blank" rel="noopener noreferrer">typesafe.ai</a> ·
+                  <a href="https://docs.typesafe.ai/introduction" target="_blank" rel="noopener noreferrer">Docs</a> ·
+                  <a href="https://console.typesafe.ai/playground" target="_blank" rel="noopener noreferrer">Playground</a> ·
+                  <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">发布说明</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="plan-name">聚合接入</td>
+                <td>OpenRouter 模型标识 <code>typesafe/jev</code>；Vercel AI Gateway 已直连（边缘分发）。已有聚合层可只改模型名。</td>
+              </tr>
+              <tr>
+                <td class="plan-name">Agent Skills</td>
+                <td><a href="https://github.com/typesafe-ai/skills" target="_blank" rel="noopener noreferrer">typesafe-ai/skills</a>：教 Coding Agent 一次多问、把歧义列成候选选项</td>
               </tr>
             </tbody>
           </table>
           <p style="margin:0.55rem 0 0;font-size:0.82rem;color:var(--muted);">
-            <span class="tech-tag">不生成文本</span><span class="tech-tag">RLCD</span><span class="tech-tag">托管 API</span>
+            <span class="tech-tag">不生成文本</span><span class="tech-tag">RLCD</span><span class="tech-tag">托管 API</span><span class="tech-tag">OpenRouter</span>
           </p>
           <p style="margin:0.4rem 0 0;font-size:0.82rem;color:var(--muted);">
-            适合不想自托管、要托管校准决策 API 的团队。ainews / AIBase（2026-09-20/21）有转述；配额与排队以官网为准。
+            创始人 Diogo Almeida（前 OpenAI，InstructGPT / RLHF）。适合不想自托管、要托管校准决策 API 的团队。社区玩法见下文；配额与排队以官网为准。
           </p>
         </div>
       </div>
@@ -373,10 +386,10 @@
       <div class="cp-howto-body">
         <p><strong>什么时候用：</strong>不想运维权重、要托管校准决策、把窄问题嵌进工作流 / Agent 闸门。</p>
         <ol>
-          <li>在 <a href="https://typesafe.ai/" target="_blank" rel="noopener noreferrer">typesafe.ai</a> 开 Early Access，按官网 Docs 拿调用凭证。</li>
+          <li>官方：<a href="https://console.typesafe.ai/playground" target="_blank" rel="noopener noreferrer">Playground</a> 试用 → <a href="https://docs.typesafe.ai/introduction" target="_blank" rel="noopener noreferrer">Docs</a> 拿 HTTP / Python / JS SDK 凭证；或已有 OpenRouter / Vercel AI Gateway 时改模型名为 <code>typesafe/jev</code>（OpenRouter）/ 对应 Gateway 标识。</li>
           <li><strong>输入：</strong>非结构化程序状态（文本 / 结构化字段）+ 事先定好的题（Choice / Score / Noul）。</li>
           <li><strong>输出：</strong>类型安全答案 + 校准概率 / 置信度；一次查询可并行多题；不生成自由文本。</li>
-          <li><strong>上层怎么用：</strong>对「是否投诉 / 是否升级」等 Noul 设阈值；对 Choice 取最高概率分支；对 Score 做加权。刊例与配额以官网为准（本页产品表仅摘核实口径）。</li>
+          <li><strong>上层怎么用：</strong>对「是否投诉 / 是否升级」等 Noul 设阈值；对 Choice 取最高概率分支；对 Score 做加权。Coding Agent 可装 <a href="https://github.com/typesafe-ai/skills" target="_blank" rel="noopener noreferrer">typesafe-ai/skills</a>，要求一次把歧义列成带选项的题。刊例与配额以官网为准。</li>
         </ol>
       </div>
     </div>
@@ -412,6 +425,70 @@
       返回每条 yes/no（或分档）概率后，上层写规则：投诉≥0.7 且紧急≥0.6 → 进投诉队列；升级≥0.75 → 转人工；否则自动分派。全文仍不生成客服回复——回复交给 LLM。
     </div>
 
+    <div class="cp-section-hd" id="community"><span>社区玩法与工具（摘录）</span></div>
+    <p style="font-size:0.84rem;color:var(--muted);margin:0 0 0.85rem;">底层同一套路：情境拆成有限选项 → 决策模型挑一支 → 程序接着跑。下列按「玩具 → 生产」光谱摘自 Datawhale《整理了最新Jev模型的全网22个爆火玩法！》（2026-09-20）；数字为该文转述，以各项目 / 官方实测为准。</p>
+
+    <div class="cp-platforms">
+      <div class="cp-platform featured">
+        <div class="cp-platform-head">
+          <span class="cp-platform-name">开发者工具（可点）</span>
+          <span class="cp-badge badge-new">🆕 社区一周内</span>
+        </div>
+        <div class="cp-platform-body">
+          <table class="cp-table">
+            <thead><tr><th>项目</th><th>做什么</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="plan-name"><a href="https://github.com/browser-use/jev-ultrafast" target="_blank" rel="noopener noreferrer">jev-ultrafast</a></td>
+                <td>Browser Use 官方集成：网页操作抽象成「操作 + 目标」两组 Choice；默认无截图。文称发布三天内上线，航班查询实测约 7 秒 / ~$0.0039（该文口径）。</td>
+              </tr>
+              <tr>
+                <td class="plan-name"><a href="https://github.com/tamaratran/fast-jev-compaction" target="_blank" rel="noopener noreferrer">fast-jev-compaction</a></td>
+                <td>Coding Agent 长上下文：对每轮工具调用打「是否保留」分，剔无效日志。文称获官方转发。</td>
+              </tr>
+              <tr>
+                <td class="plan-name">jev-mcp</td>
+                <td>MCP 扩展：多源事实交叉核验、Prompt Injection 特征预检、检索相关度打分（社区包；仓库链以项目主页为准）。</td>
+              </tr>
+              <tr>
+                <td class="plan-name">Jev Codex Router</td>
+                <td>任务难度分流：简单改动走小模型，跨文件重构才上大模型；文称整体开销可压降 60%+（该项目自述 / 该文转述）。</td>
+              </tr>
+              <tr>
+                <td class="plan-name"><a href="https://www.langchain.com/blog/building-a-harness-with-jev" target="_blank" rel="noopener noreferrer">LangChain · Harness</a></td>
+                <td>官方博客：把分类 / 路由从闭源定制里拆成通用决策层，挂到开源 Agent。</td>
+              </tr>
+              <tr>
+                <td class="plan-name"><a href="https://github.com/typesafe-ai/skills" target="_blank" rel="noopener noreferrer">typesafe-ai/skills</a></td>
+                <td>官方 Skills：纠正 Agent「一次只问一题」，引导一次列清歧义 + 候选选项。</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin:0.45rem 0 0;font-size:0.78rem;color:var(--muted);">更多案例目录可逛 <a href="https://jevgallery.com/" target="_blank" rel="noopener noreferrer">jevgallery.com</a>（第三方整理，非 TypeSafe 官网）。</p>
+        </div>
+      </div>
+
+      <div class="cp-platform">
+        <div class="cp-platform-head">
+          <span class="cp-platform-name">官方 / 社区演示（选摘）</span>
+          <span class="cp-badge badge-skip">非生产清单</span>
+        </div>
+        <div class="cp-platform-body">
+          <ul style="margin:0;padding-left:1.15rem;font-size:0.82rem;line-height:1.65;">
+            <li><strong>Doom</strong>：约 10 次动作决策 / 秒；文称连跑约 1 小时 ~$7。</li>
+            <li><strong>Wikiracing</strong>：高基数超链跳转，测长选项列表是否乱选。</li>
+            <li><strong>地铁跑酷 ×50</strong>：高并发小判断；文称 50 局总费用 &lt; $0.01。</li>
+            <li><strong>超级马里奥 / 杀戮尖塔 2</strong>：读结构化游戏状态出动作；后者文称单步约 0.7s。</li>
+            <li><strong>MuJoCo 火箭回收 / 3D 城市场景</strong>：仿真里点火、转向等窄决策（文称单次着陆试验约 245 次调用 / ~$0.04）。</li>
+            <li><strong>Vercel Shell 安全审查</strong>：命令分类器从大模型换成 Jev；文称速度升 5–18×。</li>
+            <li><strong>邮件意图 / 工单分派 / PR 合并预审 / 紧急客诉打标</strong>：生产向分流与闸门。</li>
+            <li><strong>PrimeLine 预注册评测</strong>：允许跳过低置信样本时，校准置信度带来逆转（相对 Opus 5 / Haiku 4.5 的该文叙述）。</li>
+            <li class="bad"><strong>链上订单簿交易</strong>：买/卖/观望三选一——文称噱头最大、真实行情风险最高；本站不当推荐。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="cp-section-hd" id="scenes"><span>场景怎么用</span></div>
     <p style="font-size:0.84rem;color:var(--muted);margin:0 0 0.85rem;">每条：做什么判断 → 产出干什么。高风险域限制写死在块内，不当终审。</p>
 
@@ -425,6 +502,10 @@
             <li>调用敏感工具前预检 → 权限闸门（低置信则拒或人工）</li>
             <li>LLM 输出是否跑偏题 / 是否像幻觉 → 自检后再展示</li>
             <li>多 Agent 分派（谁处理）→ 固定候选人 Choice</li>
+            <li>任务难度分流 → 简单改动走小模型、复杂重构才上大模型（如 Codex Router 思路）</li>
+            <li>长任务上下文压缩 → 对工具调用日志做保留 / 丢弃打分（如 fast-jev-compaction）</li>
+            <li>浏览器自动化 → 每步「点哪个 / 做什么」两组 Choice（如 jev-ultrafast）</li>
+            <li>Shell / 命令安全审查 → 危险命令特征分类后再执行</li>
           </ul>
         </div>
       </div>
@@ -434,12 +515,16 @@
         <div class="cp-scene-bd">
           <ul>
             <li>工单多标签（投诉 / 退款 / 技术）→ 队列路由</li>
+            <li>从十几个业务小组里选主管团队 → 取代脆弱正则（Choice）</li>
+            <li>重复扣费 / 情绪激动 / 退款等高危客诉 → 毫秒级紧急度打标再推人工</li>
+            <li>商业邮件意图分类 → 用校准概率设置信阈值（不必每次上大模型）</li>
             <li>客服质检：是否承诺法外权益、是否态度失控 → 抽检池</li>
             <li>合同 / 公文预审：是否缺签章页、是否含金额变更 → 标红给人核</li>
             <li>报销初审：票据与事由是否明显不符 → 退回补材料</li>
             <li>简历硬性条件（学历 / 年限 / 到岗）→ 筛入面试池</li>
             <li>文档是否像含密钥路径 / 身份证号特征 → 拦截外发</li>
             <li>会议纪要是否含待办 / 决策句 → 生成待办清单的前置打标</li>
+            <li>CI 里 PR 合并资格预审（改动清单 + 测试报告）→ 高风险打「待人工复查」</li>
           </ul>
         </div>
       </div>
@@ -505,8 +590,11 @@
             <li>环境文本观测上的局部布尔：NPC 是否可见威胁 → 行为树分支</li>
             <li>任务目标是否已满足 → 关卡结算前置</li>
             <li>仿真日志是否像异常态 → 重置或人工接管</li>
+            <li>高频动作环（Doom / 跑酷 / 马里奥）：读状态 → Choice 出键位 / 走位</li>
+            <li>卡牌 / 策略局：出牌、换牌等有界选项（文称可压到亚秒级单步）</li>
+            <li>物理仿真窄决策：点火时机、姿态切换等（仍须仿真安全边界）</li>
           </ul>
-          <p class="cp-scene-note">只做观测文本上的布尔 / 选择；不写自动驾驶控制参数。</p>
+          <p class="cp-scene-note">只做观测 / 状态上的布尔与选择；不写自动驾驶控制参数，也不当链上实盘交易引擎。</p>
         </div>
       </div>
     </div>
@@ -556,7 +644,11 @@
       </div>
       <div class="cp-faq-item">
         <div class="cp-faq-q">国内能直连 Jev 吗？<span class="cp-faq-arrow">▼</span></div>
-        <div class="cp-faq-a">TypeSafe 为海外 Early Access，连通与开通以官网为准。Laya / NanoJev 走 HF / GitHub 自托管，不依赖 TypeSafe 网络。</div>
+        <div class="cp-faq-a">TypeSafe 为海外 Early Access，连通与开通以官网为准。已有 OpenRouter / Vercel AI Gateway 账号可优先走聚合层（OpenRouter 标识 <code>typesafe/jev</code>）。Laya / NanoJev 走 HF / GitHub 自托管，不依赖 TypeSafe 网络。</div>
+      </div>
+      <div class="cp-faq-item">
+        <div class="cp-faq-q">社区那二十多个玩法都要跟吗？<span class="cp-faq-arrow">▼</span></div>
+        <div class="cp-faq-a"><strong>不必。</strong>先固定题型与阈值，再挑和自己业务同形的：分流 / 闸门 / 压缩 / 浏览器步进。游戏与链上演示验证吞吐与成本，不等于生产方案；高风险域仍须规则或人工终审。</div>
       </div>
     </div>
 
@@ -572,7 +664,7 @@
   </div>
 
   <div class="cp-footer">
-    <p>事实口径：TypeSafe 博文（2026-09-15）· Laya HF / GitHub（2026-09-18）· systemonemodels.org（至 2026-09-22）· 刊例以各官方为准</p>
+    <p>事实口径：TypeSafe 博文 / Docs（2026-09-15）· Datawhale《Jev 22 玩法》（2026-09-20）· Laya HF / GitHub（2026-09-18）· systemonemodels.org（至 2026-09-22）· 社区数字以原文转述为准，刊例以各官方为准</p>
     <p><a href="index.html">← 返回 AINav 首页</a> · <a href="model-plan.html">模型选型</a> · <a href="agent-plan.html">Agent 横评</a> · <a href="low-filter-api-plan.html">低过滤云 API</a> · <a href="free-tier.html">免费额度</a></p>
   </div>
 

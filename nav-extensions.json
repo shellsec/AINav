@@ -6,7 +6,7 @@
       "tools": [
         {
           "title": "Jev (TypeSafe AI)",
-          "subtitle": "决策专用 System One：闭源云 API；不聊天，返回类型安全概率",
+          "subtitle": "决策专用 System One：闭源云 API；也可走 OpenRouter typesafe/jev",
           "link": "https://typesafe.ai/",
           "added": "2026-09-23"
         },

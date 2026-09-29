@@ -595,11 +595,11 @@
         "support": 8,
         "edge": 1
       },
-      "blurb": "不聊天的决策模型；输入约 $0.042/MTok，输出免费。详见决策模型专题。",
+      "blurb": "不聊天的决策模型；输入约 $0.042/MTok，输出免费。可走 typesafe.ai / OpenRouter typesafe/jev。详见决策模型专题。",
       "why": [
         "软件内结构化决策",
         "不能聊天/写代码",
-        "Early Access"
+        "Early Access / OpenRouter"
       ],
       "link": "https://typesafe.ai/",
       "plan": "decision-model-plan.html"

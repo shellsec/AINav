@@ -175,5 +175,13 @@
     "firstBonus": "新用户赠送以活动页为准",
     "note": "通用 Agent，额度变化快，务必以官网为准",
     "updated": "2026-07"
+  },
+  "https://vostride.com": {
+    "freeLevel": "部分免费",
+    "quota": "本地包免费；模型调用费用由所选服务商另计",
+    "dailyCycle": "无统一免费调用额度，以模型服务商规则为准",
+    "firstBonus": "无统一赠送额度",
+    "note": "需要 Node.js 24+ 和模型访问权限；移动端测试需设备或模拟器。许可证 FSL-1.1-ALv2。",
+    "updated": "2026-10-26"
   }
 }

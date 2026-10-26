@@ -4178,5 +4178,9 @@
   "Gumshoe": {
     "title": "Gumshoe",
     "desc": "Brand AI search visibility monitoring & competitive analysis (free public beta)"
+  },
+  "agent-qa": {
+    "title": "agent-qa",
+    "desc": "AI testing for web, Android, and iOS via CLI, MCP, and skills, with persistent memory and validated self-improvement"
   }
 }

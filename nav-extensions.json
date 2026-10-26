@@ -921,6 +921,11 @@
           "subtitle": "Screen Studio 开源替代，屏幕录制 + 自动缩放 + 动态模糊",
           "link": "https://github.com/siddharthvaddem/openscreen",
           "alias": "openscreen,屏幕录制"
+        },
+        {
+          "title": "agent-qa",
+          "subtitle": "Web、Android 与 iOS 的 AI 测试 Agent，支持 CLI/MCP/Skills、持久记忆与经验证的自我改进",
+          "link": "https://vostride.com"
         }
       ]
     },
